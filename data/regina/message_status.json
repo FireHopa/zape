@@ -1,0 +1,43 @@
+{
+  "5512991226986": {
+    "toDigits": "5512991226986",
+    "repliedAt": "2026-04-23T14:41:26.954Z",
+    "updatedAt": "2026-04-23T14:41:26.954Z"
+  },
+  "210715491217533": {
+    "toDigits": "210715491217533",
+    "repliedAt": "2026-04-23T14:41:47.659Z",
+    "updatedAt": "2026-04-23T14:41:47.659Z"
+  },
+  "37026929860787": {
+    "toDigits": "37026929860787",
+    "repliedAt": "2026-04-23T14:41:47.665Z",
+    "updatedAt": "2026-04-23T14:41:47.665Z"
+  },
+  "231787204767760": {
+    "toDigits": "231787204767760",
+    "repliedAt": "2026-04-23T14:44:37.073Z",
+    "updatedAt": "2026-04-23T14:44:37.073Z"
+  },
+  "5511964178795": {
+    "toDigits": "5511964178795",
+    "repliedAt": "2026-04-23T14:45:18.633Z",
+    "updatedAt": "2026-04-23T14:45:18.633Z"
+  },
+  "5513997367592": {
+    "toDigits": "5513997367592",
+    "lastSendAt": "2026-04-24T17:17:56.283Z",
+    "ack": 0,
+    "notOnWhatsapp": false,
+    "sendError": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "updatedAt": "2026-04-24T17:20:56.290Z"
+  },
+  "5513997675879": {
+    "toDigits": "5513997675879",
+    "lastSendAt": "2026-04-24T17:28:22.602Z",
+    "ack": 0,
+    "notOnWhatsapp": false,
+    "sendError": "Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.",
+    "updatedAt": "2026-04-24T17:31:22.606Z"
+  }
+}

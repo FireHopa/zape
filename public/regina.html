@@ -1,0 +1,3669 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Casa do Ads • regina</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Fonte do Google (estilo Google) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+/* --- SaaS Layout: scroll interno do app (sem scroll do navegador) --- */
+html, body { height: 100%; overflow: hidden; }
+body { margin: 0; }
+.app { height: 100vh; display:flex; flex-direction:column; }
+.layout { flex: 1; min-height: 0; display:flex; }
+aside { min-height:0; overflow: auto; }
+main { min-height:0; overflow: auto; }
+
+/* --- CRM horizontal scroll de verdade --- */
+.crmBoardWrap{ width:100%; max-width:100%; overflow-x:auto; overflow-y:hidden; scrollbar-gutter: stable; padding-bottom:10px; }
+.crmBoardWrap::-webkit-scrollbar{ height:12px; }
+.crmBoardWrap::-webkit-scrollbar-thumb{ background: rgba(15,23,42,.28); border-radius:999px; }
+.crmBoardWrap::-webkit-scrollbar-track{ background: rgba(15,23,42,.08); border-radius:999px; }
+.crmBoard{ display:flex !important; flex-wrap:nowrap !important; gap:14px; align-items:flex-start; width:max-content; min-width:max-content; padding:2px; }
+.crmCol{ flex:0 0 320px; width:320px; }
+
+    :root{
+      --g-blue:#1a73e8;
+      --g-red:#ea4335;
+      --g-yellow:#fbbc05;
+      --g-green:#34a853;
+
+      --bg:#f6f8fc;
+      --card: rgba(255,255,255,.82);
+      --solid:#fff;
+      --text:#0b1220;
+      --muted:#6b7280;
+      --line:rgba(15,23,42,.10);
+      --shadow:0 18px 55px rgba(2,6,23,.12);
+      --shadow2:0 10px 28px rgba(2,6,23,.08);
+      --radius:18px;
+      --ring: rgba(26,115,232,.12);
+
+      --sidebarW: 280px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{
+ height:100%; min-height:100vh; }
+    body{
+
+      margin:0;
+      font-family: Roboto, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% -10%, rgba(26,115,232,.18), transparent 55%),
+        radial-gradient(900px 520px at 85% -10%, rgba(52,168,83,.14), transparent 55%),
+        radial-gradient(900px 520px at 50% 115%, rgba(251,188,5,.12), transparent 55%),
+        var(--bg);
+    }
+
+    .app{ max-width:none; width:100%; margin:0; padding:22px 18px 96px; }
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      margin-bottom: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      user-select:none;
+      min-width: 260px;
+    }
+    .brandMark{ display:flex; align-items:center; gap:10px; }
+    .companyLogo{
+      height: 62px; /* um pouquinho maior */
+      width: auto;
+      display:block;
+      filter: drop-shadow(0 12px 20px rgba(2,6,23,.10));
+    }
+    .brandText h1{ margin:0; font-size:22px; letter-spacing:-0.02em; font-weight: 800; }
+    .brandText .sub{ margin-top:2px; font-size:14px; color:var(--muted); }
+
+    .topActions{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 25px rgba(2,6,23,.06);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .chip:hover{
+      transform: translateY(-1px);
+      border-color: rgba(26,115,232,.20);
+      box-shadow: 0 16px 38px rgba(2,6,23,.10);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background:#9ca3af;
+      box-shadow:0 0 0 4px rgba(156,163,175,.14);
+    }
+    .dot.ok{ background: var(--g-green); box-shadow:0 0 0 4px rgba(52,168,83,.14); }
+    .dot.warn{ background: var(--g-yellow); box-shadow:0 0 0 4px rgba(251,188,5,.14); }
+    .dot.err{ background: var(--g-red); box-shadow:0 0 0 4px rgba(234,67,53,.14); }
+
+    /* Lead status color (bolinha ao lado do nome) */
+    .avatarBtn{ background: rgba(148,163,184,.35); border:1px solid rgba(15,23,42,.12); }
+    .avatarBtn.status-none{ background: rgba(148,163,184,.35); box-shadow:0 0 0 6px rgba(148,163,184,.12); }
+    .avatarBtn.status-replied{ background: var(--g-green); box-shadow:0 0 0 6px rgba(52,168,83,.16); border-color: rgba(52,168,83,.22); }
+    .avatarBtn.status-delivered{ background: var(--g-blue); box-shadow:0 0 0 6px rgba(26,115,232,.16); border-color: rgba(26,115,232,.22); }
+    .avatarBtn.status-pending{ background: var(--g-yellow); box-shadow:0 0 0 6px rgba(251,188,5,.16); border-color: rgba(251,188,5,.22); }
+    .avatarBtn.status-notDelivered{ background: var(--g-red); box-shadow:0 0 0 6px rgba(234,67,53,.16); border-color: rgba(234,67,53,.22); }
+    .avatarBtn.status-notExists{ background: #9ca3af; box-shadow:0 0 0 6px rgba(156,163,175,.14); border-color: rgba(156,163,175,.22); }
+
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.90);
+      cursor:pointer;
+      font-weight: 800;
+      letter-spacing:-0.01em;
+      transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      user-select:none;
+      color: var(--text);
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(26,115,232,.25);
+      box-shadow: 0 14px 28px rgba(2,6,23,.10);
+    }
+    .btn:active{ transform: translateY(0) scale(.99); }
+    .btnPrimary{
+      background: linear-gradient(180deg, rgba(26,115,232,.96), rgba(17,90,210,.96));
+      color:#fff;
+      border-color: rgba(26,115,232,.25);
+      box-shadow: 0 16px 34px rgba(26,115,232,.18);
+    }
+    .btnPrimary:hover{ box-shadow: 0 20px 42px rgba(26,115,232,.20); }
+    .btnSoft{
+      background: rgba(26,115,232,.08);
+      border-color: rgba(26,115,232,.18);
+      color: rgba(17,24,39,.92);
+    }
+    .btnGhost{ background: rgba(255,255,255,.66); }
+    .btn[disabled]{ opacity:.60; cursor:not-allowed; transform:none !important; box-shadow:none !important; }
+
+    .input{
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.92);
+      outline:none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+      font-family: inherit;
+    }
+    .input:focus{
+      border-color: rgba(26,115,232,.35);
+      box-shadow: 0 0 0 5px var(--ring);
+    }
+
+    .hint{ font-size:12px; color:var(--muted); }
+    .muted{ color: var(--muted); }
+
+    /* Layout com sidebar */
+    .shell{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (min-width: 980px){
+      .shell{ grid-template-columns: var(--sidebarW) 1fr; }
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow:hidden;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color: rgba(26,115,232,.18);
+    }
+    .cardHeader{
+      padding: 14px 14px 12px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      border-bottom: 1px solid rgba(15,23,42,.07);
+      background: linear-gradient(180deg, rgba(255,255,255,.90), rgba(255,255,255,.62));
+    }
+    .cardTitle{ margin:0; font-size: 13px; letter-spacing:-0.02em; font-weight: 800; }
+    .cardBody{ padding: 14px; }
+
+    /* Sidebar menu */
+    .menu{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .menuBtn{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.74);
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+      user-select:none;
+      font-weight: 800;
+      letter-spacing: -.01em;
+    }
+    .menuBtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(26,115,232,.20);
+      box-shadow: 0 14px 22px rgba(2,6,23,.08);
+    }
+    .menuBtn.active{
+      border-color: rgba(26,115,232,.32);
+      box-shadow: 0 18px 28px rgba(26,115,232,.12);
+      background: rgba(26,115,232,.08);
+    }
+    .menuPill{
+      font-size:12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,.10);
+      background: rgba(255,255,255,.84);
+      color: rgba(17,24,39,.85);
+      font-weight: 900;
+    }
+
+    
+    /* Tags list in sidebar (CRUD) */
+    .tagRow{
+      display:flex; flex-direction:column; gap:10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.72);
+      margin-top: 10px;
+    }
+    .tagTop{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .tagLeft{
+      display:flex; align-items:center; gap:10px;
+      min-width: 0;
+    }
+    .tagDot{
+      width:10px; height:10px; border-radius:999px;
+      border: 1px solid rgba(15,23,42,.10);
+      box-shadow: 0 0 0 4px rgba(0,0,0,.03);
+      flex: 0 0 auto;
+    }
+    .tagName{
+      font-weight: 800;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      max-width: 170px;
+    }
+    .tagActions{ display:flex; align-items:center; gap:8px; }
+    .iconMini{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.90);
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+      user-select:none;
+      font-weight: 900;
+      font-family: inherit;
+    }
+    .iconMini:hover{
+      transform: translateY(-1px);
+      border-color: rgba(26,115,232,.22);
+      box-shadow: 0 12px 22px rgba(2,6,23,.10);
+    }
+    .iconMini:active{ transform: translateY(0) scale(.99); }
+    .iconDanger{
+      border-color: rgba(234,67,53,.22);
+      background: rgba(234,67,53,.08);
+      color: var(--g-red);
+    }
+    .iconDanger:hover{
+      border-color: rgba(234,67,53,.35);
+      box-shadow: 0 12px 22px rgba(234,67,53,.12);
+    }
+
+    .tagEdit{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .tagEdit .input{ padding: 10px 12px; border-radius: 14px; }
+    .tagColor{ width: 72px; height: 42px; padding: 6px 8px; border-radius: 14px; }
+
+
+    /* KPIs (com cores Google) */
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+    .kpi{
+      border:1px solid rgba(15,23,42,.08);
+      border-radius:16px;
+      background: rgba(255,255,255,.72);
+      padding: 12px;
+      transition: transform .2s ease, box-shadow .2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .kpi:hover{ transform: translateY(-1px); box-shadow: 0 14px 24px rgba(2,6,23,.08); }
+    .kpi:before{
+      content:"";
+      position:absolute;
+      inset:-40px -40px auto auto;
+      width:120px; height:120px;
+      border-radius:999px;
+      opacity:.12;
+      filter: blur(0.2px);
+    }
+    .kpi.blue:before{ background: var(--g-blue); }
+    .kpi.red:before{ background: var(--g-red); }
+    .kpi.yellow:before{ background: var(--g-yellow); }
+    .kpi.green:before{ background: var(--g-green); }
+
+    .kpiBar{
+      height: 4px;
+      width: 48px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+    .kpi.blue .kpiBar{ background: var(--g-blue); box-shadow: 0 10px 26px rgba(26,115,232,.22); }
+    .kpi.red .kpiBar{ background: var(--g-red); box-shadow: 0 10px 26px rgba(234,67,53,.18); }
+    .kpi.yellow .kpiBar{ background: var(--g-yellow); box-shadow: 0 10px 26px rgba(251,188,5,.18); }
+    .kpi.green .kpiBar{ background: var(--g-green); box-shadow: 0 10px 26px rgba(52,168,83,.18); }
+
+    .kpiLabel{ font-size:12px; color:var(--muted); font-weight: 600; }
+    .kpiValue{ font-size:26px; font-weight: 900; letter-spacing:-0.03em; margin-top:6px; }
+
+
+    /* Leads header */
+    .leadsTop{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      flex-wrap:wrap;
+    }
+    .searchWrap{
+      flex: 1 1 360px;
+      display:flex; gap:10px; align-items:center;
+      min-width: 260px;
+    }
+
+    /* Table */
+    .tableWrap{
+      border:1px solid rgba(15,23,42,.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      overflow:hidden;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+    th, td{
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(15,23,42,.06);
+      font-size: 13px;
+      vertical-align: middle;
+    }
+    th{
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 2;
+      font-size: 12px;
+      color: rgba(17,24,39,.72);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    tbody tr{ transition: background .18s ease; }
+    tbody tr:hover{ background: rgba(26,115,232,.06); }
+
+    .leadCell{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .avatarBtn{
+      width: 36px; height:36px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.10);
+      background:
+        radial-gradient(14px 14px at 35% 35%, rgba(255,255,255,.95), rgba(255,255,255,.55)),
+        linear-gradient(135deg, rgba(26,115,232,.25), rgba(52,168,83,.18));
+      box-shadow: 0 12px 22px rgba(2,6,23,.08);
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+      flex: 0 0 auto;
+    }
+    .avatarBtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(26,115,232,.22);
+      box-shadow: 0 16px 30px rgba(2,6,23,.12);
+    }
+    .avatarBtn:active{ transform: translateY(0) scale(.99); }
+
+    .leadName{
+      display:flex; flex-direction:column; gap:2px;
+      min-width: 0;
+    }
+    .leadName .n{
+      font-weight: 850;
+      letter-spacing:-0.01em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      max-width: 380px;
+    }
+    .leadName .s{
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      max-width: 380px;
+    }
+
+    .tagPill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.78);
+      margin: 2px 6px 2px 0;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      transition: transform .12s ease, box-shadow .2s ease;
+    }
+    .tagPill:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 18px rgba(2,6,23,.08);
+    }
+
+    /* Pager */
+    .pager{
+      position: fixed;
+      left: 18px;
+      right: 18px;
+      bottom: 14px;
+      max-width: 1360px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(15,23,42,.12);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(2,6,23,.16);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      z-index: 9000;
+    }
+    .pagerLeft, .pagerRight{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    }
+    .pagerText{ font-size: 12px; color: var(--muted); }
+    .pagerSelect{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.92);
+      outline: none;
+      font-family: inherit;
+    }
+    .iconBtn{
+      width: 38px; height: 38px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,.12);
+      background: rgba(255,255,255,.92);
+      cursor: pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease;
+      font-weight: 900;
+      font-size: 18px;
+    }
+    .iconBtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(26,115,232,.22);
+      box-shadow: 0 14px 24px rgba(2,6,23,.10);
+    }
+    .iconBtn:active{ transform: translateY(0) scale(.99); }
+    .iconBtn[disabled]{ opacity:.45; cursor:not-allowed; transform:none; box-shadow:none; }
+
+    /* Overlays */
+    .overlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(2,6,23,.50);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 9999;
+      animation: ovFade .16s ease;
+    }
+    .overlay.open{ display:flex; }
+
+    @keyframes ovFade{ from{opacity:0} to{opacity:1} }
+
+    .sheet{
+      width: min(940px, 100%);
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.60);
+      border-radius: 22px;
+      box-shadow: 0 30px 90px rgba(2,6,23,.32);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow:hidden;
+      transform: translateY(10px) scale(.985);
+      animation: pop .18s ease forwards;
+    }
+    @keyframes pop{ to{ transform: translateY(0) scale(1); } }
+
+    .sheetHead{
+      padding: 14px 14px 12px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.66));
+    }
+    .sheetTitle{
+      display:flex; align-items:center; gap:10px;
+      min-width: 0;
+      font-weight: 800;
+    }
+    .badge{
+      width: 10px; height: 10px; border-radius:999px;
+      background: var(--g-blue);
+      box-shadow: 0 0 0 4px rgba(26,115,232,.14);
+      flex:0 0 auto;
+    }
+    .sheetTitle .t{
+      font-weight: 950;
+      letter-spacing:-0.02em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      max-width: 620px;
+    }
+    .sheetBody{ padding: 14px; }
+
+    .detailGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 760px){
+      .detailGrid{ grid-template-columns: 1fr 1fr; }
+    }
+    .detailItem{
+      border:1px solid rgba(15,23,42,.08);
+      border-radius: 16px;
+      background: rgba(255,255,255,.74);
+      padding: 12px;
+      overflow:hidden;
+    }
+    .detailItem .k{
+      font-size:12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .detailItem .v{
+      font-weight: 900;
+      letter-spacing:-0.01em;
+      word-break: break-word;
+    }
+
+    .qrBig{
+      width: min(520px, 86vw);
+      height: min(520px, 86vw);
+      object-fit: contain;
+      background: rgba(255,255,255,.95);
+      border-radius: 18px;
+      border: 1px solid rgba(15,23,42,.10);
+      box-shadow: 0 18px 42px rgba(2,6,23,.16);
+    }
+
+    /* Filters overlay */
+    .filtersGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 860px){
+      .filtersGrid{ grid-template-columns: 1fr 1fr; }
+    }
+    .field{ display:flex; flex-direction:column; gap:6px; }
+    .label{
+      font-size:12px;
+      color: rgba(17,24,39,.70);
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .box{
+      border:1px solid rgba(15,23,42,.08);
+      border-radius: 18px;
+      background: rgba(255,255,255,.74);
+      padding: 12px;
+    }
+    .tagPick{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 12px;
+      max-height: 220px;
+      overflow:auto;
+    }
+    .tagPick label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.82);
+      cursor:pointer;
+      user-select:none;
+      font-weight: 800;
+    }
+    .tagPick input{ width:auto; }
+    .statusPick{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .statusPick label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.82);
+      cursor:pointer;
+      user-select:none;
+      font-weight: 800;
+    }
+
+    .toastWrap{
+      position: fixed;
+      right: 16px;
+      bottom: 78px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      z-index: 10000;
+    }
+    .toast{
+      min-width: 260px;
+      max-width: 360px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(15,23,42,.10);
+      border-radius: 16px;
+      box-shadow: 0 20px 55px rgba(2,6,23,.18);
+      padding: 12px 12px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      animation: toastIn .18s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    @keyframes toastIn{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
+    .toast .tDot{ width:10px; height:10px; border-radius:999px; margin-top:4px; box-shadow: 0 0 0 4px rgba(0,0,0,.06); flex: 0 0 auto; }
+    .toast .tTitle{ font-weight: 900; font-size: 13px; margin:0; }
+    .toast .tMsg{ font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+    .toast .tClose{
+      margin-left:auto;
+      background: transparent;
+      border:0;
+      cursor:pointer;
+      padding: 4px 6px;
+      border-radius: 10px;
+      color: rgba(17,24,39,.65);
+    }
+    .toast .tClose:hover{ background: rgba(15,23,42,.06); }
+
+    .skeleton{
+      background: linear-gradient(90deg, rgba(15,23,42,.06), rgba(15,23,42,.10), rgba(15,23,42,.06));
+      background-size: 240% 100%;
+      animation: sk 1.05s ease-in-out infinite;
+      border-radius: 12px;
+    }
+    @keyframes sk{ 0%{ background-position: 0% 0;} 100%{ background-position: 120% 0;} }
+    .skRow{ height:14px; width:100%; }
+    .skRow.w60{ width:60%; }
+  
+    body.noScroll{ overflow:hidden; }
+    #ovFilters .sheetBody{ max-height: calc(100vh - 160px); overflow:auto; }
+    #ovTags .sheetBody{ max-height: calc(100vh - 160px); overflow:auto; }
+
+    /* -------- Tags Drawer (menu Tags sem esconder leads) -------- */
+    .tagDrawerOverlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(2,6,23,.45);
+      display:none;
+      align-items: stretch;
+      justify-content: flex-end;
+      padding: 0;
+      z-index: 9998;
+    }
+    .tagDrawer{
+      width: min(520px, 92vw);
+      height: 100%;
+      background: rgba(255,255,255,.92);
+      border-left: 1px solid rgba(15,23,42,.12);
+      box-shadow: 0 30px 90px rgba(2,6,23,.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display:flex;
+      flex-direction:column;
+      transform: translateX(12px);
+      animation: tagDrawerIn .16s ease forwards;
+    }
+    @keyframes tagDrawerIn{ to{ transform: translateX(0);} }
+    .tagDrawerHead{
+      padding: 14px 14px 12px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      border-bottom: 1px solid rgba(15,23,42,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.66));
+    }
+    .tagDrawerBody{
+      padding: 14px;
+      overflow:auto;
+    }
+    /* Garante que o conteúdo do painel de tags dentro do drawer apareça */
+    #panelTags{ display:block !important; margin-top: 0 !important; }
+
+
+    /* ---------------- CRM (Funil de Vendas) ---------------- */
+    .crmTabs{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:12px; }
+    .crmTab{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.66);
+      padding:9px 12px;
+      border-radius: 999px;
+      font-weight:800;
+      letter-spacing:-0.01em;
+      cursor:pointer;
+      display:flex; align-items:center; gap:8px;
+      box-shadow: 0 10px 28px rgba(2,6,23,.06);
+    }
+    .crmTab.active{ border-color: rgba(26,115,232,.35); background: rgba(26,115,232,.10); }
+    .crmTab .pill{ font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid var(--line); background: rgba(255,255,255,.6); }
+    .crmBoardWrap{
+      overflow-x:auto;
+      overflow-y:hidden;
+      padding-bottom:10px;
+    }
+    .crmBoardWrap::-webkit-scrollbar{ height:12px; }
+    .crmBoardWrap::-webkit-scrollbar-thumb{ background: rgba(15,23,42,.22); border-radius:999px; }
+    .crmBoardWrap::-webkit-scrollbar-track{ background: rgba(15,23,42,.06); border-radius:999px; }
+
+    .crmBoard{
+      display:flex !important;
+      flex-wrap: nowrap !important;
+      align-items: flex-start;
+      gap:12px;
+      min-height: 380px;
+      width: max-content;
+    }
+    .crmCol{
+      width: 320px;
+      flex: 0 0 320px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      border-radius: 18px;
+      box-shadow: 0 14px 40px rgba(2,6,23,.08);
+      display:flex; flex-direction:column;
+      max-height: 70vh;
+    }
+    .crmColHead{
+      padding:12px 12px 10px;
+      border-bottom:1px solid var(--line);
+      display:flex; align-items:flex-start; justify-content:space-between; gap:8px;
+    }
+    .crmColTitle{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .crmColTitle b{ font-size:14px; letter-spacing:-0.02em; }
+    .crmColTitle span{ color:var(--muted); font-size:12px; }
+    .crmColActions{ display:flex; gap:6px; }
+    .crmColBody{
+      min-height: 260px;
+      padding:10px; overflow:auto; display:flex; flex-direction:column; gap:10px; }
+    .crmCard{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      border-radius: 14px;
+      padding:10px 10px 9px;
+      cursor:grab;
+    }
+    .crmCard:active{ cursor:grabbing; }
+    .crmCard.dragging{ opacity:.55; }
+    .crmCardTop{ display:flex; justify-content:space-between; gap:10px; }
+    .crmName{ font-weight:900; letter-spacing:-0.02em; font-size:14px; }
+    .crmMeta{ color:var(--muted); font-size:12px; margin-top:4px; display:flex; flex-direction:column; gap:2px; }
+    .crmCardBtns{ display:flex; gap:6px; }
+    .btnMini{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      padding:5px 8px;
+      border-radius: 10px;
+      font-weight:800;
+      cursor:pointer;
+      font-size:12px;
+    }
+    .crmDropHint{
+      border:2px dashed rgba(26,115,232,.25);
+      background: rgba(26,115,232,.06);
+    }
+    .crmModalOverlay{
+      position:fixed; inset:0;
+      background: rgba(2,6,23,.55);
+      display:none;
+      align-items:center; justify-content:center;
+      padding: 18px;
+      z-index: 50;
+    }
+    .crmModal{
+      width: min(860px, 100%);
+      max-height: 86vh;
+      overflow:auto;
+      background: rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.25);
+      border-radius: 22px;
+      box-shadow: 0 18px 55px rgba(2,6,23,.22);
+      padding: 14px;
+    }
+    .crmModalHead{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; padding:6px 6px 10px; border-bottom:1px solid var(--line); }
+    .crmModalBody{ padding: 10px 6px 6px; }
+    .crmFormRow{ display:flex; gap:10px; flex-wrap:wrap; }
+    .crmFormRow > label{ flex:1 1 240px; display:flex; flex-direction:column; gap:6px; font-size:12px; color:var(--muted); }
+    .crmFormRow input, .crmFormRow select{
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      color: var(--text);
+      outline:none;
+    }
+    .crmList{ display:flex; flex-direction:column; gap:8px; margin-top:10px; }
+    .crmListItem{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 10px; border:1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.75); }
+    .crmListItem b{ font-weight:900; letter-spacing:-0.02em; }
+    .crmListItem small{ color:var(--muted); }
+
+    
+/* === PREMIUM CRM OVERRIDES (force 1-row kanban + usable horizontal scroll) === */
+:root{ --crm-col-w: 340px; }
+
+.crmBoardWrap{
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scrollbar-gutter: stable both-edges;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+.crmBoard{
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 14px !important;
+  width: max-content !important;
+  min-width: 100% !important;
+  align-items: stretch;
+}
+.crmCol{
+  flex: 0 0 var(--crm-col-w) !important;
+  width: var(--crm-col-w) !important;
+  max-width: var(--crm-col-w) !important;
+}
+.crmColBody{ min-height: 240px; }
+
+/* Scroll do app: bloqueia scroll do browser e mantém scroll interno */
+html, body { height: 100%; overflow: hidden; }
+.shell { height: 100vh; width: 100vw; overflow: hidden; display:flex; gap:16px; padding:16px; box-sizing:border-box; }
+.shell > main{ min-height:0; flex:1; overflow:auto; }
+
+
+/* --- FIX 2026-02: manter scroll horizontal do CRM (alguns estilos estavam sobrescrevendo com grid) --- */
+.crmBoardWrap{ overflow-x:auto !important; overflow-y:hidden !important; }
+.crmBoard{ display:flex !important; flex-wrap:nowrap !important; width:max-content !important; min-width:max-content !important; }
+.crmCol{ flex:0 0 320px !important; width:320px !important; }
+
+/* --- FIX: evitar cortar texto dos leads (nome/empresa/email) --- */
+.leadName .n,
+.leadName .s{
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  max-width: none !important;
+  word-break: break-word;
+}
+
+
+/* === FIX: CRM em 1 linha com scroll horizontal === */
+.crmBoardWrap{ width:100% !important; overflow-x:auto !important; overflow-y:hidden !important; }
+.crmBoard{ display:flex !important; flex-wrap:nowrap !important; width:max-content !important; min-width:max-content !important; }
+.crmCol{ flex:0 0 320px !important; width:320px !important; max-width:320px !important; }
+</style>
+<style>
+/* === CRM Kanban (removido) === */
+.crmWrap{
+  background: rgba(255,255,255,.85) !important;
+  border: 1px solid rgba(0,0,0,.06) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 12px 40px rgba(16,24,40,.08) !important;
+}
+
+.crmTopbar{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.88)) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  border-top-left-radius: 18px !important;
+  border-top-right-radius: 18px !important;
+}
+
+.crmBoard{
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(320px, 1fr)) !important;
+  gap: 14px !important;
+  align-content: start !important;
+  padding: 14px !important;
+  overflow: auto !important; /* scroll quando precisar */
+  scrollbar-gutter: stable both-edges;
+}
+
+@media (max-width: 1120px){
+  .crmBoard{ grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; }
+}
+@media (max-width: 760px){
+  .crmBoard{ grid-template-columns: 1fr !important; }
+}
+
+.crmCol{
+  background: rgba(255,255,255,.92) !important;
+  border: 1px solid rgba(0,0,0,.08) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 24px rgba(16,24,40,.06) !important;
+  overflow: hidden !important;
+  min-width: 0 !important;
+}
+
+.crmColHeader{
+  padding: 12px 12px 10px 12px !important;
+  border-bottom: 1px solid rgba(0,0,0,.06) !important;
+  background: linear-gradient(180deg, rgba(248,250,252,.95), rgba(255,255,255,.92)) !important;
+}
+
+.crmColTitle{
+  font-weight: 700 !important;
+  letter-spacing: .1px;
+}
+
+.crmColCount{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  padding: 0 8px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(0,0,0,.10) !important;
+  background: rgba(255,255,255,.85) !important;
+  font-size: 12px !important;
+}
+
+.crmColBody{
+  padding: 10px !important;
+  min-height: 140px !important; /* drop zone em coluna vazia */
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.crmCard{
+  border: 1px solid rgba(0,0,0,.08) !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+  box-shadow: 0 8px 16px rgba(16,24,40,.05) !important;
+  transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.crmCard:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(16,24,40,.08) !important;
+  border-color: rgba(0,0,0,.14) !important;
+}
+
+.crmCard.dragging{
+  opacity: .65 !important;
+  transform: rotate(.3deg) scale(.99) !important;
+}
+
+.crmDropHover{
+  outline: 2px dashed rgba(37,99,235,.45) !important;
+  outline-offset: -6px;
+  background: rgba(37,99,235,.04) !important;
+}
+
+.crmBoard::-webkit-scrollbar{
+  height: 12px;
+  width: 12px;
+}
+.crmBoard::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.18);
+  border-radius: 999px;
+  border: 3px solid rgba(255,255,255,.8);
+}
+.crmBoard::-webkit-scrollbar-thumb:hover{
+  background: rgba(0,0,0,.28);
+}
+/* === end polish === */
+</style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brandMark">
+          <img class="companyLogo" src="casadoads.png" alt="Casa do Ads" />
+        </div>
+        <div class="brandText">
+          <h1>Painel</h1>
+          <div class="sub">Leads + WhatsApp</div>
+        </div>
+      </div>
+
+      <div class="topActions">
+        <div class="chip">
+          <div id="dot" class="dot"></div>
+          <div style="display:flex; flex-direction:column; gap:2px;">
+            <div style="font-size:12px;"><b>WhatsApp:</b> <span id="waStatus">carregando...</span></div>
+            <div class="hint" id="waMeta"></div>
+          </div>
+        </div>
+
+        <button id="btnOpenFilters" class="btn btnSoft" type="button">Filtros</button>
+        <button id="btnOpenTemplate" class="btn btnSoft" type="button">Webhooks</button>
+        <button id="btnOpenQr" class="btn btnSoft" type="button">Escanear QR</button>
+        <button id="btnInit" class="btn btnPrimary" type="button">Conectar</button>
+      </div>
+    </div>
+
+    <div class="shell">
+      <!-- Sidebar -->
+      <aside class="card">
+        <div class="cardHeader">
+          <h2 class="cardTitle">Menu</h2>
+          <span class="hint">Navegação</span>
+        </div>
+        <div class="cardBody">
+          <div class="menu">
+            <button id="navLeads" class="menuBtn active" type="button">
+              <span>Leads</span>
+              <span class="menuPill" id="navLeadsCount">—</span>
+            </button>
+            <button id="navTags" class="menuBtn" type="button">
+              <span>Tags</span>
+              <span class="menuPill" id="navTagsCount">—</span>
+            </button>
+            <button id="navCloud" class="menuBtn" type="button">
+              <span>WhatsApp Oficial</span>
+              <span class="menuPill" id="navCloudPill">API</span>
+            </button>
+            <button id="navCrm" class="menuBtn" type="button">
+              <span>Funil de Vendas</span>
+              <span class="menuPill">CRM</span>
+            </button>
+            <button id="navOwner" class="menuBtn" type="button"><span>Dono do Negócio</span><span class="menuPill">VIP</span></button>
+          </div>
+
+          
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main id="panelLeads" style="display:flex; flex-direction:column; gap:14px;">
+        <section class="card">
+          <div class="cardHeader">
+            <h2 class="cardTitle">Resumo</h2>
+            <span class="hint" id="kpiMeta">—</span>
+          </div>
+          <div class="cardBody">
+            
+            <div class="kpis">
+              <div class="kpi green"><div class="kpiBar"></div><div class="kpiLabel">Responderam</div><div class="kpiValue" id="kpiReplied">0</div></div>
+              <div class="kpi blue"><div class="kpiBar"></div><div class="kpiLabel">Receberam</div><div class="kpiValue" id="kpiDeliveredNoReply">0</div></div>
+              <div class="kpi red"><div class="kpiBar"></div><div class="kpiLabel">Não receberam</div><div class="kpiValue" id="kpiNotDelivered">0</div></div>
+              <div class="kpi yellow"><div class="kpiBar"></div><div class="kpiLabel">Não existem</div><div class="kpiValue" id="kpiNotOnWhatsapp">0</div></div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="cardHeader">
+            <div class="leadsTop" style="width:100%;">
+              <div class="searchWrap">
+                <input id="q" class="input" placeholder="Buscar lead (nome / email / empresa)" />
+                <button id="btnReload" class="btn btnGhost" type="button">Atualizar</button>
+              </div>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                <a id="csv" class="btn btnGhost" href="/regina/leads.csv">Baixar CSV</a>
+                <button id="btnOpenFilters2" class="btn btnSoft" type="button">Filtros</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cardBody">
+            <div class="tableWrap">
+              <div style="overflow:auto;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Lead</th>
+                      <th>WhatsApp</th>
+                      <th>Tags</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody">
+                    <tr>
+                      <td colspan="4" style="padding:14px;">
+                        <div class="skeleton skRow"></div>
+                        <div style="height:8px;"></div>
+                        <div class="skeleton skRow w60"></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="hint" id="lastSync" style="margin-top:10px;"></div>
+          </div>
+        </section>
+      </main>
+
+      
+      <main id="panelCrm" style="display:none; flex-direction:column; gap:14px;">
+        <section class="card">
+          <div class="cardHeader" style="align-items:flex-start; gap:10px;">
+            <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+              <h2 class="cardTitle">Funil de Vendas</h2>
+              <span class="hint">CRM simples (kanban) • arraste e solte para mover</span>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <button id="crmBtnNewPipeline" class="btn btnPrimary" type="button">+ Novo funil</button>
+              <button id="crmBtnNewStage" class="btn" type="button">+ Nova etapa</button>
+              <button id="crmBtnImportLead" class="btn" type="button">Importar lead</button>
+              <button id="crmBtnNewLead" class="btn" type="button">+ Lead manual</button>
+            </div>
+          </div>
+          <div class="cardBody">
+            <div id="crmPipelinesBar" class="crmTabs"></div>
+            <div id="crmBoardWrap" class="crmBoardWrap">
+              <div id="crmBoard" class="crmBoard" aria-label="Quadro do funil"></div>
+            </div>
+            <div class="hint" style="margin-top:10px;">Dica: se tiver muitas colunas, use o scroll horizontal do quadro.</div>
+          </div>
+        </section>
+      </main>
+
+<main id="panelCloudMain" style="display:none; flex-direction:column; gap:14px;">
+        <section class="card">
+          <div class="cardHeader">
+            <h2 class="cardTitle">WhatsApp Oficial • Envio em Massa</h2>
+            <span class="hint">Escolha uma mensagem pronta, importe os contatos e envie.</span>
+          </div>
+
+          <div class="cardBody">
+            <div class="box">
+              <div class="label" style="margin-bottom:10px;">Passo 1 • Escolha a mensagem</div>
+
+              <div class="field">
+                <div class="label">Mensagem (nome do modelo aprovado)</div>
+                <input id="cloudTemplateName" class="input" placeholder="Ex: confirmacao_cadastro" />
+                <div class="hint">É o nome do modelo que você criou e aprovou no WhatsApp Manager.</div>
+              </div>
+
+              <div style="height:10px;"></div>
+
+              <div class="field">
+                <div class="label">Idioma</div>
+                <input id="cloudLanguage" class="input" placeholder="pt_BR" value="pt_BR" />
+                <div class="hint">Normalmente <b>pt_BR</b>.</div>
+              </div>
+
+              <details style="margin-top:12px;">
+                <summary style="cursor:pointer; font-weight:900;">Configurações avançadas</summary>
+                <div style="height:10px;"></div>
+                <div class="field">
+                  <div class="label">Velocidade de envio</div>
+                  <input id="cloudThrottle" class="input" type="number" value="250" />
+                  <div class="hint">Recomendado: 250 a 500 (mais alto = mais devagar e mais seguro).</div>
+                </div>
+              </details>
+            </div>
+
+            <div style="height:12px;"></div>
+
+            <div class="box">
+              <div class="label" style="margin-bottom:10px;">Passo 2 • Importe os contatos</div>
+
+              <div class="field">
+                <div class="label">Planilha (CSV)</div>
+                <input id="cloudCsv" class="input" type="file" accept=".csv,text/csv" />
+                <div class="hint">
+                  Coluna obrigatória: <b>phone</b> (ex: 5511999999999).<br>
+                  Opcional: <b>name</b> e <b>var1, var2...</b> para preencher a mensagem.
+                </div>
+              </div>
+
+              <div style="height:12px;"></div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+                <div class="label">Prévia</div>
+                <div class="hint"><span id="cloudPreviewCount">0</span> contatos prontos.</div>
+              </div>
+              <div id="cloudPreview" style="margin-top:10px; max-height:260px; overflow:auto;"></div>
+            </div>
+
+            <div style="height:12px;"></div>
+
+            <div class="box">
+              <div class="label" style="margin-bottom:10px;">Passo 3 • Enviar</div>
+
+              <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button id="btnCloudSend" class="btn btnPrimary" type="button">Enviar campanha</button>
+                <button id="btnCloudListTemplates" class="btn btnSoft" type="button">Ver meus modelos (opcional)</button>
+              </div>
+
+              <div id="cloudLog" class="hint" style="margin-top:12px; white-space:pre-wrap;"></div>
+            </div>
+          </div>
+        </section>
+</main>
+
+    </div>
+  </div>
+
+
+  <!-- Drawer: Tags (mantém a lista de leads aberta) -->
+  <div id="ovTagDrawer" class="tagDrawerOverlay" role="dialog" aria-modal="true" aria-hidden="true" style="display:none;">
+    <aside id="tagDrawer" class="tagDrawer">
+      <div class="tagDrawerHead">
+        <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+          <div style="font-weight:950;letter-spacing:-0.02em;">Tags</div>
+          <div class="hint">Crie e organize sem sair da tela.</div>
+        </div>
+        <button id="btnCloseTagDrawer" class="btn btnGhost" type="button">Fechar</button>
+      </div>
+      <div class="tagDrawerBody">
+        <div id="panelTags" style="display:none; margin-top:14px;">
+            <div class="hint" style="margin-bottom:10px;">Crie e gerencie tags aqui.</div>
+
+            <div class="box">
+              <div class="field">
+                <div class="label">Nome da tag</div>
+                <input id="newTagName" class="input" placeholder="Ex: Quente" />
+              </div>
+              <div style="height:10px;"></div>
+              <div class="field">
+                <div class="label">Cor</div>
+                <input id="newTagColor" class="input" style="width:120px; padding:7px 10px; height:44px;" type="color" value="#1a73e8" />
+              </div>
+              <div style="height:12px;"></div>
+              <button id="btnCreateTag" class="btn btnPrimary" type="button" style="width:100%;">Criar tag</button>
+            </div>
+
+            <div style="height:12px;"></div>
+            <div class="box">
+              <div class="label">Tags existentes</div>
+              <div id="tagsList"></div>
+            </div>
+          </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Bottom pager -->
+  <div class="pager">
+    <div class="pagerLeft">
+      <span class="pagerText">Resultados por página:</span>
+      <select id="pageSize" class="pagerSelect">
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="200" selected>200</option>
+        <option value="500">500</option>
+      </select>
+    </div>
+
+    <div class="pagerText" id="pageInfo">Página 1 de 1 | Total de resultados: 0</div>
+
+    <div class="pagerRight">
+      <button id="btnPrev" class="iconBtn" type="button" title="Anterior">‹</button>
+      <button id="btnNext" class="iconBtn" type="button" title="Próxima">›</button>
+    </div>
+  </div>
+
+  <!-- Overlay: Lead details -->
+  <div id="ovLead" class="overlay" role="dialog" aria-modal="true">
+    <div class="sheet">
+      <div class="sheetHead">
+        <div class="sheetTitle">
+          <span class="badge"></span>
+          <div class="t" id="leadTitle">Detalhes</div>
+        </div>
+        <button id="btnCloseLead" class="btn btnGhost" type="button">Fechar</button>
+      </div>
+      <div class="sheetBody">
+        <div class="detailGrid" id="leadDetails"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay: QR -->
+  <div id="ovQr" class="overlay" role="dialog" aria-modal="true">
+    <div class="sheet" style="width:min(620px, 100%);">
+      <div class="sheetHead">
+        <div class="sheetTitle">
+          <span class="badge" style="background:var(--g-green); box-shadow:0 0 0 4px rgba(52,168,83,.14)"></span>
+          <div class="t">Escaneie o QR Code</div>
+        </div>
+        <button id="btnCloseQr" class="btn btnGhost" type="button">Fechar</button>
+      </div>
+      <div class="sheetBody" style="display:flex; flex-direction:column; gap:12px; align-items:center;">
+        <img id="qrBig" class="qrBig" alt="QR Code WhatsApp" />
+        <div class="hint" id="qrHint">Se não aparecer, clique em “Conectar” e tente de novo.</div>
+      </div>
+    </div>
+  </div>
+
+<!-- Overlay: Mensagem padrão -->
+<div id="ovTemplate" class="overlay" role="dialog" aria-modal="true">
+  <div class="sheet" style="width:min(760px, 100%);">
+    <div class="sheetHead">
+      <div class="sheetTitle">
+        <span class="badge" style="background:var(--g-blue); box-shadow:0 0 0 4px rgba(66,133,244,.14)"></span>
+        <div class="t">Webhooks</div>
+      </div>
+      <button id="btnCloseTemplate" class="btn btnGhost" type="button">Fechar</button>
+    </div>
+    <div class="sheetBody" style="display:flex; flex-direction:column; gap:10px;">
+      
+      <div class="hint"><b>Webhook de entrada</b> (gera um link para receber leads via POST JSON).</div>
+
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <select id="whSelect" class="input" style="min-width:260px; flex:1;">
+          <option value="">carregando...</option>
+        </select>
+        <button id="btnWebhookNew" class="btn btnSoft" type="button">Gerar</button>
+        <button id="btnWebhookCopy" class="btn btnSoft" type="button">Copiar</button>
+        <button id="btnWebhookDelete" class="btn btnGhost" type="button">Excluir</button>
+      </div>
+      <div class="hint" id="whInfo"></div>
+
+      <div style="margin-top:10px; display:flex; flex-direction:column; gap:8px;">
+        <div class="hint"><b>Mensagens vinculadas</b> (enviadas em sequência para o lead).</div>
+        <div id="whMessagesList" style="display:flex; flex-direction:column; gap:8px;"></div>
+        <button id="btnWebhookAddMsg" class="btn btnSoft" type="button" style="align-self: flex-start;">+ Adicionar Mensagem</button>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:10px;">
+          <button id="btnWebhookSave" class="btn btnPrimary" type="button">Salvar mensagens</button>
+          <span class="hint" id="whMsgMeta"></span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+  <!-- Overlay: Edit tags (por lead) -->
+  <div id="ovTags" class="overlay" role="dialog" aria-modal="true">
+    <div class="sheet" style="width:min(760px, 100%);">
+      <div class="sheetHead">
+        <div class="sheetTitle">
+          <span class="badge" style="background:var(--g-yellow); box-shadow:0 0 0 4px rgba(251,188,5,.14)"></span>
+          <div class="t" id="tagsTitle">Tags do lead</div>
+        </div>
+        <button id="btnCloseTags" class="btn btnGhost" type="button">Fechar</button>
+      </div>
+      <div class="sheetBody">
+        <div class="hint" id="tagsMeta" style="margin-bottom:10px;"></div>
+        <div id="tagsGrid" style="
+          display:flex; flex-wrap:wrap; gap:10px 12px;
+          padding:12px;
+          border:1px solid rgba(15,23,42,.08);
+          border-radius:18px;
+          background: rgba(255,255,255,.74);
+          max-height: 56vh;
+          overflow:auto;">
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:12px;">
+          <button id="btnCancelTags" class="btn btnGhost" type="button">Cancelar</button>
+          <button id="btnSaveTags" class="btn btnPrimary" type="button">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay: Filters -->
+  <div id="ovFilters" class="overlay" role="dialog" aria-modal="true">
+    <div class="sheet" style="width:min(980px, 100%);">
+      <div class="sheetHead">
+        <div class="sheetTitle">
+          <span class="badge" style="background:var(--g-blue);"></span>
+          <div class="t">Filtros avançados</div>
+        </div>
+        <button id="btnCloseFilters" class="btn btnGhost" type="button">Fechar</button>
+      </div>
+
+      <div class="sheetBody">
+        <div class="filtersGrid">
+          <div class="box">
+            <div class="label">DDD</div>
+            <div class="hint" style="margin:6px 0 10px;">Ex: 11, 13, 21…</div>
+            <input id="fDDD" class="input" inputmode="numeric" placeholder="Somente números" />
+          </div>
+
+          <div class="box">
+            <div class="label">Data de criação</div>
+            <div class="hint" style="margin:6px 0 10px;">Filtra pelo createdAt do lead.</div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <div class="field" style="flex:1 1 180px; min-width:180px;">
+                <div class="label" style="font-weight:800;">De</div>
+                <input id="fFrom" class="input" type="date" />
+              </div>
+              <div class="field" style="flex:1 1 180px; min-width:180px;">
+                <div class="label" style="font-weight:800;">Até</div>
+                <input id="fTo" class="input" type="date" />
+              </div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="label">Tags</div>
+            <div class="hint" style="margin:6px 0 10px;">Selecione uma ou várias.</div>
+            <div id="fTags" class="tagPick"></div>
+          </div>
+
+          <div class="box">
+            <div class="label">Status do contato</div>
+            <div class="hint" style="margin:6px 0 10px;">Funciona se o backend retornar status por lead.</div>
+            <div class="statusPick">
+              <label><input type="radio" name="fStatus" value="" checked> Todos</label>
+              <label><input type="radio" name="fStatus" value="replied"> Respondeu</label>
+              <label><input type="radio" name="fStatus" value="delivered"> Recebeu</label>
+              <label><input type="radio" name="fStatus" value="notDelivered"> Não recebeu</label>
+              <label><input type="radio" name="fStatus" value="notExists"> Não existe</label>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:14px;">
+          <button id="btnClearFilters" class="btn btnGhost" type="button">Limpar</button>
+          <button id="btnApplyFilters" class="btn btnPrimary" type="button">Aplicar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toastWrap" id="toastWrap"></div>
+
+  <script>
+    var API_BASE = "/api/regina";
+
+    /* ---------- helpers ---------- */
+    function escapeHtml(s) {
+      return String(s || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+
+    function leadStatusClass(lead){
+      var st = String((lead && lead.leadStatus) ? lead.leadStatus : "none");
+      if (!st) st = "none";
+      // garante match com CSS
+      return "status-" + st;
+    }
+
+    function toast(type, title, msg, ms) {
+      if (ms == null) ms = 2800;
+
+      var wrap = document.getElementById("toastWrap");
+      var t = document.createElement("div");
+      t.className = "toast";
+
+      var color = (type === "ok") ? "var(--g-green)" : (type === "warn") ? "var(--g-yellow)" : "var(--g-red)";
+
+      t.innerHTML =
+        '<div class="tDot" style="background:' + color + '"></div>' +
+        '<div>' +
+          '<div class="tTitle">' + escapeHtml(title || "Aviso") + '</div>' +
+          '<div class="tMsg">' + escapeHtml(msg || "") + '</div>' +
+        '</div>' +
+        '<button class="tClose" aria-label="Fechar">✕</button>';
+
+      var closeBtn = t.querySelector(".tClose");
+      if (closeBtn) closeBtn.addEventListener("click", function(){ t.remove(); });
+
+      wrap.appendChild(t);
+      setTimeout(function(){ if (t.isConnected) t.remove(); }, ms);
+    }
+
+    function setStatusDot(kind) {
+      var dot = document.getElementById("dot");
+      dot.className = "dot";
+      if (kind === "ok") dot.classList.add("ok");
+      if (kind === "warn") dot.classList.add("warn");
+      if (kind === "err") dot.classList.add("err");
+    }
+
+    function anyOverlayOpen(){
+      var ovs = document.querySelectorAll(".overlay");
+      for (var i=0;i<ovs.length;i++){
+        if (ovs[i].style.display === "flex") return true;
+      }
+      return false;
+    }
+
+    function openOverlay(id){
+      var el = document.getElementById(id);
+      if (el){
+        el.style.display = "flex";
+        document.body.classList.add("noScroll");
+      }
+    }
+    function closeOverlay(id){
+      var el = document.getElementById(id);
+      if (el) el.style.display = "none";
+      if (!anyOverlayOpen()) document.body.classList.remove("noScroll");
+    }
+
+    function wireOverlayClose(overlayId, closeBtnId){
+      var ov = document.getElementById(overlayId);
+      var btn = document.getElementById(closeBtnId);
+      if (btn) btn.addEventListener("click", function(){ closeOverlay(overlayId); });
+      if (ov) ov.addEventListener("click", function(e){ if (e.target === ov) closeOverlay(overlayId); });
+    }
+
+    wireOverlayClose("ovLead", "btnCloseLead");
+    wireOverlayClose("ovQr", "btnCloseQr");
+    wireOverlayClose("ovTags", "btnCloseTags");
+    wireOverlayClose("ovFilters", "btnCloseFilters");
+
+    /* ---------- Tags Drawer (menu) ---------- */
+    (function(){
+      var ov = document.getElementById("ovTagDrawer");
+      var btn = document.getElementById("btnCloseTagDrawer");
+      if (btn) btn.addEventListener("click", function(){ closeTagDrawer(); navTags.classList.remove("active"); });
+      if (ov) ov.addEventListener("click", function(e){ if (e.target === ov){ closeTagDrawer(); navTags.classList.remove("active"); } });
+    })();
+
+
+    window.addEventListener("keydown", function(e){
+      if (e.key === "Escape"){
+        closeOverlay("ovLead");
+        closeOverlay("ovQr");
+        closeOverlay("ovTags");
+        closeOverlay("ovFilters");
+        if (typeof closeTagDrawer === "function") closeTagDrawer();
+      }
+    });
+
+    /* "/" foca busca */
+    window.addEventListener("keydown", function(e){
+      var active = document.activeElement;
+      var tag = active ? active.tagName : "";
+      var typing = tag === "INPUT" || tag === "TEXTAREA" || (active && active.isContentEditable);
+      if (!typing && e.key === "/"){
+        e.preventDefault();
+        var q = document.getElementById("q");
+        if (q) q.focus();
+      }
+    });
+
+    function formatDate(iso){
+      var d = new Date(iso);
+      if (isNaN(d)) return String(iso || "");
+      return d.toLocaleString("pt-BR");
+    }
+
+    /* +DDI DDD numero */
+    function formatWhatsAppPretty(raw){
+      var s = String(raw || "");
+      var digits = s.replace(/\D+/g, "");
+      if (!digits) return "—";
+
+      var ddi = "", ddd = "", rest = "";
+
+      if (digits.length >= 13 && digits.startsWith("55")) {
+        ddi = digits.slice(0,2);
+        ddd = digits.slice(2,4);
+        rest = digits.slice(4);
+      } else if (digits.length === 11 || digits.length === 10) {
+        ddi = "55";
+        ddd = digits.slice(0,2);
+        rest = digits.slice(2);
+      } else if (digits.length > 4) {
+        ddi = digits.slice(0,2);
+        ddd = digits.slice(2,4);
+        rest = digits.slice(4);
+      } else {
+        return "+" + digits;
+      }
+      return "+" + ddi + " " + ddd + " " + rest;
+    }
+
+    function getDDDFromLead(lead){
+      var digits = String(lead.whatsapp_digits || lead.whatsapp_raw || "").replace(/\D+/g, "");
+      if (!digits) return "";
+      if (digits.length >= 13 && digits.startsWith("55")) return digits.slice(2,4);
+      if (digits.length >= 11) return digits.slice(0,2);
+      return "";
+    }
+
+    /* Status inferido (depende do backend mandar algo por lead) */
+    function inferStatus(lead){
+      var ms = lead.messageStatus || lead.msgStatus || lead.waStatus || lead.status || null;
+
+      if (lead.notOnWhatsapp === true) return "notExists";
+      if (ms && ms.notOnWhatsapp === true) return "notExists";
+      if (ms && ms.isRegistered === false) return "notExists";
+      if (lead.isRegisteredUser === false) return "notExists";
+
+      if (lead.replied === true) return "replied";
+      if (ms && ms.replied === true) return "replied";
+      if (lead.repliedAt || (ms && ms.repliedAt)) return "replied";
+
+      var ack = null;
+      if (typeof lead.ack === "number") ack = lead.ack;
+      if (ms && typeof ms.ack === "number") ack = ms.ack;
+      if (ms && typeof ms.lastAck === "number") ack = ms.lastAck;
+
+      if (ack != null){
+        if (ack >= 2) return "delivered";
+        return "notDelivered";
+      }
+
+      return "";
+    }
+
+    /* ---------- State ---------- */
+    var cachedTags = [];
+    var itemsAll = [];
+    var filteredItems = [];
+    var filteredTotal = 0;
+
+    var pageSizeEl = document.getElementById("pageSize");
+    var btnPrev = document.getElementById("btnPrev");
+    var btnNext = document.getElementById("btnNext");
+    var pageInfo = document.getElementById("pageInfo");
+    var tbody = document.getElementById("tbody");
+    var lastSync = document.getElementById("lastSync");
+
+    var pageSize = Number(pageSizeEl.value || 200);
+    var pageIndex = 0;
+
+    /* ---------- WhatsApp ---------- */
+    var btnInit = document.getElementById("btnInit");
+    var btnOpenQr = document.getElementById("btnOpenQr");
+    var waStatus = document.getElementById("waStatus");
+    var waMeta = document.getElementById("waMeta");
+
+    var kpiReplied = document.getElementById("kpiReplied");
+    var kpiDeliveredNoReply = document.getElementById("kpiDeliveredNoReply");
+    var kpiNotDelivered = document.getElementById("kpiNotDelivered");
+    var kpiNotOnWhatsapp = document.getElementById("kpiNotOnWhatsapp");
+    var kpiMeta = document.getElementById("kpiMeta");
+
+    async function refreshWhatsApp(){
+      var st = await fetch("/api/regina/whatsapp/status").then(function(r){ return r.json(); });
+
+      waStatus.textContent = st.enabled ? st.status : "desativado";
+      waMeta.textContent = st.lastError ? ("Problema: " + st.lastError) : "";
+
+      if (!st.enabled) setStatusDot("err");
+      else if (st.status === "connected") setStatusDot("ok");
+      else if (st.status === "qr" || st.status === "starting") setStatusDot("warn");
+      else if (st.status === "error") setStatusDot("err");
+      else setStatusDot("warn");
+
+      var qr = await fetch("/api/regina/whatsapp/qr").then(function(r){ return r.json(); });
+      btnOpenQr.disabled = !(qr && qr.qr);
+      if (qr && qr.qr){
+        document.getElementById("qrBig").src = qr.qr;
+      }
+    }
+
+    async function refreshStats(){
+      var s = await fetch("/api/regina/whatsapp/stats?notDeliveredAfterMin=30")
+        .then(function(r){ return r.json(); })
+        .catch(function(){ return null; });
+      if (!s || !s.ok) return;
+
+      kpiReplied.textContent = (s.replied == null) ? 0 : s.replied;
+      kpiDeliveredNoReply.textContent = (s.deliveredNoReply == null) ? 0 : s.deliveredNoReply;
+      kpiNotDelivered.textContent = (s.notDelivered == null) ? 0 : s.notDelivered;
+      kpiNotOnWhatsapp.textContent = (s.notOnWhatsapp == null) ? 0 : s.notOnWhatsapp;
+
+      kpiMeta.textContent = "Resultados do WhatsApp";
+    }
+
+    btnInit.addEventListener("click", async function(){
+      btnInit.disabled = true;
+      btnInit.textContent = "Conectando...";
+      try{
+        var r = await fetch("/api/regina/whatsapp/init", { method: "POST" });
+        var j = {};
+        try{ j = await r.json(); }catch{}
+        if (!r.ok) throw new Error(j.error || "Falha ao conectar");
+
+        toast("ok", "WhatsApp", "Pronto. Abra o QR e escaneie.");
+        await refreshWhatsApp();
+        openOverlay("ovQr");
+      }catch(e){
+        toast("err", "WhatsApp", e.message || "Erro");
+      }finally{
+        btnInit.disabled = false;
+        btnInit.textContent = "Conectar";
+      }
+    });
+
+    btnOpenQr.addEventListener("click", async function(){
+      try{
+        var qr = await fetch("/api/regina/whatsapp/qr").then(function(r){ return r.json(); });
+        if (qr && qr.qr){
+          document.getElementById("qrBig").src = qr.qr;
+          openOverlay("ovQr");
+        } else {
+          toast("warn", "QR Code", "Ainda não há QR. Clique em Conectar primeiro.");
+        }
+      }catch{
+        toast("err", "QR Code", "Falha ao carregar o QR.");
+      }
+    });
+
+    /* ---------- Tags ---------- */
+    async function fetchTags(){
+      var r = await fetch("/api/regina/tags");
+      var j = await r.json();
+      cachedTags = (j && j.ok && Array.isArray(j.items)) ? j.items : [];
+      renderTagsSidebar();
+      renderTagsFilterPicker();
+      document.getElementById("navTagsCount").textContent = String(cachedTags.length || 0);
+    }
+
+    function renderTags(tagsFull){
+      var arr = Array.isArray(tagsFull) ? tagsFull : [];
+      if (!arr.length) return '<span class="hint">—</span>';
+
+      var out = "";
+      for (var i=0;i<arr.length;i++){
+        var t = arr[i] || {};
+        var name = escapeHtml(t.name || "");
+        var color = escapeHtml(t.color || "#111827");
+        out += '<span class="tagPill"><span class="tagDot" style="background:' + color + '"></span>' + name + '</span>';
+      }
+      return out;
+    }
+
+    
+    var editingTagId = null;
+
+    function renderTagsSidebar(){
+      var box = document.getElementById("tagsList");
+      if (!box) return;
+
+      if (!cachedTags.length){
+        box.innerHTML = '<div class="hint" style="margin-top:10px;">Nenhuma tag criada ainda.</div>';
+        return;
+      }
+
+      var html = "";
+      for (var i=0;i<cachedTags.length;i++){
+        var t = cachedTags[i] || {};
+        var id = escapeHtml(t.id);
+        var name = escapeHtml(t.name || "");
+        var color = escapeHtml(t.color || "#111827");
+
+        if (editingTagId === t.id){
+          html +=
+            '<div class="tagRow" data-tag-id="' + id + '">' +
+              '<div class="tagTop">' +
+                '<div class="tagLeft">' +
+                  '<span class="tagDot" style="background:' + color + '"></span>' +
+                  '<div class="tagName" title="' + name + '">' + name + '</div>' +
+                '</div>' +
+                '<div class="tagActions">' +
+                  '<button class="iconMini" type="button" data-action="cancelEdit" title="Cancelar">↩</button>' +
+                  '<button class="iconMini" type="button" data-action="saveEdit" title="Salvar">✓</button>' +
+                '</div>' +
+              '</div>' +
+              '<div class="tagEdit">' +
+                '<input class="input" data-field="name" value="' + name + '" placeholder="Nome da tag" style="flex:1 1 160px; min-width:160px;" />' +
+                '<input class="input tagColor" data-field="color" type="color" value="' + color + '" />' +
+              '</div>' +
+            '</div>';
+        } else {
+          html +=
+            '<div class="tagRow" data-tag-id="' + id + '">' +
+              '<div class="tagTop">' +
+                '<div class="tagLeft">' +
+                  '<span class="tagDot" style="background:' + color + '"></span>' +
+                  '<div class="tagName" title="' + name + '">' + name + '</div>' +
+                '</div>' +
+                '<div class="tagActions">' +
+                  '<button class="iconMini" type="button" data-action="edit" title="Editar">✎</button>' +
+                  '<button class="iconMini iconDanger" type="button" data-action="delete" title="Deletar">🗑</button>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
+        }
+      }
+      box.innerHTML = html;
+    }
+
+    // delegação de eventos (lista de tags)
+    (function(){
+      var box = document.getElementById("tagsList");
+      if (!box) return;
+
+      box.addEventListener("click", async function(e){
+        var btn = e.target && e.target.closest ? e.target.closest("[data-action]") : null;
+        if (!btn) return;
+
+        var row = btn.closest("[data-tag-id]");
+        if (!row) return;
+
+        var tagId = row.getAttribute("data-tag-id");
+        var action = btn.getAttribute("data-action");
+
+        var tag = cachedTags.find(function(x){ return String(x.id) === String(tagId); }) || null;
+
+        if (action === "edit"){
+          editingTagId = tagId;
+          renderTagsSidebar();
+          return;
+        }
+
+        if (action === "cancelEdit"){
+          editingTagId = null;
+          renderTagsSidebar();
+          return;
+        }
+
+        if (action === "saveEdit"){
+          var nameEl = row.querySelector('[data-field="name"]');
+          var colorEl = row.querySelector('[data-field="color"]');
+
+          var name = (nameEl ? nameEl.value : "").trim();
+          var color = (colorEl ? colorEl.value : (tag ? tag.color : "#111827"));
+
+          if (!name){ toast("warn", "Tag", "Digite um nome."); return; }
+
+          btn.disabled = true;
+          try{
+            var r = await fetch("/api/regina/tags", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ id: tagId, name: name, color: color })
+            });
+            var j = await r.json();
+            if (!r.ok) throw new Error(j.error || "Erro ao salvar tag");
+
+            toast("ok", "Tag", "Atualizada.");
+            editingTagId = null;
+            await fetchTags();
+            await loadLeads(false);
+          }catch(err){
+            toast("err", "Tag", err.message || "Erro");
+          }finally{
+            btn.disabled = false;
+          }
+          return;
+        }
+
+        if (action === "delete"){
+          if (!tag) return;
+          var ok = confirm('Deletar a tag "' + (tag.name || "") + '"? Ela será removida de todos os leads.');
+          if (!ok) return;
+
+          btn.disabled = true;
+          try{
+            var r = await fetch("/api/regina/tags/" + encodeURIComponent(tagId), { method: "DELETE" });
+            var j = {};
+            try{ j = await r.json(); }catch{}
+            if (!r.ok) throw new Error(j.error || "Erro ao deletar tag");
+
+            toast("ok", "Tag", "Deletada.");
+            editingTagId = null;
+            await fetchTags();
+            await loadLeads(false);
+          }catch(err){
+            toast("err", "Tag", err.message || "Erro");
+          }finally{
+            btn.disabled = false;
+          }
+        }
+      });
+    })();
+
+
+    function renderTagsFilterPicker(){
+      var el = document.getElementById("fTags");
+      if (!el) return;
+
+      if (!cachedTags.length){
+        el.innerHTML = '<div class="hint">Crie tags no menu para aparecer aqui.</div>';
+        return;
+      }
+
+      var html = "";
+      for (var i=0;i<cachedTags.length;i++){
+        var t = cachedTags[i];
+        var id = escapeHtml(t.id);
+        var name = escapeHtml(t.name);
+        var color = escapeHtml(t.color || "#111827");
+
+        html +=
+          '<label>' +
+            '<input type="checkbox" value="' + id + '">' +
+            '<span class="tagDot" style="background:' + color + '"></span>' +
+            '<span>' + name + '</span>' +
+          '</label>';
+      }
+      el.innerHTML = html;
+    }
+
+    /* ---------- Lead details ---------- */
+    var leadTitle = document.getElementById("leadTitle");
+    var leadDetails = document.getElementById("leadDetails");
+
+    function detailBox(k, v){
+      return (
+        '<div class="detailItem">' +
+          '<div class="k">' + escapeHtml(k) + '</div>' +
+          '<div class="v">' + escapeHtml(v) + '</div>' +
+        '</div>'
+      );
+    }
+
+    function openLeadDetails(lead){
+      if (!lead) return;
+
+      leadTitle.textContent = lead.nome || "Detalhes do lead";
+      var html = "";
+      html += detailBox("Nome", lead.nome || "—");
+      html += detailBox("WhatsApp", formatWhatsAppPretty(lead.whatsapp_digits || lead.whatsapp_raw || ""));
+      html += detailBox("Email", lead.email || "—");
+      html += detailBox("Empresa", lead.empresa || "—");
+      html += detailBox("Já anuncia?", lead.jaAnuncia || "—");
+      html += detailBox("Website", lead.website || "—");
+      html += detailBox("Data", formatDate(lead.createdAt));
+
+      leadDetails.innerHTML = html;
+      openOverlay("ovLead");
+    }
+
+    /* ---------- Edit tags (lead) ---------- */
+    var tagsGrid = document.getElementById("tagsGrid");
+    var tagsMeta = document.getElementById("tagsMeta");
+    var btnCancelTags = document.getElementById("btnCancelTags");
+    var btnSaveTags = document.getElementById("btnSaveTags");
+    var currentLeadForTags = null;
+
+    function openTagsEditor(lead){
+      currentLeadForTags = lead;
+
+      tagsMeta.textContent =
+        (lead && lead.nome ? lead.nome : "") +
+        (lead ? (" • " + formatWhatsAppPretty(lead.whatsapp_digits || lead.whatsapp_raw || "")) : "");
+
+      var selected = new Set(Array.isArray(lead.tagIds) ? lead.tagIds : []);
+      var html = "";
+
+      for (var i=0;i<cachedTags.length;i++){
+        var t = cachedTags[i] || {};
+        var checked = selected.has(t.id) ? "checked" : "";
+        var id = escapeHtml(t.id);
+        var name = escapeHtml(t.name);
+        var color = escapeHtml(t.color || "#111827");
+
+        html +=
+          '<label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:16px;border:1px solid rgba(15,23,42,.08);background:rgba(255,255,255,.80);user-select:none;cursor:pointer;font-weight:900;">' +
+            '<input type="checkbox" value="' + id + '" ' + checked + ' />' +
+            '<span class="tagDot" style="background:' + color + '"></span>' +
+            '<span>' + name + '</span>' +
+          '</label>';
+      }
+
+      tagsGrid.innerHTML = html;
+      openOverlay("ovTags");
+    }
+
+    btnCancelTags.addEventListener("click", function(){ closeOverlay("ovTags"); });
+
+    btnSaveTags.addEventListener("click", async function(){
+      if (!currentLeadForTags) return;
+
+      var inputs = tagsGrid.querySelectorAll('input[type="checkbox"]');
+      var ids = [];
+      for (var i=0;i<inputs.length;i++){
+        if (inputs[i].checked) ids.push(inputs[i].value);
+      }
+
+      btnSaveTags.disabled = true;
+      try{
+        var url = "/api/regina/leads/" + encodeURIComponent(currentLeadForTags.id) + "/tags";
+        var r = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ tagIds: ids })
+        });
+        var j = await r.json();
+        if (!r.ok) throw new Error(j.error || "Erro ao salvar tags");
+
+        toast("ok", "Tags", "Salvas com sucesso.");
+        closeOverlay("ovTags");
+        await loadLeads(true);
+      }catch(e){
+        toast("err", "Tags", e.message || "Erro");
+      }finally{
+        btnSaveTags.disabled = false;
+      }
+    });
+
+    /* ---------- Tag creation (sidebar) ---------- */
+    var btnCreateTag = document.getElementById("btnCreateTag");
+    var newTagName = document.getElementById("newTagName");
+    var newTagColor = document.getElementById("newTagColor");
+
+    btnCreateTag.addEventListener("click", async function(){
+      var name = (newTagName.value || "").trim();
+      var color = newTagColor.value;
+
+      if (!name){ toast("warn", "Tag", "Digite um nome."); return; }
+
+      btnCreateTag.disabled = true;
+      try{
+        var r = await fetch("/api/regina/tags", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: name, color: color })
+        });
+        var j = await r.json();
+        if (!r.ok) throw new Error(j.error || "Erro ao criar tag");
+
+        newTagName.value = "";
+        toast("ok", "Tag", "Criada com sucesso.");
+        await fetchTags();
+        await loadLeads(false);
+      }catch(e){
+        toast("err", "Tag", e.message || "Erro");
+      }finally{
+        btnCreateTag.disabled = false;
+      }
+    });
+
+    /* ---------- Filters overlay ---------- */
+    var btnOpenFilters = document.getElementById("btnOpenFilters");
+    var btnOpenFilters2 = document.getElementById("btnOpenFilters2");
+    var btnApplyFilters = document.getElementById("btnApplyFilters");
+    var btnClearFilters = document.getElementById("btnClearFilters");
+
+    btnOpenFilters.addEventListener("click", function(){ syncFiltersUI(); openOverlay("ovFilters"); });
+    btnOpenFilters2.addEventListener("click", function(){ syncFiltersUI(); openOverlay("ovFilters"); });
+
+    var filters = {
+      ddd: "",
+      from: "",
+      to: "",
+      tagIds: [],
+      status: ""
+    };
+
+    function syncFiltersUI(){
+      document.getElementById("fDDD").value = filters.ddd || "";
+      document.getElementById("fFrom").value = filters.from || "";
+      document.getElementById("fTo").value = filters.to || "";
+
+      var tagChecks = document.querySelectorAll('#fTags input[type="checkbox"]');
+      for (var i=0;i<tagChecks.length;i++){
+        tagChecks[i].checked = filters.tagIds.indexOf(tagChecks[i].value) !== -1;
+      }
+
+      var st = filters.status || "";
+      var radio = document.querySelector('input[name="fStatus"][value="' + st.replace(/"/g,'') + '"]');
+      if (radio) radio.checked = true;
+      else {
+        var all = document.querySelector('input[name="fStatus"][value=""]');
+        if (all) all.checked = true;
+      }
+    }
+
+
+    function readFiltersFromUI(){
+      filters.ddd = (document.getElementById("fDDD").value || "").trim().replace(/\D+/g, "");
+      filters.from = document.getElementById("fFrom").value || "";
+      filters.to = document.getElementById("fTo").value || "";
+
+      var tagChecks = document.querySelectorAll('#fTags input[type="checkbox"]');
+      var ids = [];
+      for (var i=0;i<tagChecks.length;i++){
+        if (tagChecks[i].checked) ids.push(tagChecks[i].value);
+      }
+      filters.tagIds = ids;
+
+      var st = document.querySelector('input[name="fStatus"]:checked');
+      filters.status = st ? st.value : "";
+    }
+
+    function clearFiltersUI(){
+      document.getElementById("fDDD").value = "";
+      document.getElementById("fFrom").value = "";
+      document.getElementById("fTo").value = "";
+      var tagChecks = document.querySelectorAll('#fTags input[type="checkbox"]');
+      for (var i=0;i<tagChecks.length;i++) tagChecks[i].checked = false;
+      var all = document.querySelector('input[name="fStatus"][value=""]');
+      if (all) all.checked = true;
+    }
+
+    function applyFiltersToItems(){
+      var q = (document.getElementById("q").value || "").trim().toLowerCase();
+      var fromTs = filters.from ? new Date(filters.from + "T00:00:00").getTime() : null;
+      var toTs = filters.to ? new Date(filters.to + "T23:59:59").getTime() : null;
+
+      filteredItems = itemsAll.filter(function(lead){
+        // busca
+        if (q){
+          var hay = String(lead.nome||"") + " " + String(lead.email||"") + " " + String(lead.empresa||"");
+          if (hay.toLowerCase().indexOf(q) === -1) return false;
+        }
+
+        // ddd
+        if (filters.ddd){
+          var ddd = getDDDFromLead(lead);
+          if (ddd !== filters.ddd) return false;
+        }
+
+        // data
+        if (fromTs != null || toTs != null){
+          var t = new Date(lead.createdAt).getTime();
+          if (isNaN(t)) return false;
+          if (fromTs != null && t < fromTs) return false;
+          if (toTs != null && t > toTs) return false;
+        }
+
+        // tags (qualquer uma)
+        if (filters.tagIds && filters.tagIds.length){
+          var leadTagIds = Array.isArray(lead.tagIds) ? lead.tagIds : [];
+          var hasAny = false;
+          for (var i=0;i<filters.tagIds.length;i++){
+            if (leadTagIds.indexOf(filters.tagIds[i]) !== -1){ hasAny = true; break; }
+          }
+          if (!hasAny) return false;
+        }
+
+        // status
+        if (filters.status){
+          var st = inferStatus(lead);
+          if (st !== filters.status) return false;
+        }
+
+        return true;
+      });
+
+      filteredTotal = filteredItems.length;
+      document.getElementById("navLeadsCount").textContent = String(filteredTotal);
+    }
+
+    btnApplyFilters.addEventListener("click", function(){
+      readFiltersFromUI();
+      applyFiltersToItems();
+      pageIndex = 0;
+      renderPage();
+      closeOverlay("ovFilters");
+        if (typeof closeTagDrawer === "function") closeTagDrawer();
+      toast("ok", "Filtros", "Aplicados.");
+    });
+
+    btnClearFilters.addEventListener("click", function(){
+      clearFiltersUI();
+      readFiltersFromUI();
+      applyFiltersToItems();
+      pageIndex = 0;
+      renderPage();
+      toast("warn", "Filtros", "Limpos.");
+    });
+
+    /* ---------- Pagination + render ---------- */
+    function setLoadingRows(){
+      tbody.innerHTML =
+        '<tr><td colspan="4" style="padding:14px;">' +
+          '<div class="skeleton skRow"></div>' +
+          '<div style="height:8px;"></div>' +
+          '<div class="skeleton skRow w60"></div>' +
+        '</td></tr>';
+    }
+
+    function renderPage(){
+      var list = filteredItems.length ? filteredItems : itemsAll;
+      var total = filteredItems.length ? filteredTotal : itemsAll.length;
+
+      // se não aplicou filtro ainda, “total” pode divergir do json.total; aqui usa o array carregado
+      filteredTotal = total;
+
+      var start = pageIndex * pageSize;
+      var end = start + pageSize;
+      var pageItems = list.slice(start, end);
+
+      tbody.innerHTML = "";
+
+      for (var i=0;i<pageItems.length;i++){
+        var lead = pageItems[i];
+        var tr = document.createElement("tr");
+
+        var leadCellHtml =
+          '<div class="leadCell">' +
+            '<button class="avatarBtn ' + leadStatusClass(lead) + '" type="button" aria-label="Ver detalhes" data-avatar="' + escapeHtml(lead.id) + '"></button>' +
+            '<div class="leadName">' +
+              '<div class="n">' + escapeHtml(lead.nome || "—") + '</div>' +
+              '<div class="s">' + escapeHtml(lead.email || lead.empresa || "") + '</div>' +
+            '</div>' +
+          '</div>';
+
+        var waTxt = escapeHtml(formatWhatsAppPretty(lead.whatsapp_digits || lead.whatsapp_raw || "—"));
+        var tagsHtml = renderTags(lead.tagsFull);
+
+        var actionsHtml =
+          '<button class="btn btnGhost" type="button" data-tags="' + escapeHtml(lead.id) + '" style="padding:10px 12px;">Tags</button>';
+
+        tr.innerHTML =
+          '<td>' + leadCellHtml + '</td>' +
+          '<td style="font-weight:900;">' + waTxt + '</td>' +
+          '<td>' + tagsHtml + '</td>' +
+          '<td>' + actionsHtml + '</td>';
+
+        (function(leadCopy, trEl){
+          var av = trEl.querySelector('[data-avatar]');
+          if (av){
+            av.addEventListener("click", function(){ openLeadDetails(leadCopy); });
+          }
+          var bt = trEl.querySelector('[data-tags]');
+          if (bt){
+            bt.addEventListener("click", function(){
+              openTagsEditor({
+                id: leadCopy.id,
+                nome: leadCopy.nome,
+                whatsapp_digits: leadCopy.whatsapp_digits,
+                whatsapp_raw: leadCopy.whatsapp_raw,
+                tagIds: leadCopy.tagIds || []
+              });
+            });
+          }
+        })(lead, tr);
+
+        tbody.appendChild(tr);
+      }
+
+      var totalPages = Math.max(1, Math.ceil(total / pageSize));
+      if (pageIndex >= totalPages) pageIndex = totalPages - 1;
+
+      pageInfo.textContent = "Página " + (pageIndex + 1) + " de " + totalPages + " | Total de resultados: " + total;
+
+      btnPrev.disabled = pageIndex <= 0;
+      btnNext.disabled = pageIndex >= (totalPages - 1);
+
+      // nav count
+      document.getElementById("navLeadsCount").textContent = String(total);
+    }
+
+    btnPrev.addEventListener("click", function(){
+      if (pageIndex > 0){ pageIndex--; renderPage(); }
+    });
+    btnNext.addEventListener("click", function(){
+      var total = filteredItems.length ? filteredTotal : itemsAll.length;
+      var totalPages = Math.max(1, Math.ceil(total / pageSize));
+      if (pageIndex < totalPages - 1){ pageIndex++; renderPage(); }
+    });
+    pageSizeEl.addEventListener("change", function(){
+      pageSize = Number(pageSizeEl.value || 200);
+      pageIndex = 0;
+      renderPage();
+    });
+
+    async function loadLeads(resetPage){
+      if (resetPage) pageIndex = 0;
+      setLoadingRows();
+
+      // mantém o filtro server-side mínimo (q) e todo resto client-side
+      var q = (document.getElementById("q").value || "").trim();
+      var p = new URLSearchParams();
+      if (q) p.set("q", q);
+
+      var url = "/api/regina/leads" + (p.toString() ? ("?" + p.toString()) : "");
+      var res = await fetch(url);
+      var json = await res.json();
+
+      if (Array.isArray(json.tags)) cachedTags = json.tags;
+
+      itemsAll = Array.isArray(json.items) ? json.items : [];
+      // aplica filtros avançados em cima
+      applyFiltersToItems();
+
+      var csv = document.getElementById("csv");
+      csv.href = "/regina/leads.csv" + (p.toString() ? ("?" + p.toString()) : "");
+
+      lastSync.textContent = "Atualizado: " + new Date().toLocaleString("pt-BR");
+      renderPage();
+    }
+
+    /* ---------- Search ---------- */
+    var qEl = document.getElementById("q");
+    qEl.addEventListener("keydown", function(e){
+      if (e.key === "Enter") loadLeads(true);
+    });
+    document.getElementById("btnReload").addEventListener("click", function(){ loadLeads(false); });
+
+    /* ---------- Sidebar nav ---------- */
+    var navLeads = document.getElementById("navLeads");
+    var navTags = document.getElementById("navTags");
+    var navCloud = document.getElementById("navCloud");
+    var navCrm = document.getElementById("navCrm");
+    var panelTags = document.getElementById("panelTags");
+    var panelLeads = document.getElementById("panelLeads");
+    var panelCrm = document.getElementById("panelCrm");
+    var panelCloudMain = document.getElementById("panelCloudMain");
+
+    
+    function openTagDrawer(){
+      var ov = document.getElementById("ovTagDrawer");
+      if (!ov) return;
+      ov.style.display = "flex";
+      ov.setAttribute("aria-hidden","false");
+      document.body.classList.add("noScroll");
+    }
+    function closeTagDrawer(){
+      var ov = document.getElementById("ovTagDrawer");
+      if (!ov) return;
+      ov.style.display = "none";
+      ov.setAttribute("aria-hidden","true");
+      if (!anyOverlayOpen()) document.body.classList.remove("noScroll");
+    }
+
+    function setActiveNav(which){
+      if (which === "crm"){
+        navCrm.classList.add("active");
+        navCloud.classList.remove("active");
+        navLeads.classList.remove("active");
+        navTags.classList.remove("active");
+
+        closeTagDrawer();
+
+        panelLeads.style.display = "none";
+        panelCloudMain.style.display = "none";
+        panelCrm.style.display = "flex";
+        try{ crmBoot(); }catch(e){}
+        return;
+      }
+
+
+      if (which === "cloud"){
+        navCloud.classList.add("active");
+        navLeads.classList.remove("active");
+        navTags.classList.remove("active");
+        if (navCrm) navCrm.classList.remove("active");
+
+        closeTagDrawer();
+
+        panelLeads.style.display = "none";
+        panelCrm.style.display = "none";
+        panelCloudMain.style.display = "flex";
+        return;
+      }
+
+      if (which === "tags"){
+        // Pedido: abrir Tags em drawer e manter a lista de leads visível
+        navTags.classList.add("active");
+        navCloud.classList.remove("active");
+        navLeads.classList.add("active");
+
+        panelCloudMain.style.display = "none";
+        panelCrm.style.display = "none";
+        panelLeads.style.display = "flex";
+
+        openTagDrawer();
+        return;
+      }
+
+      // leads
+      navLeads.classList.add("active");
+      navTags.classList.remove("active");
+      navCloud.classList.remove("active");
+      panelCloudMain.style.display = "none";
+      panelCrm.style.display = "none";
+      panelLeads.style.display = "flex";
+      closeTagDrawer();
+    }
+
+    navLeads.addEventListener("click", function(){ setActiveNav("leads"); });
+    navTags.addEventListener("click", function(){ setActiveNav("tags"); });
+    navCloud.addEventListener("click", function(){ setActiveNav("cloud"); });
+    if (navCrm) navCrm.addEventListener("click", function(){ setActiveNav("crm"); });
+    /* ---------- WhatsApp Cloud API UI ---------- */
+    var cloudContacts = [];
+
+    function parseCsv(text){
+      // tenta ; primeiro (excel pt-br), senão ,
+      var sep = text.includes(";") ? ";" : ",";
+      var lines = text.split(/\r?\n/).map(function(l){ return l.trim(); }).filter(Boolean);
+      if (!lines.length) return [];
+      var header = lines[0].split(sep).map(function(h){ return h.trim().toLowerCase(); });
+      var rows = [];
+      for (var i=1;i<lines.length;i++){
+        var cols = lines[i].split(sep);
+        var obj = {};
+        for (var c=0;c<header.length;c++){
+          obj[header[c]] = (cols[c] || "").trim();
+        }
+        rows.push(obj);
+      }
+      return rows;
+    }
+
+    function renderCloudPreview(){
+      var wrap = document.getElementById("cloudPreview");
+      var countEl = document.getElementById("cloudPreviewCount");
+      if (!wrap || !countEl) return;
+
+      countEl.textContent = String(cloudContacts.length || 0);
+
+      if (!cloudContacts.length){
+        wrap.innerHTML = '<div class="hint">Importe um CSV para ver a lista aqui.</div>';
+        return;
+      }
+
+      var html = '<table class="table" style="width:100%"><thead><tr>' +
+        '<th style="text-align:left">#</th><th style="text-align:left">Telefone</th><th style="text-align:left">Nome</th><th style="text-align:left">Vars</th>' +
+      '</tr></thead><tbody>';
+
+      for (var i=0;i<Math.min(cloudContacts.length, 200);i++){
+        var c = cloudContacts[i];
+        html += '<tr><td>'+(i+1)+'</td><td>'+escapeHtml(c.to)+'</td><td>'+escapeHtml(c.nome||"")+'</td><td>'+escapeHtml((c.vars||[]).join(" | "))+'</td></tr>';
+      }
+
+      html += '</tbody></table>';
+      if (cloudContacts.length > 200){
+        html += '<div class="hint" style="margin-top:8px;">Mostrando 200 de '+cloudContacts.length+'. O disparo envia todos.</div>';
+      }
+      wrap.innerHTML = html;
+    }
+
+    async function cloudListTemplates(){
+      var log = document.getElementById("cloudLog");
+      try{
+        log.textContent = "Carregando templates...";
+        var r = await fetch("/api/wa-cloud/templates", { headers: { "x-regina-key": localStorage.getItem("reginakey") || "" }});
+        var j = await r.json();
+        if (!r.ok) throw new Error(j && j.error ? j.error : "Falha ao listar templates");
+        log.textContent = JSON.stringify(j, null, 2);
+      }catch(e){
+        log.textContent = "Erro: " + (e && e.message ? e.message : e);
+      }
+    }
+
+    async function cloudSendBatch(){
+      var templateName = String(document.getElementById("cloudTemplateName").value || "").trim();
+      var languageCode = String(document.getElementById("cloudLanguage").value || "pt_BR").trim();
+      var throttleMs = Number(document.getElementById("cloudThrottle").value || 250);
+
+      if (!templateName){
+        toast("err","Template","Informe o nome do template");
+        return;
+      }
+      if (!cloudContacts.length){
+        toast("err","Contatos","Importe um CSV com contatos");
+        return;
+      }
+
+      var log = document.getElementById("cloudLog");
+      log.textContent = "Enviando...";
+
+      try{
+        var r = await fetch("/api/wa-cloud/send-template-batch", {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json",
+            "x-regina-key": localStorage.getItem("reginakey") || ""
+          },
+          body: JSON.stringify({ templateName: templateName, languageCode: languageCode, throttleMs: throttleMs, contacts: cloudContacts })
+        });
+        var j = await r.json();
+        if (!r.ok) throw new Error(j && j.error ? j.error : "Falha no envio");
+        log.textContent = JSON.stringify(j, null, 2);
+        toast("ok","Cloud API","Disparo concluído");
+      }catch(e){
+        log.textContent = "Erro: " + (e && e.message ? e.message : e);
+        toast("err","Cloud API", e && e.message ? e.message : String(e));
+      }
+    }
+
+    (function bindCloud(){
+      var f = document.getElementById("cloudCsv");
+      var btnSend = document.getElementById("btnCloudSend");
+      var btnTpl = document.getElementById("btnCloudListTemplates");
+      if (btnSend) btnSend.addEventListener("click", cloudSendBatch);
+      if (btnTpl) btnTpl.addEventListener("click", cloudListTemplates);
+
+      if (f){
+        f.addEventListener("change", async function(){
+          var file = f.files && f.files[0];
+          if (!file) return;
+          var text = await file.text();
+          var rows = parseCsv(text);
+
+          // mapping esperado: phone, name, var1,var2...
+          var contacts = [];
+          for (var i=0;i<rows.length;i++){
+            var row = rows[i] || {};
+            var phone = String(row.phone || row.whatsapp || row.telefone || "").replace(/\D+/g,"");
+            if (!phone) continue;
+            var nome = row.name || row.nome || "";
+
+            // vars: var1,var2,var3... ou qualquer coluna que comece com "var"
+            var vars = [];
+            var keys = Object.keys(row);
+            keys.sort();
+            for (var k=0;k<keys.length;k++){
+              var key = keys[k];
+              if (key.startsWith("var")){
+                vars.push(String(row[key] || ""));
+              }
+            }
+
+            contacts.push({ to: phone, nome: nome, vars: vars });
+          }
+
+          cloudContacts = contacts;
+          renderCloudPreview();
+          toast("ok","Importação","CSV carregado (" + cloudContacts.length + " contatos)");
+        });
+      }
+
+      renderCloudPreview();
+    })();
+
+    /* ---------- Boot ---------- */
+    async function boot(){
+      // filtros default
+      readFiltersFromUI();
+
+      try{ await fetchTags(); }catch{}
+      await loadLeads(true);
+
+      // WA
+      try{ await refreshWhatsApp(); }catch{}
+      try{ await refreshStats(); }catch{}
+
+      setInterval(function(){ refreshWhatsApp().catch(function(){}); }, 2000);
+      setInterval(function(){ refreshStats().catch(function(){}); }, 5000);
+    }
+
+    boot();
+  
+
+/* ---------- Mensagem padrão (template) ---------- */
+const ovTemplate = document.getElementById("ovTemplate");
+const btnOpenTemplate = document.getElementById("btnOpenTemplate");
+const btnCloseTemplate = document.getElementById("btnCloseTemplate");
+
+
+  // -------------------- Webhooks (entrada) --------------------
+    var whSelect = document.getElementById("whSelect");
+    var btnWebhookNew = document.getElementById("btnWebhookNew");
+    var btnWebhookCopy = document.getElementById("btnWebhookCopy");
+    var btnWebhookDelete = document.getElementById("btnWebhookDelete");
+    var whInfo = document.getElementById("whInfo");
+    var btnWebhookSave = document.getElementById("btnWebhookSave");
+    var whMsgMeta = document.getElementById("whMsgMeta");
+    var btnWebhookAddMsg = document.getElementById("btnWebhookAddMsg");
+    var whMessagesList = document.getElementById("whMessagesList");
+
+    var webhookItems = [];
+    var webhooksLoadedOnce = false;
+
+    function addMessageTextarea(text) {
+      if (!whMessagesList) return;
+      var wrap = document.createElement("div");
+      wrap.style.display = "flex";
+      wrap.style.gap = "8px";
+      wrap.innerHTML = '<textarea class="input whMsgItem" style="min-height:72px; resize:vertical;" placeholder="Ex: Olá {{nome}}, recebemos seu contato e já vamos falar com você.">' + escapeHtml(text || "") + '</textarea>' +
+                       '<button class="btn btnGhost" type="button" onclick="this.parentElement.remove()" style="padding: 10px;" title="Remover mensagem">🗑</button>';
+      whMessagesList.appendChild(wrap);
+    }
+
+    if (btnWebhookAddMsg) {
+      btnWebhookAddMsg.addEventListener("click", function() { addMessageTextarea(""); });
+    }
+
+    function renderWebhooks(){
+      if (!whSelect) return;
+      whSelect.innerHTML = "";
+      if (!webhookItems.length){
+        var opt = document.createElement("option");
+        opt.value = "";
+        opt.textContent = "nenhum webhook (gere um)";
+        whSelect.appendChild(opt);
+      } else {
+        webhookItems.forEach(function(w){
+          var opt = document.createElement("option");
+          opt.value = w.id;
+          opt.textContent = w.url;
+          whSelect.appendChild(opt);
+        });
+      }
+      updateWebhookInfo();
+    }
+
+    function selectedWebhook(){
+      var id = whSelect ? whSelect.value : "";
+      return webhookItems.find(function(w){ return w.id === id; }) || null;
+    }
+
+    function updateWebhookInfo(){
+      var w = selectedWebhook();
+      if (!whInfo) return;
+      if (whMessagesList) whMessagesList.innerHTML = ""; // Limpa a lista atual
+
+      if (!w) {
+        whInfo.textContent = "Envie um POST JSON para o link quando quiser criar um lead.";
+        addMessageTextarea(""); // Campo vazio padrão
+        if (whMsgMeta) whMsgMeta.textContent = "";
+      } else {
+        whInfo.textContent = "Ativo: " + w.createdAt;
+        if (whMsgMeta) whMsgMeta.textContent = w.updatedAt ? ("Atualizado: " + w.updatedAt) : "";
+        
+        // Puxa as mensagens novas, ou faz o fallback pro sistema antigo
+        var msgs = (w.messages && w.messages.length > 0) ? w.messages : (w.messageText ? [w.messageText] : [""]);
+        msgs.forEach(function(m) { addMessageTextarea(m); });
+      }
+    }
+
+    async function loadWebhooks(){
+      try {
+        var r = await fetch(API_BASE + "/webhooks").then(function(x){ return x.json(); });
+        webhookItems = (r && r.webhooks) ? r.webhooks : [];
+      } catch(e){
+        webhookItems = [];
+      }
+      renderWebhooks();
+    }
+
+    if (whSelect) whSelect.addEventListener("change", updateWebhookInfo);
+
+    if (btnWebhookNew) btnWebhookNew.addEventListener("click", async function(){
+      try {
+        var r = await fetch(API_BASE + "/webhooks", { method:"POST" }).then(function(x){ return x.json(); });
+        if (r && r.ok){
+          await loadWebhooks();
+          if (whSelect && webhookItems.length) whSelect.value = webhookItems[0].id;
+          updateWebhookInfo();
+        } else {
+          alert((r && r.error) ? r.error : "Falha ao gerar webhook.");
+        }
+      } catch(e){
+        alert("Falha ao gerar webhook.");
+      }
+    });
+
+    if (btnWebhookCopy) btnWebhookCopy.addEventListener("click", async function(){
+      var w = selectedWebhook();
+      if (!w) return alert("Nenhum webhook selecionado.");
+      try {
+        await navigator.clipboard.writeText(w.url);
+        alert("Link copiado.");
+      } catch(e){
+        alert("Não consegui copiar. Copie manualmente do seletor.");
+      }
+    });
+
+    if (btnWebhookDelete) btnWebhookDelete.addEventListener("click", async function(){
+      var w = selectedWebhook();
+      if (!w) return alert("Nenhum webhook selecionado.");
+      if (!confirm("Excluir este webhook? O link vai parar de funcionar.")) return;
+      try{
+        var r = await fetch(API_BASE + "/webhooks/" + encodeURIComponent(w.id), { method:"DELETE" }).then(function(x){ return x.json(); });
+        if (r && r.ok){
+          await loadWebhooks();
+        } else {
+          alert((r && r.error) ? r.error : "Falha ao excluir webhook.");
+        }
+      } catch(e){
+        alert("Falha ao excluir webhook.");
+      }
+    });
+
+
+    if (btnWebhookSave) btnWebhookSave.addEventListener("click", async function(){
+      var w = selectedWebhook();
+      if (!w) return alert("Nenhum webhook selecionado.");
+      
+      var textAreas = document.querySelectorAll(".whMsgItem");
+      var messagesArray = [];
+      textAreas.forEach(function(ta) {
+          var t = ta.value.trim();
+          if (t) messagesArray.push(t);
+      });
+
+      if (messagesArray.length === 0) {
+        return alert("Você precisa adicionar pelo menos uma mensagem vinculada. Se não quiser enviar nada, exclua o webhook.");
+      }
+
+      var prevLabel = btnWebhookSave.textContent;
+      btnWebhookSave.disabled = true;
+      btnWebhookSave.textContent = "Salvando...";
+      if (whMsgMeta) whMsgMeta.textContent = "Salvando...";
+
+      try{
+        var body = { messages: messagesArray };
+        var r = await fetch(API_BASE + "/webhooks/" + encodeURIComponent(w.id), {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        }).then(function(x){ return x.json(); });
+
+        if (r && r.ok && r.webhook){
+          await loadWebhooks();
+          if (whSelect) whSelect.value = r.webhook.id;
+          updateWebhookInfo();
+          toast("ok","Webhook","Mensagens vinculadas salvas.");
+        } else {
+          alert((r && r.error) ? r.error : "Falha ao salvar mensagens.");
+          if (whMsgMeta) whMsgMeta.textContent = "";
+        }
+      } catch(e){
+        alert("Falha ao salvar mensagens.");
+        if (whMsgMeta) whMsgMeta.textContent = "";
+      } finally {
+        btnWebhookSave.disabled = false;
+        btnWebhookSave.textContent = prevLabel;
+      }
+    });
+
+    btnOpenTemplate?.addEventListener("click", async () => {
+      ovTemplate.classList.add("open");
+      try { await loadWebhooks(); webhooksLoadedOnce = true; } catch(e) {}
+    });
+    btnCloseTemplate?.addEventListener("click", () => ovTemplate.classList.remove("open"));
+    ovTemplate?.addEventListener("click", (e) => { if (e.target === ovTemplate) ovTemplate.classList.remove("open"); });
+
+    /* ---------------- CRM (Funil de Vendas) ---------------- */
+    var CRM_API_PREFIX = "/api/regina";
+    var crmState = null;
+    var crmLeads = [];
+    var crmLeadById = Object.create(null);
+    var crmLoadedOnce = false;
+    var crmSaving = false;
+    var crmSaveTimer = null;
+
+    var crmPipelinesBar = document.getElementById("crmPipelinesBar");
+    var crmBoard = document.getElementById("crmBoard");
+
+    var crmBtnNewPipeline = document.getElementById("crmBtnNewPipeline");
+    var crmBtnNewStage = document.getElementById("crmBtnNewStage");
+    var crmBtnImportLead = document.getElementById("crmBtnImportLead");
+    var crmBtnNewLead = document.getElementById("crmBtnNewLead");
+
+    var crmModalOverlay = document.getElementById("crmModalOverlay");
+    var crmModalTitle = document.getElementById("crmModalTitle");
+    var crmModalSub = document.getElementById("crmModalSub");
+    var crmModalBody = document.getElementById("crmModalBody");
+    var crmModalClose = document.getElementById("crmModalClose");
+
+    function crmEnsureModal(){
+      if (document.getElementById("crmModalOverlay")) return;
+      var overlay = document.createElement("div");
+      overlay.id = "crmModalOverlay";
+      overlay.style.display = "none";
+      overlay.style.position = "fixed";
+      overlay.style.inset = "0";
+      overlay.style.background = "rgba(0,0,0,.5)";
+      overlay.style.zIndex = "9999";
+      overlay.style.alignItems = "center";
+      overlay.style.justifyContent = "center";
+
+      var modal = document.createElement("div");
+      modal.id = "crmModal";
+      modal.style.background = "#fff";
+      modal.style.width = "92%";
+      modal.style.maxWidth = "760px";
+      modal.style.maxHeight = "85vh";
+      modal.style.overflow = "auto";
+      modal.style.borderRadius = "12px";
+      modal.style.boxShadow = "0 10px 30px rgba(0,0,0,.25)";
+
+      var header = document.createElement("div");
+      header.style.display = "flex";
+      header.style.alignItems = "flex-start";
+      header.style.justifyContent = "space-between";
+      header.style.gap = "12px";
+      header.style.padding = "14px 16px 10px 16px";
+      header.style.borderBottom = "1px solid rgba(0,0,0,.08)";
+
+      var titleWrap = document.createElement("div");
+      titleWrap.style.minWidth = "0";
+
+      var title = document.createElement("div");
+      title.id = "crmModalTitle";
+      title.style.fontWeight = "700";
+      title.style.fontSize = "16px";
+      title.style.lineHeight = "1.2";
+      title.style.wordBreak = "break-word";
+
+      var sub = document.createElement("div");
+      sub.id = "crmModalSub";
+      sub.style.opacity = "0.7";
+      sub.style.marginTop = "4px";
+      sub.style.fontSize = "13px";
+      sub.style.wordBreak = "break-word";
+
+      titleWrap.appendChild(title);
+      titleWrap.appendChild(sub);
+
+      var close = document.createElement("button");
+      close.id = "crmModalClose";
+      close.type = "button";
+      close.textContent = "✕";
+      close.style.border = "0";
+      close.style.background = "transparent";
+      close.style.cursor = "pointer";
+      close.style.fontSize = "18px";
+      close.style.lineHeight = "1";
+      close.style.padding = "4px 6px";
+      close.style.borderRadius = "8px";
+
+      header.appendChild(titleWrap);
+      header.appendChild(close);
+
+      var body = document.createElement("div");
+      body.id = "crmModalBody";
+      body.style.padding = "12px 16px 16px 16px";
+
+      modal.appendChild(header);
+      modal.appendChild(body);
+      overlay.appendChild(modal);
+      document.body.appendChild(overlay);
+
+      crmModalOverlay = overlay;
+      crmModalTitle = title;
+      crmModalSub = sub;
+      crmModalBody = body;
+      crmModalClose = close;
+
+      crmModalClose.addEventListener("click", crmCloseModal);
+      crmModalOverlay.addEventListener("click", function(e){
+        if (e.target === crmModalOverlay) crmCloseModal();
+      });
+    }
+
+    crmEnsureModal();
+
+
+    function crmOpenModal(title, sub, bodyEl){
+      if (!crmModalOverlay || !crmModalTitle || !crmModalSub || !crmModalBody) crmEnsureModal();
+      crmModalTitle.textContent = title || "—";
+      crmModalSub.textContent = sub || "";
+      crmModalBody.innerHTML = "";
+      if (bodyEl) crmModalBody.appendChild(bodyEl);
+      crmModalOverlay.style.display = "flex";
+      crmModalOverlay.setAttribute("aria-hidden", "false");
+    }
+    function crmCloseModal(){
+      crmModalOverlay.style.display = "none";
+      crmModalOverlay.setAttribute("aria-hidden", "true");
+      crmModalBody.innerHTML = "";
+    }
+    if (crmModalClose) crmModalClose.addEventListener("click", crmCloseModal);
+    if (crmModalOverlay) crmModalOverlay.addEventListener("click", function(e){
+      if (e.target === crmModalOverlay) crmCloseModal();
+    });
+
+    function crmId(prefix){
+      return (prefix || "id") + "_" + Math.random().toString(16).slice(2) + Date.now().toString(16);
+    }
+
+    function crmActivePipeline(){
+      if (!crmState) return null;
+      return (crmState.pipelines || []).find(function(p){ return p.id === crmState.activePipelineId; }) || (crmState.pipelines || [])[0] || null;
+    }
+
+    function crmAllPlacedLeadIds(pipeline){
+      var placed = Object.create(null);
+      (pipeline.stageOrder || []).forEach(function(sid){
+        var st = pipeline.stages && pipeline.stages[sid];
+        (st && st.leadIds || []).forEach(function(lid){ placed[lid] = true; });
+      });
+      return placed;
+    }
+
+    async function crmFetchJson(url, opts){
+      var r = await fetch(url, Object.assign({ headers: { "Content-Type": "application/json" } }, opts || {}));
+      var j = await r.json().catch(function(){ return null; });
+      if (!r.ok || !j || j.ok === false) {
+        throw new Error((j && j.error) || ("Falha HTTP " + r.status));
+      }
+      return j;
+    }
+
+    
+    function crmDigitsOnly(s){ return String(s||"").replace(/\D+/g,""); }
+
+    function crmValidateManualLead(payload){
+      var nome = String(payload.nome||"").trim();
+      var email = String(payload.email||"").trim();
+      var wa = crmDigitsOnly(payload.whatsapp||"");
+      if (!nome) return { ok:false, error:"Nome é obrigatório." };
+      if (!email && wa.length < 10) return { ok:false, error:"Informe e-mail ou WhatsApp válido." };
+      return { ok:true };
+    }
+
+    async function crmCreateLeadAndPlace(payload){
+      // cria lead no backend e devolve o objeto lead
+      var v = crmValidateManualLead(payload);
+      if (!v.ok) throw new Error(v.error);
+      var res = await crmFetchJson(CRM_API_PREFIX + "/leads/manual", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify(payload || {})
+      });
+      if (!res || !res.ok) throw new Error((res && res.error) ? res.error : "Falha ao criar lead.");
+      return res.lead;
+    }
+
+    function crmGetDefaultStageIdForCurrentFunnel(){
+      var f = crmGetActiveFunnel();
+      if (!f) return null;
+      var stageIds = Array.isArray(f.stageIds) ? f.stageIds : [];
+      if (stageIds.length) return stageIds[0];
+      // fallback: se tiver stages em f.stages (format antigo)
+      if (Array.isArray(f.stages) && f.stages.length) return f.stages[0].id;
+      return null;
+    }
+
+    async function crmCreateLeadAndPlace(payload){
+      // 1) cria lead
+      var lead = await crmCreateLeadAndPlace(payload);
+
+      // 2) injeta no cache local imediatamente
+      if (!crmLeadById) crmLeadById = Object.create(null);
+      crmLeadById[lead.id] = lead;
+      if (!Array.isArray(crmLeads)) crmLeads = [];
+      crmLeads.unshift(lead);
+
+      // 3) coloca no funil/etapa atual (primeira etapa)
+      var stageId = crmGetDefaultStageIdForCurrentFunnel();
+      if (!stageId) throw new Error("Funil sem etapas. Crie uma etapa primeiro.");
+
+      // garante que o lead entra no state mesmo se crmMoveLeadToStage esperar lead já existente
+      crmMoveLeadToStage(lead.id, stageId);
+
+      // re-render e salva (crmMoveLeadToStage já deve salvar; mas garantimos)
+      crmRender();
+      crmQueueSave();
+
+      return lead;
+    }
+
+function crmExtractLeads(payload){
+      if (!payload) return [];
+      if (Array.isArray(payload)) return payload;
+      if (Array.isArray(payload.items)) return payload.items;
+      if (Array.isArray(payload.leads)) return payload.leads;
+      if (Array.isArray(payload.data)) return payload.data;
+      for (var k in payload){
+        if (payload && Object.prototype.hasOwnProperty.call(payload,k) && Array.isArray(payload[k])) return payload[k];
+      }
+      return [];
+    }
+
+
+    async function crmLoad(){
+      var res = await Promise.all([
+        crmFetchJson(CRM_API_PREFIX + "/crm"),
+        crmFetchJson(CRM_API_PREFIX + "/leads")
+      ]);
+      crmState = res[0].state;
+      crmLeads = crmExtractLeads(res[1]);
+      crmLeadById = Object.create(null);
+      crmLeads.forEach(function(l){ if (l && l.id) crmLeadById[l.id] = l; });
+    }
+
+    function crmQueueSave(){
+      if (!crmState) return;
+      if (crmSaveTimer) clearTimeout(crmSaveTimer);
+      crmSaveTimer = setTimeout(crmSaveNow, 150);
+    }
+
+    async function crmSaveNow(){
+      if (!crmState) return;
+      if (crmSaving) return;
+      crmSaving = true;
+      try {
+        await crmFetchJson(CRM_API_PREFIX + "/crm", {
+          method: "PUT",
+          body: JSON.stringify({ state: crmState })
+        });
+      } catch (e) {
+        console.error(e);
+        alert("Erro ao salvar CRM: " + e.message);
+      } finally {
+        crmSaving = false;
+      }
+    }
+
+    function crmSetActivePipeline(pid){
+      crmState.activePipelineId = pid;
+      crmRender();
+      crmQueueSave();
+    }
+
+    function crmPromptRename(label, current){
+      var v = prompt("Renomear " + label + ":", current || "");
+      if (v == null) return null;
+      v = String(v).trim();
+      if (!v) return null;
+      return v;
+    }
+
+    function crmConfirm(msg){
+      return confirm(msg);
+    }
+
+    function crmRenderTabs(){
+      crmPipelinesBar.innerHTML = "";
+      var pipes = crmState.pipelines || [];
+      pipes.forEach(function(p){
+        var tab = document.createElement("button");
+        tab.type = "button";
+        tab.className = "crmTab" + (p.id === crmState.activePipelineId ? " active" : "");
+        var placedCount = 0;
+        (p.stageOrder || []).forEach(function(sid){
+          var st = p.stages && p.stages[sid];
+          placedCount += (st && st.leadIds ? st.leadIds.length : 0);
+        });
+        tab.innerHTML = "<span style='max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (p.name || "Funil") + "</span>" +
+                        "<span class='pill'>" + placedCount + "</span>" +
+                        "<span style='margin-left:auto;opacity:.75;font-weight:900;'>⋯</span>";
+        tab.addEventListener("click", function(){
+          // clique no tab ativa; clique no ⋯ abre opções
+          crmSetActivePipeline(p.id);
+        });
+        tab.addEventListener("contextmenu", function(e){
+          e.preventDefault();
+          crmPipelineMenu(p);
+        });
+        tab.addEventListener("dblclick", function(e){
+          e.preventDefault();
+          var nn = crmPromptRename("funil", p.name);
+          if (!nn) return;
+          p.name = nn;
+          crmRender();
+          crmQueueSave();
+        });
+        tab.addEventListener("mouseup", function(e){
+          // se clicou no ⋯, abre menu
+          var rect = tab.getBoundingClientRect();
+          if (e.clientX > rect.right - 38) {
+            crmPipelineMenu(p);
+          }
+        });
+        crmPipelinesBar.appendChild(tab);
+      });
+    }
+
+    function crmPipelineMenu(p){
+      var act = prompt("Opções do funil:\n1) Renomear\n2) Excluir\n\nDigite 1 ou 2:");
+      if (!act) return;
+      act = String(act).trim();
+      if (act === "1") {
+        var nn = crmPromptRename("funil", p.name);
+        if (!nn) return;
+        p.name = nn;
+        crmRender();
+        crmQueueSave();
+        return;
+      }
+      if (act === "2") {
+        if (!crmConfirm("Excluir o funil '" + p.name + "'? Isso remove as etapas e posições (os leads continuam existindo).")) return;
+        crmState.pipelines = (crmState.pipelines || []).filter(function(x){ return x.id !== p.id; });
+        if (!crmState.pipelines.length) {
+          // cria um novo default bem simples
+          var np = {
+            id: crmId("pipe"),
+            name: "Funil Principal",
+            createdAt: new Date().toISOString(),
+            stageOrder: [],
+            stages: {}
+          };
+          crmState.pipelines = [np];
+          crmState.activePipelineId = np.id;
+        } else if (crmState.activePipelineId === p.id) {
+          crmState.activePipelineId = crmState.pipelines[0].id;
+        }
+        crmRender();
+        crmQueueSave();
+      }
+    }
+
+    function crmRenderBoard(){
+      crmBoard.innerHTML = "";
+      var p = crmActivePipeline();
+      if (!p) {
+        crmBoard.innerHTML = "<div class='hint'>Sem funil.</div>";
+        return;
+      }
+
+      (p.stageOrder || []).forEach(function(stageId, idx){
+        var st = p.stages[stageId];
+        var col = document.createElement("div");
+        col.className = "crmCol";
+        col.dataset.stageId = stageId;
+
+        var head = document.createElement("div");
+        head.className = "crmColHead";
+
+        var title = document.createElement("div");
+        title.className = "crmColTitle";
+        var count = (st.leadIds || []).length;
+        title.innerHTML = "<b title='" + (st.name || "") + "' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (st.name || "Etapa") + "</b>" +
+                          "<span>" + count + " lead(s)</span>";
+
+        var actions = document.createElement("div");
+        actions.className = "crmColActions";
+        actions.innerHTML =
+          "<button class='btnMini' title='Mover para esquerda'>←</button>" +
+          "<button class='btnMini' title='Mover para direita'>→</button>" +
+          "<button class='btnMini' title='Renomear'>✎</button>" +
+          "<button class='btnMini' title='Excluir'>🗑</button>";
+
+        var btnLeft = actions.children[0];
+        var btnRight = actions.children[1];
+        var btnRen = actions.children[2];
+        var btnDel = actions.children[3];
+
+        btnLeft.addEventListener("click", function(){
+          if (idx <= 0) return;
+          var a = p.stageOrder[idx-1];
+          p.stageOrder[idx-1] = p.stageOrder[idx];
+          p.stageOrder[idx] = a;
+          crmRenderBoard();
+          crmQueueSave();
+        });
+        btnRight.addEventListener("click", function(){
+          if (idx >= p.stageOrder.length-1) return;
+          var a = p.stageOrder[idx+1];
+          p.stageOrder[idx+1] = p.stageOrder[idx];
+          p.stageOrder[idx] = a;
+          crmRenderBoard();
+          crmQueueSave();
+        });
+        btnRen.addEventListener("click", function(){
+          var nn = crmPromptRename("etapa", st.name);
+          if (!nn) return;
+          st.name = nn;
+          crmRenderBoard();
+          crmQueueSave();
+        });
+        btnDel.addEventListener("click", function(){
+          if (!crmConfirm("Excluir a etapa '" + st.name + "'?")) return;
+          // ao excluir: leads viram "sem etapa" (não perde lead)
+          delete p.stages[stageId];
+          p.stageOrder = p.stageOrder.filter(function(x){ return x !== stageId; });
+          crmRender();
+          crmQueueSave();
+        });
+
+        head.appendChild(title);
+        head.appendChild(actions);
+
+        var body = document.createElement("div");
+        body.className = "crmColBody";
+        body.dataset.stageId = stageId;
+
+        body.addEventListener("dragover", function(e){ e.preventDefault(); body.classList.add("crmDropHint"); });
+        body.addEventListener("dragleave", function(){ body.classList.remove("crmDropHint"); });
+        body.addEventListener("drop", function(e){
+          e.preventDefault();
+          body.classList.remove("crmDropHint");
+          var leadId = e.dataTransfer.getData("text/plain");
+          if (!leadId) return;
+          crmMoveLeadToStage(leadId, stageId);
+        });
+
+        (st.leadIds || []).forEach(function(leadId){
+          var lead = crmLeadById[leadId];
+          var card = crmMakeCard(leadId, lead, st, p);
+          body.appendChild(card);
+        });
+
+        col.appendChild(head);
+        col.appendChild(body);
+        crmBoard.appendChild(col);
+      });
+    }
+
+    function crmFormatDate(iso){
+      if (!iso) return "";
+      try {
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return String(iso);
+        return d.toLocaleString("pt-BR");
+      } catch(e) {
+        return String(iso);
+      }
+    }
+
+    function crmMakeCard(leadId, lead, stage, pipeline){
+      var card = document.createElement("div");
+      card.className = "crmCard";
+      card.draggable = true;
+      card.dataset.leadId = leadId;
+
+      var nome = (lead && lead.nome) ? lead.nome : ("Lead " + leadId.slice(0,6));
+      var contato = "";
+      if (lead) {
+        contato = lead.whatsapp_raw || lead.email || "";
+        if (!contato) contato = lead.whatsapp_digits || "";
+      }
+      var origem = lead && lead.source ? lead.source : (lead && lead.origem ? lead.origem : "");
+      var created = lead && lead.createdAt ? crmFormatDate(lead.createdAt) : "";
+
+      card.innerHTML =
+        "<div class='crmCardTop'>" +
+          "<div style='min-width:0;'>" +
+            "<div class='crmName' title='" + nome.replace(/'/g,"&#39;") + "'>" + nome + "</div>" +
+            "<div class='crmMeta'>" +
+              (contato ? ("<div>📞/✉ " + contato + "</div>") : "") +
+              (origem ? ("<div>Origem: " + origem + "</div>") : "") +
+              (created ? ("<div>Criado: " + created + "</div>") : "") +
+              ("<div>Status: " + (stage.name || "—") + "</div>") +
+            "</div>" +
+          "</div>" +
+          "<div class='crmCardBtns'>" +
+            "<button class='btnMini' title='Mover para...'>⇄</button>" +
+            "<button class='btnMini' title='Detalhes'>👁</button>" +
+          "</div>" +
+        "</div>";
+
+      var btnMove = card.querySelectorAll(".btnMini")[0];
+      var btnView = card.querySelectorAll(".btnMini")[1];
+
+      btnMove.addEventListener("click", function(e){
+        e.stopPropagation();
+        crmOpenMoveMenu(leadId, pipeline);
+      });
+      btnView.addEventListener("click", function(e){
+        e.stopPropagation();
+        crmOpenLeadDetails(leadId);
+      });
+      card.addEventListener("dblclick", function(){ crmOpenLeadDetails(leadId); });
+
+      card.addEventListener("dragstart", function(e){
+        card.classList.add("dragging");
+        e.dataTransfer.setData("text/plain", leadId);
+        e.dataTransfer.effectAllowed = "move";
+      });
+      card.addEventListener("dragend", function(){ card.classList.remove("dragging"); });
+      return card;
+    }
+
+    function crmRemoveLeadEverywhere(pipeline, leadId){
+      (pipeline.stageOrder || []).forEach(function(sid){
+        var st = pipeline.stages[sid];
+        st.leadIds = (st.leadIds || []).filter(function(x){ return x !== leadId; });
+      });
+    }
+
+    function crmMoveLeadToStage(leadId, toStageId){
+      var p = crmActivePipeline();
+      if (!p) return;
+      if (!p.stages[toStageId]) return;
+      crmRemoveLeadEverywhere(p, leadId);
+      p.stages[toStageId].leadIds = p.stages[toStageId].leadIds || [];
+      p.stages[toStageId].leadIds.push(leadId);
+      crmRenderBoard(); // atualização na hora
+      crmQueueSave();   // persistência automática
+    }
+
+    function crmOpenMoveMenu(leadId, pipeline){
+      var wrap = document.createElement("div");
+      var row = document.createElement("div");
+      row.className = "crmFormRow";
+      var label = document.createElement("label");
+      label.innerHTML = "Mover para etapa<select id='crmMoveSelect'></select>";
+      row.appendChild(label);
+      wrap.appendChild(row);
+
+      var sel = label.querySelector("select");
+      (pipeline.stageOrder || []).forEach(function(sid){
+        var st = pipeline.stages[sid];
+        var opt = document.createElement("option");
+        opt.value = sid;
+        opt.textContent = st.name;
+        sel.appendChild(opt);
+      });
+
+      var btnRow = document.createElement("div");
+      btnRow.style.display = "flex";
+      btnRow.style.gap = "8px";
+      btnRow.style.marginTop = "12px";
+      btnRow.style.justifyContent = "flex-end";
+      btnRow.innerHTML = "<button class='btn' type='button'>Cancelar</button><button class='btn btnPrimary' type='button'>Mover</button>";
+      wrap.appendChild(btnRow);
+
+      btnRow.children[0].addEventListener("click", crmCloseModal);
+      btnRow.children[1].addEventListener("click", function(){
+        crmMoveLeadToStage(leadId, sel.value);
+        crmCloseModal();
+      });
+
+      crmOpenModal("Mover lead", "Escolha a etapa de destino.", wrap);
+    }
+
+    function crmOpenLeadDetails(leadId){
+      var lead = crmLeadById[leadId] || null;
+      var p = crmActivePipeline();
+      var stageName = "";
+      if (p) {
+        (p.stageOrder || []).some(function(sid){
+          var st = p.stages[sid];
+          if ((st.leadIds || []).includes(leadId)) { stageName = st.name; return true; }
+          return false;
+        });
+      }
+      var box = document.createElement("div");
+      box.className = "crmList";
+      function add(k,v){
+        var it = document.createElement("div");
+        it.className = "crmListItem";
+        it.innerHTML = "<div style='display:flex;flex-direction:column;gap:2px;min-width:0;'><b>" + k + "</b><small style='word-break:break-word;'>" + (v || "—") + "</small></div>";
+        box.appendChild(it);
+      }
+      add("Nome", lead && lead.nome);
+      add("WhatsApp", lead && (lead.whatsapp_raw || lead.whatsapp_digits));
+      add("E-mail", lead && lead.email);
+      add("Origem", lead && (lead.source || lead.origem));
+      add("Criado em", lead && lead.createdAt ? crmFormatDate(lead.createdAt) : "");
+      add("Status", stageName || "—");
+      add("Empresa", lead && lead.empresa);
+      add("Website", lead && lead.website);
+      add("Já anuncia", lead && lead.jaAnuncia);
+
+      crmOpenModal("Detalhes do lead", "Lead ID: " + leadId, box);
+    }
+
+    function crmAddPipeline(){
+      var name = prompt("Nome do novo funil:", "Novo Funil");
+      if (name == null) return;
+      name = String(name).trim();
+      if (!name) return;
+      var np = {
+        id: crmId("pipe"),
+        name: name,
+        createdAt: new Date().toISOString(),
+        stageOrder: [],
+        stages: {}
+      };
+      // cria 1 etapa default
+      var s0 = { id: crmId("stg"), name: "Novo lead", leadIds: [] };
+      np.stageOrder.push(s0.id);
+      np.stages[s0.id] = s0;
+
+      crmState.pipelines = crmState.pipelines || [];
+      crmState.pipelines.push(np);
+      crmState.activePipelineId = np.id;
+      crmRender();
+      crmQueueSave();
+    }
+
+    function crmAddStage(){
+      var p = crmActivePipeline();
+      if (!p) return;
+      var name = prompt("Nome da nova etapa:", "Nova etapa");
+      if (name == null) return;
+      name = String(name).trim();
+      if (!name) return;
+      var st = { id: crmId("stg"), name: name, leadIds: [] };
+      p.stages = p.stages || {};
+      p.stageOrder = p.stageOrder || [];
+      p.stages[st.id] = st;
+      p.stageOrder.push(st.id);
+      crmRenderBoard();
+      crmQueueSave();
+    }
+
+    function crmOpenImportLead(){
+      var p = crmActivePipeline();
+      if (!p) return;
+
+      var wrap = document.createElement("div");
+      var row = document.createElement("div");
+      row.className = "crmFormRow";
+      row.innerHTML =
+        "<label>Buscar<input id='crmImpQ' placeholder='nome, email, whatsapp...'></label>" +
+        "<label>Etapa destino<select id='crmImpStage'></select></label>";
+      wrap.appendChild(row);
+
+      var sel = row.querySelector("#crmImpStage");
+      (p.stageOrder || []).forEach(function(sid){
+        var st = p.stages[sid];
+        var opt = document.createElement("option");
+        opt.value = sid;
+        opt.textContent = st.name;
+        sel.appendChild(opt);
+      });
+
+      var list = document.createElement("div");
+      list.className = "crmList";
+      wrap.appendChild(list);
+
+      var placed = crmAllPlacedLeadIds(p);
+
+      function renderList(q){
+        list.innerHTML = "";
+        q = (q || "").toLowerCase().trim();
+        var items = crmLeads.filter(function(l){
+          if (!l || !l.id) return false;
+          if (placed[l.id]) return false; // já no funil
+          if (!q) return true;
+          var s = ((l.nome||"") + " " + (l.email||"") + " " + (l.whatsapp_raw||"") + " " + (l.whatsapp_digits||"") + " " + (l.source||"")).toLowerCase();
+          return s.indexOf(q) !== -1;
+        }).slice(0, 80);
+
+        if (!items.length) {
+          var empty = document.createElement("div");
+          empty.className = "hint";
+          empty.textContent = "Nenhum lead disponível para importar (ou já estão no funil).";
+          list.appendChild(empty);
+          return;
+        }
+
+        items.forEach(function(l){
+          var it = document.createElement("div");
+          it.className = "crmListItem";
+          var contato = l.whatsapp_raw || l.email || l.whatsapp_digits || "";
+          it.innerHTML =
+            "<div style='min-width:0;'>" +
+              "<b style='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (l.nome||"—") + "</b>" +
+              "<small style='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + contato + (l.source ? (" • " + l.source) : "") + "</small>" +
+            "</div>" +
+            "<button class='btn btnPrimary' type='button'>Adicionar</button>";
+          it.querySelector("button").addEventListener("click", function(){
+            crmMoveLeadToStage(l.id, sel.value);
+            placed[l.id] = true;
+            renderList(row.querySelector("#crmImpQ").value);
+          });
+          list.appendChild(it);
+        });
+      }
+
+      row.querySelector("#crmImpQ").addEventListener("input", function(e){
+        renderList(e.target.value);
+      });
+
+      renderList("");
+
+      crmOpenModal("Importar lead", "Leads já existentes no sistema.", wrap);
+    }
+
+    function crmOpenNewLead(){
+      var p = crmActivePipeline();
+      if (!p) return;
+
+      var wrap = document.createElement("div");
+      var row1 = document.createElement("div");
+      row1.className = "crmFormRow";
+      row1.innerHTML =
+        "<label>Nome<input id='crmNewNome' placeholder='Nome do lead'></label>" +
+        "<label>E-mail<input id='crmNewEmail' placeholder='email@exemplo.com'></label>" +
+        "<label>WhatsApp<input id='crmNewZap' placeholder='(11) 99999-9999'></label>";
+      wrap.appendChild(row1);
+
+      var row2 = document.createElement("div");
+      row2.className = "crmFormRow";
+      row2.style.marginTop = "10px";
+      row2.innerHTML =
+        "<label>Origem<input id='crmNewSource' placeholder='manual'></label>" +
+        "<label>Etapa<select id='crmNewStage'></select></label>";
+      wrap.appendChild(row2);
+
+      var sel = row2.querySelector("#crmNewStage");
+      (p.stageOrder || []).forEach(function(sid){
+        var st = p.stages[sid];
+        var opt = document.createElement("option");
+        opt.value = sid;
+        opt.textContent = st.name;
+        sel.appendChild(opt);
+      });
+
+      var btnRow = document.createElement("div");
+      btnRow.style.display = "flex";
+      btnRow.style.gap = "8px";
+      btnRow.style.marginTop = "12px";
+      btnRow.style.justifyContent = "flex-end";
+      btnRow.innerHTML = "<button class='btn' type='button'>Cancelar</button><button class='btn btnPrimary' type='button'>Criar</button>";
+      wrap.appendChild(btnRow);
+
+      btnRow.children[0].addEventListener("click", crmCloseModal);
+      btnRow.children[1].addEventListener("click", async function(){
+        var nome = row1.querySelector("#crmNewNome").value.trim();
+        var email = row1.querySelector("#crmNewEmail").value.trim();
+        var whatsapp = row1.querySelector("#crmNewZap").value.trim();
+        var source = row2.querySelector("#crmNewSource").value.trim() || "manual";
+        if (!nome) return alert("Nome é obrigatório.");
+        if (!email && !whatsapp) return alert("Informe e-mail ou WhatsApp.");
+        try {
+          var j = await crmFetchJson(CRM_API_PREFIX + "/leads/manual", {
+            method: "POST",
+            body: JSON.stringify({ nome: nome, email: email, whatsapp: whatsapp, source: source })
+          });
+          var lead = j.lead;
+          crmLeads.unshift(lead);
+          crmLeadById[lead.id] = lead;
+          crmMoveLeadToStage(lead.id, sel.value);
+          crmCloseModal();
+        } catch (e) {
+          alert("Erro ao criar lead: " + e.message);
+        }
+      });
+
+      crmOpenModal("Novo lead manual", "Cria lead e adiciona direto no funil.", wrap);
+    }
+
+    function crmRender(){
+      if (!crmState) return;
+      crmRenderTabs();
+      crmRenderBoard();
+    }
+
+    async function crmBoot(){
+      if (crmLoadedOnce) return;
+      crmLoadedOnce = true;
+      try {
+        await crmLoad();
+        crmRender();
+      } catch (e) {
+        console.error(e);
+        alert("Falha ao carregar CRM: " + e.message);
+      }
+    }
+
+    if (crmBtnNewPipeline) crmBtnNewPipeline.addEventListener("click", crmAddPipeline);
+    if (crmBtnNewStage) crmBtnNewStage.addEventListener("click", crmAddStage);
+    if (crmBtnImportLead) crmBtnImportLead.addEventListener("click", crmOpenImportLead);
+    if (crmBtnNewLead) crmBtnNewLead.addEventListener("click", crmOpenNewLead);
+
+</script>
+<script>
+(function(){
+  function setPagerVisible(v){
+    var bar = document.getElementById('pagerBar') || document.getElementById('pageBar') || document.querySelector('[data-pager]');
+    if(!bar) return;
+    bar.style.display = v ? '' : 'none';
+    document.body.classList.toggle('hasPager', !!v);
+  }
+  function showOnly(targetId){
+    var ids = ['reginaLeads','reginaCrm','reginaOwner','panelTags','reginaTags','panelCloud','reginaCloud'].filter(Boolean);
+    ids.forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el) return;
+      el.style.display = (id===targetId) ? (id===' reginaOwner' ? 'flex':'') : 'none';
+    });
+  }
+  var btnLeads=document.getElementById('navLeads');
+  var btnTags=document.getElementById('navTags');
+  var btnCrm=document.getElementById('navCrm');
+  var btnCloud=document.getElementById('navCloud');
+  var btnOwner=document.getElementById('navOwner');
+
+  if(btnLeads) btnLeads.addEventListener('click', function(){ setPagerVisible(true); }, true);
+  if(btnTags) btnTags.addEventListener('click', function(){ setPagerVisible(true); }, true);
+  if(btnCrm) btnCrm.addEventListener('click', function(){ setPagerVisible(false); }, true);
+  if(btnCloud) btnCloud.addEventListener('click', function(){ setPagerVisible(false); }, true);
+  if(btnOwner) btnOwner.addEventListener('click', function(){ setPagerVisible(false); }, true);
+
+  // Owner screen loader
+  async function loadOwner(){
+    try{
+      const r=await fetch('/api/business');
+      const j=await r.json();
+      const o=j.owner||{};
+      const set=(id,v)=>{ const el=document.getElementById(id); if(el) el.value=v||''; };
+      set('ownerName', o.name);
+      set('ownerBusiness', o.business);
+      set('ownerEmail', o.email);
+      set('ownerWhatsapp', o.whatsapp);
+    }catch(e){}
+  }
+  loadOwner();
+
+  var saveBtn=document.getElementById('ownerSave');
+  if(saveBtn) saveBtn.addEventListener('click', async function(){
+    const body={ owner:{
+      name: (document.getElementById('ownerName')||{}).value||'',
+      business: (document.getElementById('ownerBusiness')||{}).value||'',
+      email: (document.getElementById('ownerEmail')||{}).value||'',
+      whatsapp: (document.getElementById('ownerWhatsapp')||{}).value||''
+    } };
+    const r=await fetch('/api/business',{method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+    if(r.ok) alert('Salvo.'); else alert('Falha ao salvar.');
+  });
+
+  // default
+  setTimeout(function(){ setPagerVisible(true); }, 0);
+})();
+</script>
+</body>
+</html>

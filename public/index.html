@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário - Leads</title>
+    <style>
+      body { font-family: Arial, sans-serif; background:#f6f6f6; padding: 30px; }
+      .card { max-width: 720px; margin: 0 auto; background:#fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+      label { display:block; margin-top: 12px; font-weight: 600; }
+      input, select { width: 100%; padding: 10px; margin-top: 6px; border: 1px solid #ccc; border-radius: 6px; }
+      button { margin-top: 16px; padding: 12px 16px; border: 0; border-radius: 8px; cursor: pointer; font-weight: 700; }
+      button { background: #2b6cb0; color: #fff; }
+      .msg { margin-top: 14px; padding: 10px; border-radius: 8px; display:none; }
+      .ok { background:#e6fffa; color:#234e52; }
+      .err { background:#fff5f5; color:#742a2a; }
+      small { color:#666; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Quero saber mais</h2>
+      <small>Teste local: envia para o backend e salva em <b>data/leads.jsonl</b>.</small>
+
+      <form id="leadForm">
+        <label>Nome *</label>
+        <input name="nome" placeholder="Digite seu primeiro nome" required />
+
+        <label>Empresa *</label>
+        <input name="empresa" placeholder="Digite o nome da sua empresa ou a área de atuação" required />
+
+        <label>Já anuncia no Google ADS?</label>
+        <select name="jaAnuncia">
+          <option value="">Selecione</option>
+          <option value="Sim">Sim</option>
+          <option value="Não">Não</option>
+          <option value="Já anunciei, parei">Já anunciei, parei</option>
+        </select>
+
+        <label>Digite seu website aqui *</label>
+        <input name="website" placeholder="Digite seu website aqui" required />
+
+        <label>E-mail *</label>
+        <input name="email" type="email" placeholder="Digite seu e-mail" required />
+
+        <label>Whatsapp *</label>
+        <input name="whatsapp" placeholder="Digite seu telefone Whatsapp (DDD + número)" required />
+
+        <button type="submit">QUERO SABER MAIS</button>
+
+        <div id="msg" class="msg"></div>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("leadForm");
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        msg.style.display = "none";
+        msg.className = "msg";
+
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        try {
+          const res = await fetch("/api/leads", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          const json = await res.json();
+
+          if (!res.ok) throw new Error(json.error || "Erro desconhecido");
+
+          msg.textContent = `✅ Enviado! LeadId: ${json.leadId}`;
+          msg.classList.add("ok");
+          msg.style.display = "block";
+          form.reset();
+        } catch (err) {
+          msg.textContent = `❌ ${err.message}`;
+          msg.classList.add("err");
+          msg.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>

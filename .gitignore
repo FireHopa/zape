@@ -1,0 +1,91 @@
+# 🔒 Variáveis de ambiente
+.env
+.env.*
+*.env
+
+# 📦 Dependências
+node_modules/
+vendor/
+
+# 🧠 Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 🗂️ Build / Dist
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# ⚙️ Sistema operacional
+.DS_Store
+Thumbs.db
+
+# 🧪 Testes
+coverage/
+*.lcov
+
+# 🧾 IDEs / Editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# 🔐 Chaves / segurança
+*.pem
+*.key
+*.crt
+*.p12
+
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.venv/
+
+# 🐳 Docker
+docker-compose.override.yml
+
+# 🐘 Banco de dados
+*.sqlite
+*.db
+
+# 📸 Uploads / arquivos gerados
+uploads/
+tmp/
+temp/
+
+# 📦 Arquivos compactados
+*.zip
+*.tar
+*.gz
+*.rar
+
+# 🧱 Arquivos de build específicos
+*.tsbuildinfo
+
+# ⚡ Cache geral
+.cache/
+.parcel-cache/
+
+# 🧩 Outros
+*.swp
+*.swo
+# 🔐 Todas sessões do wwebjs
+**/wwebjs_auth/
+**/wwebjs_cache/
+
+# 🧠 Chrome (automação)
+chrome/
