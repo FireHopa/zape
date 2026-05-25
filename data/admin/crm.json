@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "activePipelineId": "pipe_main",
+  "pipelines": [
+    {
+      "id": "pipe_main",
+      "name": "Funil Principal",
+      "createdAt": "2026-04-29T14:37:53.708Z",
+      "stageOrder": [
+        "stg_new",
+        "stg_contact",
+        "stg_meeting",
+        "stg_proposal",
+        "stg_won",
+        "stg_9024c7402b27b819dd9adbce7",
+        "stg_fece3e48d3843819dd9adc389"
+      ],
+      "stages": {
+        "stg_new": {
+          "id": "stg_new",
+          "name": "Novo lead",
+          "leadIds": []
+        },
+        "stg_contact": {
+          "id": "stg_contact",
+          "name": "Contato",
+          "leadIds": [
+            "e6d14dfe7c41fa79e63bbe6f"
+          ]
+        },
+        "stg_meeting": {
+          "id": "stg_meeting",
+          "name": "Reunião",
+          "leadIds": []
+        },
+        "stg_proposal": {
+          "id": "stg_proposal",
+          "name": "Proposta",
+          "leadIds": []
+        },
+        "stg_won": {
+          "id": "stg_won",
+          "name": "Fechou",
+          "leadIds": []
+        },
+        "stg_9024c7402b27b819dd9adbce7": {
+          "id": "stg_9024c7402b27b819dd9adbce7",
+          "name": "Nova etapa",
+          "leadIds": []
+        },
+        "stg_fece3e48d3843819dd9adc389": {
+          "id": "stg_fece3e48d3843819dd9adc389",
+          "name": "Nova etapa",
+          "leadIds": []
+        }
+      }
+    },
+    {
+      "id": "pipe_826505558934319dd9adb080",
+      "name": "Novo Funil",
+      "createdAt": "2026-04-29T14:38:52.032Z",
+      "stageOrder": [
+        "stg_6ce05538fe9d19dd9adb080"
+      ],
+      "stages": {
+        "stg_6ce05538fe9d19dd9adb080": {
+          "id": "stg_6ce05538fe9d19dd9adb080",
+          "name": "Novo lead",
+          "leadIds": []
+        }
+      }
+    }
+  ],
+  "updatedAt": "2026-04-29T15:29:52.349Z"
+}

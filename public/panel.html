@@ -957,22 +957,7 @@ html, body { height: 100%; overflow: hidden; }
   border-top-right-radius: 18px !important;
 }
 
-.crmBoard{
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(320px, 1fr)) !important;
-  gap: 14px !important;
-  align-content: start !important;
-  padding: 14px !important;
-  overflow: auto !important; /* scroll quando precisar */
-  scrollbar-gutter: stable both-edges;
-}
-
-@media (max-width: 1120px){
-  .crmBoard{ grid-template-columns: repeat(2, minmax(320px, 1fr)) !important; }
-}
-@media (max-width: 760px){
-  .crmBoard{ grid-template-columns: 1fr !important; }
-}
+.crmBoard{ display:flex !important; flex-wrap:nowrap !important; gap:14px !important; width:max-content !important; min-width:max-content !important; overflow:visible !important; padding:14px !important; }
 
 .crmCol{
   background: rgba(255,255,255,.92) !important;
@@ -1054,6 +1039,45 @@ html, body { height: 100%; overflow: hidden; }
 }
 /* === end polish === */
 </style>
+
+<style id="hotfix-ux-crm-20260429">
+/* Hotfix final: Kanban sempre em linha única, com scroll horizontal real. */
+html, body { height: 100%; overflow: hidden !important; }
+.shell { height: 100vh !important; width: 100vw !important; overflow: hidden !important; }
+.shell > main { min-height: 0 !important; overflow: auto !important; }
+.tableWrap { max-height: calc(100vh - 340px) !important; overflow: auto !important; }
+.tableWrap > div { min-width: 860px; }
+#crmBoardWrap.crmBoardWrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 14px 4px 14px 4px !important;
+}
+#crmBoard.crmBoard {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  grid-template-columns: none !important;
+  align-items: stretch !important;
+  gap: 14px !important;
+  width: max-content !important;
+  min-width: max-content !important;
+  overflow: visible !important;
+  padding: 0 !important;
+}
+#crmBoard.crmBoard > .crmCol {
+  flex: 0 0 340px !important;
+  width: 340px !important;
+  min-width: 340px !important;
+  max-width: 340px !important;
+}
+.crmColBody { max-height: calc(100vh - 335px) !important; overflow-y: auto !important; }
+#tbody tr td { vertical-align: top; }
+.searchWrap input, #q { min-width: min(520px, 65vw) !important; }
+</style>
+
 </head>
 
 <body>
@@ -2987,7 +3011,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       return { ok:true };
     }
 
-    async function crmCreateLeadAndPlace(payload){
+    async function crmCreateManualLeadApi(payload){
       // cria lead no backend e devolve o objeto lead
       var v = crmValidateManualLead(payload);
       if (!v.ok) throw new Error(v.error);
@@ -3001,7 +3025,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
     }
 
     function crmGetDefaultStageIdForCurrentFunnel(){
-      var f = crmGetActiveFunnel();
+      var f = crmActivePipeline();
       if (!f) return null;
       var stageIds = Array.isArray(f.stageIds) ? f.stageIds : [];
       if (stageIds.length) return stageIds[0];
@@ -3012,7 +3036,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
 
     async function crmCreateLeadAndPlace(payload){
       // 1) cria lead
-      var lead = await crmCreateLeadAndPlace(payload);
+      var lead = await crmCreateManualLeadApi(payload);
 
       // 2) injeta no cache local imediatamente
       if (!crmLeadById) crmLeadById = Object.create(null);

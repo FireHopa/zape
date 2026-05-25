@@ -44,6 +44,9 @@ const {
 
 const app = express();
 
+// Respeita HTTPS quando o app roda atrás de Nginx/Cloudflare/PM2.
+app.set("trust proxy", true);
+
 const DEBUG = String(process.env.DEBUG || "").toLowerCase() === "true" || process.env.DEBUG === "1";
 const logOk = (...a) => console.log("[OK]", ...a);
 const logErr = (...a) => console.error("[ERROR]", ...a);
@@ -76,6 +79,52 @@ app.use(express.static(path.join(__dirname, "public")));
 /* -------------------- helpers -------------------- */
 function genId() {
   return crypto.randomBytes(12).toString("hex");
+}
+
+function getPublicBaseUrl(req) {
+  const envBase = String(process.env.PUBLIC_BASE_URL || process.env.APP_BASE_URL || "").trim().replace(/\/+$/, "");
+  if (envBase) return envBase;
+
+  const host = req.get("x-forwarded-host") || req.get("host") || "localhost";
+  const forwardedProto = String(req.get("x-forwarded-proto") || "").split(",")[0].trim();
+  const proto = forwardedProto || req.protocol || (req.secure ? "https" : "http");
+  return `${proto}://${host}`;
+}
+
+function summarizeLeadWhatsappStats(tenantId, { notDeliveredAfterMin = 30 } = {}) {
+  const timeout = Math.max(1, Number(notDeliveredAfterMin || 30)) * 60 * 1000;
+  const wa = getTenantWA(tenantId);
+  const leads = readLeads(tenantId);
+
+  const seen = new Set();
+  const out = {
+    replied: 0,
+    deliveredNoReply: 0,
+    notDelivered: 0,
+    notOnWhatsapp: 0,
+    pending: 0,
+    none: 0,
+    totalLeads: leads.length,
+    totalWithWhatsapp: 0,
+  };
+
+  for (const lead of leads) {
+    const digits = String((lead && lead.whatsapp_digits) || "").replace(/\D+/g, "");
+    if (!digits || seen.has(digits)) continue;
+    seen.add(digits);
+    out.totalWithWhatsapp++;
+
+    const ms = wa.getMessageStatusFor(digits);
+    const st = computeLeadStatus(ms, { notDeliveredAfterMs: timeout });
+    if (st === "replied") out.replied++;
+    else if (st === "delivered") out.deliveredNoReply++;
+    else if (st === "notDelivered") out.notDelivered++;
+    else if (st === "notExists") out.notOnWhatsapp++;
+    else if (st === "pending") out.pending++;
+    else out.none++;
+  }
+
+  return out;
 }
 
 async function saveLead(tenantId, lead) {
@@ -435,7 +484,7 @@ app.get("/api/admin/whatsapp/qr", adminAuth, (req, res) => {
 
 app.get("/api/admin/whatsapp/stats", adminAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...getTenantWA(TENANT_ADMIN).getMessageStats({ notDeliveredAfterMin }) });
+  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_ADMIN, { notDeliveredAfterMin }) });
 });
 
 app.get("/api/admin/tags", adminAuth, (req, res) => {
@@ -499,7 +548,7 @@ app.post("/api/admin/message-template", adminAuth, (req, res) => {
 
 // CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela
 app.get("/api/admin/webhooks", adminAuth, (req, res) => {
-  const base = `${req.protocol}://${req.get("host")}`;
+  const base = getPublicBaseUrl(req);
   const items = listWebhooks(TENANT_ADMIN).map((w) => ({
     id: w.id,
     createdAt: w.createdAt,
@@ -512,7 +561,7 @@ app.get("/api/admin/webhooks", adminAuth, (req, res) => {
 });
 
 app.post("/api/admin/webhooks", adminAuth, (req, res) => {
-  const base = `${req.protocol}://${req.get("host")}`;
+  const base = getPublicBaseUrl(req);
   const w = createWebhook(TENANT_ADMIN);
   res.json({ ok: true, id: w.id, createdAt: w.createdAt, url: `${base}/webhooks/${w.token}` });
 });
@@ -585,7 +634,7 @@ app.get("/api/panel/whatsapp/qr", panelAuth, (req, res) => {
 
 app.get("/api/panel/whatsapp/stats", panelAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...getTenantWA(TENANT_PANEL).getMessageStats({ notDeliveredAfterMin }) });
+  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_PANEL, { notDeliveredAfterMin }) });
 });
 
 app.get("/api/panel/tags", panelAuth, (req, res) => {
@@ -649,7 +698,7 @@ app.post("/api/panel/message-template", panelAuth, (req, res) => {
 
 // CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Panel)
 app.get("/api/panel/webhooks", panelAuth, (req, res) => {
-  const base = `${req.protocol}://${req.get("host")}`;
+  const base = getPublicBaseUrl(req);
   const items = listWebhooks(TENANT_PANEL).map((w) => ({
     id: w.id,
     createdAt: w.createdAt,
@@ -662,7 +711,7 @@ app.get("/api/panel/webhooks", panelAuth, (req, res) => {
 });
 
 app.post("/api/panel/webhooks", panelAuth, (req, res) => {
-  const base = `${req.protocol}://${req.get("host")}`;
+  const base = getPublicBaseUrl(req);
   const w = createWebhook(TENANT_PANEL);
   res.json({ ok: true, id: w.id, createdAt: w.createdAt, url: `${base}/webhooks/${w.token}` });
 });
@@ -735,7 +784,7 @@ app.get("/api/regina/whatsapp/qr", reginaAuth, (req, res) => {
 
 app.get("/api/regina/whatsapp/stats", reginaAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...getTenantWA(TENANT_REGINA).getMessageStats({ notDeliveredAfterMin }) });
+  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_REGINA, { notDeliveredAfterMin }) });
 });
 
 app.get("/api/regina/tags", reginaAuth, (req, res) => {
@@ -799,7 +848,7 @@ app.post("/api/regina/message-template", reginaAuth, (req, res) => {
 
 // CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Regina)
 app.get("/api/regina/webhooks", reginaAuth, (req, res) => {
-  const base = `${req.protocol}://${req.get("host")}`;
+  const base = getPublicBaseUrl(req);
   const items = listWebhooks(TENANT_REGINA).map((w) => ({
     id: w.id,
     createdAt: w.createdAt,
@@ -812,7 +861,7 @@ app.get("/api/regina/webhooks", reginaAuth, (req, res) => {
 });
 
 app.post("/api/regina/webhooks", reginaAuth, (req, res) => {
-  const base = `${req.protocol}://${req.get("host")}`;
+  const base = getPublicBaseUrl(req);
   const w = createWebhook(TENANT_REGINA);
   res.json({ ok: true, id: w.id, createdAt: w.createdAt, url: `${base}/webhooks/${w.token}` });
 });

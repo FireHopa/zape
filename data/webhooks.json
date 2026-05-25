@@ -1,5 +1,109 @@
 [
   {
+    "id": "1afb277c3ab6919e1c640d2a",
+    "tenantId": "admin",
+    "token": "0ThpGgputzcohq9-NWAqUrnjRWmfAi5q",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Mogi das Cruzes.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Mogi das Cruzes.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?"
+    ],
+    "createdAt": "2026-05-12T13:32:59.562Z",
+    "updatedAt": "2026-05-12T13:33:13.229Z",
+    "deletedAt": null
+  },
+  {
+    "id": "2ad2b7e41272e19e1c525a2b",
+    "tenantId": "panel",
+    "token": "RERM9FodY6AMPqALYZdjhTpOUXmF-DsK",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Santo André.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Santo André.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+    ],
+    "createdAt": "2026-05-12T13:13:39.627Z",
+    "updatedAt": "2026-05-12T13:13:58.406Z",
+    "deletedAt": null
+  },
+  {
+    "id": "ebff3a272471919dfee1d579",
+    "tenantId": "admin",
+    "token": "FjJ-dnyZgHIzk_bpAz3puv47csUde0IC",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Alphaville.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Alphaville.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?"
+    ],
+    "createdAt": "2026-05-06T20:01:46.361Z",
+    "updatedAt": "2026-05-11T16:36:07.767Z",
+    "deletedAt": null
+  },
+  {
+    "id": "10869a42ccab319df91bf841",
+    "tenantId": "admin",
+    "token": "Q1TvHULb6gRQqJI2oVzmPjvHM-wt_cuy",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Porto Alegre.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Porto Alegre.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?"
+    ],
+    "createdAt": "2026-05-05T17:07:33.057Z",
+    "updatedAt": "2026-05-06T20:05:14.866Z",
+    "deletedAt": null
+  },
+  {
+    "id": "79ff9ba0b6ce219ddf6976c5",
+    "tenantId": "panel",
+    "token": "Ug5ZTxFJ0SwGqh40DX4ztzEr7NAs4YyY",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+    ],
+    "createdAt": "2026-04-30T17:22:04.101Z",
+    "updatedAt": "2026-05-04T19:11:11.615Z",
+    "deletedAt": null
+  },
+  {
+    "id": "ff77ab3ad1ca319ddf15361e",
+    "tenantId": "admin",
+    "token": "9d3qYS5mjHXgUV1BOAtbnqhBxlQyc27J",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+    ],
+    "createdAt": "2026-04-30T15:50:02.526Z",
+    "updatedAt": "2026-05-04T19:11:00.525Z",
+    "deletedAt": null
+  },
+  {
+    "id": "a4bdbb4403d8719dde8bc59f",
+    "tenantId": "panel",
+    "token": "7PXK_WwvNH5WwY5XwGONmnuNDqkyhocd",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Porto Alegre.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Porto Alegre.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?"
+    ],
+    "createdAt": "2026-04-30T13:19:55.295Z",
+    "updatedAt": "2026-05-05T12:18:53.654Z",
+    "deletedAt": null
+  },
+  {
+    "id": "c632d8fdcacb119dde887d8f",
+    "tenantId": "panel",
+    "token": "dSEzKaH6WshWWBkqtNHfRbNb4pAQy7s8",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial no Curitiba.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial no Curitiba.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?"
+    ],
+    "createdAt": "2026-04-30T13:16:20.239Z",
+    "updatedAt": "2026-05-05T12:19:10.060Z",
+    "deletedAt": null
+  },
+  {
     "id": "edea35b23eed419dd95a02d6",
     "tenantId": "panel",
     "token": "_-QSiLAOViT4k-Zh8xIZ_3ZwU6XmB59W",
@@ -41,12 +145,12 @@
     "tenantId": "admin",
     "token": "rS_Ly0KUlH9m0jfh1CykEzqsd1HdU6iC",
     "name": "Webhook",
-    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial Online*.\n\nVoe vai aprender em 2 dias como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$97,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial Online*.\n\nVoe vai aprender em 2 dias como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Online: R$97,00*\nPagamento via EDUZZ – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
-      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial Online*.\n\nVoe vai aprender em 2 dias como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$97,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial Online*.\n\nVoe vai aprender em 2 dias como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Online: R$97,00*\nPagamento via EDUZZ – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
     ],
     "createdAt": "2026-04-28T11:30:05.118Z",
-    "updatedAt": "2026-04-28T11:30:19.292Z",
+    "updatedAt": "2026-05-07T14:27:23.002Z",
     "deletedAt": null
   },
   {
@@ -67,12 +171,12 @@
     "tenantId": "admin",
     "token": "g10kHCYQtYCnGbTplSlaEfHpnW3DCvYx",
     "name": "Webhook",
-    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Curitiba.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Curitiba.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
-      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Curitiba.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Curitiba.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
     ],
     "createdAt": "2026-04-23T15:18:54.069Z",
-    "updatedAt": "2026-04-23T15:19:23.525Z",
+    "updatedAt": "2026-05-05T12:18:14.838Z",
     "deletedAt": null
   },
   {
@@ -80,12 +184,12 @@
     "tenantId": "regina",
     "token": "8rfy0zG1ivtq97RgtexcQo3t52oO4li1",
     "name": "Webhook",
-    "messageText": "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 05 de maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!",
+    "messageText": "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 13 de Maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!",
     "messages": [
-      "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 05 de maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!"
+      "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 13 de Maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!"
     ],
     "createdAt": "2026-04-23T14:46:32.554Z",
-    "updatedAt": "2026-04-23T14:46:46.077Z",
+    "updatedAt": "2026-05-05T12:51:40.298Z",
     "deletedAt": null
   },
   {
@@ -106,12 +210,12 @@
     "tenantId": "admin",
     "token": "fPCrnJrevofIS3l_JzuK1NulP8jPYmfp",
     "name": "Webhook",
-    "messageText": "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 05 de maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!",
+    "messageText": "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 13 de Maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!",
     "messages": [
-      "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 05 de maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!"
+      "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 13 de Maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!"
     ],
     "createdAt": "2026-04-17T17:36:25.419Z",
-    "updatedAt": "2026-04-17T17:38:42.175Z",
+    "updatedAt": "2026-05-05T12:45:52.339Z",
     "deletedAt": null
   },
   {
