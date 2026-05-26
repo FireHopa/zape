@@ -9,12 +9,13 @@ const crypto = require("crypto");
 const { adminAuth } = require("./src/adminAuth");
 const { panelAuth } = require("./src/panelAuth");
 const { reginaAuth } = require("./src/reginaAuth"); // NOVO: Autenticação da Regina
+const { registerAuthRoutes, anyTenantAuth } = require("./src/basicAuthFactory");
 
 const { normalizeBRPhoneToE164Digits } = require("./src/phone");
 
-const { readLeads, appendLead, toCSV } = require("./src/tenantLeadsStore");
+const { readLeads, appendLead, deleteLeadById, toCSV } = require("./src/tenantLeadsStore");
 const { listTags, upsertTag, deleteTag } = require("./src/tenantTagsStore");
-const { getLeadTagsMap, setLeadTags, removeTagFromAllLeads } = require("./src/tenantLeadTagsStore");
+const { getLeadTagsMap, setLeadTags, removeTagFromAllLeads, removeLeadTags } = require("./src/tenantLeadTagsStore");
 const { readCrmState, writeCrmState } = require("./src/tenantCrmStore");
 
 const { getTemplate, setTemplate } = require("./src/messageTemplateStore");
@@ -25,7 +26,7 @@ function updateTemplateSafe(tenantId, text) {
   }
   return setTemplate(tenantId, String(text || "").trim());
 }
-const { isWhatsAppConfigured, computeLeadStatus, getTenantWA, sendCustomMessage } = require("./src/whatsappManager");
+const { isWhatsAppConfigured, computeLeadStatus, getTenantWA, sendCustomMessage, destroyCachedWhatsAppClients } = require("./src/whatsappManager");
 
 // CORREÇÃO: importando updateWebhook
 const { listWebhooks, createWebhook, updateWebhook, deleteWebhook, resolveWebhookToken } = require("./src/webhooksStore");
@@ -35,6 +36,10 @@ const { readBusinessOwner, writeBusinessOwner } = require("./src/businessStore")
 
 const {
   isCloudConfigured: isCloudApiConfigured,
+  saveEmbeddedSignupSettings,
+  exchangeEmbeddedSignupCode,
+  disconnectCloudApi,
+  createTemplate: createCloudTemplate,
   sendTemplate: sendCloudTemplate,
   listTemplates: listCloudTemplates,
   handleWebhook: handleCloudWebhook,
@@ -61,6 +66,8 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+registerAuthRoutes(app);
+
 // debug request logger
 app.use((req, res, next) => {
   if (!DEBUG) return next();
@@ -73,8 +80,22 @@ app.use((req, res, next) => {
   next();
 });
 
+// Entrada padrão do sistema.
+// O formulário antigo de leads não é mais usado na interface pública.
+// A raiz agora abre o painel unificado e, quando houver senha configurada, cai na tela de login.
+app.get("/", (req, res) => {
+  res.redirect("/admin");
+});
+
+// Evita acesso direto aos HTMLs estáticos. As telas passam pelas rotas autenticadas.
+app.get(["/index.html", "/app.html", "/admin.html", "/panel.html", "/regina.html"], (req, res) => {
+  const p = String(req.path || "");
+  const target = p.includes("panel") ? "/panel" : p.includes("regina") ? "/regina" : "/admin";
+  res.redirect(target);
+});
+
 // estático
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public"), { index: false }));
 
 /* -------------------- helpers -------------------- */
 function genId() {
@@ -171,6 +192,28 @@ function extractDDDFromDigits(digits) {
   return "";
 }
 
+function phoneMatchesSearch(lead, queryDigits) {
+  const qd = String(queryDigits || "").replace(/\D+/g, "");
+  if (!qd) return false;
+
+  const rawDigits = String(lead.whatsapp_raw || "").replace(/\D+/g, "");
+  const savedDigits = String(lead.whatsapp_digits || "").replace(/\D+/g, "");
+  const candidates = new Set([rawDigits, savedDigits].filter(Boolean));
+
+  for (const digits of Array.from(candidates)) {
+    if (digits.includes(qd)) return true;
+
+    const withoutCountry = digits.startsWith("55") ? digits.slice(2) : digits;
+    if (withoutCountry && withoutCountry.includes(qd)) return true;
+
+    const queryWithoutCountry = qd.startsWith("55") ? qd.slice(2) : qd;
+    if (queryWithoutCountry && digits.includes(queryWithoutCountry)) return true;
+    if (queryWithoutCountry && withoutCountry.includes(queryWithoutCountry)) return true;
+  }
+
+  return false;
+}
+
 function buildLeadsHandler({ tenantId, authMw }) {
   return (req, res) => {
     const q = String(req.query.q || "").toLowerCase().trim();
@@ -201,11 +244,15 @@ function buildLeadsHandler({ tenantId, authMw }) {
       leads = leads.filter((l) => String(l.createdAt) <= toISO);
     }
     if (q) {
+      const qDigits = String(req.query.q || "").replace(/\D+/g, "");
       leads = leads.filter(
         (l) =>
           String(l.nome || "").toLowerCase().includes(q) ||
           String(l.email || "").toLowerCase().includes(q) ||
-          String(l.empresa || "").toLowerCase().includes(q)
+          String(l.empresa || "").toLowerCase().includes(q) ||
+          String(l.whatsapp_raw || "").toLowerCase().includes(q) ||
+          String(l.whatsapp_digits || "").toLowerCase().includes(q) ||
+          phoneMatchesSearch(l, qDigits)
       );
     }
 
@@ -232,7 +279,7 @@ function buildLeadsHandler({ tenantId, authMw }) {
     if (filterTagIds.length) {
       items = items.filter((l) => {
         const ids = Array.isArray(l.tagIds) ? l.tagIds : [];
-        return filterTagIds.every((t) => ids.includes(t));
+        return filterTagIds.some((t) => ids.includes(t));
       });
     }
 
@@ -271,6 +318,83 @@ async function createManualLead(tenantId, payload) {
 
   await saveLead(tenantId, lead);
   return lead;
+}
+
+function removeLeadFromCrmState(tenantId, leadId) {
+  const id = String(leadId || "").trim();
+  if (!id) return false;
+
+  const state = readCrmState(tenantId);
+  let changed = false;
+
+  for (const pipeline of Array.isArray(state.pipelines) ? state.pipelines : []) {
+    const stages = pipeline && pipeline.stages && typeof pipeline.stages === "object" ? pipeline.stages : {};
+    for (const stage of Object.values(stages)) {
+      if (!stage || !Array.isArray(stage.leadIds)) continue;
+      const before = stage.leadIds.length;
+      stage.leadIds = stage.leadIds.filter((x) => String(x) !== id);
+      if (stage.leadIds.length !== before) changed = true;
+    }
+  }
+
+  if (changed) writeCrmState(tenantId, state);
+  return changed;
+}
+
+function shouldClearLeadWhatsappStatus(req) {
+  const v = String(req.query.clearWhatsappStatus ?? req.query.clearStatus ?? "1").toLowerCase().trim();
+  return !(v === "0" || v === "false" || v === "no" || v === "nao" || v === "não");
+}
+
+function deleteLeadEverywhere(tenantId, leadId, req) {
+  const out = deleteLeadById(tenantId, leadId);
+  if (!out.ok || !out.deleted) {
+    return { ok: false, error: "Lead não encontrado." };
+  }
+
+  const deleted = out.deleted;
+  const digits = String(deleted.whatsapp_digits || deleted.whatsapp_raw || "").replace(/\D+/g, "");
+
+  let tagsRemoved = false;
+  let crmRemoved = false;
+  let whatsappStatusCleared = false;
+
+  try {
+    const tagOut = removeLeadTags(tenantId, leadId);
+    tagsRemoved = Boolean(tagOut && tagOut.changed);
+  } catch (e) {
+    console.error(`⚠️ Falha ao remover tags do lead [${tenantId}/${leadId}]:`, e?.message || e);
+  }
+
+  try {
+    crmRemoved = removeLeadFromCrmState(tenantId, leadId);
+  } catch (e) {
+    console.error(`⚠️ Falha ao remover lead do CRM [${tenantId}/${leadId}]:`, e?.message || e);
+  }
+
+  if (digits && shouldClearLeadWhatsappStatus(req)) {
+    try {
+      const remainingSameNumber = readLeads(tenantId).some((lead) => {
+        const d = String(lead && (lead.whatsapp_digits || lead.whatsapp_raw || "")).replace(/\D+/g, "");
+        return d === digits;
+      });
+
+      if (!remainingSameNumber) {
+        whatsappStatusCleared = Boolean(getTenantWA(tenantId).deleteMessageStatusFor(digits));
+      }
+    } catch (e) {
+      console.error(`⚠️ Falha ao limpar status WhatsApp do lead [${tenantId}/${leadId}]:`, e?.message || e);
+    }
+  }
+
+  return {
+    ok: true,
+    deletedLeadId: String(leadId),
+    removed: out.removed || 1,
+    tagsRemoved,
+    crmRemoved,
+    whatsappStatusCleared,
+  };
 }
 
 /* -------------------- routes -------------------- */
@@ -417,7 +541,7 @@ app.post("/webhooks/:token", async (req, res) => {
 
 /* -------------------- Business Owner (Dono do Negócio) API -------------------- */
 // CORREÇÃO: Rotas para visualização/edição das informações do Dono (atrelado ao ADMIN)
-app.get("/api/business", adminAuth, (req, res) => {
+app.get("/api/business", anyTenantAuth, (req, res) => {
   const owner = readBusinessOwner(TENANT_ADMIN);
   res.json({ ok: true, owner });
 });
@@ -431,10 +555,16 @@ app.put("/api/business", adminAuth, (req, res) => {
 
 /* -------------------- Admin UI + API -------------------- */
 app.get("/admin", adminAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "admin.html"));
+  res.sendFile(path.join(__dirname, "public", "app.html"));
 });
 
 app.get("/api/admin/leads", adminAuth, buildLeadsHandler({ tenantId: TENANT_ADMIN }));
+
+app.delete("/api/admin/leads/:id", adminAuth, (req, res) => {
+  const out = deleteLeadEverywhere(TENANT_ADMIN, req.params.id, req);
+  if (!out.ok) return res.status(404).json(out);
+  res.json(out);
+});
 
 // CRM (Funil de Vendas) - admin
 app.get("/api/admin/crm", adminAuth, (req, res) => {
@@ -582,10 +712,16 @@ app.delete("/api/admin/webhooks/:id", adminAuth, (req, res) => {
 
 /* -------------------- Panel UI + API -------------------- */
 app.get("/panel", panelAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "panel.html"));
+  res.sendFile(path.join(__dirname, "public", "app.html"));
 });
 
 app.get("/api/panel/leads", panelAuth, buildLeadsHandler({ tenantId: TENANT_PANEL }));
+
+app.delete("/api/panel/leads/:id", panelAuth, (req, res) => {
+  const out = deleteLeadEverywhere(TENANT_PANEL, req.params.id, req);
+  if (!out.ok) return res.status(404).json(out);
+  res.json(out);
+});
 
 app.get("/api/panel/crm", panelAuth, (req, res) => {
   const state = readCrmState(TENANT_PANEL);
@@ -732,10 +868,16 @@ app.delete("/api/panel/webhooks/:id", panelAuth, (req, res) => {
 
 /* -------------------- Regina UI + API -------------------- */
 app.get("/regina", reginaAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "regina.html"));
+  res.sendFile(path.join(__dirname, "public", "app.html"));
 });
 
 app.get("/api/regina/leads", reginaAuth, buildLeadsHandler({ tenantId: TENANT_REGINA }));
+
+app.delete("/api/regina/leads/:id", reginaAuth, (req, res) => {
+  const out = deleteLeadEverywhere(TENANT_REGINA, req.params.id, req);
+  if (!out.ok) return res.status(404).json(out);
+  res.json(out);
+});
 
 app.get("/api/regina/crm", reginaAuth, (req, res) => {
   const state = readCrmState(TENANT_REGINA);
@@ -886,12 +1028,49 @@ app.get("/api/wa-cloud/status", adminAuth, (req, res) => {
   res.json(getCloudStatus());
 });
 
+
+app.put("/api/wa-cloud/embedded/settings", adminAuth, (req, res) => {
+  try {
+    const out = saveEmbeddedSignupSettings(req.body || {});
+    res.json(out);
+  } catch (err) {
+    res.status(400).json({ ok: false, error: err?.message || String(err) });
+  }
+});
+
+app.post("/api/wa-cloud/embedded/exchange", adminAuth, async (req, res) => {
+  try {
+    const out = await exchangeEmbeddedSignupCode(req.body || {});
+    res.json(out);
+  } catch (err) {
+    res.status(400).json({ ok: false, error: err?.message || String(err), details: err?.payload || null });
+  }
+});
+
+app.delete("/api/wa-cloud/embedded", adminAuth, (req, res) => {
+  try {
+    res.json(disconnectCloudApi());
+  } catch (err) {
+    res.status(400).json({ ok: false, error: err?.message || String(err) });
+  }
+});
+
 app.get("/api/wa-cloud/templates", adminAuth, async (req, res) => {
   try {
     const out = await listCloudTemplates({ limit: 200 });
     res.json(out);
   } catch (err) {
     res.status(400).json({ error: err?.message || String(err) });
+  }
+});
+
+app.post("/api/wa-cloud/templates", adminAuth, async (req, res) => {
+  try {
+    if (!isCloudApiConfigured()) throw new Error("WA_CLOUD não configurado.");
+    const out = await createCloudTemplate(req.body || {});
+    res.json({ ok: true, ...out });
+  } catch (err) {
+    res.status(400).json({ ok: false, error: err?.message || String(err), details: err?.payload || null });
   }
 });
 
@@ -991,6 +1170,101 @@ async function migrateLegacyData() {
   }
 }
 
+
+/* -------------------- WhatsApp auto-start on boot -------------------- */
+function truthyEnv(value) {
+  return ["1", "true", "yes", "on"].includes(String(value || "").trim().toLowerCase());
+}
+
+function falseyEnv(value) {
+  return ["0", "false", "no", "off"].includes(String(value || "").trim().toLowerCase());
+}
+
+function dirHasAnyFile(dir) {
+  try {
+    if (!fs.existsSync(dir)) return false;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    if (!entries.length) return false;
+    return entries.some((entry) => {
+      const full = path.join(dir, entry.name);
+      return entry.isFile() || (entry.isDirectory() && dirHasAnyFile(full));
+    });
+  } catch {
+    return false;
+  }
+}
+
+function hasExistingWhatsAppSession(tenantId) {
+  const authBase = path.join(__dirname, "data", tenantId, "wwebjs_auth");
+  const expectedLocalAuthSession = path.join(authBase, `session-tenant_${tenantId}`);
+  return dirHasAnyFile(expectedLocalAuthSession) || dirHasAnyFile(authBase);
+}
+
+function getWhatsAppAutoStartTenants() {
+  const allowed = [TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA];
+  const explicit = String(process.env.WEBJS_AUTO_START_TENANTS || "")
+    .split(",")
+    .map((v) => v.trim().toLowerCase())
+    .filter(Boolean);
+
+  if (explicit.length) {
+    return [...new Set(explicit.filter((tenant) => allowed.includes(tenant)))];
+  }
+
+  // Comportamento seguro por padrão:
+  // só tenta subir automaticamente tenants que já têm sessão salva no disco.
+  return allowed.filter(hasExistingWhatsAppSession);
+}
+
+function startWhatsAppClientsInBackground() {
+  if (!isWhatsAppConfigured()) {
+    console.log("ℹ️ WhatsApp WebJS não iniciado automaticamente: WEBJS_ENABLED!=1.");
+    return;
+  }
+
+  const autoStart = String(process.env.WEBJS_AUTO_START || "").trim();
+  if (falseyEnv(autoStart)) {
+    console.log("ℹ️ WhatsApp WebJS auto-start desativado por WEBJS_AUTO_START=0.");
+    return;
+  }
+
+  const tenants = getWhatsAppAutoStartTenants();
+  if (!tenants.length) {
+    console.log("ℹ️ Nenhuma sessão local do WhatsApp encontrada para auto-start. Use Conectar uma vez pelo painel.");
+    return;
+  }
+
+  console.log(`🔄 Iniciando WhatsApp automaticamente para: ${tenants.join(", ")}`);
+
+  tenants.forEach((tenantId, index) => {
+    // Sobe com pequeno intervalo para não abrir vários Chromiums exatamente no mesmo instante.
+    setTimeout(() => {
+      getTenantWA(tenantId)
+        .initWhatsApp()
+        .then(() => console.log(`✅ WhatsApp auto-start disparado: ${tenantId}`))
+        .catch((err) => console.error(`❌ Falha no auto-start do WhatsApp (${tenantId}):`, err?.message || err));
+    }, index * 2500);
+  });
+}
+
+let shutdownStarted = false;
+async function gracefulShutdown(signal) {
+  if (shutdownStarted) return;
+  shutdownStarted = true;
+
+  console.log(`🛑 Recebido ${signal}. Encerrando clientes do WhatsApp com segurança...`);
+  try {
+    await destroyCachedWhatsAppClients();
+  } catch (err) {
+    console.error("⚠️ Falha ao encerrar clientes WhatsApp:", err?.message || err);
+  } finally {
+    process.exit(0);
+  }
+}
+
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+
 // global error handler
 app.use((err, req, res, next) => {
   logErr("Unhandled error:", err?.stack || err);
@@ -1005,5 +1279,9 @@ migrateLegacyData().finally(() => {
     console.log("➡️ Admin:", "/admin");
     console.log("➡️ Panel:", "/panel");
     console.log("➡️ Regina:", "/regina");
+
+    // Mantém a sessão do WhatsApp viva após pm2 restart.
+    // Se já existe sessão local salva, o painel volta conectado sem precisar clicar em Conectar.
+    setTimeout(startWhatsAppClientsInBackground, 1500);
   });
 });

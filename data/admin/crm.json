@@ -24,9 +24,7 @@
         "stg_contact": {
           "id": "stg_contact",
           "name": "Contato",
-          "leadIds": [
-            "e6d14dfe7c41fa79e63bbe6f"
-          ]
+          "leadIds": []
         },
         "stg_meeting": {
           "id": "stg_meeting",
@@ -71,5 +69,5 @@
       }
     }
   ],
-  "updatedAt": "2026-04-29T15:29:52.349Z"
+  "updatedAt": "2026-05-26T14:37:25.375Z"
 }

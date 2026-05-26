@@ -59,4 +59,18 @@ function removeTagFromAllLeads(tenantId, tagId) {
   return { ok: true, changed };
 }
 
-module.exports = { getLeadTagsMap, setLeadTags, removeTagFromAllLeads };
+function removeLeadTags(tenantId, leadId) {
+  const id = String(leadId || "").trim();
+  if (!id) return { ok: true, changed: false };
+
+  const all = loadAll(tenantId);
+  if (!Object.prototype.hasOwnProperty.call(all, id)) {
+    return { ok: true, changed: false };
+  }
+
+  delete all[id];
+  saveAll(tenantId, all);
+  return { ok: true, changed: true };
+}
+
+module.exports = { getLeadTagsMap, setLeadTags, removeTagFromAllLeads, removeLeadTags };
