@@ -300,6 +300,17 @@ main { min-height:0; overflow: auto; }
       box-shadow: 0 12px 22px rgba(2,6,23,.10);
     }
     .iconMini:active{ transform: translateY(0) scale(.99); }
+
+    .uiIcon{ width:18px; height:18px; display:block; object-fit:contain; flex:0 0 auto; }
+    .uiIcon.sm{ width:14px; height:14px; }
+    .uiIcon.xs{ width:12px; height:12px; }
+    .iconMini .uiIcon, .iconBtn .uiIcon, .tClose .uiIcon{ width:16px; height:16px; }
+    .btnMini{ display:inline-flex; align-items:center; justify-content:center; gap:6px; line-height:1; }
+    .btnMini .uiIcon{ width:15px; height:15px; }
+    .crmMetaLine{ display:flex; align-items:center; gap:6px; }
+    .crmMetaLine .crmMetaIcon{ width:14px; height:14px; opacity:.72; }
+    .funnelMenuDots .uiIcon{ width:15px; height:15px; opacity:.75; }
+
     .iconDanger{
       border-color: rgba(234,67,53,.22);
       background: rgba(234,67,53,.08);
@@ -712,6 +723,94 @@ main { min-height:0; overflow: auto; }
     }
     .toast .tClose:hover{ background: rgba(15,23,42,.06); }
 
+    /* App dialogs: substitui alert/confirm/prompt nativos do navegador */
+    .appDialogOverlay{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(15,23,42,.54);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      z-index:10050;
+    }
+    .appDialogOverlay.open{display:flex;}
+    .appDialogBox{
+      width:min(460px,100%);
+      border-radius:24px;
+      background:#fff;
+      border:1px solid rgba(15,23,42,.10);
+      box-shadow:0 30px 90px rgba(2,6,23,.32);
+      overflow:hidden;
+      animation:pop .18s ease forwards;
+    }
+    .appDialogHead{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:20px 20px 12px;
+    }
+    .appDialogIcon{
+      width:38px;
+      height:38px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      color:#1a73e8;
+      background:#eef5ff;
+      box-shadow:0 0 0 6px rgba(26,115,232,.08);
+      font-size:20px;
+    }
+    .appDialogIcon.danger{color:#b42318;background:#fff1f0;box-shadow:0 0 0 6px rgba(244,67,54,.08);}
+    .appDialogIcon.warn{color:#92400e;background:#fffbeb;box-shadow:0 0 0 6px rgba(251,188,5,.12);}
+    .appDialogTitle{font-size:17px;font-weight:950;color:#101828;letter-spacing:-.02em;margin:0;}
+    .appDialogText{font-size:13px;line-height:1.55;color:#667085;margin-top:5px;white-space:pre-line;}
+    .appDialogBody{padding:0 20px 8px;}
+    .appDialogInput{
+      width:100%;
+      min-height:44px;
+      border-radius:16px;
+      border:1px solid #dbe3ef;
+      background:#fff;
+      padding:10px 12px;
+      font:inherit;
+      outline:none;
+      box-shadow:0 1px 0 rgba(15,23,42,.03);
+    }
+    .appDialogInput:focus{border-color:rgba(26,115,232,.55);box-shadow:0 0 0 4px rgba(26,115,232,.10);}
+    .appChoiceList{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+    .appChoiceBtn{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      border:1px solid #dbe3ef;
+      background:#fff;
+      color:#101828;
+      border-radius:16px;
+      padding:12px 14px;
+      cursor:pointer;
+      font-weight:900;
+      text-align:left;
+    }
+    .appChoiceBtn:hover{background:#f8fbff;border-color:#bfdbfe;}
+    .appDialogActions{
+      padding:14px 20px 20px;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      flex-wrap:wrap;
+      border-top:1px solid #eef2f7;
+      background:linear-gradient(180deg,#fff,#f8fbff);
+    }
+    @media (max-width:520px){.appDialogActions .btn{width:100%;justify-content:center;}.appDialogHead{padding:18px 16px 10px}.appDialogBody{padding:0 16px 8px}.appDialogActions{padding:14px 16px 16px}}
+
+
     .skeleton{
       background: linear-gradient(90deg, rgba(15,23,42,.06), rgba(15,23,42,.10), rgba(15,23,42,.06));
       background-size: 240% 100%;
@@ -1078,6 +1177,715 @@ html, body { height: 100%; overflow: hidden !important; }
 .searchWrap input, #q { min-width: min(520px, 65vw) !important; }
 </style>
 
+
+<style id="zape-ux-redesign-20260526">
+/* UX redesign sem dependências novas: mantém IDs/rotas existentes e melhora hierarquia, contraste e fluxo. */
+:root{
+  --zape-bg:#f4f7fb;
+  --zape-surface:#ffffff;
+  --zape-surface-2:#f8fafc;
+  --zape-text:#111827;
+  --zape-muted:#667085;
+  --zape-border:#dbe3ef;
+  --zape-border-soft:#edf2f7;
+  --zape-blue:#2563eb;
+  --zape-blue-2:#1d4ed8;
+  --zape-green:#16a34a;
+  --zape-red:#dc2626;
+  --zape-yellow:#d97706;
+  --zape-radius:18px;
+  --zape-shadow:0 14px 34px rgba(15,23,42,.08);
+  --zape-sidebar:282px;
+}
+html,body{height:100%;overflow:hidden!important;background:var(--zape-bg)!important;color:var(--zape-text)!important;}
+body{
+  background:
+    radial-gradient(740px 420px at 12% -18%, rgba(37,99,235,.14), transparent 58%),
+    radial-gradient(720px 420px at 92% -12%, rgba(22,163,74,.10), transparent 58%),
+    linear-gradient(180deg,#f8fafc 0%,#eef4fb 100%)!important;
+}
+.app{height:100vh!important;display:flex!important;flex-direction:column!important;padding:0!important;overflow:hidden!important;}
+.topbar{
+  margin:0!important;
+  padding:14px 18px!important;
+  min-height:78px;
+  border-bottom:1px solid rgba(219,227,239,.95);
+  background:rgba(255,255,255,.86)!important;
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 8px 30px rgba(15,23,42,.05);
+  position:relative;
+  z-index:20;
+}
+.brand{min-width:0!important;gap:12px!important;}
+.brandMark{
+  width:52px;height:52px;border-radius:18px;
+  background:linear-gradient(135deg, rgba(37,99,235,.10), rgba(22,163,74,.10));
+  border:1px solid var(--zape-border);
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  box-shadow:0 10px 22px rgba(15,23,42,.06);
+  overflow:hidden;
+}
+.companyLogo{height:42px!important;max-width:46px;object-fit:contain;filter:none!important;}
+.brandText{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.brandProduct{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--zape-blue);line-height:1;}
+.brandText h1{font-size:20px!important;font-weight:950!important;letter-spacing:-.035em!important;line-height:1.12;margin:0!important;}
+.brandText .sub{font-size:12px!important;color:var(--zape-muted)!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:320px;}
+.topActions{gap:8px!important;}
+.topActions .btn{min-height:42px;}
+.chip{
+  background:#fff!important;
+  border:1px solid var(--zape-border)!important;
+  box-shadow:0 10px 22px rgba(15,23,42,.06)!important;
+  border-radius:16px!important;
+  padding:9px 12px!important;
+}
+.btn{
+  border-radius:14px!important;
+  border:1px solid var(--zape-border)!important;
+  box-shadow:none!important;
+  background:#fff!important;
+  color:#1f2937!important;
+  min-height:40px;
+}
+.btn:hover{transform:translateY(-1px)!important;box-shadow:0 12px 24px rgba(15,23,42,.08)!important;border-color:#c7d2e3!important;}
+.btnPrimary{background:linear-gradient(180deg,var(--zape-blue),var(--zape-blue-2))!important;color:#fff!important;border-color:rgba(37,99,235,.35)!important;box-shadow:0 13px 28px rgba(37,99,235,.20)!important;}
+.btnSoft{background:#eef5ff!important;color:#174ea6!important;border-color:#cfe0ff!important;}
+.btnGhost{background:#fff!important;color:#344054!important;}
+.input,select.input,textarea.input{
+  background:#fff!important;
+  border:1px solid var(--zape-border)!important;
+  border-radius:14px!important;
+  color:var(--zape-text)!important;
+  min-height:42px;
+  box-shadow:0 1px 0 rgba(15,23,42,.02);
+}
+.input:focus,select.input:focus,textarea.input:focus{border-color:rgba(37,99,235,.55)!important;box-shadow:0 0 0 4px rgba(37,99,235,.12)!important;}
+.shell{
+  height:auto!important;
+  width:100%!important;
+  flex:1!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  display:grid!important;
+  grid-template-columns:var(--zape-sidebar) minmax(0,1fr)!important;
+  gap:16px!important;
+  padding:16px 18px 90px!important;
+  align-items:stretch!important;
+}
+.shell>aside.card{
+  height:100%!important;
+  overflow:hidden!important;
+  border-radius:22px!important;
+  background:#fff!important;
+  border:1px solid var(--zape-border)!important;
+  box-shadow:var(--zape-shadow)!important;
+  display:flex;
+  flex-direction:column;
+}
+.shell>aside .cardBody{padding:12px!important;overflow:auto;}
+.shell>main{
+  height:100%!important;
+  min-height:0!important;
+  overflow:auto!important;
+  padding-right:2px;
+  scrollbar-gutter:stable;
+}
+.card{
+  background:#fff!important;
+  border:1px solid var(--zape-border)!important;
+  border-radius:22px!important;
+  box-shadow:var(--zape-shadow)!important;
+  backdrop-filter:none!important;
+  overflow:hidden!important;
+}
+.card:hover{transform:none!important;border-color:var(--zape-border)!important;box-shadow:var(--zape-shadow)!important;}
+.cardHeader{
+  background:linear-gradient(180deg,#fff,#fbfdff)!important;
+  border-bottom:1px solid var(--zape-border-soft)!important;
+  padding:16px 18px!important;
+}
+.cardTitle{font-size:15px!important;font-weight:950!important;color:#101828!important;letter-spacing:-.02em!important;}
+.cardBody{padding:18px!important;}
+.sidebarHead{padding:16px!important;border-bottom:1px solid var(--zape-border-soft);background:linear-gradient(180deg,#fff,#f8fbff);}
+.sidebarProfile{display:flex;align-items:center;gap:12px;}
+.sidebarProfileIcon{width:42px;height:42px;border-radius:16px;background:#eef5ff;color:var(--zape-blue);display:flex;align-items:center;justify-content:center;font-size:22px;border:1px solid #dbeafe;}
+.sidebarEyebrow{font-size:11px;text-transform:uppercase;font-weight:900;letter-spacing:.08em;color:var(--zape-muted);}
+.sidebarTitle{font-weight:950;font-size:15px;letter-spacing:-.02em;}
+.sidebarHint{font-size:12px;color:var(--zape-muted);margin-top:2px;}
+.menu{gap:8px!important;}
+.menuBtn{
+  border:1px solid transparent!important;
+  background:transparent!important;
+  border-radius:16px!important;
+  padding:12px!important;
+  font-weight:850!important;
+  color:#344054;
+  box-shadow:none!important;
+}
+.menuBtn .menuLabel{display:flex;align-items:center;gap:10px;min-width:0;}
+.menuBtn i{font-size:20px;color:#667085;}
+.menuBtn:hover{background:#f6f9fc!important;transform:none!important;box-shadow:none!important;border-color:#e5edf6!important;}
+.menuBtn.active{background:#eef5ff!important;color:#174ea6!important;border-color:#cfe0ff!important;box-shadow:none!important;}
+.menuBtn.active i{color:var(--zape-blue);}
+.menuPill{background:#fff!important;border:1px solid #dbe3ef!important;color:#344054!important;}
+.dashboardHero{background:linear-gradient(135deg,#ffffff 0%,#f4f8ff 54%,#f8fff9 100%)!important;}
+.heroHeader{align-items:flex-start!important;}
+.heroTitleWrap{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.heroEyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:950;color:var(--zape-blue);}
+.heroTitle{font-size:20px;font-weight:950;letter-spacing:-.035em;color:#101828;}
+.heroSubtitle{font-size:13px;color:var(--zape-muted);line-height:1.45;max-width:760px;}
+.activeFilters{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;min-height:0;}
+.filterChip{display:inline-flex;align-items:center;gap:7px;border:1px solid #dbe3ef;background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:850;color:#344054;}
+.filterChip strong{color:#101828;}
+.kpis{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important;}
+.kpi{
+  position:relative;
+  border:1px solid var(--zape-border)!important;
+  border-radius:20px!important;
+  background:#fff!important;
+  padding:16px!important;
+  min-height:116px;
+  box-shadow:0 8px 18px rgba(15,23,42,.04)!important;
+  cursor:pointer;
+  overflow:hidden;
+}
+.kpi:hover{transform:translateY(-1px);border-color:#c7d2e3!important;box-shadow:0 12px 24px rgba(15,23,42,.07)!important;}
+.kpi:focus-visible{outline:3px solid rgba(37,99,235,.20);outline-offset:2px;}
+.kpi .kpiBar{height:5px!important;border-radius:999px!important;top:0!important;left:0!important;right:0!important;}
+.kpiLabel{font-size:12px!important;font-weight:900!important;color:var(--zape-muted)!important;text-transform:uppercase;letter-spacing:.055em;}
+.kpiValue{font-size:34px!important;font-weight:950!important;letter-spacing:-.05em!important;margin-top:12px;}
+.kpiHint{font-size:12px;color:var(--zape-muted);margin-top:6px;}
+.leadsTop{display:grid!important;grid-template-columns:minmax(280px,1fr) auto!important;gap:12px!important;align-items:center!important;}
+.searchWrap{display:flex!important;gap:10px!important;align-items:center!important;min-width:0!important;}
+.searchWrap:before{content:"\e4a0";font-family:"Phosphor";display:none;}
+#q{min-width:0!important;width:100%!important;}
+.tableWrap{border:1px solid var(--zape-border-soft);border-radius:18px;background:#fff;max-height:calc(100vh - 385px)!important;}
+table{border-collapse:separate!important;border-spacing:0!important;width:100%;}
+thead th{position:sticky;top:0;background:#f8fafc!important;color:#475467!important;font-size:12px!important;text-transform:uppercase;letter-spacing:.055em;z-index:1;border-bottom:1px solid var(--zape-border-soft)!important;}
+tbody tr{transition:background .12s ease;}
+tbody tr:hover{background:#f8fbff;}
+td,th{padding:14px!important;border-bottom:1px solid #edf2f7!important;}
+.leadCell{gap:12px!important;}
+.leadName .n{font-size:14px;max-width:460px!important;}
+.leadName .s{max-width:460px!important;color:#667085!important;}
+.avatarBtn{width:38px!important;height:38px!important;border-radius:15px!important;}
+.duplicateNote{display:inline-flex;align-items:center;gap:6px;width:max-content;margin-top:5px;border-radius:999px;background:#f8fafc;border:1px solid #dbe3ef;color:#475467;padding:4px 8px;font-size:11px;font-weight:850;letter-spacing:-.01em;}.duplicateNote:before{content:"";width:6px;height:6px;border-radius:999px;background:#94a3b8;}.statusBadge{display:inline-flex;align-items:center;gap:6px;width:max-content;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.04em;margin-top:6px;border:1px solid transparent;}
+.statusBadge:before{content:"";width:7px;height:7px;border-radius:999px;background:currentColor;}
+.statusBadge.status-replied{background:#ecfdf3;color:#027a48;border-color:#abefc6;}
+.statusBadge.status-delivered{background:#eff6ff;color:#175cd3;border-color:#bfdbfe;}
+.statusBadge.status-pending{background:#fffaeb;color:#b54708;border-color:#fedf89;}
+.statusBadge.status-notDelivered{background:#fef3f2;color:#b42318;border-color:#fecdca;}
+.statusBadge.status-notExists{background:#f2f4f7;color:#475467;border-color:#d0d5dd;}
+.statusBadge.status-none{background:#f8fafc;color:#667085;border-color:#e4e7ec;}
+.phoneStack{display:flex;flex-direction:column;gap:2px;font-weight:900;}
+.tagPill{background:#f8fafc!important;border-color:#e4e7ec!important;box-shadow:none!important;}
+.tagPill:hover{transform:none!important;box-shadow:none!important;}
+.box{background:#fff!important;border:1px solid var(--zape-border)!important;border-radius:20px!important;padding:16px!important;box-shadow:0 8px 18px rgba(15,23,42,.035);}
+#panelCloudMain .cardBody{display:flex;flex-direction:column;gap:14px;}
+#panelCloudMain .cardBody>.box{margin:0!important;}
+#panelCloudMain .label{font-size:12px!important;text-transform:uppercase;letter-spacing:.055em;color:#475467!important;font-weight:950!important;}
+#panelCloudMain details{border:1px solid var(--zape-border)!important;border-radius:18px!important;background:#f8fbff!important;padding:14px!important;}
+#panelCloudMain summary{font-size:14px;color:#101828;}
+#panelCloudMain [style*="grid-template-columns: repeat(3"],
+#panelCloudMain [style*="grid-template-columns: repeat(2"],
+#panelOwner [style*="grid-template-columns: repeat(2"]{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))!important;}
+.sheet{background:#fff!important;border:1px solid rgba(255,255,255,.7)!important;border-radius:24px!important;}
+.sheetHead{background:#fff!important;border-bottom:1px solid var(--zape-border-soft)!important;padding:16px 18px!important;}
+.sheetBody{padding:18px!important;}
+.toast{background:#fff!important;border-color:var(--zape-border)!important;}
+.pager{left:18px!important;right:18px!important;bottom:14px!important;max-width:none!important;border-radius:20px!important;background:rgba(255,255,255,.92)!important;border:1px solid var(--zape-border)!important;box-shadow:0 18px 44px rgba(15,23,42,.12)!important;}
+.iconMini{border-color:var(--zape-border)!important;background:#fff!important;}
+.iconDanger:hover{background:#fff5f5!important;border-color:#fecaca!important;color:#b42318!important;}
+@media (max-width: 1120px){
+  .shell{grid-template-columns:1fr!important;padding:14px 14px 92px!important;}
+  .shell>aside.card{height:auto!important;max-height:190px;}
+  .menu{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));}
+  .topbar{align-items:flex-start!important;flex-direction:column!important;}
+  .topActions{width:100%;justify-content:flex-start!important;}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media (max-width: 720px){
+  .topbar{padding:12px!important;}
+  .topActions .chip{width:100%;}
+  .topActions .btn{flex:1 1 auto;}
+  .leadsTop{grid-template-columns:1fr!important;}
+  .searchWrap{flex-direction:column;align-items:stretch!important;}
+  .kpis{grid-template-columns:1fr!important;}
+  .menu{grid-template-columns:1fr!important;}
+  .pager{display:grid!important;grid-template-columns:1fr;gap:8px;text-align:center;}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}}
+</style>
+
+
+<style id="zape-ux-polish-20260526b">
+/* Polimento visual: status maior, filtros, webhooks e tabela sem sobreposição. */
+.topActions{gap:12px!important;}
+.waStatusCard{min-width:260px!important;padding:11px 14px!important;border-radius:18px!important;background:linear-gradient(180deg,#ffffff,#f8fbff)!important;border:1px solid #dbeafe!important;box-shadow:0 12px 30px rgba(15,23,42,.08)!important;}
+.waStatusIcon{width:42px;height:42px;border-radius:15px;display:flex;align-items:center;justify-content:center;position:relative;background:#ecfdf3;color:#16a34a;border:1px solid #bbf7d0;font-size:22px;flex:0 0 auto;}
+.waStatusIcon .dot{position:absolute;right:-2px;bottom:-2px;width:12px;height:12px;border:2px solid #fff;box-shadow:none!important;}
+.waStatusCopy{display:flex;flex-direction:column;gap:2px;min-width:0;}.waStatusEyebrow{font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;color:#667085;}.waStatusText{font-size:15px;font-weight:950;color:#101828;line-height:1.15;}.waStatusMeta{font-size:12px;color:#667085;max-width:360px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.waStatusCard.status-ok .waStatusIcon{background:#ecfdf3;color:#16a34a;border-color:#bbf7d0;}.waStatusCard.status-warn .waStatusIcon{background:#fffbeb;color:#d97706;border-color:#fde68a;}.waStatusCard.status-err .waStatusIcon{background:#fef2f2;color:#dc2626;border-color:#fecaca;}
+.kpi.is-active{border-color:rgba(37,99,235,.45)!important;box-shadow:0 0 0 4px rgba(37,99,235,.10),0 16px 32px rgba(15,23,42,.08)!important;}.kpi.is-active:after{content:"Filtro ativo";position:absolute;right:14px;top:14px;border-radius:999px;background:#eef5ff;color:#174ea6;border:1px solid #cfe0ff;padding:5px 8px;font-size:10px;font-weight:950;text-transform:uppercase;letter-spacing:.04em;}
+.tableWrap{max-height:none!important;overflow-x:auto!important;overflow-y:visible!important;}.tableWrap > div{min-width:0!important;}thead th{z-index:3!important;}#tbody tr:last-child td{border-bottom:0!important;}.toastWrap{top:92px!important;right:18px!important;bottom:auto!important;pointer-events:none!important;z-index:9997!important;}.toast{pointer-events:auto!important;box-shadow:0 18px 46px rgba(15,23,42,.16)!important;}@keyframes toastIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
+.modalSub{font-size:12px;color:#667085;font-weight:500;margin-top:2px;white-space:normal;}.sheet{max-height:calc(100vh - 44px)!important;display:flex!important;flex-direction:column!important;}.sheetBody{overflow:auto!important;}
+.webhookSheet{border-radius:28px!important;overflow:hidden!important;}.webhookHead .sheetTitle{align-items:center!important;}.webhookBadge{width:38px!important;height:38px!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:14px!important;background:#eef5ff!important;color:#2563eb!important;box-shadow:none!important;font-size:20px;}.webhookBody{display:flex!important;flex-direction:column!important;gap:14px!important;background:linear-gradient(180deg,#fff,#f8fbff)!important;}.webhookIntro{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px;border:1px solid #dbeafe;border-radius:22px;background:linear-gradient(135deg,#eff6ff,#ffffff 60%,#f0fdf4);}.webhookIntroIcon{width:48px;height:48px;border-radius:18px;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 12px 24px rgba(37,99,235,.20);}.webhookIntroTitle{font-size:16px;font-weight:950;color:#101828;letter-spacing:-.02em;}.webhookIntroText{font-size:13px;color:#667085;line-height:1.45;margin-top:3px;}.methodPill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:#ecfdf3;color:#027a48;border:1px solid #abefc6;padding:7px 10px;font-size:11px;font-weight:950;letter-spacing:.04em;white-space:nowrap;}.webhookGrid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);gap:14px;}.webhookPanel{border:1px solid var(--zape-border);border-radius:22px;background:#fff;padding:16px;box-shadow:0 10px 24px rgba(15,23,42,.05);}.panelMiniHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;}.panelMiniTitle{font-size:14px;font-weight:950;color:#101828;display:flex;align-items:center;gap:8px;}.panelMiniTitle i{color:#2563eb;font-size:18px;}.panelMiniHint{font-size:12px;color:#667085;margin-top:3px;}.webhookUrlRow{display:grid;grid-template-columns:minmax(240px,1fr) auto auto auto;gap:10px;align-items:center;}.webhookSelect{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace!important;font-size:12px!important;}.webhookInfoBar{margin-top:10px;min-height:36px;display:flex;align-items:center;border-radius:14px;background:#f8fafc;border:1px solid #edf2f7;padding:9px 11px;font-size:12px;color:#667085;white-space:normal;word-break:break-word;}.payloadExample{margin:12px 0 0;padding:12px;border-radius:16px;background:#0f172a;color:#dbeafe;overflow:auto;font-size:12px;line-height:1.55;border:1px solid rgba(255,255,255,.08);}.messagesPanel{display:flex;flex-direction:column;gap:12px;}.webhookMessagesList{display:flex;flex-direction:column;gap:10px;}.webhookMessagesList>*{border:1px solid #dbe3ef!important;border-radius:18px!important;background:#fff!important;box-shadow:0 8px 18px rgba(15,23,42,.04)!important;}.webhookMessagesList textarea,.webhookMessagesList input{border-color:#dbe3ef!important;border-radius:14px!important;background:#fff!important;}.webhookFooter{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:4px;}.webhookMeta{font-size:12px;color:#667085;}.dangerGhost{color:#b42318!important;border-color:#fecdca!important;background:#fffafa!important;}
+.filterBody{display:flex!important;flex-direction:column!important;gap:14px!important;background:linear-gradient(180deg,#fff,#f8fbff)!important;}.filterIntro{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px;border-radius:22px;border:1px solid #dbeafe;background:linear-gradient(135deg,#eff6ff,#ffffff 62%,#fff7ed);}.filterIntroTitle{font-size:16px;font-weight:950;color:#101828;letter-spacing:-.02em;}.filterIntroText{font-size:13px;color:#667085;line-height:1.45;margin-top:4px;max-width:720px;}.filterTip{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#fff;border:1px solid #dbe3ef;color:#174ea6;font-size:12px;font-weight:900;white-space:nowrap;}.filtersGridPolished{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important;}.filterCard{display:flex;gap:14px;border:1px solid var(--zape-border);border-radius:22px;background:#fff;padding:16px;box-shadow:0 10px 24px rgba(15,23,42,.04);}.filterCardTall{min-height:270px;}.filterCardIcon{width:42px;height:42px;border-radius:16px;background:#eef5ff;color:#2563eb;display:flex;align-items:center;justify-content:center;font-size:21px;border:1px solid #dbeafe;flex:0 0 auto;}.filterCardContent{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;}.labelSmall{font-size:11px!important;color:#667085!important;}.dateRangeGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}.tagPickPolished{border:1px dashed #cbd5e1;border-radius:16px;background:#f8fafc;padding:10px;min-height:150px;align-content:flex-start;}.tagPickPolished:empty:before{content:"Nenhuma tag cadastrada ainda";color:#98a2b3;font-size:13px;}.statusPickPolished{gap:9px!important;}.statusPickPolished .statusOption{display:flex!important;align-items:center!important;gap:10px!important;padding:10px 12px!important;border-radius:16px!important;background:#f8fafc!important;border:1px solid #e4e7ec!important;transition:.15s ease!important;}.statusPickPolished .statusOption:hover{background:#fff!important;border-color:#c7d2e3!important;}.statusPickPolished input{width:16px;height:16px;accent-color:#2563eb;}.statusPickPolished .statusOption:has(input:checked){background:#eef5ff!important;border-color:#9ec5ff!important;box-shadow:0 0 0 3px rgba(37,99,235,.08);}.statusOption span:last-child{display:flex;flex-direction:column;gap:1px;}.statusOption b{font-size:13px;color:#101828;}.statusOption small{font-size:11px;color:#667085;}.statusDot{width:10px;height:10px;border-radius:999px;display:inline-block;box-shadow:0 0 0 4px rgba(15,23,42,.05);}.statusDot.all{background:#94a3b8;}.statusDot.replied{background:#16a34a;}.statusDot.delivered{background:#2563eb;}.statusDot.notDelivered{background:#dc2626;}.statusDot.notExists{background:#d97706;}.filterActions{display:flex;gap:10px;justify-content:flex-end;padding-top:2px;}
+#cloudConnectionStatus.cloudStatusPanel{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-top:14px!important;white-space:normal!important;color:#101828!important;}.cloudStatusCard{border:1px solid #dbe3ef;border-radius:18px;background:#fff;padding:14px;box-shadow:0 8px 18px rgba(15,23,42,.04);min-height:82px;}.cloudStatusCard.main{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(135deg,#f0fdf4,#ffffff 58%,#eff6ff);}.cloudStatusLabel{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#667085;font-weight:950;}.cloudStatusValue{font-size:14px;font-weight:950;color:#101828;margin-top:5px;word-break:break-word;}.cloudStatusValue.big{font-size:20px;letter-spacing:-.03em;}.cloudStatusPill{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:8px 11px;font-size:12px;font-weight:950;border:1px solid #dbe3ef;background:#fff;color:#344054;white-space:nowrap;}.cloudStatusPill.ok{background:#ecfdf3;color:#027a48;border-color:#abefc6;}.cloudStatusPill.warn{background:#fffbeb;color:#b54708;border-color:#fedf89;}.cloudStatusWarning{grid-column:1/-1;border-color:#fedf89;background:#fffbeb;color:#92400e;}
+@media (max-width: 920px){.webhookGrid,.filtersGridPolished{grid-template-columns:1fr!important;}.webhookUrlRow{grid-template-columns:1fr 1fr!important;}.webhookSelect{grid-column:1/-1;}.webhookIntro{grid-template-columns:auto 1fr;}.methodPill{grid-column:1/-1;justify-self:start;}.filterIntro{flex-direction:column;}.dateRangeGrid{grid-template-columns:1fr;}.waStatusCard{width:100%;}}@media (max-width: 560px){.webhookUrlRow{grid-template-columns:1fr!important;}.filterCard{flex-direction:column;}}
+</style>
+
+
+<style id="zape-ux-hotfix-20260526c">
+/* Correções de navegação: paginação só em Leads e retorno visual ao topo da seção. */
+.pager.is-hidden{display:none!important;}
+.shell>main{scroll-behavior:smooth;}
+#panelLeads{scroll-margin-top:0;}
+.dashboardHero{display:block!important;}
+.dashboardHero.is-compact{display:block!important;}
+/* Garante que a barra superior não suma ou fique sem leitura por conflito de estilos. */
+.topbar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;flex:0 0 auto!important;}
+.topbar .brand,.topbar .topActions{display:flex!important;align-items:center!important;}
+.topbar .brand{visibility:visible!important;opacity:1!important;}
+.waStatusText{text-transform:none!important;}
+@media (max-width: 980px){.topbar{position:relative!important}.waStatusCard{min-width:220px!important}.pager{left:10px!important;right:10px!important}}
+</style>
+
+
+<style id="zape-ux-hotfix-20260526d">
+/* Hotfix v4: restaura Visão Geral e devolve scroll real para a lista de leads. */
+html, body{
+  height:auto!important;
+  min-height:100%!important;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+}
+body.noScroll{overflow:hidden!important;}
+.app{
+  height:auto!important;
+  min-height:100vh!important;
+  overflow:visible!important;
+  padding:18px 18px 104px!important;
+}
+.topbar{
+  position:sticky!important;
+  top:0!important;
+  z-index:60!important;
+  padding:12px 14px!important;
+  margin:0 0 14px!important;
+  border:1px solid rgba(219,227,239,.86)!important;
+  border-radius:22px!important;
+  background:rgba(255,255,255,.94)!important;
+  box-shadow:0 10px 30px rgba(15,23,42,.08)!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+}
+.shell{
+  display:grid!important;
+  grid-template-columns:var(--sidebarW) minmax(0,1fr)!important;
+  gap:14px!important;
+  align-items:start!important;
+  min-height:0!important;
+  overflow:visible!important;
+}
+.shell>main{
+  height:auto!important;
+  max-height:none!important;
+  min-height:0!important;
+  overflow:visible!important;
+  padding-right:0!important;
+}
+.shell>aside.card{
+  position:sticky!important;
+  top:96px!important;
+  max-height:calc(100vh - 114px)!important;
+  overflow:auto!important;
+}
+#panelLeads{
+  display:flex;
+  flex-direction:column;
+  gap:14px!important;
+  overflow:visible!important;
+}
+#panelLeads>.dashboardHero{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  height:auto!important;
+  max-height:none!important;
+  min-height:auto!important;
+  order:0!important;
+  margin:0!important;
+  overflow:hidden!important;
+  transform:none!important;
+}
+#panelLeads>.dashboardHero .cardHeader{
+  display:flex!important;
+  align-items:flex-start!important;
+  min-height:auto!important;
+}
+#panelLeads>.dashboardHero .cardBody{
+  display:block!important;
+  min-height:auto!important;
+  padding:18px!important;
+}
+#panelLeads>.dashboardHero .kpis{
+  display:grid!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+#panelLeads>.dashboardHero + .card{order:1!important;}
+.tableWrap{
+  max-height:none!important;
+  height:auto!important;
+  overflow:hidden!important;
+}
+.tableWrap>div{
+  max-height:calc(100vh - 280px)!important;
+  min-height:430px!important;
+  overflow-y:auto!important;
+  overflow-x:auto!important;
+  scrollbar-gutter:stable both-edges!important;
+}
+.tableWrap>div::-webkit-scrollbar{width:12px;height:12px;}
+.tableWrap>div::-webkit-scrollbar-thumb{background:#c8d3e1;border-radius:999px;border:3px solid #f8fafc;}
+.tableWrap>div::-webkit-scrollbar-track{background:#f8fafc;border-radius:999px;}
+.pager{
+  z-index:45!important;
+}
+.pager.is-hidden{display:none!important;}
+body:not(.hasPager) .pager{display:none!important;}
+@media (max-width:1120px){
+  .shell{grid-template-columns:1fr!important;}
+  .shell>aside.card{position:relative!important;top:auto!important;max-height:none!important;}
+  .tableWrap>div{max-height:60vh!important;min-height:360px!important;}
+}
+@media (max-width:720px){
+  .topbar{position:relative!important;}
+  .tableWrap>div{max-height:62vh!important;min-height:320px!important;}
+}
+</style>
+
+
+
+<style id="zape-webhook-friendly-hotfix-20260527">
+/* Webhooks: versão menos técnica, mais intuitiva e sem botões estourando o card. */
+#ovTemplate .webhookSheet{width:min(920px,calc(100vw - 28px))!important;border-radius:26px!important;}
+#ovTemplate .sheetHead{padding:18px 22px!important;}
+#ovTemplate .sheetBody{padding:18px 22px 22px!important;}
+#ovTemplate .webhookBody{gap:16px!important;background:#f8fbff!important;}
+#ovTemplate .webhookIntro{grid-template-columns:auto 1fr!important;padding:18px!important;border-color:#dbeafe!important;background:linear-gradient(135deg,#eff6ff 0%,#ffffff 58%,#f0fdf4 100%)!important;}
+#ovTemplate .webhookIntroIcon{width:54px!important;height:54px!important;border-radius:20px!important;font-size:26px!important;}
+#ovTemplate .webhookIntroTitle{font-size:18px!important;line-height:1.15!important;}
+#ovTemplate .webhookIntroText{max-width:720px!important;font-size:13px!important;}
+#ovTemplate .methodPill{display:none!important;}
+.webhookHowItWorks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.webhookStep{display:flex;gap:10px;align-items:flex-start;border:1px solid #dbe3ef;border-radius:18px;background:#fff;padding:13px;box-shadow:0 8px 18px rgba(15,23,42,.035);}
+.webhookStepNumber{width:28px;height:28px;border-radius:999px;background:#eef5ff;color:#174ea6;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:950;flex:0 0 auto;}
+.webhookStepTitle{font-size:13px;font-weight:950;color:#101828;line-height:1.2;}
+.webhookStepText{font-size:12px;color:#667085;line-height:1.35;margin-top:3px;}
+#ovTemplate .webhookGrid{display:block!important;}
+#ovTemplate .webhookPanel{padding:18px!important;border-radius:22px!important;overflow:hidden!important;}
+#ovTemplate .webhookUrlRow{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important;align-items:stretch!important;}
+.webhookActionsRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;width:100%;}
+.webhookActionsRow .btn{min-height:42px;white-space:nowrap;}
+#ovTemplate .webhookSelect{width:100%!important;max-width:100%!important;min-width:0!important;height:44px!important;background:#fff!important;}
+#ovTemplate .webhookInfoBar{margin-top:12px!important;min-height:44px!important;border-radius:16px!important;background:#f8fafc!important;color:#475467!important;line-height:1.4!important;}
+.webhookSafeNote{display:flex;align-items:flex-start;gap:10px;margin-top:12px;border:1px solid #dcfce7;background:#f0fdf4;color:#166534;border-radius:16px;padding:11px 12px;font-size:12px;line-height:1.4;}
+.webhookSafeNote i{font-size:18px;flex:0 0 auto;margin-top:1px;}
+#ovTemplate .payloadExample,
+#ovTemplate .payloadExampleBox{display:none!important;}
+#ovTemplate .messagesPanel{gap:14px!important;}
+#ovTemplate .panelMiniHead{align-items:center!important;}
+#ovTemplate .panelMiniTitle{font-size:15px!important;}
+#ovTemplate .panelMiniHint{font-size:12px!important;max-width:720px!important;}
+.webhookTokenHint{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:8px 10px;border-radius:999px;background:#eef5ff;color:#174ea6;border:1px solid #cfe0ff;font-size:12px;font-weight:850;}
+.webhookMessagesList{gap:12px!important;}
+.whMessageItemWrap{display:grid!important;grid-template-columns:minmax(0,1fr) 44px!important;gap:10px!important;align-items:stretch!important;border:1px solid #dbe3ef!important;border-radius:18px!important;background:#fff!important;padding:10px!important;box-shadow:0 8px 18px rgba(15,23,42,.04)!important;}
+.whMessageItemWrap .whMsgItem{min-height:88px!important;resize:vertical!important;border:0!important;background:#f8fafc!important;box-shadow:none!important;font-size:13px!important;line-height:1.5!important;}
+.whMessageDelete{width:44px!important;height:auto!important;min-height:44px!important;border-radius:16px!important;padding:0!important;align-self:stretch!important;display:flex!important;align-items:center!important;justify-content:center!important;color:#b42318!important;background:#fffafa!important;border-color:#fecdca!important;}
+#ovTemplate .webhookFooter{border-top:1px solid #edf2f7;padding-top:14px!important;}
+#ovTemplate .webhookMeta{color:#667085!important;}
+@media(max-width:860px){
+  .webhookHowItWorks{grid-template-columns:1fr;}
+  .webhookActionsRow .btn{flex:1 1 150px;}
+  #ovTemplate .webhookIntro{grid-template-columns:1fr!important;}
+  .whMessageItemWrap{grid-template-columns:1fr!important;}
+  .whMessageDelete{height:42px!important;width:100%!important;}
+}
+</style>
+
+
+<style id="zape-conversations-css">
+  .conversationsGrid{
+    display:grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap:14px;
+    min-height: min(720px, calc(100vh - 210px));
+  }
+  .conversationListCard, .conversationThreadCard{
+    border:1px solid var(--line);
+    border-radius: 22px;
+    background: rgba(255,255,255,.88);
+    overflow:hidden;
+    min-height: 0;
+    box-shadow: 0 18px 45px rgba(15,23,42,.06);
+  }
+  .conversationListHead, .conversationThreadHead{
+    padding:14px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .conversationListHead{ flex-direction:column; align-items:stretch; }
+  .chatSearchRow{ display:flex; gap:8px; align-items:center; }
+  .conversationList{
+    height: calc(100vh - 330px);
+    min-height: 420px;
+    overflow:auto;
+    padding:8px;
+  }
+  .conversationItem{
+    width:100%;
+    border:1px solid transparent;
+    background: transparent;
+    border-radius:16px;
+    padding:10px;
+    display:grid;
+    grid-template-columns: 44px minmax(0,1fr) auto;
+    gap:10px;
+    text-align:left;
+    cursor:pointer;
+    align-items:center;
+  }
+  .conversationItem:hover{ background: rgba(26,115,232,.06); }
+  .conversationItem.active{
+    background: rgba(26,115,232,.10);
+    border-color: rgba(26,115,232,.20);
+  }
+  .chatAvatar{
+    width:44px;
+    height:44px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    color:#fff;
+    background: linear-gradient(135deg, #1a73e8, #34a853);
+    box-shadow: 0 10px 22px rgba(26,115,232,.18);
+  }
+  .chatName{ font-weight:900; color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .chatMeta{ font-size:12px; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:2px; }
+  .chatPreview{ font-size:12px; color:rgba(71,85,105,.95); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:5px; }
+  .chatBadge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:22px;
+    height:22px;
+    padding:0 7px;
+    border-radius:999px;
+    background: rgba(52,168,83,.12);
+    color:#0f7b3b;
+    font-size:11px;
+    font-weight:900;
+  }
+  .conversationThreadCard{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .conversationThreadHead{ justify-content:space-between; }
+  .chatHeaderMain{ display:flex; align-items:center; gap:12px; min-width:0; }
+  .chatHeaderMain .chatAvatar{ width:46px; height:46px; border-radius:17px; }
+  .chatHeaderTitle{ font-weight:950; font-size:16px; color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .chatHeaderSub{ color:var(--muted); font-size:12px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .conversationMessages{
+    flex:1;
+    min-height:420px;
+    max-height: calc(100vh - 385px);
+    overflow:auto;
+    padding:18px;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(26,115,232,.05), transparent 28%),
+      linear-gradient(180deg, rgba(248,250,252,.9), rgba(255,255,255,.92));
+  }
+  .chatEmpty{
+    height:100%;
+    min-height:330px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--muted);
+    padding:28px;
+  }
+  .chatEmptyBox{
+    max-width:420px;
+    border:1px dashed rgba(15,23,42,.14);
+    border-radius:22px;
+    padding:24px;
+    background: rgba(255,255,255,.65);
+  }
+  .msgRow{ display:flex; margin:0 0 10px; }
+  .msgRow.me{ justify-content:flex-end; }
+  .msgBubble{
+    max-width:min(680px, 74%);
+    border:1px solid rgba(15,23,42,.08);
+    padding:10px 12px;
+    border-radius:16px 16px 16px 5px;
+    background:#fff;
+    box-shadow:0 8px 18px rgba(15,23,42,.05);
+    white-space:pre-wrap;
+    word-break:break-word;
+    color:var(--text);
+    font-size:14px;
+    line-height:1.45;
+  }
+  .msgRow.me .msgBubble{
+    background: linear-gradient(135deg, #1a73e8, #185abc);
+    color:#fff;
+    border-color: rgba(26,115,232,.10);
+    border-radius:16px 16px 5px 16px;
+  }
+  .msgTime{
+    margin-top:6px;
+    font-size:10px;
+    color:rgba(100,116,139,.82);
+  }
+  .msgRow.me .msgTime{ color:rgba(255,255,255,.78); }
+  .msgAudioTitle{ font-weight:900; margin-bottom:8px; display:flex; align-items:center; gap:6px; }
+  .msgAudioPlayer{ width:280px; max-width:100%; display:block; }
+  .msgRow.me .msgAudioPlayer{ filter: saturate(.95); }
+  .composerMain{ flex:1; min-width:0; display:flex; flex-direction:column; gap:8px; }
+  .conversationComposer{
+    border-top:1px solid var(--line);
+    padding:12px;
+    display:flex;
+    gap:10px;
+    align-items:flex-end;
+    background:rgba(255,255,255,.96);
+  }
+  .conversationComposer textarea{
+    resize:none;
+    min-height:52px;
+    max-height:130px;
+    flex:1;
+  }
+  .composerActions{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    flex:0 0 auto;
+  }
+  .conversationComposer .btn{ min-height:52px; }
+  .micBtn{
+    width:56px;
+    height:56px;
+    border:0;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:#fff;
+    font-size:25px;
+    background:linear-gradient(135deg,#34A853,#188038);
+    box-shadow:0 16px 32px rgba(52,168,83,.26);
+    transition:transform .14s ease, box-shadow .2s ease, filter .2s ease, opacity .2s ease;
+  }
+  .micBtn:hover{ transform:translateY(-1px); box-shadow:0 20px 36px rgba(52,168,83,.30); }
+  .micBtn:active{ transform:translateY(0) scale(.98); }
+  .micBtn[disabled]{ opacity:.42; cursor:not-allowed; transform:none; box-shadow:none; filter:grayscale(.15); }
+  .micBtn.recording{
+    background:linear-gradient(135deg,#EA4335,#B42318);
+    box-shadow:0 16px 34px rgba(234,67,53,.30);
+    animation:micPulse 1.1s ease-in-out infinite;
+  }
+  @keyframes micPulse{
+    0%,100%{ box-shadow:0 0 0 0 rgba(234,67,53,.28), 0 16px 34px rgba(234,67,53,.25); }
+    50%{ box-shadow:0 0 0 9px rgba(234,67,53,.08), 0 18px 38px rgba(234,67,53,.30); }
+  }
+  .audioRecorderBar{
+    display:none;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    min-height:52px;
+    padding:10px;
+    border:1px solid rgba(15,23,42,.08);
+    background:linear-gradient(180deg,rgba(248,250,252,.96),rgba(255,255,255,.96));
+    border-radius:18px;
+  }
+  .audioRecorderBar.isVisible{ display:flex; }
+  .audioRecordingPill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:999px;
+    background:rgba(234,67,53,.08);
+    color:#b42318;
+    font-size:12px;
+    font-weight:900;
+    border:1px solid rgba(234,67,53,.18);
+    white-space:nowrap;
+  }
+  .audioRecordingDot{ width:8px; height:8px; border-radius:99px; background:#ea4335; box-shadow:0 0 0 4px rgba(234,67,53,.12); }
+  .audioWaveWrap{
+    flex:1;
+    min-width:160px;
+    height:38px;
+    border-radius:999px;
+    background:rgba(15,23,42,.05);
+    border:1px solid rgba(15,23,42,.06);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 12px;
+    overflow:hidden;
+  }
+  .audioWave{
+    width:100%;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:3px;
+  }
+  .audioWave span{
+    width:3px;
+    height:8px;
+    border-radius:999px;
+    background:linear-gradient(180deg,#1a73e8,#34A853);
+    opacity:.72;
+    transition:height .08s linear, opacity .08s linear;
+  }
+  .audioPreview{ width:240px; max-width:100%; height:36px; }
+  .audioActionGroup{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .audioActionGroup .btnMini{ min-height:36px; padding:8px 10px; }
+  @media (max-width: 720px){
+    .conversationComposer{ align-items:stretch; }
+    .composerActions{ flex-direction:column; }
+    .micBtn{ width:52px; height:52px; }
+    .audioWaveWrap{ min-width:120px; }
+  }
+  .chatLoadState{
+    padding:14px;
+    color:var(--muted);
+    font-size:13px;
+  }
+  @media (max-width: 980px){
+    .conversationsGrid{ grid-template-columns:1fr; }
+    .conversationList{ height:300px; min-height:300px; }
+    .conversationMessages{ max-height:none; min-height:360px; }
+    .msgBubble{ max-width:88%; }
+  }
+</style>
+
 </head>
 
 <body>
@@ -1088,76 +1896,95 @@ html, body { height: 100%; overflow: hidden !important; }
           <img class="companyLogo" src="casadoads.png" alt="Casa do Ads" />
         </div>
         <div class="brandText">
+          <div class="brandProduct">Zape</div>
           <h1>Painel</h1>
-          <div class="sub">Leads + WhatsApp</div>
+          <div class="sub">Leads, funil e WhatsApp em um só lugar</div>
         </div>
       </div>
 
-      <div class="topActions">
-        <div class="chip">
-          <div id="dot" class="dot"></div>
-          <div style="display:flex; flex-direction:column; gap:2px;">
-            <div style="font-size:12px;"><b>WhatsApp:</b> <span id="waStatus">carregando...</span></div>
-            <div class="hint" id="waMeta"></div>
+      <div class="topActions" aria-label="Ações rápidas">
+        <div id="waStatusCard" class="chip waStatusCard" title="Status do WhatsApp Web">
+          <div class="waStatusIcon">
+            <i class="ph ph-whatsapp-logo"></i>
+            <span id="dot" class="dot"></span>
+          </div>
+          <div class="waStatusCopy">
+            <div class="waStatusEyebrow">WhatsApp Web</div>
+            <div class="waStatusText" id="waStatus">Carregando...</div>
+            <div class="waStatusMeta" id="waMeta"></div>
           </div>
         </div>
 
-        <button id="btnOpenFilters" class="btn btnSoft" type="button">Filtros</button>
-        <button id="btnOpenTemplate" class="btn btnSoft" type="button">Webhooks</button>
-        <button id="btnOpenQr" class="btn btnSoft" type="button">Escanear QR</button>
-        <button id="btnInit" class="btn btnPrimary" type="button">Conectar</button>
-        <button id="btnLogout" class="btn btnGhost" type="button" title="Encerrar sessão">Sair</button>
+        <button id="btnOpenFilters" class="btn btnSoft" type="button"><i class="ph ph-funnel"></i> Filtros</button>
+        <button id="btnOpenTemplate" class="btn btnSoft" type="button"><i class="ph ph-webhooks-logo"></i> Webhooks</button>
+        <button id="btnOpenQr" class="btn btnSoft" type="button"><i class="ph ph-qr-code"></i> QR</button>
+        <button id="btnInit" class="btn btnPrimary" type="button"><i class="ph ph-plug-charging"></i> Conectar</button>
+        <button id="btnLogout" class="btn btnGhost" type="button" title="Encerrar sessão"><i class="ph ph-sign-out"></i> Sair</button>
       </div>
     </div>
 
     <div class="shell">
       <!-- Sidebar -->
-      <aside class="card">
-        <div class="cardHeader">
-          <h2 class="cardTitle">Menu</h2>
-          <span class="hint">Navegação</span>
+      <aside class="card sidebarCard">
+        <div class="sidebarHead">
+          <div class="sidebarProfile">
+            <div class="sidebarProfileIcon"><i class="ph ph-squares-four"></i></div>
+            <div style="min-width:0;">
+              <div class="sidebarEyebrow">Workspace</div>
+              <div class="sidebarTitle">Operação comercial</div>
+              <div class="sidebarHint">Organize leads, tags, funil e API oficial.</div>
+            </div>
+          </div>
         </div>
         <div class="cardBody">
-          <div class="menu">
+          <div class="menu" aria-label="Menu principal">
             <button id="navLeads" class="menuBtn active" type="button">
-              <span>Leads</span>
+              <span class="menuLabel"><i class="ph ph-users-three"></i><span>Leads</span></span>
               <span class="menuPill" id="navLeadsCount">—</span>
             </button>
+            <button id="navChats" class="menuBtn" type="button">
+              <span class="menuLabel"><i class="ph ph-chat-circle-text"></i><span>Conversas</span></span>
+              <span class="menuPill" id="navChatsCount">TXT</span>
+            </button>
             <button id="navTags" class="menuBtn" type="button">
-              <span>Tags</span>
+              <span class="menuLabel"><i class="ph ph-tag"></i><span>Tags</span></span>
               <span class="menuPill" id="navTagsCount">—</span>
             </button>
             <button id="navCloud" class="menuBtn" type="button">
-              <span>WhatsApp Oficial</span>
+              <span class="menuLabel"><i class="ph ph-whatsapp-logo"></i><span>WhatsApp Oficial</span></span>
               <span class="menuPill" id="navCloudPill">API</span>
             </button>
             <button id="navCrm" class="menuBtn" type="button">
-              <span>Funil de Vendas</span>
+              <span class="menuLabel"><i class="ph ph-kanban"></i><span>Funil de Vendas</span></span>
               <span class="menuPill">CRM</span>
             </button>
-            <button id="navOwner" class="menuBtn" type="button"><span>Dono do Negócio</span><span class="menuPill">VIP</span></button>
+            <button id="navOwner" class="menuBtn" type="button">
+              <span class="menuLabel"><i class="ph ph-identification-card"></i><span>Dono do Negócio</span></span>
+              <span class="menuPill">VIP</span>
+            </button>
           </div>
-
-          
         </div>
       </aside>
 
       <!-- Main -->
       <main id="panelLeads" style="display:flex; flex-direction:column; gap:14px;">
-        <section class="card">
-          <div class="cardHeader">
-            <h2 class="cardTitle">Resumo</h2>
+        <section class="card dashboardHero">
+          <div class="cardHeader heroHeader">
+            <div class="heroTitleWrap">
+              <div class="heroEyebrow">Visão geral</div>
+              <div class="heroTitle">Controle dos leads e status do WhatsApp</div>
+              <div class="heroSubtitle">Acompanhe respostas, entregas e números inválidos. Clique em um card para filtrar rapidamente a lista.</div>
+              <div id="activeFilterSummary" class="activeFilters" aria-live="polite"></div>
+            </div>
             <span class="hint" id="kpiMeta">—</span>
           </div>
           <div class="cardBody">
-            
             <div class="kpis">
-              <div class="kpi green"><div class="kpiBar"></div><div class="kpiLabel">Responderam</div><div class="kpiValue" id="kpiReplied">0</div></div>
-              <div class="kpi blue"><div class="kpiBar"></div><div class="kpiLabel">Receberam</div><div class="kpiValue" id="kpiDeliveredNoReply">0</div></div>
-              <div class="kpi red"><div class="kpiBar"></div><div class="kpiLabel">Não receberam</div><div class="kpiValue" id="kpiNotDelivered">0</div></div>
-              <div class="kpi yellow"><div class="kpiBar"></div><div class="kpiLabel">Não existem</div><div class="kpiValue" id="kpiNotOnWhatsapp">0</div></div>
+              <div class="kpi green" role="button" tabindex="0" data-quick-status="replied" title="Filtrar por leads que responderam"><div class="kpiBar"></div><div class="kpiLabel">Responderam</div><div class="kpiValue" id="kpiReplied">0</div><div class="kpiHint">Resposta real após envio</div></div>
+              <div class="kpi blue" role="button" tabindex="0" data-quick-status="delivered" title="Filtrar por leads que receberam"><div class="kpiBar"></div><div class="kpiLabel">Receberam</div><div class="kpiValue" id="kpiDeliveredNoReply">0</div><div class="kpiHint">Entregue, sem resposta</div></div>
+              <div class="kpi red" role="button" tabindex="0" data-quick-status="notDelivered" title="Filtrar por leads que não receberam"><div class="kpiBar"></div><div class="kpiLabel">Não receberam</div><div class="kpiValue" id="kpiNotDelivered">0</div><div class="kpiHint">Erro ou prazo vencido</div></div>
+              <div class="kpi yellow" role="button" tabindex="0" data-quick-status="notExists" title="Filtrar por números inexistentes"><div class="kpiBar"></div><div class="kpiLabel">Não existem</div><div class="kpiValue" id="kpiNotOnWhatsapp">0</div><div class="kpiHint">Sem WhatsApp registrado</div></div>
             </div>
-
           </div>
         </section>
 
@@ -1166,11 +1993,11 @@ html, body { height: 100%; overflow: hidden !important; }
             <div class="leadsTop" style="width:100%;">
               <div class="searchWrap">
                 <input id="q" class="input" placeholder="Buscar lead (nome / email / empresa / WhatsApp)" />
-                <button id="btnReload" class="btn btnGhost" type="button">Atualizar</button>
+                <button id="btnReload" class="btn btnGhost" type="button"><i class="ph ph-arrows-clockwise"></i> Atualizar</button>
               </div>
               <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-                <a id="csv" class="btn btnGhost" href="#">Baixar CSV</a>
-                <button id="btnOpenFilters2" class="btn btnSoft" type="button">Filtros</button>
+                <a id="csv" class="btn btnGhost" href="#"><i class="ph ph-download-simple"></i> Baixar CSV</a>
+                <button id="btnOpenFilters2" class="btn btnSoft" type="button"><i class="ph ph-funnel"></i> Filtros</button>
               </div>
             </div>
           </div>
@@ -1201,6 +2028,77 @@ html, body { height: 100%; overflow: hidden !important; }
             </div>
 
             <div class="hint" id="lastSync" style="margin-top:10px;"></div>
+          </div>
+        </section>
+      </main>
+
+      <main id="panelChats" style="display:none; flex-direction:column; gap:14px;">
+        <section class="card">
+          <div class="cardHeader" style="align-items:flex-start; gap:10px;">
+            <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+              <h2 class="cardTitle"><i class="ph ph-chat-circle-text"></i> Conversas</h2>
+              <span class="hint">Veja contatos da planilha e também números novos que chamarem no WhatsApp. Envie e receba mensagens de texto pelo WhatsApp Web conectado.</span>
+            </div>
+            <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <button id="chatRefresh" class="btn btnGhost" type="button"><i class="ph ph-arrows-clockwise"></i> Atualizar</button>
+            </div>
+          </div>
+          <div class="cardBody">
+            <div class="conversationsGrid">
+              <div class="conversationListCard">
+                <div class="conversationListHead">
+                  <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+                    <div>
+                      <div class="label">Conversas do WhatsApp</div>
+                      <div class="hint" id="chatListHint">Carregando conversas...</div>
+                    </div>
+                  </div>
+                  <div class="chatSearchRow">
+                    <input id="chatSearch" class="input" placeholder="Buscar conversa por nome, empresa ou número" />
+                  </div>
+                </div>
+                <div id="chatList" class="conversationList">
+                  <div class="chatLoadState">Carregando contatos...</div>
+                </div>
+              </div>
+
+              <div class="conversationThreadCard">
+                <div class="conversationThreadHead">
+                  <div class="chatHeaderMain">
+                    <div id="chatHeaderAvatar" class="chatAvatar">?</div>
+                    <div style="min-width:0;">
+                      <div id="chatHeaderTitle" class="chatHeaderTitle">Selecione uma conversa</div>
+                      <div id="chatHeaderSub" class="chatHeaderSub">Escolha um contato da lista para carregar o histórico em texto.</div>
+                    </div>
+                  </div>
+                  <button id="chatReloadThread" class="btn btnGhost" type="button"><i class="ph ph-arrows-clockwise"></i> Recarregar</button>
+                </div>
+                <div id="chatMessages" class="conversationMessages">
+                  <div class="chatEmpty"><div class="chatEmptyBox"><b>Comece selecionando uma conversa</b><br><span>Por enquanto esta área trabalha só com texto. Voz, arquivos e mídia podem entrar depois.</span></div></div>
+                </div>
+                <div class="conversationComposer">
+                  <div class="composerMain">
+                    <div id="chatAudioPanel" class="audioRecorderBar" aria-live="polite">
+                      <span id="chatRecordingHint" class="audioRecordingPill"><span class="audioRecordingDot"></span><span id="chatRecordingClock">00:00</span></span>
+                      <div class="audioWaveWrap" aria-label="Nível do áudio em tempo real">
+                        <div id="chatAudioWave" class="audioWave"></div>
+                      </div>
+                      <audio id="chatAudioPreview" class="audioPreview" controls style="display:none;"></audio>
+                      <div class="audioActionGroup">
+                        <button id="chatStopAudio" class="btnMini" type="button" style="display:none;"><i class="ph ph-stop-circle"></i> Parar</button>
+                        <button id="chatSendAudio" class="btnMini" type="button" style="display:none;"><i class="ph ph-paper-plane-tilt"></i> Enviar áudio</button>
+                        <button id="chatCancelAudio" class="btnMini" type="button" style="display:none;"><i class="ph ph-x-circle"></i> Cancelar</button>
+                      </div>
+                    </div>
+                    <textarea id="chatText" class="input" placeholder="Digite sua mensagem de texto..." disabled></textarea>
+                  </div>
+                  <div class="composerActions">
+                    <button id="chatRecordAudio" class="micBtn" type="button" disabled title="Gravar áudio" aria-label="Gravar áudio"><i class="ph ph-microphone"></i></button>
+                    <button id="chatSend" class="btn btnPrimary" type="button" disabled><i class="ph ph-paper-plane-tilt"></i> Enviar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
@@ -1254,10 +2152,10 @@ html, body { height: 100%; overflow: hidden !important; }
         <section class="card">
           <div class="cardHeader">
             <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
-              <h2 class="cardTitle">WhatsApp Oficial • Modelos e Envio em Massa</h2>
+              <h2 class="cardTitle"><i class="ph ph-whatsapp-logo"></i> WhatsApp Oficial • Modelos e Envio em Massa</h2>
               <span class="hint">Crie modelos pela API oficial da Meta, aguarde aprovação e envie campanhas com template aprovado.</span>
             </div>
-            <button id="btnCloudRefreshTemplatesTop" class="btn btnSoft" type="button">Atualizar modelos</button>
+            <button id="btnCloudRefreshTemplatesTop" class="btn btnSoft" type="button"><i class="ph ph-arrows-clockwise"></i> Atualizar modelos</button>
           </div>
 
           <div class="cardBody">
@@ -1268,8 +2166,8 @@ html, body { height: 100%; overflow: hidden !important; }
                   <div class="hint">Vincule uma conta do Facebook/Meta Business e um número do WhatsApp pelo fluxo oficial de Embedded Signup.</div>
                 </div>
                 <div style="display:flex; gap:8px; flex-wrap:wrap;">
-                  <button id="btnCloudLoadStatus" class="btn btnGhost" type="button">Atualizar conexão</button>
-                  <button id="btnCloudDisconnect" class="btn btnGhost" type="button">Desvincular</button>
+                  <button id="btnCloudLoadStatus" class="btn btnGhost" type="button"><i class="ph ph-plugs-connected"></i> Atualizar conexão</button>
+                  <button id="btnCloudDisconnect" class="btn btnGhost" type="button"><i class="ph ph-link-break"></i> Desvincular</button>
                 </div>
               </div>
 
@@ -1313,7 +2211,7 @@ html, body { height: 100%; overflow: hidden !important; }
               <div style="height:12px;"></div>
 
               <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-                <button id="btnCloudEmbeddedSignup" class="btn btnPrimary" type="button">Vincular Facebook e WhatsApp</button>
+                <button id="btnCloudEmbeddedSignup" class="btn btnPrimary" type="button"><i class="ph ph-facebook-logo"></i> Vincular Facebook e WhatsApp</button>
                 <span class="hint">Abre o login oficial da Meta para escolher/criar WABA e número do WhatsApp.</span>
               </div>
 
@@ -1402,7 +2300,7 @@ Não tenho interesse"></textarea>
               <div style="height:12px;"></div>
 
               <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-                <button id="btnCloudCreateTemplate" class="btn btnPrimary" type="button">Enviar modelo para Meta</button>
+                <button id="btnCloudCreateTemplate" class="btn btnPrimary" type="button"><i class="ph ph-paper-plane-tilt"></i> Enviar modelo para Meta</button>
                 <button id="btnCloudListTemplates" class="btn btnSoft" type="button">Ver modelos da Meta</button>
               </div>
 
@@ -1484,7 +2382,7 @@ Não tenho interesse"></textarea>
               <div class="label" style="margin-bottom:10px;">Passo 4 • Enviar campanha pela API oficial</div>
 
               <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <button id="btnCloudSend" class="btn btnPrimary" type="button">Enviar campanha</button>
+                <button id="btnCloudSend" class="btn btnPrimary" type="button"><i class="ph ph-rocket-launch"></i> Enviar campanha</button>
               </div>
 
               <div id="cloudLog" class="hint" style="margin-top:12px; white-space:pre-wrap;"></div>
@@ -1536,7 +2434,7 @@ Não tenho interesse"></textarea>
   </div>
 
   <!-- Bottom pager -->
-  <div class="pager">
+  <div id="pagerBar" class="pager" data-pager>
     <div class="pagerLeft">
       <span class="pagerText">Resultados por página:</span>
       <select id="pageSize" class="pagerSelect">
@@ -1550,8 +2448,8 @@ Não tenho interesse"></textarea>
     <div class="pagerText" id="pageInfo">Página 1 de 1 | Total de resultados: 0</div>
 
     <div class="pagerRight">
-      <button id="btnPrev" class="iconBtn" type="button" title="Anterior">‹</button>
-      <button id="btnNext" class="iconBtn" type="button" title="Próxima">›</button>
+      <button id="btnPrev" class="iconBtn" type="button" title="Anterior"><img class="uiIcon" src="/assets/ui-icons/chevron-left.svg" alt="Anterior"></button>
+      <button id="btnNext" class="iconBtn" type="button" title="Próxima"><img class="uiIcon" src="/assets/ui-icons/chevron-right.svg" alt="Próxima"></button>
     </div>
   </div>
 
@@ -1590,39 +2488,79 @@ Não tenho interesse"></textarea>
 
 <!-- Overlay: Mensagem padrão -->
 <div id="ovTemplate" class="overlay" role="dialog" aria-modal="true">
-  <div class="sheet" style="width:min(760px, 100%);">
-    <div class="sheetHead">
+  <div class="sheet webhookSheet">
+    <div class="sheetHead webhookHead">
       <div class="sheetTitle">
-        <span class="badge" style="background:var(--g-blue); box-shadow:0 0 0 4px rgba(66,133,244,.14)"></span>
-        <div class="t">Webhooks</div>
+        <span class="badge webhookBadge"><i class="ph ph-lightning"></i></span>
+        <div>
+          <div class="t">Entrada automática de leads</div>
+          <div class="modalSub">Conecte formulários externos e defina as mensagens que o lead recebe depois do cadastro.</div>
+        </div>
       </div>
-      <button id="btnCloseTemplate" class="btn btnGhost" type="button">Fechar</button>
+      <button id="btnCloseTemplate" class="btn btnGhost" type="button"><i class="ph ph-x"></i> Fechar</button>
     </div>
-    <div class="sheetBody" style="display:flex; flex-direction:column; gap:10px;">
-      
-      <div class="hint"><b>Webhook de entrada</b> (gera um link para receber leads via POST JSON).</div>
-
-      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-        <select id="whSelect" class="input" style="min-width:260px; flex:1;">
-          <option value="">carregando...</option>
-        </select>
-        <button id="btnWebhookNew" class="btn btnSoft" type="button">Gerar</button>
-        <button id="btnWebhookCopy" class="btn btnSoft" type="button">Copiar</button>
-        <button id="btnWebhookDelete" class="btn btnGhost" type="button">Excluir</button>
-      </div>
-      <div class="hint" id="whInfo"></div>
-
-      <div style="margin-top:10px; display:flex; flex-direction:column; gap:8px;">
-        <div class="hint"><b>Mensagens vinculadas</b> (enviadas em sequência para o lead).</div>
-        <div id="whMessagesList" style="display:flex; flex-direction:column; gap:8px;"></div>
-        <button id="btnWebhookAddMsg" class="btn btnSoft" type="button" style="align-self: flex-start;">+ Adicionar Mensagem</button>
-        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:10px;">
-          <button id="btnWebhookSave" class="btn btnPrimary" type="button">Salvar mensagens</button>
-          <span class="hint" id="whMsgMeta"></span>
+    <div class="sheetBody webhookBody">
+      <div class="webhookIntro">
+        <div class="webhookIntroIcon"><i class="ph ph-plug-charging"></i></div>
+        <div>
+          <div class="webhookIntroTitle">Receba cadastros automaticamente</div>
+          <div class="webhookIntroText">Use um link exclusivo para receber leads de uma landing page, formulário ou automação. Depois que o lead entrar, as mensagens abaixo são enviadas em sequência.</div>
         </div>
       </div>
 
+      <div class="webhookHowItWorks" aria-label="Como funciona">
+        <div class="webhookStep">
+          <div class="webhookStepNumber">1</div>
+          <div><div class="webhookStepTitle">Gere o link</div><div class="webhookStepText">Crie um link único para esta entrada de leads.</div></div>
+        </div>
+        <div class="webhookStep">
+          <div class="webhookStepNumber">2</div>
+          <div><div class="webhookStepTitle">Cole no formulário</div><div class="webhookStepText">Use esse link na ferramenta que envia os cadastros.</div></div>
+        </div>
+        <div class="webhookStep">
+          <div class="webhookStepNumber">3</div>
+          <div><div class="webhookStepTitle">Configure as mensagens</div><div class="webhookStepText">Defina o que será enviado automaticamente para o novo lead.</div></div>
+        </div>
+      </div>
 
+      <div class="webhookGrid">
+        <section class="webhookPanel webhookPanelWide">
+          <div class="panelMiniHead">
+            <div>
+              <div class="panelMiniTitle"><i class="ph ph-link-simple"></i> Link de entrada</div>
+              <div class="panelMiniHint">Copie este link e use na sua landing page, formulário ou ferramenta de automação.</div>
+            </div>
+          </div>
+          <div class="webhookUrlRow">
+            <select id="whSelect" class="input webhookSelect" aria-label="Link de webhook ativo">
+              <option value="">carregando...</option>
+            </select>
+            <div class="webhookActionsRow">
+              <button id="btnWebhookNew" class="btn btnSoft" type="button"><i class="ph ph-plus-circle"></i> Gerar novo link</button>
+              <button id="btnWebhookCopy" class="btn btnSoft" type="button"><i class="ph ph-copy"></i> Copiar link</button>
+              <button id="btnWebhookDelete" class="btn btnGhost dangerGhost" type="button"><i class="ph ph-trash"></i> Excluir link</button>
+            </div>
+          </div>
+          <div class="webhookInfoBar" id="whInfo"></div>
+          <div class="webhookSafeNote"><i class="ph ph-shield-check"></i><span>Este link recebe o cadastro, cria o lead no painel e dispara as mensagens configuradas abaixo. Guarde o link com cuidado e exclua quando não for mais usar.</span></div>
+        </section>
+      </div>
+
+      <section class="webhookPanel messagesPanel">
+        <div class="panelMiniHead">
+          <div>
+            <div class="panelMiniTitle"><i class="ph ph-chat-text"></i> Mensagens automáticas</div>
+            <div class="panelMiniHint">Escreva a sequência que será enviada depois que o lead entrar.</div>
+            <div class="webhookTokenHint"><i class="ph ph-magic-wand"></i> Use <b>{{nome}}</b> para chamar o lead pelo nome.</div>
+          </div>
+          <button id="btnWebhookAddMsg" class="btn btnSoft" type="button"><i class="ph ph-plus"></i> Adicionar mensagem</button>
+        </div>
+        <div id="whMessagesList" class="webhookMessagesList"></div>
+        <div class="webhookFooter">
+          <button id="btnWebhookSave" class="btn btnPrimary" type="button"><i class="ph ph-floppy-disk"></i> Salvar mensagens</button>
+          <span class="webhookMeta" id="whMsgMeta"></span>
+        </div>
+      </section>
     </div>
   </div>
 </div>
@@ -1668,51 +2606,71 @@ Não tenho interesse"></textarea>
         <button id="btnCloseFilters" class="btn btnGhost" type="button">Fechar</button>
       </div>
 
-      <div class="sheetBody">
-        <div class="filtersGrid">
-          <div class="box">
-            <div class="label">DDD</div>
-            <div class="hint" style="margin:6px 0 10px;">Ex: 11, 13, 21…</div>
-            <input id="fDDD" class="input" inputmode="numeric" placeholder="Somente números" />
+      <div class="sheetBody filterBody">
+        <div class="filterIntro">
+          <div>
+            <div class="filterIntroTitle">Refine a lista sem perder contexto</div>
+            <div class="filterIntroText">Combine DDD, período, tags e status real do WhatsApp para encontrar exatamente os leads que precisam de ação.</div>
+          </div>
+          <span class="filterTip"><i class="ph ph-magic-wand"></i> Filtros acumulativos</span>
+        </div>
+
+        <div class="filtersGrid filtersGridPolished">
+          <div class="filterCard">
+            <div class="filterCardIcon"><i class="ph ph-hash"></i></div>
+            <div class="filterCardContent">
+              <div class="label">DDD</div>
+              <div class="hint">Ex: 11, 13, 21…</div>
+              <input id="fDDD" class="input" inputmode="numeric" placeholder="Somente números" />
+            </div>
           </div>
 
-          <div class="box">
-            <div class="label">Data de criação</div>
-            <div class="hint" style="margin:6px 0 10px;">Filtra pelo createdAt do lead.</div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <div class="field" style="flex:1 1 180px; min-width:180px;">
-                <div class="label" style="font-weight:800;">De</div>
-                <input id="fFrom" class="input" type="date" />
-              </div>
-              <div class="field" style="flex:1 1 180px; min-width:180px;">
-                <div class="label" style="font-weight:800;">Até</div>
-                <input id="fTo" class="input" type="date" />
+          <div class="filterCard">
+            <div class="filterCardIcon"><i class="ph ph-calendar-blank"></i></div>
+            <div class="filterCardContent">
+              <div class="label">Data de criação</div>
+              <div class="hint">Filtra pelo cadastro do lead.</div>
+              <div class="dateRangeGrid">
+                <div class="field">
+                  <div class="label labelSmall">De</div>
+                  <input id="fFrom" class="input" type="date" />
+                </div>
+                <div class="field">
+                  <div class="label labelSmall">Até</div>
+                  <input id="fTo" class="input" type="date" />
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="box">
-            <div class="label">Tags</div>
-            <div class="hint" style="margin:6px 0 10px;">Selecione uma ou várias.</div>
-            <div id="fTags" class="tagPick"></div>
+          <div class="filterCard filterCardTall">
+            <div class="filterCardIcon"><i class="ph ph-tag"></i></div>
+            <div class="filterCardContent">
+              <div class="label">Tags</div>
+              <div class="hint">Selecione uma ou várias tags.</div>
+              <div id="fTags" class="tagPick tagPickPolished"></div>
+            </div>
           </div>
 
-          <div class="box">
-            <div class="label">Status do contato</div>
-            <div class="hint" style="margin:6px 0 10px;">Funciona se o backend retornar status por lead.</div>
-            <div class="statusPick">
-              <label><input type="radio" name="fStatus" value="" checked> Todos</label>
-              <label><input type="radio" name="fStatus" value="replied"> Respondeu</label>
-              <label><input type="radio" name="fStatus" value="delivered"> Recebeu</label>
-              <label><input type="radio" name="fStatus" value="notDelivered"> Não recebeu</label>
-              <label><input type="radio" name="fStatus" value="notExists"> Não existe</label>
+          <div class="filterCard filterCardTall">
+            <div class="filterCardIcon"><i class="ph ph-whatsapp-logo"></i></div>
+            <div class="filterCardContent">
+              <div class="label">Status do contato</div>
+              <div class="hint">Baseado no status gravado pelo backend.</div>
+              <div class="statusPick statusPickPolished">
+                <label class="statusOption"><input type="radio" name="fStatus" value="" checked><span class="statusDot all"></span><span><b>Todos</b><small>Sem filtro de status</small></span></label>
+                <label class="statusOption"><input type="radio" name="fStatus" value="replied"><span class="statusDot replied"></span><span><b>Responderam</b><small>Resposta real após envio</small></span></label>
+                <label class="statusOption"><input type="radio" name="fStatus" value="delivered"><span class="statusDot delivered"></span><span><b>Receberam</b><small>Entregue, sem resposta</small></span></label>
+                <label class="statusOption"><input type="radio" name="fStatus" value="notDelivered"><span class="statusDot notDelivered"></span><span><b>Não receberam</b><small>Erro ou prazo vencido</small></span></label>
+                <label class="statusOption"><input type="radio" name="fStatus" value="notExists"><span class="statusDot notExists"></span><span><b>Não existem</b><small>Número sem WhatsApp</small></span></label>
+              </div>
             </div>
           </div>
         </div>
 
-        <div style="display:flex; gap:10px; justify-content:flex-end; margin-top:14px;">
-          <button id="btnClearFilters" class="btn btnGhost" type="button">Limpar</button>
-          <button id="btnApplyFilters" class="btn btnPrimary" type="button">Aplicar</button>
+        <div class="filterActions">
+          <button id="btnClearFilters" class="btn btnGhost" type="button"><i class="ph ph-eraser"></i> Limpar</button>
+          <button id="btnApplyFilters" class="btn btnPrimary" type="button"><i class="ph ph-funnel"></i> Aplicar filtros</button>
         </div>
       </div>
     </div>
@@ -1763,11 +2721,43 @@ Não tenho interesse"></textarea>
     }
 
 
+    function leadStatusValue(lead){
+      var st = "";
+      try { st = inferStatus(lead); } catch(_) { st = String((lead && lead.leadStatus) ? lead.leadStatus : ""); }
+      return st || "none";
+    }
+
     function leadStatusClass(lead){
-      var st = String((lead && lead.leadStatus) ? lead.leadStatus : "none");
-      if (!st) st = "none";
-      // garante match com CSS
-      return "status-" + st;
+      return "status-" + leadStatusValue(lead);
+    }
+
+    function leadStatusLabel(lead){
+      var st = leadStatusValue(lead);
+      var map = {
+        replied: "Respondeu",
+        delivered: "Recebeu",
+        pending: "Pendente",
+        notDelivered: "Não recebeu",
+        notExists: "Não existe",
+        none: "Sem envio"
+      };
+      return map[st] || "Sem envio";
+    }
+
+
+    function iconMarkup(name, alt, cls){
+      var extra = cls ? (' ' + cls) : '';
+      return '<img class="uiIcon' + extra + '" src="/assets/ui-icons/' + name + '.svg" alt="' + escapeHtml(alt || '') + '">';
+    }
+
+    function statusFilterLabel(value){
+      var map = {
+        replied: "Responderam",
+        delivered: "Receberam",
+        notDelivered: "Não receberam",
+        notExists: "Não existem"
+      };
+      return map[value || ""] || "Todos";
     }
 
     function toast(type, title, msg, ms) {
@@ -1785,13 +2775,145 @@ Não tenho interesse"></textarea>
           '<div class="tTitle">' + escapeHtml(title || "Aviso") + '</div>' +
           '<div class="tMsg">' + escapeHtml(msg || "") + '</div>' +
         '</div>' +
-        '<button class="tClose" aria-label="Fechar">✕</button>';
+        '<button class="tClose" aria-label="Fechar">' + iconMarkup('close', 'Fechar') + '</button>';
 
       var closeBtn = t.querySelector(".tClose");
       if (closeBtn) closeBtn.addEventListener("click", function(){ t.remove(); });
 
       wrap.appendChild(t);
       setTimeout(function(){ if (t.isConnected) t.remove(); }, ms);
+    }
+
+
+    function ensureAppDialog(){
+      var existing = document.getElementById("appDialogOverlay");
+      if (existing) return existing;
+      var ov = document.createElement("div");
+      ov.id = "appDialogOverlay";
+      ov.className = "appDialogOverlay";
+      ov.setAttribute("role", "dialog");
+      ov.setAttribute("aria-modal", "true");
+      ov.setAttribute("aria-hidden", "true");
+      document.body.appendChild(ov);
+      return ov;
+    }
+
+    function closeAppDialog(resolve, value){
+      var ov = document.getElementById("appDialogOverlay");
+      if (ov){
+        ov.classList.remove("open");
+        ov.setAttribute("aria-hidden", "true");
+        ov.innerHTML = "";
+      }
+      document.removeEventListener("keydown", closeAppDialog._handler || function(){});
+      if (typeof resolve === "function") resolve(value);
+    }
+
+    function appDialogBase(opts){
+      opts = opts || {};
+      var ov = ensureAppDialog();
+      return new Promise(function(resolve){
+        var tone = opts.tone || "default";
+        var iconClass = tone === "danger" ? "danger" : (tone === "warn" ? "warn" : "");
+        var icon = opts.icon || (tone === "danger" ? "ph-trash" : (tone === "warn" ? "ph-warning-circle" : "ph-question"));
+        var title = opts.title || "Confirmação";
+        var message = opts.message || "";
+        var inputHtml = opts.mode === "prompt" ? '<input class="appDialogInput" id="appDialogInput" type="text" autocomplete="off" />' : "";
+        var choicesHtml = "";
+        if (opts.mode === "choice"){
+          choicesHtml = '<div class="appChoiceList">' + (opts.choices || []).map(function(c){
+            return '<button class="appChoiceBtn" type="button" data-value="' + escapeHtml(c.value) + '"><span>' + escapeHtml(c.label) + '</span><i class="ph ph-caret-right"></i></button>';
+          }).join("") + '</div>';
+        }
+        ov.innerHTML =
+          '<div class="appDialogBox">' +
+            '<div class="appDialogHead">' +
+              '<div class="appDialogIcon ' + iconClass + '"><i class="ph ' + icon + '"></i></div>' +
+              '<div style="min-width:0;">' +
+                '<h3 class="appDialogTitle">' + escapeHtml(title) + '</h3>' +
+                (message ? '<div class="appDialogText">' + escapeHtml(message) + '</div>' : '') +
+              '</div>' +
+            '</div>' +
+            (inputHtml || choicesHtml ? '<div class="appDialogBody">' + inputHtml + choicesHtml + '</div>' : '') +
+            '<div class="appDialogActions">' +
+              '<button class="btn btnGhost" type="button" data-action="cancel">' + escapeHtml(opts.cancelText || "Cancelar") + '</button>' +
+              (opts.mode === "choice" ? '' : '<button class="btn ' + (tone === "danger" ? "dangerGhost" : "btnPrimary") + '" type="button" data-action="ok">' + escapeHtml(opts.okText || "Confirmar") + '</button>') +
+            '</div>' +
+          '</div>';
+        ov.classList.add("open");
+        ov.setAttribute("aria-hidden", "false");
+
+        var input = ov.querySelector("#appDialogInput");
+        if (input){
+          input.value = opts.defaultValue || "";
+          setTimeout(function(){ input.focus(); input.select(); }, 40);
+        } else {
+          var okBtn = ov.querySelector('[data-action="ok"]') || ov.querySelector('.appChoiceBtn') || ov.querySelector('[data-action="cancel"]');
+          if (okBtn) setTimeout(function(){ okBtn.focus(); }, 40);
+        }
+
+        function done(value){
+          document.removeEventListener("keydown", onKey);
+          ov.classList.remove("open");
+          ov.setAttribute("aria-hidden", "true");
+          ov.innerHTML = "";
+          resolve(value);
+        }
+        function onKey(e){
+          if (e.key === "Escape") done(null);
+          if (e.key === "Enter" && opts.mode === "prompt") done(input ? input.value : "");
+          if (e.key === "Enter" && opts.mode === "confirm") done(true);
+        }
+        document.addEventListener("keydown", onKey);
+
+        ov.querySelector('[data-action="cancel"]')?.addEventListener("click", function(){ done(null); });
+        ov.querySelector('[data-action="ok"]')?.addEventListener("click", function(){
+          if (opts.mode === "prompt") return done(input ? input.value : "");
+          return done(true);
+        });
+        ov.querySelectorAll(".appChoiceBtn").forEach(function(btn){
+          btn.addEventListener("click", function(){ done(btn.getAttribute("data-value")); });
+        });
+      });
+    }
+
+    function uiConfirm(title, message, opts){
+      opts = opts || {};
+      return appDialogBase({
+        mode: "confirm",
+        title: title || "Confirmar ação",
+        message: message || "",
+        tone: opts.tone || "default",
+        icon: opts.icon,
+        okText: opts.okText || "Confirmar",
+        cancelText: opts.cancelText || "Cancelar"
+      }).then(function(v){ return v === true; });
+    }
+
+    function uiPrompt(title, message, defaultValue, opts){
+      opts = opts || {};
+      return appDialogBase({
+        mode: "prompt",
+        title: title || "Digite a informação",
+        message: message || "",
+        defaultValue: defaultValue || "",
+        tone: opts.tone || "default",
+        icon: opts.icon || "ph-pencil-simple",
+        okText: opts.okText || "Salvar",
+        cancelText: opts.cancelText || "Cancelar"
+      });
+    }
+
+    function uiChoice(title, message, choices, opts){
+      opts = opts || {};
+      return appDialogBase({
+        mode: "choice",
+        title: title || "Escolha uma opção",
+        message: message || "",
+        choices: choices || [],
+        tone: opts.tone || "default",
+        icon: opts.icon || "ph-list"
+      });
     }
 
     function setStatusDot(kind) {
@@ -2007,17 +3129,40 @@ Não tenho interesse"></textarea>
     var kpiNotOnWhatsapp = document.getElementById("kpiNotOnWhatsapp");
     var kpiMeta = document.getElementById("kpiMeta");
 
+    function whatsappStatusLabel(status, enabled){
+      if (!enabled) return "Desativado";
+      var map = {
+        connected: "Conectado",
+        authenticated: "Autenticado",
+        ready: "Conectado",
+        qr: "Aguardando QR Code",
+        starting: "Iniciando conexão",
+        initializing: "Iniciando conexão",
+        disconnected: "Desconectado",
+        error: "Erro na conexão",
+        loading: "Carregando"
+      };
+      return map[String(status || "").toLowerCase()] || (status ? String(status) : "Verificando");
+    }
+
+    function setWaStatusCard(kind){
+      var card = document.getElementById("waStatusCard");
+      if (!card) return;
+      card.classList.remove("status-ok", "status-warn", "status-err");
+      card.classList.add(kind === "ok" ? "status-ok" : kind === "err" ? "status-err" : "status-warn");
+    }
+
     async function refreshWhatsApp(){
       var st = await fetch(API_BASE + "/whatsapp/status").then(function(r){ return r.json(); });
 
-      waStatus.textContent = st.enabled ? st.status : "desativado";
-      waMeta.textContent = st.lastError ? ("Problema: " + st.lastError) : "";
+      waStatus.textContent = whatsappStatusLabel(st.status, st.enabled);
+      waMeta.textContent = st.lastError ? ("Problema: " + st.lastError) : (st.enabled ? "Sessão monitorada pelo painel" : "Ative a conexão para enviar mensagens");
 
-      if (!st.enabled) setStatusDot("err");
-      else if (st.status === "connected") setStatusDot("ok");
-      else if (st.status === "qr" || st.status === "starting") setStatusDot("warn");
-      else if (st.status === "error") setStatusDot("err");
-      else setStatusDot("warn");
+      if (!st.enabled) { setStatusDot("err"); setWaStatusCard("err"); }
+      else if (st.status === "connected" || st.status === "authenticated" || st.status === "ready") { setStatusDot("ok"); setWaStatusCard("ok"); }
+      else if (st.status === "qr" || st.status === "starting" || st.status === "initializing") { setStatusDot("warn"); setWaStatusCard("warn"); }
+      else if (st.status === "error" || st.status === "disconnected") { setStatusDot("err"); setWaStatusCard("err"); }
+      else { setStatusDot("warn"); setWaStatusCard("warn"); }
 
       var qr = await fetch(API_BASE + "/whatsapp/qr").then(function(r){ return r.json(); });
       btnOpenQr.disabled = !(qr && qr.qr);
@@ -2126,8 +3271,8 @@ Não tenho interesse"></textarea>
                   '<div class="tagName" title="' + name + '">' + name + '</div>' +
                 '</div>' +
                 '<div class="tagActions">' +
-                  '<button class="iconMini" type="button" data-action="cancelEdit" title="Cancelar">↩</button>' +
-                  '<button class="iconMini" type="button" data-action="saveEdit" title="Salvar">✓</button>' +
+                  '<button class="iconMini" type="button" data-action="cancelEdit" title="Cancelar">' + iconMarkup('undo','Cancelar') + '</button>' +
+                  '<button class="iconMini" type="button" data-action="saveEdit" title="Salvar">' + iconMarkup('check','Salvar') + '</button>' +
                 '</div>' +
               '</div>' +
               '<div class="tagEdit">' +
@@ -2144,8 +3289,8 @@ Não tenho interesse"></textarea>
                   '<div class="tagName" title="' + name + '">' + name + '</div>' +
                 '</div>' +
                 '<div class="tagActions">' +
-                  '<button class="iconMini" type="button" data-action="edit" title="Editar">✎</button>' +
-                  '<button class="iconMini iconDanger" type="button" data-action="delete" title="Deletar">🗑</button>' +
+                  '<button class="iconMini" type="button" data-action="edit" title="Editar">' + iconMarkup('edit','Editar') + '</button>' +
+                  '<button class="iconMini iconDanger" type="button" data-action="delete" title="Deletar">' + iconMarkup('trash','Deletar') + '</button>' +
                 '</div>' +
               '</div>' +
             '</div>';
@@ -2216,7 +3361,7 @@ Não tenho interesse"></textarea>
 
         if (action === "delete"){
           if (!tag) return;
-          var ok = confirm('Deletar a tag "' + (tag.name || "") + '"? Ela será removida de todos os leads.');
+          var ok = await uiConfirm("Deletar tag?", 'A tag "' + (tag.name || "") + '" será removida de todos os leads.', { tone: "danger", okText: "Deletar tag", icon: "ph-trash" });
           if (!ok) return;
 
           btn.disabled = true;
@@ -2459,6 +3604,19 @@ Não tenho interesse"></textarea>
       if (all) all.checked = true;
     }
 
+    function renderActiveFiltersSummary(){
+      var el = document.getElementById("activeFilterSummary");
+      if (!el) return;
+      var chips = [];
+      var q = (document.getElementById("q") && document.getElementById("q").value || "").trim();
+      if (q) chips.push('<span class="filterChip">Busca: <strong>' + escapeHtml(q) + '</strong></span>');
+      if (filters.status) chips.push('<span class="filterChip">Status: <strong>' + escapeHtml(statusFilterLabel(filters.status)) + '</strong></span>');
+      if (filters.ddd) chips.push('<span class="filterChip">DDD: <strong>' + escapeHtml(filters.ddd) + '</strong></span>');
+      if (filters.from || filters.to) chips.push('<span class="filterChip">Período: <strong>' + escapeHtml((filters.from || "início") + " até " + (filters.to || "hoje")) + '</strong></span>');
+      if (filters.tagIds && filters.tagIds.length) chips.push('<span class="filterChip">Tags: <strong>' + filters.tagIds.length + '</strong></span>');
+      el.innerHTML = chips.length ? chips.join("") : '<span class="filterChip">Sem filtros ativos</span>';
+    }
+
     function applyFiltersToItems(){
       var q = (document.getElementById("q").value || "").trim().toLowerCase();
       var fromTs = filters.from ? new Date(filters.from + "T00:00:00").getTime() : null;
@@ -2508,8 +3666,29 @@ Não tenho interesse"></textarea>
       document.getElementById("navLeadsCount").textContent = String(filteredTotal);
     }
 
+    function syncQuickStatusCards(){
+      document.querySelectorAll("[data-quick-status]").forEach(function(card){
+        card.classList.toggle("is-active", (card.getAttribute("data-quick-status") || "") === (filters.status || ""));
+      });
+    }
+
+    document.querySelectorAll("[data-quick-status]").forEach(function(card){
+      function run(){
+        filters.status = card.getAttribute("data-quick-status") || "";
+        syncQuickStatusCards();
+        loadLeads(true).catch(function(e){
+          toast("err", "Filtro", e.message || "Falha ao aplicar filtro rápido.");
+        });
+      }
+      card.addEventListener("click", run);
+      card.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); run(); }
+      });
+    });
+
     btnApplyFilters.addEventListener("click", function(){
       readFiltersFromUI();
+      syncQuickStatusCards();
       closeOverlay("ovFilters");
       if (typeof closeTagDrawer === "function") closeTagDrawer();
       loadLeads(true).then(function(){
@@ -2522,6 +3701,7 @@ Não tenho interesse"></textarea>
     btnClearFilters.addEventListener("click", function(){
       clearFiltersUI();
       readFiltersFromUI();
+      syncQuickStatusCards();
       loadLeads(true).then(function(){
         toast("warn", "Filtros", "Limpos.");
       }).catch(function(e){
@@ -2535,12 +3715,17 @@ Não tenho interesse"></textarea>
 
       var leadName = lead.nome || "Lead sem nome";
       var wa = formatWhatsAppPretty(lead.whatsapp_digits || lead.whatsapp_raw || "");
+      var duplicateCount = Math.max(0, Number(lead.duplicateCount || 0));
+      var duplicateMsg = duplicateCount > 0
+        ? ("\n\nObservação: este WhatsApp tem " + duplicateCount + " cadastro(s) duplicado(s) oculto(s) na lista única. Esta ação remove apenas o cadastro exibido.")
+        : "";
       var msg =
         "Deletar este lead?\n\n" +
         leadName + (wa && wa !== "—" ? ("\n" + wa) : "") +
-        "\n\nA ação remove o lead da lista, das tags, do funil e limpa o status de teste do WhatsApp quando não houver outro lead com o mesmo número.";
+        "\n\nA ação remove o lead da lista, das tags, do funil e limpa o status de teste do WhatsApp quando não houver outro lead com o mesmo número." +
+        duplicateMsg;
 
-      if (!confirm(msg)) return;
+      if (!(await uiConfirm("Deletar este lead?", msg, { tone: "danger", okText: "Deletar lead", icon: "ph-trash" }))) return;
 
       var originalText = buttonEl ? buttonEl.textContent : "";
       if (buttonEl){
@@ -2569,7 +3754,7 @@ Não tenho interesse"></textarea>
         toast("err", "Erro ao deletar", e.message || "Não foi possível deletar este lead.");
         if (buttonEl){
           buttonEl.disabled = false;
-          buttonEl.textContent = originalText || "🗑";
+          buttonEl.innerHTML = originalText || iconMarkup("trash", "Deletar");
         }
       }
     }
@@ -2610,27 +3795,34 @@ Não tenho interesse"></textarea>
         var lead = pageItems[i];
         var tr = document.createElement("tr");
 
+        var leadSub = [lead.empresa, lead.email].filter(Boolean).join(" • ");
+        var duplicateCount = Math.max(0, Number(lead.duplicateCount || 0));
+        var duplicateLabel = duplicateCount === 1 ? "1 duplicado oculto" : (duplicateCount + " duplicados ocultos");
+        var duplicateHtml = duplicateCount > 0 ? ('<div class="duplicateNote">+' + escapeHtml(duplicateLabel) + '</div>') : '';
         var leadCellHtml =
           '<div class="leadCell">' +
             '<button class="avatarBtn ' + leadStatusClass(lead) + '" type="button" aria-label="Ver detalhes" data-avatar="' + escapeHtml(lead.id) + '"></button>' +
             '<div class="leadName">' +
               '<div class="n">' + escapeHtml(lead.nome || "—") + '</div>' +
-              '<div class="s">' + escapeHtml(lead.email || lead.empresa || "") + '</div>' +
+              '<div class="s">' + escapeHtml(leadSub || "Sem empresa/e-mail informado") + '</div>' +
+              duplicateHtml +
             '</div>' +
           '</div>';
 
         var waTxt = escapeHtml(formatWhatsAppPretty(lead.whatsapp_digits || lead.whatsapp_raw || "—"));
+        var stVal = leadStatusValue(lead);
+        var waCellHtml = '<div class="phoneStack"><div>' + waTxt + '</div><span class="statusBadge status-' + escapeHtml(stVal) + '">' + escapeHtml(leadStatusLabel(lead)) + '</span></div>';
         var tagsHtml = renderTags(lead.tagsFull);
 
         var actionsHtml =
           '<div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">' +
-            '<button class="btn btnGhost" type="button" data-tags="' + escapeHtml(lead.id) + '" style="padding:10px 12px;">Tags</button>' +
-            '<button class="iconMini iconDanger" type="button" data-delete-lead="' + escapeHtml(lead.id) + '" title="Deletar lead" aria-label="Deletar lead">🗑</button>' +
+            '<button class="btn btnGhost" type="button" data-tags="' + escapeHtml(lead.id) + '" style="padding:10px 12px;"><i class="ph ph-tag"></i> Tags</button>' +
+            '<button class="iconMini iconDanger" type="button" data-delete-lead="' + escapeHtml(lead.id) + '" title="Deletar lead" aria-label="Deletar lead"><i class="ph ph-trash"></i></button>' +
           '</div>';
 
         tr.innerHTML =
           '<td>' + leadCellHtml + '</td>' +
-          '<td style="font-weight:900;">' + waTxt + '</td>' +
+          '<td>' + waCellHtml + '</td>' +
           '<td>' + tagsHtml + '</td>' +
           '<td>' + actionsHtml + '</td>';
 
@@ -2670,6 +3862,7 @@ Não tenho interesse"></textarea>
 
       // nav count
       document.getElementById("navLeadsCount").textContent = String(total);
+      renderActiveFiltersSummary();
     }
 
     btnPrev.addEventListener("click", function(){
@@ -2724,20 +3917,43 @@ Não tenho interesse"></textarea>
 
     /* ---------- Search ---------- */
     var qEl = document.getElementById("q");
+    var searchDebounceTimer = null;
     qEl.addEventListener("keydown", function(e){
-      if (e.key === "Enter") loadLeads(true);
+      if (e.key === "Enter") {
+        clearTimeout(searchDebounceTimer);
+        loadLeads(true).catch(function(err){ toast("err", "Busca", err.message || "Falha ao buscar leads."); });
+      }
+    });
+    qEl.addEventListener("input", function(){
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(function(){
+        loadLeads(true).catch(function(err){ toast("err", "Busca", err.message || "Falha ao buscar leads."); });
+      }, 420);
     });
     document.getElementById("btnReload").addEventListener("click", function(){ loadLeads(false); });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "/" && !/input|textarea|select/i.test(document.activeElement && document.activeElement.tagName || "")) {
+        e.preventDefault();
+        qEl.focus();
+      }
+      if (e.key === "Escape") {
+        ["ovLead","ovQr","ovTemplate","ovTags","ovFilters"].forEach(closeOverlay);
+        if (typeof closeTagDrawer === "function") closeTagDrawer();
+      }
+    });
 
     /* ---------- Sidebar nav ---------- */
     var navLeads = document.getElementById("navLeads");
     var navTags = document.getElementById("navTags");
+    var navChats = document.getElementById("navChats");
     var navCloud = document.getElementById("navCloud");
     var navCrm = document.getElementById("navCrm");
     var navOwner = document.getElementById("navOwner");
     var panelTags = document.getElementById("panelTags");
     var panelLeads = document.getElementById("panelLeads");
+    var panelChats = document.getElementById("panelChats");
     var panelCloudMain = document.getElementById("panelCloudMain");
+    var panelCrm = document.getElementById("panelCrm");
     var panelOwner = document.getElementById("panelOwner");
 
     
@@ -2756,9 +3972,51 @@ Não tenho interesse"></textarea>
       if (!anyOverlayOpen()) document.body.classList.remove("noScroll");
     }
 
+    function setMainPanelScrollTop(panel){
+      try {
+        if (panel && typeof panel.scrollTo === "function") panel.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        else if (panel) panel.scrollTop = 0;
+      } catch(e) { if (panel) panel.scrollTop = 0; }
+    }
+
+    function togglePagerForLeads(show){
+      try {
+        if (typeof window.setPagerVisible === "function") window.setPagerVisible(!!show);
+        else {
+          var bar = document.getElementById("pagerBar") || document.querySelector(".pager");
+          if (bar) bar.classList.toggle("is-hidden", !show);
+        }
+      } catch(e) {}
+    }
+
     function setActiveNav(which){
+
+      if (which === "chats"){
+        if (navChats) navChats.classList.add("active");
+        navLeads.classList.remove("active");
+        navTags.classList.remove("active");
+        navCloud.classList.remove("active");
+        if (navCrm) navCrm.classList.remove("active");
+        if (navOwner) navOwner.classList.remove("active");
+
+        closeTagDrawer();
+
+        panelLeads.style.display = "none";
+        if (panelChats) panelChats.style.display = "none";
+        if (panelCrm) panelCrm.style.display = "none";
+        if (panelOwner) panelOwner.style.display = "none";
+        panelCloudMain.style.display = "none";
+        if (panelChats) panelChats.style.display = "flex";
+        togglePagerForLeads(false);
+        setMainPanelScrollTop(panelChats);
+        try{ loadConversations({ keepSelected: true }); }catch(e){}
+        try{ startChatAutoRefresh(); }catch(e){}
+        return;
+      }
+
       if (which === "crm"){
         navCrm.classList.add("active");
+        if (navChats) navChats.classList.remove("active");
         if (navOwner) navOwner.classList.remove("active");
         navCloud.classList.remove("active");
         navLeads.classList.remove("active");
@@ -2767,9 +4025,12 @@ Não tenho interesse"></textarea>
         closeTagDrawer();
 
         panelLeads.style.display = "none";
+        if (panelChats) panelChats.style.display = "none";
         panelCloudMain.style.display = "none";
         if (panelOwner) panelOwner.style.display = "none";
-        panelCrm.style.display = "flex";
+        if (panelCrm) panelCrm.style.display = "flex";
+        togglePagerForLeads(false);
+        setMainPanelScrollTop(panelCrm);
         // carrega CRM sempre que entrar
         try{ crmBoot(); }catch(e){}
         return;
@@ -2779,6 +4040,7 @@ Não tenho interesse"></textarea>
 
       if (which === "owner"){
         if (navOwner) navOwner.classList.add("active");
+        if (navChats) navChats.classList.remove("active");
         navLeads.classList.remove("active");
         navTags.classList.remove("active");
         navCloud.classList.remove("active");
@@ -2787,15 +4049,20 @@ Não tenho interesse"></textarea>
         closeTagDrawer();
 
         panelLeads.style.display = "none";
+        if (panelChats) panelChats.style.display = "none";
         panelCloudMain.style.display = "none";
-        panelCrm.style.display = "none";
+        if (panelChats) panelChats.style.display = "none";
+        if (panelCrm) panelCrm.style.display = "none";
         if (panelOwner) panelOwner.style.display = "flex";
+        togglePagerForLeads(false);
+        setMainPanelScrollTop(panelOwner);
         try{ loadOwner(); }catch(e){}
         return;
       }
 
       if (which === "cloud"){
         navCloud.classList.add("active");
+        if (navChats) navChats.classList.remove("active");
         if (navOwner) navOwner.classList.remove("active");
         navLeads.classList.remove("active");
         navTags.classList.remove("active");
@@ -2804,9 +4071,12 @@ Não tenho interesse"></textarea>
         closeTagDrawer();
 
         panelLeads.style.display = "none";
-        panelCrm.style.display = "none";
+        if (panelChats) panelChats.style.display = "none";
+        if (panelCrm) panelCrm.style.display = "none";
         if (panelOwner) panelOwner.style.display = "none";
         panelCloudMain.style.display = "flex";
+        togglePagerForLeads(false);
+        setMainPanelScrollTop(panelCloudMain);
         try{ loadCloudStatus(); }catch(e){}
         try{ cloudListTemplates(); }catch(e){}
         return;
@@ -2815,14 +4085,18 @@ Não tenho interesse"></textarea>
       if (which === "tags"){
         // Pedido: abrir Tags em drawer e manter a lista de leads visível
         navTags.classList.add("active");
+        if (navChats) navChats.classList.remove("active");
         if (navOwner) navOwner.classList.remove("active");
         navCloud.classList.remove("active");
         navLeads.classList.add("active");
 
         panelCloudMain.style.display = "none";
-        panelCrm.style.display = "none";
+        if (panelChats) panelChats.style.display = "none";
+        if (panelCrm) panelCrm.style.display = "none";
         if (panelOwner) panelOwner.style.display = "none";
         panelLeads.style.display = "flex";
+        togglePagerForLeads(true);
+        setMainPanelScrollTop(panelLeads);
 
         openTagDrawer();
         return;
@@ -2830,20 +4104,540 @@ Não tenho interesse"></textarea>
 
       // leads
       navLeads.classList.add("active");
+      if (navChats) navChats.classList.remove("active");
       if (navOwner) navOwner.classList.remove("active");
       navTags.classList.remove("active");
       navCloud.classList.remove("active");
+      if (navCrm) navCrm.classList.remove("active");
       panelCloudMain.style.display = "none";
-      panelCrm.style.display = "none";
+      if (panelChats) panelChats.style.display = "none";
+      if (panelCrm) panelCrm.style.display = "none";
       panelLeads.style.display = "flex";
+      togglePagerForLeads(true);
+      setMainPanelScrollTop(panelLeads);
       closeTagDrawer();
     }
 
     navLeads.addEventListener("click", function(){ setActiveNav("leads"); });
+    if (navChats) navChats.addEventListener("click", function(){ setActiveNav("chats"); });
     navTags.addEventListener("click", function(){ setActiveNav("tags"); });
     navCloud.addEventListener("click", function(){ setActiveNav("cloud"); });
     if (navCrm) navCrm.addEventListener("click", function(){ setActiveNav("crm"); });
     if (navOwner) navOwner.addEventListener("click", function(){ setActiveNav("owner"); });
+
+    /* ---------- Conversas ---------- */
+    var chatContacts = [];
+    var chatSelected = null;
+    var chatRefreshTimer = null;
+    var chatLoading = false;
+    var chatMessagesCache = [];
+    var chatRecorder = null;
+    var chatRecorderStream = null;
+    var chatRecorderChunks = [];
+    var chatAudioBlob = null;
+    var chatAudioMime = "";
+    var chatAudioUrl = "";
+    var chatRecordStartedAt = 0;
+    var chatRecordDurationSeconds = 0;
+    var chatRecordTimer = null;
+    var chatAudioContext = null;
+    var chatAudioAnalyser = null;
+    var chatWaveRaf = null;
+    var chatWaveData = null;
+
+    function chatInitials(name){
+      var parts = String(name || "?").trim().split(/\s+/).filter(Boolean);
+      if (!parts.length) return "?";
+      return (parts[0][0] || "?").toUpperCase() + (parts[1] ? (parts[1][0] || "").toUpperCase() : "");
+    }
+
+    function chatSub(contact){
+      var pieces = [];
+      if (contact.empresa) pieces.push(contact.empresa);
+      if (contact.email) pieces.push(contact.email);
+      var base = pieces.join(" • ") || formatWhatsAppPretty(contact.whatsapp_digits || contact.whatsapp_raw || "");
+      if (contact && contact.isNewConversationOnly) return "Número novo • " + base;
+      return base;
+    }
+
+    function chatLastTime(contact){
+      var iso = contact && (contact.lastActivity || contact.createdAt);
+      if (!iso) return "";
+      try {
+        var d = new Date(iso);
+        if (isNaN(d)) return "";
+        return d.toLocaleDateString("pt-BR", { day:"2-digit", month:"2-digit" });
+      } catch(e){ return ""; }
+    }
+
+    function chatMessagePreview(message){
+      if (!message) return "Clique para carregar o histórico";
+      var isAudio = message.mediaKind === "audio" || message.type === "audio" || message.type === "ptt";
+      var body = String(message.body || "").trim();
+      var label = isAudio ? "Áudio" : (body || "Mensagem");
+      return (message.fromMe ? "Você: " : "") + label;
+    }
+
+    function renderChatList(){
+      var el = document.getElementById("chatList");
+      var hint = document.getElementById("chatListHint");
+      if (!el) return;
+      if (hint) hint.textContent = chatContacts.length ? (chatContacts.length + " conversa(s) encontrada(s)") : "Nenhuma conversa encontrada.";
+      var pill = document.getElementById("navChatsCount");
+      if (pill) pill.textContent = chatContacts.length ? String(chatContacts.length) : "0";
+
+      if (!chatContacts.length){
+        el.innerHTML = '<div class="chatEmpty"><div class="chatEmptyBox"><b>Nenhuma conversa encontrada</b><br><span>Quando um lead da planilha ou um número novo chamar no WhatsApp, a conversa aparece aqui.</span></div></div>';
+        return;
+      }
+
+      var html = chatContacts.map(function(c){
+        var digits = String(c.whatsapp_digits || c.whatsapp_raw || "").replace(/\D+/g, "");
+        var selected = chatSelected && String(chatSelected.whatsapp_digits || "") === digits;
+        var preview = chatMessagePreview(c.lastMessage);
+        var unread = Number(c.unreadCount || 0);
+        return '<button class="conversationItem ' + (selected ? 'active' : '') + '" type="button" data-chat-digits="' + escapeHtml(digits) + '">' +
+          '<div class="chatAvatar">' + escapeHtml(chatInitials(c.nome)) + '</div>' +
+          '<div style="min-width:0;">' +
+            '<div class="chatName">' + escapeHtml(c.nome || formatWhatsAppPretty(digits)) + '</div>' +
+            '<div class="chatMeta">' + escapeHtml(chatSub(c)) + '</div>' +
+            '<div class="chatPreview">' + escapeHtml(preview) + '</div>' +
+          '</div>' +
+          '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">' +
+            '<small class="hint">' + escapeHtml(chatLastTime(c)) + '</small>' +
+            (unread ? '<span class="chatBadge">' + unread + '</span>' : '') +
+          '</div>' +
+        '</button>';
+      }).join("");
+      el.innerHTML = html;
+      el.querySelectorAll("[data-chat-digits]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          var digits = btn.getAttribute("data-chat-digits");
+          var found = chatContacts.find(function(x){ return String(x.whatsapp_digits || "") === digits; });
+          if (found) openConversation(found);
+        });
+      });
+    }
+
+    async function loadConversations(opts){
+      opts = opts || {};
+      var q = String((document.getElementById("chatSearch") || {}).value || "").trim();
+      var url = API_BASE + "/conversations?limit=300" + (q ? ("&q=" + encodeURIComponent(q)) : "");
+      var list = document.getElementById("chatList");
+      if (list && !opts.keepSelected) list.innerHTML = '<div class="chatLoadState">Carregando conversas...</div>';
+      try{
+        var r = await fetch(url);
+        var j = await r.json();
+        if (!r.ok || !j.ok) throw new Error(j.error || "Falha ao carregar conversas.");
+        chatContacts = Array.isArray(j.items) ? j.items : [];
+        if (chatSelected){
+          var currentDigits = String(chatSelected.whatsapp_digits || "");
+          var updated = chatContacts.find(function(x){ return String(x.whatsapp_digits || "") === currentDigits; });
+          if (updated) chatSelected = updated;
+        }
+        renderChatList();
+      }catch(e){
+        if (list) list.innerHTML = '<div class="chatEmpty"><div class="chatEmptyBox"><b>Não consegui carregar as conversas</b><br><span>' + escapeHtml(e.message || e) + '</span></div></div>';
+      }
+    }
+
+    function renderChatMessages(messages){
+      var box = document.getElementById("chatMessages");
+      if (!box) return;
+      chatMessagesCache = Array.isArray(messages) ? messages.slice() : [];
+      if (!messages || !messages.length){
+        box.innerHTML = '<div class="chatEmpty"><div class="chatEmptyBox"><b>Nenhuma mensagem encontrada</b><br><span>Envie uma mensagem ou grave um áudio para começar.</span></div></div>';
+        return;
+      }
+      box.innerHTML = messages.map(function(m){
+        var date = m.createdAt ? formatDate(m.createdAt) : "";
+        var isAudio = m.mediaKind === "audio" || m.type === "audio" || m.type === "ptt";
+        var body = String(m.body || "").trim();
+        var content = "";
+        if (isAudio){
+          content += '<div class="msgAudioTitle"><i class="ph ph-waveform"></i><span>' + escapeHtml(body || "Áudio") + '</span></div>';
+          if (m.mediaUrl){
+            content += '<audio class="msgAudioPlayer" controls preload="metadata" src="' + escapeHtml(m.mediaUrl) + '"></audio>';
+          } else {
+            content += '<div class="hint">Áudio detectado. Aguarde a sincronização da mídia e recarregue a conversa.</div>';
+          }
+        } else {
+          content += escapeHtml(body || "");
+        }
+        return '<div class="msgRow ' + (m.fromMe ? 'me' : 'them') + '">' +
+          '<div class="msgBubble">' + content + '<div class="msgTime">' + escapeHtml(date) + '</div></div>' +
+        '</div>';
+      }).join("");
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function setChatHeader(contact){
+      var title = document.getElementById("chatHeaderTitle");
+      var sub = document.getElementById("chatHeaderSub");
+      var av = document.getElementById("chatHeaderAvatar");
+      var input = document.getElementById("chatText");
+      var send = document.getElementById("chatSend");
+      var record = document.getElementById("chatRecordAudio");
+      if (title) title.textContent = contact ? (contact.nome || formatWhatsAppPretty(contact.whatsapp_digits)) : "Selecione uma conversa";
+      if (sub) sub.textContent = contact ? (formatWhatsAppPretty(contact.whatsapp_digits || contact.whatsapp_raw) + (contact.empresa ? " • " + contact.empresa : "")) : "Escolha um contato da lista para carregar mensagens e áudios.";
+      if (av) av.textContent = contact ? chatInitials(contact.nome) : "?";
+      if (input) input.disabled = !contact;
+      if (send) send.disabled = !contact;
+      if (record) record.disabled = !contact;
+    }
+
+    async function openConversation(contact){
+      clearChatAudioDraft();
+      chatMessagesCache = [];
+      chatSelected = contact;
+      setChatHeader(contact);
+      renderChatList();
+      await loadConversationMessages();
+      startChatAutoRefresh();
+    }
+
+    async function loadConversationMessages(){
+      if (!chatSelected || chatLoading) return;
+      chatLoading = true;
+      var box = document.getElementById("chatMessages");
+      if (box && !chatMessagesCache.length) box.innerHTML = '<div class="chatLoadState">Carregando histórico de mensagens...</div>';
+      try{
+        var digits = String(chatSelected.whatsapp_digits || "").replace(/\D+/g, "");
+        var r = await fetch(API_BASE + "/conversations/" + encodeURIComponent(digits) + "/messages?limit=80");
+        var j = await r.json();
+        if (!r.ok || !j.ok) throw new Error(j.error || "Falha ao carregar mensagens.");
+        renderChatMessages(j.messages || []);
+      }catch(e){
+        if (box) box.innerHTML = '<div class="chatEmpty"><div class="chatEmptyBox"><b>Não consegui abrir esta conversa</b><br><span>' + escapeHtml(e.message || e) + '</span><br><br><span>Confirme se o WhatsApp Web está conectado pelo painel.</span></div></div>';
+      }finally{
+        chatLoading = false;
+      }
+    }
+
+    async function sendChatText(){
+      if (!chatSelected) return;
+      var input = document.getElementById("chatText");
+      var send = document.getElementById("chatSend");
+      var text = String(input && input.value || "").trim();
+      if (!text){ toast("warn", "Mensagem vazia", "Digite uma mensagem antes de enviar."); return; }
+      if (send) send.disabled = true;
+      try{
+        var digits = String(chatSelected.whatsapp_digits || "").replace(/\D+/g, "");
+        var r = await fetch(API_BASE + "/conversations/" + encodeURIComponent(digits) + "/messages", {
+          method:"POST",
+          headers:{ "Content-Type":"application/json" },
+          body: JSON.stringify({ text: text })
+        });
+        var j = await r.json();
+        if (!r.ok || !j.ok) throw new Error(j.error || "Falha ao enviar mensagem.");
+        if (input) input.value = "";
+        if (j.message) {
+          chatMessagesCache = chatMessagesCache.concat([j.message]);
+          renderChatMessages(chatMessagesCache);
+          if (chatSelected) {
+            chatSelected.lastMessage = j.message;
+            chatSelected.lastActivity = j.message.createdAt || new Date().toISOString();
+          }
+        }
+        loadConversations({ keepSelected:true });
+        setTimeout(function(){ loadConversationMessages(); }, 900);
+      }catch(e){
+        toast("err", "Erro ao enviar", e.message || String(e), 5000);
+      }finally{
+        if (send) send.disabled = !chatSelected;
+      }
+    }
+
+    function ensureChatWaveBars(){
+      var wave = document.getElementById("chatAudioWave");
+      if (!wave) return;
+      if (wave.children.length >= 28) return;
+      var html = "";
+      for (var i=0;i<32;i++) html += "<span></span>";
+      wave.innerHTML = html;
+    }
+
+    function setWaveIdle(level){
+      ensureChatWaveBars();
+      var wave = document.getElementById("chatAudioWave");
+      if (!wave) return;
+      var bars = wave.querySelectorAll("span");
+      bars.forEach(function(bar, i){
+        var base = level || 0;
+        var n = Math.abs(Math.sin((i + 1) * .75)) * 16 + 6;
+        var h = base ? Math.max(6, Math.min(28, n * base)) : (6 + (i % 5) * 2);
+        bar.style.height = h.toFixed(0) + "px";
+        bar.style.opacity = base ? String(Math.min(.95, .45 + base)) : ".35";
+      });
+    }
+
+    function stopChatWaveform(){
+      if (chatWaveRaf) cancelAnimationFrame(chatWaveRaf);
+      chatWaveRaf = null;
+      if (chatAudioContext) {
+        try { chatAudioContext.close(); } catch(e) {}
+      }
+      chatAudioContext = null;
+      chatAudioAnalyser = null;
+      chatWaveData = null;
+    }
+
+    function startChatWaveform(stream){
+      stopChatWaveform();
+      ensureChatWaveBars();
+      try{
+        var AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) { setWaveIdle(.4); return; }
+        chatAudioContext = new AudioCtx();
+        var source = chatAudioContext.createMediaStreamSource(stream);
+        chatAudioAnalyser = chatAudioContext.createAnalyser();
+        chatAudioAnalyser.fftSize = 128;
+        chatWaveData = new Uint8Array(chatAudioAnalyser.frequencyBinCount);
+        source.connect(chatAudioAnalyser);
+        function draw(){
+          if (!chatAudioAnalyser || !chatWaveData) return;
+          chatAudioAnalyser.getByteFrequencyData(chatWaveData);
+          var sum = 0;
+          for (var i=0;i<chatWaveData.length;i++) sum += chatWaveData[i];
+          var avg = sum / Math.max(1, chatWaveData.length);
+          var level = Math.max(.25, Math.min(1.8, avg / 55));
+          setWaveIdle(level);
+          chatWaveRaf = requestAnimationFrame(draw);
+        }
+        draw();
+      }catch(e){
+        setWaveIdle(.5);
+      }
+    }
+
+    function formatAudioTime(total){
+      total = Math.max(0, Math.floor(Number(total || 0)));
+      var mm = String(Math.floor(total / 60)).padStart(2, "0");
+      var ss = String(total % 60).padStart(2, "0");
+      return mm + ":" + ss;
+    }
+
+    function setAudioRecordingUi(state){
+      var rec = document.getElementById("chatRecordAudio");
+      var stop = document.getElementById("chatStopAudio");
+      var sendAudio = document.getElementById("chatSendAudio");
+      var cancel = document.getElementById("chatCancelAudio");
+      var panel = document.getElementById("chatAudioPanel");
+      var hint = document.getElementById("chatRecordingHint");
+      var preview = document.getElementById("chatAudioPreview");
+      var hasContact = Boolean(chatSelected);
+
+      if (rec){
+        rec.disabled = !hasContact;
+        rec.classList.toggle("recording", state === "recording");
+        rec.title = state === "recording" ? "Parar gravação" : "Gravar áudio";
+        rec.setAttribute("aria-label", state === "recording" ? "Parar gravação" : "Gravar áudio");
+        rec.innerHTML = state === "recording" ? '<i class="ph ph-stop-circle"></i>' : '<i class="ph ph-microphone"></i>';
+      }
+      if (panel) panel.classList.toggle("isVisible", state === "recording" || state === "ready");
+      if (stop) stop.style.display = state === "recording" ? "inline-flex" : "none";
+      if (sendAudio) sendAudio.style.display = state === "ready" ? "inline-flex" : "none";
+      if (cancel) cancel.style.display = state === "recording" || state === "ready" ? "inline-flex" : "none";
+      if (preview) preview.style.display = state === "ready" && chatAudioUrl ? "block" : "none";
+      if (hint){
+        if (state === "recording") hint.innerHTML = '<span class="audioRecordingDot"></span><span id="chatRecordingClock">Gravando 00:00</span>';
+        else if (state === "ready") hint.innerHTML = '<span class="audioRecordingDot" style="background:#34A853;box-shadow:0 0 0 4px rgba(52,168,83,.12);"></span><span id="chatRecordingClock">Pronto ' + formatAudioTime(chatRecordDurationSeconds) + '</span>';
+        else hint.innerHTML = '<span class="audioRecordingDot"></span><span id="chatRecordingClock">00:00</span>';
+      }
+      if (state === "ready") setWaveIdle(.75);
+      if (state === "idle") setWaveIdle(0);
+    }
+
+    function clearChatAudioDraft(){
+      if (chatRecorder && chatRecorder.state !== "inactive") {
+        try { chatRecorder.stop(); } catch(e) {}
+      }
+      if (chatRecorderStream) {
+        chatRecorderStream.getTracks().forEach(function(track){ try { track.stop(); } catch(e) {} });
+      }
+      stopChatWaveform();
+      if (chatAudioUrl) URL.revokeObjectURL(chatAudioUrl);
+      if (chatRecordTimer) clearInterval(chatRecordTimer);
+      chatRecorder = null;
+      chatRecorderStream = null;
+      chatRecorderChunks = [];
+      chatAudioBlob = null;
+      chatAudioMime = "";
+      chatAudioUrl = "";
+      chatRecordStartedAt = 0;
+      chatRecordDurationSeconds = 0;
+      chatRecordTimer = null;
+      var preview = document.getElementById("chatAudioPreview");
+      if (preview){ preview.removeAttribute("src"); preview.load(); }
+      setAudioRecordingUi("idle");
+    }
+
+    function preferredAudioMime(){
+      var candidates = [
+        "audio/webm;codecs=opus",
+        "audio/webm",
+        "audio/ogg;codecs=opus",
+        "audio/ogg"
+      ];
+      if (!window.MediaRecorder || !MediaRecorder.isTypeSupported) return "";
+      for (var i=0;i<candidates.length;i++){
+        if (MediaRecorder.isTypeSupported(candidates[i])) return candidates[i];
+      }
+      return "";
+    }
+
+    function updateRecordingClock(){
+      var el = document.getElementById("chatRecordingClock");
+      if (!el || !chatRecordStartedAt) return;
+      var total = Math.max(0, Math.floor((Date.now() - chatRecordStartedAt) / 1000));
+      chatRecordDurationSeconds = total;
+      el.textContent = "Gravando " + formatAudioTime(total);
+    }
+
+    async function startChatAudioRecording(){
+      if (chatRecorder && chatRecorder.state === "recording") { stopChatAudioRecording(); return; }
+      if (!chatSelected){ toast("warn", "Selecione uma conversa", "Escolha um contato antes de gravar áudio."); return; }
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder){
+        toast("err", "Gravação indisponível", "Seu navegador não liberou gravação de áudio nesta página.", 5000);
+        return;
+      }
+      clearChatAudioDraft();
+      try{
+        var stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        var mime = preferredAudioMime();
+        var opts = mime ? { mimeType: mime } : undefined;
+        chatRecorderStream = stream;
+        chatRecorderChunks = [];
+        chatRecorder = new MediaRecorder(stream, opts);
+        chatAudioMime = chatRecorder.mimeType || mime || "audio/webm";
+        chatRecorder.ondataavailable = function(e){ if (e.data && e.data.size) chatRecorderChunks.push(e.data); };
+        chatRecorder.onstop = function(){
+          if (chatRecorderStream) chatRecorderStream.getTracks().forEach(function(track){ try { track.stop(); } catch(e) {} });
+          chatRecorderStream = null;
+          stopChatWaveform();
+          if (chatRecordTimer) clearInterval(chatRecordTimer);
+          chatRecordTimer = null;
+          if (chatRecordStartedAt) chatRecordDurationSeconds = Math.max(1, Math.floor((Date.now() - chatRecordStartedAt) / 1000));
+          if (!chatRecorderChunks.length){ clearChatAudioDraft(); return; }
+          chatAudioBlob = new Blob(chatRecorderChunks, { type: chatAudioMime || "audio/webm" });
+          chatAudioUrl = URL.createObjectURL(chatAudioBlob);
+          var preview = document.getElementById("chatAudioPreview");
+          if (preview){ preview.src = chatAudioUrl; preview.load(); }
+          setAudioRecordingUi("ready");
+        };
+        chatRecorder.start(250);
+        chatRecordStartedAt = Date.now();
+        chatRecordDurationSeconds = 0;
+        setAudioRecordingUi("recording");
+        startChatWaveform(stream);
+        updateRecordingClock();
+        chatRecordTimer = setInterval(updateRecordingClock, 250);
+      }catch(e){
+        clearChatAudioDraft();
+        toast("err", "Microfone não liberado", e.message || String(e), 5000);
+      }
+    }
+
+    function stopChatAudioRecording(){
+      if (!chatRecorder || chatRecorder.state === "inactive") return;
+      try { chatRecorder.stop(); } catch(e) { toast("err", "Erro ao parar gravação", e.message || String(e)); }
+    }
+
+    function blobToDataUrl(blob){
+      return new Promise(function(resolve, reject){
+        var reader = new FileReader();
+        reader.onload = function(){ resolve(String(reader.result || "")); };
+        reader.onerror = function(){ reject(reader.error || new Error("Falha ao ler áudio.")); };
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    async function sendChatAudio(){
+      if (!chatSelected || !chatAudioBlob){ toast("warn", "Nenhum áudio", "Grave um áudio antes de enviar."); return; }
+      var btn = document.getElementById("chatSendAudio");
+      var micBtn = document.getElementById("chatMicBtn");
+      if (btn) btn.disabled = true;
+      if (micBtn) micBtn.disabled = true;
+      try{
+        var digits = String(chatSelected.whatsapp_digits || "").replace(/\D+/g, "");
+        if (!digits) throw new Error("Selecione uma conversa válida antes de enviar áudio.");
+
+        var dataUrl = await blobToDataUrl(chatAudioBlob);
+        var mime = String(chatAudioBlob.type || chatAudioMime || "audio/webm").split(";")[0] || "audio/webm";
+        var ext = /ogg/i.test(mime) ? "ogg" : (/mpeg|mp3/i.test(mime) ? "mp3" : (/mp4|aac/i.test(mime) ? "m4a" : "webm"));
+
+        var r = await fetch(API_BASE + "/conversations/" + encodeURIComponent(digits) + "/audio", {
+          method:"POST",
+          headers:{ "Content-Type":"application/json" },
+          body: JSON.stringify({ audioDataUrl: dataUrl, mimetype: mime, filename: "audio." + ext })
+        });
+
+        var raw = await r.text();
+        var j = null;
+        try { j = raw ? JSON.parse(raw) : null; } catch(parseErr) {}
+        if (!r.ok || !j || !j.ok) {
+          var serverMsg = (j && j.error) ? j.error : raw;
+          if (!serverMsg || serverMsg.length <= 2) serverMsg = "Não consegui enviar este áudio. Grave novamente e tente outra vez.";
+          throw new Error(serverMsg);
+        }
+
+        if (j.message){
+          chatMessagesCache = chatMessagesCache.concat([j.message]);
+          renderChatMessages(chatMessagesCache);
+          if (chatSelected){
+            chatSelected.lastMessage = j.message;
+            chatSelected.lastActivity = j.message.createdAt || new Date().toISOString();
+          }
+        }
+        clearChatAudioDraft();
+        loadConversations({ keepSelected:true });
+        setTimeout(function(){ loadConversationMessages(); }, 900);
+      }catch(e){
+        toast("err", "Erro ao enviar áudio", e.message || String(e), 7000);
+      }finally{
+        if (btn) btn.disabled = false;
+        if (micBtn) micBtn.disabled = false;
+      }
+    }
+
+    function startChatAutoRefresh(){
+      stopChatAutoRefresh();
+      if (!navChats || !navChats.classList.contains("active")) return;
+      chatRefreshTimer = setInterval(function(){
+        if (!navChats || !navChats.classList.contains("active")) return stopChatAutoRefresh();
+        if (chatSelected) loadConversationMessages();
+        loadConversations({ keepSelected:true });
+      }, 6000);
+    }
+
+    function stopChatAutoRefresh(){
+      if (chatRefreshTimer) clearInterval(chatRefreshTimer);
+      chatRefreshTimer = null;
+    }
+
+    (function wireConversations(){
+      var q = document.getElementById("chatSearch");
+      var timer = null;
+      if (q) q.addEventListener("input", function(){
+        clearTimeout(timer);
+        timer = setTimeout(function(){ loadConversations({ keepSelected:true }); }, 250);
+      });
+      document.getElementById("chatRefresh")?.addEventListener("click", function(){ loadConversations({ keepSelected:true }); if (chatSelected) loadConversationMessages(); });
+      document.getElementById("chatReloadThread")?.addEventListener("click", loadConversationMessages);
+      document.getElementById("chatSend")?.addEventListener("click", sendChatText);
+      document.getElementById("chatRecordAudio")?.addEventListener("click", startChatAudioRecording);
+      document.getElementById("chatStopAudio")?.addEventListener("click", stopChatAudioRecording);
+      document.getElementById("chatSendAudio")?.addEventListener("click", sendChatAudio);
+      document.getElementById("chatCancelAudio")?.addEventListener("click", clearChatAudioDraft);
+      var textArea = document.getElementById("chatText");
+      if (textArea) textArea.addEventListener("keydown", function(e){
+        if (e.key === "Enter" && !e.shiftKey){
+          e.preventDefault();
+          sendChatText();
+        }
+      });
+    })();
+
     /* ---------- WhatsApp Cloud API UI ---------- */
     var cloudContacts = [];
     var cloudTemplatesCache = [];
@@ -2866,6 +4660,13 @@ Não tenho interesse"></textarea>
       if (el) el.textContent = String(msg || "");
     }
 
+    function cloudCard(label, value, extraClass){
+      return '<div class="cloudStatusCard ' + (extraClass || '') + '">' +
+        '<div class="cloudStatusLabel">' + escapeHtml(label) + '</div>' +
+        '<div class="cloudStatusValue">' + escapeHtml(value || '—') + '</div>' +
+      '</div>';
+    }
+
     function renderCloudConnectionStatus(){
       var el = document.getElementById("cloudConnectionStatus");
       var pill = document.getElementById("navCloudPill");
@@ -2873,22 +4674,34 @@ Não tenho interesse"></textarea>
 
       var st = cloudStatusCache || {};
       var es = st.embeddedSignup || {};
-      var lines = [];
-      lines.push("Status da API oficial: " + (st.configured ? "conectada" : "não conectada"));
-      if (st.displayPhoneNumber || st.phoneNumberId) lines.push("Número: " + (st.displayPhoneNumber || st.phoneNumberId));
-      if (st.verifiedName) lines.push("Nome verificado: " + st.verifiedName);
-      if (st.wabaId) lines.push("WABA ID: " + st.wabaId);
-      if (st.linkedAt) lines.push("Vinculado em: " + new Date(st.linkedAt).toLocaleString("pt-BR"));
-      if (st.subscribedAt) lines.push("Webhook WABA inscrito em: " + new Date(st.subscribedAt).toLocaleString("pt-BR"));
-      if (st.lastSubscribeError && st.lastSubscribeError.message) lines.push("Atenção webhook: " + st.lastSubscribeError.message);
-      lines.push("Embedded Signup: " + (es.configured ? "configurado" : "pendente de configuração"));
-      if (es.appId) lines.push("App ID: " + es.appId);
-      if (es.configurationId) lines.push("Configuration ID: " + es.configurationId);
-      if (es.appSecretMasked) lines.push("App Secret: " + es.appSecretMasked);
-      if (st.tokenMasked) lines.push("Token salvo: " + st.tokenMasked);
+      var configured = !!st.configured;
+      el.classList.add("cloudStatusPanel");
 
-      el.textContent = lines.join("\n");
-      if (pill) pill.textContent = st.configured ? "OK" : "API";
+      var html = '';
+      html += '<div class="cloudStatusCard main">' +
+        '<div><div class="cloudStatusLabel">Conexão oficial com a Meta</div>' +
+        '<div class="cloudStatusValue big">' + (configured ? 'Conectado' : 'Pendente de conexão') + '</div></div>' +
+        '<span class="cloudStatusPill ' + (configured ? 'ok' : 'warn') + '">' +
+          '<span class="statusDot ' + (configured ? 'replied' : 'notDelivered') + '"></span>' + (configured ? 'API oficial ativa' : 'Configuração pendente') +
+        '</span>' +
+      '</div>';
+      html += cloudCard('Número', st.displayPhoneNumber || st.phoneNumberId || 'Ainda não vinculado');
+      html += cloudCard('Nome verificado', st.verifiedName || '—');
+      html += cloudCard('WABA ID', st.wabaId || '—');
+      html += cloudCard('Phone Number ID', st.phoneNumberId || '—');
+      html += cloudCard('Embedded Signup', es.configured ? 'Configurado' : 'Pendente');
+      html += cloudCard('App ID', es.appId || '—');
+      html += cloudCard('Configuration ID', es.configurationId || '—');
+      html += cloudCard('Token salvo', st.tokenMasked || '—');
+      if (st.linkedAt) html += cloudCard('Vinculado em', new Date(st.linkedAt).toLocaleString('pt-BR'));
+      if (st.subscribedAt) html += cloudCard('Webhook WABA', 'Inscrito em ' + new Date(st.subscribedAt).toLocaleString('pt-BR'));
+      if (st.lastSubscribeError && st.lastSubscribeError.message) {
+        html += '<div class="cloudStatusCard cloudStatusWarning"><div class="cloudStatusLabel">Atenção no webhook</div><div class="cloudStatusValue">' + escapeHtml(st.lastSubscribeError.message) + '</div></div>';
+      }
+      if (es.appSecretMasked) html += cloudCard('App Secret', es.appSecretMasked);
+
+      el.innerHTML = html;
+      if (pill) pill.textContent = configured ? "OK" : "API";
 
       var appId = document.getElementById("cloudEmbeddedAppId");
       var configId = document.getElementById("cloudEmbeddedConfigId");
@@ -2910,7 +4723,10 @@ Não tenho interesse"></textarea>
         return j;
       }catch(e){
         var el = document.getElementById("cloudConnectionStatus");
-        if (el) el.textContent = "Erro ao carregar conexão: " + (e && e.message ? e.message : String(e));
+        if (el) {
+          el.classList.add("cloudStatusPanel");
+          el.innerHTML = '<div class="cloudStatusCard cloudStatusWarning"><div class="cloudStatusLabel">Erro ao carregar conexão</div><div class="cloudStatusValue">' + escapeHtml(e && e.message ? e.message : String(e)) + '</div></div>';
+        }
         throw e;
       }
     }
@@ -3111,7 +4927,7 @@ Não tenho interesse"></textarea>
     });
 
     async function disconnectCloudEmbedded(){
-      if (!confirm("Desvincular a API oficial salva neste painel? Isso remove token, WABA ID e Phone Number ID salvos localmente.")) return;
+      if (!(await uiConfirm("Desvincular API oficial?", "Isso remove o token, WABA ID e Phone Number ID salvos localmente neste painel.", { tone: "danger", okText: "Desvincular", icon: "ph-link-break" }))) return;
       try{
         var r = await fetch("/api/wa-cloud/embedded", { method: "DELETE" });
         var j = await r.json();
@@ -3362,12 +5178,12 @@ Não tenho interesse"></textarea>
 
       var approved = cloudTemplatesCache.find(function(t){ return t && t.name === templateName && String(t.language || "") === languageCode; });
       if (approved && String(approved.status || "").toUpperCase() !== "APPROVED"){
-        var go = confirm("Este modelo aparece na Meta com status " + approved.status + ". O envio pode falhar. Deseja tentar mesmo assim?");
+        var go = await uiConfirm("Modelo ainda não aprovado", "Este modelo aparece na Meta com status " + approved.status + ". O envio pode falhar. Deseja tentar mesmo assim?", { tone: "warn", okText: "Tentar mesmo assim", icon: "ph-warning-circle" });
         if (!go) return;
       }
 
       var total = cloudContacts.length;
-      var okConfirm = confirm("Enviar campanha oficial para " + total + " contato(s) usando o modelo " + templateName + "?");
+      var okConfirm = await uiConfirm("Enviar campanha oficial?", "Enviar para " + total + " contato(s) usando o modelo " + templateName + "?", { okText: "Enviar campanha", icon: "ph-paper-plane-tilt" });
       if (!okConfirm) return;
 
       var log = document.getElementById("cloudLog");
@@ -3519,10 +5335,19 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
     function addMessageTextarea(text) {
       if (!whMessagesList) return;
       var wrap = document.createElement("div");
-      wrap.style.display = "flex";
-      wrap.style.gap = "8px";
-      wrap.innerHTML = '<textarea class="input whMsgItem" style="min-height:72px; resize:vertical;" placeholder="Ex: Olá {{nome}}, recebemos seu contato e já vamos falar com você.">' + escapeHtml(text || "") + '</textarea>' +
-                       '<button class="btn btnGhost" type="button" onclick="this.parentElement.remove()" style="padding: 10px;" title="Remover mensagem">🗑</button>';
+      wrap.className = "whMessageItemWrap";
+      var textarea = document.createElement("textarea");
+      textarea.className = "input whMsgItem";
+      textarea.placeholder = "Ex: Olá {{nome}}, tudo bem? Recebemos seu cadastro e já vamos falar com você.";
+      textarea.value = text || "";
+      var removeBtn = document.createElement("button");
+      removeBtn.className = "btn btnGhost whMessageDelete";
+      removeBtn.type = "button";
+      removeBtn.title = "Remover mensagem";
+      removeBtn.innerHTML = '<i class="ph ph-trash"></i>';
+      removeBtn.addEventListener("click", function(){ wrap.remove(); });
+      wrap.appendChild(textarea);
+      wrap.appendChild(removeBtn);
       whMessagesList.appendChild(wrap);
     }
 
@@ -3560,12 +5385,12 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       if (whMessagesList) whMessagesList.innerHTML = ""; // Limpa a lista atual
 
       if (!w) {
-        whInfo.textContent = "Envie um POST JSON para o link quando quiser criar um lead.";
+        whInfo.textContent = "Nenhum link ativo. Clique em Gerar novo link para criar uma entrada automática de leads.";
         addMessageTextarea(""); // Campo vazio padrão
         if (whMsgMeta) whMsgMeta.textContent = "";
       } else {
-        whInfo.textContent = "Ativo: " + w.createdAt;
-        if (whMsgMeta) whMsgMeta.textContent = w.updatedAt ? ("Atualizado: " + w.updatedAt) : "";
+        whInfo.textContent = "Link ativo desde " + formatDate(w.createdAt) + ". Copie e use no formulário que vai enviar os cadastros para este painel.";
+        if (whMsgMeta) whMsgMeta.textContent = w.updatedAt ? ("Última atualização: " + formatDate(w.updatedAt)) : "";
         
         // Puxa as mensagens novas, ou faz o fallback pro sistema antigo
         var msgs = (w.messages && w.messages.length > 0) ? w.messages : (w.messageText ? [w.messageText] : [""]);
@@ -3593,44 +5418,44 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
           if (whSelect && webhookItems.length) whSelect.value = webhookItems[0].id;
           updateWebhookInfo();
         } else {
-          alert((r && r.error) ? r.error : "Falha ao gerar webhook.");
+          toast("err", "Entrada automática", (r && r.error) ? r.error : "Falha ao gerar webhook.");
         }
       } catch(e){
-        alert("Falha ao gerar webhook.");
+        toast("err", "Entrada automática", "Falha ao gerar webhook.");
       }
     });
 
     if (btnWebhookCopy) btnWebhookCopy.addEventListener("click", async function(){
       var w = selectedWebhook();
-      if (!w) return alert("Nenhum webhook selecionado.");
+      if (!w) { toast("warn", "Entrada automática", "Nenhum link selecionado."); return; }
       try {
         await navigator.clipboard.writeText(w.url);
-        alert("Link copiado.");
+        toast("ok", "Link copiado", "Agora é só colar no formulário ou automação.");
       } catch(e){
-        alert("Não consegui copiar. Copie manualmente do seletor.");
+        toast("warn", "Copiar link", "Não consegui copiar. Copie manualmente pelo campo do link.");
       }
     });
 
     if (btnWebhookDelete) btnWebhookDelete.addEventListener("click", async function(){
       var w = selectedWebhook();
-      if (!w) return alert("Nenhum webhook selecionado.");
-      if (!confirm("Excluir este webhook? O link vai parar de funcionar.")) return;
+      if (!w) { toast("warn", "Entrada automática", "Nenhum link selecionado."); return; }
+      if (!(await uiConfirm("Excluir link de entrada?", "O link vai parar de funcionar e não receberá novos leads.", { tone: "danger", okText: "Excluir link", icon: "ph-trash" }))) return;
       try{
         var r = await fetch(API_BASE + "/webhooks/" + encodeURIComponent(w.id), { method:"DELETE" }).then(function(x){ return x.json(); });
         if (r && r.ok){
           await loadWebhooks();
         } else {
-          alert((r && r.error) ? r.error : "Falha ao excluir webhook.");
+          toast("err", "Entrada automática", (r && r.error) ? r.error : "Falha ao excluir link.");
         }
       } catch(e){
-        alert("Falha ao excluir webhook.");
+        toast("err", "Entrada automática", "Falha ao excluir link.");
       }
     });
 
 
     if (btnWebhookSave) btnWebhookSave.addEventListener("click", async function(){
       var w = selectedWebhook();
-      if (!w) return alert("Nenhum webhook selecionado.");
+      if (!w) { toast("warn", "Entrada automática", "Nenhum link selecionado."); return; }
       
       var textAreas = document.querySelectorAll(".whMsgItem");
       var messagesArray = [];
@@ -3640,7 +5465,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       });
 
       if (messagesArray.length === 0) {
-        return alert("Você precisa adicionar pelo menos uma mensagem vinculada. Se não quiser enviar nada, exclua o webhook.");
+        toast("warn", "Mensagens automáticas", "Adicione pelo menos uma mensagem. Se não quiser enviar nada, exclua este link de entrada."); return;
       }
 
       var prevLabel = btnWebhookSave.textContent;
@@ -3660,13 +5485,13 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
           await loadWebhooks();
           if (whSelect) whSelect.value = r.webhook.id;
           updateWebhookInfo();
-          toast("ok","Webhook","Mensagens vinculadas salvas.");
+          toast("ok","Entrada automática","Mensagens automáticas salvas.");
         } else {
-          alert((r && r.error) ? r.error : "Falha ao salvar mensagens.");
+          toast("err", "Mensagens automáticas", (r && r.error) ? r.error : "Falha ao salvar mensagens.");
           if (whMsgMeta) whMsgMeta.textContent = "";
         }
       } catch(e){
-        alert("Falha ao salvar mensagens.");
+        toast("err", "Mensagens automáticas", "Falha ao salvar mensagens.");
         if (whMsgMeta) whMsgMeta.textContent = "";
       } finally {
         btnWebhookSave.disabled = false;
@@ -3757,7 +5582,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       var close = document.createElement("button");
       close.id = "crmModalClose";
       close.type = "button";
-      close.textContent = "✕";
+      close.innerHTML = iconMarkup("close", "Fechar");
       close.style.border = "0";
       close.style.background = "transparent";
       close.style.cursor = "pointer";
@@ -3939,7 +5764,7 @@ function crmExtractLeads(payload){
         });
       } catch (e) {
         console.error(e);
-        alert("Erro ao salvar CRM: " + e.message);
+        toast("err", "Funil de Vendas", "Erro ao salvar CRM: " + e.message);
       } finally {
         crmSaving = false;
       }
@@ -3951,16 +5776,16 @@ function crmExtractLeads(payload){
       crmQueueSave();
     }
 
-    function crmPromptRename(label, current){
-      var v = prompt("Renomear " + label + ":", current || "");
+    async function crmPromptRename(label, current){
+      var v = await uiPrompt("Renomear " + label, "Digite o novo nome e salve a alteração.", current || "", { okText: "Renomear" });
       if (v == null) return null;
       v = String(v).trim();
       if (!v) return null;
       return v;
     }
 
-    function crmConfirm(msg){
-      return confirm(msg);
+    async function crmConfirm(msg){
+      return await uiConfirm("Confirmar alteração no funil", msg, { tone: "danger", okText: "Confirmar", icon: "ph-warning-circle" });
     }
 
     function crmRenderTabs(){
@@ -3977,7 +5802,7 @@ function crmExtractLeads(payload){
         });
         tab.innerHTML = "<span style='max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (p.name || "Funil") + "</span>" +
                         "<span class='pill'>" + placedCount + "</span>" +
-                        "<span style='margin-left:auto;opacity:.75;font-weight:900;'>⋯</span>";
+                        "<span class='funnelMenuDots' style='margin-left:auto;display:inline-flex;align-items:center;'>" + iconMarkup("ellipsis", "Opções", "sm") + "</span>"; 
         tab.addEventListener("click", function(){
           // clique no tab ativa; clique no ⋯ abre opções
           crmSetActivePipeline(p.id);
@@ -3986,9 +5811,9 @@ function crmExtractLeads(payload){
           e.preventDefault();
           crmPipelineMenu(p);
         });
-        tab.addEventListener("dblclick", function(e){
+        tab.addEventListener("dblclick", async function(e){
           e.preventDefault();
-          var nn = crmPromptRename("funil", p.name);
+          var nn = await crmPromptRename("funil", p.name);
           if (!nn) return;
           p.name = nn;
           crmRender();
@@ -4005,20 +5830,22 @@ function crmExtractLeads(payload){
       });
     }
 
-    function crmPipelineMenu(p){
-      var act = prompt("Opções do funil:\n1) Renomear\n2) Excluir\n\nDigite 1 ou 2:");
+    async function crmPipelineMenu(p){
+      var act = await uiChoice("Opções do funil", "Escolha o que deseja fazer com este funil.", [
+        { value: "rename", label: "Renomear funil" },
+        { value: "delete", label: "Excluir funil" }
+      ], { icon: "ph-dots-three-circle" });
       if (!act) return;
-      act = String(act).trim();
-      if (act === "1") {
-        var nn = crmPromptRename("funil", p.name);
+      if (act === "rename") {
+        var nn = await crmPromptRename("funil", p.name);
         if (!nn) return;
         p.name = nn;
         crmRender();
         crmQueueSave();
         return;
       }
-      if (act === "2") {
-        if (!crmConfirm("Excluir o funil '" + p.name + "'? Isso remove as etapas e posições (os leads continuam existindo).")) return;
+      if (act === "delete") {
+        if (!(await crmConfirm("Excluir o funil '" + p.name + "'? Isso remove as etapas e posições. Os leads continuam existindo."))) return;
         crmState.pipelines = (crmState.pipelines || []).filter(function(x){ return x.id !== p.id; });
         if (!crmState.pipelines.length) {
           // cria um novo default bem simples
@@ -4065,10 +5892,10 @@ function crmExtractLeads(payload){
         var actions = document.createElement("div");
         actions.className = "crmColActions";
         actions.innerHTML =
-          "<button class='btnMini' title='Mover para esquerda'>←</button>" +
-          "<button class='btnMini' title='Mover para direita'>→</button>" +
-          "<button class='btnMini' title='Renomear'>✎</button>" +
-          "<button class='btnMini' title='Excluir'>🗑</button>";
+          "<button class='btnMini' title='Mover para esquerda'>" + iconMarkup("arrow-left", "Mover para esquerda", "sm") + "</button>" +
+          "<button class='btnMini' title='Mover para direita'>" + iconMarkup("arrow-right", "Mover para direita", "sm") + "</button>" +
+          "<button class='btnMini' title='Renomear'>" + iconMarkup("edit", "Renomear", "sm") + "</button>" +
+          "<button class='btnMini' title='Excluir'>" + iconMarkup("trash", "Excluir", "sm") + "</button>";
 
         var btnLeft = actions.children[0];
         var btnRight = actions.children[1];
@@ -4091,15 +5918,15 @@ function crmExtractLeads(payload){
           crmRenderBoard();
           crmQueueSave();
         });
-        btnRen.addEventListener("click", function(){
-          var nn = crmPromptRename("etapa", st.name);
+        btnRen.addEventListener("click", async function(){
+          var nn = await crmPromptRename("etapa", st.name);
           if (!nn) return;
           st.name = nn;
           crmRenderBoard();
           crmQueueSave();
         });
-        btnDel.addEventListener("click", function(){
-          if (!crmConfirm("Excluir a etapa '" + st.name + "'?")) return;
+        btnDel.addEventListener("click", async function(){
+          if (!(await crmConfirm("Excluir a etapa '" + st.name + "'? Os leads continuam existindo, mas sairão desta etapa."))) return;
           // ao excluir: leads viram "sem etapa" (não perde lead)
           delete p.stages[stageId];
           p.stageOrder = p.stageOrder.filter(function(x){ return x !== stageId; });
@@ -4167,15 +5994,15 @@ function crmExtractLeads(payload){
           "<div style='min-width:0;'>" +
             "<div class='crmName' title='" + nome.replace(/'/g,"&#39;") + "'>" + nome + "</div>" +
             "<div class='crmMeta'>" +
-              (contato ? ("<div>📞/✉ " + contato + "</div>") : "") +
+              (contato ? ("<div class='crmMetaLine'>" + iconMarkup("contact", "Contato", "crmMetaIcon") + "<span>" + contato + "</span></div>") : "") +
               (origem ? ("<div>Origem: " + origem + "</div>") : "") +
               (created ? ("<div>Criado: " + created + "</div>") : "") +
               ("<div>Status: " + (stage.name || "—") + "</div>") +
             "</div>" +
           "</div>" +
           "<div class='crmCardBtns'>" +
-            "<button class='btnMini' title='Mover para...'>⇄</button>" +
-            "<button class='btnMini' title='Detalhes'>👁</button>" +
+            "<button class='btnMini' title='Mover para...'>" + iconMarkup("swap", "Mover para", "sm") + "</button>" +
+            "<button class='btnMini' title='Detalhes'>" + iconMarkup("eye", "Detalhes", "sm") + "</button>" +
           "</div>" +
         "</div>";
 
@@ -4286,8 +6113,8 @@ function crmExtractLeads(payload){
       crmOpenModal("Detalhes do lead", "Lead ID: " + leadId, box);
     }
 
-    function crmAddPipeline(){
-      var name = prompt("Nome do novo funil:", "Novo Funil");
+    async function crmAddPipeline(){
+      var name = await uiPrompt("Novo funil", "Dê um nome para organizar este fluxo de vendas.", "Novo Funil", { okText: "Criar funil", icon: "ph-kanban" });
       if (name == null) return;
       name = String(name).trim();
       if (!name) return;
@@ -4310,10 +6137,10 @@ function crmExtractLeads(payload){
       crmQueueSave();
     }
 
-    function crmAddStage(){
+    async function crmAddStage(){
       var p = crmActivePipeline();
       if (!p) return;
-      var name = prompt("Nome da nova etapa:", "Nova etapa");
+      var name = await uiPrompt("Nova etapa", "Digite o nome da nova etapa do funil.", "Nova etapa", { okText: "Criar etapa", icon: "ph-columns" });
       if (name == null) return;
       name = String(name).trim();
       if (!name) return;
@@ -4444,8 +6271,8 @@ function crmExtractLeads(payload){
         var email = row1.querySelector("#crmNewEmail").value.trim();
         var whatsapp = row1.querySelector("#crmNewZap").value.trim();
         var source = row2.querySelector("#crmNewSource").value.trim() || "manual";
-        if (!nome) return alert("Nome é obrigatório.");
-        if (!email && !whatsapp) return alert("Informe e-mail ou WhatsApp.");
+        if (!nome) { toast("warn", "Novo lead", "Nome é obrigatório."); return; }
+        if (!email && !whatsapp) { toast("warn", "Novo lead", "Informe e-mail ou WhatsApp."); return; }
         try {
           var j = await crmFetchJson(CRM_API_PREFIX + "/leads/manual", {
             method: "POST",
@@ -4457,7 +6284,7 @@ function crmExtractLeads(payload){
           crmMoveLeadToStage(lead.id, sel.value);
           crmCloseModal();
         } catch (e) {
-          alert("Erro ao criar lead: " + e.message);
+          toast("err", "Novo lead", "Erro ao criar lead: " + e.message);
         }
       });
 
@@ -4478,7 +6305,7 @@ function crmExtractLeads(payload){
         crmRender();
       } catch (e) {
         console.error(e);
-        alert("Falha ao carregar CRM: " + e.message);
+        toast("err", "Funil de Vendas", "Falha ao carregar CRM: " + e.message);
       }
     }
 
@@ -4491,20 +6318,25 @@ function crmExtractLeads(payload){
 <script>
 (function(){
   function setPagerVisible(v){
-    var bar = document.getElementById('pagerBar') || document.getElementById('pageBar') || document.querySelector('[data-pager]');
+    var bar = document.getElementById('pagerBar') || document.getElementById('pageBar') || document.querySelector('[data-pager]') || document.querySelector('.pager');
     if(!bar) return;
+    bar.classList.toggle('is-hidden', !v);
     bar.style.display = v ? '' : 'none';
     document.body.classList.toggle('hasPager', !!v);
   }
+  window.setPagerVisible = setPagerVisible;
+  setPagerVisible(true);
 
   var btnLeads=document.getElementById('navLeads');
   var btnTags=document.getElementById('navTags');
+  var btnChats=document.getElementById('navChats');
   var btnCrm=document.getElementById('navCrm');
   var btnCloud=document.getElementById('navCloud');
   var btnOwner=document.getElementById('navOwner');
 
   if(btnLeads) btnLeads.addEventListener('click', function(){ setPagerVisible(true); }, true);
   if(btnTags) btnTags.addEventListener('click', function(){ setPagerVisible(true); }, true);
+  if(btnChats) btnChats.addEventListener('click', function(){ setPagerVisible(false); }, true);
   if(btnCrm) btnCrm.addEventListener('click', function(){ setPagerVisible(false); }, true);
   if(btnCloud) btnCloud.addEventListener('click', function(){ setPagerVisible(false); }, true);
   if(btnOwner) btnOwner.addEventListener('click', function(){ setPagerVisible(false); }, true);
@@ -4549,9 +6381,72 @@ function crmExtractLeads(payload){
     const r=await fetch('/api/business',{method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
     if(r.ok) toast('ok','Dono do Negócio','Dados salvos.'); else toast('err','Dono do Negócio','Falha ao salvar.');
   });
-
-  setTimeout(function(){ setPagerVisible(true); }, 0);
 })();
 </script>
+
+<script id="zape-ux-hotfix-v4-script">
+(function(){
+  function isVisible(el){
+    if(!el) return false;
+    return el.style.display !== 'none' && getComputedStyle(el).display !== 'none';
+  }
+  function restoreLeadOverview(){
+    var panel=document.getElementById('panelLeads');
+    var hero=document.querySelector('.dashboardHero');
+    if(panel && hero){
+      if(hero.parentElement !== panel){
+        panel.insertBefore(hero, panel.firstElementChild);
+      }
+      hero.style.display='block';
+      hero.style.visibility='visible';
+      hero.style.opacity='1';
+      hero.style.height='auto';
+      hero.style.maxHeight='none';
+      var body=hero.querySelector('.cardBody');
+      if(body) body.style.display='block';
+      var header=hero.querySelector('.cardHeader');
+      if(header) header.style.display='flex';
+      var kpis=hero.querySelector('.kpis');
+      if(kpis) kpis.style.display='grid';
+    }
+  }
+  function setPagerVisibleSafe(show){
+    var bar=document.getElementById('pagerBar') || document.querySelector('[data-pager]') || document.querySelector('.pager');
+    if(!bar) return;
+    bar.classList.toggle('is-hidden', !show);
+    bar.style.display=show ? '' : 'none';
+    document.body.classList.toggle('hasPager', !!show);
+  }
+  function fixActiveSection(){
+    restoreLeadOverview();
+    var panel=document.getElementById('panelLeads');
+    var leadsActive=document.getElementById('navLeads') && document.getElementById('navLeads').classList.contains('active');
+    var showPager=!!(panel && isVisible(panel) && leadsActive);
+    setPagerVisibleSafe(showPager);
+  }
+  function scrollLeadTop(){
+    var panel=document.getElementById('panelLeads');
+    if(panel && isVisible(panel)){
+      try{ panel.scrollTop=0; }catch(e){}
+      try{ window.scrollTo({top:0,left:0,behavior:'smooth'}); }catch(e){ window.scrollTo(0,0); }
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    fixActiveSection();
+    setTimeout(fixActiveSection, 150);
+    setTimeout(function(){ fixActiveSection(); scrollLeadTop(); }, 500);
+    ['navLeads','navChats','navCloud','navCrm','navOwner','navTags'].forEach(function(id){
+      var btn=document.getElementById(id);
+      if(!btn) return;
+      btn.addEventListener('click', function(){
+        setTimeout(fixActiveSection, 40);
+        if(id==='navLeads' || id==='navTags') setTimeout(scrollLeadTop, 80);
+      }, true);
+    });
+  });
+  window.zapeFixLeadUi = fixActiveSection;
+})();
+</script>
+
 </body>
 </html>

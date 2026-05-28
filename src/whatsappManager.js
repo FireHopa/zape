@@ -1,7 +1,7 @@
 // src/whatsappManager.js
 const fs = require("fs");
 const path = require("path");
-const { Client, LocalAuth } = require("whatsapp-web.js");
+const { Client, LocalAuth, MessageMedia } = require("whatsapp-web.js");
 const QRCode = require("qrcode");
 
 const DEBUG = String(process.env.DEBUG || "").toLowerCase() === "true" || process.env.DEBUG === "1";
@@ -9,6 +9,14 @@ const logOk = (tenant, msg, extra) => { if (!DEBUG) return; console.log(`[OK][wa
 const logErr = (tenant, msg, extra) => { console.error(`[ERROR][wa:${tenant}] ${msg}`, extra || ""); };
 const { ensureTenantDir, tenantDir } = require("./tenantPaths");
 const { getTemplate } = require("./messageTemplateStore");
+const {
+  appendConversationMessage,
+  upsertConversationMessages,
+  listConversationMessages,
+  getLastConversationMessage,
+  saveConversationMedia,
+  flushAllConversationStores,
+} = require("./tenantConversationStore");
 
 function isWhatsAppConfigured() {
   return String(process.env.WEBJS_ENABLED || "") === "1";
@@ -257,6 +265,98 @@ class TenantWhatsApp {
     return this._digitsFromWaId(remoteId);
   }
 
+  _isAudioMessage(message, fallback = {}) {
+    const type = String(message?.type || fallback.type || '').toLowerCase();
+    const mime = String(message?.mimetype || message?.mediaMime || fallback.mimetype || fallback.mediaMime || '').toLowerCase();
+    return type === 'audio' || type === 'ptt' || mime.startsWith('audio/');
+  }
+
+  _messageToConversationRecord(message, fallback = {}) {
+    if (!message) return null;
+    const audio = this._isAudioMessage(message, fallback);
+    let body = String(message.body || fallback.body || '').trim();
+    if (!body && audio) body = 'Áudio';
+    const hasMedia = Boolean(message.hasMedia || fallback.hasMedia || fallback.mediaFile || audio);
+    if (!body && !hasMedia) return null;
+
+    const ts = Number(message.timestamp || fallback.timestamp || Math.floor(Date.now() / 1000));
+    const rec = {
+      id: this._getMessageId(message) || fallback.id || fallback.messageId || '',
+      fromMe: Boolean(message.fromMe || message.id?.fromMe || fallback.fromMe),
+      body,
+      type: String(message.type || fallback.type || (audio ? 'audio' : 'chat')),
+      timestamp: ts,
+      createdAt: ts ? new Date(ts * 1000).toISOString() : (fallback.createdAt || new Date().toISOString()),
+      ack: isAck(message.ack) ? normalizeAck(message.ack, ACK.PENDING) : (fallback.ack ?? null),
+      source: fallback.source || 'whatsapp-web',
+    };
+
+    if (hasMedia || audio || fallback.mediaFile) {
+      rec.hasMedia = true;
+      rec.mediaKind = fallback.mediaKind || (audio ? 'audio' : 'media');
+      if (fallback.mediaMime || message.mimetype) rec.mediaMime = fallback.mediaMime || message.mimetype;
+      if (fallback.mediaFile) rec.mediaFile = fallback.mediaFile;
+      if (fallback.mediaSize) rec.mediaSize = fallback.mediaSize;
+      if (fallback.duration) rec.duration = fallback.duration;
+      if (fallback.filename) rec.filename = fallback.filename;
+    }
+
+    return rec;
+  }
+
+  async _messageToConversationRecordWithMedia(message, fallback = {}, toDigits = '') {
+    const rec = this._messageToConversationRecord(message, fallback);
+    if (!rec) return null;
+    if (!this._isAudioMessage(message, rec)) return rec;
+    if (rec.mediaFile) return rec;
+
+    try {
+      if (!message || !message.hasMedia || typeof message.downloadMedia !== 'function') return rec;
+      const media = await message.downloadMedia();
+      if (!media || !media.data) return rec;
+      const mimetype = String(media.mimetype || rec.mediaMime || '').trim() || 'audio/ogg; codecs=opus';
+      if (!/^audio\//i.test(mimetype)) return rec;
+      const saved = saveConversationMedia(this.tenantId, {
+        toDigits,
+        messageId: rec.id || `${rec.fromMe ? 'out' : 'in'}_${rec.timestamp}`,
+        mimetype,
+        data: media.data,
+        filename: media.filename || rec.id || undefined,
+      });
+      return {
+        ...rec,
+        body: rec.body || 'Áudio',
+        hasMedia: true,
+        mediaKind: 'audio',
+        mediaMime: mimetype,
+        mediaFile: saved.fileName,
+        mediaSize: saved.size,
+        filename: media.filename || rec.filename || saved.fileName,
+      };
+    } catch (e) {
+      logErr(this.tenantId, 'download audio media failed', e?.message || String(e));
+      return rec;
+    }
+  }
+
+  _appendConversationFromMessage(toDigits, message, fallback = {}) {
+    const digits = this._normalizeDigits(toDigits) || this._resolveDigitsForMessage(message);
+    if (!digits) return null;
+    const rec = this._messageToConversationRecord(message, fallback);
+    if (!rec) return null;
+    const saved = appendConversationMessage(this.tenantId, digits, rec);
+
+    if (this._isAudioMessage(message, rec)) {
+      this._messageToConversationRecordWithMedia(message, rec, digits)
+        .then((enriched) => {
+          if (enriched && enriched.mediaFile) upsertConversationMessages(this.tenantId, digits, [enriched]);
+        })
+        .catch((e) => logErr(this.tenantId, 'async audio cache failed', e?.message || String(e)));
+    }
+
+    return saved;
+  }
+
   _markAck(message, ackValue) {
     const messageId = this._getMessageId(message);
     const remoteId = this._getRemoteIdFromMessage(message);
@@ -294,13 +394,20 @@ class TenantWhatsApp {
     this._upsertStatus(digits, patch);
   }
 
+  _isTrackableDirectMessage(message) {
+    if (!message) return false;
+    if (message.isStatus || message.broadcast) return false;
+    const remoteId = this._getRemoteIdFromMessage(message);
+    if (!remoteId) return false;
+    if (/@g\.us/i.test(remoteId) || /status@broadcast/i.test(remoteId)) return false;
+    return Boolean(String(message.body || '').trim()) || this._isAudioMessage(message, message) || Boolean(message.hasMedia);
+  }
+
   _markIncomingMessage(message) {
     if (!message || message.fromMe) return;
-    if (message.isStatus || message.broadcast) return;
+    if (!this._isTrackableDirectMessage(message)) return;
 
     const remoteId = this._getRemoteIdFromMessage(message);
-    if (/@g\.us/i.test(remoteId) || /status@broadcast/i.test(remoteId)) return;
-
     const digits = this._resolveDigitsForMessage(message);
     if (!digits) return;
 
@@ -309,6 +416,10 @@ class TenantWhatsApp {
     const patch = {
       lastIncomingAt: now,
       lastRemoteId: remoteId || prev.lastRemoteId || null,
+      chatId: remoteId || prev.chatId || null,
+      waId: remoteId || prev.waId || null,
+      isRegistered: true,
+      checkedAt: now,
     };
 
     const sendTs = toMs(prev.lastSendAt);
@@ -316,7 +427,56 @@ class TenantWhatsApp {
       patch.repliedAt = now;
     }
 
+    this._appendConversationFromMessage(digits, message, { fromMe: false, source: 'incoming-event' });
     this._upsertStatus(digits, patch);
+  }
+
+  _markOutgoingCreatedMessage(message) {
+    if (!message || !message.fromMe) return;
+    if (!this._isTrackableDirectMessage(message)) return;
+
+    const remoteId = this._getRemoteIdFromMessage(message);
+    const digits = this._resolveDigitsForMessage(message);
+    if (!digits) return;
+
+    const messageId = this._getMessageId(message);
+    const now = new Date().toISOString();
+    this._appendConversationFromMessage(digits, message, {
+      id: messageId,
+      fromMe: true,
+      source: 'outgoing-external-event',
+    });
+
+    const ack = isAck(message.ack) ? normalizeAck(message.ack, ACK.PENDING) : ACK.PENDING;
+    const patch = {
+      lastSendAt: now,
+      ack,
+      lastAck: ack,
+      lastAckAt: now,
+      isRegistered: true,
+      checkedAt: now,
+      sendError: null,
+      notOnWhatsapp: false,
+    };
+    if (messageId) {
+      patch.messageId = messageId;
+      patch.lastMessageId = messageId;
+    }
+    if (remoteId) {
+      patch.lastRemoteId = remoteId;
+      patch.chatId = remoteId;
+      patch.waId = remoteId;
+    }
+    this._upsertStatus(digits, patch);
+  }
+
+  _recordCreatedMessage(message) {
+    if (!this._isTrackableDirectMessage(message)) return;
+    if (message.fromMe) {
+      this._markOutgoingCreatedMessage(message);
+    } else {
+      this._markIncomingMessage(message);
+    }
   }
 
   getMessageStatusFor(toDigits) {
@@ -547,12 +707,22 @@ class TenantWhatsApp {
       }
     });
 
-    // Marca resposta apenas quando a mensagem recebida pertence a um contato/lead rastreado.
+    // Captura mensagens recebidas nesta sessão do WhatsApp Web.
     this.client.on("message", (message) => {
       try {
         this._markIncomingMessage(message);
       } catch (e) {
         logErr(this.tenantId, "message handler failed", e?.message || String(e));
+      }
+    });
+
+    // Captura toda mensagem criada no WhatsApp Web, inclusive as enviadas fora do painel
+    // pelo celular ou por outra aba do WhatsApp Web vinculada à mesma conta.
+    this.client.on("message_create", (message) => {
+      try {
+        this._recordCreatedMessage(message);
+      } catch (e) {
+        logErr(this.tenantId, "message_create handler failed", e?.message || String(e));
       }
     });
 
@@ -624,6 +794,14 @@ class TenantWhatsApp {
         sendError: null,
       });
 
+      this._appendConversationFromMessage(toDigits, sent, {
+        id: messageId,
+        fromMe: true,
+        body: msgTrim,
+        ack: normalizeAck(sent?.ack, ACK.PENDING),
+        source: 'send-template',
+      });
+
       return sent;
     } catch (err) {
       const msgError = err?.message || String(err);
@@ -678,6 +856,14 @@ class TenantWhatsApp {
         sendError: null,
       });
 
+      this._appendConversationFromMessage(toDigits, sent, {
+        id: messageId,
+        fromMe: true,
+        body: msgTrim,
+        ack: normalizeAck(sent?.ack, ACK.PENDING),
+        source: 'send-custom',
+      });
+
       return sent;
     } catch (err) {
       const m = err?.message || String(err);
@@ -691,6 +877,270 @@ class TenantWhatsApp {
       });
       throw err;
     }
+  }
+
+  async sendCustomAudioMessage({ toDigits, audioBase64, mimetype, filename = 'audio.webm' } = {}) {
+    const c = await this.initWhatsApp();
+    await this._ensureReady();
+
+    let rawAudio = String(audioBase64 || '').trim();
+    let detectedMime = '';
+    const dataUrlMatch = rawAudio.match(/^data:([^,]+);base64,(.*)$/is);
+    if (dataUrlMatch) {
+      detectedMime = String(dataUrlMatch[1] || '').trim();
+      rawAudio = String(dataUrlMatch[2] || '').trim();
+    }
+
+    // O whatsapp-web.js repassa MessageMedia.data para o WhatsApp Web,
+    // que usa atob(). Por isso salvamos/enviamos Base64 canônico, não DataURL,
+    // não URL-safe e sem quebras, espaços ou caracteres invisíveis.
+    let cleanBase64 = rawAudio
+      .replace(/^data:[^,]+,/, '')
+      .replace(/\s+/g, '')
+      .replace(/-/g, '+')
+      .replace(/_/g, '/');
+
+    if (!cleanBase64) throw new Error('Áudio vazio. Grave novamente e tente enviar.');
+    cleanBase64 = cleanBase64.replace(/[^A-Za-z0-9+/=]/g, '');
+    const remainder = cleanBase64.length % 4;
+    if (remainder) cleanBase64 += '='.repeat(4 - remainder);
+
+    let audioBuffer = null;
+    try {
+      audioBuffer = Buffer.from(cleanBase64, 'base64');
+    } catch {
+      throw new Error('Áudio inválido. Grave novamente e tente enviar.');
+    }
+    if (!audioBuffer || audioBuffer.length < 100) {
+      throw new Error('Áudio inválido ou muito curto. Grave novamente e tente enviar.');
+    }
+    cleanBase64 = audioBuffer.toString('base64');
+
+    let mime = String(mimetype || detectedMime || 'audio/webm').trim();
+    if (detectedMime && (!mimetype || !/^audio\//i.test(String(mimetype)))) mime = detectedMime;
+    mime = mime.split(';')[0].trim().toLowerCase() || 'audio/webm';
+    if (!/^audio\//i.test(mime)) throw new Error('Formato de áudio inválido.');
+
+    const approxBytes = audioBuffer.length;
+    if (approxBytes > 16 * 1024 * 1024) throw new Error('Áudio muito grande. Grave um áudio menor.');
+
+    this._upsertStatus(toDigits, {
+      lastSendAt: new Date().toISOString(),
+      ack: 0,
+      notOnWhatsapp: false,
+      sendError: null,
+    });
+
+    try {
+      const chatId = await this._getValidChatId(toDigits);
+      this._upsertStatus(toDigits, {
+        chatId,
+        waId: chatId,
+        isRegistered: true,
+        checkedAt: new Date().toISOString(),
+      });
+
+      const safeFilename = String(filename || `audio.${mime.includes('ogg') ? 'ogg' : mime.includes('mpeg') ? 'mp3' : 'webm'}`).replace(/[^a-zA-Z0-9_.-]+/g, '_');
+      const media = new MessageMedia(mime, cleanBase64, safeFilename);
+      let sent;
+      let sentAsVoice = true;
+
+      try {
+        sent = await c.sendMessage(chatId, media, { sendAudioAsVoice: true });
+      } catch (voiceErr) {
+        // Alguns ambientes/formatos gravados pelo navegador saem em WebM.
+        // Quando o WhatsApp Web não aceita como nota de voz, enviamos como áudio normal.
+        sentAsVoice = false;
+        logErr(this.tenantId, 'sendAudioAsVoice failed; retrying as regular audio', voiceErr?.message || String(voiceErr));
+        sent = await c.sendMessage(chatId, media, { sendAudioAsVoice: false });
+      }
+
+      const messageId = sent?.id?._serialized || null;
+      const ack = normalizeAck(sent?.ack, ACK.PENDING);
+
+      const saved = saveConversationMedia(this.tenantId, {
+        toDigits,
+        messageId: messageId || `out_${Date.now()}`,
+        mimetype: mime,
+        data: cleanBase64,
+        filename: messageId || safeFilename || undefined,
+      });
+
+      const rec = {
+        id: messageId || `out_${Date.now()}`,
+        fromMe: true,
+        body: sentAsVoice ? 'Áudio de voz' : 'Áudio',
+        type: sentAsVoice ? 'ptt' : 'audio',
+        timestamp: Math.floor(Date.now() / 1000),
+        createdAt: new Date().toISOString(),
+        ack,
+        source: sentAsVoice ? 'send-audio-voice' : 'send-audio-file',
+        hasMedia: true,
+        mediaKind: 'audio',
+        mediaMime: mime,
+        mediaFile: saved.fileName,
+        mediaSize: saved.size,
+      };
+      upsertConversationMessages(this.tenantId, toDigits, [rec]);
+
+      this._upsertStatus(toDigits, {
+        ack,
+        lastAck: ack,
+        lastAckAt: new Date().toISOString(),
+        messageId,
+        lastMessageId: messageId,
+        chatId,
+        waId: chatId,
+        sendError: null,
+      });
+
+      return { sent, message: rec };
+    } catch (err) {
+      const raw = err?.message || String(err);
+      const m = raw && raw.length <= 2 ? 'O WhatsApp Web recusou o áudio gravado. Tente gravar novamente ou atualize o WhatsApp conectado.' : raw;
+      const notOn = /not on whatsapp|unregistered|does not exist/i.test(m);
+      this._upsertStatus(toDigits, {
+        sendError: m,
+        notOnWhatsapp: notOn,
+        notOnWhatsappAt: notOn ? new Date().toISOString() : null,
+        isRegistered: notOn ? false : undefined,
+      });
+      throw new Error(m);
+    }
+  }
+
+  async getChatTextMessages({ toDigits, limit = 60 } = {}) {
+    const c = await this.initWhatsApp();
+    await this._ensureReady();
+
+    const safeLimit = Math.max(1, Math.min(200, Number(limit || 60)));
+    const chatId = await this._getValidChatId(toDigits);
+    let chat = null;
+    let messages = [];
+
+    try {
+      chat = await c.getChatById(chatId);
+      messages = await chat.fetchMessages({ limit: safeLimit });
+    } catch (e) {
+      // Número válido, mas o WhatsApp Web nem sempre entrega histórico via fetchMessages.
+      // Nesse caso usamos o histórico local salvo pelo painel/eventos.
+      this._upsertStatus(toDigits, {
+        chatId,
+        waId: chatId,
+        isRegistered: true,
+        checkedAt: new Date().toISOString(),
+      });
+      return listConversationMessages(this.tenantId, toDigits, safeLimit);
+    }
+
+    this._upsertStatus(toDigits, {
+      chatId,
+      waId: chatId,
+      isRegistered: true,
+      checkedAt: new Date().toISOString(),
+      unreadCount: Number(chat.unreadCount || 0),
+    });
+
+    const candidates = (Array.isArray(messages) ? messages : [])
+      .filter((m) => {
+        if (!m || m.isStatus || m.broadcast) return false;
+        return Boolean(String(m.body || '').trim()) || this._isAudioMessage(m, m) || Boolean(m.hasMedia);
+      });
+
+    const fetched = (await Promise.all(candidates.map((m) =>
+      this._messageToConversationRecordWithMedia(m, { source: 'fetchMessages' }, toDigits)
+    ))).filter(Boolean);
+
+    if (fetched.length) upsertConversationMessages(this.tenantId, toDigits, fetched);
+
+    return listConversationMessages(this.tenantId, toDigits, safeLimit);
+  }
+
+  async getChatsSnapshotForDigits(toDigitsList = [], opts = {}) {
+    const out = {};
+    const includeAll = Boolean(opts && opts.includeAll);
+    const digitsWanted = new Set((Array.isArray(toDigitsList) ? toDigitsList : [])
+      .map((x) => this._normalizeDigits(x))
+      .filter(Boolean));
+
+    if (!includeAll && !digitsWanted.size) return out;
+    const canReadRemoteChats = this.client && this.sessionStatus === 'connected';
+
+    if (canReadRemoteChats) {
+      try {
+        const chats = await this.client.getChats();
+        for (const chat of Array.isArray(chats) ? chats : []) {
+          const chatId = String(chat?.id?._serialized || chat?.id || '').trim();
+          if (!chatId || /@g\.us/i.test(chatId) || /status@broadcast/i.test(chatId)) continue;
+
+          const digits = this._digitsFromWaId(chatId);
+          if (!digits) continue;
+          if (!includeAll && digitsWanted.size && !digitsWanted.has(digits)) continue;
+
+          const last = chat?.lastMessage || null;
+          const ts = Number(last?.timestamp || 0);
+          const displayName = String(chat?.name || chat?.formattedTitle || '').trim();
+          const lastIsAudio = last ? this._isAudioMessage(last, last) : false;
+          const lastBody = String(last?.body || '').trim() || (lastIsAudio ? 'Áudio' : '');
+          const lastMessage = last && lastBody ? {
+            id: this._getMessageId(last) || '',
+            body: lastBody,
+            fromMe: Boolean(last.fromMe || last.id?.fromMe),
+            timestamp: ts,
+            createdAt: ts ? new Date(ts * 1000).toISOString() : null,
+            source: 'chat-snapshot',
+            hasMedia: Boolean(last.hasMedia || lastIsAudio),
+            mediaKind: lastIsAudio ? 'audio' : undefined,
+          } : null;
+
+          if (lastMessage) {
+            this._appendConversationFromMessage(digits, last, {
+              id: lastMessage.id,
+              fromMe: lastMessage.fromMe,
+              body: lastMessage.body,
+              timestamp: lastMessage.timestamp,
+              createdAt: lastMessage.createdAt,
+              source: 'chat-snapshot',
+            });
+          }
+
+          out[digits] = {
+            chatId,
+            displayName: displayName || null,
+            unreadCount: Number(chat?.unreadCount || 0),
+            archived: Boolean(chat?.archived),
+            pinned: Boolean(chat?.pinned),
+            lastMessage,
+          };
+        }
+      } catch (e) {
+        logErr(this.tenantId, 'getChatsSnapshotForDigits failed', e?.message || String(e));
+      }
+    }
+
+    const digitsForLocalFallback = includeAll ? Array.from(new Set([...digitsWanted, ...Object.keys(out)])) : Array.from(digitsWanted);
+    for (const digits of digitsForLocalFallback) {
+      const localLast = getLastConversationMessage(this.tenantId, digits);
+      if (!localLast) continue;
+      const existing = out[digits] || {};
+      const localTime = Number(localLast.timestamp || 0) || (new Date(localLast.createdAt || 0).getTime() / 1000) || 0;
+      const remoteTime = Number(existing?.lastMessage?.timestamp || 0) || (new Date(existing?.lastMessage?.createdAt || 0).getTime() / 1000) || 0;
+      if (!existing.lastMessage || localTime >= remoteTime) {
+        out[digits] = {
+          ...existing,
+          lastMessage: {
+            body: localLast.body,
+            fromMe: Boolean(localLast.fromMe),
+            timestamp: localTime,
+            createdAt: localLast.createdAt || (localTime ? new Date(localTime * 1000).toISOString() : null),
+            hasMedia: Boolean(localLast.hasMedia),
+            mediaKind: localLast.mediaKind || undefined,
+          },
+        };
+      }
+    }
+
+    return out;
   }
 
 
@@ -734,7 +1184,18 @@ function getTenantWA(tenantId) {
   return cache.get(t);
 }
 
+async function getChatTextMessages(tenantId, { toDigits, limit } = {}) {
+  const wa = getTenantWA(tenantId);
+  return wa.getChatTextMessages({ toDigits, limit });
+}
+
+async function getChatsSnapshotForDigits(tenantId, toDigitsList = [], opts = {}) {
+  const wa = getTenantWA(tenantId);
+  return wa.getChatsSnapshotForDigits(toDigitsList, opts);
+}
+
 async function destroyCachedWhatsAppClients() {
+  flushAllConversationStores();
   const clients = [...cache.values()];
   await Promise.allSettled(clients.map((wa) => wa.destroy()));
 }
@@ -751,11 +1212,19 @@ async function sendCustomMessage(tenantId, { toDigits, nome, text } = {}) {
   return wa.sendCustomMessageText({ toDigits, nome, text: t });
 }
 
+async function sendCustomAudioMessage(tenantId, { toDigits, audioBase64, mimetype, filename } = {}) {
+  const wa = getTenantWA(tenantId);
+  return wa.sendCustomAudioMessage({ toDigits, audioBase64, mimetype, filename });
+}
+
 module.exports = {
   isWhatsAppConfigured,
   computeLeadStatus,
   getTenantWA,
   sendTemplateMessage,
   sendCustomMessage,
+  sendCustomAudioMessage,
+  getChatTextMessages,
+  getChatsSnapshotForDigits,
   destroyCachedWhatsAppClients,
 };

@@ -7,7 +7,6 @@
       "name": "Funil Principal",
       "createdAt": "2026-04-29T14:37:53.708Z",
       "stageOrder": [
-        "stg_new",
         "stg_contact",
         "stg_meeting",
         "stg_proposal",
@@ -16,11 +15,6 @@
         "stg_fece3e48d3843819dd9adc389"
       ],
       "stages": {
-        "stg_new": {
-          "id": "stg_new",
-          "name": "Novo lead",
-          "leadIds": []
-        },
         "stg_contact": {
           "id": "stg_contact",
           "name": "Contato",
@@ -69,5 +63,5 @@
       }
     }
   ],
-  "updatedAt": "2026-05-26T14:37:25.375Z"
+  "updatedAt": "2026-05-27T15:01:54.200Z"
 }

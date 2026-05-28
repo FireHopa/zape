@@ -26,7 +26,8 @@ function updateTemplateSafe(tenantId, text) {
   }
   return setTemplate(tenantId, String(text || "").trim());
 }
-const { isWhatsAppConfigured, computeLeadStatus, getTenantWA, sendCustomMessage, destroyCachedWhatsAppClients } = require("./src/whatsappManager");
+const { isWhatsAppConfigured, computeLeadStatus, getTenantWA, sendCustomMessage, sendCustomAudioMessage, getChatTextMessages, getChatsSnapshotForDigits, destroyCachedWhatsAppClients } = require("./src/whatsappManager");
+const { listConversationDigits, listConversationSummaries, getConversationMediaPath } = require("./src/tenantConversationStore");
 
 // CORREÇÃO: importando updateWebhook
 const { listWebhooks, createWebhook, updateWebhook, deleteWebhook, resolveWebhookToken } = require("./src/webhooksStore");
@@ -63,8 +64,8 @@ const TENANT_REGINA = "regina"; // NOVO: Inquilino da Regina
 
 /* -------------------- middlewares -------------------- */
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true, limit: "60mb" }));
+app.use(express.json({ limit: "60mb" }));
 
 registerAuthRoutes(app);
 
@@ -214,83 +215,441 @@ function phoneMatchesSearch(lead, queryDigits) {
   return false;
 }
 
-function buildLeadsHandler({ tenantId, authMw }) {
-  return (req, res) => {
-    const q = String(req.query.q || "").toLowerCase().trim();
-    const from = String(req.query.from || "").trim();
-    const to = String(req.query.to || "").trim();
+function leadPhoneKey(lead) {
+  if (!lead) return "";
+  const candidates = [
+    lead.whatsapp_digits,
+    lead.whatsapp_raw,
+    lead.whatsapp,
+    lead.phone,
+    lead.telefone,
+  ];
 
-    const ddd = String(req.query.ddd || "").trim().replace(/\D+/g, "");
-    const statusFilter = String(req.query.status || "").trim();
-    const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-    const notDeliveredAfterMs = Math.max(1, notDeliveredAfterMin) * 60 * 1000;
+  for (const value of candidates) {
+    let d = String(value || "").replace(/\D+/g, "");
+    if (!d) continue;
+    d = d.replace(/^0+/, "");
 
-    const tag = String(req.query.tag || "").trim();
-    const tagsCsv = String(req.query.tags || "").trim();
-    const filterTagIds = []
-      .concat(tag ? [tag] : [])
-      .concat(tagsCsv ? tagsCsv.split(",") : [])
-      .map((x) => String(x).trim())
-      .filter(Boolean);
-
-    let leads = readLeads(tenantId);
-
-    if (from) {
-      const fromISO = new Date(from + "T00:00:00.000Z").toISOString();
-      leads = leads.filter((l) => String(l.createdAt) >= fromISO);
-    }
-    if (to) {
-      const toISO = new Date(to + "T23:59:59.999Z").toISOString();
-      leads = leads.filter((l) => String(l.createdAt) <= toISO);
-    }
-    if (q) {
-      const qDigits = String(req.query.q || "").replace(/\D+/g, "");
-      leads = leads.filter(
-        (l) =>
-          String(l.nome || "").toLowerCase().includes(q) ||
-          String(l.email || "").toLowerCase().includes(q) ||
-          String(l.empresa || "").toLowerCase().includes(q) ||
-          String(l.whatsapp_raw || "").toLowerCase().includes(q) ||
-          String(l.whatsapp_digits || "").toLowerCase().includes(q) ||
-          phoneMatchesSearch(l, qDigits)
-      );
+    // Normaliza BR para a mesma chave usada no resto do sistema.
+    if (!d.startsWith("55") && (d.length === 10 || d.length === 11)) {
+      d = "55" + d;
     }
 
-    if (ddd) {
-      leads = leads.filter((l) => extractDDDFromDigits(l.whatsapp_digits) === ddd);
-    }
+    // Se veio com código do país + DDD + número, usa como chave canônica.
+    if (d.startsWith("55") && (d.length === 12 || d.length === 13)) return d;
 
-    const leadTags = getLeadTagsMap(tenantId);
-    const tags = listTags(tenantId);
-    const tagById = Object.fromEntries(tags.map((t) => [t.id, t]));
+    // Fallback para números antigos/internacionais já salvos.
+    return d;
+  }
 
-    const wa = getTenantWA(tenantId);
-
-    let items = leads.map((l) => {
-      const ids = Array.isArray(leadTags[l.id]) ? leadTags[l.id] : [];
-      const full = ids.map((id) => tagById[id]).filter(Boolean);
-
-      const ms = wa.getMessageStatusFor(l.whatsapp_digits);
-      const leadStatus = computeLeadStatus(ms, { notDeliveredAfterMs });
-
-      return { ...l, tagIds: ids, tagsFull: full, messageStatus: ms, leadStatus };
-    });
-
-    if (filterTagIds.length) {
-      items = items.filter((l) => {
-        const ids = Array.isArray(l.tagIds) ? l.tagIds : [];
-        return filterTagIds.some((t) => ids.includes(t));
-      });
-    }
-
-    if (statusFilter) {
-      items = items.filter((l) => String(l.leadStatus || "") === statusFilter);
-    }
-
-    res.json({ total: items.length, items: items.slice(0, 2000), tags });
-  };
+  return "";
 }
 
+function mergeLeadTagData(target, incoming) {
+  const ids = new Set();
+  for (const id of Array.isArray(target.tagIds) ? target.tagIds : []) {
+    if (id) ids.add(String(id));
+  }
+  for (const id of Array.isArray(incoming.tagIds) ? incoming.tagIds : []) {
+    if (id) ids.add(String(id));
+  }
+  target.tagIds = Array.from(ids);
+
+  const byId = new Map();
+  for (const tag of Array.isArray(target.tagsFull) ? target.tagsFull : []) {
+    if (tag && tag.id) byId.set(String(tag.id), tag);
+  }
+  for (const tag of Array.isArray(incoming.tagsFull) ? incoming.tagsFull : []) {
+    if (tag && tag.id && !byId.has(String(tag.id))) byId.set(String(tag.id), tag);
+  }
+  target.tagsFull = Array.from(byId.values());
+}
+
+function dedupeLeadItemsByWhatsapp(items) {
+  const list = Array.isArray(items) ? items : [];
+  const out = [];
+  const byPhone = new Map();
+
+  for (const item of list) {
+    const phoneKey = leadPhoneKey(item);
+
+    // Lead sem WhatsApp continua aparecendo, porque não existe número para deduplicar.
+    if (!phoneKey) {
+      out.push({ ...item, duplicateCount: 0, duplicateLeadIds: [] });
+      continue;
+    }
+
+    const existing = byPhone.get(phoneKey);
+    if (!existing) {
+      const cloned = { ...item, duplicateCount: 0, duplicateLeadIds: [], whatsappKey: phoneKey };
+      byPhone.set(phoneKey, cloned);
+      out.push(cloned);
+      continue;
+    }
+
+    existing.duplicateCount = Number(existing.duplicateCount || 0) + 1;
+    if (item.id) {
+      existing.duplicateLeadIds = Array.from(new Set([...(existing.duplicateLeadIds || []), String(item.id)]));
+    }
+
+    // Mantém o registro mais recente como principal, mas aproveita dados que estiverem faltando.
+    for (const field of ["nome", "empresa", "email", "website", "jaAnuncia", "whatsapp_raw", "whatsapp_digits"]) {
+      if (!existing[field] && item[field]) existing[field] = item[field];
+    }
+
+    mergeLeadTagData(existing, item);
+  }
+
+  return out;
+}
+
+function shouldDedupeLeads(req) {
+  const v = String(req.query.dedupe ?? "1").toLowerCase().trim();
+  return !(v === "0" || v === "false" || v === "no" || v === "nao" || v === "não");
+}
+
+function getLeadItemsForRequest(tenantId, req, { limit = 2000 } = {}) {
+  const q = String(req.query.q || "").toLowerCase().trim();
+  const from = String(req.query.from || "").trim();
+  const to = String(req.query.to || "").trim();
+
+  const ddd = String(req.query.ddd || "").trim().replace(/\D+/g, "");
+  const statusFilter = String(req.query.status || "").trim();
+  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
+  const notDeliveredAfterMs = Math.max(1, notDeliveredAfterMin) * 60 * 1000;
+
+  const tag = String(req.query.tag || "").trim();
+  const tagsCsv = String(req.query.tags || "").trim();
+  const filterTagIds = []
+    .concat(tag ? [tag] : [])
+    .concat(tagsCsv ? tagsCsv.split(",") : [])
+    .map((x) => String(x).trim())
+    .filter(Boolean);
+
+  let leads = readLeads(tenantId);
+
+  if (from) {
+    const fromISO = new Date(from + "T00:00:00.000Z").toISOString();
+    leads = leads.filter((l) => String(l.createdAt) >= fromISO);
+  }
+  if (to) {
+    const toISO = new Date(to + "T23:59:59.999Z").toISOString();
+    leads = leads.filter((l) => String(l.createdAt) <= toISO);
+  }
+  if (q) {
+    const qDigits = String(req.query.q || "").replace(/\D+/g, "");
+    leads = leads.filter(
+      (l) =>
+        String(l.nome || "").toLowerCase().includes(q) ||
+        String(l.email || "").toLowerCase().includes(q) ||
+        String(l.empresa || "").toLowerCase().includes(q) ||
+        String(l.whatsapp_raw || "").toLowerCase().includes(q) ||
+        String(l.whatsapp_digits || "").toLowerCase().includes(q) ||
+        phoneMatchesSearch(l, qDigits)
+    );
+  }
+
+  if (ddd) {
+    leads = leads.filter((l) => extractDDDFromDigits(l.whatsapp_digits) === ddd);
+  }
+
+  const leadTags = getLeadTagsMap(tenantId);
+  const tags = listTags(tenantId);
+  const tagById = Object.fromEntries(tags.map((t) => [t.id, t]));
+
+  const wa = getTenantWA(tenantId);
+
+  let items = leads.map((l) => {
+    const ids = Array.isArray(leadTags[l.id]) ? leadTags[l.id] : [];
+    const full = ids.map((id) => tagById[id]).filter(Boolean);
+
+    const ms = wa.getMessageStatusFor(l.whatsapp_digits || leadPhoneKey(l));
+    const leadStatus = computeLeadStatus(ms, { notDeliveredAfterMs });
+
+    return { ...l, tagIds: ids, tagsFull: full, messageStatus: ms, leadStatus };
+  });
+
+  if (shouldDedupeLeads(req)) {
+    items = dedupeLeadItemsByWhatsapp(items);
+  }
+
+  if (filterTagIds.length) {
+    items = items.filter((l) => {
+      const ids = Array.isArray(l.tagIds) ? l.tagIds : [];
+      return filterTagIds.some((t) => ids.includes(t));
+    });
+  }
+
+  if (statusFilter) {
+    items = items.filter((l) => String(l.leadStatus || "") === statusFilter);
+  }
+
+  return { total: items.length, items: items.slice(0, limit), tags };
+}
+
+
+async function getConversationContacts(tenantId, req) {
+  // Lista unificada: leads da planilha + conversas locais + chats reais do WhatsApp Web.
+  // Assim, se um número novo mandar mensagem antes de estar na planilha, ele aparece em Conversas.
+  const reqForLeads = { query: { dedupe: '1', status: '', limit: 100000 } };
+  const payload = getLeadItemsForRequest(tenantId, reqForLeads, { limit: 100000 });
+  const leads = (payload.items || []).filter((lead) => leadPhoneKey(lead));
+
+  const byDigits = new Map();
+
+  for (const lead of leads) {
+    const digits = leadPhoneKey(lead);
+    if (!digits) continue;
+    const ms = getTenantWA(tenantId).getMessageStatusFor(digits) || null;
+    const lastActivity = (ms && (ms.lastIncomingAt || ms.repliedAt || ms.lastSendAt || ms.lastAckAt || ms.updatedAt)) || lead.createdAt || null;
+    byDigits.set(digits, {
+      id: String(lead.id || digits),
+      nome: lead.nome || '',
+      empresa: lead.empresa || '',
+      email: lead.email || '',
+      whatsapp_digits: digits,
+      whatsapp_raw: lead.whatsapp_raw || lead.whatsapp_digits || digits,
+      createdAt: lead.createdAt || null,
+      leadStatus: lead.leadStatus || 'none',
+      messageStatus: ms,
+      source: lead.source || lead.origem || 'planilha',
+      isLead: true,
+      isNewConversationOnly: false,
+      lastActivity,
+    });
+  }
+
+  const localSummaries = listConversationSummaries(tenantId, 2000);
+  for (const summary of localSummaries) {
+    const digits = leadPhoneKey({ whatsapp_digits: summary.whatsapp_digits });
+    if (!digits) continue;
+    const ms = getTenantWA(tenantId).getMessageStatusFor(digits) || null;
+    const existing = byDigits.get(digits) || {
+      id: `chat_${digits}`,
+      nome: '',
+      empresa: '',
+      email: '',
+      whatsapp_digits: digits,
+      whatsapp_raw: digits,
+      createdAt: null,
+      leadStatus: 'none',
+      source: 'conversa',
+      isLead: false,
+      isNewConversationOnly: true,
+    };
+    byDigits.set(digits, {
+      ...existing,
+      messageStatus: existing.messageStatus || ms,
+      lastMessage: summary.lastMessage || existing.lastMessage || null,
+      lastActivity: summary.lastActivity || existing.lastActivity || null,
+      messageCount: summary.messageCount || existing.messageCount || 0,
+    });
+  }
+
+  let chats = {};
+  try {
+    const knownDigits = Array.from(new Set([...byDigits.keys(), ...listConversationDigits(tenantId)]));
+    chats = await getChatsSnapshotForDigits(tenantId, knownDigits, { includeAll: true });
+  } catch (e) {
+    chats = {};
+  }
+
+  for (const digits of Object.keys(chats || {})) {
+    const chat = chats[digits] || null;
+    if (!digits || !chat) continue;
+    const ms = getTenantWA(tenantId).getMessageStatusFor(digits) || null;
+    const existing = byDigits.get(digits) || {
+      id: `chat_${digits}`,
+      nome: chat.displayName || '',
+      empresa: '',
+      email: '',
+      whatsapp_digits: digits,
+      whatsapp_raw: digits,
+      createdAt: null,
+      leadStatus: 'none',
+      source: 'whatsapp',
+      isLead: false,
+      isNewConversationOnly: true,
+    };
+
+    byDigits.set(digits, {
+      ...existing,
+      nome: existing.nome || chat.displayName || '',
+      messageStatus: existing.messageStatus || ms,
+      chat,
+      unreadCount: Number(chat.unreadCount || existing.unreadCount || 0),
+      lastMessage: (chat.lastMessage || existing.lastMessage || null),
+      lastActivity: (chat.lastMessage && chat.lastMessage.createdAt) || existing.lastActivity || null,
+      isNewConversationOnly: existing.isLead ? false : true,
+    });
+  }
+
+  let merged = Array.from(byDigits.values()).map((item) => {
+    const digits = leadPhoneKey(item);
+    const chat = chats[digits] || item.chat || null;
+    const lastMessage = (chat && chat.lastMessage) || item.lastMessage || null;
+    return {
+      ...item,
+      chat,
+      unreadCount: Number((chat && chat.unreadCount) || item.unreadCount || 0),
+      lastMessage,
+      lastActivity: (lastMessage && lastMessage.createdAt) || item.lastActivity || item.createdAt || null,
+    };
+  });
+
+  const q = String((req && req.query && req.query.q) || '').trim().toLowerCase();
+  const qDigits = q.replace(/\D+/g, '');
+  if (q || qDigits) {
+    merged = merged.filter((item) => {
+      const hay = [
+        item.nome,
+        item.empresa,
+        item.email,
+        item.whatsapp_raw,
+        item.whatsapp_digits,
+        item.source,
+        item.lastMessage && item.lastMessage.body,
+      ].map((x) => String(x || '').toLowerCase()).join(' ');
+      const digits = String(item.whatsapp_digits || item.whatsapp_raw || '').replace(/\D+/g, '');
+      return (q && hay.includes(q)) || (qDigits && digits.includes(qDigits));
+    });
+  }
+
+  merged.sort((a, b) => {
+    const ta = a.lastActivity ? new Date(a.lastActivity).getTime() : 0;
+    const tb = b.lastActivity ? new Date(b.lastActivity).getTime() : 0;
+    return tb - ta;
+  });
+
+  const limit = Math.max(1, Math.min(1000, Number((req && req.query && req.query.limit) || 300)));
+  return { ok: true, total: merged.length, items: merged.slice(0, limit) };
+}
+
+function findLeadByDigits(tenantId, toDigits) {
+  const wanted = leadPhoneKey({ whatsapp_digits: toDigits });
+  if (!wanted) return null;
+  const leads = readLeads(tenantId);
+  return leads.find((lead) => leadPhoneKey(lead) === wanted) || null;
+}
+
+function enrichConversationMessagesForClient(tenantId, prefix, digits, messages) {
+  const safeDigits = leadPhoneKey({ whatsapp_digits: digits });
+  return (Array.isArray(messages) ? messages : []).map((msg) => {
+    const out = { ...msg };
+    if (out.mediaFile && out.mediaKind === 'audio') {
+      out.mediaUrl = `${prefix}/conversations/${encodeURIComponent(safeDigits)}/media/${encodeURIComponent(out.mediaFile)}`;
+    }
+    return out;
+  });
+}
+
+function buildConversationsRoutes({ tenantId, authMw, prefix }) {
+  app.get(`${prefix}/conversations`, authMw, async (req, res) => {
+    try {
+      const payload = await getConversationContacts(tenantId, req);
+      res.json(payload);
+    } catch (err) {
+      res.status(500).json({ ok: false, error: err?.message || String(err) });
+    }
+  });
+
+  app.get(`${prefix}/conversations/:digits/messages`, authMw, async (req, res) => {
+    try {
+      const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
+      if (!digits) return res.status(400).json({ ok: false, error: 'Número inválido.' });
+      const lead = findLeadByDigits(tenantId, digits);
+      const limit = Math.max(1, Math.min(200, Number(req.query.limit || 80)));
+      const rawMessages = await getChatTextMessages(tenantId, { toDigits: digits, limit });
+      const messages = enrichConversationMessagesForClient(tenantId, prefix, digits, rawMessages);
+      res.json({ ok: true, contact: {
+        id: lead ? lead.id : `chat_${digits}`,
+        nome: lead ? (lead.nome || '') : '',
+        empresa: lead ? (lead.empresa || '') : '',
+        email: lead ? (lead.email || '') : '',
+        whatsapp_digits: digits,
+        whatsapp_raw: lead ? (lead.whatsapp_raw || lead.whatsapp_digits || digits) : digits,
+        isLead: Boolean(lead),
+        isNewConversationOnly: !lead,
+      }, messages });
+    } catch (err) {
+      res.status(400).json({ ok: false, error: err?.message || String(err) });
+    }
+  });
+
+  app.get(`${prefix}/conversations/:digits/media/:file`, authMw, (req, res) => {
+    try {
+      const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
+      if (!digits) return res.status(400).send('Número inválido.');
+      const filePath = getConversationMediaPath(tenantId, req.params.file);
+      if (!filePath) return res.status(404).send('Áudio não encontrado.');
+      res.sendFile(filePath);
+    } catch (err) {
+      res.status(400).send(err?.message || String(err));
+    }
+  });
+
+  app.post(`${prefix}/conversations/:digits/audio`, authMw, async (req, res) => {
+    try {
+      const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
+      if (!digits) return res.status(400).json({ ok: false, error: 'Número inválido.' });
+
+      // Aceita Base64 puro, DataURL completo ou o campo legado `audio`.
+      // Isso evita erro quando o navegador envia `data:audio/webm;base64,...`.
+      const audioBase64 = String(req.body?.audioBase64 || req.body?.audioDataUrl || req.body?.dataUrl || req.body?.audio || '').trim();
+      const mimetype = String(req.body?.mimetype || req.body?.mimeType || '').trim() || 'audio/webm';
+      const filename = String(req.body?.filename || 'audio.webm').trim();
+      if (!audioBase64) return res.status(400).json({ ok: false, error: 'Áudio vazio. Grave novamente e tente enviar.' });
+
+      const result = await sendCustomAudioMessage(tenantId, {
+        toDigits: digits,
+        audioBase64,
+        mimetype,
+        filename,
+      });
+
+      const message = enrichConversationMessagesForClient(tenantId, prefix, digits, [result.message])[0];
+      res.json({ ok: true, message });
+    } catch (err) {
+      const raw = err?.message || String(err);
+      const error = raw && raw.length <= 2 ? 'Não consegui enviar este áudio. Grave novamente e tente outra vez.' : raw;
+      res.status(400).json({ ok: false, error });
+    }
+  });
+
+  app.post(`${prefix}/conversations/:digits/messages`, authMw, async (req, res) => {
+    try {
+      const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
+      if (!digits) return res.status(400).json({ ok: false, error: 'Número inválido.' });
+      const lead = findLeadByDigits(tenantId, digits);
+      const text = String(req.body?.text || '').trim();
+      if (!text) return res.status(400).json({ ok: false, error: 'Digite uma mensagem.' });
+      if (text.length > 4000) return res.status(400).json({ ok: false, error: 'Mensagem muito longa. Use até 4000 caracteres.' });
+
+      const sent = await sendCustomMessage(tenantId, {
+        toDigits: digits,
+        nome: lead ? (lead.nome || '') : '',
+        text,
+      });
+
+      const messageId = String(sent?.id?._serialized || sent?.id?.id || '');
+      res.json({ ok: true, message: {
+        id: messageId,
+        fromMe: true,
+        body: text,
+        createdAt: new Date().toISOString(),
+        timestamp: Math.floor(Date.now() / 1000),
+      }});
+    } catch (err) {
+      res.status(400).json({ ok: false, error: err?.message || String(err) });
+    }
+  });
+}
+
+function buildLeadsHandler({ tenantId, authMw }) {
+  return (req, res) => {
+    res.json(getLeadItemsForRequest(tenantId, req, { limit: 2000 }));
+  };
+}
 
 async function createManualLead(tenantId, payload) {
   const whatsappDigits = payload.whatsapp ? normalizeBRPhoneToE164Digits(payload.whatsapp) : "";
@@ -585,7 +944,8 @@ app.post("/api/admin/leads/manual", adminAuth, async (req, res) => {
 });
 
 app.get("/admin/leads.csv", adminAuth, (req, res) => {
-  const csv = toCSV(readLeads(TENANT_ADMIN));
+  const payload = getLeadItemsForRequest(TENANT_ADMIN, req, { limit: 100000 });
+  const csv = toCSV(payload.items);
   res.setHeader("Content-Type", "text/csv; charset=utf-8");
   res.setHeader("Content-Disposition", `attachment; filename="leads_admin.csv"`);
   res.send(csv);
@@ -616,6 +976,7 @@ app.get("/api/admin/whatsapp/stats", adminAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
   res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_ADMIN, { notDeliveredAfterMin }) });
 });
+buildConversationsRoutes({ tenantId: TENANT_ADMIN, authMw: adminAuth, prefix: "/api/admin" });
 
 app.get("/api/admin/tags", adminAuth, (req, res) => {
   res.json({ ok: true, items: listTags(TENANT_ADMIN) });
@@ -741,7 +1102,8 @@ app.post("/api/panel/leads/manual", panelAuth, async (req, res) => {
 });
 
 app.get("/panel/leads.csv", panelAuth, (req, res) => {
-  const csv = toCSV(readLeads(TENANT_PANEL));
+  const payload = getLeadItemsForRequest(TENANT_PANEL, req, { limit: 100000 });
+  const csv = toCSV(payload.items);
   res.setHeader("Content-Type", "text/csv; charset=utf-8");
   res.setHeader("Content-Disposition", `attachment; filename="leads_panel.csv"`);
   res.send(csv);
@@ -772,6 +1134,7 @@ app.get("/api/panel/whatsapp/stats", panelAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
   res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_PANEL, { notDeliveredAfterMin }) });
 });
+buildConversationsRoutes({ tenantId: TENANT_PANEL, authMw: panelAuth, prefix: "/api/panel" });
 
 app.get("/api/panel/tags", panelAuth, (req, res) => {
   res.json({ ok: true, items: listTags(TENANT_PANEL) });
@@ -897,7 +1260,8 @@ app.post("/api/regina/leads/manual", reginaAuth, async (req, res) => {
 });
 
 app.get("/regina/leads.csv", reginaAuth, (req, res) => {
-  const csv = toCSV(readLeads(TENANT_REGINA));
+  const payload = getLeadItemsForRequest(TENANT_REGINA, req, { limit: 100000 });
+  const csv = toCSV(payload.items);
   res.setHeader("Content-Type", "text/csv; charset=utf-8");
   res.setHeader("Content-Disposition", `attachment; filename="leads_regina.csv"`);
   res.send(csv);
@@ -928,6 +1292,7 @@ app.get("/api/regina/whatsapp/stats", reginaAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
   res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_REGINA, { notDeliveredAfterMin }) });
 });
+buildConversationsRoutes({ tenantId: TENANT_REGINA, authMw: reginaAuth, prefix: "/api/regina" });
 
 app.get("/api/regina/tags", reginaAuth, (req, res) => {
   res.json({ ok: true, items: listTags(TENANT_REGINA) });
