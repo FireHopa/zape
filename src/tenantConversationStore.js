@@ -9,7 +9,7 @@ const SAVE_DEBOUNCE_MS = 250;
 const cache = new Map();
 const timers = new Map();
 
-const AUDIO_MIME_EXT = {
+const MIME_EXT = {
   'audio/ogg': 'ogg',
   'audio/ogg; codecs=opus': 'ogg',
   'audio/webm': 'webm',
@@ -21,6 +21,27 @@ const AUDIO_MIME_EXT = {
   'audio/amr': 'amr',
   'audio/wav': 'wav',
   'audio/x-wav': 'wav',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg',
+  'image/png': 'png',
+  'image/webp': 'webp',
+  'image/gif': 'gif',
+  'image/svg+xml': 'svg',
+  'video/mp4': 'mp4',
+  'video/webm': 'webm',
+  'video/quicktime': 'mov',
+  'application/pdf': 'pdf',
+  'text/plain': 'txt',
+  'text/csv': 'csv',
+  'application/csv': 'csv',
+  'application/vnd.ms-excel': 'xls',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'xlsx',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'docx',
+  'application/msword': 'doc',
+  'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'pptx',
+  'application/vnd.ms-powerpoint': 'ppt',
+  'application/zip': 'zip',
+  'application/x-zip-compressed': 'zip',
 };
 
 function fileForTenant(tenantId) {
@@ -49,11 +70,29 @@ function safeId(value) {
 
 function extensionFromMime(mime) {
   const m = String(mime || '').toLowerCase().trim();
-  if (AUDIO_MIME_EXT[m]) return AUDIO_MIME_EXT[m];
+  if (MIME_EXT[m]) return MIME_EXT[m];
   const basic = m.split(';')[0].trim();
-  if (AUDIO_MIME_EXT[basic]) return AUDIO_MIME_EXT[basic];
-  if (basic.startsWith('audio/')) return basic.split('/')[1].replace(/[^a-z0-9]+/g, '') || 'audio';
+  if (MIME_EXT[basic]) return MIME_EXT[basic];
+  if (basic.includes('spreadsheet') || basic.includes('excel')) return 'xlsx';
+  if (basic.includes('wordprocessing')) return 'docx';
+  if (basic.includes('presentation')) return 'pptx';
+  if (basic.includes('/')) return basic.split('/')[1].replace(/[^a-z0-9]+/g, '') || 'bin';
   return 'bin';
+}
+
+function mediaKindFromMime(mime, filename = '') {
+  const basic = String(mime || '').toLowerCase().split(';')[0].trim();
+  const ext = path.extname(String(filename || '')).toLowerCase();
+  if (basic.startsWith('audio/')) return 'audio';
+  if (basic.startsWith('image/')) return 'image';
+  if (basic.startsWith('video/')) return 'video';
+  if (basic === 'application/pdf' || ext === '.pdf') return 'pdf';
+  if (basic.includes('spreadsheet') || basic.includes('excel') || ['.csv', '.xls', '.xlsx', '.ods'].includes(ext)) return 'spreadsheet';
+  if (basic.includes('word') || ['.doc', '.docx', '.odt'].includes(ext)) return 'document';
+  if (basic.includes('presentation') || ['.ppt', '.pptx', '.odp'].includes(ext)) return 'presentation';
+  if (basic.includes('zip') || basic.includes('rar') || basic.includes('compressed') || ['.zip', '.rar', '.7z', '.gz', '.tar'].includes(ext)) return 'archive';
+  if (basic.startsWith('text/') || ['.txt', '.md', '.json', '.xml', '.html', '.css', '.js'].includes(ext)) return 'text';
+  return 'file';
 }
 
 function loadStore(tenantId) {
@@ -106,10 +145,20 @@ function cleanMessage(message, fallback = {}) {
 
   const mediaFile = String(message?.mediaFile || fallback.mediaFile || '').trim();
   const mediaMime = String(message?.mediaMime || message?.mimetype || fallback.mediaMime || fallback.mimetype || '').trim();
-  const mediaKind = String(message?.mediaKind || fallback.mediaKind || (audio ? 'audio' : '')).trim();
-  const hasMedia = Boolean(message?.hasMedia ?? fallback.hasMedia ?? mediaFile ?? audio);
+  const filename = String(message?.filename || fallback.filename || '').trim();
+  const originalName = String(message?.originalName || fallback.originalName || '').trim();
 
-  if (!body && !hasMedia && !mediaFile) return null;
+  // Importante: não transforme texto comum em anexo.
+  // Versões anteriores salvavam mediaKind="file" mesmo quando não havia mídia real;
+  // isso fazia mensagens simples aparecerem como card de "Anexo" na interface.
+  const explicitHasMedia = Boolean(message?.hasMedia ?? fallback.hasMedia ?? false);
+  const hasMediaEvidence = Boolean(audio || mediaFile || mediaMime || filename || originalName);
+  const hasMedia = Boolean(audio || mediaFile || (explicitHasMedia && hasMediaEvidence));
+  const mediaKind = hasMedia
+    ? String(message?.mediaKind || fallback.mediaKind || (audio ? 'audio' : mediaKindFromMime(mediaMime, filename || originalName || mediaFile))).trim()
+    : '';
+
+  if (!body && !hasMedia) return null;
 
   const fromMe = Boolean(message?.fromMe ?? fallback.fromMe);
   const id = String(
@@ -132,14 +181,15 @@ function cleanMessage(message, fallback = {}) {
     source: String(message?.source || fallback.source || 'local'),
   };
 
-  if (hasMedia || mediaFile || mediaKind) {
+  if (hasMedia) {
     out.hasMedia = true;
     out.mediaKind = mediaKind || (audio ? 'audio' : 'media');
     if (mediaMime) out.mediaMime = mediaMime;
     if (mediaFile) out.mediaFile = mediaFile;
     if (message?.mediaSize || fallback.mediaSize) out.mediaSize = Number(message?.mediaSize || fallback.mediaSize) || undefined;
     if (message?.duration || fallback.duration) out.duration = Number(message?.duration || fallback.duration) || undefined;
-    if (message?.filename || fallback.filename) out.filename = String(message?.filename || fallback.filename || '');
+    if (filename) out.filename = filename;
+    if (originalName) out.originalName = originalName;
   }
 
   return out;
@@ -222,7 +272,8 @@ function listConversationMessages(tenantId, toDigits, limit = 80) {
   const digits = normalizeDigits(toDigits);
   if (!digits) return [];
   const store = loadStore(tenantId);
-  const all = sortMessages(store[digits] || []);
+  const raw = Array.isArray(store[digits]) ? store[digits] : [];
+  const all = sortMessages(raw.map((m) => cleanMessage(m, m)).filter(Boolean));
   const safeLimit = Math.max(1, Math.min(500, Number(limit || 80)));
   return all.slice(Math.max(0, all.length - safeLimit));
 }
@@ -265,13 +316,18 @@ function saveConversationMedia(tenantId, { messageId, toDigits, mimetype, data, 
   const mime = String(mimetype || '').trim() || 'application/octet-stream';
   const digits = normalizeDigits(toDigits) || 'unknown';
   const ext = extensionFromMime(mime);
-  const baseName = safeId(filename || `${digits}_${messageId || Date.now()}`);
-  const fileName = `${baseName}.${ext}`;
+  const original = String(filename || '').trim();
+  const originalExt = path.extname(original).replace(/^\./, '').toLowerCase();
+  let baseName = original ? path.basename(original, path.extname(original)) : `${digits}_${messageId || Date.now()}`;
+  baseName = safeId(baseName);
+  const finalExt = originalExt || ext || 'bin';
+  const suffix = crypto.randomBytes(4).toString('hex');
+  const fileName = `${baseName}_${suffix}.${finalExt}`;
   const dir = mediaDirForTenant(tenantId);
   const filePath = path.join(dir, fileName);
   const content = buffer ? Buffer.from(buffer) : Buffer.from(String(data || ''), 'base64');
   fs.writeFileSync(filePath, content);
-  return { fileName, filePath, mimetype: mime, size: content.length };
+  return { fileName, filePath, mimetype: mime, size: content.length, originalName: original || fileName, mediaKind: mediaKindFromMime(mime, original || fileName) };
 }
 
 function getConversationMediaPath(tenantId, fileName) {

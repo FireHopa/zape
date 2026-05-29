@@ -91,6 +91,36 @@
       "createdAt": "2026-05-27T17:24:38.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "false_189000069451782@lid_ACAD84A2B2EDA225117F8687DD1944A7",
+      "fromMe": false,
+      "body": "Mãe 92 cm de peito \n90 cm de quadril",
+      "type": "chat",
+      "timestamp": 1780004757,
+      "createdAt": "2026-05-28T21:45:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_189000069451782@lid_AC16D60DB7F22F64479185B554B7F798",
+      "fromMe": false,
+      "body": "88cm de perna",
+      "type": "chat",
+      "timestamp": 1780004778,
+      "createdAt": "2026-05-28T21:46:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_189000069451782@lid_ACC994C0C3CA6D674ED675B5B2FD3630",
+      "fromMe": false,
+      "body": "52 cm de braço",
+      "type": "chat",
+      "timestamp": 1780004811,
+      "createdAt": "2026-05-28T21:46:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511976202000": [
@@ -163,6 +193,16 @@
       "createdAt": "2026-05-27T19:59:50.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_56010718875754@lid_3EB0C84AA447B6BF24794F",
+      "fromMe": true,
+      "body": "Olá Dandrea, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997692,
+      "createdAt": "2026-05-28T19:48:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511975053300": [
@@ -217,6 +257,56 @@
       "createdAt": "2026-05-27T18:17:08.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB0CE92C3CFC4FE7BD3CE",
+      "fromMe": true,
+      "body": "Olá Silvio, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997654,
+      "createdAt": "2026-05-28T19:47:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_21174272704632@lid_ACD8105815A307AA1AD2001D7FF153E5",
+      "fromMe": false,
+      "body": "Eu sigo ele me manda o link para pagamento cartão de crédito",
+      "type": "chat",
+      "timestamp": 1779997848,
+      "createdAt": "2026-05-28T19:50:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB03937F21F449078522A",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1779997883,
+      "createdAt": "2026-05-28T19:51:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB0196EFB8740DCFBC365",
+      "fromMe": true,
+      "body": "Bom diaa Silvio!!!",
+      "type": "chat",
+      "timestamp": 1780053984,
+      "createdAt": "2026-05-29T11:26:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB0A8F59D5A01FC37432C",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780053996,
+      "createdAt": "2026-05-29T11:26:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511940109697": [
@@ -355,6 +445,58 @@
       "source": "incoming-event",
       "hasMedia": true,
       "mediaKind": "media"
+    },
+    {
+      "id": "false_227753609683102@lid_3EB0DF17C1F920E5F143CB",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "audio",
+      "timestamp": 1780052526,
+      "createdAt": "2026-05-29T11:02:06.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_227753609683102_lid_3EB0DF17C1F920E5F143CB.ogg",
+      "mediaSize": 79627,
+      "filename": "false_227753609683102_lid_3EB0DF17C1F920E5F143CB.ogg"
+    },
+    {
+      "id": "false_227753609683102@lid_3EB0A140EA4D8128AC167E",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "audio",
+      "timestamp": 1780052895,
+      "createdAt": "2026-05-29T11:08:15.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_227753609683102_lid_3EB0A140EA4D8128AC167E.ogg",
+      "mediaSize": 66794,
+      "filename": "false_227753609683102_lid_3EB0A140EA4D8128AC167E.ogg"
+    },
+    {
+      "id": "false_227753609683102@lid_3EB0B77D4FDBF13314FC87",
+      "fromMe": false,
+      "body": "Eu tenho uma empresa pequena. Queria na verdade informações de custo para que vocês ajudem em coisas mais básicas no momento",
+      "type": "chat",
+      "timestamp": 1780052945,
+      "createdAt": "2026-05-29T11:09:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_227753609683102@lid_A54365C10DB39CAB9F494618A0D562CB",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nSexta-feira, 29 de maio · 11:00am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/uvo-yjge-ups\nOu disque: ‪(BR) +55 11 4949-9775‬ PIN: ‪396 910 592‬#\nOutros números de telefone: https://tel.meet/uvo-yjge-ups?pin=3264952876621",
+      "type": "chat",
+      "timestamp": 1780058987,
+      "createdAt": "2026-05-29T12:49:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511976472073": [
@@ -705,6 +847,640 @@
       "createdAt": "2026-05-28T13:52:43.000Z",
       "ack": 0,
       "source": "send-custom"
+    }
+  ],
+  "5511970319885": [
+    {
+      "id": "true_4553034489968@lid_3EB03E40BDC60E5A442761",
+      "fromMe": true,
+      "body": "Olá Alexandra pedroso! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Alexandra pedroso?",
+      "type": "chat",
+      "timestamp": 1779980192,
+      "createdAt": "2026-05-28T14:56:32.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511991914828": [
+    {
+      "id": "true_168504485490839@lid_3EB08F2C4E01DCE4918C6F",
+      "fromMe": true,
+      "body": "Olá Sandra Paladino! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Sandra Paladino?",
+      "type": "chat",
+      "timestamp": 1779982346,
+      "createdAt": "2026-05-28T15:32:26.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_168504485490839@lid_3EB0DBD170FEB405D0EC3C",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão em São Paulo",
+      "type": "chat",
+      "timestamp": 1779990588,
+      "createdAt": "2026-05-28T17:49:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_168504485490839@lid_3EB000335D014F90607268",
+      "fromMe": false,
+      "body": "Por favor, pode me informar o horário  do dia 11/06, em Santo André ?",
+      "type": "chat",
+      "timestamp": 1779990610,
+      "createdAt": "2026-05-28T17:50:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB00092BF2A9CC273FC6F",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1779992249,
+      "createdAt": "2026-05-28T18:17:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_168504485490839_lid_3EB00092BF2A9CC273FC6F.ogg",
+      "mediaSize": 27020,
+      "filename": "true_168504485490839_lid_3EB00092BF2A9CC273FC6F.ogg"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB0846C337DD3E82AF6E7",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1779992253,
+      "createdAt": "2026-05-28T18:17:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_168504485490839@lid_3EB079D54EF5034896C9DD",
+      "fromMe": false,
+      "body": "ok, obrigada",
+      "type": "chat",
+      "timestamp": 1779992284,
+      "createdAt": "2026-05-28T18:18:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511943754206": [
+    {
+      "id": "true_140003099332772@lid_3EB0F7B82F76C1E7DC492D",
+      "fromMe": true,
+      "body": "Olá Eraldo, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997582,
+      "createdAt": "2026-05-28T19:46:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511985199559": [
+    {
+      "id": "true_32156571201544@lid_3EB03AEF4E632DF61471B2",
+      "fromMe": true,
+      "body": "Olá Aloisio, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997600,
+      "createdAt": "2026-05-28T19:46:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511973922856": [
+    {
+      "id": "true_278498665082923@lid_3EB02ABD2511A65BC15DC5",
+      "fromMe": true,
+      "body": "Olá Fernando, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997621,
+      "createdAt": "2026-05-28T19:47:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_278498665082923@lid_3EB04ACF6CAFE11EE316D1",
+      "fromMe": true,
+      "body": "Olá Fernando! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Fernando?",
+      "type": "chat",
+      "timestamp": 1780056863,
+      "createdAt": "2026-05-29T12:14:23.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511991573664": [
+    {
+      "id": "true_58201236103296@lid_3EB0F286812E7AC6C2FB24",
+      "fromMe": true,
+      "body": "Olá Irene, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997638,
+      "createdAt": "2026-05-28T19:47:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511960943443": [
+    {
+      "id": "true_120083192008843@lid_3EB0E819E7E27E0410DDB7",
+      "fromMe": true,
+      "body": "Olá Tamiris, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997673,
+      "createdAt": "2026-05-28T19:47:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511988571774": [
+    {
+      "id": "true_155198710411474@lid_3EB0A9BE30DC131B284857",
+      "fromMe": true,
+      "body": "Olá Gilson, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997705,
+      "createdAt": "2026-05-28T19:48:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_155198710411474@lid_AC28E27B40CE6765CBB50340816CC86B",
+      "fromMe": false,
+      "body": "Oi, Fabiana, estou avaliando se este tipo de abordagem faz sentido para mim. Quero conhec34 mais de IA, mas não trabalho com tráfego pago nem mkt digital",
+      "type": "chat",
+      "timestamp": 1780009040,
+      "createdAt": "2026-05-28T22:57:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_155198710411474@lid_3EB0AF566E5585CF597EF0",
+      "fromMe": true,
+      "body": "Bom diaa Gilson!!!",
+      "type": "chat",
+      "timestamp": 1780052119,
+      "createdAt": "2026-05-29T10:55:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_155198710411474@lid_3EB00419B64F21CE5DAAEA",
+      "fromMe": true,
+      "body": "Em que area você atua?",
+      "type": "chat",
+      "timestamp": 1780052125,
+      "createdAt": "2026-05-29T10:55:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511947947044": [
+    {
+      "id": "true_13095489515630@lid_3EB0553D83062A849EF89B",
+      "fromMe": true,
+      "body": "Olá Marcelo, imagino que você esteja na dúvida se a Imersão em Santo André é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1779997717,
+      "createdAt": "2026-05-28T19:48:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511972101255": [
+    {
+      "id": "true_101404312109117@lid_3EB0592C846A277D351564",
+      "fromMe": true,
+      "body": "Olá Mauro Dos Santos! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Mauro Dos Santos?",
+      "type": "chat",
+      "timestamp": 1779998071,
+      "createdAt": "2026-05-28T19:54:31.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_101404312109117@lid_3A71C6E66BB3D785B264",
+      "fromMe": false,
+      "body": "Já peguei o qrcode",
+      "type": "chat",
+      "timestamp": 1779998266,
+      "createdAt": "2026-05-28T19:57:46.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_101404312109117@lid_3EB03D0FED475E6F45B0A9",
+      "fromMe": true,
+      "body": "Finalizou?",
+      "type": "chat",
+      "timestamp": 1779998384,
+      "createdAt": "2026-05-28T19:59:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_101404312109117@lid_3A477C415BB52B0F29C7",
+      "fromMe": false,
+      "body": "Mandei pro financeiro e já me mandam o comprovante, e te envio",
+      "type": "chat",
+      "timestamp": 1779998431,
+      "createdAt": "2026-05-28T20:00:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_101404312109117@lid_3A538A9515347A61FA7F",
+      "fromMe": false,
+      "body": "",
+      "type": "image",
+      "timestamp": 1779999427,
+      "createdAt": "2026-05-28T20:17:07.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "media"
+    },
+    {
+      "id": "true_101404312109117@lid_3EB02AF80F8FF6AB9DAD89",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1779999701,
+      "createdAt": "2026-05-28T20:21:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_101404312109117@lid_3AC98686E874089B2C90",
+      "fromMe": false,
+      "body": "Tem algum tipo de identificação, vouchers?",
+      "type": "chat",
+      "timestamp": 1779999756,
+      "createdAt": "2026-05-28T20:22:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_101404312109117@lid_3EB0AA130293B9E58C28C0",
+      "fromMe": true,
+      "body": "Trabalhamos com nome na lista, basta apresentar o nome completo na entrada do evento.",
+      "type": "chat",
+      "timestamp": 1780052407,
+      "createdAt": "2026-05-29T11:00:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511999427090": [
+    {
+      "id": "true_102989155029000@lid_3EB059C4DB6229EC7DFE76",
+      "fromMe": true,
+      "body": "Olá Livia Grippa! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Santo André.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Livia Grippa?",
+      "type": "chat",
+      "timestamp": 1780020476,
+      "createdAt": "2026-05-29T02:07:56.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511995120327": [
+    {
+      "id": "true_72550604357882@lid_3EB0873A003248AE0D5425",
+      "fromMe": true,
+      "body": "Olá Ana Aguado! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Ana Aguado?",
+      "type": "chat",
+      "timestamp": 1780051067,
+      "createdAt": "2026-05-29T10:37:47.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_72550604357882@lid_A581AF69B441BFF0D4D3282BC2FCA338",
+      "fromMe": false,
+      "body": "Agradecemos sua mensagem. Não estamos disponíveis no momento, mas responderemos assim que possível.",
+      "type": "chat",
+      "timestamp": 1780051075,
+      "createdAt": "2026-05-29T10:37:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_72550604357882@lid_A58A980C8432964CD8DA1FDCA939FC4C",
+      "fromMe": false,
+      "body": "‎Studio Clinica Urbana agradece seu contato. Como podemos ajuda-lo? Atendemos com Acupuntura. Biokybernetik. Fisioterapia.  Ozonioterapia. Pilates. RPG.\nAtendimento com horário agendado.",
+      "type": "chat",
+      "timestamp": 1780051075,
+      "createdAt": "2026-05-29T10:37:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511976962073": [
+    {
+      "id": "true_168775236247733@lid_3EB0D66A1DD04BA44CC28A",
+      "fromMe": true,
+      "body": "Olá Carlos! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Carlos?",
+      "type": "chat",
+      "timestamp": 1780053225,
+      "createdAt": "2026-05-29T11:13:45.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_168775236247733@lid_2A642C14C6E381E1E816",
+      "fromMe": false,
+      "body": "Olá Fabiane, acabei de fazer minha inscrição 🙏🏻",
+      "type": "chat",
+      "timestamp": 1780053685,
+      "createdAt": "2026-05-29T11:21:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_168775236247733@lid_3EB008A852B70A0F1692F4",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780053950,
+      "createdAt": "2026-05-29T11:25:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_168775236247733_lid_3EB008A852B70A0F1692F4.ogg",
+      "mediaSize": 27181,
+      "filename": "true_168775236247733_lid_3EB008A852B70A0F1692F4.ogg"
+    },
+    {
+      "id": "true_168775236247733@lid_3EB0DFCDDE5A0C7DD9AFFF",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780053954,
+      "createdAt": "2026-05-29T11:25:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_168775236247733@lid_2A9D4B4B863306400005",
+      "fromMe": false,
+      "body": "Ok combinado 🤝",
+      "type": "chat",
+      "timestamp": 1780054230,
+      "createdAt": "2026-05-29T11:30:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_168775236247733@lid_2A0CCAB95DF30009346F",
+      "fromMe": false,
+      "body": "Muito obrigado",
+      "type": "chat",
+      "timestamp": 1780054234,
+      "createdAt": "2026-05-29T11:30:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511947204305": [
+    {
+      "id": "true_61607161889013@lid_3EB02D9EC7134B7AE1EBB4",
+      "fromMe": true,
+      "body": "Olá Keli! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Keli?",
+      "type": "chat",
+      "timestamp": 1780069116,
+      "createdAt": "2026-05-29T15:38:36.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_61607161889013@lid_2AEF1D0045C5D963F811",
+      "fromMe": false,
+      "body": "Qual o horário da imersão",
+      "type": "chat",
+      "timestamp": 1780069467,
+      "createdAt": "2026-05-29T15:44:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511996380574": [
+    {
+      "id": "true_250448267182230@lid_3EB0F7A02309C54E280506",
+      "fromMe": true,
+      "body": "Olá Karina! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Karina?",
+      "type": "chat",
+      "timestamp": 1780070862,
+      "createdAt": "2026-05-29T16:07:42.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_250448267182230@lid_AC8DAEEEF48AAC7DBB2E685509727C50",
+      "fromMe": false,
+      "body": "Olá por favor",
+      "type": "chat",
+      "timestamp": 1780070990,
+      "createdAt": "2026-05-29T16:09:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_250448267182230@lid_3EB04684EF9D9967BF438B",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780072466,
+      "createdAt": "2026-05-29T16:34:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_250448267182230_lid_3EB04684EF9D9967BF438B_f6354792.ogg",
+      "mediaSize": 16847,
+      "filename": "true_250448267182230@lid_3EB04684EF9D9967BF438B",
+      "originalName": "true_250448267182230@lid_3EB04684EF9D9967BF438B"
+    },
+    {
+      "id": "true_250448267182230@lid_3EB0A103C898769B101B46",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\nhttps://casadoads.com.br/imersao-sao-paulo/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780072476,
+      "createdAt": "2026-05-29T16:34:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511999297458": [
+    {
+      "id": "true_170879619215473@lid_3EB053E797DE7C9DCA1F17",
+      "fromMe": true,
+      "body": "Olá FERNANDO JORGE MOURA DOS SANTOS! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição FERNANDO JORGE MOURA DOS SANTOS?",
+      "type": "chat",
+      "timestamp": 1780072531,
+      "createdAt": "2026-05-29T16:35:31.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_170879619215473@lid_3A0291D9B250EE7D7E84",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780073002,
+      "createdAt": "2026-05-29T16:43:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3AE8CA45DD08308A20EA",
+      "fromMe": false,
+      "body": "Pode encaminhar",
+      "type": "chat",
+      "timestamp": 1780073108,
+      "createdAt": "2026-05-29T16:45:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB09DD5B466A97C806594",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780073206,
+      "createdAt": "2026-05-29T16:46:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_170879619215473_lid_3EB09DD5B466A97C806594_4dbf066f.ogg",
+      "mediaSize": 17166,
+      "filename": "true_170879619215473@lid_3EB09DD5B466A97C806594",
+      "originalName": "true_170879619215473@lid_3EB09DD5B466A97C806594"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB0C8E6F4EAC760AE68CA",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\nhttps://casadoads.com.br/imersao-sao-paulo/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780073213,
+      "createdAt": "2026-05-29T16:46:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB0FBB432C28CD80CA82D",
+      "fromMe": true,
+      "body": "Olá Fernando Jorge Moura dos Santos! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Fernando Jorge Moura dos Santos?",
+      "type": "chat",
+      "timestamp": 1780073689,
+      "createdAt": "2026-05-29T16:54:49.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_170879619215473@lid_3A355EAC8D974D169093",
+      "fromMe": false,
+      "body": "Já fiz o pagamento",
+      "type": "chat",
+      "timestamp": 1780073702,
+      "createdAt": "2026-05-29T16:55:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3ADEBC11536328F3A282",
+      "fromMe": false,
+      "body": "Segue comprovante",
+      "type": "chat",
+      "timestamp": 1780073722,
+      "createdAt": "2026-05-29T16:55:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3A71D733A75C5076A330",
+      "fromMe": false,
+      "body": "Comprovante - Curso.pdf",
+      "type": "document",
+      "timestamp": 1780073733,
+      "createdAt": "2026-05-29T16:55:33.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "pdf",
+      "mediaMime": "application/pdf",
+      "mediaFile": "Comprovante_-_Curso_e782ba2b.pdf",
+      "mediaSize": 27716,
+      "filename": "Comprovante - Curso.pdf",
+      "originalName": "Comprovante - Curso.pdf"
+    },
+    {
+      "id": "false_170879619215473@lid_3A53A5D226D21825B56C",
+      "fromMe": false,
+      "body": "*Boas notícias!*\nOlá, *FERNANDO JORGE MOURA DOS SANTOS*! Confirmamos o pagamento da sua compra.\nO acesso ao curso *IMERSÕES em SP - IMERSÃO PRESENCIAL ESCALE COM O GOOGLE &amp; INTELIGÊNCIA ARTIFICIAL* já está disponível na sua conta.\nEquipe Hotmart",
+      "type": "chat",
+      "timestamp": 1780073748,
+      "createdAt": "2026-05-29T16:55:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB015E58A3997B4FC1BF4",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780073775,
+      "createdAt": "2026-05-29T16:56:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_170879619215473_lid_3EB015E58A3997B4FC1BF4_d1c85117.ogg",
+      "mediaSize": 26689,
+      "filename": "true_170879619215473@lid_3EB015E58A3997B4FC1BF4",
+      "originalName": "true_170879619215473@lid_3EB015E58A3997B4FC1BF4"
+    },
+    {
+      "id": "false_170879619215473@lid_3AC5BB21F17494FBA5DB",
+      "fromMe": false,
+      "body": "Combinado",
+      "type": "chat",
+      "timestamp": 1780073798,
+      "createdAt": "2026-05-29T16:56:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB0B4783184D002E2724F",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780073811,
+      "createdAt": "2026-05-29T16:56:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3AA667099BF7F1B84D63",
+      "fromMe": false,
+      "body": "Muito obrigado",
+      "type": "chat",
+      "timestamp": 1780073822,
+      "createdAt": "2026-05-29T16:57:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ]
 }

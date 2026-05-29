@@ -159,6 +159,8 @@ async function processLead(tenantId, source, payload) {
   const lead = {
     id: genId(),
     source,
+    sourceDetail: payload.sourceDetail || payload.originDetail || "",
+    sourceMeta: payload.sourceMeta && typeof payload.sourceMeta === "object" ? payload.sourceMeta : null,
     createdAt: new Date().toISOString(),
 
     nome: (payload.nome || "").trim(),
@@ -656,6 +658,8 @@ async function createManualLead(tenantId, payload) {
   const lead = {
     id: genId(),
     source: payload.source || "manual",
+    sourceDetail: payload.sourceDetail || payload.originDetail || (payload.source === "conversation_register" ? "Registrado pela aba Conversas" : "Criado manualmente no painel"),
+    sourceMeta: payload.sourceMeta && typeof payload.sourceMeta === "object" ? payload.sourceMeta : null,
     createdAt: new Date().toISOString(),
 
     nome: (payload.nome || "").trim(),
@@ -756,6 +760,304 @@ function deleteLeadEverywhere(tenantId, leadId, req) {
   };
 }
 
+
+function startOfDayIso(value) {
+  const d = value ? new Date(value) : new Date();
+  if (isNaN(d)) return null;
+  return d.toISOString().slice(0, 10);
+}
+
+function daysAgoIso(days) {
+  const d = new Date();
+  d.setUTCDate(d.getUTCDate() - Number(days || 0));
+  return d.toISOString().slice(0, 10);
+}
+
+function percent(part, total) {
+  const p = Number(part || 0);
+  const t = Number(total || 0);
+  if (!t) return 0;
+  return Math.round((p / t) * 1000) / 10;
+}
+
+function sourceLabel(source) {
+  const s = String(source || "").trim();
+  const map = {
+    local_form: "Formulário local",
+    activecampaign: "ActiveCampaign",
+    generated_webhook_activecampaign: "Webhook ActiveCampaign",
+    generated_webhook_generic: "Webhook JSON",
+    manual: "Registro manual",
+    conversation_register: "Registrado pela conversa",
+    conversa: "Conversa WhatsApp",
+    whatsapp: "WhatsApp",
+    planilha: "Planilha",
+  };
+  return map[s] || (s ? s.replace(/_/g, " ").replace(/\b\w/g, (m) => m.toUpperCase()) : "Sem origem");
+}
+
+function leadOriginInfo(lead) {
+  const meta = lead && lead.sourceMeta && typeof lead.sourceMeta === "object" ? lead.sourceMeta : null;
+  if (meta && meta.type === "webhook") {
+    const messages = Array.isArray(meta.webhookMessages) ? meta.webhookMessages.map((m) => String(m || "").trim()).filter(Boolean) : [];
+    return {
+      key: `webhook:${meta.webhookId || meta.webhookName || lead.source || "unknown"}`,
+      label: `Webhook: ${meta.webhookName || "Webhook"}`,
+      type: "webhook",
+      detail: lead.sourceDetail || `Origem via webhook${messages.length ? ` com ${messages.length} mensagem(ns) automática(s)` : ""}`,
+      messages,
+      payloadType: meta.payloadType || "",
+    };
+  }
+
+  const source = String((lead && lead.source) || "").trim() || "unknown";
+  const isWebhook = source.startsWith("generated_webhook");
+  return {
+    key: isWebhook ? source : source,
+    label: sourceLabel(source),
+    type: isWebhook ? "webhook" : source,
+    detail: (lead && lead.sourceDetail) || (isWebhook ? "Origem via webhook. Leads antigos podem não ter o nome exato do webhook salvo." : sourceLabel(source)),
+    messages: [],
+    payloadType: "",
+  };
+}
+
+function incMap(map, key, amount = 1) {
+  if (!key) return;
+  map.set(key, (map.get(key) || 0) + amount);
+}
+
+function topFromMap(map, limit = 10) {
+  return Array.from(map.entries())
+    .map(([key, count]) => ({ key, count }))
+    .sort((a, b) => b.count - a.count || String(a.key).localeCompare(String(b.key)))
+    .slice(0, limit);
+}
+
+function buildTenantInsights(tenantId, req) {
+  const notDeliveredAfterMin = Number((req && req.query && req.query.notDeliveredAfterMin) || 30);
+  const notDeliveredAfterMs = Math.max(1, notDeliveredAfterMin) * 60 * 1000;
+  const leadsRaw = readLeads(tenantId);
+  const leadTags = getLeadTagsMap(tenantId);
+  const tags = listTags(tenantId);
+  const tagById = Object.fromEntries(tags.map((t) => [String(t.id), t]));
+  const webhooks = listWebhooks(tenantId);
+  const wa = getTenantWA(tenantId);
+  const crm = readCrmState(tenantId);
+
+  const byPhone = new Map();
+  let withWhatsapp = 0;
+  let withoutWhatsapp = 0;
+  let withEmail = 0;
+  let withWebsite = 0;
+  let withCompany = 0;
+  const dddMap = new Map();
+  const sourceMap = new Map();
+  const sourceDetails = new Map();
+  const dailyMap = new Map();
+  const tagCount = new Map();
+  const recentLeads = [];
+
+  const statusCounts = { replied: 0, delivered: 0, notDelivered: 0, notExists: 0, pending: 0, none: 0 };
+  const statusByPhone = new Map();
+
+  for (const lead of leadsRaw) {
+    const phone = leadPhoneKey(lead);
+    if (phone) {
+      withWhatsapp++;
+      const existing = byPhone.get(phone);
+      if (!existing) byPhone.set(phone, { count: 0, lead });
+      byPhone.get(phone).count++;
+      const ddd = extractDDDFromDigits(phone);
+      if (ddd) incMap(dddMap, ddd);
+    } else {
+      withoutWhatsapp++;
+    }
+    if (lead.email) withEmail++;
+    if (lead.website) withWebsite++;
+    if (lead.empresa) withCompany++;
+
+    const day = startOfDayIso(lead.createdAt);
+    if (day) incMap(dailyMap, day);
+
+    const origin = leadOriginInfo(lead);
+    incMap(sourceMap, origin.key);
+    if (!sourceDetails.has(origin.key)) {
+      sourceDetails.set(origin.key, { ...origin, count: 0, firstAt: lead.createdAt || null, lastAt: lead.createdAt || null });
+    }
+    const od = sourceDetails.get(origin.key);
+    od.count += 1;
+    if (lead.createdAt && (!od.firstAt || String(lead.createdAt) < String(od.firstAt))) od.firstAt = lead.createdAt;
+    if (lead.createdAt && (!od.lastAt || String(lead.createdAt) > String(od.lastAt))) od.lastAt = lead.createdAt;
+
+    const ids = Array.isArray(leadTags[lead.id]) ? leadTags[lead.id] : [];
+    for (const id of ids) incMap(tagCount, id);
+
+    recentLeads.push({
+      id: lead.id,
+      nome: lead.nome || "",
+      empresa: lead.empresa || "",
+      email: lead.email || "",
+      whatsapp_digits: phone || String(lead.whatsapp_digits || lead.whatsapp_raw || "").replace(/\D+/g, ""),
+      createdAt: lead.createdAt || null,
+      source: lead.source || "",
+      originLabel: origin.label,
+      originDetail: origin.detail,
+      tags: ids.map((id) => tagById[id]).filter(Boolean),
+    });
+  }
+
+  for (const [phone] of byPhone.entries()) {
+    const ms = wa.getMessageStatusFor(phone);
+    const st = computeLeadStatus(ms, { notDeliveredAfterMs });
+    statusByPhone.set(phone, st);
+    if (st === "replied") statusCounts.replied++;
+    else if (st === "delivered") statusCounts.delivered++;
+    else if (st === "notDelivered") statusCounts.notDelivered++;
+    else if (st === "notExists") statusCounts.notExists++;
+    else if (st === "pending") statusCounts.pending++;
+    else statusCounts.none++;
+  }
+
+  let conversationCount = 0;
+  let totalMessages = 0;
+  let incomingMessages = 0;
+  let outgoingMessages = 0;
+  let textMessages = 0;
+  let mediaMessages = 0;
+  let audioMessages = 0;
+  let imageMessages = 0;
+  let videoMessages = 0;
+  let documentMessages = 0;
+  const conversationRows = [];
+  for (const digits of listConversationDigits(tenantId)) {
+    const messages = listConversationMessages(tenantId, digits, 500);
+    if (!messages.length) continue;
+    conversationCount++;
+    let last = null;
+    let inCount = 0;
+    let outCount = 0;
+    let mediaCount = 0;
+    for (const msg of messages) {
+      totalMessages++;
+      if (msg.fromMe) { outgoingMessages++; outCount++; }
+      else { incomingMessages++; inCount++; }
+      const kind = String(msg.mediaKind || msg.type || "").toLowerCase();
+      const hasMedia = Boolean(msg.hasMedia || msg.mediaFile || (kind && kind !== "chat"));
+      if (hasMedia) {
+        mediaMessages++; mediaCount++;
+        if (kind.includes("audio") || kind === "ptt") audioMessages++;
+        else if (kind.includes("image")) imageMessages++;
+        else if (kind.includes("video")) videoMessages++;
+        else documentMessages++;
+      } else {
+        textMessages++;
+      }
+      last = msg;
+    }
+    const leadMatch = byPhone.get(digits)?.lead || null;
+    conversationRows.push({
+      whatsapp_digits: digits,
+      nome: leadMatch ? (leadMatch.nome || "") : "",
+      empresa: leadMatch ? (leadMatch.empresa || "") : "",
+      total: messages.length,
+      incoming: inCount,
+      outgoing: outCount,
+      media: mediaCount,
+      lastAt: last ? (last.createdAt || null) : null,
+      lastPreview: last ? String(last.body || last.mediaKind || last.type || "Mensagem").slice(0, 140) : "",
+    });
+  }
+  conversationRows.sort((a, b) => new Date(b.lastAt || 0) - new Date(a.lastAt || 0));
+
+  const pipelineRows = [];
+  let crmCards = 0;
+  const pipelines = Array.isArray(crm.pipelines) ? crm.pipelines : [];
+  for (const p of pipelines) {
+    const stagesObj = p && p.stages && typeof p.stages === "object" ? p.stages : {};
+    const stages = Object.values(stagesObj).map((st) => {
+      const count = Array.isArray(st.leadIds) ? st.leadIds.length : 0;
+      crmCards += count;
+      return { id: st.id || "", name: st.name || "Etapa", count };
+    });
+    pipelineRows.push({ id: p.id || "", name: p.name || "Funil", stages, total: stages.reduce((a, s) => a + s.count, 0) });
+  }
+
+  const today = daysAgoIso(0);
+  const last30 = [];
+  for (let i = 29; i >= 0; i--) {
+    const day = daysAgoIso(i);
+    last30.push({ date: day, count: dailyMap.get(day) || 0 });
+  }
+
+  const duplicatePhones = Array.from(byPhone.entries()).filter(([, row]) => row.count > 1);
+  const uniqueWhatsapp = byPhone.size;
+  const totalLeads = leadsRaw.length;
+  const sourceRows = Array.from(sourceDetails.values()).sort((a, b) => b.count - a.count || String(a.label).localeCompare(String(b.label))).map((row) => ({
+    ...row,
+    percentage: percent(row.count, totalLeads),
+  }));
+
+  return {
+    ok: true,
+    tenantId,
+    generatedAt: new Date().toISOString(),
+    notDeliveredAfterMin,
+    summary: {
+      totalLeads,
+      uniqueWhatsapp,
+      duplicateWhatsappNumbers: duplicatePhones.length,
+      duplicateLeadRecords: duplicatePhones.reduce((acc, [, row]) => acc + Math.max(0, row.count - 1), 0),
+      withWhatsapp,
+      withoutWhatsapp,
+      withEmail,
+      withWebsite,
+      withCompany,
+      totalTags: tags.length,
+      activeWebhooks: webhooks.length,
+      conversations: conversationCount,
+      totalMessages,
+      incomingMessages,
+      outgoingMessages,
+      textMessages,
+      mediaMessages,
+      audioMessages,
+      imageMessages,
+      videoMessages,
+      documentMessages,
+      crmPipelines: pipelineRows.length,
+      crmCards,
+      todayLeads: dailyMap.get(today) || 0,
+    },
+    whatsapp: {
+      ...statusCounts,
+      totalTrackedUnique: uniqueWhatsapp,
+      repliedRate: percent(statusCounts.replied, uniqueWhatsapp),
+      deliveredRate: percent(statusCounts.delivered + statusCounts.replied, uniqueWhatsapp),
+      notDeliveredRate: percent(statusCounts.notDelivered, uniqueWhatsapp),
+      notExistsRate: percent(statusCounts.notExists, uniqueWhatsapp),
+    },
+    origins: sourceRows,
+    ddds: topFromMap(dddMap, 15).map((x) => ({ ddd: x.key, count: x.count, percentage: percent(x.count, withWhatsapp) })),
+    tags: topFromMap(tagCount, 20).map((x) => ({ ...(tagById[x.key] || { id: x.key, name: x.key, color: "#64748b" }), count: x.count, percentage: percent(x.count, totalLeads) })),
+    webhooks: webhooks.map((w) => ({
+      id: w.id,
+      name: w.name || "Webhook",
+      createdAt: w.createdAt || null,
+      updatedAt: w.updatedAt || null,
+      messages: Array.isArray(w.messages) ? w.messages : (w.messageText ? [w.messageText] : []),
+      urlPreview: w.token ? `/webhooks/${String(w.token).slice(0, 6)}...` : "",
+    })),
+    timeline: { last30 },
+    crm: { pipelines: pipelineRows },
+    conversations: {
+      top: conversationRows.slice(0, 15),
+      total: conversationRows.length,
+    },
+    recentLeads: recentLeads.sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || ""))).slice(0, 20),
+  };
+}
+
 /* -------------------- routes -------------------- */
 app.get("/health", (_, res) => res.json({ ok: true }));
 
@@ -763,6 +1065,8 @@ app.get("/health", (_, res) => res.json({ ok: true }));
 app.post("/api/leads", async (req, res) => {
   try {
     const lead = await processLead(TENANT_ADMIN, "local_form", {
+      sourceDetail: "Formulário local antigo do site",
+      sourceMeta: { type: "form", form: "local_form" },
       nome: req.body.nome,
       empresa: req.body.empresa,
       jaAnuncia: req.body.jaAnuncia,
@@ -793,6 +1097,8 @@ app.post("/webhooks/activecampaign", async (req, res) => {
     const f = c?.fields || {};
 
     const lead = await processLead(TENANT_ADMIN, "activecampaign", {
+      sourceDetail: "Webhook fixo do ActiveCampaign",
+      sourceMeta: { type: "activecampaign", payloadType: "activecampaign" },
       active_contact_id: c.id || "",
       active_seriesid: req.body?.seriesid || "",
       tags: c.tags || "",
@@ -830,6 +1136,14 @@ app.post("/webhooks/:token", async (req, res) => {
       const c = body.contact || {};
       const f = c?.fields || {};
       lead = await processLead(tenantId, "generated_webhook_activecampaign", {
+        sourceDetail: `Webhook ${row.name || row.id} recebido no formato ActiveCampaign`,
+        sourceMeta: {
+          type: "webhook",
+          webhookId: row.id,
+          webhookName: row.name || "Webhook",
+          webhookMessages: Array.isArray(row.messages) ? row.messages : (row.messageText ? [row.messageText] : []),
+          payloadType: "activecampaign"
+        },
         active_contact_id: c.id || "",
         active_seriesid: body?.seriesid || "",
         tags: c.tags || "",
@@ -844,6 +1158,14 @@ app.post("/webhooks/:token", async (req, res) => {
       // Payload genérico
       const p = body;
       lead = await processLead(tenantId, "generated_webhook_generic", {
+        sourceDetail: `Webhook ${row.name || row.id} recebido por POST JSON`,
+        sourceMeta: {
+          type: "webhook",
+          webhookId: row.id,
+          webhookName: row.name || "Webhook",
+          webhookMessages: Array.isArray(row.messages) ? row.messages : (row.messageText ? [row.messageText] : []),
+          payloadType: "json"
+        },
         nome: p.nome || p.name || p.first_name || "",
         empresa: p.empresa || p.company || p.orgname || "",
         jaAnuncia: p.jaAnuncia || p.j_anuncia_no_google_ads_2 || "",
@@ -975,6 +1297,10 @@ app.get("/api/admin/whatsapp/qr", adminAuth, (req, res) => {
 app.get("/api/admin/whatsapp/stats", adminAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
   res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_ADMIN, { notDeliveredAfterMin }) });
+});
+app.get("/api/admin/insights", adminAuth, (req, res) => {
+  try { res.json(buildTenantInsights(TENANT_ADMIN, req)); }
+  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
 });
 buildConversationsRoutes({ tenantId: TENANT_ADMIN, authMw: adminAuth, prefix: "/api/admin" });
 
@@ -1134,6 +1460,10 @@ app.get("/api/panel/whatsapp/stats", panelAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
   res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_PANEL, { notDeliveredAfterMin }) });
 });
+app.get("/api/panel/insights", panelAuth, (req, res) => {
+  try { res.json(buildTenantInsights(TENANT_PANEL, req)); }
+  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
+});
 buildConversationsRoutes({ tenantId: TENANT_PANEL, authMw: panelAuth, prefix: "/api/panel" });
 
 app.get("/api/panel/tags", panelAuth, (req, res) => {
@@ -1291,6 +1621,10 @@ app.get("/api/regina/whatsapp/qr", reginaAuth, (req, res) => {
 app.get("/api/regina/whatsapp/stats", reginaAuth, (req, res) => {
   const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
   res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_REGINA, { notDeliveredAfterMin }) });
+});
+app.get("/api/regina/insights", reginaAuth, (req, res) => {
+  try { res.json(buildTenantInsights(TENANT_REGINA, req)); }
+  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
 });
 buildConversationsRoutes({ tenantId: TENANT_REGINA, authMw: reginaAuth, prefix: "/api/regina" });
 

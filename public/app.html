@@ -1035,6 +1035,44 @@ html, body { height: 100%; overflow: hidden; }
 .crmBoardWrap{ width:100% !important; overflow-x:auto !important; overflow-y:hidden !important; }
 .crmBoard{ display:flex !important; flex-wrap:nowrap !important; width:max-content !important; min-width:max-content !important; }
 .crmCol{ flex:0 0 320px !important; width:320px !important; max-width:320px !important; }
+
+
+/* Insights */
+.insightsHero{
+  background: linear-gradient(135deg, rgba(26,115,232,.08), rgba(52,168,83,.05) 42%, rgba(251,188,5,.06));
+}
+.insightsGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+.insightCard{border:1px solid var(--border);border-radius:18px;background:#fff;padding:16px;box-shadow:0 10px 28px rgba(15,23,42,.04);position:relative;overflow:hidden;}
+.insightCard:after{content:"";position:absolute;right:-28px;top:-28px;width:88px;height:88px;border-radius:999px;background:rgba(26,115,232,.07);}
+.insightEyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:950;margin-bottom:8px;}
+.insightValue{font-size:30px;font-weight:1000;letter-spacing:-.05em;color:var(--text);line-height:1;}
+.insightHint{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.35;}
+.insightSectionGrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:14px;}
+.insightMiniGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.insightStatus{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--border);border-radius:16px;background:#fff;}
+.insightStatusDot{width:10px;height:10px;border-radius:999px;box-shadow:0 0 0 4px rgba(15,23,42,.05);flex:0 0 auto;}
+.insightStatusDot.green{background:#16a34a}.insightStatusDot.blue{background:#2563eb}.insightStatusDot.red{background:#ef4444}.insightStatusDot.yellow{background:#f59e0b}.insightStatusDot.gray{background:#64748b}
+.insightStatus b{display:block;font-size:18px;line-height:1;color:var(--text);}.insightStatus small{display:block;color:var(--muted);font-size:12px;margin-top:4px;}
+.insightBars{display:flex;flex-direction:column;gap:10px;}
+.insightBarRow{display:grid;grid-template-columns:minmax(120px,.65fr) minmax(0,1fr) 70px;gap:10px;align-items:center;font-size:13px;}
+.insightBarLabel{font-weight:800;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.insightBarTrack{height:9px;border-radius:999px;background:#eef2f7;overflow:hidden;}
+.insightBarFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#1a73e8,#34a853);min-width:2px;}
+.insightBarNumber{text-align:right;color:var(--muted);font-weight:800;font-variant-numeric:tabular-nums;}
+.insightTimeline{display:flex;align-items:end;gap:5px;height:150px;padding:14px;border:1px solid var(--border);border-radius:16px;background:#fff;}
+.insightTimelineBar{flex:1;min-width:4px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,#1a73e8,#93c5fd);position:relative;}
+.insightTimelineBar:hover:after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);white-space:nowrap;background:#0f172a;color:#fff;border-radius:10px;padding:6px 8px;font-size:11px;z-index:4;}
+.insightTable{width:100%;border-collapse:separate;border-spacing:0;}
+.insightTable th{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);text-align:left;background:#f8fafc;padding:12px;border-bottom:1px solid var(--border);}
+.insightTable td{padding:12px;border-bottom:1px solid var(--border);vertical-align:top;font-size:13px;}
+.insightSourceDetail{color:var(--muted);font-size:12px;line-height:1.45;margin-top:4px;}
+.insightMsgSnippet{margin-top:6px;background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:8px;color:#334155;font-size:12px;line-height:1.35;}
+.insightTagPill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:999px;padding:5px 8px;font-size:12px;font-weight:800;background:#fff;margin:3px 4px 3px 0;}
+.insightTagDot{width:8px;height:8px;border-radius:999px;}
+.insightEmpty{border:1px dashed var(--border);border-radius:16px;padding:18px;text-align:center;color:var(--muted);background:#fff;}
+@media(max-width:1180px){.insightsGrid{grid-template-columns:repeat(2,minmax(0,1fr));}.insightSectionGrid{grid-template-columns:1fr;}}
+@media(max-width:720px){.insightsGrid,.insightMiniGrid{grid-template-columns:1fr;}.insightBarRow{grid-template-columns:1fr;gap:5px}.insightBarNumber{text-align:left}.insightTimeline{height:120px;}}
+
 </style>
 <style>
 /* === CRM Kanban (removido) === */
@@ -1946,6 +1984,10 @@ body:not(.hasPager) .pager{display:none!important;}
               <span class="menuLabel"><i class="ph ph-chat-circle-text"></i><span>Conversas</span></span>
               <span class="menuPill" id="navChatsCount">TXT</span>
             </button>
+            <button id="navInsights" class="menuBtn" type="button">
+              <span class="menuLabel"><i class="ph ph-chart-line-up"></i><span>Insights</span></span>
+              <span class="menuPill" id="navInsightsPill">BI</span>
+            </button>
             <button id="navTags" class="menuBtn" type="button">
               <span class="menuLabel"><i class="ph ph-tag"></i><span>Tags</span></span>
               <span class="menuPill" id="navTagsCount">—</span>
@@ -2104,6 +2146,84 @@ body:not(.hasPager) .pager{display:none!important;}
       </main>
 
       
+
+      <main id="panelInsights" style="display:none; flex-direction:column; gap:14px;">
+        <section class="card insightsHero">
+          <div class="cardHeader" style="align-items:flex-start;gap:12px;">
+            <div style="min-width:0;">
+              <div class="heroEyebrow">Insights</div>
+              <div class="heroTitle">Raio-X completo da operação</div>
+              <div class="heroSubtitle">Métricas de leads, WhatsApp, origem, tags, conversas, webhooks e funil. Os dados são calculados a partir dos arquivos reais do sistema.</div>
+            </div>
+            <div style="margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
+              <span class="hint" id="insightsUpdatedAt">—</span>
+              <button id="btnInsightsRefresh" class="btn btnSoft" type="button"><i class="ph ph-arrows-clockwise"></i> Atualizar</button>
+            </div>
+          </div>
+          <div class="cardBody">
+            <div class="insightsGrid">
+              <div class="insightCard"><div class="insightEyebrow">Leads totais</div><div class="insightValue" id="insTotalLeads">0</div><div class="insightHint">Cadastros salvos no sistema.</div></div>
+              <div class="insightCard"><div class="insightEyebrow">WhatsApps únicos</div><div class="insightValue" id="insUniqueWhatsapp">0</div><div class="insightHint">Números deduplicados para análise.</div></div>
+              <div class="insightCard"><div class="insightEyebrow">Conversas reais</div><div class="insightValue" id="insConversations">0</div><div class="insightHint">Chats com histórico salvo.</div></div>
+              <div class="insightCard"><div class="insightEyebrow">Mensagens</div><div class="insightValue" id="insMessages">0</div><div class="insightHint">Entrada, saída, áudio, mídia e texto.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-whatsapp-logo"></i> Status do WhatsApp</h2><span class="hint">Baseado em ACKs, respostas e validação de número.</span></div>
+          <div class="cardBody">
+            <div class="insightMiniGrid" id="insWhatsappStatus"></div>
+          </div>
+        </section>
+
+        <div class="insightSectionGrid">
+          <section class="card">
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-flow-arrow"></i> Origem dos leads</h2><span class="hint">Inclui webhooks, registros manuais e integrações.</span></div>
+            <div class="cardBody"><div id="insOrigins"></div></div>
+          </section>
+
+          <section class="card">
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-calendar-dots"></i> Novos leads nos últimos 30 dias</h2></div>
+            <div class="cardBody"><div id="insTimeline" class="insightTimeline"></div></div>
+          </section>
+        </div>
+
+        <div class="insightSectionGrid">
+          <section class="card">
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-map-pin"></i> DDDs e localização</h2><span class="hint">Distribuição por DDD dos WhatsApps.</span></div>
+            <div class="cardBody"><div id="insDdds" class="insightBars"></div></div>
+          </section>
+
+          <section class="card">
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-tag"></i> Tags mais usadas</h2><span class="hint">Uso de tags em leads.</span></div>
+            <div class="cardBody"><div id="insTags"></div></div>
+          </section>
+        </div>
+
+        <div class="insightSectionGrid">
+          <section class="card">
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-chat-circle-text"></i> Conversas e mensagens</h2><span class="hint">Top conversas com mais histórico.</span></div>
+            <div class="cardBody"><div id="insConversationsBox"></div></div>
+          </section>
+
+          <section class="card">
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-kanban"></i> Funil de vendas</h2><span class="hint">Cards por funil e etapa.</span></div>
+            <div class="cardBody"><div id="insCrm"></div></div>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-plug-charging"></i> Webhooks e mensagens automáticas</h2><span class="hint">Links de entrada e mensagens vinculadas.</span></div>
+          <div class="cardBody"><div id="insWebhooks"></div></div>
+        </section>
+
+        <section class="card">
+          <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-clock-counter-clockwise"></i> Leads recentes</h2><span class="hint">Últimos cadastros com origem identificada.</span></div>
+          <div class="cardBody"><div id="insRecentLeads"></div></div>
+        </section>
+      </main>
+
       <main id="panelCrm" style="display:none; flex-direction:column; gap:14px;">
         <section class="card">
           <div class="cardHeader" style="align-items:flex-start; gap:10px;">
@@ -3946,12 +4066,14 @@ Não tenho interesse"></textarea>
     var navLeads = document.getElementById("navLeads");
     var navTags = document.getElementById("navTags");
     var navChats = document.getElementById("navChats");
+    var navInsights = document.getElementById("navInsights");
     var navCloud = document.getElementById("navCloud");
     var navCrm = document.getElementById("navCrm");
     var navOwner = document.getElementById("navOwner");
     var panelTags = document.getElementById("panelTags");
     var panelLeads = document.getElementById("panelLeads");
     var panelChats = document.getElementById("panelChats");
+    var panelInsights = document.getElementById("panelInsights");
     var panelCloudMain = document.getElementById("panelCloudMain");
     var panelCrm = document.getElementById("panelCrm");
     var panelOwner = document.getElementById("panelOwner");
@@ -3998,13 +4120,16 @@ Não tenho interesse"></textarea>
         navCloud.classList.remove("active");
         if (navCrm) navCrm.classList.remove("active");
         if (navOwner) navOwner.classList.remove("active");
+        if (navInsights) navInsights.classList.remove("active");
 
         closeTagDrawer();
 
         panelLeads.style.display = "none";
         if (panelChats) panelChats.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
         if (panelCrm) panelCrm.style.display = "none";
         if (panelOwner) panelOwner.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
         panelCloudMain.style.display = "none";
         if (panelChats) panelChats.style.display = "flex";
         togglePagerForLeads(false);
@@ -4014,9 +4139,36 @@ Não tenho interesse"></textarea>
         return;
       }
 
+
+      if (which === "insights"){
+        if (navInsights) navInsights.classList.add("active");
+        if (navChats) navChats.classList.remove("active");
+        if (navOwner) navOwner.classList.remove("active");
+        navCloud.classList.remove("active");
+        navLeads.classList.remove("active");
+        navTags.classList.remove("active");
+        if (navCrm) navCrm.classList.remove("active");
+
+        closeTagDrawer();
+        try{ stopChatAutoRefresh(); }catch(e){}
+
+        panelLeads.style.display = "none";
+        if (panelChats) panelChats.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
+        if (panelCrm) panelCrm.style.display = "none";
+        if (panelOwner) panelOwner.style.display = "none";
+        panelCloudMain.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "flex";
+        togglePagerForLeads(false);
+        setMainPanelScrollTop(panelInsights);
+        try{ loadInsights(); }catch(e){}
+        return;
+      }
+
       if (which === "crm"){
         navCrm.classList.add("active");
         if (navChats) navChats.classList.remove("active");
+        if (navInsights) navInsights.classList.remove("active");
         if (navOwner) navOwner.classList.remove("active");
         navCloud.classList.remove("active");
         navLeads.classList.remove("active");
@@ -4026,6 +4178,7 @@ Não tenho interesse"></textarea>
 
         panelLeads.style.display = "none";
         if (panelChats) panelChats.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
         panelCloudMain.style.display = "none";
         if (panelOwner) panelOwner.style.display = "none";
         if (panelCrm) panelCrm.style.display = "flex";
@@ -4050,8 +4203,10 @@ Não tenho interesse"></textarea>
 
         panelLeads.style.display = "none";
         if (panelChats) panelChats.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
         panelCloudMain.style.display = "none";
         if (panelChats) panelChats.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
         if (panelCrm) panelCrm.style.display = "none";
         if (panelOwner) panelOwner.style.display = "flex";
         togglePagerForLeads(false);
@@ -4063,6 +4218,7 @@ Não tenho interesse"></textarea>
       if (which === "cloud"){
         navCloud.classList.add("active");
         if (navChats) navChats.classList.remove("active");
+        if (navInsights) navInsights.classList.remove("active");
         if (navOwner) navOwner.classList.remove("active");
         navLeads.classList.remove("active");
         navTags.classList.remove("active");
@@ -4072,6 +4228,7 @@ Não tenho interesse"></textarea>
 
         panelLeads.style.display = "none";
         if (panelChats) panelChats.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
         if (panelCrm) panelCrm.style.display = "none";
         if (panelOwner) panelOwner.style.display = "none";
         panelCloudMain.style.display = "flex";
@@ -4086,12 +4243,14 @@ Não tenho interesse"></textarea>
         // Pedido: abrir Tags em drawer e manter a lista de leads visível
         navTags.classList.add("active");
         if (navChats) navChats.classList.remove("active");
+        if (navInsights) navInsights.classList.remove("active");
         if (navOwner) navOwner.classList.remove("active");
         navCloud.classList.remove("active");
         navLeads.classList.add("active");
 
         panelCloudMain.style.display = "none";
         if (panelChats) panelChats.style.display = "none";
+        if (panelInsights) panelInsights.style.display = "none";
         if (panelCrm) panelCrm.style.display = "none";
         if (panelOwner) panelOwner.style.display = "none";
         panelLeads.style.display = "flex";
@@ -4105,12 +4264,14 @@ Não tenho interesse"></textarea>
       // leads
       navLeads.classList.add("active");
       if (navChats) navChats.classList.remove("active");
+      if (navInsights) navInsights.classList.remove("active");
       if (navOwner) navOwner.classList.remove("active");
       navTags.classList.remove("active");
       navCloud.classList.remove("active");
       if (navCrm) navCrm.classList.remove("active");
       panelCloudMain.style.display = "none";
       if (panelChats) panelChats.style.display = "none";
+      if (panelInsights) panelInsights.style.display = "none";
       if (panelCrm) panelCrm.style.display = "none";
       panelLeads.style.display = "flex";
       togglePagerForLeads(true);
@@ -4120,10 +4281,142 @@ Não tenho interesse"></textarea>
 
     navLeads.addEventListener("click", function(){ setActiveNav("leads"); });
     if (navChats) navChats.addEventListener("click", function(){ setActiveNav("chats"); });
+    if (navInsights) navInsights.addEventListener("click", function(){ setActiveNav("insights"); });
     navTags.addEventListener("click", function(){ setActiveNav("tags"); });
     navCloud.addEventListener("click", function(){ setActiveNav("cloud"); });
     if (navCrm) navCrm.addEventListener("click", function(){ setActiveNav("crm"); });
     if (navOwner) navOwner.addEventListener("click", function(){ setActiveNav("owner"); });
+
+
+    /* ---------- Insights ---------- */
+    var insightsCache = null;
+
+    function insFmt(n){
+      var num = Number(n || 0);
+      try { return num.toLocaleString("pt-BR"); } catch(e){ return String(num); }
+    }
+    function insPct(n){
+      var num = Number(n || 0);
+      return (Number.isFinite(num) ? num : 0).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + "%";
+    }
+    function insDate(iso){
+      if (!iso) return "—";
+      var d = new Date(iso);
+      if (isNaN(d)) return "—";
+      return d.toLocaleString("pt-BR", { day:"2-digit", month:"2-digit", hour:"2-digit", minute:"2-digit" });
+    }
+    function insShort(text, max){
+      var s = String(text || "").trim();
+      var m = Number(max || 90);
+      return s.length > m ? s.slice(0, m - 1) + "…" : s;
+    }
+    function insEmpty(text){
+      return '<div class="insightEmpty">' + escapeHtml(text || "Sem dados suficientes ainda.") + '</div>';
+    }
+    function insBarRows(items, opts){
+      opts = opts || {};
+      var rows = Array.isArray(items) ? items : [];
+      if (!rows.length) return insEmpty(opts.empty || "Sem dados para exibir.");
+      var max = Math.max.apply(null, rows.map(function(x){ return Number(x.count || x.total || 0); }).concat([1]));
+      return '<div class="insightBars">' + rows.map(function(x){
+        var count = Number(x.count || x.total || 0);
+        var label = x.label || x.name || x.ddd || x.key || "Item";
+        var w = Math.max(3, Math.round((count / max) * 100));
+        return '<div class="insightBarRow">' +
+          '<div class="insightBarLabel" title="' + escapeHtml(label) + '">' + escapeHtml(label) + '</div>' +
+          '<div class="insightBarTrack"><div class="insightBarFill" style="width:' + w + '%"></div></div>' +
+          '<div class="insightBarNumber">' + insFmt(count) + (x.percentage != null ? ' · ' + insPct(x.percentage) : '') + '</div>' +
+        '</div>';
+      }).join('') + '</div>';
+    }
+    function renderInsights(data){
+      insightsCache = data || {};
+      var s = data.summary || {};
+      var w = data.whatsapp || {};
+      document.getElementById("insTotalLeads").textContent = insFmt(s.totalLeads);
+      document.getElementById("insUniqueWhatsapp").textContent = insFmt(s.uniqueWhatsapp);
+      document.getElementById("insConversations").textContent = insFmt(s.conversations);
+      document.getElementById("insMessages").textContent = insFmt(s.totalMessages);
+      var upd = document.getElementById("insightsUpdatedAt");
+      if (upd) upd.textContent = "Atualizado: " + insDate(data.generatedAt);
+
+      var statusRows = [
+        { cls:"green", label:"Responderam", value:w.replied, hint:"Resposta real após envio · " + insPct(w.repliedRate) },
+        { cls:"blue", label:"Receberam", value:w.delivered, hint:"Entregue sem resposta" },
+        { cls:"red", label:"Não receberam", value:w.notDelivered, hint:"Erro ou prazo vencido · " + insPct(w.notDeliveredRate) },
+        { cls:"yellow", label:"Não existem", value:w.notExists, hint:"Sem WhatsApp registrado · " + insPct(w.notExistsRate) },
+        { cls:"gray", label:"Pendentes", value:w.pending, hint:"Aguardando ACK ou prazo" },
+        { cls:"gray", label:"Sem envio", value:w.none, hint:"Sem status de mensagem" },
+      ];
+      document.getElementById("insWhatsappStatus").innerHTML = statusRows.map(function(r){
+        return '<div class="insightStatus"><span class="insightStatusDot ' + r.cls + '"></span><div><b>' + insFmt(r.value) + '</b><small>' + escapeHtml(r.label + ' · ' + r.hint) + '</small></div></div>';
+      }).join('');
+
+      var origins = Array.isArray(data.origins) ? data.origins : [];
+      if (!origins.length) document.getElementById("insOrigins").innerHTML = insEmpty("Ainda não há origem suficiente para analisar.");
+      else document.getElementById("insOrigins").innerHTML = '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Origem</th><th>Leads</th><th>Detalhe</th></tr></thead><tbody>' + origins.map(function(o){
+        var msgHtml = (Array.isArray(o.messages) && o.messages.length) ? '<div class="insightMsgSnippet"><b>Mensagem vinculada:</b><br>' + escapeHtml(insShort(o.messages.join(' | '), 180)) + '</div>' : '';
+        return '<tr><td><b>' + escapeHtml(o.label || o.key) + '</b><div class="insightSourceDetail">' + escapeHtml(o.type || '') + '</div></td><td><b>' + insFmt(o.count) + '</b><div class="insightSourceDetail">' + insPct(o.percentage) + '</div></td><td><div>' + escapeHtml(o.detail || '—') + '</div>' + msgHtml + '<div class="insightSourceDetail">Primeiro: ' + escapeHtml(insDate(o.firstAt)) + ' · Último: ' + escapeHtml(insDate(o.lastAt)) + '</div></td></tr>';
+      }).join('') + '</tbody></table></div>';
+
+      var tl = data.timeline && Array.isArray(data.timeline.last30) ? data.timeline.last30 : [];
+      var maxTl = Math.max.apply(null, tl.map(function(x){ return Number(x.count || 0); }).concat([1]));
+      document.getElementById("insTimeline").innerHTML = tl.map(function(x){
+        var h = Math.max(4, Math.round((Number(x.count || 0) / maxTl) * 124));
+        return '<div class="insightTimelineBar" style="height:' + h + 'px" data-tip="' + escapeHtml(x.date + ': ' + insFmt(x.count)) + '"></div>';
+      }).join('');
+
+      document.getElementById("insDdds").innerHTML = insBarRows((data.ddds || []).map(function(x){ return { label:'DDD ' + x.ddd, count:x.count, percentage:x.percentage }; }), { empty:"Nenhum DDD identificado ainda." });
+
+      var tags = Array.isArray(data.tags) ? data.tags : [];
+      document.getElementById("insTags").innerHTML = tags.length ? tags.map(function(t){
+        return '<span class="insightTagPill"><span class="insightTagDot" style="background:' + escapeHtml(t.color || '#64748b') + '"></span>' + escapeHtml(t.name || t.id) + ' · ' + insFmt(t.count) + '</span>';
+      }).join('') : insEmpty("Nenhuma tag atribuída ainda.");
+
+      var conv = data.conversations && Array.isArray(data.conversations.top) ? data.conversations.top : [];
+      document.getElementById("insConversationsBox").innerHTML = conv.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Contato</th><th>Mensagens</th><th>Última</th></tr></thead><tbody>' + conv.map(function(c){
+        var name = c.nome || formatWhatsAppPretty(c.whatsapp_digits);
+        return '<tr><td><b>' + escapeHtml(name) + '</b><div class="insightSourceDetail">' + escapeHtml(c.empresa || c.whatsapp_digits || '') + '</div></td><td><b>' + insFmt(c.total) + '</b><div class="insightSourceDetail">Entrada: ' + insFmt(c.incoming) + ' · Saída: ' + insFmt(c.outgoing) + ' · Mídia: ' + insFmt(c.media) + '</div></td><td>' + escapeHtml(insDate(c.lastAt)) + '<div class="insightSourceDetail">' + escapeHtml(insShort(c.lastPreview, 80)) + '</div></td></tr>';
+      }).join('') + '</tbody></table></div>' : insEmpty("Nenhuma conversa real salva ainda.");
+
+      var crm = data.crm && Array.isArray(data.crm.pipelines) ? data.crm.pipelines : [];
+      document.getElementById("insCrm").innerHTML = crm.length ? crm.map(function(p){
+        return '<div class="box" style="margin-bottom:10px;"><div style="display:flex;justify-content:space-between;gap:10px;"><b>' + escapeHtml(p.name || 'Funil') + '</b><span class="hint">' + insFmt(p.total) + ' card(s)</span></div><div style="height:8px"></div>' + insBarRows((p.stages || []).map(function(st){ return { label:st.name, count:st.count }; }), { empty:"Sem etapas." }) + '</div>';
+      }).join('') : insEmpty("Nenhum funil configurado ainda.");
+
+      var webhooks = Array.isArray(data.webhooks) ? data.webhooks : [];
+      document.getElementById("insWebhooks").innerHTML = webhooks.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Webhook</th><th>Mensagens</th><th>Atualização</th></tr></thead><tbody>' + webhooks.map(function(wb){
+        var msgs = Array.isArray(wb.messages) ? wb.messages : [];
+        return '<tr><td><b>' + escapeHtml(wb.name || 'Webhook') + '</b><div class="insightSourceDetail">' + escapeHtml(wb.urlPreview || '') + '</div></td><td>' + (msgs.length ? msgs.map(function(m){ return '<div class="insightMsgSnippet">' + escapeHtml(insShort(m, 160)) + '</div>'; }).join('') : '<span class="hint">Sem mensagem automática vinculada.</span>') + '</td><td>' + escapeHtml(insDate(wb.updatedAt || wb.createdAt)) + '</td></tr>';
+      }).join('') + '</tbody></table></div>' : insEmpty("Nenhum webhook ativo criado.");
+
+      var recent = Array.isArray(data.recentLeads) ? data.recentLeads : [];
+      document.getElementById("insRecentLeads").innerHTML = recent.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Lead</th><th>Origem</th><th>Tags</th><th>Data</th></tr></thead><tbody>' + recent.map(function(l){
+        var tagHtml = Array.isArray(l.tags) && l.tags.length ? l.tags.map(function(t){ return '<span class="insightTagPill"><span class="insightTagDot" style="background:' + escapeHtml(t.color || '#64748b') + '"></span>' + escapeHtml(t.name || t.id) + '</span>'; }).join('') : '<span class="hint">—</span>';
+        return '<tr><td><b>' + escapeHtml(l.nome || formatWhatsAppPretty(l.whatsapp_digits) || 'Lead') + '</b><div class="insightSourceDetail">' + escapeHtml([l.empresa,l.email].filter(Boolean).join(' · ')) + '</div></td><td><b>' + escapeHtml(l.originLabel || l.source || 'Origem') + '</b><div class="insightSourceDetail">' + escapeHtml(l.originDetail || '') + '</div></td><td>' + tagHtml + '</td><td>' + escapeHtml(insDate(l.createdAt)) + '</td></tr>';
+      }).join('') + '</tbody></table></div>' : insEmpty("Ainda não há leads recentes.");
+
+      var pill = document.getElementById("navInsightsPill");
+      if (pill) pill.textContent = insFmt(s.totalLeads || 0);
+    }
+
+    async function loadInsights(){
+      var btn = document.getElementById("btnInsightsRefresh");
+      if (btn) btn.disabled = true;
+      try {
+        var res = await fetch(API_BASE + "/insights?notDeliveredAfterMin=30", { credentials:"same-origin" });
+        var data = await res.json();
+        if (!res.ok || data.ok === false) throw new Error(data.error || "Falha ao carregar insights.");
+        renderInsights(data);
+      } catch(e){
+        toast("err", "Insights", e && e.message ? e.message : String(e));
+      } finally {
+        if (btn) btn.disabled = false;
+      }
+    }
+
+    var btnInsightsRefresh = document.getElementById("btnInsightsRefresh");
+    if (btnInsightsRefresh) btnInsightsRefresh.addEventListener("click", loadInsights);
 
     /* ---------- Conversas ---------- */
     var chatContacts = [];
@@ -6435,7 +6728,7 @@ function crmExtractLeads(payload){
     fixActiveSection();
     setTimeout(fixActiveSection, 150);
     setTimeout(function(){ fixActiveSection(); scrollLeadTop(); }, 500);
-    ['navLeads','navChats','navCloud','navCrm','navOwner','navTags'].forEach(function(id){
+    ['navLeads','navChats','navInsights','navCloud','navCrm','navOwner','navTags'].forEach(function(id){
       var btn=document.getElementById(id);
       if(!btn) return;
       btn.addEventListener('click', function(){

@@ -1,5 +1,42 @@
 [
   {
+    "id": "4f3ed499fd70a19e6f344eab",
+    "tenantId": "panel",
+    "token": "qqtCy0mMZLZKq6-uQ9KRRtNnUIKLjjhE",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em  Lisboa.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: € 25,00 - Com IVA incluso*\nPagamento via Hotmart.\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em  Lisboa.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: € 25,00 - Com IVA incluso*\nPagamento via Hotmart.\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+    ],
+    "createdAt": "2026-05-28T15:29:19.531Z",
+    "updatedAt": "2026-05-28T15:29:27.327Z",
+    "deletedAt": null
+  },
+  {
+    "id": "dfc1047d0b42719e6f32770f",
+    "tenantId": "panel",
+    "token": "dukWjJMbCPS8eTBkyFvNEqCewRWdeKh-",
+    "name": "Webhook",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em  Lisboa.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: € 25,00 - Com IVA incluso*\nPagamento via Hotmart.\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em  Lisboa.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: € 25,00 - Com IVA incluso*\nPagamento via Hotmart.\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+    ],
+    "createdAt": "2026-05-28T15:27:18.799Z",
+    "updatedAt": "2026-05-28T15:29:15.497Z",
+    "deletedAt": "2026-05-28T15:29:15.497Z"
+  },
+  {
+    "id": "0b8224ce9278d19e6f2ee1ce",
+    "tenantId": "panel",
+    "token": "X3ojcxvEQ-qy4vlY9nYbC-3obGzuRhU1",
+    "name": "Webhook",
+    "messageText": "",
+    "messages": [],
+    "createdAt": "2026-05-28T15:23:23.982Z",
+    "updatedAt": "2026-05-28T15:23:47.750Z",
+    "deletedAt": "2026-05-28T15:23:47.750Z"
+  },
+  {
     "id": "1b69ae28b01d119e6a0e433d",
     "tenantId": "admin",
     "token": "Sp4b07BeptiE1KNYlyBKgdGc2-ysux21",
