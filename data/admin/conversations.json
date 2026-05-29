@@ -1033,6 +1033,26 @@
       "createdAt": "2026-05-27T19:26:33.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_77468358701194@lid_A514E8870D1F1DC489BA1EAD8D0EC2AD",
+      "fromMe": true,
+      "body": "Olá boa tarde Rithiely!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780075950,
+      "createdAt": "2026-05-29T17:32:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_77468358701194@lid_A5D7B861CD8F47C0916C0641247604FE",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780075954,
+      "createdAt": "2026-05-29T17:32:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511999060543": [
@@ -1163,18 +1183,6 @@
       "mediaFile": "false_524002844867_lid_3A7804F5560003D86CE7.ogg",
       "mediaSize": 13068,
       "filename": "false_524002844867_lid_3A7804F5560003D86CE7.ogg"
-    },
-    {
-      "id": "false_524002844867@lid_3A612D12C0EB6876D5D2",
-      "fromMe": false,
-      "body": "",
-      "type": "image",
-      "timestamp": 1779976398,
-      "createdAt": "2026-05-28T13:53:18.000Z",
-      "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "media"
     },
     {
       "id": "true_524002844867@lid_A5034EC6757EAFF33BDD94901872C20A",
@@ -1356,9 +1364,7 @@
       "timestamp": 1780058175,
       "createdAt": "2026-05-29T12:36:15.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "media"
+      "source": "incoming-event"
     },
     {
       "id": "false_524002844867@lid_3AC487B82389C0E2D5AC",
@@ -1388,9 +1394,7 @@
       "timestamp": 1780058220,
       "createdAt": "2026-05-29T12:37:00.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "media"
+      "source": "incoming-event"
     },
     {
       "id": "true_524002844867@lid_A5AFB9420EA0FC05F17B914519C0F936",
@@ -1410,9 +1414,7 @@
       "timestamp": 1780059076,
       "createdAt": "2026-05-29T12:51:16.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "media"
+      "source": "incoming-event"
     },
     {
       "id": "false_524002844867@lid_3A44511040AE83BB3FAD",
@@ -1493,6 +1495,26 @@
       "type": "chat",
       "timestamp": 1780059454,
       "createdAt": "2026-05-29T12:57:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_524002844867@lid_A56582DB8BBCE6A71AECC8E314425114",
+      "fromMe": true,
+      "body": "Olá boa tarde Thauany!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076055,
+      "createdAt": "2026-05-29T17:34:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_524002844867@lid_A50DE28EB451C5980A2D49F8924DDAC3",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076058,
+      "createdAt": "2026-05-29T17:34:18.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -1931,6 +1953,26 @@
       "type": "chat",
       "timestamp": 1780053018,
       "createdAt": "2026-05-29T11:10:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_177940679675917@lid_A5B55A4D508400D581BCB5A272D93F6F",
+      "fromMe": true,
+      "body": "Olá boa tarde Alex!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076080,
+      "createdAt": "2026-05-29T17:34:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_177940679675917@lid_A524F7662FF46D79F82E772597677FD4",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076082,
+      "createdAt": "2026-05-29T17:34:42.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -2665,6 +2707,36 @@
       "createdAt": "2026-05-27T21:54:22.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A5B0A56F5E7CD97D6D3F2332ED76B5E5",
+      "fromMe": true,
+      "body": "Olá boa tarde Nayara!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780075957,
+      "createdAt": "2026-05-29T17:32:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A5B5DD3F596087144C4843FBA7760FBE",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780075960,
+      "createdAt": "2026-05-29T17:32:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3A680E1B709B8E49B5A4",
+      "fromMe": false,
+      "body": "Ola! Perfeito!",
+      "type": "chat",
+      "timestamp": 1780076051,
+      "createdAt": "2026-05-29T17:34:11.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511983457181": [
@@ -3131,6 +3203,26 @@
       "createdAt": "2026-05-28T14:43:00.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_191345205489688@lid_A5F0A2BCA094678642803C6DF5EF08E8",
+      "fromMe": true,
+      "body": "Olá boa tarde Hugo!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780075977,
+      "createdAt": "2026-05-29T17:32:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_191345205489688@lid_A5B0F71C0BF4BE252010B9A511F2B6A7",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780075980,
+      "createdAt": "2026-05-29T17:33:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511940212876": [
@@ -3267,6 +3359,26 @@
       "createdAt": "2026-05-28T13:26:12.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_67701586276585@lid_A5DA9B833E8A7C28AD3465E9ACA33F5A",
+      "fromMe": true,
+      "body": "Olá boa tarde Kauan!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780075963,
+      "createdAt": "2026-05-29T17:32:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_67701586276585@lid_A5B9AB16DD444C7C30C0138B922380A1",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780075966,
+      "createdAt": "2026-05-29T17:32:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511970670191": [
@@ -3325,6 +3437,36 @@
       "createdAt": "2026-05-29T13:26:54.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_44517352800330@lid_A5710968EDC079F44F653B409B284B4F",
+      "fromMe": true,
+      "body": "Olá boa tarde Cláudio!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076013,
+      "createdAt": "2026-05-29T17:33:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_44517352800330@lid_A5345F7ACC4F5E407B821CE17DB4F5D8",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076016,
+      "createdAt": "2026-05-29T17:33:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_44517352800330@lid_A54E70547180EE7C2D3B7CB3CFD9B66E",
+      "fromMe": true,
+      "body": "Por gentileza pode informar seu nome completo para incluir na lista de presença.",
+      "type": "chat",
+      "timestamp": 1780076044,
+      "createdAt": "2026-05-29T17:34:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511996423323": [
@@ -3533,6 +3675,56 @@
       "mediaFile": "true_50560489234436_lid_A53BE9290D1AA8D7E867042D28BD33DB.ogg",
       "mediaSize": 6093,
       "filename": "true_50560489234436_lid_A53BE9290D1AA8D7E867042D28BD33DB.ogg"
+    },
+    {
+      "id": "true_50560489234436@lid_A58BCC296F6A3D23CFD3B72C583F9CBE",
+      "fromMe": true,
+      "body": "Olá boa tarde Isabela!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780075970,
+      "createdAt": "2026-05-29T17:32:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50560489234436@lid_A5381E4F9A0F59AE70EFC219274115B7",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780075974,
+      "createdAt": "2026-05-29T17:32:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_50560489234436@lid_A5F266DA576AF0C28B819097FEAA4723",
+      "fromMe": false,
+      "body": "Irei de trem e uber",
+      "type": "chat",
+      "timestamp": 1780076077,
+      "createdAt": "2026-05-29T17:34:37.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_50560489234436@lid_A573597ED26D5EFF5D001EAEE0DECE2F",
+      "fromMe": true,
+      "body": "Perfeito.",
+      "type": "chat",
+      "timestamp": 1780076115,
+      "createdAt": "2026-05-29T17:35:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_50560489234436@lid_A5C3CCB6F6AB6AD4D1D9B40B25131A56",
+      "fromMe": false,
+      "body": "Sei mais ou menos onde fica",
+      "type": "chat",
+      "timestamp": 1780076130,
+      "createdAt": "2026-05-29T17:35:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511931458117": [
@@ -4017,18 +4209,6 @@
       "source": "outgoing-external-event"
     },
     {
-      "id": "false_207623081197652@lid_A518F50C939CAA36B32A05EA3D7649B0",
-      "fromMe": false,
-      "body": "",
-      "type": "image",
-      "timestamp": 1780004818,
-      "createdAt": "2026-05-28T21:46:58.000Z",
-      "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "media"
-    },
-    {
       "id": "true_207623081197652@lid_A5FCBED663C330D8A6D273D2FAD166D1",
       "fromMe": true,
       "body": "Áudio",
@@ -4051,6 +4231,26 @@
       "type": "chat",
       "timestamp": 1780053371,
       "createdAt": "2026-05-29T11:16:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5ABDCA884721228DAAC1F56BFC8CB40",
+      "fromMe": true,
+      "body": "Olá boa tarde Alex!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076074,
+      "createdAt": "2026-05-29T17:34:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A586D1A730D30390002E84F4AF6F53B3",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076077,
+      "createdAt": "2026-05-29T17:34:37.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -4117,6 +4317,26 @@
       "mediaFile": "false_18322347290767_lid_3A33063778EF34A1092D.ogg",
       "mediaSize": 14669,
       "filename": "false_18322347290767_lid_3A33063778EF34A1092D.ogg"
+    },
+    {
+      "id": "true_18322347290767@lid_A5EDA29705A23FFF9CED9DFC8E0A3691",
+      "fromMe": true,
+      "body": "Olá boa tarde Eduardo!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076066,
+      "createdAt": "2026-05-29T17:34:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_18322347290767@lid_A57765B971F4E434E0F7C25D3EDCEB46",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076069,
+      "createdAt": "2026-05-29T17:34:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511947185335": [
@@ -4155,6 +4375,36 @@
       "createdAt": "2026-05-29T11:07:58.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_193050357796937@lid_A5E15525A99F85CE6693E02853309A87",
+      "fromMe": true,
+      "body": "Olá boa tarde Tânia!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780075989,
+      "createdAt": "2026-05-29T17:33:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_193050357796937@lid_A53739BB96457FC3F1A767595EF54A79",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780075991,
+      "createdAt": "2026-05-29T17:33:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_193050357796937@lid_ACBA4CA7803AC11DB367C1C3B95880A9",
+      "fromMe": false,
+      "body": "Muito grata",
+      "type": "chat",
+      "timestamp": 1780076042,
+      "createdAt": "2026-05-29T17:34:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511947694201": [
@@ -4223,6 +4473,26 @@
       "createdAt": "2026-05-29T12:25:38.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A5A90475C700DCC3DCA62D3A175C5CDE",
+      "fromMe": true,
+      "body": "Olá boa tarde Ana Carolina!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076061,
+      "createdAt": "2026-05-29T17:34:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A57A5C1417EB8459A1A55AE431EB2DD0",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076064,
+      "createdAt": "2026-05-29T17:34:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511972170621": [
@@ -4273,6 +4543,26 @@
       "createdAt": "2026-05-29T13:28:17.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A5974F22DA008816A213E421709C49DD",
+      "fromMe": true,
+      "body": "Olá boa tarde Arthur!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076008,
+      "createdAt": "2026-05-29T17:33:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A56B40CBAA0BC1B60C7747D89F313990",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076010,
+      "createdAt": "2026-05-29T17:33:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511975984338": [
@@ -4284,9 +4574,7 @@
       "timestamp": 1780061788,
       "createdAt": "2026-05-29T13:36:28.000Z",
       "ack": 0,
-      "source": "send-custom",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "send-custom"
     },
     {
       "id": "false_204423414419541@lid_4AA207BD1CC300EE8ADF",
@@ -4312,9 +4600,7 @@
       "timestamp": 1780061939,
       "createdAt": "2026-05-29T13:38:59.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_204423414419541@lid_A5145DE8E2F7FE516F26D9B0A5C29649",
@@ -4340,9 +4626,27 @@
       "timestamp": 1780062069,
       "createdAt": "2026-05-29T13:41:09.000Z",
       "ack": 1,
-      "source": "outgoing-external-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_204423414419541@lid_A566496AC6A369014F58710167217F3B",
+      "fromMe": true,
+      "body": "Olá boa tarde Rejane!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780076001,
+      "createdAt": "2026-05-29T17:33:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_204423414419541@lid_A560A5BAE8525156DC012DF15F4684E6",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780076004,
+      "createdAt": "2026-05-29T17:33:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511987150877": [
@@ -4363,6 +4667,28 @@
       "type": "chat",
       "timestamp": 1780075637,
       "createdAt": "2026-05-29T17:27:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511960240030": [
+    {
+      "id": "true_154580235083866@lid_A5718D1A389F99464413C3497FD68B53",
+      "fromMe": true,
+      "body": "Olá boa tarde Heloísa!\n\nPassando aqui para lembrar que está chegando o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 01/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Alameda Rio Negro, 585 - Alphaville - Barueru\n *Local:* Basoft - Auditório para Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780075945,
+      "createdAt": "2026-05-29T17:32:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_154580235083866@lid_A51ADCF6417871CC77FA3CAAD3EF7C48",
+      "fromMe": true,
+      "body": "O valor do estacionamento tem 40% de desconto e fica no valor: R$35,00",
+      "type": "chat",
+      "timestamp": 1780075947,
+      "createdAt": "2026-05-29T17:32:27.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
