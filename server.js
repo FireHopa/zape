@@ -9,6 +9,7 @@ const crypto = require("crypto");
 const { adminAuth } = require("./src/adminAuth");
 const { panelAuth } = require("./src/panelAuth");
 const { reginaAuth } = require("./src/reginaAuth"); // NOVO: Autenticação da Regina
+const { portugalAuth } = require("./src/portugalAuth"); // NOVO: Autenticação do painel Portugal
 const { registerAuthRoutes, anyTenantAuth } = require("./src/basicAuthFactory");
 
 const { normalizeBRPhoneToE164Digits, normalizePhoneToE164Digits, phoneSearchVariants, extractPhoneRegion } = require("./src/phone");
@@ -61,6 +62,7 @@ const PORT = process.env.PORT || 3000;
 const TENANT_ADMIN = "admin";
 const TENANT_PANEL = "panel";
 const TENANT_REGINA = "regina"; // NOVO: Inquilino da Regina
+const TENANT_PORTUGAL = "portugal"; // NOVO: Inquilino do painel Portugal
 
 /* -------------------- middlewares -------------------- */
 app.use(cors());
@@ -89,9 +91,9 @@ app.get("/", (req, res) => {
 });
 
 // Evita acesso direto aos HTMLs estáticos. As telas passam pelas rotas autenticadas.
-app.get(["/index.html", "/app.html", "/admin.html", "/panel.html", "/regina.html"], (req, res) => {
+app.get(["/index.html", "/app.html", "/admin.html", "/panel.html", "/regina.html", "/portugal.html"], (req, res) => {
   const p = String(req.path || "");
-  const target = p.includes("panel") ? "/panel" : p.includes("regina") ? "/regina" : "/admin";
+  const target = p.includes("panel") ? "/panel" : p.includes("regina") ? "/regina" : p.includes("portugal") ? "/portugal" : "/admin";
   res.redirect(target);
 });
 
@@ -819,6 +821,12 @@ function addLeadToCrmTargetFromWebhook(tenantId, webhookRow, lead) {
     return { ok: false, added: false, reason: "stage_not_found" };
   }
 
+  let wasAlreadyInTargetStage = false;
+  const targetStageBefore = pipeline.stages[stageId];
+  if (targetStageBefore && Array.isArray(targetStageBefore.leadIds)) {
+    wasAlreadyInTargetStage = targetStageBefore.leadIds.some((id) => String(id) === leadId);
+  }
+
   // Evita duplicar o mesmo lead na pipeline alvo. Se ele existir em outra etapa, move para a etapa configurada.
   for (const sid of Object.keys(pipeline.stages)) {
     const st = pipeline.stages[sid];
@@ -831,7 +839,132 @@ function addLeadToCrmTargetFromWebhook(tenantId, webhookRow, lead) {
   stage.leadIds.push(leadId);
 
   writeCrmState(tenantId, state);
+  if (!wasAlreadyInTargetStage) {
+    queueCrmStageAutoMessage(tenantId, leadId, pipeline, stage, "webhook_crm_target");
+  }
   return { ok: true, added: true, pipelineId: pipeline.id, stageId };
+}
+
+
+function getCrmStageAutoMessages(stage) {
+  if (!stage || typeof stage !== "object") return [];
+
+  const rawList = Array.isArray(stage.autoMessages)
+    ? stage.autoMessages
+    : (Array.isArray(stage.crmAutoMessages)
+      ? stage.crmAutoMessages
+      : (Array.isArray(stage.crmMessageTexts)
+        ? stage.crmMessageTexts
+        : (Array.isArray(stage.messageTexts) ? stage.messageTexts : null)));
+
+  const fallback = stage.autoMessageText ?? stage.crmAutoMessageText ?? stage.crmMessageText ?? stage.messageText ?? "";
+  const list = rawList || (fallback ? [fallback] : []);
+
+  return list
+    .map((value) => String(value || "").trim())
+    .filter(Boolean)
+    .slice(0, 10);
+}
+
+function getCrmStageAutoMessageText(stage) {
+  return getCrmStageAutoMessages(stage)[0] || "";
+}
+
+function findCrmLeadForMessage(tenantId, leadId) {
+  const id = String(leadId || "").trim();
+  if (!id) return null;
+  try {
+    return (readLeads(tenantId) || []).find((lead) => lead && String(lead.id) === id) || null;
+  } catch (err) {
+    console.error(`⚠️ Falha ao localizar lead para mensagem automática do CRM [${tenantId}/${id}]:`, err?.message || err);
+    return null;
+  }
+}
+
+function renderCrmStageAutoMessage(template, lead, pipeline, stage) {
+  return String(template || "")
+    .replace(/\{\{\s*nome\s*\}\}/gi, String((lead && lead.nome) || "").trim())
+    .replace(/\{\{\s*empresa\s*\}\}/gi, String((lead && lead.empresa) || "").trim())
+    .replace(/\{\{\s*email\s*\}\}/gi, String((lead && lead.email) || "").trim())
+    .replace(/\{\{\s*whatsapp\s*\}\}/gi, String((lead && (lead.whatsapp_raw || lead.whatsapp_digits)) || "").trim())
+    .replace(/\{\{\s*etapa\s*\}\}/gi, String((stage && stage.name) || "").trim())
+    .replace(/\{\{\s*funil\s*\}\}/gi, String((pipeline && pipeline.name) || "").trim())
+    .trim();
+}
+
+async function sendCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason) {
+  const templates = getCrmStageAutoMessages(stage);
+  if (!templates.length) return { ok: false, skipped: true, reason: "empty_message" };
+
+  const lead = findCrmLeadForMessage(tenantId, leadId);
+  if (!lead) return { ok: false, skipped: true, reason: "lead_not_found" };
+
+  const digits = normalizePhoneToE164Digits(lead.whatsapp_digits || lead.whatsapp_raw || "");
+  if (!digits) return { ok: false, skipped: true, reason: "lead_without_whatsapp" };
+
+  let sentCount = 0;
+  for (const template of templates) {
+    const text = renderCrmStageAutoMessage(template, lead, pipeline, stage);
+    if (!text) continue;
+
+    await sendCustomMessage(tenantId, {
+      toDigits: digits,
+      nome: lead.nome || "",
+      text,
+      waitReadyMs: 60000,
+    });
+    sentCount += 1;
+  }
+
+  if (!sentCount) return { ok: false, skipped: true, reason: "empty_after_render" };
+  return { ok: true, sent: true, sentCount, reason: reason || "crm_stage_enter", leadId, stageId: stage && stage.id, pipelineId: pipeline && pipeline.id };
+}
+
+function queueCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason) {
+  const templates = getCrmStageAutoMessages(stage);
+  if (!templates.length) return;
+  setTimeout(() => {
+    sendCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason)
+      .then((out) => {
+        if (out && out.sent) {
+          console.log(`✅ Mensagem automática do CRM enviada [${tenantId}]:`, { leadId, pipelineId: pipeline && pipeline.id, stageId: stage && stage.id, reason, sentCount: out.sentCount || 1 });
+        }
+      })
+      .catch((err) => {
+        console.error(`❌ Falha ao enviar mensagem automática do CRM [${tenantId}/${leadId}]:`, err?.message || err);
+      });
+  }, 250);
+}
+
+function crmStageLeadSet(state, pipelineId, stageId) {
+  const p = state && Array.isArray(state.pipelines) ? state.pipelines.find((x) => x && String(x.id) === String(pipelineId)) : null;
+  const st = p && p.stages && p.stages[String(stageId)];
+  return new Set(((st && Array.isArray(st.leadIds)) ? st.leadIds : []).map((id) => String(id)));
+}
+
+function queueCrmAutoMessagesForNewEntries(tenantId, beforeState, afterState, reason) {
+  const pipelines = Array.isArray(afterState && afterState.pipelines) ? afterState.pipelines : [];
+  for (const pipeline of pipelines) {
+    if (!pipeline || !pipeline.stages) continue;
+    const stageIds = Array.isArray(pipeline.stageOrder) ? pipeline.stageOrder : Object.keys(pipeline.stages || {});
+    for (const stageId of stageIds) {
+      const stage = pipeline.stages[stageId];
+      if (!stage || !getCrmStageAutoMessages(stage).length) continue;
+      const beforeLeadIds = crmStageLeadSet(beforeState, pipeline.id, stageId);
+      const afterLeadIds = Array.isArray(stage.leadIds) ? stage.leadIds.map((id) => String(id)) : [];
+      for (const leadId of afterLeadIds) {
+        if (!leadId || beforeLeadIds.has(leadId)) continue;
+        queueCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason || "crm_stage_enter");
+      }
+    }
+  }
+}
+
+function saveCrmStateAndQueueMessages(tenantId, incomingState) {
+  const beforeState = readCrmState(tenantId);
+  const savedState = writeCrmState(tenantId, incomingState);
+  queueCrmAutoMessagesForNewEntries(tenantId, beforeState, savedState, "crm_put");
+  return savedState;
 }
 
 function shouldClearLeadWhatsappStatus(req) {
@@ -1570,7 +1703,7 @@ app.get("/api/admin/crm", adminAuth, (req, res) => {
   res.json({ ok: true, state });
 });
 app.put("/api/admin/crm", adminAuth, (req, res) => {
-  const state = writeCrmState(TENANT_ADMIN, req.body && (req.body.state || req.body));
+  const state = saveCrmStateAndQueueMessages(TENANT_ADMIN, req.body && (req.body.state || req.body));
   res.json({ ok: true, state });
 });
 app.post("/api/admin/leads/manual", adminAuth, async (req, res) => {
@@ -1725,7 +1858,7 @@ app.get("/api/panel/crm", panelAuth, (req, res) => {
   res.json({ ok: true, state });
 });
 app.put("/api/panel/crm", panelAuth, (req, res) => {
-  const state = writeCrmState(TENANT_PANEL, req.body && (req.body.state || req.body));
+  const state = saveCrmStateAndQueueMessages(TENANT_PANEL, req.body && (req.body.state || req.body));
   res.json({ ok: true, state });
 });
 app.post("/api/panel/leads/manual", panelAuth, async (req, res) => {
@@ -1880,7 +2013,7 @@ app.get("/api/regina/crm", reginaAuth, (req, res) => {
   res.json({ ok: true, state });
 });
 app.put("/api/regina/crm", reginaAuth, (req, res) => {
-  const state = writeCrmState(TENANT_REGINA, req.body && (req.body.state || req.body));
+  const state = saveCrmStateAndQueueMessages(TENANT_REGINA, req.body && (req.body.state || req.body));
   res.json({ ok: true, state });
 });
 app.post("/api/regina/leads/manual", reginaAuth, async (req, res) => {
@@ -2012,6 +2145,161 @@ app.put("/api/regina/webhooks/:id", reginaAuth, (req, res) => {
 
 app.delete("/api/regina/webhooks/:id", reginaAuth, (req, res) => {
   const out = deleteWebhook(TENANT_REGINA, req.params.id);
+  if (!out.ok) return res.status(400).json(out);
+  res.json({ ok: true });
+});
+
+
+// Painel Portugal: tenant independente com as mesmas rotas do painel/regina.
+app.get("/portugal", portugalAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "app.html"));
+});
+
+app.get("/api/portugal/leads", portugalAuth, buildLeadsHandler({ tenantId: TENANT_PORTUGAL }));
+
+app.delete("/api/portugal/leads/:id", portugalAuth, (req, res) => {
+  const out = deleteLeadEverywhere(TENANT_PORTUGAL, req.params.id, req);
+  if (!out.ok) return res.status(404).json(out);
+  res.json(out);
+});
+
+app.get("/api/portugal/crm", portugalAuth, (req, res) => {
+  const state = readCrmState(TENANT_PORTUGAL);
+  res.json({ ok: true, state });
+});
+app.put("/api/portugal/crm", portugalAuth, (req, res) => {
+  const state = saveCrmStateAndQueueMessages(TENANT_PORTUGAL, req.body && (req.body.state || req.body));
+  res.json({ ok: true, state });
+});
+app.post("/api/portugal/leads/manual", portugalAuth, async (req, res) => {
+  try {
+    const lead = await createManualLead(TENANT_PORTUGAL, req.body || {});
+    res.json({ ok: true, lead });
+  } catch (err) {
+    res.status(400).json({ ok: false, error: err.message });
+  }
+});
+
+app.get("/portugal/leads.csv", portugalAuth, (req, res) => {
+  const payload = getLeadItemsForRequest(TENANT_PORTUGAL, req, { limit: 100000 });
+  const csv = toCSV(payload.items);
+  res.setHeader("Content-Type", "text/csv; charset=utf-8");
+  res.setHeader("Content-Disposition", `attachment; filename="leads_portugal.csv"`);
+  res.send(csv);
+});
+
+app.get("/api/portugal/whatsapp/status", portugalAuth, (req, res) => {
+  res.json(getTenantWA(TENANT_PORTUGAL).getWhatsAppStatus());
+});
+
+app.post("/api/portugal/whatsapp/init", portugalAuth, async (req, res) => {
+  try {
+    await getTenantWA(TENANT_PORTUGAL).initWhatsApp();
+    res.json({ ok: true, ...getTenantWA(TENANT_PORTUGAL).getWhatsAppStatus() });
+  } catch (err) {
+    res.status(500).json({
+      ok: false,
+      error: err?.message || String(err),
+      ...getTenantWA(TENANT_PORTUGAL).getWhatsAppStatus(),
+    });
+  }
+});
+
+app.get("/api/portugal/whatsapp/qr", portugalAuth, (req, res) => {
+  res.json({ ok: true, qr: getTenantWA(TENANT_PORTUGAL).getLatestQr() });
+});
+
+app.get("/api/portugal/whatsapp/stats", portugalAuth, (req, res) => {
+  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
+  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_PORTUGAL, { notDeliveredAfterMin }) });
+});
+app.get("/api/portugal/insights", portugalAuth, (req, res) => {
+  try { res.json(buildTenantInsights(TENANT_PORTUGAL, req)); }
+  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
+});
+buildConversationsRoutes({ tenantId: TENANT_PORTUGAL, authMw: portugalAuth, prefix: "/api/portugal" });
+
+app.get("/api/portugal/tags", portugalAuth, (req, res) => {
+  res.json({ ok: true, items: listTags(TENANT_PORTUGAL) });
+});
+
+app.post("/api/portugal/tags", portugalAuth, (req, res) => {
+  try {
+    const tag = upsertTag(TENANT_PORTUGAL, {
+      id: req.body?.id || null,
+      name: req.body?.name,
+      color: req.body?.color,
+    });
+    res.json({ ok: true, item: tag });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+app.delete("/api/portugal/tags/:id", portugalAuth, (req, res) => {
+  try {
+    const id = req.params.id;
+    deleteTag(TENANT_PORTUGAL, id);
+    removeTagFromAllLeads(TENANT_PORTUGAL, id);
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+app.post("/api/portugal/leads/:id/tags", portugalAuth, (req, res) => {
+  try {
+    const leadId = req.params.id;
+    const tagIds = req.body?.tagIds;
+
+    const allTags = listTags(TENANT_PORTUGAL);
+    const allowed = new Set(allTags.map((t) => t.id));
+    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
+      .map((x) => String(x).trim())
+      .filter((x) => allowed.has(x));
+
+    const out = setLeadTags(TENANT_PORTUGAL, leadId, cleaned);
+    res.json({ ok: true, ...out });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+app.post("/api/portugal/leads/bulk-tags", portugalAuth, buildBulkLeadTagsHandler(TENANT_PORTUGAL));
+
+app.get("/api/portugal/message-template", portugalAuth, (req, res) => {
+  res.json({ ok: true, ...getTemplate(TENANT_PORTUGAL) });
+});
+
+app.post("/api/portugal/message-template", portugalAuth, (req, res) => {
+  try {
+    const out = updateTemplateSafe(TENANT_PORTUGAL, req.body?.text);
+    res.json({ ok: true, ...out });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Portugal)
+app.get("/api/portugal/webhooks", portugalAuth, (req, res) => {
+  const items = listWebhooks(TENANT_PORTUGAL).map((w) => serializeWebhook(w, req));
+  res.json({ ok: true, webhooks: items });
+});
+
+app.post("/api/portugal/webhooks", portugalAuth, (req, res) => {
+  const w = createWebhook(TENANT_PORTUGAL, { name: req.body && req.body.name });
+  res.json({ ok: true, ...serializeWebhook(w, req) });
+});
+
+// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Portugal)
+app.put("/api/portugal/webhooks/:id", portugalAuth, (req, res) => {
+  const out = updateWebhook(TENANT_PORTUGAL, req.params.id, req.body);
+  if (!out.ok) return res.status(400).json(out);
+  res.json(out);
+});
+
+app.delete("/api/portugal/webhooks/:id", portugalAuth, (req, res) => {
+  const out = deleteWebhook(TENANT_PORTUGAL, req.params.id);
   if (!out.ok) return res.status(400).json(out);
   res.json({ ok: true });
 });
@@ -2195,8 +2483,20 @@ function hasExistingWhatsAppSession(tenantId) {
   return dirHasAnyFile(expectedLocalAuthSession) || dirHasAnyFile(authBase);
 }
 
+function tenantHasLoginConfigured(tenantId) {
+  const t = String(tenantId || "").trim().toLowerCase();
+  const map = {
+    admin: ["ADMIN_USER", "ADMIN_PASS"],
+    panel: ["PANEL_USER", "PANEL_PASS"],
+    regina: ["REGINA_USER", "REGINA_PASS"],
+    portugal: ["PORTUGAL_USER", "PORTUGAL_PASS"],
+  };
+  const keys = map[t];
+  return Boolean(keys && String(process.env[keys[0]] || "").trim() && String(process.env[keys[1]] || "").trim());
+}
+
 function getWhatsAppAutoStartTenants() {
-  const allowed = [TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA];
+  const allowed = [TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL];
   const explicit = String(process.env.WEBJS_AUTO_START_TENANTS || "")
     .split(",")
     .map((v) => v.trim().toLowerCase())
@@ -2207,8 +2507,10 @@ function getWhatsAppAutoStartTenants() {
   }
 
   // Comportamento seguro por padrão:
-  // só tenta subir automaticamente tenants que já têm sessão salva no disco.
-  return allowed.filter(hasExistingWhatsAppSession);
+  // tenants antigos só sobem automaticamente quando já têm sessão salva.
+  // O tenant Portugal também sobe quando o login dele está configurado no .env,
+  // para ficar visível no boot e disponível para gerar QR/conectar como os outros painéis.
+  return allowed.filter((tenantId) => hasExistingWhatsAppSession(tenantId) || (tenantId === TENANT_PORTUGAL && tenantHasLoginConfigured(tenantId)));
 }
 
 function startWhatsAppClientsInBackground() {
@@ -2274,6 +2576,7 @@ migrateLegacyData().finally(() => {
     console.log("➡️ Admin:", "/admin");
     console.log("➡️ Panel:", "/panel");
     console.log("➡️ Regina:", "/regina");
+    console.log("➡️ Portugal:", "/portugal");
 
     // Mantém a sessão do WhatsApp viva após pm2 restart.
     // Se já existe sessão local salva, o painel volta conectado sem precisar clicar em Conectar.

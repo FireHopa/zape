@@ -1109,6 +1109,110 @@ html, body { height: 100%; overflow: hidden; }
 @media(max-width:960px){.insightDddSummary{grid-template-columns:repeat(2,minmax(0,1fr));}.insightDddBulkBox{grid-template-columns:1fr;}.insightDddToolbar{align-items:flex-start;}.insightDddToolbarRight{width:100%;}.insightDddToolbarRight .btn{flex:1 1 auto;}}
 @media(max-width:620px){.insightDddSummary{grid-template-columns:1fr;}.insightDddTableWrap{max-height:46vh;}}
 
+
+#crmModal .crmStageMessageStatus{
+  margin-left:auto!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  padding:8px 10px!important;
+  border-radius:999px!important;
+  background:#ecfdf5!important;
+  border:1px solid #bbf7d0!important;
+  color:#166534!important;
+  font-size:11px!important;
+  font-weight:950!important;
+  white-space:nowrap!important;
+}
+#crmModal .crmStageMessageListHead{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  padding:12px 14px!important;
+  border:1px solid #e2e8f0!important;
+  border-radius:20px!important;
+  background:#fff!important;
+  box-shadow:0 10px 24px rgba(15,23,42,.045)!important;
+}
+#crmModal .crmStageMessageListHead b{
+  display:block!important;
+  font-size:14px!important;
+  font-weight:1000!important;
+  color:#0f172a!important;
+}
+#crmModal .crmStageMessageListHead span{
+  display:block!important;
+  margin-top:3px!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+  color:#64748b!important;
+}
+#crmModal .crmStageMessageList{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:12px!important;
+  max-height:42vh!important;
+  overflow:auto!important;
+  padding:2px 4px 2px 2px!important;
+}
+#crmModal .crmStageMessageItem{
+  border:1px solid #dbe3ef!important;
+  border-radius:22px!important;
+  background:linear-gradient(180deg,#ffffff,#f8fbff)!important;
+  box-shadow:0 12px 28px rgba(15,23,42,.05)!important;
+  padding:13px!important;
+}
+#crmModal .crmStageMessageItemHead{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:10px!important;
+  margin-bottom:10px!important;
+}
+#crmModal .crmStageMessageItemTitleWrap{
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-width:0!important;
+}
+#crmModal .crmStageMessageNumber{
+  width:30px!important;
+  height:30px!important;
+  border-radius:12px!important;
+  background:#eff6ff!important;
+  border:1px solid #bfdbfe!important;
+  color:#1d4ed8!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:12px!important;
+  font-weight:1000!important;
+  flex:0 0 auto!important;
+}
+#crmModal .crmStageMessageItemTitle{
+  display:block!important;
+  font-size:13px!important;
+  font-weight:1000!important;
+  color:#0f172a!important;
+}
+#crmModal .crmStageMessageItemTitleWrap small{
+  display:block!important;
+  margin-top:2px!important;
+  font-size:11px!important;
+  color:#64748b!important;
+  font-weight:700!important;
+}
+#crmModal .crmStageMessageRemove{
+  color:#b42318!important;
+  border-color:#fecaca!important;
+  background:#fffafa!important;
+}
+#crmModal .crmStageMsgItem{
+  min-height:112px!important;
+  max-height:220px!important;
+}
+
 @media(max-width:720px){.insightTimelineSummary{grid-template-columns:1fr}.insightBarRow.withAction{grid-template-columns:1fr;}.insightMiniAction{width:max-content}.insightDddPanelHead{flex-direction:column;}}
 @media(max-width:1180px){.insightsGrid{grid-template-columns:repeat(2,minmax(0,1fr));}.insightSectionGrid{grid-template-columns:1fr;}}
 @media(max-width:720px){.insightsGrid,.insightMiniGrid{grid-template-columns:1fr;}.insightBarRow{grid-template-columns:1fr;gap:5px}.insightBarNumber{text-align:left}.insightTimeline{height:120px;}}
@@ -3002,6 +3106,546 @@ body:not(.hasPager) .pager{display:none!important;}
 }
 </style>
 
+
+
+<style id="zape-modal-scroll-fix-20260601">
+/* Corrige modais altos: o conteúdo passa a rolar dentro do próprio modal, sem precisar dar zoom out. */
+.overlay{
+  align-items:flex-start!important;
+  justify-content:center!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  padding:16px!important;
+  overscroll-behavior:contain!important;
+}
+.overlay.open{display:flex!important;}
+.sheet{
+  max-height:calc(100dvh - 32px)!important;
+  min-height:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+.sheetHead{
+  flex:0 0 auto!important;
+}
+.sheetBody{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  scrollbar-gutter:stable!important;
+}
+.sheetBody::-webkit-scrollbar{width:12px;height:12px;}
+.sheetBody::-webkit-scrollbar-thumb{background:#c8d3e1;border-radius:999px;border:3px solid #f8fafc;}
+.sheetBody::-webkit-scrollbar-track{background:#f8fafc;border-radius:999px;}
+
+/* Modal de Entrada automática de leads */
+#ovTemplate .webhookSheet{
+  width:min(920px,calc(100vw - 32px))!important;
+  max-height:calc(100dvh - 32px)!important;
+  height:auto!important;
+}
+#ovTemplate .webhookBody{
+  min-height:0!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+#ovTemplate .webhookIntro{
+  flex:0 0 auto!important;
+}
+#ovTemplate .webhookHowItWorks{
+  flex:0 0 auto!important;
+}
+#ovTemplate .webhookGrid,
+#ovTemplate .messagesPanel{
+  flex:0 0 auto!important;
+}
+#ovTemplate .webhookMessagesList{
+  max-height:34dvh!important;
+  overflow-y:auto!important;
+  padding-right:4px!important;
+}
+#ovTemplate .webhookFooter{
+  position:sticky!important;
+  bottom:-1px!important;
+  z-index:5!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.86),#fff 34%)!important;
+  margin:0 -2px!important;
+  padding:14px 2px 0!important;
+}
+
+@media (max-height:760px){
+  .overlay{padding:10px!important;}
+  .sheet{max-height:calc(100dvh - 20px)!important;}
+  #ovTemplate .webhookSheet{max-height:calc(100dvh - 20px)!important;width:min(920px,calc(100vw - 20px))!important;}
+  #ovTemplate .sheetHead{padding:12px 16px!important;}
+  #ovTemplate .sheetBody{padding:12px 16px 16px!important;}
+  #ovTemplate .webhookBody{gap:12px!important;}
+  #ovTemplate .webhookIntro{padding:12px!important;}
+  #ovTemplate .webhookIntroIcon{width:44px!important;height:44px!important;border-radius:16px!important;font-size:22px!important;}
+  #ovTemplate .webhookIntroTitle{font-size:16px!important;}
+  .webhookHowItWorks{gap:8px!important;}
+  .webhookStep{padding:10px!important;}
+  #ovTemplate .webhookPanel{padding:14px!important;}
+  #ovTemplate .webhookMessagesList{max-height:28dvh!important;}
+}
+
+@media (max-width:720px){
+  .overlay{padding:10px!important;}
+  .sheet{max-height:calc(100dvh - 20px)!important;width:calc(100vw - 20px)!important;}
+  .sheetHead{padding:12px!important;}
+  .sheetBody{padding:12px!important;}
+  #ovTemplate .webhookSheet{width:calc(100vw - 20px)!important;max-height:calc(100dvh - 20px)!important;}
+}
+</style>
+
+
+<style id="crm-stage-message-patch-20260601">
+#panelCrm .crmStageAutoMsgBadge{display:inline-flex;align-items:center;gap:5px;width:max-content;margin-top:5px;padding:4px 7px;border-radius:999px;background:#ecfdf5;border:1px solid #bbf7d0;color:#15803d;font-size:10px;font-weight:950;letter-spacing:.01em;}
+#panelCrm .crmStageAutoMsgBadge i{font-size:13px;}
+#panelCrm .crmStageMessagePanel{display:flex;flex-direction:column;gap:14px;}
+#panelCrm .crmStageMessageHero{display:flex;gap:13px;align-items:flex-start;padding:14px;border:1px solid #dbeafe;border-radius:20px;background:linear-gradient(135deg,#eff6ff,#ffffff 70%);}
+#panelCrm .crmStageMessageHeroIcon{width:42px;height:42px;border-radius:16px;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 14px 28px rgba(37,99,235,.20);flex:0 0 auto;}
+#panelCrm .crmStageMessageHero b{display:block;font-size:15px;font-weight:1000;color:#0f172a;letter-spacing:-.02em;}
+#panelCrm .crmStageMessageHero span{display:block;margin-top:4px;font-size:12px;line-height:1.45;color:#64748b;}
+#panelCrm .crmStageMessageTextarea{width:100%;min-height:170px;resize:vertical;border:1px solid #dbe3ef;border-radius:18px;background:#fff;padding:13px 14px;font-size:13px;line-height:1.45;color:#0f172a;box-shadow:inset 0 1px 0 rgba(15,23,42,.02);}
+#panelCrm .crmStageMessageTextarea:focus{outline:0;border-color:#93c5fd;box-shadow:0 0 0 4px rgba(37,99,235,.10);}
+#panelCrm .crmStageMessageTokens{display:flex;flex-wrap:wrap;gap:7px;}
+#panelCrm .crmStageMessageToken{display:inline-flex;align-items:center;gap:5px;border:1px solid #dbeafe;background:#f8fbff;color:#1d4ed8;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;cursor:pointer;}
+#panelCrm .crmStageMessageToken:hover{background:#eff6ff;border-color:#bfdbfe;}
+#panelCrm .crmStageMessageInfo{display:flex;align-items:flex-start;gap:9px;border:1px solid #e2e8f0;border-radius:16px;background:#f8fafc;padding:10px 12px;color:#475569;font-size:12px;line-height:1.45;}
+#panelCrm .crmStageMessageActions{display:flex;gap:9px;justify-content:flex-end;align-items:center;flex-wrap:wrap;padding-top:2px;}
+#panelCrm .crmCardBtns{align-items:center;}
+#panelCrm .crmCardBtns .crmCardChat{color:#16a34a!important;border-color:#bbf7d0!important;background:#f0fdf4!important;}
+#panelCrm .crmCardBtns .crmCardChat:hover{color:#15803d!important;border-color:#86efac!important;background:#dcfce7!important;}
+</style>
+
+
+
+<style id="crm-stage-ui-final-adjustments-20260601">
+/* CRM: ajuste final de card, remoção visual do mover por botão e modal premium de mensagem da coluna */
+#crmBoardWrap.crmBoardWrap.crmBoardWrapPolished{
+  min-height:360px!important;
+  padding:18px!important;
+}
+#crmBoard.crmBoard{gap:16px!important;align-items:flex-start!important;}
+#crmBoard.crmBoard > .crmCol{
+  min-height:330px!important;
+  width:334px!important;
+  min-width:334px!important;
+}
+#panelCrm .crmColHead{padding:13px 14px!important;}
+#panelCrm .crmColBody{
+  min-height:226px!important;
+  padding:14px!important;
+}
+#panelCrm .crmStageEmpty{
+  min-height:128px!important;
+  padding:16px!important;
+  border-radius:20px!important;
+}
+#panelCrm .crmStageEmpty i{width:36px!important;height:36px!important;border-radius:14px!important;font-size:18px!important;}
+#panelCrm .crmStageEmpty b{font-size:12.5px!important;}
+#panelCrm .crmStageEmpty span{font-size:11.5px!important;}
+#panelCrm .crmCard{
+  padding:15px!important;
+  border-radius:22px!important;
+  box-shadow:0 18px 38px rgba(15,23,42,.08)!important;
+}
+#panelCrm .crmCardTop{
+  align-items:center!important;
+  gap:12px!important;
+}
+#panelCrm .crmCardIdentity{align-items:center!important;gap:11px!important;}
+#panelCrm .crmAvatar{
+  width:40px!important;
+  height:40px!important;
+  border-radius:15px!important;
+  font-size:15px!important;
+}
+#panelCrm .crmName{
+  max-width:180px!important;
+  font-size:15px!important;
+  line-height:1.15!important;
+}
+#panelCrm .crmStageBadge{
+  max-width:182px!important;
+  padding:5px 8px!important;
+  font-size:10.5px!important;
+}
+#panelCrm .crmCardBtns{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:7px!important;
+  flex:0 0 auto!important;
+}
+#panelCrm .crmCardBtns .btnMini{
+  width:34px!important;
+  height:34px!important;
+  min-width:34px!important;
+  border-radius:14px!important;
+}
+#panelCrm .crmCardBtns .crmCardChat{
+  color:#16a34a!important;
+  border-color:#bbf7d0!important;
+  background:#f0fdf4!important;
+}
+#panelCrm .crmCardBtns .crmCardChat:hover{
+  color:#15803d!important;
+  border-color:#86efac!important;
+  background:#dcfce7!important;
+  transform:translateY(-1px)!important;
+}
+#panelCrm .crmCardView:hover{
+  color:#2563eb!important;
+  border-color:#bfdbfe!important;
+  background:#eff6ff!important;
+}
+#panelCrm .crmMeta{
+  margin-top:13px!important;
+  padding-top:12px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:7px!important;
+}
+#panelCrm .crmMetaLine{
+  gap:8px!important;
+  font-size:12px!important;
+  line-height:1.25!important;
+}
+#panelCrm .crmCardMove{display:none!important;}
+
+/* O modal fica fora de #panelCrm, então os seletores precisam ser globais */
+#crmModal.crmModalPremium{
+  width:min(860px,calc(100vw - 32px))!important;
+  max-width:860px!important;
+  border-radius:28px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(219,234,254,.95)!important;
+  box-shadow:0 30px 90px rgba(15,23,42,.28)!important;
+}
+#crmModal .crmModalHead{
+  padding:20px 22px 16px!important;
+  background:linear-gradient(135deg,#f8fbff 0%,#ffffff 58%,#eff6ff 100%)!important;
+}
+#crmModal #crmModalTitle{
+  font-size:18px!important;
+  letter-spacing:-.03em!important;
+  color:#0f172a!important;
+}
+#crmModal #crmModalSub{
+  margin-top:6px!important;
+  color:#64748b!important;
+  font-size:13px!important;
+}
+#crmModal .crmModalBody{
+  padding:18px 22px 22px!important;
+  background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%)!important;
+}
+#crmModal .crmStageMessagePanel{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:16px!important;
+}
+#crmModal .crmStageMessageHero{
+  display:flex!important;
+  gap:14px!important;
+  align-items:flex-start!important;
+  padding:16px!important;
+  border:1px solid #dbeafe!important;
+  border-radius:22px!important;
+  background:
+    radial-gradient(360px 120px at 12% 0%,rgba(37,99,235,.14),transparent 62%),
+    linear-gradient(135deg,#eff6ff 0%,#ffffff 72%)!important;
+  box-shadow:0 16px 36px rgba(37,99,235,.08)!important;
+}
+#crmModal .crmStageMessageHeroIcon{
+  width:46px!important;
+  height:46px!important;
+  border-radius:17px!important;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8)!important;
+  color:#fff!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  font-size:22px!important;
+  box-shadow:0 16px 32px rgba(37,99,235,.26)!important;
+  flex:0 0 auto!important;
+}
+#crmModal .crmStageMessageHero b{
+  display:block!important;
+  margin:0 0 5px!important;
+  font-size:16px!important;
+  font-weight:1000!important;
+  color:#0f172a!important;
+  letter-spacing:-.025em!important;
+}
+#crmModal .crmStageMessageHero span{
+  display:block!important;
+  max-width:680px!important;
+  font-size:13px!important;
+  line-height:1.48!important;
+  color:#52627a!important;
+}
+#crmModal .crmStageMessageHero strong{color:#1d4ed8!important;}
+#crmModal .crmStageMessageLabel{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:7px!important;
+  padding:14px!important;
+  border:1px solid #e2e8f0!important;
+  border-radius:22px!important;
+  background:#fff!important;
+  box-shadow:0 12px 28px rgba(15,23,42,.045)!important;
+}
+#crmModal .crmStageMessageLabel span{
+  font-size:12px!important;
+  font-weight:1000!important;
+  color:#0f172a!important;
+  text-transform:uppercase!important;
+  letter-spacing:.08em!important;
+}
+#crmModal .crmStageMessageLabel small{
+  font-size:12px!important;
+  font-weight:700!important;
+  color:#64748b!important;
+  line-height:1.35!important;
+}
+#crmModal .crmStageMessageTextarea{
+  width:100%!important;
+  min-height:158px!important;
+  resize:vertical!important;
+  border:1px solid #dbe3ef!important;
+  border-radius:18px!important;
+  background:linear-gradient(180deg,#fff,#f8fafc)!important;
+  padding:14px 15px!important;
+  font-size:14px!important;
+  line-height:1.5!important;
+  color:#0f172a!important;
+  box-shadow:inset 0 1px 0 rgba(15,23,42,.03)!important;
+}
+#crmModal .crmStageMessageTextarea:focus{
+  outline:0!important;
+  border-color:#93c5fd!important;
+  box-shadow:0 0 0 4px rgba(37,99,235,.10), inset 0 1px 0 rgba(15,23,42,.03)!important;
+}
+#crmModal .crmStageMessageTokenBlock{
+  padding:12px!important;
+  border:1px solid #dbeafe!important;
+  border-radius:20px!important;
+  background:#f8fbff!important;
+}
+#crmModal .crmStageMessageTokenTitle{
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  margin-bottom:9px!important;
+  font-size:12px!important;
+  font-weight:1000!important;
+  color:#1e3a8a!important;
+}
+#crmModal .crmStageMessageTokens{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:8px!important;
+}
+#crmModal .crmStageMessageToken{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  border:1px solid #bfdbfe!important;
+  background:#fff!important;
+  color:#1d4ed8!important;
+  border-radius:999px!important;
+  padding:8px 10px!important;
+  font-size:12px!important;
+  font-weight:950!important;
+  cursor:pointer!important;
+  transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease,background .14s ease!important;
+}
+#crmModal .crmStageMessageToken:hover{
+  transform:translateY(-1px)!important;
+  background:#eff6ff!important;
+  border-color:#93c5fd!important;
+  box-shadow:0 10px 22px rgba(37,99,235,.10)!important;
+}
+#crmModal .crmStageMessageInfo{
+  display:flex!important;
+  align-items:flex-start!important;
+  gap:10px!important;
+  border:1px solid #bbf7d0!important;
+  border-radius:18px!important;
+  background:#f0fdf4!important;
+  padding:12px 13px!important;
+  color:#166534!important;
+  font-size:12.5px!important;
+  line-height:1.45!important;
+}
+#crmModal .crmStageMessageInfo i{
+  width:22px!important;
+  height:22px!important;
+  border-radius:999px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#dcfce7!important;
+  flex:0 0 auto!important;
+}
+#crmModal .crmStageMessageActions{
+  display:flex!important;
+  gap:10px!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  padding-top:2px!important;
+}
+#crmModal .crmStageMessageActions .btn{
+  min-height:42px!important;
+  border-radius:14px!important;
+}
+@media(max-width:720px){
+  #crmBoard.crmBoard > .crmCol{width:320px!important;min-width:320px!important;}
+  #crmModal.crmModalPremium{width:calc(100vw - 20px)!important;border-radius:22px!important;}
+  #crmModal .crmModalHead{padding:16px!important;}
+  #crmModal .crmModalBody{padding:14px!important;}
+  #crmModal .crmStageMessageActions{justify-content:stretch!important;}
+  #crmModal .crmStageMessageActions .btn{flex:1 1 auto!important;}
+}
+</style>
+
+
+<style id="crm-status-icon-picker-20260601">
+/* Status do lead direto no card do funil */
+#panelCrm .crmNameLine{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-width:0!important;
+  max-width:100%!important;
+}
+#panelCrm .crmNameLine .crmName{
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+#panelCrm .crmLeadStatusDot{
+  width:10px!important;
+  height:10px!important;
+  min-width:10px!important;
+  border-radius:999px!important;
+  display:inline-block!important;
+  background:#94a3b8!important;
+  border:2px solid #fff!important;
+  box-shadow:0 0 0 3px rgba(148,163,184,.16)!important;
+}
+#panelCrm .crmLeadStatusDot.status-replied{background:#16a34a!important;box-shadow:0 0 0 3px rgba(22,163,74,.16)!important;}
+#panelCrm .crmLeadStatusDot.status-delivered{background:#2563eb!important;box-shadow:0 0 0 3px rgba(37,99,235,.16)!important;}
+#panelCrm .crmLeadStatusDot.status-notDelivered{background:#ef4444!important;box-shadow:0 0 0 3px rgba(239,68,68,.16)!important;}
+#panelCrm .crmLeadStatusDot.status-notExists{background:#f59e0b!important;box-shadow:0 0 0 3px rgba(245,158,11,.20)!important;}
+#panelCrm .crmLeadStatusDot.status-pending{background:#64748b!important;box-shadow:0 0 0 3px rgba(100,116,139,.16)!important;}
+#panelCrm .crmLeadStatusDot.status-none{background:#cbd5e1!important;box-shadow:0 0 0 3px rgba(203,213,225,.20)!important;}
+
+/* Remove a bolinha automática que o CSS antigo colocava antes do ícone da etapa. */
+#panelCrm .crmColTitle .crmStageIcon:before,
+#panelCrm .crmColTitle .crmStageIconPicker:before{
+  content:none!important;
+  display:none!important;
+}
+#panelCrm .crmStageIconPicker{
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  cursor:pointer!important;
+  padding:0!important;
+  border:1px solid #dbeafe!important;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease!important;
+}
+#panelCrm .crmStageIconPicker:hover{
+  transform:translateY(-1px)!important;
+  background:#fff!important;
+  border-color:#bfdbfe!important;
+  box-shadow:0 12px 22px rgba(37,99,235,.12)!important;
+}
+#panelCrm .crmStageIconPicker:active{transform:translateY(0) scale(.98)!important;}
+#panelCrm .crmStageIconPicker i{pointer-events:none!important;}
+
+/* Seletor de ícones da etapa */
+#crmModal .crmIconPickerPanel{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+#crmModal .crmIconPickerHero{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border:1px solid #dbeafe;
+  border-radius:20px;
+  background:linear-gradient(135deg,#eff6ff,#ffffff);
+}
+#crmModal .crmIconPickerHeroIcon{
+  width:48px;
+  height:48px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#2563eb;
+  background:#fff;
+  border:1px solid #bfdbfe;
+  box-shadow:0 12px 26px rgba(37,99,235,.10);
+  font-size:25px;
+  flex:0 0 auto;
+}
+#crmModal .crmIconPickerHero b{display:block;font-size:15px;color:#0f172a;font-weight:1000;letter-spacing:-.03em;}
+#crmModal .crmIconPickerHero span{display:block;margin-top:3px;font-size:12px;color:#64748b;line-height:1.35;}
+#crmModal .crmIconPickerGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(118px,1fr));
+  gap:10px;
+}
+#crmModal .crmIconOption{
+  min-height:88px;
+  border:1px solid #e2e8f0;
+  border-radius:18px;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  cursor:pointer;
+  color:#0f172a;
+  font-weight:900;
+  font-size:12px;
+  text-align:center;
+  transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+#crmModal .crmIconOption i{font-size:28px;color:#2563eb;}
+#crmModal .crmIconOption:hover{
+  transform:translateY(-2px);
+  border-color:#bfdbfe;
+  box-shadow:0 14px 28px rgba(37,99,235,.10);
+  background:#f8fbff;
+}
+#crmModal .crmIconOption.active{
+  border-color:#2563eb;
+  background:#eff6ff;
+  box-shadow:0 0 0 3px rgba(37,99,235,.10);
+}
+#crmModal .crmIconPickerFooter{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  padding-top:2px;
+}
+</style>
+
 </head>
 
 <body>
@@ -3963,13 +4607,14 @@ Não tenho interesse"></textarea>
   <script>
     var APP_TENANT = (function(){
       var first = String(location.pathname || "").split("/").filter(Boolean)[0] || "admin";
-      return ["admin", "panel", "regina"].includes(first) ? first : "admin";
+      return ["admin", "panel", "regina", "portugal"].includes(first) ? first : "admin";
     })();
 
     var APP_CONFIGS = {
       admin: { label: "Admin", title: "Casa do Ads • Admin", apiBase: "/api/admin", csvBase: "/admin/leads.csv" },
       panel: { label: "Painel", title: "Casa do Ads • Painel", apiBase: "/api/panel", csvBase: "/panel/leads.csv" },
-      regina: { label: "Regina", title: "Casa do Ads • Regina", apiBase: "/api/regina", csvBase: "/regina/leads.csv" }
+      regina: { label: "Regina", title: "Casa do Ads • Regina", apiBase: "/api/regina", csvBase: "/regina/leads.csv" },
+      portugal: { label: "Portugal", title: "Casa do Ads • Portugal", apiBase: "/api/portugal", csvBase: "/portugal/leads.csv" }
     };
 
     var APP_CONFIG = APP_CONFIGS[APP_TENANT] || APP_CONFIGS.admin;
@@ -5105,6 +5750,7 @@ Não tenho interesse"></textarea>
 
         var actionsHtml =
           '<div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">' +
+            '<button class="btn btnSoft" type="button" data-lead-chat="' + escapeHtml(lead.id) + '" style="padding:10px 12px;"><i class="ph ph-chat-circle-text"></i> Conversar</button>' +
             '<button class="btn btnGhost" type="button" data-tags="' + escapeHtml(lead.id) + '" style="padding:10px 12px;"><i class="ph ph-tag"></i> Tags</button>' +
             '<button class="iconMini iconDanger" type="button" data-delete-lead="' + escapeHtml(lead.id) + '" title="Deletar lead" aria-label="Deletar lead"><i class="ph ph-trash"></i></button>' +
           '</div>';
@@ -5120,6 +5766,18 @@ Não tenho interesse"></textarea>
           if (av){
             av.addEventListener("click", function(){ openLeadDetails(leadCopy); });
           }
+          var chatBtn = trEl.querySelector('[data-lead-chat]');
+          if (chatBtn){
+            chatBtn.addEventListener("click", function(){
+              openConversationFromInsight({
+                whatsapp_digits: leadCopy.whatsapp_digits || leadCopy.whatsapp_raw || "",
+                nome: leadCopy.nome || "",
+                empresa: leadCopy.empresa || "",
+                email: leadCopy.email || ""
+              });
+            });
+          }
+
           var bt = trEl.querySelector('[data-tags]');
           if (bt){
             bt.addEventListener("click", function(){
@@ -7621,9 +8279,99 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       return (crmState.pipelines || []).find(function(p){ return p.id === crmState.activePipelineId; }) || (crmState.pipelines || [])[0] || null;
     }
 
-    function crmStageIconName(idx){
-      var icons = ["ph-flag-checkered", "ph-chat-circle-dots", "ph-calendar-check", "ph-file-text", "ph-handshake", "ph-trophy", "ph-star", "ph-target"];
-      return icons[idx % icons.length];
+    function crmStageIconOptions(){
+      return [
+        { icon:"ph-flag-checkered", label:"Novo lead" },
+        { icon:"ph-user-circle-plus", label:"Contato" },
+        { icon:"ph-chat-circle-dots", label:"Conversa" },
+        { icon:"ph-whatsapp-logo", label:"WhatsApp" },
+        { icon:"ph-phone-call", label:"Ligação" },
+        { icon:"ph-calendar-check", label:"Reunião" },
+        { icon:"ph-file-text", label:"Proposta" },
+        { icon:"ph-handshake", label:"Fechou" },
+        { icon:"ph-currency-circle-dollar", label:"Venda" },
+        { icon:"ph-chart-line-up", label:"Avanço" },
+        { icon:"ph-target", label:"Prioridade" },
+        { icon:"ph-rocket-launch", label:"Acelerar" },
+        { icon:"ph-star", label:"Quente" },
+        { icon:"ph-trophy", label:"Ganho" },
+        { icon:"ph-check-circle", label:"Concluído" },
+        { icon:"ph-heart", label:"Relacionamento" },
+        { icon:"ph-lightbulb", label:"Ideia" },
+        { icon:"ph-buildings", label:"Empresa" },
+        { icon:"ph-storefront", label:"Loja" },
+        { icon:"ph-briefcase", label:"Negócio" },
+        { icon:"ph-envelope-simple", label:"E-mail" },
+        { icon:"ph-megaphone", label:"Campanha" },
+        { icon:"ph-magic-wand", label:"Automação" },
+        { icon:"ph-funnel", label:"Funil" }
+      ];
+    }
+
+    function crmStageIconName(stageOrIdx, maybeIdx){
+      var options = crmStageIconOptions();
+      var valid = options.map(function(x){ return x.icon; });
+      var stage = (stageOrIdx && typeof stageOrIdx === "object") ? stageOrIdx : null;
+      var idx = stage ? Number(maybeIdx || 0) : Number(stageOrIdx || 0);
+      if (!isFinite(idx) || idx < 0) idx = 0;
+      var chosen = stage ? String(stage.icon || stage.iconClass || stage.stageIcon || "") : "";
+      if (chosen && valid.indexOf(chosen) !== -1) return chosen;
+      var fallbackCount = Math.min(options.length, 8);
+      return options[idx % fallbackCount].icon;
+    }
+
+    function crmOpenStageIconPicker(pipelineId, stageId){
+      var pipeline = crmPipelineById(pipelineId) || crmActivePipeline();
+      var stage = crmStageById(pipeline, stageId);
+      if (!pipeline || !stage) {
+        toast("warn", "Ícone da etapa", "Não encontrei esta etapa do funil.");
+        return;
+      }
+
+      var currentIcon = crmStageIconName(stage, (pipeline.stageOrder || []).indexOf(stageId));
+      var wrap = document.createElement("div");
+      wrap.className = "crmIconPickerPanel";
+      wrap.innerHTML =
+        "<div class='crmIconPickerHero'>" +
+          "<div class='crmIconPickerHeroIcon'><i class='ph " + escapeHtml(currentIcon) + "'></i></div>" +
+          "<div><b>Escolha o ícone desta coluna</b><span>O ícone ajuda a identificar rapidamente cada etapa do funil. A mudança fica salva somente nesta coluna.</span></div>" +
+        "</div>" +
+        "<div class='crmIconPickerGrid'></div>" +
+        "<div class='crmIconPickerFooter'>" +
+          "<button class='btn btnGhost crmIconReset' type='button'><i class='ph ph-arrow-counter-clockwise'></i> Usar padrão</button>" +
+          "<button class='btn crmIconCancel' type='button'>Cancelar</button>" +
+        "</div>";
+
+      var grid = wrap.querySelector(".crmIconPickerGrid");
+      crmStageIconOptions().forEach(function(opt){
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "crmIconOption" + (opt.icon === currentIcon ? " active" : "");
+        btn.innerHTML = "<i class='ph " + escapeHtml(opt.icon) + "'></i><span>" + escapeHtml(opt.label) + "</span>";
+        btn.addEventListener("click", function(){
+          stage.icon = opt.icon;
+          delete stage.iconClass;
+          delete stage.stageIcon;
+          crmRenderBoard();
+          crmQueueSave();
+          crmCloseModal();
+          toast("ok", "Ícone da etapa", "Ícone atualizado.");
+        });
+        grid.appendChild(btn);
+      });
+
+      wrap.querySelector(".crmIconReset").addEventListener("click", function(){
+        delete stage.icon;
+        delete stage.iconClass;
+        delete stage.stageIcon;
+        crmRenderBoard();
+        crmQueueSave();
+        crmCloseModal();
+        toast("ok", "Ícone da etapa", "Ícone padrão restaurado.");
+      });
+      wrap.querySelector(".crmIconCancel").addEventListener("click", crmCloseModal);
+
+      crmOpenModal("Trocar ícone da coluna", (pipeline.name || "Funil") + " → " + (stage.name || "Etapa"), wrap);
     }
 
     function crmRenderSummary(){
@@ -8089,6 +8837,177 @@ function crmExtractLeads(payload){
       }
     }
 
+
+    function crmStageMessages(stage){
+      if (!stage || typeof stage !== "object") return [];
+      var list = null;
+      if (Array.isArray(stage.autoMessages)) list = stage.autoMessages;
+      else if (Array.isArray(stage.crmAutoMessages)) list = stage.crmAutoMessages;
+      else if (Array.isArray(stage.crmMessageTexts)) list = stage.crmMessageTexts;
+      else if (Array.isArray(stage.messageTexts)) list = stage.messageTexts;
+      var fallback = stage.autoMessageText || stage.crmAutoMessageText || stage.crmMessageText || stage.messageText || "";
+      if (!list && fallback) list = [fallback];
+      return (list || []).map(function(value){ return String(value || "").trim(); }).filter(Boolean).slice(0, 10);
+    }
+
+    function crmStageMessageText(stage){
+      var list = crmStageMessages(stage);
+      return list.length ? list[0] : "";
+    }
+
+    function crmStageMessageCount(stage){
+      return crmStageMessages(stage).length;
+    }
+
+    function crmInsertAtCursor(textarea, value){
+      if (!textarea) return;
+      var start = typeof textarea.selectionStart === "number" ? textarea.selectionStart : textarea.value.length;
+      var end = typeof textarea.selectionEnd === "number" ? textarea.selectionEnd : textarea.value.length;
+      var before = textarea.value.slice(0, start);
+      var after = textarea.value.slice(end);
+      textarea.value = before + value + after;
+      textarea.focus();
+      var pos = start + value.length;
+      try { textarea.setSelectionRange(pos, pos); } catch(e) {}
+    }
+
+    function crmOpenStageMessage(pipelineId, stageId){
+      var pipeline = crmPipelineById(pipelineId) || crmActivePipeline();
+      var stage = crmStageById(pipeline, stageId);
+      if (!pipeline || !stage) {
+        toast("warn", "Mensagem da etapa", "Não encontrei esta etapa do funil.");
+        return;
+      }
+
+      var wrap = document.createElement("div");
+      wrap.className = "crmStageMessagePanel";
+      var existingMessages = crmStageMessages(stage);
+      var existingLabel = existingMessages.length ? (existingMessages.length + " mensagem(ns) ativa(s)") : "Nenhuma mensagem ativa";
+      wrap.innerHTML =
+        "<div class='crmStageMessageHero'>" +
+          "<div class='crmStageMessageHeroIcon'><i class='ph ph-paper-plane-tilt'></i></div>" +
+          "<div><b>Sequência automática desta etapa</b>" +
+          "<span>Quando um lead entrar em <strong>" + escapeHtml(stage.name || "Etapa") + "</strong>, as mensagens abaixo serão enviadas em sequência pelo WhatsApp. Se deixar vazio, nada será disparado.</span></div>" +
+          "<span class='crmStageMessageStatus'><i class='ph ph-check-circle'></i>" + escapeHtml(existingLabel) + "</span>" +
+        "</div>" +
+        "<div class='crmStageMessageListHead'><div><b>Mensagens programadas</b><span>Edite a mensagem existente ou adicione novas mensagens para enviar em sequência.</span></div><button class='btn btnGhost' type='button' id='crmStageMsgAdd'><i class='ph ph-plus'></i> Adicionar mensagem</button></div>" +
+        "<div class='crmStageMessageList' id='crmStageMsgList'></div>" +
+        "<div class='crmStageMessageTokenBlock'><div class='crmStageMessageTokenTitle'><i class='ph ph-brackets-curly'></i> Clique para inserir uma variável na mensagem selecionada</div><div class='crmStageMessageTokens' aria-label='Variáveis disponíveis'></div></div>" +
+        "<div class='crmStageMessageInfo'><i class='ph ph-info'></i><div><b>Como funciona:</b> essa sequência só dispara para leads que entrarem nesta etapa depois de salvar. Leads que já estavam na coluna não recebem automaticamente.</div></div>" +
+        "<div class='crmStageMessageActions'><button class='btn btnGhost' type='button' id='crmStageMsgClear'><i class='ph ph-eraser'></i> Limpar sequência</button><button class='btn' type='button' id='crmStageMsgCancel'>Cancelar</button><button class='btn btnPrimary' type='button' id='crmStageMsgSave'><i class='ph ph-floppy-disk'></i> Salvar sequência</button></div>";
+
+      var listBox = wrap.querySelector("#crmStageMsgList");
+      var activeTextarea = null;
+
+      function refreshMessageNumbers(){
+        Array.prototype.forEach.call(listBox.querySelectorAll(".crmStageMessageItem"), function(item, idx){
+          var n = item.querySelector(".crmStageMessageNumber");
+          if (n) n.textContent = String(idx + 1);
+          var label = item.querySelector(".crmStageMessageItemTitle");
+          if (label) label.textContent = "Mensagem " + (idx + 1);
+        });
+      }
+
+      function addStageMessageTextarea(text){
+        var item = document.createElement("div");
+        item.className = "crmStageMessageItem";
+        item.innerHTML =
+          "<div class='crmStageMessageItemHead'>" +
+            "<div class='crmStageMessageItemTitleWrap'><span class='crmStageMessageNumber'>1</span><div><b class='crmStageMessageItemTitle'>Mensagem</b><small>Será enviada nesta ordem quando o lead entrar na etapa.</small></div></div>" +
+            "<button class='btnMini crmStageMessageRemove' type='button' title='Remover esta mensagem'><i class='ph ph-trash'></i></button>" +
+          "</div>" +
+          "<textarea class='crmStageMessageTextarea crmStageMsgItem' placeholder='Ex: Olá {{nome}}, tudo bem? Vi que você chegou na etapa " + escapeHtml(stage.name || "do funil") + ". Posso te ajudar por aqui?'></textarea>";
+        var textarea = item.querySelector("textarea");
+        textarea.value = text || "";
+        textarea.addEventListener("focus", function(){ activeTextarea = textarea; });
+        textarea.addEventListener("click", function(){ activeTextarea = textarea; });
+        item.querySelector(".crmStageMessageRemove").addEventListener("click", function(){
+          item.remove();
+          refreshMessageNumbers();
+          var remaining = listBox.querySelector("textarea");
+          activeTextarea = remaining || null;
+        });
+        listBox.appendChild(item);
+        activeTextarea = textarea;
+        refreshMessageNumbers();
+        return textarea;
+      }
+
+      (existingMessages.length ? existingMessages : [""]).forEach(function(m){ addStageMessageTextarea(m); });
+
+      var addBtn = wrap.querySelector("#crmStageMsgAdd");
+      if (addBtn) addBtn.addEventListener("click", function(){
+        var ta = addStageMessageTextarea("");
+        setTimeout(function(){ ta.focus(); }, 30);
+      });
+
+      var tokens = wrap.querySelector(".crmStageMessageTokens");
+      ["{{nome}}", "{{empresa}}", "{{email}}", "{{whatsapp}}", "{{etapa}}", "{{funil}}"].forEach(function(t){
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "crmStageMessageToken";
+        btn.innerHTML = "<i class='ph ph-brackets-curly'></i>" + escapeHtml(t);
+        btn.addEventListener("click", function(){
+          var target = activeTextarea || listBox.querySelector("textarea");
+          crmInsertAtCursor(target, t);
+          activeTextarea = target;
+        });
+        tokens.appendChild(btn);
+      });
+      wrap.querySelector("#crmStageMsgCancel").addEventListener("click", crmCloseModal);
+      wrap.querySelector("#crmStageMsgClear").addEventListener("click", function(){
+        listBox.innerHTML = "";
+        var ta = addStageMessageTextarea("");
+        setTimeout(function(){ ta.focus(); }, 30);
+      });
+      wrap.querySelector("#crmStageMsgSave").addEventListener("click", function(){
+        var messages = Array.prototype.map.call(listBox.querySelectorAll(".crmStageMsgItem"), function(textarea){
+          return String(textarea.value || "").trim();
+        }).filter(Boolean).slice(0, 10);
+
+        stage.autoMessages = messages;
+        delete stage.autoMessageText;
+        delete stage.crmAutoMessages;
+        delete stage.crmAutoMessageText;
+        delete stage.crmMessageTexts;
+        delete stage.crmMessageText;
+        delete stage.messageTexts;
+        delete stage.messageText;
+
+        crmRenderBoard();
+        crmQueueSave();
+        crmCloseModal();
+        toast("ok", "Mensagem da etapa", messages.length ? (messages.length + " mensagem(ns) vinculada(s) à coluna.") : "Sequência removida da coluna.");
+      });
+
+      crmOpenModal("Vincular mensagem à coluna", (pipeline.name || "Funil") + " → " + (stage.name || "Etapa"), wrap);
+    }
+
+    function crmOpenLeadChat(leadId){
+      var lead = crmLeadById[leadId] || null;
+      if (!lead) {
+        toast("warn", "Conversar", "Não encontrei este lead.");
+        return;
+      }
+      var digits = String(lead.whatsapp_digits || lead.whatsapp_raw || "").replace(/\D+/g, "");
+      if (!digits) {
+        toast("warn", "Conversar", "Este lead não tem WhatsApp cadastrado.");
+        return;
+      }
+      if (typeof openConversationFromInsight === "function") {
+        crmCloseModal();
+        openConversationFromInsight({
+          whatsapp_digits: digits,
+          nome: lead.nome || "",
+          empresa: lead.empresa || "",
+          email: lead.email || ""
+        });
+      } else {
+        setActiveNav("chats");
+        toast("warn", "Conversar", "Abra a conversa pelo número: " + digits);
+      }
+    }
+
     function crmRenderBoard(){
       crmBoard.innerHTML = "";
       var p = crmActivePipeline();
@@ -8155,22 +9074,39 @@ function crmExtractLeads(payload){
         title.className = "crmColTitle";
         var count = (st.leadIds || []).length;
         var stageName = escapeHtml(st.name || "Etapa");
+        var autoMsgCount = crmStageMessageCount(st);
         title.innerHTML = "<div class='crmStageTitleRow'>" +
-                            "<span class='crmStageIcon'><i class='ph " + crmStageIconName(idx) + "'></i></span>" +
+                            "<button type='button' class='crmStageIcon crmStageIconPicker' title='Trocar ícone da etapa' aria-label='Trocar ícone da etapa'><i class='ph " + crmStageIconName(st, idx) + "'></i></button>" +
                             "<div class='crmStageTitleText'><b title='" + stageName + "'>" + stageName + "</b><small>Etapa " + (idx + 1) + "</small></div>" +
                             "<span class='crmStageDragHint' title='Arraste para mudar a posição da etapa'><i class='ph ph-dots-six-vertical'></i></span>" +
                           "</div>" +
-                          "<span class='crmStageCount'><i class='ph ph-user-circle'></i>" + count + " lead(s)</span>";
+                          "<span class='crmStageCount'><i class='ph ph-user-circle'></i>" + count + " lead(s)</span>" +
+                          (autoMsgCount ? "<span class='crmStageAutoMsgBadge'><i class='ph ph-paper-plane-tilt'></i> " + (autoMsgCount > 1 ? (autoMsgCount + " mensagens") : "Mensagem ativa") + "</span>" : "");
+
+        var btnIconPicker = title.querySelector(".crmStageIconPicker");
+        if (btnIconPicker) {
+          btnIconPicker.addEventListener("click", function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            crmOpenStageIconPicker(p.id, stageId);
+          });
+        }
 
         var actions = document.createElement("div");
         actions.className = "crmColActions";
         actions.innerHTML =
+          "<button class='btnMini crmStageMessage' title='Mensagem automática da etapa'><i class='ph ph-chat-circle-text'></i></button>" +
           "<button class='btnMini crmStageEdit' title='Renomear etapa'>" + iconMarkup("edit", "Renomear", "sm") + "</button>" +
           "<button class='btnMini crmStageDelete' title='Excluir etapa'>" + iconMarkup("trash", "Excluir", "sm") + "</button>";
 
-        var btnRen = actions.children[0];
-        var btnDel = actions.children[1];
+        var btnMsg = actions.querySelector(".crmStageMessage");
+        var btnRen = actions.querySelector(".crmStageEdit");
+        var btnDel = actions.querySelector(".crmStageDelete");
 
+        btnMsg.addEventListener("click", function(e){
+          e.stopPropagation();
+          crmOpenStageMessage(p.id, stageId);
+        });
         btnRen.addEventListener("click", async function(e){
           e.stopPropagation();
           var nn = await crmPromptRename("etapa", st.name);
@@ -8262,6 +9198,9 @@ function crmExtractLeads(payload){
       var safeOrigem = escapeHtml(origem);
       var safeCreated = escapeHtml(created);
       var safeStage = escapeHtml(stage.name || "—");
+      var statusVal = leadStatusValue(lead);
+      var safeStatusVal = escapeHtml(statusVal);
+      var safeStatusLabel = escapeHtml(leadStatusLabel(lead));
 
       card.innerHTML =
         "<div class='crmCardAccent'></div>" +
@@ -8269,13 +9208,13 @@ function crmExtractLeads(payload){
           "<div class='crmCardIdentity'>" +
             "<span class='crmAvatar'>" + safeNome.slice(0,1).toUpperCase() + "</span>" +
             "<div class='crmCardIdentityText'>" +
-              "<div class='crmName' title='" + safeNome.replace(/'/g,"&#39;") + "'>" + safeNome + "</div>" +
+              "<div class='crmNameLine'><span class='crmLeadStatusDot status-" + safeStatusVal + "' title='" + safeStatusLabel + "'></span><div class='crmName' title='" + safeNome.replace(/'/g,"&#39;") + "'>" + safeNome + "</div></div>" +
               "<div class='crmStageBadge'><i class='ph ph-arrow-elbow-down-right'></i>" + safeStage + "</div>" +
             "</div>" +
           "</div>" +
           "<div class='crmCardBtns'>" +
-            "<button class='btnMini crmCardMove' title='Mover para...'>" + iconMarkup("swap", "Mover para", "sm") + "</button>" +
-            "<button class='btnMini crmCardView' title='Detalhes'>" + iconMarkup("eye", "Detalhes", "sm") + "</button>" +
+            "<button class='btnMini crmCardChat' title='Conversar com este lead'><i class='ph ph-whatsapp-logo'></i></button>" +
+            "<button class='btnMini crmCardView' title='Ver detalhes'>" + iconMarkup("eye", "Detalhes", "sm") + "</button>" +
           "</div>" +
         "</div>" +
         "<div class='crmMeta'>" +
@@ -8284,12 +9223,12 @@ function crmExtractLeads(payload){
           (safeCreated ? ("<div class='crmMetaLine'><i class='ph ph-clock crmMetaPh'></i><span>" + safeCreated + "</span></div>") : "") +
         "</div>";
 
-      var btnMove = card.querySelectorAll(".btnMini")[0];
-      var btnView = card.querySelectorAll(".btnMini")[1];
+      var btnChat = card.querySelector(".crmCardChat");
+      var btnView = card.querySelector(".crmCardView");
 
-      btnMove.addEventListener("click", function(e){
+      btnChat.addEventListener("click", function(e){
         e.stopPropagation();
-        crmOpenMoveMenu(leadId, pipeline);
+        crmOpenLeadChat(leadId);
       });
       btnView.addEventListener("click", function(e){
         e.stopPropagation();

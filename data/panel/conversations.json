@@ -2403,6 +2403,43 @@
       "mediaSize": 170721,
       "filename": "false_45445166420043@lid_3A482346146CB066075F",
       "originalName": "false_45445166420043@lid_3A482346146CB066075F"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB05BA188B77E1CDE925B",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780326243,
+      "createdAt": "2026-06-01T15:04:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_45445166420043_lid_3EB05BA188B77E1CDE925B_3b2a39e0.ogg",
+      "mediaSize": 28905,
+      "filename": "true_45445166420043@lid_3EB05BA188B77E1CDE925B",
+      "originalName": "true_45445166420043@lid_3EB05BA188B77E1CDE925B"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB0E3ADCCE4398EF5879C",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780326288,
+      "createdAt": "2026-06-01T15:04:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45445166420043@lid_3A2F4C13CC93106F81BA",
+      "fromMe": false,
+      "body": "Muito obrigado",
+      "type": "chat",
+      "timestamp": 1780327198,
+      "createdAt": "2026-06-01T15:19:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511975106315": [
@@ -2616,6 +2653,33 @@
       "createdAt": "2026-06-01T11:13:40.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_233071030866106@lid_3EB04DA6B84CD4AEE40C4A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780326013,
+      "createdAt": "2026-06-01T15:00:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_233071030866106_lid_3EB04DA6B84CD4AEE40C4A_ceac4dd2.ogg",
+      "mediaSize": 31411,
+      "filename": "true_233071030866106@lid_3EB04DA6B84CD4AEE40C4A",
+      "originalName": "true_233071030866106@lid_3EB04DA6B84CD4AEE40C4A"
+    },
+    {
+      "id": "true_233071030866106@lid_3EB086B05929EEABE1B59C",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780326018,
+      "createdAt": "2026-06-01T15:00:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5584981815688": [
@@ -2822,6 +2886,36 @@
       "createdAt": "2026-06-01T12:56:28.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB061FC37F9554ACACC8B",
+      "fromMe": false,
+      "body": "Olá! Espero que esteja tudo bem consigo. 😊\n\nO meu nome é Fabiane e faço parte da equipa do Matheus Bottaro, Parceiro Google Partners Premier.",
+      "type": "chat",
+      "timestamp": 1780319892,
+      "createdAt": "2026-06-01T13:18:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB04287C27CBE4B039BE4",
+      "fromMe": true,
+      "body": "Gostaria de saber mais sobre a Imersão em Lisboa",
+      "type": "chat",
+      "timestamp": 1780321840,
+      "createdAt": "2026-06-01T13:50:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB05FF00D94EEE06C4A28",
+      "fromMe": false,
+      "body": "351965704615",
+      "type": "chat",
+      "timestamp": 1780325785,
+      "createdAt": "2026-06-01T14:56:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "351962451262": [
@@ -2943,6 +3037,43 @@
       "mediaSize": 41893,
       "filename": "false_141893002371262@lid_4AD1E518C3667D0637D4",
       "originalName": "false_141893002371262@lid_4AD1E518C3667D0637D4"
+    },
+    {
+      "id": "true_141893002371262@lid_3EB0FCA590F495304D1CFC",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780325570,
+      "createdAt": "2026-06-01T14:52:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_141893002371262_lid_3EB0FCA590F495304D1CFC_947f9bfa.ogg",
+      "mediaSize": 26014,
+      "filename": "true_141893002371262@lid_3EB0FCA590F495304D1CFC",
+      "originalName": "true_141893002371262@lid_3EB0FCA590F495304D1CFC"
+    },
+    {
+      "id": "true_141893002371262@lid_3EB0467511ACB239C839F3",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780325577,
+      "createdAt": "2026-06-01T14:52:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_141893002371262@lid_2A1A7A0A0D6FA56B7054",
+      "fromMe": false,
+      "body": "Ok! Obrigada",
+      "type": "chat",
+      "timestamp": 1780326076,
+      "createdAt": "2026-06-01T15:01:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511989376419": [
@@ -2965,6 +3096,16 @@
       "createdAt": "2026-06-01T11:46:28.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_36734939230218@lid_3EB0AA7C4A3D0119FDEC2E",
+      "fromMe": true,
+      "body": "Olá Alessandra! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780325859,
+      "createdAt": "2026-06-01T14:57:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351965704615": [
@@ -2985,6 +3126,48 @@
       "type": "chat",
       "timestamp": 1780318490,
       "createdAt": "2026-06-01T12:54:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_46467284779228@lid_3EB0A29DEABC70C6281D64",
+      "fromMe": true,
+      "body": "Boa tardeee Manuel!!!",
+      "type": "chat",
+      "timestamp": 1780325715,
+      "createdAt": "2026-06-01T14:55:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_46467284779228@lid_3EB087108E2AAE52099478",
+      "fromMe": true,
+      "body": "Vou te chamar do outro numero, para ficar mais facil a comunicação.",
+      "type": "chat",
+      "timestamp": 1780325732,
+      "createdAt": "2026-06-01T14:55:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511983548664": [
+    {
+      "id": "true_185499704643712@lid_3EB004A782428878B7E8F7",
+      "fromMe": true,
+      "body": "Olá Selma! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Selma?",
+      "type": "chat",
+      "timestamp": 1780328017,
+      "createdAt": "2026-06-01T15:33:37.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_185499704643712@lid_3B8F2F46E3EB3AB4DDA8",
+      "fromMe": false,
+      "body": "Boa tarde Fabiane,\nJá fiz a inscrição.\nEntrei no Hotmart e não há conteúdo, é isso?\nVou receber a confirmação e instruções por email?",
+      "type": "chat",
+      "timestamp": 1780333431,
+      "createdAt": "2026-06-01T17:03:51.000Z",
       "ack": 1,
       "source": "incoming-event"
     }
