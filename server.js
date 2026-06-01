@@ -27,7 +27,7 @@ function updateTemplateSafe(tenantId, text) {
   return setTemplate(tenantId, String(text || "").trim());
 }
 const { isWhatsAppConfigured, computeLeadStatus, getTenantWA, sendCustomMessage, sendCustomAudioMessage, getChatTextMessages, getChatsSnapshotForDigits, destroyCachedWhatsAppClients } = require("./src/whatsappManager");
-const { listConversationDigits, listConversationSummaries, getConversationMediaPath } = require("./src/tenantConversationStore");
+const { listConversationDigits, listConversationMessages, listConversationSummaries, getConversationMediaPath } = require("./src/tenantConversationStore");
 
 // CORREÇÃO: importando updateWebhook
 const { listWebhooks, createWebhook, updateWebhook, deleteWebhook, resolveWebhookToken } = require("./src/webhooksStore");
@@ -796,17 +796,71 @@ function sourceLabel(source) {
   return map[s] || (s ? s.replace(/_/g, " ").replace(/\b\w/g, (m) => m.toUpperCase()) : "Sem origem");
 }
 
-function leadOriginInfo(lead) {
+function isGenericWebhookName(name) {
+  const n = String(name || "").trim();
+  return !n || n.toLowerCase() === "webhook";
+}
+
+function webhookFullUrl(req, webhook) {
+  if (!webhook || !webhook.token) return "";
+  const base = req ? getPublicBaseUrl(req) : "";
+  return `${base}/webhooks/${webhook.token}`;
+}
+
+function webhookEffectiveName(webhook, url) {
+  const name = String((webhook && webhook.name) || "").trim();
+  if (!isGenericWebhookName(name)) return name;
+  return String(url || (webhook && webhook.token ? `/webhooks/${webhook.token}` : "Webhook")).trim() || "Webhook";
+}
+
+function serializeWebhook(webhook, req) {
+  const url = webhookFullUrl(req, webhook);
+  const isNamed = !isGenericWebhookName(webhook && webhook.name);
+  const displayName = webhookEffectiveName(webhook, url);
+  return {
+    id: webhook.id,
+    name: webhook.name || "",
+    displayName,
+    isNamed,
+    createdAt: webhook.createdAt || null,
+    updatedAt: webhook.updatedAt || null,
+    url,
+    messages: Array.isArray(webhook.messages) ? webhook.messages : (webhook.messageText ? [webhook.messageText] : []),
+    messageText: webhook.messageText || "",
+    urlPreview: webhook.token ? `/webhooks/${String(webhook.token).slice(0, 6)}...` : "",
+  };
+}
+
+function buildWebhookLookup(webhooks, req) {
+  const items = (Array.isArray(webhooks) ? webhooks : []).map((w) => serializeWebhook(w, req));
+  return {
+    items,
+    byId: new Map(items.map((w) => [String(w.id), w])),
+  };
+}
+
+function leadOriginInfo(lead, webhookLookup) {
   const meta = lead && lead.sourceMeta && typeof lead.sourceMeta === "object" ? lead.sourceMeta : null;
   if (meta && meta.type === "webhook") {
     const messages = Array.isArray(meta.webhookMessages) ? meta.webhookMessages.map((m) => String(m || "").trim()).filter(Boolean) : [];
+    const webhookId = String(meta.webhookId || "").trim();
+    const matchedWebhook = webhookId && webhookLookup && webhookLookup.byId ? webhookLookup.byId.get(webhookId) : null;
+    const fallbackName = webhookEffectiveName({ name: meta.webhookName || "", token: meta.webhookToken || "" }, meta.webhookUrl || "");
+    const webhookName = matchedWebhook ? matchedWebhook.displayName : fallbackName;
+    let detail = lead.sourceDetail || `Origem via webhook${messages.length ? ` com ${messages.length} mensagem(ns) automática(s)` : ""}`;
+    if (/Webhook\s+Webhook\s+recebido/i.test(detail) || isGenericWebhookName(meta.webhookName)) {
+      detail = `Origem via webhook: ${webhookName}`;
+      if (meta.payloadType) detail += ` · Formato: ${meta.payloadType}`;
+    }
     return {
-      key: `webhook:${meta.webhookId || meta.webhookName || lead.source || "unknown"}`,
-      label: `Webhook: ${meta.webhookName || "Webhook"}`,
+      key: `webhook:${webhookId || webhookName || lead.source || "unknown"}`,
+      label: `Webhook: ${webhookName || "Webhook"}`,
       type: "webhook",
-      detail: lead.sourceDetail || `Origem via webhook${messages.length ? ` com ${messages.length} mensagem(ns) automática(s)` : ""}`,
+      detail,
       messages,
       payloadType: meta.payloadType || "",
+      webhookId: webhookId || "",
+      webhookName: webhookName || "",
     };
   }
 
@@ -842,6 +896,7 @@ function buildTenantInsights(tenantId, req) {
   const tags = listTags(tenantId);
   const tagById = Object.fromEntries(tags.map((t) => [String(t.id), t]));
   const webhooks = listWebhooks(tenantId);
+  const webhookLookup = buildWebhookLookup(webhooks, req);
   const wa = getTenantWA(tenantId);
   const crm = readCrmState(tenantId);
 
@@ -852,6 +907,7 @@ function buildTenantInsights(tenantId, req) {
   let withWebsite = 0;
   let withCompany = 0;
   const dddMap = new Map();
+  const dddDetails = new Map();
   const sourceMap = new Map();
   const sourceDetails = new Map();
   const dailyMap = new Map();
@@ -880,7 +936,7 @@ function buildTenantInsights(tenantId, req) {
     const day = startOfDayIso(lead.createdAt);
     if (day) incMap(dailyMap, day);
 
-    const origin = leadOriginInfo(lead);
+    const origin = leadOriginInfo(lead, webhookLookup);
     incMap(sourceMap, origin.key);
     if (!sourceDetails.has(origin.key)) {
       sourceDetails.set(origin.key, { ...origin, count: 0, firstAt: lead.createdAt || null, lastAt: lead.createdAt || null });
@@ -892,6 +948,25 @@ function buildTenantInsights(tenantId, req) {
 
     const ids = Array.isArray(leadTags[lead.id]) ? leadTags[lead.id] : [];
     for (const id of ids) incMap(tagCount, id);
+
+    if (phone) {
+      const leadDdd = extractDDDFromDigits(phone);
+      if (leadDdd) {
+        if (!dddDetails.has(leadDdd)) dddDetails.set(leadDdd, []);
+        dddDetails.get(leadDdd).push({
+          id: lead.id,
+          nome: lead.nome || "",
+          empresa: lead.empresa || "",
+          email: lead.email || "",
+          whatsapp_digits: phone,
+          createdAt: lead.createdAt || null,
+          source: lead.source || "",
+          originLabel: origin.label,
+          originDetail: origin.detail,
+          tags: ids.map((id) => tagById[id]).filter(Boolean),
+        });
+      }
+    }
 
     recentLeads.push({
       id: lead.id,
@@ -998,6 +1073,38 @@ function buildTenantInsights(tenantId, req) {
     percentage: percent(row.count, totalLeads),
   }));
 
+  const webhookLeadStatsById = new Map();
+  for (const row of sourceDetails.values()) {
+    if (row && row.type === "webhook" && row.webhookId) {
+      webhookLeadStatsById.set(String(row.webhookId), {
+        count: row.count || 0,
+        percentage: percent(row.count || 0, totalLeads),
+        firstAt: row.firstAt || null,
+        lastAt: row.lastAt || null,
+      });
+    }
+  }
+
+  const webhooksWithCounts = webhookLookup.items.map((wb) => {
+    const stats = webhookLeadStatsById.get(String(wb.id)) || { count: 0, percentage: 0, firstAt: null, lastAt: null };
+    return {
+      ...wb,
+      leadCount: stats.count,
+      leadPercentage: stats.percentage,
+      firstLeadAt: stats.firstAt,
+      lastLeadAt: stats.lastAt,
+    };
+  });
+
+  const dddRows = topFromMap(dddMap, 15).map((x) => ({
+    ddd: x.key,
+    count: x.count,
+    percentage: percent(x.count, withWhatsapp),
+    leads: (dddDetails.get(x.key) || [])
+      .sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")))
+      .slice(0, 300),
+  }));
+
   return {
     ok: true,
     tenantId,
@@ -1038,16 +1145,9 @@ function buildTenantInsights(tenantId, req) {
       notExistsRate: percent(statusCounts.notExists, uniqueWhatsapp),
     },
     origins: sourceRows,
-    ddds: topFromMap(dddMap, 15).map((x) => ({ ddd: x.key, count: x.count, percentage: percent(x.count, withWhatsapp) })),
+    ddds: dddRows,
     tags: topFromMap(tagCount, 20).map((x) => ({ ...(tagById[x.key] || { id: x.key, name: x.key, color: "#64748b" }), count: x.count, percentage: percent(x.count, totalLeads) })),
-    webhooks: webhooks.map((w) => ({
-      id: w.id,
-      name: w.name || "Webhook",
-      createdAt: w.createdAt || null,
-      updatedAt: w.updatedAt || null,
-      messages: Array.isArray(w.messages) ? w.messages : (w.messageText ? [w.messageText] : []),
-      urlPreview: w.token ? `/webhooks/${String(w.token).slice(0, 6)}...` : "",
-    })),
+    webhooks: webhooksWithCounts,
     timeline: { last30 },
     crm: { pipelines: pipelineRows },
     conversations: {
@@ -1128,6 +1228,8 @@ app.post("/webhooks/:token", async (req, res) => {
 
     const tenantId = row.tenantId;
     const body = req.body || {};
+    const webhookUrl = webhookFullUrl(req, row);
+    const webhookName = webhookEffectiveName(row, webhookUrl);
 
     let lead = null;
 
@@ -1136,11 +1238,13 @@ app.post("/webhooks/:token", async (req, res) => {
       const c = body.contact || {};
       const f = c?.fields || {};
       lead = await processLead(tenantId, "generated_webhook_activecampaign", {
-        sourceDetail: `Webhook ${row.name || row.id} recebido no formato ActiveCampaign`,
+        sourceDetail: `Webhook ${webhookName || row.id} recebido no formato ActiveCampaign`,
         sourceMeta: {
           type: "webhook",
           webhookId: row.id,
-          webhookName: row.name || "Webhook",
+          webhookName,
+          webhookUrl,
+          webhookToken: row.token || "",
           webhookMessages: Array.isArray(row.messages) ? row.messages : (row.messageText ? [row.messageText] : []),
           payloadType: "activecampaign"
         },
@@ -1158,11 +1262,13 @@ app.post("/webhooks/:token", async (req, res) => {
       // Payload genérico
       const p = body;
       lead = await processLead(tenantId, "generated_webhook_generic", {
-        sourceDetail: `Webhook ${row.name || row.id} recebido por POST JSON`,
+        sourceDetail: `Webhook ${webhookName || row.id} recebido por POST JSON`,
         sourceMeta: {
           type: "webhook",
           webhookId: row.id,
-          webhookName: row.name || "Webhook",
+          webhookName,
+          webhookUrl,
+          webhookToken: row.token || "",
           webhookMessages: Array.isArray(row.messages) ? row.messages : (row.messageText ? [row.messageText] : []),
           payloadType: "json"
         },
@@ -1365,22 +1471,13 @@ app.post("/api/admin/message-template", adminAuth, (req, res) => {
 
 // CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela
 app.get("/api/admin/webhooks", adminAuth, (req, res) => {
-  const base = getPublicBaseUrl(req);
-  const items = listWebhooks(TENANT_ADMIN).map((w) => ({
-    id: w.id,
-    createdAt: w.createdAt,
-    updatedAt: w.updatedAt,
-    url: `${base}/webhooks/${w.token}`,
-    messages: w.messages || [],
-    messageText: w.messageText || ""
-  }));
+  const items = listWebhooks(TENANT_ADMIN).map((w) => serializeWebhook(w, req));
   res.json({ ok: true, webhooks: items });
 });
 
 app.post("/api/admin/webhooks", adminAuth, (req, res) => {
-  const base = getPublicBaseUrl(req);
-  const w = createWebhook(TENANT_ADMIN);
-  res.json({ ok: true, id: w.id, createdAt: w.createdAt, url: `${base}/webhooks/${w.token}` });
+  const w = createWebhook(TENANT_ADMIN, { name: req.body && req.body.name });
+  res.json({ ok: true, ...serializeWebhook(w, req) });
 });
 
 // CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Admin)
@@ -1527,22 +1624,13 @@ app.post("/api/panel/message-template", panelAuth, (req, res) => {
 
 // CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Panel)
 app.get("/api/panel/webhooks", panelAuth, (req, res) => {
-  const base = getPublicBaseUrl(req);
-  const items = listWebhooks(TENANT_PANEL).map((w) => ({
-    id: w.id,
-    createdAt: w.createdAt,
-    updatedAt: w.updatedAt,
-    url: `${base}/webhooks/${w.token}`,
-    messages: w.messages || [],
-    messageText: w.messageText || ""
-  }));
+  const items = listWebhooks(TENANT_PANEL).map((w) => serializeWebhook(w, req));
   res.json({ ok: true, webhooks: items });
 });
 
 app.post("/api/panel/webhooks", panelAuth, (req, res) => {
-  const base = getPublicBaseUrl(req);
-  const w = createWebhook(TENANT_PANEL);
-  res.json({ ok: true, id: w.id, createdAt: w.createdAt, url: `${base}/webhooks/${w.token}` });
+  const w = createWebhook(TENANT_PANEL, { name: req.body && req.body.name });
+  res.json({ ok: true, ...serializeWebhook(w, req) });
 });
 
 // CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Panel)
@@ -1689,22 +1777,13 @@ app.post("/api/regina/message-template", reginaAuth, (req, res) => {
 
 // CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Regina)
 app.get("/api/regina/webhooks", reginaAuth, (req, res) => {
-  const base = getPublicBaseUrl(req);
-  const items = listWebhooks(TENANT_REGINA).map((w) => ({
-    id: w.id,
-    createdAt: w.createdAt,
-    updatedAt: w.updatedAt,
-    url: `${base}/webhooks/${w.token}`,
-    messages: w.messages || [],
-    messageText: w.messageText || ""
-  }));
+  const items = listWebhooks(TENANT_REGINA).map((w) => serializeWebhook(w, req));
   res.json({ ok: true, webhooks: items });
 });
 
 app.post("/api/regina/webhooks", reginaAuth, (req, res) => {
-  const base = getPublicBaseUrl(req);
-  const w = createWebhook(TENANT_REGINA);
-  res.json({ ok: true, id: w.id, createdAt: w.createdAt, url: `${base}/webhooks/${w.token}` });
+  const w = createWebhook(TENANT_REGINA, { name: req.body && req.body.name });
+  res.json({ ok: true, ...serializeWebhook(w, req) });
 });
 
 // CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Regina)

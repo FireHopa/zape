@@ -1047,7 +1047,7 @@ html, body { height: 100%; overflow: hidden; }
 .insightEyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:950;margin-bottom:8px;}
 .insightValue{font-size:30px;font-weight:1000;letter-spacing:-.05em;color:var(--text);line-height:1;}
 .insightHint{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.35;}
-.insightSectionGrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:14px;}
+.insightSectionGrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:14px;align-items:start;}
 .insightMiniGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
 .insightStatus{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--border);border-radius:16px;background:#fff;}
 .insightStatusDot{width:10px;height:10px;border-radius:999px;box-shadow:0 0 0 4px rgba(15,23,42,.05);flex:0 0 auto;}
@@ -1070,6 +1070,26 @@ html, body { height: 100%; overflow: hidden; }
 .insightTagPill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:999px;padding:5px 8px;font-size:12px;font-weight:800;background:#fff;margin:3px 4px 3px 0;}
 .insightTagDot{width:8px;height:8px;border-radius:999px;}
 .insightEmpty{border:1px dashed var(--border);border-radius:16px;padding:18px;text-align:center;color:var(--muted);background:#fff;}
+
+.insightTimelineCard .cardBody{display:flex;flex-direction:column;gap:12px;}
+.insightTimelineSummary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.insightTimelineMetric{border:1px solid var(--border);border-radius:14px;background:#fff;padding:10px 12px;}
+.insightTimelineMetric b{display:block;font-size:18px;line-height:1;color:var(--text);font-weight:1000;}
+.insightTimelineMetric span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-top:5px;}
+.insightTimeline{height:176px;padding:18px 14px 12px;background:linear-gradient(180deg,#fff,#f8fbff);background-size:100% 40px;border-color:#dbeafe;box-shadow:inset 0 1px 0 rgba(255,255,255,.9);}
+.insightTimelineBar{transition:height .18s ease, transform .15s ease, filter .15s ease;}
+.insightTimelineBar:hover{transform:translateY(-2px);filter:brightness(.96);}
+.insightTimelineLabels{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px;font-weight:800;}
+.insightBarRow.withAction{grid-template-columns:minmax(120px,.55fr) minmax(0,1fr) 86px 118px;}
+.insightMiniAction{min-height:32px;padding:7px 10px;border-radius:12px;font-size:12px;}
+.insightDddPanel{margin-top:12px;border:1px solid #dbeafe;border-radius:18px;background:linear-gradient(180deg,#fff,#f8fbff);overflow:hidden;}
+.insightDddPanelHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:14px;border-bottom:1px solid var(--border);}
+.insightDddPanelTitle{font-weight:1000;color:var(--text);font-size:14px;}
+.insightDddPanelSub{color:var(--muted);font-size:12px;margin-top:3px;}
+.insightDddPanelBody{max-height:360px;overflow:auto;}
+.insightActionGroup{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+.insightCopyBtn,.insightChatBtn{white-space:nowrap;}
+@media(max-width:720px){.insightTimelineSummary{grid-template-columns:1fr}.insightBarRow.withAction{grid-template-columns:1fr;}.insightMiniAction{width:max-content}.insightDddPanelHead{flex-direction:column;}}
 @media(max-width:1180px){.insightsGrid{grid-template-columns:repeat(2,minmax(0,1fr));}.insightSectionGrid{grid-template-columns:1fr;}}
 @media(max-width:720px){.insightsGrid,.insightMiniGrid{grid-template-columns:1fr;}.insightBarRow{grid-template-columns:1fr;gap:5px}.insightBarNumber{text-align:left}.insightTimeline{height:120px;}}
 
@@ -1626,6 +1646,10 @@ body:not(.hasPager) .pager{display:none!important;}
 #ovTemplate .webhookGrid{display:block!important;}
 #ovTemplate .webhookPanel{padding:18px!important;border-radius:22px!important;overflow:hidden!important;}
 #ovTemplate .webhookUrlRow{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important;align-items:stretch!important;}
+.webhookNameRow{display:grid;gap:7px;margin:2px 0 12px;}
+.webhookNameLabel{font-size:12px;font-weight:900;color:#344054;display:flex;align-items:center;gap:7px;}
+.webhookNameInput{height:44px!important;background:#fff!important;font-size:13px!important;font-family:inherit!important;}
+.webhookNameHelp{font-size:12px;color:#667085;line-height:1.35;}
 .webhookActionsRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;width:100%;}
 .webhookActionsRow .btn{min-height:42px;white-space:nowrap;}
 #ovTemplate .webhookSelect{width:100%!important;max-width:100%!important;min-width:0!important;height:44px!important;background:#fff!important;}
@@ -2183,16 +2207,20 @@ body:not(.hasPager) .pager{display:none!important;}
             <div class="cardBody"><div id="insOrigins"></div></div>
           </section>
 
-          <section class="card">
-            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-calendar-dots"></i> Novos leads nos últimos 30 dias</h2></div>
-            <div class="cardBody"><div id="insTimeline" class="insightTimeline"></div></div>
+          <section class="card insightTimelineCard">
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-calendar-dots"></i> Novos leads nos últimos 30 dias</h2><span class="hint">Evolução diária dos cadastros.</span></div>
+            <div class="cardBody">
+              <div id="insTimelineSummary" class="insightTimelineSummary"></div>
+              <div id="insTimeline" class="insightTimeline"></div>
+              <div id="insTimelineLabels" class="insightTimelineLabels"></div>
+            </div>
           </section>
         </div>
 
         <div class="insightSectionGrid">
           <section class="card">
-            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-map-pin"></i> DDDs e localização</h2><span class="hint">Distribuição por DDD dos WhatsApps.</span></div>
-            <div class="cardBody"><div id="insDdds" class="insightBars"></div></div>
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-map-pin"></i> DDDs e localização</h2><span class="hint">Clique em um DDD para visualizar e agir sobre os números.</span></div>
+            <div class="cardBody"><div id="insDdds" class="insightBars"></div><div id="insDddDetail"></div></div>
           </section>
 
           <section class="card">
@@ -2651,6 +2679,11 @@ Não tenho interesse"></textarea>
               <div class="panelMiniHint">Copie este link e use na sua landing page, formulário ou ferramenta de automação.</div>
             </div>
           </div>
+          <div class="webhookNameRow">
+            <label class="webhookNameLabel" for="whNameInput"><i class="ph ph-tag"></i> Nome da origem</label>
+            <input id="whNameInput" class="input webhookNameInput" type="text" placeholder="Ex: Landing Lisboa, Formulário Hotmart, Lead Ads Maio">
+            <div class="webhookNameHelp">Esse nome será usado para separar a origem dos leads na aba Insights.</div>
+          </div>
           <div class="webhookUrlRow">
             <select id="whSelect" class="input webhookSelect" aria-label="Link de webhook ativo">
               <option value="">carregando...</option>
@@ -2677,7 +2710,7 @@ Não tenho interesse"></textarea>
         </div>
         <div id="whMessagesList" class="webhookMessagesList"></div>
         <div class="webhookFooter">
-          <button id="btnWebhookSave" class="btn btnPrimary" type="button"><i class="ph ph-floppy-disk"></i> Salvar mensagens</button>
+          <button id="btnWebhookSave" class="btn btnPrimary" type="button"><i class="ph ph-floppy-disk"></i> Salvar origem e mensagens</button>
           <span class="webhookMeta" id="whMsgMeta"></span>
         </div>
       </section>
@@ -4329,6 +4362,156 @@ Não tenho interesse"></textarea>
         '</div>';
       }).join('') + '</div>';
     }
+
+    function insDateLabel(dateStr){
+      var s = String(dateStr || "");
+      var m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (m) return m[3] + "/" + m[2];
+      return s || "—";
+    }
+
+    function insightTimelineStats(tl){
+      var rows = Array.isArray(tl) ? tl : [];
+      var total = rows.reduce(function(acc, x){ return acc + Number(x.count || 0); }, 0);
+      var max = rows.reduce(function(acc, x){ return Math.max(acc, Number(x.count || 0)); }, 0);
+      var activeDays = rows.filter(function(x){ return Number(x.count || 0) > 0; }).length;
+      return { total: total, max: max, activeDays: activeDays };
+    }
+
+    function renderInsightTimeline(tl){
+      var rows = Array.isArray(tl) ? tl : [];
+      var maxTl = Math.max.apply(null, rows.map(function(x){ return Number(x.count || 0); }).concat([1]));
+      var summary = document.getElementById("insTimelineSummary");
+      var labels = document.getElementById("insTimelineLabels");
+      var timeline = document.getElementById("insTimeline");
+      var st = insightTimelineStats(rows);
+      if (summary) {
+        summary.innerHTML = '<div class="insightTimelineMetric"><b>' + insFmt(st.total) + '</b><span>Total no período</span></div>' +
+          '<div class="insightTimelineMetric"><b>' + insFmt(st.max) + '</b><span>Melhor dia</span></div>' +
+          '<div class="insightTimelineMetric"><b>' + insFmt(st.activeDays) + '</b><span>Dias com leads</span></div>';
+      }
+      if (timeline) {
+        timeline.innerHTML = rows.length ? rows.map(function(x){
+          var h = Math.max(4, Math.round((Number(x.count || 0) / maxTl) * 140));
+          return '<div class="insightTimelineBar" style="height:' + h + 'px" data-tip="' + escapeHtml(insDateLabel(x.date) + ': ' + insFmt(x.count) + ' lead(s)') + '"></div>';
+        }).join('') : insEmpty("Ainda não há leads no período.");
+      }
+      if (labels) {
+        var first = rows[0] ? insDateLabel(rows[0].date) : "—";
+        var mid = rows[Math.floor(rows.length / 2)] ? insDateLabel(rows[Math.floor(rows.length / 2)].date) : "—";
+        var last = rows[rows.length - 1] ? insDateLabel(rows[rows.length - 1].date) : "—";
+        labels.innerHTML = '<span>' + escapeHtml(first) + '</span><span>' + escapeHtml(mid) + '</span><span>' + escapeHtml(last) + '</span>';
+      }
+    }
+
+    var selectedInsightDdd = "";
+
+    function renderInsightDdds(ddds){
+      var rows = Array.isArray(ddds) ? ddds : [];
+      var box = document.getElementById("insDdds");
+      if (!box) return;
+      if (!rows.length) {
+        box.innerHTML = insEmpty("Nenhum DDD identificado ainda.");
+        var detailEmpty = document.getElementById("insDddDetail");
+        if (detailEmpty) detailEmpty.innerHTML = "";
+        return;
+      }
+      var max = Math.max.apply(null, rows.map(function(x){ return Number(x.count || 0); }).concat([1]));
+      box.innerHTML = '<div class="insightBars">' + rows.map(function(x){
+        var count = Number(x.count || 0);
+        var w = Math.max(3, Math.round((count / max) * 100));
+        var ddd = String(x.ddd || "");
+        var active = selectedInsightDdd === ddd ? ' btnPrimary' : ' btnSoft';
+        return '<div class="insightBarRow withAction">' +
+          '<div class="insightBarLabel" title="DDD ' + escapeHtml(ddd) + '">DDD ' + escapeHtml(ddd) + '</div>' +
+          '<div class="insightBarTrack"><div class="insightBarFill" style="width:' + w + '%"></div></div>' +
+          '<div class="insightBarNumber">' + insFmt(count) + ' · ' + insPct(x.percentage) + '</div>' +
+          '<button class="btn insightMiniAction' + active + '" type="button" data-insight-ddd="' + escapeHtml(ddd) + '"><i class="ph ph-list-magnifying-glass"></i> Ver números</button>' +
+        '</div>';
+      }).join('') + '</div>';
+      bindInsightDddButtons();
+      if (selectedInsightDdd) renderInsightDddDetail(selectedInsightDdd);
+    }
+
+    function bindInsightDddButtons(){
+      var wrap = document.getElementById("insDdds");
+      if (!wrap) return;
+      wrap.querySelectorAll("[data-insight-ddd]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          selectedInsightDdd = btn.getAttribute("data-insight-ddd") || "";
+          renderInsightDdds((insightsCache && insightsCache.ddds) || []);
+          renderInsightDddDetail(selectedInsightDdd);
+        });
+      });
+    }
+
+    function renderInsightDddDetail(ddd){
+      var holder = document.getElementById("insDddDetail");
+      if (!holder) return;
+      var rows = (insightsCache && Array.isArray(insightsCache.ddds) ? insightsCache.ddds : []);
+      var item = rows.find(function(x){ return String(x.ddd || "") === String(ddd || ""); });
+      if (!item) {
+        holder.innerHTML = "";
+        return;
+      }
+      var leads = Array.isArray(item.leads) ? item.leads : [];
+      var copyAllText = leads.map(function(l){
+        var digits = String(l.whatsapp_digits || "").replace(/\D+/g, "");
+        return [l.nome || "Sem nome", digits, l.empresa || "", l.email || ""].filter(Boolean).join(" | ");
+      }).join("\n");
+      holder.innerHTML = '<div class="insightDddPanel">' +
+        '<div class="insightDddPanelHead">' +
+          '<div><div class="insightDddPanelTitle">DDD ' + escapeHtml(item.ddd) + ' · ' + insFmt(item.count) + ' lead(s)</div><div class="insightDddPanelSub">Lista limitada aos últimos ' + insFmt(leads.length) + ' contatos desse DDD.</div></div>' +
+          '<div class="insightActionGroup"><button class="btn btnSoft insightCopyBtn" type="button" data-insight-copy="' + escapeHtml(copyAllText) + '"><i class="ph ph-copy"></i> Copiar todos</button><button class="btn btnGhost" type="button" data-insight-ddd-close><i class="ph ph-x"></i> Fechar</button></div>' +
+        '</div>' +
+        '<div class="insightDddPanelBody">' + (leads.length ? '<table class="insightTable"><thead><tr><th>Lead</th><th>WhatsApp</th><th>Origem</th><th>Ações</th></tr></thead><tbody>' + leads.map(function(l){
+          var digits = String(l.whatsapp_digits || "").replace(/\D+/g, "");
+          var line = [l.nome || "Sem nome", digits, l.empresa || "", l.email || ""].filter(Boolean).join(" | ");
+          return '<tr><td><b>' + escapeHtml(l.nome || formatWhatsAppPretty(digits) || 'Lead') + '</b><div class="insightSourceDetail">' + escapeHtml([l.empresa,l.email].filter(Boolean).join(' · ')) + '</div></td>' +
+            '<td><b>' + escapeHtml(formatWhatsAppPretty(digits) || digits || '—') + '</b><div class="insightSourceDetail">' + escapeHtml(insDate(l.createdAt)) + '</div></td>' +
+            '<td><b>' + escapeHtml(l.originLabel || l.source || 'Origem') + '</b><div class="insightSourceDetail">' + escapeHtml(l.originDetail || '') + '</div></td>' +
+            '<td><div class="insightActionGroup"><button class="btn btnSoft insightChatBtn" type="button" data-insight-chat="' + escapeHtml(digits) + '" data-insight-name="' + escapeHtml(l.nome || '') + '" data-insight-company="' + escapeHtml(l.empresa || '') + '" data-insight-email="' + escapeHtml(l.email || '') + '"><i class="ph ph-chat-circle-text"></i> Conversar</button><button class="btn btnGhost insightCopyBtn" type="button" data-insight-copy="' + escapeHtml(line) + '"><i class="ph ph-copy"></i> Copiar</button></div></td></tr>';
+        }).join('') + '</tbody></table>' : insEmpty("Não encontramos contatos para este DDD.")) + '</div>' +
+      '</div>';
+      var closeBtn = holder.querySelector("[data-insight-ddd-close]");
+      if (closeBtn) closeBtn.addEventListener("click", function(){ selectedInsightDdd = ""; holder.innerHTML = ""; renderInsightDdds((insightsCache && insightsCache.ddds) || []); });
+      bindInsightCopyButtons();
+      bindInsightChatButtons();
+    }
+
+    async function copyInsightText(text){
+      var value = String(text || "");
+      if (!value.trim()) {
+        toast("warn", "Copiar", "Não há conteúdo para copiar.");
+        return;
+      }
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(value);
+        else {
+          var ta = document.createElement("textarea");
+          ta.value = value;
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          document.execCommand("copy");
+          ta.remove();
+        }
+        toast("ok", "Copiado", "Os dados foram copiados para a área de transferência.");
+      } catch(e){
+        toast("err", "Copiar", e && e.message ? e.message : String(e));
+      }
+    }
+
+    function bindInsightCopyButtons(){
+      var wrap = document.getElementById("panelInsights") || document;
+      wrap.querySelectorAll("[data-insight-copy]").forEach(function(btn){
+        if (btn.getAttribute("data-copy-bound") === "1") return;
+        btn.setAttribute("data-copy-bound", "1");
+        btn.addEventListener("click", function(){ copyInsightText(btn.getAttribute("data-insight-copy") || ""); });
+      });
+    }
     function renderInsights(data){
       insightsCache = data || {};
       var s = data.summary || {};
@@ -4360,13 +4543,10 @@ Não tenho interesse"></textarea>
       }).join('') + '</tbody></table></div>';
 
       var tl = data.timeline && Array.isArray(data.timeline.last30) ? data.timeline.last30 : [];
-      var maxTl = Math.max.apply(null, tl.map(function(x){ return Number(x.count || 0); }).concat([1]));
-      document.getElementById("insTimeline").innerHTML = tl.map(function(x){
-        var h = Math.max(4, Math.round((Number(x.count || 0) / maxTl) * 124));
-        return '<div class="insightTimelineBar" style="height:' + h + 'px" data-tip="' + escapeHtml(x.date + ': ' + insFmt(x.count)) + '"></div>';
-      }).join('');
+      renderInsightTimeline(tl);
 
-      document.getElementById("insDdds").innerHTML = insBarRows((data.ddds || []).map(function(x){ return { label:'DDD ' + x.ddd, count:x.count, percentage:x.percentage }; }), { empty:"Nenhum DDD identificado ainda." });
+      if (selectedInsightDdd && !(data.ddds || []).some(function(x){ return String(x.ddd || "") === String(selectedInsightDdd); })) selectedInsightDdd = "";
+      renderInsightDdds(data.ddds || []);
 
       var tags = Array.isArray(data.tags) ? data.tags : [];
       document.getElementById("insTags").innerHTML = tags.length ? tags.map(function(t){
@@ -4374,9 +4554,11 @@ Não tenho interesse"></textarea>
       }).join('') : insEmpty("Nenhuma tag atribuída ainda.");
 
       var conv = data.conversations && Array.isArray(data.conversations.top) ? data.conversations.top : [];
-      document.getElementById("insConversationsBox").innerHTML = conv.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Contato</th><th>Mensagens</th><th>Última</th></tr></thead><tbody>' + conv.map(function(c){
-        var name = c.nome || formatWhatsAppPretty(c.whatsapp_digits);
-        return '<tr><td><b>' + escapeHtml(name) + '</b><div class="insightSourceDetail">' + escapeHtml(c.empresa || c.whatsapp_digits || '') + '</div></td><td><b>' + insFmt(c.total) + '</b><div class="insightSourceDetail">Entrada: ' + insFmt(c.incoming) + ' · Saída: ' + insFmt(c.outgoing) + ' · Mídia: ' + insFmt(c.media) + '</div></td><td>' + escapeHtml(insDate(c.lastAt)) + '<div class="insightSourceDetail">' + escapeHtml(insShort(c.lastPreview, 80)) + '</div></td></tr>';
+      document.getElementById("insConversationsBox").innerHTML = conv.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Contato</th><th>Mensagens</th><th>Última</th><th>Ações</th></tr></thead><tbody>' + conv.map(function(c){
+        var digits = String(c.whatsapp_digits || "").replace(/\D+/g, "");
+        var name = c.nome || formatWhatsAppPretty(digits);
+        var btnHtml = digits ? '<button class="btn btnSoft insightChatBtn" type="button" data-insight-chat="' + escapeHtml(digits) + '" data-insight-name="' + escapeHtml(c.nome || '') + '" data-insight-company="' + escapeHtml(c.empresa || '') + '"><i class="ph ph-chat-circle-text"></i> Conversar</button>' : '<span class="hint">Sem WhatsApp</span>';
+        return '<tr><td><b>' + escapeHtml(name) + '</b><div class="insightSourceDetail">' + escapeHtml(c.empresa || digits || '') + '</div></td><td><b>' + insFmt(c.total) + '</b><div class="insightSourceDetail">Entrada: ' + insFmt(c.incoming) + ' · Saída: ' + insFmt(c.outgoing) + ' · Mídia: ' + insFmt(c.media) + '</div></td><td>' + escapeHtml(insDate(c.lastAt)) + '<div class="insightSourceDetail">' + escapeHtml(insShort(c.lastPreview, 80)) + '</div></td><td>' + btnHtml + '</td></tr>';
       }).join('') + '</tbody></table></div>' : insEmpty("Nenhuma conversa real salva ainda.");
 
       var crm = data.crm && Array.isArray(data.crm.pipelines) ? data.crm.pipelines : [];
@@ -4385,16 +4567,22 @@ Não tenho interesse"></textarea>
       }).join('') : insEmpty("Nenhum funil configurado ainda.");
 
       var webhooks = Array.isArray(data.webhooks) ? data.webhooks : [];
-      document.getElementById("insWebhooks").innerHTML = webhooks.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Webhook</th><th>Mensagens</th><th>Atualização</th></tr></thead><tbody>' + webhooks.map(function(wb){
+      document.getElementById("insWebhooks").innerHTML = webhooks.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Webhook</th><th>Leads</th><th>Mensagens</th><th>Atualização</th></tr></thead><tbody>' + webhooks.map(function(wb){
         var msgs = Array.isArray(wb.messages) ? wb.messages : [];
-        return '<tr><td><b>' + escapeHtml(wb.name || 'Webhook') + '</b><div class="insightSourceDetail">' + escapeHtml(wb.urlPreview || '') + '</div></td><td>' + (msgs.length ? msgs.map(function(m){ return '<div class="insightMsgSnippet">' + escapeHtml(insShort(m, 160)) + '</div>'; }).join('') : '<span class="hint">Sem mensagem automática vinculada.</span>') + '</td><td>' + escapeHtml(insDate(wb.updatedAt || wb.createdAt)) + '</td></tr>';
+        var leadCount = Number(wb.leadCount || 0);
+        var leadDetail = leadCount ? '<div class="insightSourceDetail">' + insPct(wb.leadPercentage) + ' da base · Último lead: ' + escapeHtml(insDate(wb.lastLeadAt)) + '</div>' : '<div class="insightSourceDetail">Nenhum lead registrado ainda.</div>';
+        return '<tr><td><b>' + escapeHtml(wb.displayName || wb.name || 'Webhook') + '</b><div class="insightSourceDetail">' + escapeHtml(wb.urlPreview || '') + '</div></td><td><b>' + insFmt(leadCount) + '</b>' + leadDetail + '</td><td>' + (msgs.length ? msgs.map(function(m){ return '<div class="insightMsgSnippet">' + escapeHtml(insShort(m, 160)) + '</div>'; }).join('') : '<span class="hint">Sem mensagem automática vinculada.</span>') + '</td><td>' + escapeHtml(insDate(wb.updatedAt || wb.createdAt)) + '</td></tr>';
       }).join('') + '</tbody></table></div>' : insEmpty("Nenhum webhook ativo criado.");
 
       var recent = Array.isArray(data.recentLeads) ? data.recentLeads : [];
-      document.getElementById("insRecentLeads").innerHTML = recent.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Lead</th><th>Origem</th><th>Tags</th><th>Data</th></tr></thead><tbody>' + recent.map(function(l){
+      document.getElementById("insRecentLeads").innerHTML = recent.length ? '<div style="overflow:auto;"><table class="insightTable"><thead><tr><th>Lead</th><th>Origem</th><th>Tags</th><th>Data</th><th>Ações</th></tr></thead><tbody>' + recent.map(function(l){
         var tagHtml = Array.isArray(l.tags) && l.tags.length ? l.tags.map(function(t){ return '<span class="insightTagPill"><span class="insightTagDot" style="background:' + escapeHtml(t.color || '#64748b') + '"></span>' + escapeHtml(t.name || t.id) + '</span>'; }).join('') : '<span class="hint">—</span>';
-        return '<tr><td><b>' + escapeHtml(l.nome || formatWhatsAppPretty(l.whatsapp_digits) || 'Lead') + '</b><div class="insightSourceDetail">' + escapeHtml([l.empresa,l.email].filter(Boolean).join(' · ')) + '</div></td><td><b>' + escapeHtml(l.originLabel || l.source || 'Origem') + '</b><div class="insightSourceDetail">' + escapeHtml(l.originDetail || '') + '</div></td><td>' + tagHtml + '</td><td>' + escapeHtml(insDate(l.createdAt)) + '</td></tr>';
+        var digits = String(l.whatsapp_digits || l.whatsapp_raw || '').replace(/\D+/g, '');
+        var btnHtml = digits ? '<button class="btn btnSoft insightChatBtn" type="button" data-insight-chat="' + escapeHtml(digits) + '" data-insight-name="' + escapeHtml(l.nome || '') + '" data-insight-company="' + escapeHtml(l.empresa || '') + '" data-insight-email="' + escapeHtml(l.email || '') + '"><i class="ph ph-chat-circle-text"></i> Conversar</button>' : '<span class="hint">Sem WhatsApp</span>';
+        return '<tr><td><b>' + escapeHtml(l.nome || formatWhatsAppPretty(l.whatsapp_digits) || 'Lead') + '</b><div class="insightSourceDetail">' + escapeHtml([l.empresa,l.email].filter(Boolean).join(' · ')) + '</div></td><td><b>' + escapeHtml(l.originLabel || l.source || 'Origem') + '</b><div class="insightSourceDetail">' + escapeHtml(l.originDetail || '') + '</div></td><td>' + tagHtml + '</td><td>' + escapeHtml(insDate(l.createdAt)) + '</td><td>' + btnHtml + '</td></tr>';
       }).join('') + '</tbody></table></div>' : insEmpty("Ainda não há leads recentes.");
+      bindInsightChatButtons();
+      bindInsightCopyButtons();
 
       var pill = document.getElementById("navInsightsPill");
       if (pill) pill.textContent = insFmt(s.totalLeads || 0);
@@ -4417,6 +4605,58 @@ Não tenho interesse"></textarea>
 
     var btnInsightsRefresh = document.getElementById("btnInsightsRefresh");
     if (btnInsightsRefresh) btnInsightsRefresh.addEventListener("click", loadInsights);
+
+    function insightNormalizeDigits(value){
+      return String(value || "").replace(/\D+/g, "");
+    }
+
+    function bindInsightChatButtons(){
+      var wrap = document.getElementById("panelInsights") || document;
+      wrap.querySelectorAll("[data-insight-chat]").forEach(function(btn){
+        if (btn.getAttribute("data-chat-bound") === "1") return;
+        btn.setAttribute("data-chat-bound", "1");
+        btn.addEventListener("click", function(){
+          openConversationFromInsight({
+            whatsapp_digits: btn.getAttribute("data-insight-chat") || "",
+            nome: btn.getAttribute("data-insight-name") || "",
+            empresa: btn.getAttribute("data-insight-company") || "",
+            email: btn.getAttribute("data-insight-email") || ""
+          });
+        });
+      });
+    }
+
+    async function openConversationFromInsight(contact){
+      var digits = insightNormalizeDigits(contact && contact.whatsapp_digits);
+      if (!digits){
+        toast("warn", "Conversa", "Este lead não tem WhatsApp cadastrado.");
+        return;
+      }
+      try {
+        var search = document.getElementById("chatSearch");
+        if (search) search.value = digits;
+        setActiveNav("chats");
+        await loadConversations({ keepSelected: false });
+        var found = chatContacts.find(function(x){ return insightNormalizeDigits(x.whatsapp_digits || x.whatsapp_raw) === digits; });
+        if (!found) {
+          found = {
+            id: "lead_" + digits,
+            nome: contact.nome || "",
+            empresa: contact.empresa || "",
+            email: contact.email || "",
+            whatsapp_digits: digits,
+            whatsapp_raw: digits,
+            isLead: true,
+            isNewConversationOnly: false
+          };
+          chatContacts.unshift(found);
+          renderChatList();
+        }
+        await openConversation(found);
+      } catch(e){
+        toast("err", "Conversa", e && e.message ? e.message : String(e));
+      }
+    }
 
     /* ---------- Conversas ---------- */
     var chatContacts = [];
@@ -5613,6 +5853,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
 
   // -------------------- Webhooks (entrada) --------------------
     var whSelect = document.getElementById("whSelect");
+    var whNameInput = document.getElementById("whNameInput");
     var btnWebhookNew = document.getElementById("btnWebhookNew");
     var btnWebhookCopy = document.getElementById("btnWebhookCopy");
     var btnWebhookDelete = document.getElementById("btnWebhookDelete");
@@ -5648,6 +5889,17 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       btnWebhookAddMsg.addEventListener("click", function() { addMessageTextarea(""); });
     }
 
+    function webhookOptionLabel(w){
+      var label = (w && (w.displayName || w.name || w.url)) ? String(w.displayName || w.name || w.url) : "Webhook";
+      var url = w && w.url ? String(w.url) : "";
+      if (url && label !== url) return label + " · " + url;
+      return label;
+    }
+
+    function currentWebhookNameInput(){
+      return whNameInput ? String(whNameInput.value || "").trim() : "";
+    }
+
     function renderWebhooks(){
       if (!whSelect) return;
       whSelect.innerHTML = "";
@@ -5660,7 +5912,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
         webhookItems.forEach(function(w){
           var opt = document.createElement("option");
           opt.value = w.id;
-          opt.textContent = w.url;
+          opt.textContent = webhookOptionLabel(w);
           whSelect.appendChild(opt);
         });
       }
@@ -5678,11 +5930,20 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       if (whMessagesList) whMessagesList.innerHTML = ""; // Limpa a lista atual
 
       if (!w) {
-        whInfo.textContent = "Nenhum link ativo. Clique em Gerar novo link para criar uma entrada automática de leads.";
+        if (whNameInput) {
+          whNameInput.value = "";
+          whNameInput.placeholder = "Ex: Landing Lisboa, Formulário Hotmart, Lead Ads Maio";
+        }
+        whInfo.textContent = "Nenhum link ativo. Coloque um nome para a origem e clique em Gerar novo link.";
         addMessageTextarea(""); // Campo vazio padrão
         if (whMsgMeta) whMsgMeta.textContent = "";
       } else {
-        whInfo.textContent = "Link ativo desde " + formatDate(w.createdAt) + ". Copie e use no formulário que vai enviar os cadastros para este painel.";
+        if (whNameInput) {
+          whNameInput.value = w.isNamed ? (w.name || w.displayName || "") : "";
+          whNameInput.placeholder = w.isNamed ? "" : "Webhook antigo sem nome. Se quiser, digite um nome e salve.";
+        }
+        var originName = w.displayName || w.name || w.url || "Webhook";
+        whInfo.textContent = "Origem nos insights: " + originName + ". Link ativo desde " + formatDate(w.createdAt) + ". Copie e use no formulário que vai enviar os cadastros para este painel.";
         if (whMsgMeta) whMsgMeta.textContent = w.updatedAt ? ("Última atualização: " + formatDate(w.updatedAt)) : "";
         
         // Puxa as mensagens novas, ou faz o fallback pro sistema antigo
@@ -5705,11 +5966,27 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
 
     if (btnWebhookNew) btnWebhookNew.addEventListener("click", async function(){
       try {
-        var r = await fetch(API_BASE + "/webhooks", { method:"POST" }).then(function(x){ return x.json(); });
+        var selected = selectedWebhook();
+        var defaultName = currentWebhookNameInput();
+        if (selected && selected.isNamed && defaultName === String(selected.name || selected.displayName || "").trim()) defaultName = "";
+        var webhookName = await uiPrompt("Nome da origem", "Digite um nome para identificar este webhook nos Insights. Ex: Landing Lisboa, Formulário Hotmart ou Lead Ads Maio.", defaultName, { okText:"Gerar link", icon:"ph-tag" });
+        webhookName = String(webhookName || "").trim();
+        if (whNameInput && webhookName) whNameInput.value = webhookName;
+        if (!webhookName) {
+          toast("warn", "Entrada automática", "Dê um nome para este webhook antes de gerar o link.");
+          return;
+        }
+        var r = await fetch(API_BASE + "/webhooks", {
+          method:"POST",
+          headers:{ "Content-Type":"application/json" },
+          body: JSON.stringify({ name: webhookName })
+        }).then(function(x){ return x.json(); });
         if (r && r.ok){
           await loadWebhooks();
-          if (whSelect && webhookItems.length) whSelect.value = webhookItems[0].id;
+          if (whSelect && r.id) whSelect.value = r.id;
+          else if (whSelect && webhookItems.length) whSelect.value = webhookItems[0].id;
           updateWebhookInfo();
+          toast("ok", "Entrada automática", "Link gerado com origem: " + webhookName);
         } else {
           toast("err", "Entrada automática", (r && r.error) ? r.error : "Falha ao gerar webhook.");
         }
@@ -5767,7 +6044,9 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       if (whMsgMeta) whMsgMeta.textContent = "Salvando...";
 
       try{
+        var webhookName = currentWebhookNameInput();
         var body = { messages: messagesArray };
+        if (webhookName) body.name = webhookName;
         var r = await fetch(API_BASE + "/webhooks/" + encodeURIComponent(w.id), {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
