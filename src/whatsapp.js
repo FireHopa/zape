@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { Client, LocalAuth } = require("whatsapp-web.js");
 const QRCode = require("qrcode");
+const { phoneSearchVariants } = require("./phone");
 
 let client = null;
 let initPromise = null;
@@ -59,8 +60,13 @@ function upsertStatus(toDigits, patch) {
 }
 
 function getMessageStatusFor(toDigits) {
-  if (!toDigits) return null;
-  return statusMap[toDigits] || null;
+  const variants = phoneSearchVariants(toDigits);
+  for (const d of variants) {
+    if (d && statusMap[d]) return statusMap[d];
+  }
+
+  const d = String(toDigits || "").replace(/\D+/g, "").replace(/^0+/, "");
+  return d ? (statusMap[d] || null) : null;
 }
 
 function listStatus() {

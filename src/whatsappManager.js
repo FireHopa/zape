@@ -66,6 +66,7 @@ function ffmpegProbe(ffmpeg, filePath) {
     return err?.message || String(err);
   }
 }
+const { normalizePhoneToE164Digits, phoneSearchVariants } = require("./phone");
 const { ensureTenantDir, tenantDir } = require("./tenantPaths");
 const { getTemplate } = require("./messageTemplateStore");
 const {
@@ -499,7 +500,9 @@ class TenantWhatsApp {
   }
 
   _normalizeDigits(toDigits) {
-    return String(toDigits || "").replace(/\D+/g, "");
+    const normalized = normalizePhoneToE164Digits(toDigits);
+    if (normalized) return normalized;
+    return String(toDigits || "").replace(/\D+/g, "").replace(/^0+/, "");
   }
 
   _upsertStatus(toDigits, patch) {
@@ -790,7 +793,12 @@ class TenantWhatsApp {
   }
 
   getMessageStatusFor(toDigits) {
-    const d = String(toDigits || "").replace(/\D+/g, "");
+    const variants = phoneSearchVariants(toDigits);
+    for (const d of variants) {
+      if (d && this.statusMap[d]) return this.statusMap[d];
+    }
+
+    const d = String(toDigits || "").replace(/\D+/g, "").replace(/^0+/, "");
     return d ? (this.statusMap[d] || null) : null;
   }
 

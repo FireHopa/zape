@@ -11,7 +11,7 @@ const { panelAuth } = require("./src/panelAuth");
 const { reginaAuth } = require("./src/reginaAuth"); // NOVO: Autenticação da Regina
 const { registerAuthRoutes, anyTenantAuth } = require("./src/basicAuthFactory");
 
-const { normalizeBRPhoneToE164Digits } = require("./src/phone");
+const { normalizeBRPhoneToE164Digits, normalizePhoneToE164Digits, phoneSearchVariants, extractPhoneRegion } = require("./src/phone");
 
 const { readLeads, appendLead, deleteLeadById, toCSV } = require("./src/tenantLeadsStore");
 const { listTags, upsertTag, deleteTag } = require("./src/tenantTagsStore");
@@ -188,30 +188,123 @@ async function processLead(tenantId, source, payload) {
 }
 
 function extractDDDFromDigits(digits) {
-  const d = String(digits || "").replace(/\D+/g, "");
-  if (!d) return "";
-  if (d.length >= 13 && d.startsWith("55")) return d.slice(2, 4);
-  if (d.length >= 11) return d.slice(0, 2);
-  return "";
+  return extractPhoneRegion(digits);
+}
+
+function digitsOnlyServer(input) {
+  return String(input || "").replace(/\D+/g, "").replace(/^0+/, "");
+}
+
+function extractPhoneGeoFromDigits(input) {
+  const raw = digitsOnlyServer(input);
+  const d = normalizePhoneToE164Digits(input) || raw;
+  if (!d) return null;
+
+  if (d.startsWith("55") && (d.length === 12 || d.length === 13)) {
+    const prefix = d.slice(2, 4);
+    return {
+      key: `BR:${prefix}`,
+      country: "BR",
+      countryName: "Brasil",
+      ddi: "55",
+      prefix,
+      ddd: prefix,
+      label: `DDD ${prefix}`,
+      filterValue: prefix,
+    };
+  }
+
+  if (d.startsWith("351") && d.length === 12) {
+    const prefix = d.slice(3, 5);
+    return {
+      key: `PT:${prefix}`,
+      country: "PT",
+      countryName: "Portugal",
+      ddi: "351",
+      prefix,
+      ddd: prefix,
+      label: `Portugal ${prefix}`,
+      filterValue: prefix,
+    };
+  }
+
+  // Compatibilidade: registros antigos do Brasil sem DDI.
+  if (raw && (raw.length === 10 || raw.length === 11)) {
+    const prefix = raw.slice(0, 2);
+    return {
+      key: `BR:${prefix}`,
+      country: "BR",
+      countryName: "Brasil",
+      ddi: "55",
+      prefix,
+      ddd: prefix,
+      label: `DDD ${prefix}`,
+      filterValue: prefix,
+    };
+  }
+
+  // Compatibilidade: registros antigos de Portugal sem DDI.
+  if (raw && raw.length === 9 && /^[2-9]/.test(raw)) {
+    const prefix = raw.slice(0, 2);
+    return {
+      key: `PT:${prefix}`,
+      country: "PT",
+      countryName: "Portugal",
+      ddi: "351",
+      prefix,
+      ddd: prefix,
+      label: `Portugal ${prefix}`,
+      filterValue: prefix,
+    };
+  }
+
+  const prefix = extractPhoneRegion(d) || extractPhoneRegion(raw);
+  return prefix ? {
+    key: `UNK:${prefix}`,
+    country: "",
+    countryName: "",
+    ddi: "",
+    prefix,
+    ddd: prefix,
+    label: `Prefixo ${prefix}`,
+    filterValue: prefix,
+  } : null;
+}
+
+function getMessageStatusForPhoneVariants(wa, input) {
+  if (!wa || typeof wa.getMessageStatusFor !== "function") return null;
+  const variants = phoneSearchVariants(input);
+  for (const variant of variants) {
+    const ms = wa.getMessageStatusFor(variant);
+    if (ms) return ms;
+  }
+  const raw = digitsOnlyServer(input);
+  return raw ? wa.getMessageStatusFor(raw) : null;
+}
+
+function findLeadByPhoneVariants(byPhone, input) {
+  if (!byPhone || !input) return null;
+  const variants = phoneSearchVariants(input);
+  for (const variant of variants) {
+    const row = byPhone.get(variant);
+    if (row && row.lead) return row.lead;
+  }
+  return null;
 }
 
 function phoneMatchesSearch(lead, queryDigits) {
-  const qd = String(queryDigits || "").replace(/\D+/g, "");
-  if (!qd) return false;
+  const queryVariants = phoneSearchVariants(queryDigits);
+  if (!queryVariants.length) return false;
 
-  const rawDigits = String(lead.whatsapp_raw || "").replace(/\D+/g, "");
-  const savedDigits = String(lead.whatsapp_digits || "").replace(/\D+/g, "");
-  const candidates = new Set([rawDigits, savedDigits].filter(Boolean));
+  const candidateVariants = new Set();
+  for (const value of [lead.whatsapp_raw, lead.whatsapp_digits, lead.whatsapp, lead.phone, lead.telefone]) {
+    for (const variant of phoneSearchVariants(value)) candidateVariants.add(variant);
+  }
 
-  for (const digits of Array.from(candidates)) {
-    if (digits.includes(qd)) return true;
-
-    const withoutCountry = digits.startsWith("55") ? digits.slice(2) : digits;
-    if (withoutCountry && withoutCountry.includes(qd)) return true;
-
-    const queryWithoutCountry = qd.startsWith("55") ? qd.slice(2) : qd;
-    if (queryWithoutCountry && digits.includes(queryWithoutCountry)) return true;
-    if (queryWithoutCountry && withoutCountry.includes(queryWithoutCountry)) return true;
+  for (const candidate of candidateVariants) {
+    for (const query of queryVariants) {
+      if (candidate.includes(query) || query.includes(candidate)) return true;
+    }
   }
 
   return false;
@@ -228,20 +321,11 @@ function leadPhoneKey(lead) {
   ];
 
   for (const value of candidates) {
-    let d = String(value || "").replace(/\D+/g, "");
-    if (!d) continue;
-    d = d.replace(/^0+/, "");
+    const normalized = normalizePhoneToE164Digits(value);
+    if (normalized) return normalized;
 
-    // Normaliza BR para a mesma chave usada no resto do sistema.
-    if (!d.startsWith("55") && (d.length === 10 || d.length === 11)) {
-      d = "55" + d;
-    }
-
-    // Se veio com código do país + DDD + número, usa como chave canônica.
-    if (d.startsWith("55") && (d.length === 12 || d.length === 13)) return d;
-
-    // Fallback para números antigos/internacionais já salvos.
-    return d;
+    const d = String(value || "").replace(/\D+/g, "").replace(/^0+/, "");
+    if (d) return d;
   }
 
   return "";
@@ -704,6 +788,52 @@ function removeLeadFromCrmState(tenantId, leadId) {
   return changed;
 }
 
+function addLeadToCrmTargetFromWebhook(tenantId, webhookRow, lead) {
+  const leadId = String((lead && lead.id) || "").trim();
+  const target = webhookRow && webhookRow.crmTarget && typeof webhookRow.crmTarget === "object" ? webhookRow.crmTarget : null;
+  if (!leadId || !target || target.enabled === false) {
+    return { ok: false, added: false, reason: "no_target" };
+  }
+
+  const pipelineId = String(target.pipelineId || "").trim();
+  const requestedStageId = String(target.stageId || "").trim();
+  if (!pipelineId || !requestedStageId) {
+    return { ok: false, added: false, reason: "invalid_target" };
+  }
+
+  const state = readCrmState(tenantId);
+  const pipelines = Array.isArray(state.pipelines) ? state.pipelines : [];
+  const pipeline = pipelines.find((p) => p && String(p.id) === pipelineId);
+  if (!pipeline) {
+    return { ok: false, added: false, reason: "pipeline_not_found" };
+  }
+
+  pipeline.stages = pipeline.stages && typeof pipeline.stages === "object" ? pipeline.stages : {};
+  pipeline.stageOrder = Array.isArray(pipeline.stageOrder) ? pipeline.stageOrder : Object.keys(pipeline.stages || {});
+
+  let stageId = requestedStageId;
+  if (!pipeline.stages[stageId]) {
+    stageId = pipeline.stageOrder.find((sid) => pipeline.stages[sid]) || "";
+  }
+  if (!stageId || !pipeline.stages[stageId]) {
+    return { ok: false, added: false, reason: "stage_not_found" };
+  }
+
+  // Evita duplicar o mesmo lead na pipeline alvo. Se ele existir em outra etapa, move para a etapa configurada.
+  for (const sid of Object.keys(pipeline.stages)) {
+    const st = pipeline.stages[sid];
+    if (!st || !Array.isArray(st.leadIds)) continue;
+    st.leadIds = st.leadIds.filter((id) => String(id) !== leadId);
+  }
+
+  const stage = pipeline.stages[stageId];
+  stage.leadIds = Array.isArray(stage.leadIds) ? stage.leadIds : [];
+  stage.leadIds.push(leadId);
+
+  writeCrmState(tenantId, state);
+  return { ok: true, added: true, pipelineId: pipeline.id, stageId };
+}
+
 function shouldClearLeadWhatsappStatus(req) {
   const v = String(req.query.clearWhatsappStatus ?? req.query.clearStatus ?? "1").toLowerCase().trim();
   return !(v === "0" || v === "false" || v === "no" || v === "nao" || v === "não");
@@ -827,6 +957,13 @@ function serializeWebhook(webhook, req) {
     url,
     messages: Array.isArray(webhook.messages) ? webhook.messages : (webhook.messageText ? [webhook.messageText] : []),
     messageText: webhook.messageText || "",
+    crmTarget: webhook.crmTarget && typeof webhook.crmTarget === "object" ? {
+      enabled: webhook.crmTarget.enabled !== false,
+      pipelineId: String(webhook.crmTarget.pipelineId || ""),
+      stageId: String(webhook.crmTarget.stageId || ""),
+      linkedAt: webhook.crmTarget.linkedAt || null,
+      updatedAt: webhook.crmTarget.updatedAt || null,
+    } : null,
     urlPreview: webhook.token ? `/webhooks/${String(webhook.token).slice(0, 6)}...` : "",
   };
 }
@@ -950,6 +1087,7 @@ function buildTenantInsights(tenantId, req) {
   let withCompany = 0;
   const dddMap = new Map();
   const dddDetails = new Map();
+  const dddGeoByKey = new Map();
   const sourceMap = new Map();
   const sourceDetails = new Map();
   const dailyMap = new Map();
@@ -966,8 +1104,11 @@ function buildTenantInsights(tenantId, req) {
       const existing = byPhone.get(phone);
       if (!existing) byPhone.set(phone, { count: 0, lead });
       byPhone.get(phone).count++;
-      const ddd = extractDDDFromDigits(phone);
-      if (ddd) incMap(dddMap, ddd);
+      const geo = extractPhoneGeoFromDigits(phone);
+      if (geo) {
+        dddGeoByKey.set(geo.key, geo);
+        incMap(dddMap, geo.key);
+      }
     } else {
       withoutWhatsapp++;
     }
@@ -992,10 +1133,11 @@ function buildTenantInsights(tenantId, req) {
     for (const id of ids) incMap(tagCount, id);
 
     if (phone) {
-      const leadDdd = extractDDDFromDigits(phone);
-      if (leadDdd) {
-        if (!dddDetails.has(leadDdd)) dddDetails.set(leadDdd, []);
-        dddDetails.get(leadDdd).push({
+      const leadGeo = extractPhoneGeoFromDigits(phone);
+      if (leadGeo) {
+        dddGeoByKey.set(leadGeo.key, leadGeo);
+        if (!dddDetails.has(leadGeo.key)) dddDetails.set(leadGeo.key, []);
+        dddDetails.get(leadGeo.key).push({
           id: lead.id,
           nome: lead.nome || "",
           empresa: lead.empresa || "",
@@ -1025,7 +1167,7 @@ function buildTenantInsights(tenantId, req) {
   }
 
   for (const [phone] of byPhone.entries()) {
-    const ms = wa.getMessageStatusFor(phone);
+    const ms = getMessageStatusForPhoneVariants(wa, phone);
     const st = computeLeadStatus(ms, { notDeliveredAfterMs });
     statusByPhone.set(phone, st);
     if (st === "replied") statusCounts.replied++;
@@ -1072,9 +1214,10 @@ function buildTenantInsights(tenantId, req) {
       }
       last = msg;
     }
-    const leadMatch = byPhone.get(digits)?.lead || null;
+    const normalizedDigits = normalizePhoneToE164Digits(digits) || digitsOnlyServer(digits);
+    const leadMatch = findLeadByPhoneVariants(byPhone, normalizedDigits || digits) || null;
     conversationRows.push({
-      whatsapp_digits: digits,
+      whatsapp_digits: normalizedDigits || digits,
       nome: leadMatch ? (leadMatch.nome || "") : "",
       empresa: leadMatch ? (leadMatch.empresa || "") : "",
       total: messages.length,
@@ -1138,14 +1281,33 @@ function buildTenantInsights(tenantId, req) {
     };
   });
 
-  const dddRows = topFromMap(dddMap, 15).map((x) => ({
-    ddd: x.key,
-    count: x.count,
-    percentage: percent(x.count, withWhatsapp),
-    leads: (dddDetails.get(x.key) || [])
-      .sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")))
-      .slice(0, 300),
-  }));
+  const dddRows = topFromMap(dddMap, 15).map((x) => {
+    const geo = dddGeoByKey.get(x.key) || {
+      key: x.key,
+      prefix: String(x.key || ""),
+      ddd: String(x.key || ""),
+      country: "",
+      countryName: "",
+      ddi: "",
+      label: `Prefixo ${String(x.key || "")}`,
+      filterValue: String(x.key || ""),
+    };
+    return {
+      groupKey: geo.key,
+      ddd: geo.ddd || geo.prefix,
+      prefix: geo.prefix || geo.ddd,
+      country: geo.country || "",
+      countryName: geo.countryName || "",
+      ddi: geo.ddi || "",
+      label: geo.label || `Prefixo ${geo.prefix || geo.ddd || x.key}`,
+      filterValue: geo.filterValue || geo.ddd || geo.prefix || "",
+      count: x.count,
+      percentage: percent(x.count, withWhatsapp),
+      leads: (dddDetails.get(x.key) || [])
+        .sort((a, b) => String(b.createdAt || "").localeCompare(String(a.createdAt || "")))
+        .slice(0, 300),
+    };
+  });
 
   return {
     ok: true,
@@ -1324,6 +1486,13 @@ app.post("/webhooks/:token", async (req, res) => {
         active_contact_id: p.active_contact_id || "",
         active_seriesid: p.active_seriesid || "",
       });
+    }
+
+    const crmTargetResult = addLeadToCrmTargetFromWebhook(tenantId, row, lead);
+    if (crmTargetResult && crmTargetResult.added) {
+      console.log(`✅ Lead vinculado ao CRM pelo webhook [${tenantId}]:`, { leadId: lead.id, webhookId: row.id, pipelineId: crmTargetResult.pipelineId, stageId: crmTargetResult.stageId });
+    } else if (row && row.crmTarget && row.crmTarget.enabled !== false) {
+      console.warn(`⚠️ Webhook com vínculo de CRM não aplicado [${tenantId}]:`, { webhookId: row.id, leadId: lead && lead.id, reason: crmTargetResult && crmTargetResult.reason });
     }
 
     // NOVO: dispara mensagens em lote salvas no webhook, se existirem

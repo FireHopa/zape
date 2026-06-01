@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { normalizePhoneToE164Digits } = require("./phone");
 const { ensureTenantDir } = require('./tenantPaths');
 
 const MAX_MESSAGES_PER_CHAT = 600;
@@ -55,7 +56,9 @@ function mediaDirForTenant(tenantId) {
 }
 
 function normalizeDigits(value) {
-  return String(value || '').replace(/\D+/g, '');
+  const normalized = normalizePhoneToE164Digits(value);
+  if (normalized) return normalized;
+  return String(value || '').replace(/\D+/g, '').replace(/^0+/, '');
 }
 
 function nowIso() {

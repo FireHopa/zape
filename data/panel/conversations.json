@@ -2102,6 +2102,33 @@
       "createdAt": "2026-05-30T17:21:17.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_87810639958027@lid_3EB0EDA7809A050A301E25",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780316261,
+      "createdAt": "2026-06-01T12:17:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_87810639958027_lid_3EB0EDA7809A050A301E25_e5fe71d5.ogg",
+      "mediaSize": 28911,
+      "filename": "true_87810639958027@lid_3EB0EDA7809A050A301E25",
+      "originalName": "true_87810639958027@lid_3EB0EDA7809A050A301E25"
+    },
+    {
+      "id": "true_87810639958027@lid_3EB013B00AB155D65EC750",
+      "fromMe": true,
+      "body": "Passando aqui para lembrar que hoje é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n🗓️ *Data: 01 de Junho de 2026*\t\t\t\t\t\n🚪 *Abertura/recepção:  18h*\t\t\t\t\t\n🕒 *Início do Curso: 18h30*\t\t\t\t\t\n📍 *Local: Auditório Basoft - Al. Rio Negro, 585 - Alphaville Industrial, Barueri - SP*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780316274,
+      "createdAt": "2026-06-01T12:17:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511987986022": [
@@ -2569,6 +2596,26 @@
       "createdAt": "2026-06-01T00:25:57.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_233071030866106@lid_A5382660865A33521019CE85BAD756BE",
+      "fromMe": false,
+      "body": "Gostaria de assim que possível saber a programação e horários na Acisa",
+      "type": "chat",
+      "timestamp": 1780312416,
+      "createdAt": "2026-06-01T11:13:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_233071030866106@lid_A54DFF0A16400A75725D027C5289748D",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1780312420,
+      "createdAt": "2026-06-01T11:13:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5584981815688": [
@@ -2620,6 +2667,53 @@
       "mediaSize": 48513,
       "filename": "false_221173971443784@lid_AC9B2E729606CA644FCF32007E80E41D",
       "originalName": "false_221173971443784@lid_AC9B2E729606CA644FCF32007E80E41D"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB001C869351F77F7ABC0",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780314662,
+      "createdAt": "2026-06-01T11:51:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_221173971443784_lid_3EB001C869351F77F7ABC0_9089bd3b.ogg",
+      "mediaSize": 29039,
+      "filename": "true_221173971443784@lid_3EB001C869351F77F7ABC0",
+      "originalName": "true_221173971443784@lid_3EB001C869351F77F7ABC0"
+    },
+    {
+      "id": "false_221173971443784@lid_ACC76344E70D875CB0C6F61F19AFEE41",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1780314687,
+      "createdAt": "2026-06-01T11:51:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_221173971443784@lid_ACA0D23DA224D5B78C15BC5741AB897B",
+      "fromMe": false,
+      "body": "Obrigada",
+      "type": "chat",
+      "timestamp": 1780314693,
+      "createdAt": "2026-06-01T11:51:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB050598DF01A0245A50F",
+      "fromMe": true,
+      "body": "Passando aqui para lembrar que hoje é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n🗓️ *Data: 01 de Junho de 2026*\t\t\t\t\t\n🚪 *Abertura/recepção:  18h*\t\t\t\t\t\n🕒 *Início do Curso: 18h30*\t\t\t\t\t\n📍 *Local: Auditório Basoft - Al. Rio Negro, 585 - Alphaville Industrial, Barueri - SP*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1780314728,
+      "createdAt": "2026-06-01T11:52:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5569993319000": [
@@ -2644,6 +2738,255 @@
       "createdAt": "2026-06-01T09:48:28.000Z",
       "ack": 0,
       "source": "send-custom"
+    }
+  ],
+  "5511991765858": [
+    {
+      "id": "true_27801474338934@lid_3EB0D28B1AE7CF46C072DB",
+      "fromMe": true,
+      "body": "Olá Carlos! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Carlos?",
+      "type": "chat",
+      "timestamp": 1780312600,
+      "createdAt": "2026-06-01T11:16:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_27801474338934@lid_3ACA08D5B9847360F78F",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780312648,
+      "createdAt": "2026-06-01T11:17:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "351910538886": [
+    {
+      "id": "true_96349756383259@lid_3EB0E3D5FA8DEBD898C83D",
+      "fromMe": true,
+      "body": "Olá teste felps121, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição teste felps121?",
+      "type": "chat",
+      "timestamp": 1780314098,
+      "createdAt": "2026-06-01T11:41:38.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB045D72D208430296719",
+      "fromMe": true,
+      "body": "Olá, tudo bem?Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1780316925,
+      "createdAt": "2026-06-01T12:28:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0BD4612CB91C6803432",
+      "fromMe": true,
+      "body": "Vou te passar informações da *Imersão Presencial Google Ads e Inteligência Artificial* será realizada em *Lisboa, na 2ª edição* em Portugal.\n\n🏨 Hotel Holiday Inn Lisbon Continental\n📅 22 de Junho\n🕒 19h00 às 22h30\n🎟️ Lote 1: 25€ com IVA\n\nA Casa do Ads é parceira oficial Google Partners e esta será a 2ª edição presencial em Portugal.\nhttps://www.google.com/partners/agency?id=1175990135\n\nVeja as últimas edições no Instagram do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/\n\nSite para Inscrição:\nhttps://casadoads.com.br/imersao-lisboa/\n\nVou te enviar algum PDF com todos os detalhes!",
+      "type": "chat",
+      "timestamp": 1780316931,
+      "createdAt": "2026-06-01T12:28:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB040D11693FBE185742F",
+      "fromMe": true,
+      "body": "🌟 A sua inscrição está CONFIRMADA para a *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\n\nEstamos entusiasmados por o receber e por partilhar conhecimentos que poderão ajudar a transformar o seu negócio.\n\n*📅 Data:* 22/06/2026\n*🕘 Horário:* Das 19h00 às 22h30\n*📍 Local:* Rua Laura Alves, 9 - 1069-169 Lisboa\n\nAgradecemos a sua confiança e estamos empenhados em tornar esta formação numa experiência enriquecedora e de elevado valor para si.\n\nAté lá, não hesite em contactar-nos caso tenha alguma dúvida ou necessite de informações adicionais.\n\nEsperamos vê-lo em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780317662,
+      "createdAt": "2026-06-01T12:41:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0138459A18F8B38B47F",
+      "fromMe": true,
+      "body": "Joana Pereira Galante\tNoisy wizard\t351918813785\nEduardo Caperta\tMata & Delaunay Unipessoal Lda\t351913072715\nPedro Correia\tO chefe Voltou Unipessoal lda.\t351910616172\nPaulo BRas\tVCeletricar\t351924390450\nGiselle Tiradentes\tPercent Servicios Inmobiliarios\t351919777068\nCristina Escórcio\tNutri\t351960119910\nCamila Grossers da Costa\tATELIERS L’ATTITUDE\t351935106005\nCleiton Vieria da Rocha\tGrupo Alternativa Verde\t351925062092",
+      "type": "chat",
+      "timestamp": 1780317784,
+      "createdAt": "2026-06-01T12:43:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0785751FDE8FC39C231",
+      "fromMe": true,
+      "body": "Olá Manuel Cosme, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Manuel Cosme?",
+      "type": "chat",
+      "timestamp": 1780318588,
+      "createdAt": "2026-06-01T12:56:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351962451262": [
+    {
+      "id": "true_167022688211083@lid_3EB037C5C2E5010EA87F05",
+      "fromMe": true,
+      "body": "Olá teste felps351, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição teste felps351?",
+      "type": "chat",
+      "timestamp": 1780314142,
+      "createdAt": "2026-06-01T11:42:22.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0DBC02C51034E331CD5",
+      "fromMe": false,
+      "body": "Fabiane , acho que você se enganou no número, não?",
+      "type": "chat",
+      "timestamp": 1780314219,
+      "createdAt": "2026-06-01T11:43:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0230ECEF8528060C9DF",
+      "fromMe": false,
+      "body": "Bom dia!!",
+      "type": "chat",
+      "timestamp": 1780314224,
+      "createdAt": "2026-06-01T11:43:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_167022688211083@lid_3EB0AF85AAF46FB0537B21",
+      "fromMe": true,
+      "body": "Oi marcos, bom dia!!",
+      "type": "chat",
+      "timestamp": 1780314238,
+      "createdAt": "2026-06-01T11:43:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_167022688211083@lid_3EB01C2F5620F9EA94257F",
+      "fromMe": true,
+      "body": "Foi só teste",
+      "type": "chat",
+      "timestamp": 1780314259,
+      "createdAt": "2026-06-01T11:44:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0D2CBA4F57218F862AD",
+      "fromMe": false,
+      "body": "Ah ok ok 😅",
+      "type": "chat",
+      "timestamp": 1780314271,
+      "createdAt": "2026-06-01T11:44:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_167022688211083@lid_3EB0C91D726F958F091203",
+      "fromMe": true,
+      "body": "Estou no meet do Matheus",
+      "type": "chat",
+      "timestamp": 1780314275,
+      "createdAt": "2026-06-01T11:44:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB01C73D3C65E001E40AA",
+      "fromMe": false,
+      "body": "Perfeito",
+      "type": "chat",
+      "timestamp": 1780314276,
+      "createdAt": "2026-06-01T11:44:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511996563612": [
+    {
+      "id": "true_141893002371262@lid_3EB049A563BF8D72E9EF28",
+      "fromMe": true,
+      "body": "Olá Rita de Cássia dos Santos Marrafão! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Rita de Cássia dos Santos Marrafão?",
+      "type": "chat",
+      "timestamp": 1780314178,
+      "createdAt": "2026-06-01T11:42:58.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_141893002371262@lid_6AD39654490B88B6CB24",
+      "fromMe": false,
+      "body": "Olá! Bem-vindo(a)! 🌻Aqui você encontra um espaço de transformação e autoconhecimento. ✨ Fique a vontade para compartilhar o que deseja tratar com a hipnoterapia. 💐Em breve, entrarei em contato.💫",
+      "type": "chat",
+      "timestamp": 1780314181,
+      "createdAt": "2026-06-01T11:43:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_141893002371262@lid_4AD1E518C3667D0637D4",
+      "fromMe": false,
+      "body": "false_141893002371262@lid_4AD1E518C3667D0637D4",
+      "type": "image",
+      "timestamp": 1780315984,
+      "createdAt": "2026-06-01T12:13:04.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_141893002371262_lid_4AD1E518C3667D0637D4_3b4a0df6.jpg",
+      "mediaSize": 41893,
+      "filename": "false_141893002371262@lid_4AD1E518C3667D0637D4",
+      "originalName": "false_141893002371262@lid_4AD1E518C3667D0637D4"
+    }
+  ],
+  "5511989376419": [
+    {
+      "id": "true_36734939230218@lid_3EB0F99217E3D1254EA003",
+      "fromMe": true,
+      "body": "Olá Alessandra! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Alessandra?",
+      "type": "chat",
+      "timestamp": 1780314277,
+      "createdAt": "2026-06-01T11:44:37.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_36734939230218@lid_3A7545308E39040FCB58",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780314388,
+      "createdAt": "2026-06-01T11:46:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "351965704615": [
+    {
+      "id": "true_46467284779228@lid_3EB02F1422DD8EA9F6AB73",
+      "fromMe": true,
+      "body": "Olá Manuel Cosme, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Manuel Cosme?",
+      "type": "chat",
+      "timestamp": 1780318168,
+      "createdAt": "2026-06-01T12:49:28.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_46467284779228@lid_AC1AAA9B2630D58914D1A251A0225AA7",
+      "fromMe": false,
+      "body": "Olá, muito obrigado.\nQual é o local do evento?",
+      "type": "chat",
+      "timestamp": 1780318490,
+      "createdAt": "2026-06-01T12:54:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ]
 }

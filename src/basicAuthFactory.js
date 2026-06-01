@@ -128,18 +128,55 @@ function wantsHtml(req) {
   return req.method === "GET" && accept.includes("text/html") && !req.originalUrl.startsWith("/api/");
 }
 
-function verifyCredentials(tenantId, username, password) {
-  const cfg = getTenantConfig(tenantId);
-  if (!cfg) return false;
+function normalizeAuthValue(value) {
+  // Evita falha por espaço acidental no .env ou no preenchimento do campo.
+  // Ex.: PANEL_PASS=senha + espaço no final.
+  return String(value ?? "").trim();
+}
 
-  const expectedUser = process.env[cfg.userEnv];
-  const expectedPass = process.env[cfg.passEnv];
+function checkCredentials(tenantId, username, password) {
+  const cfg = getTenantConfig(tenantId);
+  if (!cfg) return { ok: false, reason: "invalid_tenant", configured: false };
+
+  const expectedUserRaw = process.env[cfg.userEnv];
+  const expectedPassRaw = process.env[cfg.passEnv];
+  const expectedUser = normalizeAuthValue(expectedUserRaw);
+  const expectedPass = normalizeAuthValue(expectedPassRaw);
 
   // Mantém compatibilidade com o comportamento antigo em dev/local:
   // sem usuário/senha no .env, o acesso fica liberado.
-  if (!expectedUser || !expectedPass) return true;
+  if (!expectedUser || !expectedPass) {
+    return { ok: true, reason: "unconfigured", configured: false, userOk: true, passOk: true };
+  }
 
-  return String(username || "") === String(expectedUser) && String(password || "") === String(expectedPass);
+  const providedUser = normalizeAuthValue(username);
+  const providedPass = normalizeAuthValue(password);
+  const userOk = providedUser === expectedUser;
+  const passOk = providedPass === expectedPass;
+
+  return {
+    ok: userOk && passOk,
+    reason: userOk && passOk ? "ok" : "mismatch",
+    configured: true,
+    userOk,
+    passOk,
+  };
+}
+
+function verifyCredentials(tenantId, username, password) {
+  return checkCredentials(tenantId, username, password).ok;
+}
+
+function logAuthAttempt(req, tenantId, username, check) {
+  const enabled = String(process.env.DEBUG_AUTH || process.env.DEBUG || "").toLowerCase();
+  // Quando DEBUG_AUTH=0, não loga. Caso contrário, loga só o resumo seguro do login.
+  if (enabled === "0" || enabled === "false" || enabled === "off") return;
+
+  const ip = req.ip || req.get("x-forwarded-for") || "";
+  const safeUser = normalizeAuthValue(username);
+  console.log(
+    `[AUTH] login tenant=${tenantId} user="${safeUser}" ok=${Boolean(check?.ok)} configured=${Boolean(check?.configured)} userOk=${Boolean(check?.userOk)} passOk=${Boolean(check?.passOk)} ip=${ip}`
+  );
 }
 
 function unauthorized(req, res, realm, tenantId) {
@@ -160,8 +197,8 @@ function makeBasicAuth({ userEnv, passEnv, realm }) {
   const tenantId = tenantFromEnv(userEnv);
 
   return function persistentAuthMiddleware(req, res, next) {
-    const expectedUser = process.env[userEnv];
-    const expectedPass = process.env[passEnv];
+    const expectedUser = normalizeAuthValue(process.env[userEnv]);
+    const expectedPass = normalizeAuthValue(process.env[passEnv]);
 
     if (!expectedUser || !expectedPass) return next();
 
@@ -172,10 +209,12 @@ function makeBasicAuth({ userEnv, passEnv, realm }) {
     }
 
     const creds = auth(req);
-    if (creds && creds.name === expectedUser && creds.pass === expectedPass) {
-      const token = createToken({ tenantId, username: creds.name, days: 30 });
+    const basicUser = creds ? normalizeAuthValue(creds.name) : "";
+    const basicPass = creds ? normalizeAuthValue(creds.pass) : "";
+    if (creds && basicUser === expectedUser && basicPass === expectedPass) {
+      const token = createToken({ tenantId, username: basicUser, days: 30 });
       setAuthCookie(res, req, tenantId, token, 30);
-      req.auth = { tenantId, username: creds.name, method: "basic" };
+      req.auth = { tenantId, username: basicUser, method: "basic" };
       return next();
     }
 
@@ -257,27 +296,56 @@ function renderLoginPage() {
     tenantEl.value = ['admin','panel','regina'].includes(tenant) ? tenant : 'admin';
     userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || '';
     tenantEl.addEventListener('change', () => { userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || ''; });
+    function showError(message){
+      errEl.textContent = message || 'Não foi possível fazer login.';
+      errEl.style.display = 'block';
+    }
+
     document.getElementById('form').addEventListener('submit', async (e) => {
       e.preventDefault();
       errEl.style.display = 'none';
       const btn = document.getElementById('btn');
       btn.disabled = true; btn.textContent = 'Entrando...';
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15000);
       try{
         const body = {
           tenant: tenantEl.value,
-          username: userEl.value,
-          password: document.getElementById('password').value,
+          username: userEl.value.trim(),
+          password: document.getElementById('password').value.trim(),
           remember: document.getElementById('remember').checked
         };
-        const r = await fetch('/auth/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
-        const j = await r.json().catch(() => ({}));
-        if(!r.ok || !j.ok) throw new Error(j.error || 'Usuário ou senha inválidos.');
-        localStorage.setItem('zape_login_user_' + tenantEl.value, userEl.value);
-        location.href = next && next.startsWith('/') ? next : ('/' + tenantEl.value);
+        const r = await fetch('/auth/login', {
+          method:'POST',
+          credentials:'same-origin',
+          cache:'no-store',
+          headers:{'Content-Type':'application/json','Accept':'application/json'},
+          body: JSON.stringify(body),
+          signal: controller.signal
+        });
+
+        const text = await r.text();
+        let j = {};
+        try { j = text ? JSON.parse(text) : {}; }
+        catch(parseErr) {
+          console.error('[ZAPE LOGIN] resposta não JSON:', r.status, text.slice(0, 300));
+          throw new Error('O servidor respondeu de forma inesperada no login. Reinicie o PM2 e tente novamente.');
+        }
+
+        if(!r.ok || !j.ok) {
+          console.warn('[ZAPE LOGIN] falhou:', { status: r.status, tenant: body.tenant, user: body.username, error: j.error });
+          throw new Error(j.error || 'Usuário ou senha inválidos. Confira usuário e senha do .env para este painel.');
+        }
+
+        localStorage.setItem('zape_login_user_' + tenantEl.value, body.username);
+        const target = (j.next && j.next.startsWith('/')) ? j.next : (next && next.startsWith('/') ? next : ('/' + tenantEl.value));
+        location.assign(target);
       }catch(err){
-        errEl.textContent = err.message || String(err);
-        errEl.style.display = 'block';
+        console.error('[ZAPE LOGIN] erro:', err);
+        if (err && err.name === 'AbortError') showError('O login demorou demais para responder. Verifique se o servidor Node/PM2 está rodando corretamente.');
+        else showError(err.message || String(err));
       }finally{
+        clearTimeout(timer);
         btn.disabled = false; btn.textContent = 'Entrar';
       }
     });
@@ -289,20 +357,29 @@ function renderLoginPage() {
 function registerAuthRoutes(app) {
   app.get("/login", (req, res) => {
     res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.setHeader("Cache-Control", "no-store");
     res.send(renderLoginPage());
   });
 
   app.post("/auth/login", (req, res) => {
-    const tenantId = String(req.body?.tenant || "admin").toLowerCase();
-    const username = String(req.body?.username || "");
-    const password = String(req.body?.password || "");
+    res.setHeader("Cache-Control", "no-store");
+
+    const tenantId = normalizeAuthValue(req.body?.tenant || "admin").toLowerCase();
+    const username = normalizeAuthValue(req.body?.username || "");
+    const password = normalizeAuthValue(req.body?.password || "");
     const remember = req.body?.remember !== false;
 
     const cfg = getTenantConfig(tenantId);
     if (!cfg) return res.status(400).json({ ok: false, error: "Painel inválido." });
 
-    if (!verifyCredentials(tenantId, username, password)) {
-      return res.status(401).json({ ok: false, error: "Usuário ou senha inválidos." });
+    const check = checkCredentials(tenantId, username, password);
+    logAuthAttempt(req, tenantId, username, check);
+
+    if (!check.ok) {
+      return res.status(401).json({
+        ok: false,
+        error: "Usuário ou senha inválidos. Confira se o usuário e a senha são exatamente os do .env para este painel.",
+      });
     }
 
     const days = remember ? 30 : 1;

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "activePipelineId": "pipe_ca4b6c5d1f0d8819e83317c3c",
+  "pipelines": [
+    {
+      "id": "pipe_ca4b6c5d1f0d8819e83317c3c",
+      "name": "Funil Principal",
+      "createdAt": "2026-06-01T12:38:38.908Z",
+      "stageOrder": [
+        "stg_5ea1369d8f5cd19e8333e2d8",
+        "stg_c852c10147df719e833368c4"
+      ],
+      "stages": {
+        "stg_c852c10147df719e833368c4": {
+          "id": "stg_c852c10147df719e833368c4",
+          "name": "Nova etapa",
+          "leadIds": [
+            "9e566c48622c1139a80351a0"
+          ]
+        },
+        "stg_5ea1369d8f5cd19e8333e2d8": {
+          "id": "stg_5ea1369d8f5cd19e8333e2d8",
+          "name": "Nova etapa",
+          "leadIds": []
+        }
+      }
+    },
+    {
+      "id": "pipe_54c3b779e92e6819e8331eb2a",
+      "name": "Novo Funil",
+      "createdAt": "2026-06-01T12:39:07.306Z",
+      "stageOrder": [
+        "stg_9a6a24201c6b719e8331eb2a"
+      ],
+      "stages": {
+        "stg_9a6a24201c6b719e8331eb2a": {
+          "id": "stg_9a6a24201c6b719e8331eb2a",
+          "name": "Novo lead",
+          "leadIds": [
+            "9e566c48622c1139a80351a0"
+          ]
+        }
+      }
+    }
+  ],
+  "updatedAt": "2026-06-01T13:01:49.315Z"
+}

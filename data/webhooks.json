@@ -63,10 +63,12 @@
     "tenantId": "admin",
     "token": "QJL3dTPQ35DUz9XwVfGyISdhwXPYuPTs",
     "name": "Webhook",
-    "messageText": "",
-    "messages": [],
+    "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *08 e 09 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+    "messages": [
+      "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *08 e 09 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?"
+    ],
     "createdAt": "2026-05-27T15:23:10.544Z",
-    "updatedAt": "2026-05-27T15:23:10.544Z",
+    "updatedAt": "2026-06-01T12:29:52.399Z",
     "deletedAt": null
   },
   {

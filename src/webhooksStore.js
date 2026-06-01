@@ -36,7 +36,25 @@ function listWebhooks(tenantId) {
   return _loadAll().filter((w) => w.tenantId === t && !w.deletedAt);
 }
 
-function createWebhook(tenantId, { name, messageText, messages } = {}) {
+function _sanitizeCrmTarget(value) {
+  if (value === null || value === false || value === "") return null;
+  if (!value || typeof value !== "object") return undefined;
+
+  const pipelineId = String(value.pipelineId || "").trim();
+  const stageId = String(value.stageId || "").trim();
+  if (!pipelineId || !stageId) return null;
+
+  const now = new Date().toISOString();
+  return {
+    enabled: value.enabled !== false,
+    pipelineId,
+    stageId,
+    linkedAt: value.linkedAt || now,
+    updatedAt: now,
+  };
+}
+
+function createWebhook(tenantId, { name, messageText, messages, crmTarget } = {}) {
   const t = String(tenantId || "").trim() || "admin";
   const all = _loadAll();
 
@@ -57,6 +75,7 @@ function createWebhook(tenantId, { name, messageText, messages } = {}) {
     name: String(name || "Webhook").trim() || "Webhook",
     messageText: msgsArray[0] || "", // mantido por compatibilidade com rotas antigas
     messages: msgsArray,             // NOVO CAMPO: Lista de mensagens
+    crmTarget: _sanitizeCrmTarget(crmTarget) || null, // vínculo opcional com o Funil de Vendas
     createdAt: now,
     updatedAt: now,
     deletedAt: null,
@@ -86,6 +105,11 @@ function updateWebhook(tenantId, webhookId, patch = {}) {
     next.messageText = String(patch.messageText || "").trim();
     if(!next.messages) next.messages = [];
     next.messages[0] = next.messageText;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(patch, "crmTarget")) {
+    const cleanedTarget = _sanitizeCrmTarget(patch.crmTarget);
+    next.crmTarget = cleanedTarget === undefined ? (next.crmTarget || null) : cleanedTarget;
   }
 
   next.updatedAt = new Date().toISOString();

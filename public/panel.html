@@ -1673,38 +1673,69 @@ html, body { height: 100%; overflow: hidden !important; }
       return d.toLocaleString("pt-BR");
     }
 
-    /* +DDI DDD numero */
+    /* +DDI número. Aceita Brasil e Portugal sem quebrar os números antigos. */
+    function normalizePhoneDigitsClient(raw){
+      var d = String(raw || "").replace(/\D+/g, "").replace(/^0+/, "");
+      if (!d) return "";
+      if (d.indexOf("55") === 0 && /^55\d{10,11}$/.test(d)) return d;
+      if ((d.length === 10 || d.length === 11) && d.indexOf("55") !== 0) return "55" + d;
+      if (d.indexOf("351") === 0 && /^351[2-9]\d{8}$/.test(d)) return d;
+      if (/^[2-9]\d{8}$/.test(d)) return "351" + d;
+      return d;
+    }
+
+    function phoneSearchVariantsClient(raw){
+      var original = String(raw || "").replace(/\D+/g, "").replace(/^0+/, "");
+      var normalized = normalizePhoneDigitsClient(raw);
+      var set = {};
+      [original, normalized].forEach(function(d){ if (d) set[d] = true; });
+      Object.keys(set).forEach(function(d){
+        if (d.indexOf("55") === 0) set[d.slice(2)] = true;
+        if (d.indexOf("351") === 0) set[d.slice(3)] = true;
+      });
+      return Object.keys(set).filter(Boolean);
+    }
+
     function formatWhatsAppPretty(raw){
-      var s = String(raw || "");
-      var digits = s.replace(/\D+/g, "");
+      var digits = normalizePhoneDigitsClient(raw);
       if (!digits) return "—";
 
-      var ddi = "", ddd = "", rest = "";
-
-      if (digits.length >= 13 && digits.startsWith("55")) {
-        ddi = digits.slice(0,2);
-        ddd = digits.slice(2,4);
-        rest = digits.slice(4);
-      } else if (digits.length === 11 || digits.length === 10) {
-        ddi = "55";
-        ddd = digits.slice(0,2);
-        rest = digits.slice(2);
-      } else if (digits.length > 4) {
-        ddi = digits.slice(0,2);
-        ddd = digits.slice(2,4);
-        rest = digits.slice(4);
-      } else {
-        return "+" + digits;
+      if (digits.indexOf("55") === 0 && (digits.length === 12 || digits.length === 13)) {
+        return "+55 " + digits.slice(2,4) + " " + digits.slice(4);
       }
-      return "+" + ddi + " " + ddd + " " + rest;
+
+      if (digits.indexOf("351") === 0 && digits.length === 12) {
+        return "+351 " + digits.slice(3,6) + " " + digits.slice(6,9) + " " + digits.slice(9);
+      }
+
+      return "+" + digits;
     }
 
     function getDDDFromLead(lead){
-      var digits = String(lead.whatsapp_digits || lead.whatsapp_raw || "").replace(/\D+/g, "");
+      var digits = normalizePhoneDigitsClient(lead && (lead.whatsapp_digits || lead.whatsapp_raw || ""));
       if (!digits) return "";
-      if (digits.length >= 13 && digits.startsWith("55")) return digits.slice(2,4);
-      if (digits.length >= 11) return digits.slice(0,2);
+      if (digits.indexOf("55") === 0 && (digits.length === 12 || digits.length === 13)) return digits.slice(2,4);
+      if (digits.indexOf("351") === 0 && digits.length === 12) return digits.slice(3,5);
       return "";
+    }
+
+    function phoneMatchesSearchClient(lead, query){
+      var queryVariants = phoneSearchVariantsClient(query);
+      if (!queryVariants.length) return false;
+
+      var candidateMap = {};
+      [lead && lead.whatsapp_raw, lead && lead.whatsapp_digits, lead && lead.whatsapp, lead && lead.phone, lead && lead.telefone].forEach(function(value){
+        phoneSearchVariantsClient(value).forEach(function(v){ candidateMap[v] = true; });
+      });
+
+      var candidates = Object.keys(candidateMap);
+      for (var i=0;i<candidates.length;i++){
+        for (var j=0;j<queryVariants.length;j++){
+          if (candidates[i].indexOf(queryVariants[j]) !== -1 || queryVariants[j].indexOf(candidates[i]) !== -1) return true;
+        }
+      }
+
+      return false;
     }
 
     /* Status inferido (depende do backend mandar algo por lead) */

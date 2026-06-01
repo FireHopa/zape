@@ -1968,6 +1968,1040 @@ body:not(.hasPager) .pager{display:none!important;}
   }
 </style>
 
+
+
+<style id="crm-visual-polish-20260601">
+/* Polimento visual do Funil de Vendas. Não altera IDs, rotas ou lógica do CRM. */
+#panelCrm.crmPage{
+  gap:16px!important;
+}
+#panelCrm .crmPageCard{
+  border-radius:28px!important;
+  border:1px solid rgba(203,213,225,.90)!important;
+  background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%)!important;
+  box-shadow:0 22px 60px rgba(15,23,42,.10)!important;
+  overflow:hidden!important;
+}
+#panelCrm .crmPolishedHeader{
+  display:flex!important;
+  align-items:flex-start!important;
+  justify-content:space-between!important;
+  gap:18px!important;
+  padding:18px!important;
+  background:
+    radial-gradient(360px 160px at 6% 0%, rgba(37,99,235,.13), transparent 68%),
+    radial-gradient(340px 150px at 92% 8%, rgba(22,163,74,.10), transparent 62%),
+    linear-gradient(180deg,#ffffff 0%,#f8fbff 100%)!important;
+  border-bottom:1px solid #e8eef7!important;
+}
+.crmHeaderMain{display:flex;align-items:flex-start;gap:14px;min-width:280px;}
+.crmHeaderIcon{
+  width:50px;height:50px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;font-size:26px;flex:0 0 auto;
+  box-shadow:0 16px 30px rgba(37,99,235,.24);
+}
+.crmHeaderText{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.crmEyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.10em;font-weight:950;color:#2563eb;line-height:1;}
+#panelCrm .crmHeaderText .cardTitle{font-size:22px!important;line-height:1.1!important;letter-spacing:-.045em!important;color:#0f172a!important;margin:0!important;}
+#panelCrm .crmHeaderText .hint{font-size:13px!important;line-height:1.45!important;color:#64748b!important;max-width:620px;}
+.crmHeaderActions{margin-left:auto;display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end;align-items:center;}
+.crmHeaderActions .btn{min-height:42px!important;border-radius:15px!important;padding:10px 13px!important;font-size:13px!important;font-weight:900!important;}
+.crmHeaderActions .btn i{font-size:18px;line-height:1;}
+.crmHeaderActions .btnPrimary{box-shadow:0 16px 32px rgba(37,99,235,.22)!important;}
+.crmBoardBody{padding:16px!important;background:linear-gradient(180deg,#fff,#fbfdff)!important;}
+.crmToolbar{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
+  margin-bottom:14px;
+}
+.crmToolbarTitle{font-size:13px;font-weight:950;color:#0f172a;letter-spacing:-.02em;}
+.crmToolbarHint{font-size:12px;color:#64748b;margin-top:2px;}
+#panelCrm .crmTabs{
+  margin:0!important;
+  padding:5px!important;
+  gap:7px!important;
+  border-radius:18px!important;
+  border:1px solid #e2e8f0!important;
+  background:#f8fafc!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85)!important;
+  flex-wrap:nowrap!important;
+  overflow-x:auto;
+  max-width:min(760px,60vw);
+}
+#panelCrm .crmTabs::-webkit-scrollbar{height:6px;}
+#panelCrm .crmTabs::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:999px;}
+#panelCrm .crmTab{
+  min-height:34px!important;
+  padding:7px 11px!important;
+  border-radius:999px!important;
+  border:1px solid transparent!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#475569!important;
+  font-size:12px!important;
+  white-space:nowrap!important;
+  transition:background .14s ease,border-color .14s ease,color .14s ease,box-shadow .14s ease,transform .12s ease;
+}
+#panelCrm .crmTab:hover{background:#fff!important;border-color:#e2e8f0!important;color:#0f172a!important;transform:translateY(-1px);}
+#panelCrm .crmTab.active{background:#fff!important;border-color:#bfdbfe!important;color:#1d4ed8!important;box-shadow:0 8px 18px rgba(37,99,235,.10)!important;}
+#panelCrm .crmTab .pill{background:#eff6ff!important;border-color:#bfdbfe!important;color:#1d4ed8!important;font-weight:950!important;}
+#crmBoardWrap.crmBoardWrap.crmBoardWrapPolished{
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  padding:18px!important;
+  min-height:455px!important;
+  border:1px solid #dbeafe!important;
+  border-radius:24px!important;
+  background:
+    linear-gradient(90deg,rgba(37,99,235,.035) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(37,99,235,.035) 1px,transparent 1px),
+    linear-gradient(180deg,#f8fbff 0%,#f1f7ff 100%)!important;
+  background-size:28px 28px,28px 28px,auto!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95)!important;
+  scrollbar-gutter:stable both-edges!important;
+}
+#crmBoardWrap.crmBoardWrap.crmBoardWrapPolished::-webkit-scrollbar{height:14px!important;}
+#crmBoardWrap.crmBoardWrap.crmBoardWrapPolished::-webkit-scrollbar-track{background:rgba(226,232,240,.90)!important;border-radius:999px!important;}
+#crmBoardWrap.crmBoardWrap.crmBoardWrapPolished::-webkit-scrollbar-thumb{
+  background:linear-gradient(90deg,#94a3b8,#64748b)!important;
+  border-radius:999px!important;
+  border:3px solid rgba(248,251,255,.95)!important;
+}
+#crmBoard.crmBoard{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:stretch!important;
+  gap:16px!important;
+  width:max-content!important;
+  min-width:max-content!important;
+  overflow:visible!important;
+  padding:0!important;
+}
+#crmBoard.crmBoard > .crmCol{
+  position:relative!important;
+  flex:0 0 334px!important;
+  width:334px!important;
+  min-width:334px!important;
+  max-width:334px!important;
+  min-height:412px!important;
+  max-height:none!important;
+  overflow:hidden!important;
+  border-radius:22px!important;
+  border:1px solid rgba(203,213,225,.95)!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(248,250,252,.94) 100%)!important;
+  box-shadow:0 18px 36px rgba(15,23,42,.085)!important;
+}
+#crmBoard.crmBoard > .crmCol:before{
+  content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#2563eb,#60a5fa);z-index:2;
+}
+#crmBoard.crmBoard > .crmCol:nth-child(4n+2):before{background:linear-gradient(90deg,#16a34a,#86efac);}
+#crmBoard.crmBoard > .crmCol:nth-child(4n+3):before{background:linear-gradient(90deg,#d97706,#fbbf24);}
+#crmBoard.crmBoard > .crmCol:nth-child(4n+4):before{background:linear-gradient(90deg,#7c3aed,#c4b5fd);}
+#panelCrm .crmColHead{
+  padding:16px 14px 13px!important;
+  border-bottom:1px solid #edf2f7!important;
+  background:rgba(255,255,255,.86)!important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  align-items:center!important;
+}
+#panelCrm .crmColTitle{gap:7px!important;}
+#panelCrm .crmColTitle b{font-size:15px!important;font-weight:950!important;color:#0f172a!important;letter-spacing:-.035em!important;line-height:1.15!important;}
+#panelCrm .crmColTitle span{
+  display:inline-flex!important;align-items:center;gap:5px;width:max-content;
+  color:#475569!important;font-size:11px!important;font-weight:900!important;
+  border:1px solid #e2e8f0;border-radius:999px;background:#f8fafc;padding:5px 8px;
+}
+#panelCrm .crmColTitle span:before{content:"";width:6px;height:6px;border-radius:999px;background:#94a3b8;}
+#panelCrm .crmColActions{gap:6px!important;}
+#panelCrm .btnMini{
+  width:34px;min-width:34px;height:34px;padding:0!important;
+  border-radius:13px!important;
+  border:1px solid #e2e8f0!important;
+  background:#fff!important;
+  color:#475569!important;
+  box-shadow:0 6px 14px rgba(15,23,42,.045)!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  transition:transform .12s ease,border-color .12s ease,color .12s ease,box-shadow .12s ease;
+}
+#panelCrm .btnMini:hover{transform:translateY(-1px);border-color:#bfdbfe!important;color:#1d4ed8!important;box-shadow:0 10px 18px rgba(37,99,235,.10)!important;}
+#panelCrm .btnMini .uiIcon{width:16px!important;height:16px!important;}
+#panelCrm .crmColBody{
+  padding:14px!important;
+  min-height:330px!important;
+  max-height:calc(100vh - 392px)!important;
+  overflow-y:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:12px!important;
+  background:linear-gradient(180deg,rgba(248,250,252,.65),rgba(255,255,255,.60))!important;
+}
+#panelCrm .crmColBody::-webkit-scrollbar{width:9px;}
+#panelCrm .crmColBody::-webkit-scrollbar-track{background:transparent;}
+#panelCrm .crmColBody::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:999px;border:2px solid transparent;background-clip:padding-box;}
+#panelCrm .crmColBody:empty::before{
+  content:"Nenhum lead nesta etapa";
+  min-height:160px;
+  border:1px dashed #cbd5e1;
+  border-radius:18px;
+  background:rgba(255,255,255,.72);
+  color:#94a3b8;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-size:13px;font-weight:850;
+}
+#panelCrm .crmDropHint{
+  border:2px dashed rgba(37,99,235,.38)!important;
+  background:rgba(37,99,235,.075)!important;
+  border-radius:18px!important;
+}
+#panelCrm .crmCard{
+  border:1px solid #e2e8f0!important;
+  border-radius:18px!important;
+  background:#fff!important;
+  padding:13px!important;
+  box-shadow:0 10px 22px rgba(15,23,42,.065)!important;
+  transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease,opacity .12s ease;
+}
+#panelCrm .crmCard:hover{transform:translateY(-2px);border-color:#bfdbfe!important;box-shadow:0 16px 30px rgba(37,99,235,.12)!important;}
+#panelCrm .crmCard.dragging{opacity:.60!important;transform:rotate(.4deg) scale(.985)!important;}
+#panelCrm .crmCardTop{align-items:flex-start!important;}
+#panelCrm .crmName{font-size:14px!important;font-weight:950!important;color:#0f172a!important;line-height:1.2!important;}
+#panelCrm .crmMeta{font-size:12px!important;color:#64748b!important;gap:5px!important;line-height:1.35!important;}
+#panelCrm .crmMetaLine{display:flex!important;align-items:center!important;gap:6px!important;min-width:0;}
+#panelCrm .crmMetaLine span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#panelCrm .crmCardBtns{gap:6px!important;flex:0 0 auto;}
+#panelCrm .crmCardBtns .btnMini{width:32px;min-width:32px;height:32px;border-radius:12px!important;}
+.crmBoardHint{
+  margin-top:12px;
+  display:inline-flex;align-items:center;gap:8px;
+  color:#64748b;background:#f8fafc;border:1px solid #e2e8f0;
+  border-radius:999px;padding:8px 11px;font-size:12px;font-weight:850;
+}
+.crmBoardHint i{font-size:16px;color:#2563eb;}
+.crmEmptyBoard{
+  width:min(680px,calc(100vw - 420px));
+  min-height:260px;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  border:1px dashed #bfdbfe;border-radius:22px;background:rgba(255,255,255,.72);
+  color:#64748b;font-size:14px;font-weight:850;padding:24px;
+}
+@media(max-width:1180px){
+  #panelCrm .crmPolishedHeader{flex-direction:column!important;align-items:stretch!important;}
+  .crmHeaderActions{margin-left:0;justify-content:flex-start;}
+  #panelCrm .crmTabs{max-width:100%;}
+  .crmToolbar{align-items:flex-start;flex-direction:column;}
+}
+@media(max-width:720px){
+  .crmHeaderMain{min-width:0;}
+  .crmHeaderIcon{width:44px;height:44px;border-radius:16px;font-size:22px;}
+  #panelCrm .crmHeaderText .cardTitle{font-size:19px!important;}
+  .crmHeaderActions .btn{flex:1 1 calc(50% - 8px);}
+  #crmBoard.crmBoard > .crmCol{flex-basis:300px!important;width:300px!important;min-width:300px!important;max-width:300px!important;}
+  #crmBoardWrap.crmBoardWrap.crmBoardWrapPolished{padding:12px!important;}
+}
+</style>
+
+
+<style id="crm-wow-visual-upgrade-20260601">
+/* Upgrade visual premium do Funil de Vendas. Mantém a lógica existente e atua só na experiência visual. */
+#panelCrm.crmPage{gap:18px!important;}
+#panelCrm .crmPageCard{
+  border-radius:34px!important;
+  border:1px solid rgba(191,219,254,.92)!important;
+  background:
+    radial-gradient(880px 420px at -8% -18%, rgba(37,99,235,.14), transparent 58%),
+    radial-gradient(760px 380px at 105% -12%, rgba(34,197,94,.11), transparent 55%),
+    linear-gradient(180deg,#fff 0%,#f8fbff 48%,#f3f8ff 100%)!important;
+  box-shadow:0 26px 80px rgba(15,23,42,.12), inset 0 1px 0 rgba(255,255,255,.95)!important;
+  overflow:hidden!important;
+}
+#panelCrm .crmPolishedHeader{
+  position:relative!important;
+  align-items:center!important;
+  padding:20px 24px!important;
+  min-height:118px!important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.98),rgba(248,251,255,.88)),
+    radial-gradient(360px 170px at 9% 0%,rgba(37,99,235,.18),transparent 70%)!important;
+}
+#panelCrm .crmPolishedHeader:after{
+  content:"";position:absolute;left:24px;right:24px;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,#bfdbfe,#dcfce7,transparent);
+}
+#panelCrm .crmHeaderMain{align-items:center!important;gap:16px!important;}
+#panelCrm .crmHeaderIcon{
+  width:58px!important;height:58px!important;border-radius:22px!important;
+  background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 54%,#60a5fa 100%)!important;
+  box-shadow:0 20px 42px rgba(37,99,235,.28), inset 0 1px 0 rgba(255,255,255,.28)!important;
+  position:relative!important;
+}
+#panelCrm .crmHeaderIcon:after{
+  content:"";position:absolute;right:-4px;top:-4px;width:14px;height:14px;border-radius:999px;
+  background:#22c55e;border:3px solid #fff;box-shadow:0 6px 14px rgba(34,197,94,.32);
+}
+#panelCrm .crmEyebrow{letter-spacing:.16em!important;color:#2563eb!important;font-size:10px!important;}
+#panelCrm .crmHeaderText .cardTitle{font-size:24px!important;font-weight:1000!important;}
+#panelCrm .crmHeaderText .hint{font-size:13px!important;color:#52627a!important;max-width:680px!important;}
+#panelCrm .crmActionDock{
+  display:grid!important;
+  grid-template-columns:minmax(168px,1.14fr) repeat(3,minmax(138px,.86fr))!important;
+  gap:10px!important;
+  align-items:stretch!important;
+  justify-content:end!important;
+  min-width:min(650px,58vw)!important;
+}
+#panelCrm .crmActionDock .crmActionButton{
+  min-height:54px!important;
+  border-radius:19px!important;
+  padding:8px 12px!important;
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:10px!important;
+  border:1px solid rgba(203,213,225,.92)!important;
+  background:rgba(255,255,255,.86)!important;
+  color:#0f172a!important;
+  box-shadow:0 12px 26px rgba(15,23,42,.055)!important;
+  text-align:left!important;
+  transition:transform .14s ease,box-shadow .14s ease,border-color .14s ease,background .14s ease!important;
+}
+#panelCrm .crmActionDock .crmActionButton:hover{transform:translateY(-2px)!important;border-color:#bfdbfe!important;box-shadow:0 18px 34px rgba(37,99,235,.13)!important;background:#fff!important;}
+#panelCrm .crmActionDock .crmActionMain{background:linear-gradient(135deg,#2563eb,#1d4ed8)!important;color:#fff!important;border-color:#2563eb!important;box-shadow:0 18px 36px rgba(37,99,235,.28)!important;}
+#panelCrm .crmActionDock .crmActionMain:hover{box-shadow:0 24px 44px rgba(37,99,235,.34)!important;}
+#panelCrm .crmActionIcon{
+  width:34px;height:34px;border-radius:13px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+  color:#2563eb;background:#eff6ff;border:1px solid #dbeafe;font-size:18px;
+}
+#panelCrm .crmActionMain .crmActionIcon{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.22);color:#fff;}
+#panelCrm .crmActionButton b{display:block;font-size:13px;font-weight:1000;line-height:1.05;letter-spacing:-.02em;}
+#panelCrm .crmActionButton small{display:block;margin-top:4px;font-size:10px;font-weight:850;color:#64748b;line-height:1;}
+#panelCrm .crmActionMain small{color:rgba(255,255,255,.78);}
+#panelCrm .crmBoardBody{padding:18px 22px 20px!important;background:transparent!important;}
+#panelCrm .crmBoardHero{
+  display:flex!important;align-items:stretch!important;justify-content:space-between!important;gap:14px!important;
+  margin-bottom:14px!important;padding:14px!important;border:1px solid #dbeafe!important;border-radius:24px!important;
+  background:rgba(255,255,255,.82)!important;box-shadow:0 14px 36px rgba(15,23,42,.055)!important;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+#panelCrm .crmBoardHeroLeft{display:flex;flex-direction:column;justify-content:center;gap:6px;min-width:280px;}
+#panelCrm .crmStatusPill{display:inline-flex;width:max-content;align-items:center;gap:7px;padding:6px 9px;border-radius:999px;background:#eef6ff;color:#1d4ed8;border:1px solid #bfdbfe;font-size:11px;font-weight:950;}
+#panelCrm .crmActivePipelineName{font-size:20px;font-weight:1000;letter-spacing:-.045em;color:#0f172a;line-height:1.1;}
+#panelCrm .crmActivePipelineHint{font-size:12px;font-weight:750;color:#64748b;}
+#panelCrm .crmQuickStats{display:grid!important;grid-template-columns:repeat(3,minmax(112px,1fr))!important;gap:10px!important;min-width:min(460px,42vw)!important;}
+#panelCrm .crmQuickStat{
+  border:1px solid #e2e8f0;border-radius:18px;background:linear-gradient(180deg,#fff,#f8fafc);padding:12px 13px;
+  display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;
+}
+#panelCrm .crmQuickStat i{grid-row:1 / span 2;width:34px;height:34px;border-radius:13px;background:#eff6ff;color:#2563eb;display:flex;align-items:center;justify-content:center;font-size:18px;}
+#panelCrm .crmQuickStat strong{font-size:22px;line-height:1;font-weight:1000;color:#0f172a;font-variant-numeric:tabular-nums;}
+#panelCrm .crmQuickStat span{font-size:11px;font-weight:900;color:#64748b;text-transform:uppercase;letter-spacing:.08em;}
+#panelCrm .crmToolbarPremium{
+  margin-bottom:14px!important;padding:10px 10px 10px 13px!important;border:1px solid #e2e8f0!important;border-radius:22px!important;
+  background:rgba(255,255,255,.76)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)!important;
+}
+#panelCrm .crmToolbarCopy{display:flex;flex-direction:column;gap:3px;min-width:250px;}
+#panelCrm .crmToolbarTitle{display:flex;align-items:center;gap:7px;font-size:13px!important;font-weight:1000!important;color:#0f172a!important;}
+#panelCrm .crmToolbarTitle i{color:#2563eb;font-size:16px;}
+#panelCrm .crmToolbarHint{font-size:12px!important;color:#64748b!important;}
+#panelCrm .crmTabs{max-width:min(880px,58vw)!important;background:#f1f5f9!important;border-radius:18px!important;padding:6px!important;}
+#panelCrm .crmTab{gap:8px!important;min-height:38px!important;padding:7px 9px!important;}
+#panelCrm .crmTabIcon{width:24px;height:24px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#64748b;border:1px solid #e2e8f0;}
+#panelCrm .crmTab.active .crmTabIcon{background:#2563eb;color:#fff;border-color:#2563eb;box-shadow:0 8px 16px rgba(37,99,235,.18);}
+#panelCrm .crmTabName{max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:950;}
+#panelCrm .crmTab .pill{min-width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;padding:0 8px!important;}
+#crmBoardWrap.crmBoardWrap.crmBoardWrapPolished{
+  position:relative!important;min-height:440px!important;padding:22px!important;border-radius:28px!important;border:1px solid #cfe4ff!important;
+  background:
+    linear-gradient(90deg,rgba(37,99,235,.032) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(37,99,235,.032) 1px,transparent 1px),
+    radial-gradient(780px 280px at 18% 0%,rgba(37,99,235,.09),transparent 62%),
+    linear-gradient(180deg,#f8fbff 0%,#eef6ff 100%)!important;
+  background-size:30px 30px,30px 30px,auto,auto!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.98), inset 0 -22px 44px rgba(15,23,42,.025)!important;
+}
+#crmBoardWrap.crmBoardWrap.crmBoardWrapPolished:before{
+  content:"";position:absolute;left:22px;right:22px;top:87px;height:2px;border-radius:999px;
+  background:linear-gradient(90deg,rgba(37,99,235,.20),rgba(34,197,94,.18),rgba(245,158,11,.18),rgba(124,58,237,.18));
+  pointer-events:none;
+}
+#crmBoard.crmBoard{gap:18px!important;align-items:stretch!important;}
+#crmBoard.crmBoard > .crmCol{
+  border-radius:26px!important;border:1px solid rgba(203,213,225,.95)!important;
+  background:rgba(255,255,255,.82)!important;box-shadow:0 18px 44px rgba(15,23,42,.09)!important;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);min-height:400px!important;transition:transform .14s ease,box-shadow .14s ease!important;
+}
+#crmBoard.crmBoard > .crmCol:hover{transform:translateY(-2px);box-shadow:0 24px 54px rgba(15,23,42,.13)!important;}
+#crmBoard.crmBoard > .crmCol:before{height:5px!important;background:linear-gradient(90deg,#2563eb,#60a5fa)!important;}
+#crmBoard.crmBoard > .crmCol.crmStageTone2:before{background:linear-gradient(90deg,#16a34a,#86efac)!important;}
+#crmBoard.crmBoard > .crmCol.crmStageTone3:before{background:linear-gradient(90deg,#f59e0b,#facc15)!important;}
+#crmBoard.crmBoard > .crmCol.crmStageTone4:before{background:linear-gradient(90deg,#7c3aed,#c4b5fd)!important;}
+#panelCrm .crmColHead{padding:15px 14px!important;gap:10px!important;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,250,252,.78))!important;}
+#panelCrm .crmStageTitleRow{display:flex;align-items:center;gap:10px;min-width:0;}
+#panelCrm .crmStageIcon{width:38px;height:38px;border-radius:15px;background:#eff6ff;color:#2563eb;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;border:1px solid #dbeafe;font-size:19px;}
+#panelCrm .crmStageTone2 .crmStageIcon{background:#ecfdf5;color:#16a34a;border-color:#bbf7d0;}
+#panelCrm .crmStageTone3 .crmStageIcon{background:#fffbeb;color:#d97706;border-color:#fde68a;}
+#panelCrm .crmStageTone4 .crmStageIcon{background:#f5f3ff;color:#7c3aed;border-color:#ddd6fe;}
+#panelCrm .crmStageTitleText{min-width:0;display:flex;flex-direction:column;gap:3px;}
+#panelCrm .crmStageTitleText b{max-width:156px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:15px!important;font-weight:1000!important;}
+#panelCrm .crmStageTitleText small{font-size:10px;color:#94a3b8;font-weight:950;text-transform:uppercase;letter-spacing:.10em;}
+#panelCrm .crmStageCount{margin-top:8px!important;background:#fff!important;border-color:#e2e8f0!important;box-shadow:0 6px 14px rgba(15,23,42,.04);}
+#panelCrm .crmStageCount i{font-size:13px;color:#94a3b8;}
+#panelCrm .crmColActions{display:grid!important;grid-template-columns:repeat(2,32px)!important;gap:6px!important;align-self:flex-start;}
+#panelCrm .btnMini{border-radius:13px!important;}
+#panelCrm .crmStageDelete:hover{color:#dc2626!important;border-color:#fecaca!important;box-shadow:0 10px 18px rgba(220,38,38,.10)!important;}
+#panelCrm .crmStageEdit:hover{color:#7c3aed!important;border-color:#ddd6fe!important;box-shadow:0 10px 18px rgba(124,58,237,.10)!important;}
+#panelCrm .crmColBody{min-height:312px!important;background:linear-gradient(180deg,rgba(248,250,252,.75),rgba(255,255,255,.70))!important;}
+#panelCrm .crmColBody:empty::before{content:none!important;display:none!important;}
+#panelCrm .crmStageEmpty{
+  min-height:156px;border:1px dashed #cbd5e1;border-radius:22px;background:rgba(255,255,255,.62);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:7px;color:#94a3b8;padding:20px;
+}
+#panelCrm .crmStageEmpty i{width:42px;height:42px;border-radius:17px;background:#f8fafc;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;font-size:21px;color:#64748b;}
+#panelCrm .crmStageEmpty b{font-size:13px;color:#64748b;font-weight:1000;}
+#panelCrm .crmStageEmpty span{font-size:12px;line-height:1.35;max-width:220px;}
+#panelCrm .crmDropHint{outline:3px solid rgba(37,99,235,.16)!important;outline-offset:-5px!important;background:rgba(37,99,235,.06)!important;}
+#panelCrm .crmDropHint .crmStageEmpty{border-color:#60a5fa;background:#eff6ff;color:#2563eb;}
+#panelCrm .crmCard{position:relative!important;overflow:hidden!important;padding:14px!important;border-radius:20px!important;}
+#panelCrm .crmCardAccent{position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#2563eb,#60a5fa);}
+#panelCrm .crmCardIdentity{display:flex;align-items:flex-start;gap:10px;min-width:0;}
+#panelCrm .crmAvatar{width:34px;height:34px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;background:linear-gradient(135deg,#e0f2fe,#dbeafe);color:#1d4ed8;font-size:14px;font-weight:1000;border:1px solid #bfdbfe;}
+#panelCrm .crmCardIdentityText{min-width:0;display:flex;flex-direction:column;gap:6px;}
+#panelCrm .crmName{max-width:168px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px!important;}
+#panelCrm .crmStageBadge{display:inline-flex;align-items:center;gap:5px;width:max-content;max-width:170px;padding:5px 7px;border:1px solid #e2e8f0;background:#f8fafc;border-radius:999px;color:#64748b;font-size:10px;font-weight:950;line-height:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#panelCrm .crmCardBtns{display:grid!important;grid-template-columns:32px!important;gap:6px!important;}
+#panelCrm .crmCardBtns .btnMini{width:32px!important;height:32px!important;min-width:32px!important;}
+#panelCrm .crmCardMove:hover{color:#16a34a!important;border-color:#bbf7d0!important;box-shadow:0 10px 18px rgba(22,163,74,.11)!important;}
+#panelCrm .crmCardView:hover{color:#2563eb!important;border-color:#bfdbfe!important;box-shadow:0 10px 18px rgba(37,99,235,.12)!important;}
+#panelCrm .crmMeta{margin-top:12px!important;padding-top:11px!important;border-top:1px solid #f1f5f9!important;}
+#panelCrm .crmMetaLine{padding:0!important;}
+#panelCrm .crmMetaPh{width:14px;height:14px;color:#94a3b8;flex:0 0 auto;}
+#panelCrm .crmBoardHint{margin-top:13px!important;background:rgba(255,255,255,.78)!important;border-color:#dbeafe!important;color:#52627a!important;box-shadow:0 8px 18px rgba(15,23,42,.045)!important;}
+@media(max-width:1260px){
+  #panelCrm .crmPolishedHeader{align-items:stretch!important;flex-direction:column!important;}
+  #panelCrm .crmActionDock{min-width:0!important;width:100%!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  #panelCrm .crmBoardHero{flex-direction:column!important;}
+  #panelCrm .crmQuickStats{min-width:0!important;width:100%!important;}
+  #panelCrm .crmTabs{max-width:100%!important;}
+}
+@media(max-width:720px){
+  #panelCrm .crmPolishedHeader{padding:16px!important;}
+  #panelCrm .crmActionDock{grid-template-columns:1fr!important;}
+  #panelCrm .crmQuickStats{grid-template-columns:1fr!important;}
+  #panelCrm .crmToolbarPremium{flex-direction:column!important;align-items:stretch!important;}
+}
+</style>
+
+
+
+<style id="crm-alignment-polish-20260601">
+/* Ajuste fino do CRM premium: corrige textos vazando, alinhamento do seletor e remove bolinhas decorativas redundantes. */
+#panelCrm .crmPageCard{
+  overflow:clip!important;
+}
+
+/* Cabeçalho: ícone principal predominante, sem bolinha/status duplicado. */
+#panelCrm .crmHeaderIcon{
+  width:60px!important;
+  height:60px!important;
+  border-radius:22px!important;
+  font-size:27px!important;
+  flex:0 0 auto!important;
+}
+#panelCrm .crmHeaderIcon:after{
+  content:none!important;
+  display:none!important;
+}
+#panelCrm .crmHeaderText{
+  min-width:0!important;
+}
+#panelCrm .crmHeaderText .hint{
+  display:block!important;
+  max-width:620px!important;
+  white-space:normal!important;
+  line-height:1.35!important;
+}
+
+/* Botões superiores: distribuição mais limpa e textos sempre contidos. */
+#panelCrm .crmActionDock{
+  display:grid!important;
+  grid-template-columns:1.18fr 1fr 1fr 1fr!important;
+  gap:12px!important;
+  min-width:0!important;
+  width:min(680px,58vw)!important;
+  align-items:stretch!important;
+}
+#panelCrm .crmActionDock .crmActionButton{
+  min-width:0!important;
+  width:100%!important;
+  min-height:56px!important;
+  max-height:58px!important;
+  padding:9px 12px!important;
+  overflow:hidden!important;
+  white-space:normal!important;
+}
+#panelCrm .crmActionDock .crmActionButton > span:last-child{
+  min-width:0!important;
+  flex:1 1 auto!important;
+  overflow:hidden!important;
+}
+#panelCrm .crmActionButton b,
+#panelCrm .crmActionButton small{
+  max-width:100%!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+}
+#panelCrm .crmActionButton b{
+  font-size:12.5px!important;
+}
+#panelCrm .crmActionButton small{
+  font-size:9.5px!important;
+  margin-top:3px!important;
+}
+#panelCrm .crmActionIcon{
+  width:36px!important;
+  height:36px!important;
+  border-radius:14px!important;
+  font-size:19px!important;
+}
+
+/* Resumo: ícone predominante no card, sem parecer bolinha vazia ao lado do número. */
+#panelCrm .crmQuickStats{
+  grid-template-columns:repeat(3,minmax(132px,1fr))!important;
+  gap:12px!important;
+  min-width:min(490px,42vw)!important;
+}
+#panelCrm .crmQuickStat{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:42px minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;
+  column-gap:12px!important;
+  row-gap:4px!important;
+  align-items:center!important;
+  min-height:74px!important;
+  padding:13px 14px!important;
+  overflow:hidden!important;
+}
+#panelCrm .crmQuickStat i{
+  grid-row:1 / span 2!important;
+  grid-column:1!important;
+  width:42px!important;
+  height:42px!important;
+  border-radius:16px!important;
+  font-size:21px!important;
+  flex:0 0 auto!important;
+  background:linear-gradient(135deg,#eff6ff,#dbeafe)!important;
+  color:#2563eb!important;
+  border:1px solid #bfdbfe!important;
+  box-shadow:none!important;
+}
+#panelCrm .crmQuickStat strong,
+#panelCrm .crmQuickStat span{
+  position:relative!important;
+  z-index:1!important;
+}
+#panelCrm .crmQuickStat strong{
+  grid-column:2!important;
+  display:block!important;
+  font-size:23px!important;
+  line-height:1!important;
+  margin:0!important;
+}
+#panelCrm .crmQuickStat span{
+  grid-column:2!important;
+  display:block!important;
+  margin:0!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  min-width:0!important;
+}
+
+/* Linha de escolha do funil: alinhamento central real e sem texto cortado. */
+#panelCrm .crmToolbarPremium{
+  display:grid!important;
+  grid-template-columns:minmax(260px,.72fr) minmax(340px,1.28fr)!important;
+  align-items:center!important;
+  gap:16px!important;
+  padding:13px 14px!important;
+  min-height:74px!important;
+  overflow:visible!important;
+}
+#panelCrm .crmToolbarCopy{
+  min-width:0!important;
+  justify-content:center!important;
+  gap:4px!important;
+}
+#panelCrm .crmToolbarTitle{
+  font-size:13px!important;
+  line-height:1.2!important;
+}
+#panelCrm .crmToolbarTitle i{
+  width:24px!important;
+  height:24px!important;
+  border-radius:10px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  background:#eff6ff!important;
+  color:#2563eb!important;
+  border:1px solid #dbeafe!important;
+  flex:0 0 auto!important;
+}
+#panelCrm .crmToolbarHint{
+  display:block!important;
+  line-height:1.35!important;
+  white-space:normal!important;
+  overflow:visible!important;
+}
+#panelCrm .crmTabs{
+  justify-self:end!important;
+  align-self:center!important;
+  max-width:100%!important;
+  width:max-content!important;
+  min-width:0!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  overflow:visible!important;
+}
+#panelCrm .crmTab{
+  min-width:0!important;
+  max-width:310px!important;
+  min-height:42px!important;
+  padding:7px 9px!important;
+  overflow:hidden!important;
+}
+#panelCrm .crmTabName{
+  min-width:0!important;
+  max-width:185px!important;
+}
+#panelCrm .crmTab .funnelMenuDots{
+  flex:0 0 auto!important;
+}
+
+/* Contador das etapas: remove o ícone/bolinha redundante e deixa o número direto. */
+#panelCrm .crmStageCount{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:0!important;
+  width:max-content!important;
+  padding:5px 9px!important;
+  font-size:11px!important;
+  line-height:1!important;
+}
+#panelCrm .crmStageCount i{
+  display:none!important;
+}
+
+/* Cabeçalho das colunas com menos competição visual. */
+#panelCrm .crmColHead{
+  align-items:flex-start!important;
+}
+#panelCrm .crmStageIcon{
+  width:40px!important;
+  height:40px!important;
+  border-radius:16px!important;
+  font-size:20px!important;
+}
+#panelCrm .crmStageTitleText b{
+  max-width:170px!important;
+}
+#panelCrm .crmColActions{
+  flex:0 0 auto!important;
+}
+
+@media(max-width:1380px){
+  #panelCrm .crmPolishedHeader{
+    align-items:stretch!important;
+    flex-direction:column!important;
+  }
+  #panelCrm .crmActionDock{
+    width:100%!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  }
+  #panelCrm .crmHeaderText .hint{max-width:100%!important;}
+}
+@media(max-width:1060px){
+  #panelCrm .crmToolbarPremium{
+    grid-template-columns:1fr!important;
+    align-items:stretch!important;
+  }
+  #panelCrm .crmTabs{
+    justify-self:stretch!important;
+    width:100%!important;
+    overflow-x:auto!important;
+  }
+  #panelCrm .crmQuickStats{
+    min-width:0!important;
+    width:100%!important;
+  }
+}
+@media(max-width:820px){
+  #panelCrm .crmActionDock{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  #panelCrm .crmQuickStats{grid-template-columns:1fr!important;}
+}
+@media(max-width:560px){
+  #panelCrm .crmActionDock{grid-template-columns:1fr!important;}
+  #panelCrm .crmActionDock .crmActionButton{max-height:none!important;}
+}
+</style>
+
+
+<style id="crm-webhook-link-hotfix-20260601">
+/* Correção: o botão principal não pode ficar branco no hover. */
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:hover,
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:focus-visible{
+  background:linear-gradient(135deg,#2563eb,#1d4ed8)!important;
+  color:#fff!important;
+  border-color:#2563eb!important;
+}
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:hover b,
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:hover small,
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:focus-visible b,
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:focus-visible small{
+  color:#fff!important;
+}
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:hover .crmActionIcon,
+#panelCrm .crmActionDock .crmActionButton.crmActionMain:focus-visible .crmActionIcon{
+  background:rgba(255,255,255,.16)!important;
+  border-color:rgba(255,255,255,.24)!important;
+  color:#fff!important;
+}
+
+/* Nova ação: vincular webhook ao funil, mantendo distribuição premium. */
+#panelCrm .crmActionDock{
+  grid-template-columns:1.12fr 1fr 1fr 1fr 1fr!important;
+  width:min(870px,62vw)!important;
+}
+#panelCrm .crmActionDock .crmActionButton{
+  min-height:58px!important;
+  padding:9px 10px!important;
+}
+#panelCrm .crmWebhookInfoBox{
+  border:1px solid #dbeafe;
+  border-radius:18px;
+  background:linear-gradient(180deg,#f8fbff,#fff);
+  padding:13px 14px;
+  color:#52627a;
+  font-size:12px;
+  line-height:1.45;
+  margin:12px 0;
+}
+#panelCrm .crmWebhookInfoBox b{color:#0f172a;}
+#panelCrm .crmWebhookEmpty{
+  border:1px dashed #bfdbfe;
+  border-radius:20px;
+  background:#f8fbff;
+  padding:18px;
+  color:#52627a;
+  line-height:1.45;
+}
+#panelCrm .crmWebhookLinkActions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+@media(max-width:1480px){
+  #panelCrm .crmActionDock{width:100%!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+}
+@media(max-width:820px){
+  #panelCrm .crmActionDock{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media(max-width:560px){
+  #panelCrm .crmActionDock{grid-template-columns:1fr!important;}
+}
+</style>
+
+
+<style id="crm-webhook-modal-and-stage-drag-20260601">
+/* Modal premium do CRM: mais limpo, legível e alinhado. */
+#crmModalOverlay{
+  background:rgba(15,23,42,.58)!important;
+  backdrop-filter:blur(8px)!important;
+  padding:24px!important;
+  z-index:9999!important;
+}
+#crmModal{
+  width:min(900px,calc(100vw - 32px))!important;
+  max-height:min(86vh,760px)!important;
+  border-radius:28px!important;
+  border:1px solid rgba(219,234,254,.95)!important;
+  background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%)!important;
+  box-shadow:0 30px 90px rgba(15,23,42,.30)!important;
+  overflow:hidden!important;
+  padding:0!important;
+}
+#crmModal > div:first-child{
+  padding:20px 22px 16px!important;
+  border-bottom:1px solid #e6eefb!important;
+  background:linear-gradient(135deg,#ffffff 0%,#eef5ff 100%)!important;
+  align-items:center!important;
+}
+#crmModalTitle{
+  font-size:19px!important;
+  font-weight:950!important;
+  letter-spacing:-.035em!important;
+  color:#101828!important;
+}
+#crmModalSub{
+  margin-top:5px!important;
+  font-size:13px!important;
+  color:#667085!important;
+  opacity:1!important;
+  line-height:1.4!important;
+}
+#crmModalClose{
+  width:38px!important;
+  height:38px!important;
+  border:1px solid #dbe7f7!important;
+  background:#fff!important;
+  color:#344054!important;
+  border-radius:14px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  box-shadow:0 8px 20px rgba(15,23,42,.07)!important;
+}
+#crmModalClose:hover{
+  background:#f8fbff!important;
+  border-color:#bfdbfe!important;
+  color:#1d4ed8!important;
+}
+#crmModalBody{
+  padding:20px 22px 22px!important;
+  overflow:auto!important;
+  max-height:calc(min(86vh,760px) - 86px)!important;
+}
+.crmWebhookFlow{display:flex;flex-direction:column;gap:16px;}
+.crmWebhookHero{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  align-items:center;
+  border:1px solid #dbeafe;
+  border-radius:24px;
+  padding:17px;
+  background:linear-gradient(135deg,#eff6ff 0%,#fff 54%,#f0fdf4 100%);
+}
+.crmWebhookHeroIcon{
+  width:54px;
+  height:54px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  box-shadow:0 18px 36px rgba(37,99,235,.20);
+}
+.crmWebhookHeroTitle{font-size:17px;font-weight:950;color:#101828;letter-spacing:-.025em;}
+.crmWebhookHeroText{font-size:13px;color:#667085;line-height:1.45;margin-top:4px;max-width:720px;}
+.crmWebhookSteps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.crmWebhookStepCard{
+  border:1px solid #e4eaf4;
+  border-radius:20px;
+  background:#fff;
+  padding:13px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  box-shadow:0 8px 20px rgba(15,23,42,.04);
+}
+.crmWebhookStepCard i{
+  width:32px;
+  height:32px;
+  border-radius:13px;
+  background:#eef5ff;
+  color:#2563eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+  flex:0 0 auto;
+}
+.crmWebhookStepCard b{display:block;font-size:13px;color:#101828;font-weight:950;line-height:1.2;}
+.crmWebhookStepCard span{display:block;font-size:12px;color:#667085;line-height:1.35;margin-top:3px;}
+.crmWebhookSelectorGrid{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,1fr);
+  gap:12px;
+}
+.crmWebhookField{
+  border:1px solid #e4eaf4;
+  border-radius:20px;
+  background:#fff;
+  padding:13px;
+  box-shadow:0 8px 20px rgba(15,23,42,.035);
+}
+.crmWebhookField label{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:12px;
+  color:#344054;
+  font-weight:900;
+  margin-bottom:8px;
+}
+.crmWebhookField label i{font-size:16px;color:#2563eb;}
+.crmWebhookField select{
+  width:100%;
+  height:44px;
+  border-radius:15px;
+  border:1px solid #dbe7f7;
+  background:#f8fbff;
+  padding:0 12px;
+  color:#101828;
+  font-weight:800;
+  outline:none;
+  min-width:0;
+}
+.crmWebhookField select:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 0 4px rgba(37,99,235,.12);
+  background:#fff;
+}
+.crmWebhookStatusCard{
+  border:1px solid #cfe0ff;
+  border-radius:22px;
+  background:linear-gradient(180deg,#f8fbff,#fff);
+  padding:15px;
+  color:#52627a;
+  line-height:1.45;
+}
+.crmWebhookStatusTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.crmWebhookStatusTitle{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:950;color:#101828;}
+.crmWebhookStatusTitle i{color:#2563eb;font-size:18px;}
+.crmWebhookStatusBadge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border-radius:999px;
+  padding:7px 10px;
+  background:#ecfdf3;
+  color:#027a48;
+  border:1px solid #abefc6;
+  font-size:11px;
+  font-weight:950;
+  white-space:nowrap;
+}
+.crmWebhookStatusBadge.is-unlinked{background:#fff7ed;color:#b45309;border-color:#fed7aa;}
+.crmWebhookFlowLine{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-top:11px;
+}
+.crmWebhookFlowPill{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border:1px solid #dbe7f7;
+  background:#fff;
+  color:#344054;
+  border-radius:999px;
+  padding:8px 11px;
+  font-size:12px;
+  font-weight:850;
+  max-width:100%;
+}
+.crmWebhookFlowPill i{color:#2563eb;font-size:15px;}
+.crmWebhookFlowArrow{color:#98a2b3;font-weight:950;}
+.crmWebhookLinkActions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:10px!important;
+  flex-wrap:wrap!important;
+  margin-top:2px!important;
+  padding-top:16px!important;
+  border-top:1px solid #e6eefb!important;
+}
+.crmWebhookLinkActions .btn{min-height:42px!important;border-radius:14px!important;}
+.crmWebhookEmpty{font-size:13px;}
+
+/* Etapas agora podem ser reordenadas arrastando a coluna. */
+#crmBoard.crmBoard > .crmCol{
+  cursor:grab;
+  user-select:none;
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease, opacity .16s ease!important;
+}
+#crmBoard.crmBoard > .crmCol:active{cursor:grabbing;}
+#crmBoard.crmBoard > .crmCol.crmStageDragging{
+  opacity:.62;
+  transform:scale(.985);
+  box-shadow:0 12px 28px rgba(15,23,42,.10)!important;
+}
+#crmBoard.crmBoard > .crmCol.crmStageDropBefore,
+#crmBoard.crmBoard > .crmCol.crmStageDropAfter{
+  border-color:#2563eb!important;
+  box-shadow:0 0 0 4px rgba(37,99,235,.13),0 24px 54px rgba(15,23,42,.13)!important;
+}
+#crmBoard.crmBoard > .crmCol.crmStageDropBefore{transform:translateX(-8px);}
+#crmBoard.crmBoard > .crmCol.crmStageDropAfter{transform:translateX(8px);}
+#crmBoard.crmBoard > .crmCol.crmStageDropBefore:after,
+#crmBoard.crmBoard > .crmCol.crmStageDropAfter:after{
+  content:"";
+  position:absolute;
+  top:16px;
+  bottom:16px;
+  width:4px;
+  border-radius:999px;
+  background:#2563eb;
+  box-shadow:0 0 0 4px rgba(37,99,235,.12);
+}
+#crmBoard.crmBoard > .crmCol.crmStageDropBefore:after{left:-11px;}
+#crmBoard.crmBoard > .crmCol.crmStageDropAfter:after{right:-11px;}
+#panelCrm .crmStageDragHint{
+  width:30px;
+  height:30px;
+  border-radius:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#667085;
+  background:#f8fbff;
+  border:1px solid #e4eaf4;
+  flex:0 0 auto;
+}
+#panelCrm .crmStageDragHint i{font-size:17px;}
+#panelCrm .crmColHead:hover .crmStageDragHint{
+  color:#2563eb;
+  background:#eef5ff;
+  border-color:#bfdbfe;
+}
+#panelCrm .crmColActions{gap:7px!important;}
+#panelCrm .crmStageEdit,#panelCrm .crmStageDelete{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;padding:0!important;}
+#panelCrm .crmStageEmpty{pointer-events:none;}
+#panelCrm .crmBoardHint span::after{
+  content:" Arraste também as colunas para reorganizar as etapas.";
+}
+@media(max-width:920px){
+  .crmWebhookSelectorGrid,.crmWebhookSteps{grid-template-columns:1fr;}
+  #crmModal{width:calc(100vw - 20px)!important;border-radius:22px!important;}
+  #crmModalOverlay{padding:10px!important;}
+  #crmModalBody{padding:16px!important;}
+  .crmWebhookHero{grid-template-columns:1fr;}
+}
+</style>
+
 </head>
 
 <body>
@@ -2239,7 +3273,7 @@ body:not(.hasPager) .pager{display:none!important;}
 
         <div class="insightSectionGrid">
           <section class="card">
-            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-map-pin"></i> DDDs e localização</h2><span class="hint">Clique em um DDD para visualizar e agir sobre os números.</span></div>
+            <div class="cardHeader"><h2 class="cardTitle"><i class="ph ph-map-pin"></i> Regiões de telefone</h2><span class="hint">Clique em um DDD ou prefixo de Portugal para visualizar e agir sobre os números.</span></div>
             <div class="cardBody"><div id="insDdds" class="insightBars"></div><div id="insDddDetail"></div></div>
           </section>
 
@@ -2272,26 +3306,49 @@ body:not(.hasPager) .pager{display:none!important;}
         </section>
       </main>
 
-      <main id="panelCrm" style="display:none; flex-direction:column; gap:14px;">
-        <section class="card">
-          <div class="cardHeader" style="align-items:flex-start; gap:10px;">
-            <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
-              <h2 class="cardTitle">Funil de Vendas</h2>
-              <span class="hint">CRM simples (kanban) • arraste e solte para mover</span>
+      <main id="panelCrm" class="crmPage" style="display:none; flex-direction:column; gap:16px;">
+        <section class="card crmPageCard">
+          <div class="cardHeader crmPolishedHeader">
+            <div class="crmHeaderMain">
+              <div class="crmHeaderIcon" aria-hidden="true"><i class="ph ph-kanban"></i></div>
+              <div class="crmHeaderText">
+                <div class="crmEyebrow">Pipeline comercial</div>
+                <h2 class="cardTitle">Funil de Vendas</h2>
+                <span class="hint">CRM simples em kanban, com etapas organizadas e movimentação por arrastar e soltar.</span>
+              </div>
             </div>
-            <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
-              <button id="crmBtnNewPipeline" class="btn btnPrimary" type="button">+ Novo funil</button>
-              <button id="crmBtnNewStage" class="btn" type="button">+ Nova etapa</button>
-              <button id="crmBtnImportLead" class="btn" type="button">Importar lead</button>
-              <button id="crmBtnNewLead" class="btn" type="button">+ Lead manual</button>
+            <div class="crmHeaderActions crmActionDock" aria-label="Ações do funil">
+              <button id="crmBtnNewLead" class="btn btnPrimary crmActionButton crmActionMain" type="button"><span class="crmActionIcon"><i class="ph ph-user-plus"></i></span><span><b>Lead manual</b><small>Cadastrar contato</small></span></button>
+              <button id="crmBtnImportLead" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-upload-simple"></i></span><span><b>Importar lead</b><small>Adicionar em lote</small></span></button>
+              <button id="crmBtnLinkWebhook" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-plugs-connected"></i></span><span><b>Vincular webhook</b><small>Entrada automática</small></span></button>
+              <button id="crmBtnNewStage" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-list-plus"></i></span><span><b>Nova etapa</b><small>Organizar funil</small></span></button>
+              <button id="crmBtnNewPipeline" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-plus-circle"></i></span><span><b>Novo funil</b><small>Criar pipeline</small></span></button>
             </div>
           </div>
-          <div class="cardBody">
-            <div id="crmPipelinesBar" class="crmTabs"></div>
-            <div id="crmBoardWrap" class="crmBoardWrap">
+          <div class="cardBody crmBoardBody">
+            <div class="crmBoardHero" aria-label="Resumo do funil ativo">
+              <div class="crmBoardHeroLeft">
+                <span class="crmStatusPill"><i class="ph ph-sparkle"></i> Funil ativo</span>
+                <strong id="crmActivePipelineName" class="crmActivePipelineName">Funil Principal</strong>
+                <span id="crmActivePipelineHint" class="crmActivePipelineHint">Carregando etapas e leads...</span>
+              </div>
+              <div class="crmQuickStats">
+                <div class="crmQuickStat"><i class="ph ph-kanban"></i><strong id="crmStatStages">0</strong><span>Etapas</span></div>
+                <div class="crmQuickStat"><i class="ph ph-users-three"></i><strong id="crmStatPlaced">0</strong><span>No funil</span></div>
+                <div class="crmQuickStat"><i class="ph ph-database"></i><strong id="crmStatTotal">0</strong><span>Leads totais</span></div>
+              </div>
+            </div>
+            <div class="crmToolbar crmToolbarPremium">
+              <div class="crmToolbarCopy">
+                <div class="crmToolbarTitle"><i class="ph ph-funnel"></i> Escolha o funil</div>
+                <div class="crmToolbarHint">Use os funis como áreas comerciais separadas e mova os leads pelas etapas.</div>
+              </div>
+              <div id="crmPipelinesBar" class="crmTabs"></div>
+            </div>
+            <div id="crmBoardWrap" class="crmBoardWrap crmBoardWrapPolished">
               <div id="crmBoard" class="crmBoard" aria-label="Quadro do funil"></div>
             </div>
-            <div class="hint" style="margin-top:10px;">Dica: se tiver muitas colunas, use o scroll horizontal do quadro.</div>
+            <div class="crmBoardHint"><i class="ph ph-hand-grabbing"></i><span>Arraste os cards entre as etapas. No computador, use o scroll horizontal para navegar pelo pipeline.</span></div>
           </div>
         </section>
       </main>
@@ -2638,14 +3695,14 @@ Não tenho interesse"></textarea>
   </div>
 
 
-  <!-- Overlay: DDD Insights -->
+  <!-- Overlay: Regiões de telefone Insights -->
   <div id="ovInsightDdd" class="overlay" role="dialog" aria-modal="true" style="display:none;">
     <div class="sheet insightDddModalSheet">
       <div class="sheetHead">
         <div class="sheetTitle">
           <span class="badge" style="background:var(--g-blue); box-shadow:0 0 0 4px rgba(26,115,232,.14)"></span>
           <div>
-            <div class="t" id="insDddModalTitle">Números por DDD</div>
+            <div class="t" id="insDddModalTitle">Números por região</div>
             <div class="modalSub" id="insDddModalSub">Selecione, exporte, copie, marque com tag ou abra uma conversa.</div>
           </div>
         </div>
@@ -2674,7 +3731,7 @@ Não tenho interesse"></textarea>
           <button id="btnInsDddApplyTag" class="btn btnPrimary" type="button"><i class="ph ph-tag"></i> Aplicar tag</button>
           <label class="field">
             <span>Ou crie uma nova tag</span>
-            <input id="insDddNewTagName" class="input" type="text" placeholder="Ex: DDD 11, Leads SP, Remarketing" />
+            <input id="insDddNewTagName" class="input" type="text" placeholder="Ex: DDD 11, Portugal 91, Leads SP, Remarketing" />
           </label>
           <label class="field">
             <span>Cor</span>
@@ -3219,59 +4276,66 @@ Não tenho interesse"></textarea>
       return d.toLocaleString("pt-BR");
     }
 
-    /* +DDI DDD numero */
+    /* +DDI número. Aceita Brasil e Portugal sem quebrar os números antigos. */
+    function normalizePhoneDigitsClient(raw){
+      var d = String(raw || "").replace(/\D+/g, "").replace(/^0+/, "");
+      if (!d) return "";
+      if (d.indexOf("55") === 0 && /^55\d{10,11}$/.test(d)) return d;
+      if ((d.length === 10 || d.length === 11) && d.indexOf("55") !== 0) return "55" + d;
+      if (d.indexOf("351") === 0 && /^351[2-9]\d{8}$/.test(d)) return d;
+      if (/^[2-9]\d{8}$/.test(d)) return "351" + d;
+      return d;
+    }
+
+    function phoneSearchVariantsClient(raw){
+      var original = String(raw || "").replace(/\D+/g, "").replace(/^0+/, "");
+      var normalized = normalizePhoneDigitsClient(raw);
+      var set = {};
+      [original, normalized].forEach(function(d){ if (d) set[d] = true; });
+      Object.keys(set).forEach(function(d){
+        if (d.indexOf("55") === 0) set[d.slice(2)] = true;
+        if (d.indexOf("351") === 0) set[d.slice(3)] = true;
+      });
+      return Object.keys(set).filter(Boolean);
+    }
+
     function formatWhatsAppPretty(raw){
-      var s = String(raw || "");
-      var digits = s.replace(/\D+/g, "");
+      var digits = normalizePhoneDigitsClient(raw);
       if (!digits) return "—";
 
-      var ddi = "", ddd = "", rest = "";
-
-      if (digits.length >= 13 && digits.startsWith("55")) {
-        ddi = digits.slice(0,2);
-        ddd = digits.slice(2,4);
-        rest = digits.slice(4);
-      } else if (digits.length === 11 || digits.length === 10) {
-        ddi = "55";
-        ddd = digits.slice(0,2);
-        rest = digits.slice(2);
-      } else if (digits.length > 4) {
-        ddi = digits.slice(0,2);
-        ddd = digits.slice(2,4);
-        rest = digits.slice(4);
-      } else {
-        return "+" + digits;
+      if (digits.indexOf("55") === 0 && (digits.length === 12 || digits.length === 13)) {
+        return "+55 " + digits.slice(2,4) + " " + digits.slice(4);
       }
-      return "+" + ddi + " " + ddd + " " + rest;
+
+      if (digits.indexOf("351") === 0 && digits.length === 12) {
+        return "+351 " + digits.slice(3,6) + " " + digits.slice(6,9) + " " + digits.slice(9);
+      }
+
+      return "+" + digits;
     }
 
     function getDDDFromLead(lead){
-      var digits = String(lead.whatsapp_digits || lead.whatsapp_raw || "").replace(/\D+/g, "");
+      var digits = normalizePhoneDigitsClient(lead && (lead.whatsapp_digits || lead.whatsapp_raw || ""));
       if (!digits) return "";
-      if (digits.length >= 13 && digits.startsWith("55")) return digits.slice(2,4);
-      if (digits.length >= 11) return digits.slice(0,2);
+      if (digits.indexOf("55") === 0 && (digits.length === 12 || digits.length === 13)) return digits.slice(2,4);
+      if (digits.indexOf("351") === 0 && digits.length === 12) return digits.slice(3,5);
       return "";
     }
 
     function phoneMatchesSearchClient(lead, query){
-      var qd = String(query || "").replace(/\D+/g, "");
-      if (!qd) return false;
+      var queryVariants = phoneSearchVariantsClient(query);
+      if (!queryVariants.length) return false;
 
-      var rawDigits = String((lead && lead.whatsapp_raw) || "").replace(/\D+/g, "");
-      var savedDigits = String((lead && lead.whatsapp_digits) || "").replace(/\D+/g, "");
-      var candidates = [rawDigits, savedDigits];
+      var candidateMap = {};
+      [lead && lead.whatsapp_raw, lead && lead.whatsapp_digits, lead && lead.whatsapp, lead && lead.phone, lead && lead.telefone].forEach(function(value){
+        phoneSearchVariantsClient(value).forEach(function(v){ candidateMap[v] = true; });
+      });
 
+      var candidates = Object.keys(candidateMap);
       for (var i=0;i<candidates.length;i++){
-        var digits = candidates[i];
-        if (!digits) continue;
-        if (digits.indexOf(qd) !== -1) return true;
-
-        var withoutCountry = digits.indexOf("55") === 0 ? digits.slice(2) : digits;
-        if (withoutCountry && withoutCountry.indexOf(qd) !== -1) return true;
-
-        var queryWithoutCountry = qd.indexOf("55") === 0 ? qd.slice(2) : qd;
-        if (queryWithoutCountry && digits.indexOf(queryWithoutCountry) !== -1) return true;
-        if (queryWithoutCountry && withoutCountry.indexOf(queryWithoutCountry) !== -1) return true;
+        for (var j=0;j<queryVariants.length;j++){
+          if (candidates[i].indexOf(queryVariants[j]) !== -1 || queryVariants[j].indexOf(candidates[i]) !== -1) return true;
+        }
       }
 
       return false;
@@ -4479,6 +5543,18 @@ Não tenho interesse"></textarea>
     var selectedInsightDdd = "";
     var insightDddModalItem = null;
 
+    function insightDddKey(item){
+      return String(item && (item.groupKey || ((item.country ? item.country + ":" : "") + (item.ddd || item.prefix || ""))) || "");
+    }
+
+    function insightDddLabel(item){
+      if (!item) return "Região";
+      if (item.label) return String(item.label);
+      var ddd = String(item.ddd || item.prefix || "");
+      if (String(item.country || "") === "PT") return "Portugal " + ddd;
+      return "DDD " + ddd;
+    }
+
     function renderInsightDdds(ddds){
       var rows = Array.isArray(ddds) ? ddds : [];
       var box = document.getElementById("insDdds");
@@ -4486,20 +5562,21 @@ Não tenho interesse"></textarea>
       if (detail) detail.innerHTML = "";
       if (!box) return;
       if (!rows.length) {
-        box.innerHTML = insEmpty("Nenhum DDD identificado ainda.");
+        box.innerHTML = insEmpty("Nenhum DDD ou prefixo de Portugal identificado ainda.");
         return;
       }
       var max = Math.max.apply(null, rows.map(function(x){ return Number(x.count || 0); }).concat([1]));
       box.innerHTML = '<div class="insightBars">' + rows.map(function(x){
         var count = Number(x.count || 0);
         var w = Math.max(3, Math.round((count / max) * 100));
-        var ddd = String(x.ddd || "");
-        var active = selectedInsightDdd === ddd ? ' btnPrimary' : ' btnSoft';
+        var key = insightDddKey(x);
+        var label = insightDddLabel(x);
+        var active = selectedInsightDdd === key ? ' btnPrimary' : ' btnSoft';
         return '<div class="insightBarRow withAction">' +
-          '<div class="insightBarLabel" title="DDD ' + escapeHtml(ddd) + '">DDD ' + escapeHtml(ddd) + '</div>' +
+          '<div class="insightBarLabel" title="' + escapeHtml(label) + '">' + escapeHtml(label) + '</div>' +
           '<div class="insightBarTrack"><div class="insightBarFill" style="width:' + w + '%"></div></div>' +
           '<div class="insightBarNumber">' + insFmt(count) + ' · ' + insPct(x.percentage) + '</div>' +
-          '<button class="btn insightMiniAction' + active + '" type="button" data-insight-ddd="' + escapeHtml(ddd) + '"><i class="ph ph-list-magnifying-glass"></i> Ver números</button>' +
+          '<button class="btn insightMiniAction' + active + '" type="button" data-insight-ddd="' + escapeHtml(key) + '"><i class="ph ph-list-magnifying-glass"></i> Ver números</button>' +
         '</div>';
       }).join('') + '</div>';
       bindInsightDddButtons();
@@ -4519,7 +5596,10 @@ Não tenho interesse"></textarea>
 
     function getInsightDddItem(ddd){
       var rows = (insightsCache && Array.isArray(insightsCache.ddds) ? insightsCache.ddds : []);
-      return rows.find(function(x){ return String(x.ddd || "") === String(ddd || ""); }) || null;
+      var wanted = String(ddd || "");
+      return rows.find(function(x){
+        return insightDddKey(x) === wanted || String(x.ddd || "") === wanted || String(x.prefix || "") === wanted;
+      }) || null;
     }
 
     function insightDddRows(){
@@ -4569,7 +5649,7 @@ Não tenho interesse"></textarea>
       if (!box) return;
       var leads = insightDddRows();
       if (!leads.length) {
-        box.innerHTML = insEmpty("Não encontramos contatos para este DDD.");
+        box.innerHTML = insEmpty("Não encontramos contatos para esta região.");
         updateInsightDddSelectedCount();
         return;
       }
@@ -4612,7 +5692,7 @@ Não tenho interesse"></textarea>
     function openInsightDddModal(ddd){
       var item = getInsightDddItem(ddd);
       if (!item) {
-        toast("warn", "DDD", "Não encontrei contatos desse DDD.");
+        toast("warn", "Região", "Não encontrei contatos dessa região.");
         return;
       }
       insightDddModalItem = item;
@@ -4620,8 +5700,9 @@ Não tenho interesse"></textarea>
       var title = document.getElementById("insDddModalTitle");
       var sub = document.getElementById("insDddModalSub");
       var summary = document.getElementById("insDddSummary");
-      if (title) title.textContent = "DDD " + item.ddd + " · " + insFmt(item.count) + " lead(s)";
-      if (sub) sub.textContent = "Agora você pode exportar, copiar, marcar com tag, filtrar no painel ou abrir conversa com os contatos desse DDD.";
+      var regionLabel = insightDddLabel(item);
+      if (title) title.textContent = regionLabel + " · " + insFmt(item.count) + " lead(s)";
+      if (sub) sub.textContent = "Agora você pode exportar, copiar, marcar com tag, filtrar no painel ou abrir conversa com os contatos dessa região.";
       if (summary) {
         var withCompany = leads.filter(function(l){ return !!String(l.empresa || '').trim(); }).length;
         var withEmail = leads.filter(function(l){ return !!String(l.email || '').trim(); }).length;
@@ -4648,7 +5729,7 @@ Não tenho interesse"></textarea>
     function downloadInsightDddCsv(){
       var rows = insightDddSelectedLeads();
       if (!rows.length) { toast("warn", "Exportar", "Selecione pelo menos um lead."); return; }
-      var ddd = insightDddModalItem ? String(insightDddModalItem.ddd || "") : "ddd";
+      var ddd = insightDddModalItem ? String(insightDddModalItem.filterValue || insightDddModalItem.ddd || insightDddModalItem.prefix || "") : "regiao";
       var header = ["nome","whatsapp","empresa","email","origem","detalhe_origem","tags","data"];
       var lines = [header.join(";")].concat(rows.map(function(l){
         var tags = Array.isArray(l.tags) ? l.tags.map(function(t){ return t.name || t.id || ""; }).filter(Boolean).join(", ") : "";
@@ -4672,7 +5753,7 @@ Não tenho interesse"></textarea>
     }
 
     function filterLeadPanelByInsightDdd(){
-      var ddd = insightDddModalItem ? String(insightDddModalItem.ddd || "") : selectedInsightDdd;
+      var ddd = insightDddModalItem ? String(insightDddModalItem.filterValue || insightDddModalItem.ddd || insightDddModalItem.prefix || "") : selectedInsightDdd;
       if (!ddd) return;
       filters.ddd = ddd;
       filters.status = "";
@@ -4683,7 +5764,7 @@ Não tenho interesse"></textarea>
       syncQuickStatusCards();
       closeOverlay("ovInsightDdd");
       setActiveNav("leads");
-      loadLeads(true).then(function(){ toast("ok", "Filtro aplicado", "Mostrando apenas leads do DDD " + ddd + "."); }).catch(function(e){ toast("err", "Filtro", e.message || "Falha ao aplicar filtro."); });
+      loadLeads(true).then(function(){ toast("ok", "Filtro aplicado", "Mostrando apenas leads da região " + ddd + "."); }).catch(function(e){ toast("err", "Filtro", e.message || "Falha ao aplicar filtro."); });
     }
 
     async function applyInsightDddTag(tagId){
@@ -4818,7 +5899,7 @@ Não tenho interesse"></textarea>
       var tl = data.timeline && Array.isArray(data.timeline.last30) ? data.timeline.last30 : [];
       renderInsightTimeline(tl);
 
-      if (selectedInsightDdd && !(data.ddds || []).some(function(x){ return String(x.ddd || "") === String(selectedInsightDdd); })) selectedInsightDdd = "";
+      if (selectedInsightDdd && !(data.ddds || []).some(function(x){ return insightDddKey(x) === String(selectedInsightDdd) || String(x.ddd || "") === String(selectedInsightDdd); })) selectedInsightDdd = "";
       renderInsightDdds(data.ddds || []);
 
       var tags = Array.isArray(data.tags) ? data.tags : [];
@@ -4911,7 +5992,11 @@ Não tenho interesse"></textarea>
         if (search) search.value = digits;
         setActiveNav("chats");
         await loadConversations({ keepSelected: false });
-        var found = chatContacts.find(function(x){ return insightNormalizeDigits(x.whatsapp_digits || x.whatsapp_raw) === digits; });
+        var targetVariants = phoneSearchVariantsClient(digits);
+        var found = chatContacts.find(function(x){
+          var candidateVariants = phoneSearchVariantsClient(x.whatsapp_digits || x.whatsapp_raw);
+          return targetVariants.some(function(v){ return candidateVariants.indexOf(v) >= 0; });
+        });
         if (!found) {
           found = {
             id: "lead_" + digits,
@@ -6367,7 +7452,47 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
     var crmBtnNewPipeline = document.getElementById("crmBtnNewPipeline");
     var crmBtnNewStage = document.getElementById("crmBtnNewStage");
     var crmBtnImportLead = document.getElementById("crmBtnImportLead");
+    var crmBtnLinkWebhook = document.getElementById("crmBtnLinkWebhook");
     var crmBtnNewLead = document.getElementById("crmBtnNewLead");
+
+    var CRM_STAGE_DRAG_TYPE = "application/x-zape-crm-stage";
+    var CRM_LEAD_DRAG_TYPE = "application/x-zape-crm-lead";
+    var crmDraggedStageId = null;
+
+    function crmDragHasType(e, type){
+      var types = e && e.dataTransfer && e.dataTransfer.types;
+      if (!types) return false;
+      for (var i = 0; i < types.length; i++) {
+        if (String(types[i]) === type) return true;
+      }
+      return false;
+    }
+
+    function crmClearStageDropHints(){
+      if (!crmBoard) return;
+      crmBoard.querySelectorAll(".crmStageDropBefore,.crmStageDropAfter").forEach(function(el){
+        el.classList.remove("crmStageDropBefore", "crmStageDropAfter");
+      });
+    }
+
+    function crmReorderStage(pipeline, fromStageId, toStageId, insertAfter){
+      if (!pipeline || !Array.isArray(pipeline.stageOrder)) return false;
+      fromStageId = String(fromStageId || "");
+      toStageId = String(toStageId || "");
+      if (!fromStageId || !toStageId || fromStageId === toStageId) return false;
+      var order = pipeline.stageOrder.slice();
+      var fromIndex = order.indexOf(fromStageId);
+      var toIndex = order.indexOf(toStageId);
+      if (fromIndex < 0 || toIndex < 0) return false;
+      order.splice(fromIndex, 1);
+      if (fromIndex < toIndex) toIndex--;
+      var finalIndex = toIndex + (insertAfter ? 1 : 0);
+      if (finalIndex < 0) finalIndex = 0;
+      if (finalIndex > order.length) finalIndex = order.length;
+      order.splice(finalIndex, 0, fromStageId);
+      pipeline.stageOrder = order;
+      return true;
+    }
 
     var crmModalOverlay = document.getElementById("crmModalOverlay");
     var crmModalTitle = document.getElementById("crmModalTitle");
@@ -6379,6 +7504,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       if (document.getElementById("crmModalOverlay")) return;
       var overlay = document.createElement("div");
       overlay.id = "crmModalOverlay";
+      overlay.className = "crmModalOverlay";
       overlay.style.display = "none";
       overlay.style.position = "fixed";
       overlay.style.inset = "0";
@@ -6389,6 +7515,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
 
       var modal = document.createElement("div");
       modal.id = "crmModal";
+      modal.className = "crmModal crmModalPremium";
       modal.style.background = "#fff";
       modal.style.width = "92%";
       modal.style.maxWidth = "760px";
@@ -6398,6 +7525,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       modal.style.boxShadow = "0 10px 30px rgba(0,0,0,.25)";
 
       var header = document.createElement("div");
+      header.className = "crmModalHead";
       header.style.display = "flex";
       header.style.alignItems = "flex-start";
       header.style.justifyContent = "space-between";
@@ -6442,6 +7570,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
 
       var body = document.createElement("div");
       body.id = "crmModalBody";
+      body.className = "crmModalBody";
       body.style.padding = "12px 16px 16px 16px";
 
       modal.appendChild(header);
@@ -6492,6 +7621,35 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       return (crmState.pipelines || []).find(function(p){ return p.id === crmState.activePipelineId; }) || (crmState.pipelines || [])[0] || null;
     }
 
+    function crmStageIconName(idx){
+      var icons = ["ph-flag-checkered", "ph-chat-circle-dots", "ph-calendar-check", "ph-file-text", "ph-handshake", "ph-trophy", "ph-star", "ph-target"];
+      return icons[idx % icons.length];
+    }
+
+    function crmRenderSummary(){
+      var p = crmActivePipeline();
+      var pipes = (crmState && Array.isArray(crmState.pipelines)) ? crmState.pipelines : [];
+      var stageCount = p && Array.isArray(p.stageOrder) ? p.stageOrder.length : 0;
+      var placedCount = 0;
+      if (p && p.stageOrder) {
+        (p.stageOrder || []).forEach(function(sid){
+          var st = p.stages && p.stages[sid];
+          placedCount += (st && Array.isArray(st.leadIds)) ? st.leadIds.length : 0;
+        });
+      }
+      var totalLeads = Array.isArray(crmLeads) ? crmLeads.length : 0;
+      var elName = document.getElementById("crmActivePipelineName");
+      var elHint = document.getElementById("crmActivePipelineHint");
+      var elStages = document.getElementById("crmStatStages");
+      var elPlaced = document.getElementById("crmStatPlaced");
+      var elTotal = document.getElementById("crmStatTotal");
+      if (elName) elName.textContent = p && p.name ? p.name : "Nenhum funil ativo";
+      if (elHint) elHint.textContent = stageCount + " etapa(s) · " + placedCount + " lead(s) neste funil · " + pipes.length + " funil(is) cadastrado(s)";
+      if (elStages) elStages.textContent = stageCount;
+      if (elPlaced) elPlaced.textContent = placedCount;
+      if (elTotal) elTotal.textContent = totalLeads;
+    }
+
     function crmAllPlacedLeadIds(pipeline){
       var placed = Object.create(null);
       (pipeline.stageOrder || []).forEach(function(sid){
@@ -6499,6 +7657,224 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
         (st && st.leadIds || []).forEach(function(lid){ placed[lid] = true; });
       });
       return placed;
+    }
+
+    function crmPipelineById(pipelineId){
+      var id = String(pipelineId || "");
+      return ((crmState && crmState.pipelines) || []).find(function(p){ return p && String(p.id) === id; }) || null;
+    }
+
+    function crmStageById(pipeline, stageId){
+      if (!pipeline || !pipeline.stages) return null;
+      return pipeline.stages[String(stageId || "")] || null;
+    }
+
+    function crmWebhookDisplayName(w){
+      return String((w && (w.displayName || w.name || w.urlPreview || w.url)) || "Webhook").trim() || "Webhook";
+    }
+
+    function crmWebhookTargetText(w){
+      var target = w && w.crmTarget && w.crmTarget.enabled !== false ? w.crmTarget : null;
+      if (!target) return "Este webhook ainda não está vinculado a nenhum funil.";
+      var p = crmPipelineById(target.pipelineId);
+      var st = crmStageById(p, target.stageId);
+      if (!p || !st) return "Este webhook tem um vínculo antigo, mas o funil ou a etapa não existe mais.";
+      return "Vínculo atual: " + p.name + " → " + st.name + ".";
+    }
+
+    function crmFillStageSelect(stageSelect, pipelineId, selectedStageId){
+      if (!stageSelect) return;
+      stageSelect.innerHTML = "";
+      var p = crmPipelineById(pipelineId) || crmActivePipeline();
+      if (!p) return;
+      (p.stageOrder || []).forEach(function(sid){
+        var st = p.stages && p.stages[sid];
+        if (!st) return;
+        var opt = document.createElement("option");
+        opt.value = sid;
+        opt.textContent = st.name || "Etapa";
+        stageSelect.appendChild(opt);
+      });
+      if (selectedStageId && p.stages && p.stages[selectedStageId]) stageSelect.value = selectedStageId;
+      else if (stageSelect.options.length) stageSelect.value = stageSelect.options[0].value;
+    }
+
+    async function crmOpenWebhookLink(){
+      if (!crmState) {
+        try { await crmLoad(); } catch(e) {}
+      }
+      try { await loadWebhooks(); webhooksLoadedOnce = true; } catch(e) {}
+
+      var wrap = document.createElement("div");
+      wrap.className = "crmWebhookFlow";
+
+      var hero = document.createElement("div");
+      hero.className = "crmWebhookHero";
+      hero.innerHTML =
+        "<div class='crmWebhookHeroIcon'><i class='ph ph-plugs-connected'></i></div>" +
+        "<div>" +
+          "<div class='crmWebhookHeroTitle'>Entrada automática direto no funil</div>" +
+          "<div class='crmWebhookHeroText'>Escolha um webhook já criado e defina em qual funil e etapa os próximos leads devem entrar. O cadastro continua funcionando normalmente nos leads, conversas, insights e mensagens automáticas.</div>" +
+        "</div>";
+      wrap.appendChild(hero);
+
+      if (!Array.isArray(webhookItems) || !webhookItems.length) {
+        var empty = document.createElement("div");
+        empty.className = "crmWebhookEmpty";
+        empty.innerHTML = "<b>Nenhum webhook criado ainda.</b><br>Crie primeiro um link na área de Webhooks. Depois volte aqui para vincular esse link a um funil.";
+        wrap.appendChild(empty);
+        var emptyActions = document.createElement("div");
+        emptyActions.className = "crmWebhookLinkActions";
+        emptyActions.innerHTML = "<button class='btn' type='button'>Fechar</button><button class='btn btnPrimary' type='button'><i class='ph ph-webhooks-logo'></i> Abrir Webhooks</button>";
+        wrap.appendChild(emptyActions);
+        emptyActions.children[0].addEventListener("click", crmCloseModal);
+        emptyActions.children[1].addEventListener("click", function(){
+          crmCloseModal();
+          if (ovTemplate) ovTemplate.classList.add("open");
+          loadWebhooks().catch(function(){});
+        });
+        crmOpenModal("Vincular webhook", "Conecte uma origem automática ao funil de vendas.", wrap);
+        return;
+      }
+
+      var steps = document.createElement("div");
+      steps.className = "crmWebhookSteps";
+      steps.innerHTML =
+        "<div class='crmWebhookStepCard'><i class='ph ph-webhooks-logo'></i><div><b>1. Escolha a origem</b><span>Selecione o webhook que já recebe os cadastros.</span></div></div>" +
+        "<div class='crmWebhookStepCard'><i class='ph ph-kanban'></i><div><b>2. Defina o funil</b><span>Escolha o pipeline que deve receber esses leads.</span></div></div>" +
+        "<div class='crmWebhookStepCard'><i class='ph ph-flag-checkered'></i><div><b>3. Escolha a etapa</b><span>Todo novo lead cairá automaticamente nesse ponto.</span></div></div>";
+      wrap.appendChild(steps);
+
+      var currentPipeline = crmActivePipeline();
+      var grid = document.createElement("div");
+      grid.className = "crmWebhookSelectorGrid";
+      grid.innerHTML =
+        "<div class='crmWebhookField'><label for='crmWebhookSelect'><i class='ph ph-webhooks-logo'></i> Webhook existente</label><select id='crmWebhookSelect'></select></div>" +
+        "<div class='crmWebhookField'><label for='crmWebhookPipeline'><i class='ph ph-kanban'></i> Funil de destino</label><select id='crmWebhookPipeline'></select></div>" +
+        "<div class='crmWebhookField'><label for='crmWebhookStage'><i class='ph ph-signpost'></i> Etapa inicial</label><select id='crmWebhookStage'></select></div>";
+      wrap.appendChild(grid);
+
+      var webhookSelect = grid.querySelector("#crmWebhookSelect");
+      var pipelineSelect = grid.querySelector("#crmWebhookPipeline");
+      var stageSelect = grid.querySelector("#crmWebhookStage");
+
+      webhookItems.forEach(function(w){
+        var opt = document.createElement("option");
+        opt.value = w.id;
+        opt.textContent = crmWebhookDisplayName(w) + (w.crmTarget && w.crmTarget.enabled !== false ? " · já vinculado" : "");
+        webhookSelect.appendChild(opt);
+      });
+
+      ((crmState && crmState.pipelines) || []).forEach(function(p){
+        var opt = document.createElement("option");
+        opt.value = p.id;
+        opt.textContent = p.name || "Funil";
+        pipelineSelect.appendChild(opt);
+      });
+      if (currentPipeline) pipelineSelect.value = currentPipeline.id;
+
+      var info = document.createElement("div");
+      info.className = "crmWebhookStatusCard";
+      wrap.appendChild(info);
+
+      function selectedCrmWebhook(){
+        var id = webhookSelect.value;
+        return (webhookItems || []).find(function(w){ return String(w.id) === String(id); }) || null;
+      }
+
+      function selectedPipeline(){ return crmPipelineById(pipelineSelect.value) || crmActivePipeline(); }
+      function selectedStage(){
+        var p = selectedPipeline();
+        return crmStageById(p, stageSelect.value);
+      }
+
+      function refreshWebhookBindingUi(){
+        var w = selectedCrmWebhook();
+        var target = w && w.crmTarget && w.crmTarget.enabled !== false ? w.crmTarget : null;
+        if (target && crmPipelineById(target.pipelineId)) {
+          pipelineSelect.value = target.pipelineId;
+        } else if (currentPipeline) {
+          pipelineSelect.value = currentPipeline.id;
+        }
+        crmFillStageSelect(stageSelect, pipelineSelect.value, target && target.stageId);
+        var name = crmWebhookDisplayName(w);
+        var p = selectedPipeline();
+        var st = selectedStage();
+        var linked = !!target;
+        var statusClass = linked ? "crmWebhookStatusBadge" : "crmWebhookStatusBadge is-unlinked";
+        var statusText = linked ? "Já vinculado" : "Sem vínculo ativo";
+        info.innerHTML =
+          "<div class='crmWebhookStatusTop'>" +
+            "<div class='crmWebhookStatusTitle'><i class='ph ph-info'></i> Como vai funcionar</div>" +
+            "<span class='" + statusClass + "'><i class='ph " + (linked ? "ph-check-circle" : "ph-warning-circle") + "'></i> " + statusText + "</span>" +
+          "</div>" +
+          "<div>Todo novo lead que chegar por esse webhook continuará entrando normalmente nos leads, conversas, insights e mensagens automáticas. Além disso, será colocado automaticamente no funil abaixo.</div>" +
+          "<div class='crmWebhookFlowLine'>" +
+            "<span class='crmWebhookFlowPill'><i class='ph ph-webhooks-logo'></i> " + escapeHtml(name) + "</span>" +
+            "<span class='crmWebhookFlowArrow'>→</span>" +
+            "<span class='crmWebhookFlowPill'><i class='ph ph-kanban'></i> " + escapeHtml((p && p.name) || "Funil") + "</span>" +
+            "<span class='crmWebhookFlowArrow'>→</span>" +
+            "<span class='crmWebhookFlowPill'><i class='ph ph-flag-checkered'></i> " + escapeHtml((st && st.name) || "Etapa") + "</span>" +
+          "</div>";
+      }
+
+      webhookSelect.addEventListener("change", refreshWebhookBindingUi);
+      pipelineSelect.addEventListener("change", function(){ crmFillStageSelect(stageSelect, pipelineSelect.value, ""); refreshWebhookBindingUi(); });
+      stageSelect.addEventListener("change", refreshWebhookBindingUi);
+      refreshWebhookBindingUi();
+
+      var actions = document.createElement("div");
+      actions.className = "crmWebhookLinkActions";
+      actions.innerHTML =
+        "<button class='btn' type='button'>Cancelar</button>" +
+        "<button class='btn btnGhost' type='button'><i class='ph ph-link-break'></i> Desvincular</button>" +
+        "<button class='btn btnPrimary' type='button'><i class='ph ph-plugs-connected'></i> Salvar vínculo</button>";
+      wrap.appendChild(actions);
+
+      actions.children[0].addEventListener("click", crmCloseModal);
+      actions.children[1].addEventListener("click", async function(){
+        var w = selectedCrmWebhook();
+        if (!w) return;
+        try {
+          await crmFetchJson(API_BASE + "/webhooks/" + encodeURIComponent(w.id), {
+            method:"PUT",
+            body: JSON.stringify({ crmTarget: null })
+          });
+          await loadWebhooks();
+          toast("ok", "Webhook", "Vínculo removido do funil.");
+          crmCloseModal();
+        } catch(e) {
+          toast("err", "Webhook", "Falha ao desvincular: " + e.message);
+        }
+      });
+      actions.children[2].addEventListener("click", async function(){
+        var w = selectedCrmWebhook();
+        var pipelineId = pipelineSelect.value;
+        var stageId = stageSelect.value;
+        if (!w || !pipelineId || !stageId) {
+          toast("warn", "Webhook", "Selecione webhook, funil e etapa.");
+          return;
+        }
+        try {
+          await crmFetchJson(API_BASE + "/webhooks/" + encodeURIComponent(w.id), {
+            method:"PUT",
+            body: JSON.stringify({
+              crmTarget: {
+                enabled: true,
+                pipelineId: pipelineId,
+                stageId: stageId
+              }
+            })
+          });
+          await loadWebhooks();
+          toast("ok", "Webhook vinculado", "Novos leads desse webhook entrarão automaticamente no funil.");
+          crmCloseModal();
+        } catch(e) {
+          toast("err", "Webhook", "Falha ao salvar vínculo: " + e.message);
+        }
+      });
+
+      crmOpenModal("Vincular webhook ao funil", "Configure a entrada automática de leads no pipeline comercial.", wrap);
     }
 
     async function crmFetchJson(url, opts){
@@ -6646,7 +8022,8 @@ function crmExtractLeads(payload){
           var st = p.stages && p.stages[sid];
           placedCount += (st && st.leadIds ? st.leadIds.length : 0);
         });
-        tab.innerHTML = "<span style='max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (p.name || "Funil") + "</span>" +
+        tab.innerHTML = "<span class='crmTabIcon'><i class='ph ph-funnel'></i></span>" +
+                        "<span class='crmTabName'>" + escapeHtml(p.name || "Funil") + "</span>" +
                         "<span class='pill'>" + placedCount + "</span>" +
                         "<span class='funnelMenuDots' style='margin-left:auto;display:inline-flex;align-items:center;'>" + iconMarkup("ellipsis", "Opções", "sm") + "</span>"; 
         tab.addEventListener("click", function(){
@@ -6716,15 +8093,60 @@ function crmExtractLeads(payload){
       crmBoard.innerHTML = "";
       var p = crmActivePipeline();
       if (!p) {
-        crmBoard.innerHTML = "<div class='hint'>Sem funil.</div>";
+        crmBoard.innerHTML = "<div class='crmEmptyBoard'>Nenhum funil configurado ainda. Crie um novo funil para começar a organizar os leads.</div>";
         return;
       }
 
       (p.stageOrder || []).forEach(function(stageId, idx){
         var st = p.stages[stageId];
         var col = document.createElement("div");
-        col.className = "crmCol";
+        col.className = "crmCol crmStageTone" + ((idx % 4) + 1);
         col.dataset.stageId = stageId;
+        col.draggable = true;
+        col.setAttribute("title", "Arraste a coluna para reorganizar as etapas");
+
+        col.addEventListener("dragstart", function(e){
+          if (e.target && e.target.closest && (e.target.closest(".crmCard") || e.target.closest("button") || e.target.closest("input") || e.target.closest("select") || e.target.closest("textarea"))) return;
+          crmDraggedStageId = stageId;
+          col.classList.add("crmStageDragging");
+          try {
+            e.dataTransfer.setData(CRM_STAGE_DRAG_TYPE, stageId);
+            e.dataTransfer.setData("text/plain", "stage:" + stageId);
+            e.dataTransfer.effectAllowed = "move";
+          } catch(err) {}
+        });
+        col.addEventListener("dragend", function(){
+          crmDraggedStageId = null;
+          col.classList.remove("crmStageDragging");
+          crmClearStageDropHints();
+        });
+        col.addEventListener("dragover", function(e){
+          var fromStageId = (e.dataTransfer && e.dataTransfer.getData && e.dataTransfer.getData(CRM_STAGE_DRAG_TYPE)) || crmDraggedStageId;
+          if (!fromStageId || fromStageId === stageId) return;
+          e.preventDefault();
+          if (e.dataTransfer) e.dataTransfer.dropEffect = "move";
+          var rect = col.getBoundingClientRect();
+          var after = e.clientX > rect.left + rect.width / 2;
+          crmClearStageDropHints();
+          col.classList.add(after ? "crmStageDropAfter" : "crmStageDropBefore");
+        });
+        col.addEventListener("dragleave", function(e){
+          if (!col.contains(e.relatedTarget)) {
+            col.classList.remove("crmStageDropBefore", "crmStageDropAfter");
+          }
+        });
+        col.addEventListener("drop", function(e){
+          var fromStageId = (e.dataTransfer && e.dataTransfer.getData && e.dataTransfer.getData(CRM_STAGE_DRAG_TYPE)) || crmDraggedStageId;
+          if (!fromStageId || fromStageId === stageId) return;
+          e.preventDefault();
+          var rect = col.getBoundingClientRect();
+          var after = e.clientX > rect.left + rect.width / 2;
+          crmClearStageDropHints();
+          if (crmReorderStage(p, fromStageId, stageId, after)) {
+            crmRender();
+            crmQueueSave();
+          }
+        });
 
         var head = document.createElement("div");
         head.className = "crmColHead";
@@ -6732,46 +8154,34 @@ function crmExtractLeads(payload){
         var title = document.createElement("div");
         title.className = "crmColTitle";
         var count = (st.leadIds || []).length;
-        title.innerHTML = "<b title='" + (st.name || "") + "' style='overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (st.name || "Etapa") + "</b>" +
-                          "<span>" + count + " lead(s)</span>";
+        var stageName = escapeHtml(st.name || "Etapa");
+        title.innerHTML = "<div class='crmStageTitleRow'>" +
+                            "<span class='crmStageIcon'><i class='ph " + crmStageIconName(idx) + "'></i></span>" +
+                            "<div class='crmStageTitleText'><b title='" + stageName + "'>" + stageName + "</b><small>Etapa " + (idx + 1) + "</small></div>" +
+                            "<span class='crmStageDragHint' title='Arraste para mudar a posição da etapa'><i class='ph ph-dots-six-vertical'></i></span>" +
+                          "</div>" +
+                          "<span class='crmStageCount'><i class='ph ph-user-circle'></i>" + count + " lead(s)</span>";
 
         var actions = document.createElement("div");
         actions.className = "crmColActions";
         actions.innerHTML =
-          "<button class='btnMini' title='Mover para esquerda'>" + iconMarkup("arrow-left", "Mover para esquerda", "sm") + "</button>" +
-          "<button class='btnMini' title='Mover para direita'>" + iconMarkup("arrow-right", "Mover para direita", "sm") + "</button>" +
-          "<button class='btnMini' title='Renomear'>" + iconMarkup("edit", "Renomear", "sm") + "</button>" +
-          "<button class='btnMini' title='Excluir'>" + iconMarkup("trash", "Excluir", "sm") + "</button>";
+          "<button class='btnMini crmStageEdit' title='Renomear etapa'>" + iconMarkup("edit", "Renomear", "sm") + "</button>" +
+          "<button class='btnMini crmStageDelete' title='Excluir etapa'>" + iconMarkup("trash", "Excluir", "sm") + "</button>";
 
-        var btnLeft = actions.children[0];
-        var btnRight = actions.children[1];
-        var btnRen = actions.children[2];
-        var btnDel = actions.children[3];
+        var btnRen = actions.children[0];
+        var btnDel = actions.children[1];
 
-        btnLeft.addEventListener("click", function(){
-          if (idx <= 0) return;
-          var a = p.stageOrder[idx-1];
-          p.stageOrder[idx-1] = p.stageOrder[idx];
-          p.stageOrder[idx] = a;
-          crmRenderBoard();
-          crmQueueSave();
-        });
-        btnRight.addEventListener("click", function(){
-          if (idx >= p.stageOrder.length-1) return;
-          var a = p.stageOrder[idx+1];
-          p.stageOrder[idx+1] = p.stageOrder[idx];
-          p.stageOrder[idx] = a;
-          crmRenderBoard();
-          crmQueueSave();
-        });
-        btnRen.addEventListener("click", async function(){
+        btnRen.addEventListener("click", async function(e){
+          e.stopPropagation();
           var nn = await crmPromptRename("etapa", st.name);
           if (!nn) return;
           st.name = nn;
           crmRenderBoard();
+          crmRenderSummary();
           crmQueueSave();
         });
-        btnDel.addEventListener("click", async function(){
+        btnDel.addEventListener("click", async function(e){
+          e.stopPropagation();
           if (!(await crmConfirm("Excluir a etapa '" + st.name + "'? Os leads continuam existindo, mas sairão desta etapa."))) return;
           // ao excluir: leads viram "sem etapa" (não perde lead)
           delete p.stages[stageId];
@@ -6787,13 +8197,19 @@ function crmExtractLeads(payload){
         body.className = "crmColBody";
         body.dataset.stageId = stageId;
 
-        body.addEventListener("dragover", function(e){ e.preventDefault(); body.classList.add("crmDropHint"); });
+        body.addEventListener("dragover", function(e){
+          if (crmDraggedStageId || crmDragHasType(e, CRM_STAGE_DRAG_TYPE)) return;
+          e.preventDefault();
+          body.classList.add("crmDropHint");
+        });
         body.addEventListener("dragleave", function(){ body.classList.remove("crmDropHint"); });
         body.addEventListener("drop", function(e){
+          if (crmDraggedStageId || crmDragHasType(e, CRM_STAGE_DRAG_TYPE)) return;
           e.preventDefault();
           body.classList.remove("crmDropHint");
-          var leadId = e.dataTransfer.getData("text/plain");
-          if (!leadId) return;
+          var leadId = "";
+          try { leadId = e.dataTransfer.getData(CRM_LEAD_DRAG_TYPE) || e.dataTransfer.getData("text/plain"); } catch(err) {}
+          if (!leadId || String(leadId).indexOf("stage:") === 0) return;
           crmMoveLeadToStage(leadId, stageId);
         });
 
@@ -6802,6 +8218,12 @@ function crmExtractLeads(payload){
           var card = crmMakeCard(leadId, lead, st, p);
           body.appendChild(card);
         });
+        if (!(st.leadIds || []).length) {
+          var empty = document.createElement("div");
+          empty.className = "crmStageEmpty";
+          empty.innerHTML = "<i class='ph ph-tray'></i><b>Nenhum lead nesta etapa</b><span>Arraste um card para cá ou cadastre um novo lead.</span>";
+          body.appendChild(empty);
+        }
 
         col.appendChild(head);
         col.appendChild(body);
@@ -6835,21 +8257,31 @@ function crmExtractLeads(payload){
       var origem = lead && lead.source ? lead.source : (lead && lead.origem ? lead.origem : "");
       var created = lead && lead.createdAt ? crmFormatDate(lead.createdAt) : "";
 
+      var safeNome = escapeHtml(nome);
+      var safeContato = escapeHtml(contato);
+      var safeOrigem = escapeHtml(origem);
+      var safeCreated = escapeHtml(created);
+      var safeStage = escapeHtml(stage.name || "—");
+
       card.innerHTML =
+        "<div class='crmCardAccent'></div>" +
         "<div class='crmCardTop'>" +
-          "<div style='min-width:0;'>" +
-            "<div class='crmName' title='" + nome.replace(/'/g,"&#39;") + "'>" + nome + "</div>" +
-            "<div class='crmMeta'>" +
-              (contato ? ("<div class='crmMetaLine'>" + iconMarkup("contact", "Contato", "crmMetaIcon") + "<span>" + contato + "</span></div>") : "") +
-              (origem ? ("<div>Origem: " + origem + "</div>") : "") +
-              (created ? ("<div>Criado: " + created + "</div>") : "") +
-              ("<div>Status: " + (stage.name || "—") + "</div>") +
+          "<div class='crmCardIdentity'>" +
+            "<span class='crmAvatar'>" + safeNome.slice(0,1).toUpperCase() + "</span>" +
+            "<div class='crmCardIdentityText'>" +
+              "<div class='crmName' title='" + safeNome.replace(/'/g,"&#39;") + "'>" + safeNome + "</div>" +
+              "<div class='crmStageBadge'><i class='ph ph-arrow-elbow-down-right'></i>" + safeStage + "</div>" +
             "</div>" +
           "</div>" +
           "<div class='crmCardBtns'>" +
-            "<button class='btnMini' title='Mover para...'>" + iconMarkup("swap", "Mover para", "sm") + "</button>" +
-            "<button class='btnMini' title='Detalhes'>" + iconMarkup("eye", "Detalhes", "sm") + "</button>" +
+            "<button class='btnMini crmCardMove' title='Mover para...'>" + iconMarkup("swap", "Mover para", "sm") + "</button>" +
+            "<button class='btnMini crmCardView' title='Detalhes'>" + iconMarkup("eye", "Detalhes", "sm") + "</button>" +
           "</div>" +
+        "</div>" +
+        "<div class='crmMeta'>" +
+          (safeContato ? ("<div class='crmMetaLine'>" + iconMarkup("contact", "Contato", "crmMetaIcon") + "<span>" + safeContato + "</span></div>") : "") +
+          (safeOrigem ? ("<div class='crmMetaLine'><i class='ph ph-git-branch crmMetaPh'></i><span>" + safeOrigem + "</span></div>") : "") +
+          (safeCreated ? ("<div class='crmMetaLine'><i class='ph ph-clock crmMetaPh'></i><span>" + safeCreated + "</span></div>") : "") +
         "</div>";
 
       var btnMove = card.querySelectorAll(".btnMini")[0];
@@ -6866,11 +8298,15 @@ function crmExtractLeads(payload){
       card.addEventListener("dblclick", function(){ crmOpenLeadDetails(leadId); });
 
       card.addEventListener("dragstart", function(e){
+        e.stopPropagation();
         card.classList.add("dragging");
-        e.dataTransfer.setData("text/plain", leadId);
-        e.dataTransfer.effectAllowed = "move";
+        try {
+          e.dataTransfer.setData(CRM_LEAD_DRAG_TYPE, leadId);
+          e.dataTransfer.setData("text/plain", leadId);
+          e.dataTransfer.effectAllowed = "move";
+        } catch(err) {}
       });
-      card.addEventListener("dragend", function(){ card.classList.remove("dragging"); });
+      card.addEventListener("dragend", function(e){ e.stopPropagation(); card.classList.remove("dragging"); });
       return card;
     }
 
@@ -7139,6 +8575,7 @@ function crmExtractLeads(payload){
 
     function crmRender(){
       if (!crmState) return;
+      crmRenderSummary();
       crmRenderTabs();
       crmRenderBoard();
     }
@@ -7158,6 +8595,7 @@ function crmExtractLeads(payload){
     if (crmBtnNewPipeline) crmBtnNewPipeline.addEventListener("click", crmAddPipeline);
     if (crmBtnNewStage) crmBtnNewStage.addEventListener("click", crmAddStage);
     if (crmBtnImportLead) crmBtnImportLead.addEventListener("click", crmOpenImportLead);
+    if (crmBtnLinkWebhook) crmBtnLinkWebhook.addEventListener("click", crmOpenWebhookLink);
     if (crmBtnNewLead) crmBtnNewLead.addEventListener("click", crmOpenNewLead);
 
 </script>
