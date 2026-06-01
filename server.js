@@ -888,6 +888,48 @@ function topFromMap(map, limit = 10) {
     .slice(0, limit);
 }
 
+
+function buildBulkLeadTagsHandler(tenantId) {
+  return (req, res) => {
+    try {
+      const leadIds = Array.isArray(req.body?.leadIds) ? req.body.leadIds.map((x) => String(x || "").trim()).filter(Boolean) : [];
+      const addTagIds = Array.isArray(req.body?.addTagIds) ? req.body.addTagIds.map((x) => String(x || "").trim()).filter(Boolean) : [];
+      const removeTagIds = Array.isArray(req.body?.removeTagIds) ? req.body.removeTagIds.map((x) => String(x || "").trim()).filter(Boolean) : [];
+
+      const uniqueLeadIds = Array.from(new Set(leadIds));
+      if (!uniqueLeadIds.length) return res.status(400).json({ ok: false, error: "Nenhum lead informado." });
+      if (!addTagIds.length && !removeTagIds.length) return res.status(400).json({ ok: false, error: "Nenhuma tag informada." });
+
+      const allTags = listTags(tenantId);
+      const allowedTags = new Set(allTags.map((t) => String(t.id)));
+      const addAllowed = addTagIds.filter((id) => allowedTags.has(id));
+      const removeAllowed = removeTagIds.filter((id) => allowedTags.has(id));
+
+      if (addTagIds.length && !addAllowed.length) return res.status(400).json({ ok: false, error: "Tag para adicionar não encontrada." });
+      if (removeTagIds.length && !removeAllowed.length) return res.status(400).json({ ok: false, error: "Tag para remover não encontrada." });
+
+      const existingLeadIds = new Set(readLeads(tenantId).map((l) => String(l.id)).filter(Boolean));
+      const currentMap = getLeadTagsMap(tenantId);
+
+      let updated = 0;
+      let skipped = 0;
+      for (const leadId of uniqueLeadIds) {
+        if (!existingLeadIds.has(leadId)) { skipped++; continue; }
+        const current = new Set(Array.isArray(currentMap[leadId]) ? currentMap[leadId].map((x) => String(x)) : []);
+        for (const id of addAllowed) current.add(id);
+        for (const id of removeAllowed) current.delete(id);
+        const cleaned = Array.from(current).filter((id) => allowedTags.has(id));
+        setLeadTags(tenantId, leadId, cleaned);
+        updated++;
+      }
+
+      res.json({ ok: true, updated, skipped, addTagIds: addAllowed, removeTagIds: removeAllowed });
+    } catch (e) {
+      res.status(400).json({ ok: false, error: e?.message || String(e) });
+    }
+  };
+}
+
 function buildTenantInsights(tenantId, req) {
   const notDeliveredAfterMin = Number((req && req.query && req.query.notDeliveredAfterMin) || 30);
   const notDeliveredAfterMs = Math.max(1, notDeliveredAfterMin) * 60 * 1000;
@@ -1456,6 +1498,8 @@ app.post("/api/admin/leads/:id/tags", adminAuth, (req, res) => {
   }
 });
 
+app.post("/api/admin/leads/bulk-tags", adminAuth, buildBulkLeadTagsHandler(TENANT_ADMIN));
+
 app.get("/api/admin/message-template", adminAuth, (req, res) => {
   res.json({ ok: true, ...getTemplate(TENANT_ADMIN) });
 });
@@ -1609,6 +1653,8 @@ app.post("/api/panel/leads/:id/tags", panelAuth, (req, res) => {
   }
 });
 
+app.post("/api/panel/leads/bulk-tags", panelAuth, buildBulkLeadTagsHandler(TENANT_PANEL));
+
 app.get("/api/panel/message-template", panelAuth, (req, res) => {
   res.json({ ok: true, ...getTemplate(TENANT_PANEL) });
 });
@@ -1761,6 +1807,8 @@ app.post("/api/regina/leads/:id/tags", reginaAuth, (req, res) => {
     res.status(400).json({ ok: false, error: e.message });
   }
 });
+
+app.post("/api/regina/leads/bulk-tags", reginaAuth, buildBulkLeadTagsHandler(TENANT_REGINA));
 
 app.get("/api/regina/message-template", reginaAuth, (req, res) => {
   res.json({ ok: true, ...getTemplate(TENANT_REGINA) });

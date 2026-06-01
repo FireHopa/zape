@@ -1089,6 +1089,26 @@ html, body { height: 100%; overflow: hidden; }
 .insightDddPanelBody{max-height:360px;overflow:auto;}
 .insightActionGroup{display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
 .insightCopyBtn,.insightChatBtn{white-space:nowrap;}
+.insightDddModalSheet{width:min(1180px,100%)!important;}
+.insightDddModalBody{display:flex!important;flex-direction:column!important;gap:14px;background:linear-gradient(180deg,#fff,#f8fbff)!important;}
+.insightDddSummary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+.insightDddSummaryItem{border:1px solid var(--border);border-radius:16px;background:#fff;padding:12px;}
+.insightDddSummaryItem b{display:block;font-size:22px;line-height:1;color:var(--text);font-weight:1000;}
+.insightDddSummaryItem span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900;margin-top:6px;}
+.insightDddToolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border:1px solid #dbeafe;border-radius:18px;background:#fff;padding:12px;}
+.insightDddToolbarLeft{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.insightDddToolbarRight{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.insightDddBulkBox{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(220px,1fr) 76px auto;gap:10px;align-items:end;border:1px solid var(--border);border-radius:18px;background:#fff;padding:12px;}
+.insightDddBulkBox .field{margin:0;}
+.insightDddTableWrap{border:1px solid var(--border);border-radius:18px;background:#fff;overflow:auto;max-height:52vh;}
+.insightDddTableWrap .insightTable th{position:sticky;top:0;z-index:2;}
+.insightCheckCell{width:42px;text-align:center;}
+.insightCheckCell input{width:16px;height:16px;accent-color:#1a73e8;}
+.insightDddSmallHint{font-size:12px;color:var(--muted);line-height:1.4;}
+.insightDddSelectionPill{display:inline-flex;align-items:center;gap:6px;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;}
+@media(max-width:960px){.insightDddSummary{grid-template-columns:repeat(2,minmax(0,1fr));}.insightDddBulkBox{grid-template-columns:1fr;}.insightDddToolbar{align-items:flex-start;}.insightDddToolbarRight{width:100%;}.insightDddToolbarRight .btn{flex:1 1 auto;}}
+@media(max-width:620px){.insightDddSummary{grid-template-columns:1fr;}.insightDddTableWrap{max-height:46vh;}}
+
 @media(max-width:720px){.insightTimelineSummary{grid-template-columns:1fr}.insightBarRow.withAction{grid-template-columns:1fr;}.insightMiniAction{width:max-content}.insightDddPanelHead{flex-direction:column;}}
 @media(max-width:1180px){.insightsGrid{grid-template-columns:repeat(2,minmax(0,1fr));}.insightSectionGrid{grid-template-columns:1fr;}}
 @media(max-width:720px){.insightsGrid,.insightMiniGrid{grid-template-columns:1fr;}.insightBarRow{grid-template-columns:1fr;gap:5px}.insightBarNumber{text-align:left}.insightTimeline{height:120px;}}
@@ -2617,6 +2637,57 @@ Não tenho interesse"></textarea>
     </div>
   </div>
 
+
+  <!-- Overlay: DDD Insights -->
+  <div id="ovInsightDdd" class="overlay" role="dialog" aria-modal="true" style="display:none;">
+    <div class="sheet insightDddModalSheet">
+      <div class="sheetHead">
+        <div class="sheetTitle">
+          <span class="badge" style="background:var(--g-blue); box-shadow:0 0 0 4px rgba(26,115,232,.14)"></span>
+          <div>
+            <div class="t" id="insDddModalTitle">Números por DDD</div>
+            <div class="modalSub" id="insDddModalSub">Selecione, exporte, copie, marque com tag ou abra uma conversa.</div>
+          </div>
+        </div>
+        <button id="btnCloseInsightDdd" class="btn btnGhost" type="button"><i class="ph ph-x"></i> Fechar</button>
+      </div>
+      <div class="sheetBody insightDddModalBody">
+        <div id="insDddSummary" class="insightDddSummary"></div>
+
+        <div class="insightDddToolbar">
+          <div class="insightDddToolbarLeft">
+            <label class="insightDddSelectionPill"><input id="insDddSelectAll" type="checkbox" checked> Selecionar todos</label>
+            <span id="insDddSelectedCount" class="insightDddSmallHint">0 selecionados</span>
+          </div>
+          <div class="insightDddToolbarRight">
+            <button id="btnInsDddExport" class="btn btnSoft" type="button"><i class="ph ph-file-csv"></i> Exportar planilha</button>
+            <button id="btnInsDddCopyPhones" class="btn btnSoft" type="button"><i class="ph ph-copy"></i> Copiar números</button>
+            <button id="btnInsDddFilterLeads" class="btn btnSoft" type="button"><i class="ph ph-funnel"></i> Filtrar em Leads</button>
+          </div>
+        </div>
+
+        <div class="insightDddBulkBox">
+          <label class="field">
+            <span>Tag existente</span>
+            <select id="insDddTagSelect" class="input"></select>
+          </label>
+          <button id="btnInsDddApplyTag" class="btn btnPrimary" type="button"><i class="ph ph-tag"></i> Aplicar tag</button>
+          <label class="field">
+            <span>Ou crie uma nova tag</span>
+            <input id="insDddNewTagName" class="input" type="text" placeholder="Ex: DDD 11, Leads SP, Remarketing" />
+          </label>
+          <label class="field">
+            <span>Cor</span>
+            <input id="insDddNewTagColor" class="input" style="height:44px;padding:7px 10px;" type="color" value="#1a73e8" />
+          </label>
+          <button id="btnInsDddCreateApplyTag" class="btn btnSoft" type="button"><i class="ph ph-plus-circle"></i> Criar e aplicar</button>
+        </div>
+
+        <div id="insDddModalList" class="insightDddTableWrap"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Overlay: QR -->
   <div id="ovQr" class="overlay" role="dialog" aria-modal="true">
     <div class="sheet" style="width:min(620px, 100%);">
@@ -3106,6 +3177,7 @@ Não tenho interesse"></textarea>
     }
 
     wireOverlayClose("ovLead", "btnCloseLead");
+    wireOverlayClose("ovInsightDdd", "btnCloseInsightDdd");
     wireOverlayClose("ovQr", "btnCloseQr");
     wireOverlayClose("ovTags", "btnCloseTags");
     wireOverlayClose("ovFilters", "btnCloseFilters");
@@ -4090,7 +4162,7 @@ Não tenho interesse"></textarea>
         qEl.focus();
       }
       if (e.key === "Escape") {
-        ["ovLead","ovQr","ovTemplate","ovTags","ovFilters"].forEach(closeOverlay);
+        ["ovLead","ovInsightDdd","ovQr","ovTemplate","ovTags","ovFilters"].forEach(closeOverlay);
         if (typeof closeTagDrawer === "function") closeTagDrawer();
       }
     });
@@ -4405,15 +4477,16 @@ Não tenho interesse"></textarea>
     }
 
     var selectedInsightDdd = "";
+    var insightDddModalItem = null;
 
     function renderInsightDdds(ddds){
       var rows = Array.isArray(ddds) ? ddds : [];
       var box = document.getElementById("insDdds");
+      var detail = document.getElementById("insDddDetail");
+      if (detail) detail.innerHTML = "";
       if (!box) return;
       if (!rows.length) {
         box.innerHTML = insEmpty("Nenhum DDD identificado ainda.");
-        var detailEmpty = document.getElementById("insDddDetail");
-        if (detailEmpty) detailEmpty.innerHTML = "";
         return;
       }
       var max = Math.max.apply(null, rows.map(function(x){ return Number(x.count || 0); }).concat([1]));
@@ -4430,7 +4503,6 @@ Não tenho interesse"></textarea>
         '</div>';
       }).join('') + '</div>';
       bindInsightDddButtons();
-      if (selectedInsightDdd) renderInsightDddDetail(selectedInsightDdd);
     }
 
     function bindInsightDddButtons(){
@@ -4440,43 +4512,244 @@ Não tenho interesse"></textarea>
         btn.addEventListener("click", function(){
           selectedInsightDdd = btn.getAttribute("data-insight-ddd") || "";
           renderInsightDdds((insightsCache && insightsCache.ddds) || []);
-          renderInsightDddDetail(selectedInsightDdd);
+          openInsightDddModal(selectedInsightDdd);
         });
       });
     }
 
-    function renderInsightDddDetail(ddd){
-      var holder = document.getElementById("insDddDetail");
-      if (!holder) return;
+    function getInsightDddItem(ddd){
       var rows = (insightsCache && Array.isArray(insightsCache.ddds) ? insightsCache.ddds : []);
-      var item = rows.find(function(x){ return String(x.ddd || "") === String(ddd || ""); });
-      if (!item) {
-        holder.innerHTML = "";
+      return rows.find(function(x){ return String(x.ddd || "") === String(ddd || ""); }) || null;
+    }
+
+    function insightDddRows(){
+      return insightDddModalItem && Array.isArray(insightDddModalItem.leads) ? insightDddModalItem.leads : [];
+    }
+
+    function insightDddSelectedLeadIds(){
+      var wrap = document.getElementById("insDddModalList");
+      if (!wrap) return [];
+      return Array.from(wrap.querySelectorAll('input[data-ins-ddd-lead]:checked'))
+        .map(function(x){ return x.getAttribute("data-ins-ddd-lead") || ""; })
+        .filter(Boolean);
+    }
+
+    function insightDddSelectedLeads(){
+      var ids = new Set(insightDddSelectedLeadIds().map(String));
+      return insightDddRows().filter(function(l){ return ids.has(String(l.id || "")); });
+    }
+
+    function updateInsightDddSelectedCount(){
+      var count = insightDddSelectedLeadIds().length;
+      var total = insightDddRows().length;
+      var el = document.getElementById("insDddSelectedCount");
+      if (el) el.textContent = insFmt(count) + " de " + insFmt(total) + " selecionado(s)";
+      var all = document.getElementById("insDddSelectAll");
+      if (all) {
+        all.checked = total > 0 && count === total;
+        all.indeterminate = count > 0 && count < total;
+      }
+    }
+
+    function renderInsightDddTagSelect(){
+      var select = document.getElementById("insDddTagSelect");
+      if (!select) return;
+      var tags = Array.isArray(cachedTags) ? cachedTags : [];
+      if (!tags.length) {
+        select.innerHTML = '<option value="">Nenhuma tag criada ainda</option>';
         return;
       }
-      var leads = Array.isArray(item.leads) ? item.leads : [];
-      var copyAllText = leads.map(function(l){
-        var digits = String(l.whatsapp_digits || "").replace(/\D+/g, "");
-        return [l.nome || "Sem nome", digits, l.empresa || "", l.email || ""].filter(Boolean).join(" | ");
-      }).join("\n");
-      holder.innerHTML = '<div class="insightDddPanel">' +
-        '<div class="insightDddPanelHead">' +
-          '<div><div class="insightDddPanelTitle">DDD ' + escapeHtml(item.ddd) + ' · ' + insFmt(item.count) + ' lead(s)</div><div class="insightDddPanelSub">Lista limitada aos últimos ' + insFmt(leads.length) + ' contatos desse DDD.</div></div>' +
-          '<div class="insightActionGroup"><button class="btn btnSoft insightCopyBtn" type="button" data-insight-copy="' + escapeHtml(copyAllText) + '"><i class="ph ph-copy"></i> Copiar todos</button><button class="btn btnGhost" type="button" data-insight-ddd-close><i class="ph ph-x"></i> Fechar</button></div>' +
-        '</div>' +
-        '<div class="insightDddPanelBody">' + (leads.length ? '<table class="insightTable"><thead><tr><th>Lead</th><th>WhatsApp</th><th>Origem</th><th>Ações</th></tr></thead><tbody>' + leads.map(function(l){
+      select.innerHTML = '<option value="">Selecione uma tag</option>' + tags.map(function(t){
+        return '<option value="' + escapeHtml(t.id || "") + '">' + escapeHtml(t.name || t.id || "Tag") + '</option>';
+      }).join('');
+    }
+
+    function renderInsightDddModalTable(){
+      var box = document.getElementById("insDddModalList");
+      if (!box) return;
+      var leads = insightDddRows();
+      if (!leads.length) {
+        box.innerHTML = insEmpty("Não encontramos contatos para este DDD.");
+        updateInsightDddSelectedCount();
+        return;
+      }
+      box.innerHTML = '<table class="insightTable"><thead><tr>' +
+        '<th class="insightCheckCell"><input id="insDddTableSelectAll" type="checkbox" checked aria-label="Selecionar todos"></th>' +
+        '<th>Lead</th><th>WhatsApp</th><th>Origem</th><th>Tags</th><th>Ações</th>' +
+        '</tr></thead><tbody>' + leads.map(function(l){
           var digits = String(l.whatsapp_digits || "").replace(/\D+/g, "");
           var line = [l.nome || "Sem nome", digits, l.empresa || "", l.email || ""].filter(Boolean).join(" | ");
-          return '<tr><td><b>' + escapeHtml(l.nome || formatWhatsAppPretty(digits) || 'Lead') + '</b><div class="insightSourceDetail">' + escapeHtml([l.empresa,l.email].filter(Boolean).join(' · ')) + '</div></td>' +
+          var tagHtml = Array.isArray(l.tags) && l.tags.length ? l.tags.map(function(t){
+            return '<span class="insightTagPill"><span class="insightTagDot" style="background:' + escapeHtml(t.color || '#64748b') + '"></span>' + escapeHtml(t.name || t.id) + '</span>';
+          }).join('') : '<span class="hint">—</span>';
+          return '<tr>' +
+            '<td class="insightCheckCell"><input type="checkbox" checked data-ins-ddd-lead="' + escapeHtml(l.id || '') + '"></td>' +
+            '<td><b>' + escapeHtml(l.nome || formatWhatsAppPretty(digits) || 'Lead') + '</b><div class="insightSourceDetail">' + escapeHtml([l.empresa,l.email].filter(Boolean).join(' · ')) + '</div></td>' +
             '<td><b>' + escapeHtml(formatWhatsAppPretty(digits) || digits || '—') + '</b><div class="insightSourceDetail">' + escapeHtml(insDate(l.createdAt)) + '</div></td>' +
             '<td><b>' + escapeHtml(l.originLabel || l.source || 'Origem') + '</b><div class="insightSourceDetail">' + escapeHtml(l.originDetail || '') + '</div></td>' +
-            '<td><div class="insightActionGroup"><button class="btn btnSoft insightChatBtn" type="button" data-insight-chat="' + escapeHtml(digits) + '" data-insight-name="' + escapeHtml(l.nome || '') + '" data-insight-company="' + escapeHtml(l.empresa || '') + '" data-insight-email="' + escapeHtml(l.email || '') + '"><i class="ph ph-chat-circle-text"></i> Conversar</button><button class="btn btnGhost insightCopyBtn" type="button" data-insight-copy="' + escapeHtml(line) + '"><i class="ph ph-copy"></i> Copiar</button></div></td></tr>';
-        }).join('') + '</tbody></table>' : insEmpty("Não encontramos contatos para este DDD.")) + '</div>' +
-      '</div>';
-      var closeBtn = holder.querySelector("[data-insight-ddd-close]");
-      if (closeBtn) closeBtn.addEventListener("click", function(){ selectedInsightDdd = ""; holder.innerHTML = ""; renderInsightDdds((insightsCache && insightsCache.ddds) || []); });
+            '<td>' + tagHtml + '</td>' +
+            '<td><div class="insightActionGroup"><button class="btn btnSoft insightChatBtn" type="button" data-insight-chat="' + escapeHtml(digits) + '" data-insight-name="' + escapeHtml(l.nome || '') + '" data-insight-company="' + escapeHtml(l.empresa || '') + '" data-insight-email="' + escapeHtml(l.email || '') + '"><i class="ph ph-chat-circle-text"></i> Conversar</button><button class="btn btnGhost insightCopyBtn" type="button" data-insight-copy="' + escapeHtml(line) + '"><i class="ph ph-copy"></i> Copiar</button></div></td>' +
+          '</tr>';
+        }).join('') + '</tbody></table>';
+
+      var tableAll = document.getElementById("insDddTableSelectAll");
+      if (tableAll) tableAll.addEventListener("change", function(){ setInsightDddSelection(tableAll.checked); });
+      box.querySelectorAll('input[data-ins-ddd-lead]').forEach(function(chk){
+        chk.addEventListener("change", updateInsightDddSelectedCount);
+      });
+      updateInsightDddSelectedCount();
       bindInsightCopyButtons();
       bindInsightChatButtons();
+    }
+
+    function setInsightDddSelection(checked){
+      var wrap = document.getElementById("insDddModalList");
+      if (!wrap) return;
+      wrap.querySelectorAll('input[data-ins-ddd-lead]').forEach(function(chk){ chk.checked = !!checked; });
+      updateInsightDddSelectedCount();
+    }
+
+    function openInsightDddModal(ddd){
+      var item = getInsightDddItem(ddd);
+      if (!item) {
+        toast("warn", "DDD", "Não encontrei contatos desse DDD.");
+        return;
+      }
+      insightDddModalItem = item;
+      var leads = insightDddRows();
+      var title = document.getElementById("insDddModalTitle");
+      var sub = document.getElementById("insDddModalSub");
+      var summary = document.getElementById("insDddSummary");
+      if (title) title.textContent = "DDD " + item.ddd + " · " + insFmt(item.count) + " lead(s)";
+      if (sub) sub.textContent = "Agora você pode exportar, copiar, marcar com tag, filtrar no painel ou abrir conversa com os contatos desse DDD.";
+      if (summary) {
+        var withCompany = leads.filter(function(l){ return !!String(l.empresa || '').trim(); }).length;
+        var withEmail = leads.filter(function(l){ return !!String(l.email || '').trim(); }).length;
+        var withTags = leads.filter(function(l){ return Array.isArray(l.tags) && l.tags.length; }).length;
+        summary.innerHTML = '<div class="insightDddSummaryItem"><b>' + insFmt(leads.length) + '</b><span>contatos na tela</span></div>' +
+          '<div class="insightDddSummaryItem"><b>' + insFmt(withCompany) + '</b><span>com empresa</span></div>' +
+          '<div class="insightDddSummaryItem"><b>' + insFmt(withEmail) + '</b><span>com e-mail</span></div>' +
+          '<div class="insightDddSummaryItem"><b>' + insFmt(withTags) + '</b><span>com tag</span></div>';
+      }
+      renderInsightDddTagSelect();
+      renderInsightDddModalTable();
+      openOverlay("ovInsightDdd");
+      if (!cachedTags || !cachedTags.length) {
+        fetchTags().then(renderInsightDddTagSelect).catch(function(){});
+      }
+    }
+
+    function insightCsvEscape(v){
+      var s = String(v == null ? "" : v);
+      if (/[";\n\r]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+      return s;
+    }
+
+    function downloadInsightDddCsv(){
+      var rows = insightDddSelectedLeads();
+      if (!rows.length) { toast("warn", "Exportar", "Selecione pelo menos um lead."); return; }
+      var ddd = insightDddModalItem ? String(insightDddModalItem.ddd || "") : "ddd";
+      var header = ["nome","whatsapp","empresa","email","origem","detalhe_origem","tags","data"];
+      var lines = [header.join(";")].concat(rows.map(function(l){
+        var tags = Array.isArray(l.tags) ? l.tags.map(function(t){ return t.name || t.id || ""; }).filter(Boolean).join(", ") : "";
+        return [l.nome || "", String(l.whatsapp_digits || "").replace(/\D+/g, ""), l.empresa || "", l.email || "", l.originLabel || l.source || "", l.originDetail || "", tags, insDate(l.createdAt)].map(insightCsvEscape).join(";");
+      }));
+      var blob = new Blob(["\ufeff" + lines.join("\n")], { type: "text/csv;charset=utf-8" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "leads-ddd-" + ddd + ".csv";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      toast("ok", "Planilha", "Arquivo CSV gerado para abrir no Excel ou Google Sheets.");
+    }
+
+    function copyInsightDddPhones(){
+      var rows = insightDddSelectedLeads();
+      if (!rows.length) { toast("warn", "Copiar", "Selecione pelo menos um lead."); return; }
+      var text = rows.map(function(l){ return String(l.whatsapp_digits || "").replace(/\D+/g, ""); }).filter(Boolean).join("\n");
+      copyInsightText(text);
+    }
+
+    function filterLeadPanelByInsightDdd(){
+      var ddd = insightDddModalItem ? String(insightDddModalItem.ddd || "") : selectedInsightDdd;
+      if (!ddd) return;
+      filters.ddd = ddd;
+      filters.status = "";
+      filters.tagIds = [];
+      var q = document.getElementById("q");
+      if (q) q.value = "";
+      syncFiltersUI();
+      syncQuickStatusCards();
+      closeOverlay("ovInsightDdd");
+      setActiveNav("leads");
+      loadLeads(true).then(function(){ toast("ok", "Filtro aplicado", "Mostrando apenas leads do DDD " + ddd + "."); }).catch(function(e){ toast("err", "Filtro", e.message || "Falha ao aplicar filtro."); });
+    }
+
+    async function applyInsightDddTag(tagId){
+      var ids = insightDddSelectedLeadIds();
+      if (!ids.length) { toast("warn", "Tag", "Selecione pelo menos um lead."); return; }
+      if (!tagId) { toast("warn", "Tag", "Selecione ou crie uma tag."); return; }
+      var r = await fetch(API_BASE + "/leads/bulk-tags", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ leadIds: ids, addTagIds: [tagId] })
+      });
+      var j = await r.json().catch(function(){ return {}; });
+      if (!r.ok || !j.ok) throw new Error(j.error || "Erro ao aplicar tag.");
+      return j;
+    }
+
+    async function createAndApplyInsightDddTag(){
+      var nameEl = document.getElementById("insDddNewTagName");
+      var colorEl = document.getElementById("insDddNewTagColor");
+      var name = (nameEl ? nameEl.value : "").trim();
+      var color = colorEl ? colorEl.value : "#1a73e8";
+      if (!name) { toast("warn", "Tag", "Digite o nome da nova tag."); return; }
+      var r = await fetch(API_BASE + "/tags", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name, color: color })
+      });
+      var j = await r.json().catch(function(){ return {}; });
+      if (!r.ok || !j.ok || !j.item) throw new Error(j.error || "Erro ao criar tag.");
+      await fetchTags();
+      await applyInsightDddTag(j.item.id);
+      if (nameEl) nameEl.value = "";
+      toast("ok", "Tag aplicada", "Tag criada e aplicada nos leads selecionados.");
+      await loadInsights();
+      openInsightDddModal(selectedInsightDdd);
+    }
+
+    function bindInsightDddModalActions(){
+      var selectAll = document.getElementById("insDddSelectAll");
+      if (selectAll) selectAll.addEventListener("change", function(){ setInsightDddSelection(selectAll.checked); });
+      var exportBtn = document.getElementById("btnInsDddExport");
+      if (exportBtn) exportBtn.addEventListener("click", downloadInsightDddCsv);
+      var copyBtn = document.getElementById("btnInsDddCopyPhones");
+      if (copyBtn) copyBtn.addEventListener("click", copyInsightDddPhones);
+      var filterBtn = document.getElementById("btnInsDddFilterLeads");
+      if (filterBtn) filterBtn.addEventListener("click", filterLeadPanelByInsightDdd);
+      var applyBtn = document.getElementById("btnInsDddApplyTag");
+      if (applyBtn) applyBtn.addEventListener("click", async function(){
+        var sel = document.getElementById("insDddTagSelect");
+        var tagId = sel ? sel.value : "";
+        applyBtn.disabled = true;
+        try{
+          var out = await applyInsightDddTag(tagId);
+          toast("ok", "Tag aplicada", "Tag aplicada em " + insFmt(out.updated || 0) + " lead(s).");
+          await loadInsights();
+          openInsightDddModal(selectedInsightDdd);
+        }catch(e){ toast("err", "Tag", e.message || "Erro ao aplicar tag."); }
+        finally{ applyBtn.disabled = false; }
+      });
+      var createBtn = document.getElementById("btnInsDddCreateApplyTag");
+      if (createBtn) createBtn.addEventListener("click", async function(){
+        createBtn.disabled = true;
+        try{ await createAndApplyInsightDddTag(); }
+        catch(e){ toast("err", "Tag", e.message || "Erro ao criar tag."); }
+        finally{ createBtn.disabled = false; }
+      });
     }
 
     async function copyInsightText(text){
@@ -4605,6 +4878,7 @@ Não tenho interesse"></textarea>
 
     var btnInsightsRefresh = document.getElementById("btnInsightsRefresh");
     if (btnInsightsRefresh) btnInsightsRefresh.addEventListener("click", loadInsights);
+    bindInsightDddModalActions();
 
     function insightNormalizeDigits(value){
       return String(value || "").replace(/\D+/g, "");
