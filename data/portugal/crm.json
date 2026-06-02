@@ -18,8 +18,17 @@
           "id": "stg_new",
           "name": "Novo lead",
           "leadIds": [
+            "0f2d7232ae3f147d27f688c7",
+            "c69d93988de62bf530b3f3ca",
+            "1e52fdbb6b90505bfeb7edfe",
+            "ac490552baf0248d9c341cd4",
+            "c4887b864bf6034c89724c58",
+            "1b9eaf6bad7f8f48cd7b98ad",
+            "2945b4d5c4d82f364d23af69",
             "8948473a14287643a65b2897",
-            "2945b4d5c4d82f364d23af69"
+            "de1d62ec3b86416588c3720c",
+            "e4a647f7169774b6d2ce8531",
+            "8042d0e469e8047ecee8b48d"
           ]
         },
         "stg_contact": {
@@ -46,5 +55,5 @@
       }
     }
   ],
-  "updatedAt": "2026-06-01T14:33:52.420Z"
+  "updatedAt": "2026-06-02T13:41:01.279Z"
 }

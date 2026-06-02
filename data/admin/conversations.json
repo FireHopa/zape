@@ -1070,6 +1070,76 @@
       "createdAt": "2026-06-01T13:51:10.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB04A5FDB4F9672B34EBA",
+      "fromMe": true,
+      "body": "Olá, Cíntia teste 1 tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *08 e 09 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780335363,
+      "createdAt": "2026-06-01T17:36:03.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_277261748011176@lid_A5DC6592D09D4314896EB3104B29538D",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Avenida Paulista 807 – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780338025,
+      "createdAt": "2026-06-01T18:20:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_A50C6A5C80725A5B1D040FCDC971D3C9",
+      "fromMe": true,
+      "body": "11947887790",
+      "type": "chat",
+      "timestamp": 1780342660,
+      "createdAt": "2026-06-01T19:37:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_A5F199FDE29248D14A08B2BD5920EDB2",
+      "fromMe": true,
+      "body": "11969164664",
+      "type": "chat",
+      "timestamp": 1780349076,
+      "createdAt": "2026-06-01T21:24:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB074A46E2E221C1B6FDF",
+      "fromMe": false,
+      "body": "📅 Sua reunião está marcada para 03/06, sexta-feira  às 14h.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar!",
+      "type": "chat",
+      "timestamp": 1780397664,
+      "createdAt": "2026-06-02T10:54:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB096C5BDDD56067759FF",
+      "fromMe": false,
+      "body": "(Cintia Tatuapé 27/05) Patrícia Miziara\tPrintLab Studio 3D\t11915073525\tprintlabstudiobr@gmail.com",
+      "type": "chat",
+      "timestamp": 1780399263,
+      "createdAt": "2026-06-02T11:21:03.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB021FD85FABF645C7F62",
+      "fromMe": false,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nTerça-feira, 2 de junho · 11:30am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/fuc-xvvq-vcc\nOu disque: ‪(BR) +55 11 3957-8675‬ PIN: ‪730 233 697‬#\nOutros números de telefone: https://tel.meet/fuc-xvvq-vcc?pin=6040028176051",
+      "type": "chat",
+      "timestamp": 1780407250,
+      "createdAt": "2026-06-02T13:34:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511976971746": [
@@ -1162,6 +1232,240 @@
       "createdAt": "2026-06-01T16:45:34.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_77468358701194@lid_2A8EB7C7B6C932A68339",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337240,
+      "createdAt": "2026-06-01T18:07:20.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_77468358701194_lid_2A8EB7C7B6C932A68339_49f0f634.ogg",
+      "mediaSize": 8604,
+      "filename": "false_77468358701194@lid_2A8EB7C7B6C932A68339",
+      "originalName": "false_77468358701194@lid_2A8EB7C7B6C932A68339"
+    },
+    {
+      "id": "true_77468358701194@lid_A5916E916666D07FEE893C0F4C29671D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337292,
+      "createdAt": "2026-06-01T18:08:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_77468358701194_lid_A5916E916666D07FEE893C0F4C29671D_d1b5d626.ogg",
+      "mediaSize": 9891,
+      "filename": "true_77468358701194@lid_A5916E916666D07FEE893C0F4C29671D",
+      "originalName": "true_77468358701194@lid_A5916E916666D07FEE893C0F4C29671D"
+    },
+    {
+      "id": "false_77468358701194@lid_2A9AA2B6CFCE1FC4BD6E",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337322,
+      "createdAt": "2026-06-01T18:08:42.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_77468358701194_lid_2A9AA2B6CFCE1FC4BD6E_ced0d5f6.ogg",
+      "mediaSize": 240868,
+      "filename": "false_77468358701194@lid_2A9AA2B6CFCE1FC4BD6E",
+      "originalName": "false_77468358701194@lid_2A9AA2B6CFCE1FC4BD6E"
+    },
+    {
+      "id": "true_77468358701194@lid_A56CDFFBE283B2275AA4AEB4E978B66D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337396,
+      "createdAt": "2026-06-01T18:09:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_77468358701194_lid_A56CDFFBE283B2275AA4AEB4E978B66D_1c3d71ab.ogg",
+      "mediaSize": 36658,
+      "filename": "true_77468358701194@lid_A56CDFFBE283B2275AA4AEB4E978B66D",
+      "originalName": "true_77468358701194@lid_A56CDFFBE283B2275AA4AEB4E978B66D"
+    },
+    {
+      "id": "true_77468358701194@lid_A50DC0D338808B4F6DF56657E8D5F253",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337437,
+      "createdAt": "2026-06-01T18:10:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_77468358701194_lid_A50DC0D338808B4F6DF56657E8D5F253_7a8039f8.ogg",
+      "mediaSize": 20549,
+      "filename": "true_77468358701194@lid_A50DC0D338808B4F6DF56657E8D5F253",
+      "originalName": "true_77468358701194@lid_A50DC0D338808B4F6DF56657E8D5F253"
+    },
+    {
+      "id": "false_77468358701194@lid_2A946068351F3EE9E494",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337496,
+      "createdAt": "2026-06-01T18:11:36.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_77468358701194_lid_2A946068351F3EE9E494_803be6b3.ogg",
+      "mediaSize": 152787,
+      "filename": "false_77468358701194@lid_2A946068351F3EE9E494",
+      "originalName": "false_77468358701194@lid_2A946068351F3EE9E494"
+    },
+    {
+      "id": "true_77468358701194@lid_A5A20A66F4BEB876AC1054FBF96AF71D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337549,
+      "createdAt": "2026-06-01T18:12:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_77468358701194_lid_A5A20A66F4BEB876AC1054FBF96AF71D_84dc7359.ogg",
+      "mediaSize": 46652,
+      "filename": "true_77468358701194@lid_A5A20A66F4BEB876AC1054FBF96AF71D",
+      "originalName": "true_77468358701194@lid_A5A20A66F4BEB876AC1054FBF96AF71D"
+    },
+    {
+      "id": "true_77468358701194@lid_A5CCBF322B7D1163C7846CB8359F7649",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337559,
+      "createdAt": "2026-06-01T18:12:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_77468358701194_lid_A5CCBF322B7D1163C7846CB8359F7649_65a5cc4e.ogg",
+      "mediaSize": 16082,
+      "filename": "true_77468358701194@lid_A5CCBF322B7D1163C7846CB8359F7649",
+      "originalName": "true_77468358701194@lid_A5CCBF322B7D1163C7846CB8359F7649"
+    },
+    {
+      "id": "false_77468358701194@lid_2A341850EDC47907AE33",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337603,
+      "createdAt": "2026-06-01T18:13:23.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_77468358701194_lid_2A341850EDC47907AE33_14ad47aa.ogg",
+      "mediaSize": 74239,
+      "filename": "false_77468358701194@lid_2A341850EDC47907AE33",
+      "originalName": "false_77468358701194@lid_2A341850EDC47907AE33"
+    },
+    {
+      "id": "true_77468358701194@lid_A548B06D69AB13BB902FD8A9B1F17873",
+      "fromMe": true,
+      "body": "Santo André 11/06\nPaulista 17/07\nOnline vou confirmar se vai ser 08 e 09 ou 9 e 10",
+      "type": "chat",
+      "timestamp": 1780337604,
+      "createdAt": "2026-06-01T18:13:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_77468358701194@lid_A510A5C59E7709F0253EC947D17F4441",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337649,
+      "createdAt": "2026-06-01T18:14:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_77468358701194_lid_A510A5C59E7709F0253EC947D17F4441_9548963d.ogg",
+      "mediaSize": 48541,
+      "filename": "true_77468358701194@lid_A510A5C59E7709F0253EC947D17F4441",
+      "originalName": "true_77468358701194@lid_A510A5C59E7709F0253EC947D17F4441"
+    },
+    {
+      "id": "false_77468358701194@lid_2A22E1AFA0D45652BA91",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780337762,
+      "createdAt": "2026-06-01T18:16:02.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_77468358701194_lid_2A22E1AFA0D45652BA91_0aca9aa3.ogg",
+      "mediaSize": 95011,
+      "filename": "false_77468358701194@lid_2A22E1AFA0D45652BA91",
+      "originalName": "false_77468358701194@lid_2A22E1AFA0D45652BA91"
+    },
+    {
+      "id": "true_77468358701194@lid_A5D63627AAD67D2C32F4BF0705E0203D",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Avenida Paulista 807 – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780337979,
+      "createdAt": "2026-06-01T18:19:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_77468358701194@lid_A574048A006C7825048C4BA79F02A424",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780338005,
+      "createdAt": "2026-06-01T18:20:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_77468358701194_lid_A574048A006C7825048C4BA79F02A424_75ab4c16.ogg",
+      "mediaSize": 45844,
+      "filename": "true_77468358701194@lid_A574048A006C7825048C4BA79F02A424",
+      "originalName": "true_77468358701194@lid_A574048A006C7825048C4BA79F02A424"
+    },
+    {
+      "id": "false_77468358701194@lid_3EB03CF436CD82EBE89D0F",
+      "fromMe": false,
+      "body": "Perfeito, obrigada pela atenção nos vemos dia 17",
+      "type": "chat",
+      "timestamp": 1780338196,
+      "createdAt": "2026-06-01T18:23:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511999060543": [
@@ -1646,6 +1950,16 @@
       "createdAt": "2026-06-01T16:44:42.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_524002844867@lid_A5DE274ED5DE58E17E225442F5AF501B",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345609,
+      "createdAt": "2026-06-01T20:26:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511970752631": [
@@ -1658,6 +1972,63 @@
       "createdAt": "2026-05-27T17:24:43.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "false_267778342793375@lid_3AC338314B53AB4DD845",
+      "fromMe": false,
+      "body": "Quero atendimento individual sexta-feira 11:00",
+      "type": "chat",
+      "timestamp": 1780362326,
+      "createdAt": "2026-06-02T01:05:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_267778342793375@lid_A53B55C3FD95FE29199FBB539E67EF0E",
+      "fromMe": true,
+      "body": "Bom dia Maycon, tudo bem?\n\nPode ser às 11h30?",
+      "type": "chat",
+      "timestamp": 1780400700,
+      "createdAt": "2026-06-02T11:45:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_267778342793375@lid_3A048C33B3F4D93B653D",
+      "fromMe": false,
+      "body": "Pode sim",
+      "type": "chat",
+      "timestamp": 1780402869,
+      "createdAt": "2026-06-02T12:21:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_267778342793375@lid_A536CAB0399FC8B88A6C2F2B28347390",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780405469,
+      "createdAt": "2026-06-02T13:04:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_267778342793375_lid_A536CAB0399FC8B88A6C2F2B28347390_8604644d.ogg",
+      "mediaSize": 21899,
+      "filename": "true_267778342793375@lid_A536CAB0399FC8B88A6C2F2B28347390",
+      "originalName": "true_267778342793375@lid_A536CAB0399FC8B88A6C2F2B28347390"
+    },
+    {
+      "id": "true_267778342793375@lid_A559B035A6113AB9FA609780AB32D34E",
+      "fromMe": true,
+      "body": "📅 Sua reunião está marcada para 05/06, sexta-feira  às 11h30\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar!",
+      "type": "chat",
+      "timestamp": 1780405703,
+      "createdAt": "2026-06-02T13:08:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511949618962": [
@@ -2262,6 +2633,16 @@
       "type": "chat",
       "timestamp": 1780332257,
       "createdAt": "2026-06-01T16:44:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_177940679675917@lid_A5413E0DCAEFCC1A84EDD72A1A1874F4",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345632,
+      "createdAt": "2026-06-01T20:27:12.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -3177,6 +3558,210 @@
       "mediaSize": 30554,
       "filename": "false_50169513046183@lid_3A371B638233D2CD72A7",
       "originalName": "false_50169513046183@lid_3A371B638233D2CD72A7"
+    },
+    {
+      "id": "true_50169513046183@lid_A50FD52766C33011A22FF5FF8DB6E0A2",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345535,
+      "createdAt": "2026-06-01T20:25:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3A0EBFDE457EDCD4DC7B",
+      "fromMe": false,
+      "body": "Oiii, onde fica o bloco B? quando sai do estacionamento",
+      "type": "chat",
+      "timestamp": 1780348112,
+      "createdAt": "2026-06-01T21:08:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A5896221D74E4F21F71F30451AF91672",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780349250,
+      "createdAt": "2026-06-01T21:27:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_50169513046183_lid_A5896221D74E4F21F71F30451AF91672_c28fe2d4.ogg",
+      "mediaSize": 18945,
+      "filename": "true_50169513046183@lid_A5896221D74E4F21F71F30451AF91672",
+      "originalName": "true_50169513046183@lid_A5896221D74E4F21F71F30451AF91672"
+    },
+    {
+      "id": "false_50169513046183@lid_3AC1EABB99483665B3F3",
+      "fromMe": false,
+      "body": "Quero atendimento individual quinta-feira 15h",
+      "type": "chat",
+      "timestamp": 1780362368,
+      "createdAt": "2026-06-02T01:06:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3A8B378ED3A5F83ABE3C",
+      "fromMe": false,
+      "body": "Matheus falou que ira me atender",
+      "type": "chat",
+      "timestamp": 1780362925,
+      "createdAt": "2026-06-02T01:15:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3AA1CFDA10A8B050492A",
+      "fromMe": false,
+      "body": "Nayara - Hiper outlet",
+      "type": "chat",
+      "timestamp": 1780362931,
+      "createdAt": "2026-06-02T01:15:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A5D498B3C5A1CF0E03180D20648FE36D",
+      "fromMe": true,
+      "body": "Olá bom dia Nayara tudo bem?",
+      "type": "chat",
+      "timestamp": 1780399915,
+      "createdAt": "2026-06-02T11:31:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A5297E09BA127798F1308637BDB41342",
+      "fromMe": true,
+      "body": "Na quinta ele tem agenda às 11h.\n\nVocê teria disponibilidade na sexta às 14h30",
+      "type": "chat",
+      "timestamp": 1780400024,
+      "createdAt": "2026-06-02T11:33:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3A267B1A071E4489E240",
+      "fromMe": false,
+      "body": "Oii, seriam online né?",
+      "type": "chat",
+      "timestamp": 1780403720,
+      "createdAt": "2026-06-02T12:35:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3A47BA12FC54DE71B939",
+      "fromMe": false,
+      "body": "Por mim perfeito!",
+      "type": "chat",
+      "timestamp": 1780403724,
+      "createdAt": "2026-06-02T12:35:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A5A663DCD103DFE7A599FD3AE601DCB4",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780405400,
+      "createdAt": "2026-06-02T13:03:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_50169513046183_lid_A5A663DCD103DFE7A599FD3AE601DCB4_449a56de.ogg",
+      "mediaSize": 23981,
+      "filename": "true_50169513046183@lid_A5A663DCD103DFE7A599FD3AE601DCB4",
+      "originalName": "true_50169513046183@lid_A5A663DCD103DFE7A599FD3AE601DCB4"
+    },
+    {
+      "id": "true_50169513046183@lid_A5ECD3901782868C2D176E0BBF29A4F4",
+      "fromMe": true,
+      "body": "Quinta às 11h?",
+      "type": "chat",
+      "timestamp": 1780405435,
+      "createdAt": "2026-06-02T13:03:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3EB09B47F0B94687541FAC",
+      "fromMe": false,
+      "body": "Perfeito",
+      "type": "chat",
+      "timestamp": 1780405560,
+      "createdAt": "2026-06-02T13:06:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3EB0E57CB654226C698B7E",
+      "fromMe": false,
+      "body": "Combinado",
+      "type": "chat",
+      "timestamp": 1780405563,
+      "createdAt": "2026-06-02T13:06:03.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A52FB63E313519C067CA8ED91B9DCC8C",
+      "fromMe": true,
+      "body": "📅 Sua reunião está marcada para 04/06, quinta-feira  às 11h.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar!",
+      "type": "chat",
+      "timestamp": 1780405641,
+      "createdAt": "2026-06-02T13:07:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A577A5324D1151F55A70D689D3E00A10",
+      "fromMe": true,
+      "body": "Me passa seu segmento site e Instagram por favor",
+      "type": "chat",
+      "timestamp": 1780405668,
+      "createdAt": "2026-06-02T13:07:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3EB0FF6256EF79996A5D86",
+      "fromMe": false,
+      "body": "Lojas de roupas - Masculino, Feminino e Infantil",
+      "type": "chat",
+      "timestamp": 1780405905,
+      "createdAt": "2026-06-02T13:11:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3EB083C1637682DCB4A629",
+      "fromMe": false,
+      "body": "https://www.instagram.com/lojashiperoficial/",
+      "type": "chat",
+      "timestamp": 1780405907,
+      "createdAt": "2026-06-02T13:11:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_50169513046183@lid_3EB02E187FD27F1C84C5BD",
+      "fromMe": false,
+      "body": "site não temos ainda",
+      "type": "chat",
+      "timestamp": 1780405919,
+      "createdAt": "2026-06-02T13:11:59.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511983457181": [
@@ -4069,6 +4654,26 @@
       "createdAt": "2026-06-01T11:54:34.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "false_12154807812220@lid_3ADBAD77CEF2371DB7D5",
+      "fromMe": false,
+      "body": "quero um atendimento individual quarta feira às 9h",
+      "type": "chat",
+      "timestamp": 1780362342,
+      "createdAt": "2026-06-02T01:05:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A584D1358CF0F9E964FE5B5C01CED99A",
+      "fromMe": true,
+      "body": "Bom dia Pedro tudo bem?\n\nPode ser às 11h30?",
+      "type": "chat",
+      "timestamp": 1780405132,
+      "createdAt": "2026-06-02T12:58:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511992882483": [
@@ -4119,6 +4724,16 @@
       "type": "chat",
       "timestamp": 1780332328,
       "createdAt": "2026-06-01T16:45:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_67701586276585@lid_A542560B833B787BD8C14CAF489BEF65",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345588,
+      "createdAt": "2026-06-01T20:26:28.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -4303,6 +4918,26 @@
       "createdAt": "2026-06-01T16:42:12.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_44517352800330@lid_A56C20FB1883328E80F2CA66433CAB7E",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345723,
+      "createdAt": "2026-06-01T20:28:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_44517352800330@lid_AC1B04401B34B7BAEFDA2334208850F0",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1780345996,
+      "createdAt": "2026-06-01T20:33:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511996423323": [
@@ -4579,6 +5214,16 @@
       "type": "chat",
       "timestamp": 1780332251,
       "createdAt": "2026-06-01T16:44:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50560489234436@lid_A50D9979B036846A37961C16BF6ADB93",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345637,
+      "createdAt": "2026-06-01T20:27:17.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -5129,6 +5774,300 @@
       "createdAt": "2026-06-01T16:44:23.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5B4D42E92971C7F1A6D67586DF227D2",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345627,
+      "createdAt": "2026-06-01T20:27:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A54F05EB67B676B109827A87C48561E4",
+      "fromMe": false,
+      "body": "Quero um atendimento individual na quarta às 10h",
+      "type": "chat",
+      "timestamp": 1780362381,
+      "createdAt": "2026-06-02T01:06:21.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A520EF769A8DC92BC9BCF009C9B1A999",
+      "fromMe": false,
+      "body": "Ganhei o game ads e fiz o depoimento",
+      "type": "chat",
+      "timestamp": 1780362436,
+      "createdAt": "2026-06-02T01:07:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A59D4CE034EB9E54C20DCD6B31304914",
+      "fromMe": false,
+      "body": "Quero as mentorias",
+      "type": "chat",
+      "timestamp": 1780366771,
+      "createdAt": "2026-06-02T02:19:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A5886CB06872E5A96815392E2968D357",
+      "fromMe": false,
+      "body": "O Matheus falou pra vcs lembrarem ele que eu sou o cara da acupuntura pra gente fazer uma call para a mentoria",
+      "type": "chat",
+      "timestamp": 1780366807,
+      "createdAt": "2026-06-02T02:20:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5AA6DF7067CAC9EEE3D40C643CA42BF",
+      "fromMe": true,
+      "body": "Bom dia Alex, tudo bem?",
+      "type": "chat",
+      "timestamp": 1780399825,
+      "createdAt": "2026-06-02T11:30:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5016FEABC4AD2DC6EF7A0D165A81727",
+      "fromMe": true,
+      "body": "Pode ser às 9h30?",
+      "type": "chat",
+      "timestamp": 1780399837,
+      "createdAt": "2026-06-02T11:30:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A5EE8699861C415542D016C911E0A8B9",
+      "fromMe": false,
+      "body": "Pode",
+      "type": "chat",
+      "timestamp": 1780401703,
+      "createdAt": "2026-06-02T12:01:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5EC9BC1869E63695F0544D1C3DD834E",
+      "fromMe": true,
+      "body": "📅 Sua reunião está marcada para 03/06, quarta-feira  às 9h30.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar!",
+      "type": "chat",
+      "timestamp": 1780405581,
+      "createdAt": "2026-06-02T13:06:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A561EBB7CC78E25291D11FE5525C6844",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1780405760,
+      "createdAt": "2026-06-02T13:09:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A52F9452BE7BBC63A3CA6D8B15659B9B",
+      "fromMe": true,
+      "body": "Alex se tiver site e Instagram me envia por favor",
+      "type": "chat",
+      "timestamp": 1780405821,
+      "createdAt": "2026-06-02T13:10:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A50E7FF97C896D14721C0492ADA47620",
+      "fromMe": false,
+      "body": "Eu estou com um problema com o horário",
+      "type": "chat",
+      "timestamp": 1780405847,
+      "createdAt": "2026-06-02T13:10:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A5BDB053CCD073B04790DF9B92D5CED4",
+      "fromMe": false,
+      "body": "Podemos passar para depois do almoço ?",
+      "type": "chat",
+      "timestamp": 1780405861,
+      "createdAt": "2026-06-02T13:11:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A53B651E3BE411741161AC8245364746",
+      "fromMe": false,
+      "body": "Estão fazendo uma obra aqui na clínica",
+      "type": "chat",
+      "timestamp": 1780405900,
+      "createdAt": "2026-06-02T13:11:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A539B22A5BF612BCB14150401F56B954",
+      "fromMe": false,
+      "body": "Pela manhã vou estar cuidando . Coisa de última hora",
+      "type": "chat",
+      "timestamp": 1780405933,
+      "createdAt": "2026-06-02T13:12:13.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A5DE4ECFC15198FBA803A8D8B8AC0AE9",
+      "fromMe": false,
+      "body": "A equipe gbpela manhã e até o almoço concluem",
+      "type": "chat",
+      "timestamp": 1780405955,
+      "createdAt": "2026-06-02T13:12:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5263294DCF0A65D423B41579EB09312",
+      "fromMe": true,
+      "body": "Na quarta às 17h30 pode ser?",
+      "type": "chat",
+      "timestamp": 1780405955,
+      "createdAt": "2026-06-02T13:12:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A5D2E65FC8685414F5CC4B098F820E36",
+      "fromMe": false,
+      "body": "Mas eu preciso estar a frente por causa fosxewuipanentos",
+      "type": "chat",
+      "timestamp": 1780405975,
+      "createdAt": "2026-06-02T13:12:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A52B0E4D64ACB4F02C236B8CB18B85B8",
+      "fromMe": true,
+      "body": "Entendo",
+      "type": "chat",
+      "timestamp": 1780405989,
+      "createdAt": "2026-06-02T13:13:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A5781A9FECD2100DB15BDB2FCA68591B",
+      "fromMe": false,
+      "body": "Sim pode marcar",
+      "type": "chat",
+      "timestamp": 1780406030,
+      "createdAt": "2026-06-02T13:13:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A56D427371EF791A3606B19701ED4BD3",
+      "fromMe": false,
+      "body": "Será online",
+      "type": "chat",
+      "timestamp": 1780406035,
+      "createdAt": "2026-06-02T13:13:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A549409571D87C8BF5104960E9E67A6B",
+      "fromMe": false,
+      "body": "Vc pode me enviar",
+      "type": "chat",
+      "timestamp": 1780406042,
+      "createdAt": "2026-06-02T13:14:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A51A8597F124DDC0F3C721BE6DBECBC1",
+      "fromMe": true,
+      "body": "📅 Sua reunião está marcada para 02/06, quarta-feira  às 17h 30.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar!",
+      "type": "chat",
+      "timestamp": 1780406093,
+      "createdAt": "2026-06-02T13:14:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A5F68AFFACF1CE4C3971A34B4E73315F",
+      "fromMe": false,
+      "body": "O link",
+      "type": "chat",
+      "timestamp": 1780406097,
+      "createdAt": "2026-06-02T13:14:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A589CE4447EF17F7F2B03FA470DB7E14",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1780406107,
+      "createdAt": "2026-06-02T13:15:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A50FA9BF967980F5F78007586138E7E7",
+      "fromMe": false,
+      "body": "Vai ser qual plataforma de conversa Google meet? Zoom ?",
+      "type": "chat",
+      "timestamp": 1780406134,
+      "createdAt": "2026-06-02T13:15:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A524EBE3A7A7293574DDF57815501F21",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406168,
+      "createdAt": "2026-06-02T13:16:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_207623081197652_lid_A524EBE3A7A7293574DDF57815501F21_3d2fc9db.ogg",
+      "mediaSize": 14807,
+      "filename": "true_207623081197652@lid_A524EBE3A7A7293574DDF57815501F21",
+      "originalName": "true_207623081197652@lid_A524EBE3A7A7293574DDF57815501F21"
+    },
+    {
+      "id": "false_207623081197652@lid_A582D0383D345613A41902B93B0F5410",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406200,
+      "createdAt": "2026-06-02T13:16:40.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_207623081197652_lid_A582D0383D345613A41902B93B0F5410_ff26ea26.ogg",
+      "mediaSize": 4151,
+      "filename": "false_207623081197652@lid_A582D0383D345613A41902B93B0F5410",
+      "originalName": "false_207623081197652@lid_A582D0383D345613A41902B93B0F5410"
     }
   ],
   "5511983839878": [
@@ -5233,6 +6172,168 @@
       "createdAt": "2026-06-01T16:44:28.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_18322347290767@lid_A5B907DD5027AEAC8B0E8030D4D85A36",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345622,
+      "createdAt": "2026-06-01T20:27:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_18322347290767@lid_3A9E31348BCBFB960383",
+      "fromMe": false,
+      "body": "Quero atendimento individual",
+      "type": "chat",
+      "timestamp": 1780362321,
+      "createdAt": "2026-06-02T01:05:21.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_18322347290767@lid_A52FE73F9F985BCA8AC9899090848508",
+      "fromMe": true,
+      "body": "Bom dia Eduardo, tudo bem?",
+      "type": "chat",
+      "timestamp": 1780400443,
+      "createdAt": "2026-06-02T11:40:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_18322347290767@lid_A598FE2C910DD101695266641A98FCE0",
+      "fromMe": true,
+      "body": "Temos agenda\nQuinta dia 04 9h 9h30 10h 10h30 e às 11h\n\nOu na próxima semana das 10h30 as 16h.\n\nQual dia e horário é melhor? Verifico na agenda do Matheus.",
+      "type": "chat",
+      "timestamp": 1780400583,
+      "createdAt": "2026-06-02T11:43:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_18322347290767@lid_3A2350D037136978E5E2",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1780401549,
+      "createdAt": "2026-06-02T11:59:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_18322347290767@lid_3A371F5330ABDA804A04",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780401580,
+      "createdAt": "2026-06-02T11:59:40.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_18322347290767_lid_3A371F5330ABDA804A04_dc44401e.ogg",
+      "mediaSize": 58256,
+      "filename": "false_18322347290767@lid_3A371F5330ABDA804A04",
+      "originalName": "false_18322347290767@lid_3A371F5330ABDA804A04"
+    },
+    {
+      "id": "true_18322347290767@lid_A5689A96563D587E2B9B5660449A88E1",
+      "fromMe": true,
+      "body": "Entendo",
+      "type": "chat",
+      "timestamp": 1780405862,
+      "createdAt": "2026-06-02T13:11:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_18322347290767@lid_A5ECC4F07BE979B955409C0E8EF56528",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780405885,
+      "createdAt": "2026-06-02T13:11:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_18322347290767_lid_A5ECC4F07BE979B955409C0E8EF56528_1604f91f.ogg",
+      "mediaSize": 29224,
+      "filename": "true_18322347290767@lid_A5ECC4F07BE979B955409C0E8EF56528",
+      "originalName": "true_18322347290767@lid_A5ECC4F07BE979B955409C0E8EF56528"
+    },
+    {
+      "id": "true_18322347290767@lid_A5F0D80576D5799D43EB6EADF552E74E",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780405897,
+      "createdAt": "2026-06-02T13:11:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_18322347290767_lid_A5F0D80576D5799D43EB6EADF552E74E_8520e818.ogg",
+      "mediaSize": 22712,
+      "filename": "true_18322347290767@lid_A5F0D80576D5799D43EB6EADF552E74E",
+      "originalName": "true_18322347290767@lid_A5F0D80576D5799D43EB6EADF552E74E"
+    },
+    {
+      "id": "false_18322347290767@lid_3A800E31DECF6632A44C",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406163,
+      "createdAt": "2026-06-02T13:16:03.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_18322347290767_lid_3A800E31DECF6632A44C_0e68ea0f.ogg",
+      "mediaSize": 36229,
+      "filename": "false_18322347290767@lid_3A800E31DECF6632A44C",
+      "originalName": "false_18322347290767@lid_3A800E31DECF6632A44C"
+    },
+    {
+      "id": "true_18322347290767@lid_A5E9CBD2631373B511EC0C2EA522D181",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406232,
+      "createdAt": "2026-06-02T13:17:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_18322347290767_lid_A5E9CBD2631373B511EC0C2EA522D181_c1729d05.ogg",
+      "mediaSize": 53270,
+      "filename": "true_18322347290767@lid_A5E9CBD2631373B511EC0C2EA522D181",
+      "originalName": "true_18322347290767@lid_A5E9CBD2631373B511EC0C2EA522D181"
+    },
+    {
+      "id": "true_18322347290767@lid_A5F911646B3AD7353D280E1219F2F867",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406251,
+      "createdAt": "2026-06-02T13:17:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_18322347290767_lid_A5F911646B3AD7353D280E1219F2F867_891bcb70.ogg",
+      "mediaSize": 23552,
+      "filename": "true_18322347290767@lid_A5F911646B3AD7353D280E1219F2F867",
+      "originalName": "true_18322347290767@lid_A5F911646B3AD7353D280E1219F2F867"
     }
   ],
   "5511947185335": [
@@ -5331,6 +6432,117 @@
       "createdAt": "2026-06-01T17:01:16.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_193050357796937@lid_A503EBF98CC591D2D175C09277882FE0",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780335127,
+      "createdAt": "2026-06-01T17:32:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_193050357796937_lid_A503EBF98CC591D2D175C09277882FE0_e12a42c4.ogg",
+      "mediaSize": 45504,
+      "filename": "true_193050357796937@lid_A503EBF98CC591D2D175C09277882FE0",
+      "originalName": "true_193050357796937@lid_A503EBF98CC591D2D175C09277882FE0"
+    },
+    {
+      "id": "true_193050357796937@lid_A5A4E80E0E5655E8F4B6397661A07364",
+      "fromMe": true,
+      "body": "Presencial Paulista 17/06\n\nOnline 08 e 09/06",
+      "type": "chat",
+      "timestamp": 1780335478,
+      "createdAt": "2026-06-01T17:37:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_193050357796937@lid_AC09B212895A41014F7BE32C00C75D52",
+      "fromMe": false,
+      "body": "Que legal o on line..",
+      "type": "chat",
+      "timestamp": 1780336055,
+      "createdAt": "2026-06-01T17:47:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_193050357796937@lid_A5D85BA0CDF6459064DB520F839DFCA6",
+      "fromMe": true,
+      "body": "Combinado vou transferir sua inscrição, ok?",
+      "type": "chat",
+      "timestamp": 1780336180,
+      "createdAt": "2026-06-01T17:49:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_193050357796937@lid_AC766A7E622C4E00312F45230CF797FA",
+      "fromMe": false,
+      "body": "Duvida do on line ....1 dua so isso?",
+      "type": "chat",
+      "timestamp": 1780339129,
+      "createdAt": "2026-06-01T18:38:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_193050357796937@lid_AC922B53ED5C0D2DD1CF49936957B552",
+      "fromMe": false,
+      "body": "Um dia  só?",
+      "type": "chat",
+      "timestamp": 1780339141,
+      "createdAt": "2026-06-01T18:39:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_193050357796937@lid_A5A5EFF8F77B4119EFC22A2094170287",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780339173,
+      "createdAt": "2026-06-01T18:39:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_193050357796937_lid_A5A5EFF8F77B4119EFC22A2094170287_294b7f55.ogg",
+      "mediaSize": 16318,
+      "filename": "true_193050357796937@lid_A5A5EFF8F77B4119EFC22A2094170287",
+      "originalName": "true_193050357796937@lid_A5A5EFF8F77B4119EFC22A2094170287"
+    },
+    {
+      "id": "false_193050357796937@lid_AC6B419C4391373028065047BFD720E9",
+      "fromMe": false,
+      "body": "Sim o que terei direito...vamos marcar dia 9 por favor",
+      "type": "chat",
+      "timestamp": 1780341625,
+      "createdAt": "2026-06-01T19:20:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_193050357796937@lid_A5CB13CBC188EFCA47C9D7B7FEA96E84",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780342633,
+      "createdAt": "2026-06-01T19:37:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_193050357796937_lid_A5CB13CBC188EFCA47C9D7B7FEA96E84_7f589780.ogg",
+      "mediaSize": 31572,
+      "filename": "true_193050357796937@lid_A5CB13CBC188EFCA47C9D7B7FEA96E84",
+      "originalName": "true_193050357796937@lid_A5CB13CBC188EFCA47C9D7B7FEA96E84"
     }
   ],
   "5511947694201": [
@@ -5439,6 +6651,26 @@
       "createdAt": "2026-06-01T16:44:35.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A58616E8B92FE0316C26030FD554D8BF",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345615,
+      "createdAt": "2026-06-01T20:26:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_172533315805299@lid_2AB35A6D63EC371C1187",
+      "fromMe": false,
+      "body": "Quero um atendimento personalizado dia 08/06/26",
+      "type": "chat",
+      "timestamp": 1780362376,
+      "createdAt": "2026-06-02T01:06:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511972170621": [
@@ -5554,6 +6786,56 @@
       "type": "chat",
       "timestamp": 1780332309,
       "createdAt": "2026-06-01T16:45:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A587AEF406D5B728A59689499477A359",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345600,
+      "createdAt": "2026-06-01T20:26:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_171455228674158@lid_2A3D1233071D3A9BDE81",
+      "fromMe": false,
+      "body": "Oii",
+      "type": "chat",
+      "timestamp": 1780353552,
+      "createdAt": "2026-06-01T22:39:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_171455228674158@lid_2A5185E971EB243C7DBE",
+      "fromMe": false,
+      "body": "Vai ate que horas?",
+      "type": "chat",
+      "timestamp": 1780353555,
+      "createdAt": "2026-06-01T22:39:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A572FDFC973D3DF85B2029A5AD022786",
+      "fromMe": true,
+      "body": "Boa noite até às 22h",
+      "type": "chat",
+      "timestamp": 1780357140,
+      "createdAt": "2026-06-01T23:39:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A5B4CC9676A6A48822CA2B6D6563CDF1",
+      "fromMe": true,
+      "body": "Geralmente passa um pouco",
+      "type": "chat",
+      "timestamp": 1780357149,
+      "createdAt": "2026-06-01T23:39:09.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -5690,6 +6972,26 @@
       "createdAt": "2026-06-01T16:43:56.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_204423414419541@lid_A516E641DBEE5C9D5907674ABC6EAE01",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345642,
+      "createdAt": "2026-06-01T20:27:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_204423414419541@lid_3A344EE9314D9EE669D5",
+      "fromMe": false,
+      "body": "Boa noite. Quero um atendimento individual na sexta-feira às 11h",
+      "type": "chat",
+      "timestamp": 1780362358,
+      "createdAt": "2026-06-02T01:05:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511987150877": [
@@ -5769,6 +7071,106 @@
       "createdAt": "2026-06-01T17:00:38.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_52862574973145@lid_A532276DD1A847E50A6CECDEA4D8A7C1",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345471,
+      "createdAt": "2026-06-01T20:24:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A5E4EFCB3DB929AC13F6AC44B2D9DB35",
+      "fromMe": false,
+      "body": "Percurso de 3 minutos levando 40",
+      "type": "chat",
+      "timestamp": 1780351437,
+      "createdAt": "2026-06-01T22:03:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_52862574973145@lid_A5A2DF4AD15280E47C4372B113AF7E98",
+      "fromMe": true,
+      "body": "Boa noite, conseguiu chegar?",
+      "type": "chat",
+      "timestamp": 1780357194,
+      "createdAt": "2026-06-01T23:39:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A5A01C5CD13257B1267F3BFAA42D7E81",
+      "fromMe": false,
+      "body": "Com 45 minutos de atraso 🥹",
+      "type": "chat",
+      "timestamp": 1780357414,
+      "createdAt": "2026-06-01T23:43:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A582B0FAA8817B9331EDCFF187440E0B",
+      "fromMe": false,
+      "body": "Por favor me envie este conteúdo por vídeo",
+      "type": "chat",
+      "timestamp": 1780357436,
+      "createdAt": "2026-06-01T23:43:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_52862574973145@lid_A53B6B642E2BE28ACA307762ADD9E118",
+      "fromMe": true,
+      "body": "Boa noite Karina, o Matheus irá realizar uma imersão online nos dias 8 e 9/06 das 19h30 as 21h. Posso enviar o link para participar ao vivo.\n\nOu temos a opção da Imersão presencial na Paulista dia 17/06.",
+      "type": "chat",
+      "timestamp": 1780360216,
+      "createdAt": "2026-06-02T00:30:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A5D1E0EEDE8B08A5DB6A71527A053EC3",
+      "fromMe": false,
+      "body": "Pode enviar",
+      "type": "chat",
+      "timestamp": 1780360956,
+      "createdAt": "2026-06-02T00:42:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A5B5345ACB39F9D8BD25EA02384A5DFF",
+      "fromMe": false,
+      "body": "Fico no aguardo do material",
+      "type": "chat",
+      "timestamp": 1780362175,
+      "createdAt": "2026-06-02T01:02:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A54236BD25A194FA2479CC5A933C4814",
+      "fromMe": false,
+      "body": "Quero um atendimento individual sexta feira às 10h",
+      "type": "chat",
+      "timestamp": 1780362395,
+      "createdAt": "2026-06-02T01:06:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A53A99CDCACBFC97BBF15E019C7CD485",
+      "fromMe": false,
+      "body": "Dia 05",
+      "type": "chat",
+      "timestamp": 1780362404,
+      "createdAt": "2026-06-02T01:06:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511960240030": [
@@ -5811,6 +7213,26 @@
       "createdAt": "2026-06-01T16:45:41.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_154580235083866@lid_A5300AD45EEA601FD9DFB4A3A1DC974C",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345581,
+      "createdAt": "2026-06-01T20:26:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_154580235083866@lid_2A7917CB27B8D99640A6",
+      "fromMe": false,
+      "body": "Quero um atendimento individualizado 9/06 15:00",
+      "type": "chat",
+      "timestamp": 1780362439,
+      "createdAt": "2026-06-02T01:07:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511999991490": [
@@ -5888,6 +7310,16 @@
       "type": "chat",
       "timestamp": 1780332211,
       "createdAt": "2026-06-01T16:43:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50723781922897@lid_A523E026BE983BA2A020CF9CEDD9D7AA",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345660,
+      "createdAt": "2026-06-01T20:27:40.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -6106,6 +7538,46 @@
       "createdAt": "2026-06-01T16:42:00.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A5E90B18D9DF03FCD2799F976BD4499D",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345730,
+      "createdAt": "2026-06-01T20:28:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2A54B8E064A4EF6CA16B",
+      "fromMe": false,
+      "body": "Quero ser um parceiro Google Partner, estou aqui no evento Alphaville",
+      "type": "chat",
+      "timestamp": 1780362452,
+      "createdAt": "2026-06-02T01:07:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_45153108652118@lid_3BC2852A345C666B3E4C",
+      "fromMe": false,
+      "body": "bom dia, queria saber os valores da mentoria individual e saber quando o material sera liberado",
+      "type": "chat",
+      "timestamp": 1780407001,
+      "createdAt": "2026-06-02T13:30:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_45153108652118@lid_3B8E55A8C90BBEDE9CE4",
+      "fromMe": false,
+      "body": "o material de ontem",
+      "type": "chat",
+      "timestamp": 1780407007,
+      "createdAt": "2026-06-02T13:30:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511989651268": [
@@ -6337,6 +7809,147 @@
       "createdAt": "2026-06-01T16:44:29.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A5FF8ABFA6A93ABB733F562DAED358AE",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780335532,
+      "createdAt": "2026-06-01T17:38:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_164952547582011_lid_A5FF8ABFA6A93ABB733F562DAED358AE_aa62b68a.ogg",
+      "mediaSize": 66652,
+      "filename": "true_164952547582011@lid_A5FF8ABFA6A93ABB733F562DAED358AE",
+      "originalName": "true_164952547582011@lid_A5FF8ABFA6A93ABB733F562DAED358AE"
+    },
+    {
+      "id": "true_164952547582011@lid_A50D0EB6FFBCB51C42583DFE8EB10E5F",
+      "fromMe": true,
+      "body": "Preparados para hoje? Vai ser uma noite *prática e transformadora 🚀.*\n\nSe programa para chegar cedo para fazer o checklist e escolher um bom lugar... começaremos às 18h30 e logo início tem conteúdo muito importante 🙏\n\nBom evento! 🙌",
+      "type": "chat",
+      "timestamp": 1780335557,
+      "createdAt": "2026-06-01T17:39:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A5960A60CF40101191F788FB55489C67",
+      "fromMe": true,
+      "body": "Inclusive segue o complemento da localização.\n\nAlameda  Rio Negro,585\nBloco B  5° Andar.",
+      "type": "chat",
+      "timestamp": 1780335606,
+      "createdAt": "2026-06-01T17:40:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3A4421E16CF3A0E50B04",
+      "fromMe": false,
+      "body": "Obrigada Cíntia",
+      "type": "chat",
+      "timestamp": 1780342685,
+      "createdAt": "2026-06-01T19:38:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A5DCBCA644BAE42331C793F06E907A37",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345452,
+      "createdAt": "2026-06-01T20:24:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3A2007158647F83F630E",
+      "fromMe": false,
+      "body": "Tô chegando… muito trânsito",
+      "type": "chat",
+      "timestamp": 1780348410,
+      "createdAt": "2026-06-01T21:13:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3A89E00F6416C0F5E003",
+      "fromMe": false,
+      "body": "Quero um atendimento individual na sexta-feira às 9:00h da manhã. Ou na segunda às 9:00h",
+      "type": "chat",
+      "timestamp": 1780362384,
+      "createdAt": "2026-06-02T01:06:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3A11CB128196EB31B4B5",
+      "fromMe": false,
+      "body": "Eu fiz um depoimento, ganhei a mentoria",
+      "type": "chat",
+      "timestamp": 1780362452,
+      "createdAt": "2026-06-02T01:07:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3AD1B60D363BD417E4EF",
+      "fromMe": false,
+      "body": "false_164952547582011@lid_3AD1B60D363BD417E4EF",
+      "type": "image",
+      "timestamp": 1780362471,
+      "createdAt": "2026-06-02T01:07:51.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_164952547582011_lid_3AD1B60D363BD417E4EF_a5fd4daa.jpg",
+      "mediaSize": 239481,
+      "filename": "false_164952547582011@lid_3AD1B60D363BD417E4EF",
+      "originalName": "false_164952547582011@lid_3AD1B60D363BD417E4EF"
+    },
+    {
+      "id": "true_164952547582011@lid_A5EF05B1092D7811D51085256A468022",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780407702,
+      "createdAt": "2026-06-02T13:41:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_164952547582011_lid_A5EF05B1092D7811D51085256A468022_71df8a61.ogg",
+      "mediaSize": 31148,
+      "filename": "true_164952547582011@lid_A5EF05B1092D7811D51085256A468022",
+      "originalName": "true_164952547582011@lid_A5EF05B1092D7811D51085256A468022"
+    },
+    {
+      "id": "true_164952547582011@lid_A5AAC63A9F61BB0A45719B08290C2A1F",
+      "fromMe": true,
+      "body": "Agendado para 05/06 as 9h",
+      "type": "chat",
+      "timestamp": 1780407829,
+      "createdAt": "2026-06-02T13:43:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A524EE75AB29A56FFDC92D808E0B12A3",
+      "fromMe": true,
+      "body": "Por gentileza pode informar seu segmento e site",
+      "type": "chat",
+      "timestamp": 1780407841,
+      "createdAt": "2026-06-02T13:44:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511960853857": [
@@ -6394,6 +8007,56 @@
       "type": "chat",
       "timestamp": 1780332200,
       "createdAt": "2026-06-01T16:43:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_146716200304792@lid_A596857FD3E7873960E3F15A7FE6BFD5",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345665,
+      "createdAt": "2026-06-01T20:27:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_146716200304792@lid_A5C36F4C93523AE99F40F41AFC074FA3",
+      "fromMe": false,
+      "body": "Quero atendimento no dia Quarta-feira dia 3 de Junho",
+      "type": "chat",
+      "timestamp": 1780362458,
+      "createdAt": "2026-06-02T01:07:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_146716200304792@lid_A541924A10B1C8F46979E0998701F9A9",
+      "fromMe": false,
+      "body": "Eu ganho mentoria durante imersão",
+      "type": "chat",
+      "timestamp": 1780367299,
+      "createdAt": "2026-06-02T02:28:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_146716200304792@lid_A52335981C301C70D031CEC7D7F31B5D",
+      "fromMe": true,
+      "body": "Olá bom dia Tomás tudo bem?",
+      "type": "chat",
+      "timestamp": 1780399750,
+      "createdAt": "2026-06-02T11:29:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_146716200304792@lid_A500EDBAAAF818B5DA3CB409505606D9",
+      "fromMe": true,
+      "body": "Dia 03/06 o Matheus tem agenda às 17h30 pode ser?",
+      "type": "chat",
+      "timestamp": 1780399785,
+      "createdAt": "2026-06-02T11:29:45.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -6465,6 +8128,36 @@
       "createdAt": "2026-06-01T16:43:25.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A59E994BCD0E2152FC3C76D3FFEB1D3C",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345654,
+      "createdAt": "2026-06-01T20:27:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_143885732966424@lid_2A5CD5DDC86D5BC1B1ED",
+      "fromMe": false,
+      "body": "Quero um atendimento individual q sexta-feira pela manhã 10h",
+      "type": "chat",
+      "timestamp": 1780362375,
+      "createdAt": "2026-06-02T01:06:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_143885732966424@lid_2AABB735E40C84A156A8",
+      "fromMe": false,
+      "body": "Fiz o depoimento",
+      "type": "chat",
+      "timestamp": 1780362429,
+      "createdAt": "2026-06-02T01:07:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511984571720": [
@@ -6522,6 +8215,16 @@
       "type": "chat",
       "timestamp": 1780332193,
       "createdAt": "2026-06-01T16:43:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_11218555289662@lid_A57BA48CBED3B93C3892D3D2A0D09104",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345671,
+      "createdAt": "2026-06-01T20:27:51.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -6630,6 +8333,298 @@
       "createdAt": "2026-06-01T16:42:17.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5BA0D4EE7EF0EDF5390EEA081740E4B",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345718,
+      "createdAt": "2026-06-01T20:28:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A3A74661F421DE4F033",
+      "fromMe": false,
+      "body": "Quero um atendimento individual para amanhã as13h",
+      "type": "chat",
+      "timestamp": 1780362337,
+      "createdAt": "2026-06-02T01:05:37.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5C50B2F69A480098FDFCEC877C46E8B",
+      "fromMe": true,
+      "body": "Olá bom dia Rafael, tudo bem?\n\nHoje Matheus tem agenda às 11h ou 11h30 \n\nNa quinta às 11h 11h30 \n\nNo horário das 13h ele tem na próxima semana \n08 09 e 10.\n\nQual dia e horário?",
+      "type": "chat",
+      "timestamp": 1780400941,
+      "createdAt": "2026-06-02T11:49:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A5DD843B25D06A0B2AB",
+      "fromMe": false,
+      "body": "Pode ser hoje as11h",
+      "type": "chat",
+      "timestamp": 1780405115,
+      "createdAt": "2026-06-02T12:58:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A780552742294FFDB30",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1780405119,
+      "createdAt": "2026-06-02T12:58:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A52DF044CA03B58D8C15393DC5B20C79",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780405207,
+      "createdAt": "2026-06-02T13:00:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_217368361971739_lid_A52DF044CA03B58D8C15393DC5B20C79_4c0187df.ogg",
+      "mediaSize": 19175,
+      "filename": "true_217368361971739@lid_A52DF044CA03B58D8C15393DC5B20C79",
+      "originalName": "true_217368361971739@lid_A52DF044CA03B58D8C15393DC5B20C79"
+    },
+    {
+      "id": "true_217368361971739@lid_A5C24548FE609C3945364A867DF87FDA",
+      "fromMe": true,
+      "body": "Qual seu segmento e site por gentileza",
+      "type": "chat",
+      "timestamp": 1780405293,
+      "createdAt": "2026-06-02T13:01:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5CF97C259CAFC8B93211F9306BE6CA6",
+      "fromMe": true,
+      "body": "Oieee",
+      "type": "chat",
+      "timestamp": 1780406137,
+      "createdAt": "2026-06-02T13:15:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A502FBB53DA6C1B9A70267541D9150C5",
+      "fromMe": true,
+      "body": "Posso confirmar hoje às 11h30?",
+      "type": "chat",
+      "timestamp": 1780406154,
+      "createdAt": "2026-06-02T13:15:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A6BB6F905909CB36222",
+      "fromMe": false,
+      "body": "Pode ser sim",
+      "type": "chat",
+      "timestamp": 1780406560,
+      "createdAt": "2026-06-02T13:22:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5C9CF7123B31932E3864C644AE87FB6",
+      "fromMe": true,
+      "body": "Maravilha",
+      "type": "chat",
+      "timestamp": 1780406691,
+      "createdAt": "2026-06-02T13:24:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5558B52507E129400AF1B596AB062AA",
+      "fromMe": true,
+      "body": "Pode informar por gentileza",
+      "type": "chat",
+      "timestamp": 1780406701,
+      "createdAt": "2026-06-02T13:25:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A00046A80C743B63E3C",
+      "fromMe": false,
+      "body": "Assistência técnica de eletrodoméstico",
+      "type": "chat",
+      "timestamp": 1780406813,
+      "createdAt": "2026-06-02T13:26:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A49611E219EB2A71CDC",
+      "fromMe": false,
+      "body": "Agilconsertos.com.br",
+      "type": "chat",
+      "timestamp": 1780406831,
+      "createdAt": "2026-06-02T13:27:11.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5ED264AD49AB967AF6820575BBAE2E8",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406858,
+      "createdAt": "2026-06-02T13:27:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_217368361971739_lid_A5ED264AD49AB967AF6820575BBAE2E8_954c5cee.ogg",
+      "mediaSize": 39042,
+      "filename": "true_217368361971739@lid_A5ED264AD49AB967AF6820575BBAE2E8",
+      "originalName": "true_217368361971739@lid_A5ED264AD49AB967AF6820575BBAE2E8"
+    },
+    {
+      "id": "false_217368361971739@lid_3AEA304B1052B2D8C41F",
+      "fromMe": false,
+      "body": "Consigo sim",
+      "type": "chat",
+      "timestamp": 1780406885,
+      "createdAt": "2026-06-02T13:28:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3AF107F6EFC08DB46E34",
+      "fromMe": false,
+      "body": "MAs só não tenho câmera no pc",
+      "type": "chat",
+      "timestamp": 1780406897,
+      "createdAt": "2026-06-02T13:28:17.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A57DD41F3076B9929C2F667024FE00C9",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406902,
+      "createdAt": "2026-06-02T13:28:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_217368361971739_lid_A57DD41F3076B9929C2F667024FE00C9_66862d41.ogg",
+      "mediaSize": 14125,
+      "filename": "true_217368361971739@lid_A57DD41F3076B9929C2F667024FE00C9",
+      "originalName": "true_217368361971739@lid_A57DD41F3076B9929C2F667024FE00C9"
+    },
+    {
+      "id": "false_217368361971739@lid_3A67B1EF093FAF9672FF",
+      "fromMe": false,
+      "body": "Ai da pra acessar dos dois né o celular tbm",
+      "type": "chat",
+      "timestamp": 1780406912,
+      "createdAt": "2026-06-02T13:28:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5910141347FDE675543885174FF583D",
+      "fromMe": true,
+      "body": "Tudo bem aviso ele",
+      "type": "chat",
+      "timestamp": 1780406916,
+      "createdAt": "2026-06-02T13:28:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5B4E95C6AB1CA08DE611E98C9FD6F36",
+      "fromMe": true,
+      "body": "Isso",
+      "type": "chat",
+      "timestamp": 1780406919,
+      "createdAt": "2026-06-02T13:28:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A1303AE3923A55B2F6B",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406932,
+      "createdAt": "2026-06-02T13:28:52.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_217368361971739_lid_3A1303AE3923A55B2F6B_849d9f53.ogg",
+      "mediaSize": 29600,
+      "filename": "false_217368361971739@lid_3A1303AE3923A55B2F6B",
+      "originalName": "false_217368361971739@lid_3A1303AE3923A55B2F6B"
+    },
+    {
+      "id": "false_217368361971739@lid_3A8D7FF410FDB69736D3",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780406947,
+      "createdAt": "2026-06-02T13:29:07.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_217368361971739_lid_3A8D7FF410FDB69736D3_b8b0940c.ogg",
+      "mediaSize": 18113,
+      "filename": "false_217368361971739@lid_3A8D7FF410FDB69736D3",
+      "originalName": "false_217368361971739@lid_3A8D7FF410FDB69736D3"
+    },
+    {
+      "id": "true_217368361971739@lid_A5BD540AC4122189ECC3F67E39C75E06",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780407007,
+      "createdAt": "2026-06-02T13:30:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_217368361971739_lid_A5BD540AC4122189ECC3F67E39C75E06_f5d1c35b.ogg",
+      "mediaSize": 23701,
+      "filename": "true_217368361971739@lid_A5BD540AC4122189ECC3F67E39C75E06",
+      "originalName": "true_217368361971739@lid_A5BD540AC4122189ECC3F67E39C75E06"
+    },
+    {
+      "id": "true_217368361971739@lid_A5200C57E296908CB408943DC7DC98A5",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nTerça-feira, 2 de junho · 11:30am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/fuc-xvvq-vcc\nOu disque: ‪(BR) +55 11 3957-8675‬ PIN: ‪730 233 697‬#\nOutros números de telefone: https://tel.meet/fuc-xvvq-vcc?pin=6040028176051",
+      "type": "chat",
+      "timestamp": 1780407438,
+      "createdAt": "2026-06-02T13:37:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511964213501": [
@@ -6689,6 +8684,36 @@
       "createdAt": "2026-06-01T16:43:02.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_152123614441709@lid_A551CA1317C85B2436852437F9407169",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345682,
+      "createdAt": "2026-06-01T20:28:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_152123614441709@lid_AC3F1C1DA6F4829D96FA6238277D944F",
+      "fromMe": false,
+      "body": "Quero atendimento individual",
+      "type": "chat",
+      "timestamp": 1780362322,
+      "createdAt": "2026-06-02T01:05:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_152123614441709@lid_ACA985BE55140E86D7869FBA7007922B",
+      "fromMe": false,
+      "body": "03/06 as 15:00",
+      "type": "chat",
+      "timestamp": 1780362391,
+      "createdAt": "2026-06-02T01:06:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511986511320": [
@@ -6806,6 +8831,36 @@
       "createdAt": "2026-06-01T16:43:07.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_35991825973344@lid_A5131012169826A465A91424F9E73953",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345676,
+      "createdAt": "2026-06-01T20:27:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_35991825973344@lid_ACE6A3A41CB6E4CDB8405608FAA0283C",
+      "fromMe": false,
+      "body": "Quero um atendimento individual amanhã 13h",
+      "type": "chat",
+      "timestamp": 1780362331,
+      "createdAt": "2026-06-02T01:05:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_35991825973344@lid_ACE1A72FC18ED73569FBB159FA622710",
+      "fromMe": false,
+      "body": "Quinta 11h",
+      "type": "chat",
+      "timestamp": 1780362378,
+      "createdAt": "2026-06-02T01:06:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511962594705": [
@@ -6914,6 +8969,16 @@
       "createdAt": "2026-06-01T16:46:51.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_125026514821347@lid_A595BAB75CF6F19FD9CA66ECF4C9A57A",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345553,
+      "createdAt": "2026-06-01T20:25:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511940151170": [
@@ -6971,6 +9036,16 @@
       "type": "chat",
       "timestamp": 1780332165,
       "createdAt": "2026-06-01T16:42:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_190026633748615@lid_A5573BF592339B12AB46FCFC2F10B702",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345691,
+      "createdAt": "2026-06-01T20:28:11.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -7338,6 +9413,227 @@
       "createdAt": "2026-06-01T16:42:50.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A52E4819F63E98F0C51807AC16A5B3DE",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345687,
+      "createdAt": "2026-06-01T20:28:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC712040395FECDCE1C7D244E30E5F28",
+      "fromMe": false,
+      "body": "Nao consegui gerar o qr code",
+      "type": "chat",
+      "timestamp": 1780348752,
+      "createdAt": "2026-06-01T21:19:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5684738D46BEF32E48139E6E321AA56",
+      "fromMe": true,
+      "body": "Oi",
+      "type": "chat",
+      "timestamp": 1780349210,
+      "createdAt": "2026-06-01T21:26:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5AA62EDFAA56271070E7952BF651C6C",
+      "fromMe": true,
+      "body": "Pode ir",
+      "type": "chat",
+      "timestamp": 1780349214,
+      "createdAt": "2026-06-01T21:26:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5030EAD691E6B8BB79EC533C764FBF1",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780349230,
+      "createdAt": "2026-06-01T21:27:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A5030EAD691E6B8BB79EC533C764FBF1_20f99669.ogg",
+      "mediaSize": 9406,
+      "filename": "true_151887374487733@lid_A5030EAD691E6B8BB79EC533C764FBF1",
+      "originalName": "true_151887374487733@lid_A5030EAD691E6B8BB79EC533C764FBF1"
+    },
+    {
+      "id": "false_151887374487733@lid_AC9F7280C4E621C6525B0E7979001C19",
+      "fromMe": false,
+      "body": "Acabei de chegar",
+      "type": "chat",
+      "timestamp": 1780349293,
+      "createdAt": "2026-06-01T21:28:13.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC3F185DF805B2BBB83FB9B8EA021302",
+      "fromMe": false,
+      "body": "E o estacionamento  eu pego o ticket e o desconto onde vejo?",
+      "type": "chat",
+      "timestamp": 1780349321,
+      "createdAt": "2026-06-01T21:28:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5016A690E87137835011C47479CF48B",
+      "fromMe": true,
+      "body": "Entrou no link?",
+      "type": "chat",
+      "timestamp": 1780349321,
+      "createdAt": "2026-06-01T21:28:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC9B470E769B47814F3CEE286A8F68CD",
+      "fromMe": false,
+      "body": "Entrei mas nao gerou qrcode",
+      "type": "chat",
+      "timestamp": 1780349340,
+      "createdAt": "2026-06-01T21:29:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A56303DB6588AEEF8B2C84303449B685",
+      "fromMe": true,
+      "body": "Tem funcionário no estacionamento?",
+      "type": "chat",
+      "timestamp": 1780349372,
+      "createdAt": "2026-06-01T21:29:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC8713CE5C567038881246ECC2D63E2F",
+      "fromMe": false,
+      "body": "Não",
+      "type": "chat",
+      "timestamp": 1780349382,
+      "createdAt": "2026-06-01T21:29:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC320CE4D0B52050BB56BE6BD9CFFF73",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780349401,
+      "createdAt": "2026-06-01T21:30:01.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_151887374487733_lid_AC320CE4D0B52050BB56BE6BD9CFFF73_351c94cf.ogg",
+      "mediaSize": 37651,
+      "filename": "false_151887374487733@lid_AC320CE4D0B52050BB56BE6BD9CFFF73",
+      "originalName": "false_151887374487733@lid_AC320CE4D0B52050BB56BE6BD9CFFF73"
+    },
+    {
+      "id": "true_151887374487733@lid_A50893AB6C302D8F789E09EE469FF977",
+      "fromMe": true,
+      "body": "Pode deixar o carro e subir",
+      "type": "chat",
+      "timestamp": 1780349402,
+      "createdAt": "2026-06-01T21:30:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A512909787299526431148655CE36F5A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780349430,
+      "createdAt": "2026-06-01T21:30:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A512909787299526431148655CE36F5A_f49334ce.ogg",
+      "mediaSize": 12713,
+      "filename": "true_151887374487733@lid_A512909787299526431148655CE36F5A",
+      "originalName": "true_151887374487733@lid_A512909787299526431148655CE36F5A"
+    },
+    {
+      "id": "true_151887374487733@lid_A583C674C250DA2B12A20F9E4BCCD68A",
+      "fromMe": true,
+      "body": "Encontrou?",
+      "type": "chat",
+      "timestamp": 1780349696,
+      "createdAt": "2026-06-01T21:34:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC83E6A641B3D9A4041BEEBE7F294B22",
+      "fromMe": false,
+      "body": "Consegui o cadastro . O estacionamento meu maridonta tentando",
+      "type": "chat",
+      "timestamp": 1780349736,
+      "createdAt": "2026-06-01T21:35:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A51C484CEFC87B49F5CE94B0D878D37D",
+      "fromMe": true,
+      "body": "O estacionamento é no subsolo do bloco B",
+      "type": "chat",
+      "timestamp": 1780349865,
+      "createdAt": "2026-06-01T21:37:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5E951C01D5A752A9C71079516A19532",
+      "fromMe": true,
+      "body": "Quando terminar o evento vai receber um. Cupom para ter o desconto",
+      "type": "chat",
+      "timestamp": 1780350071,
+      "createdAt": "2026-06-01T21:41:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC856D1E1183577F91C72D89653A8289",
+      "fromMe": false,
+      "body": "Obrigada",
+      "type": "chat",
+      "timestamp": 1780357427,
+      "createdAt": "2026-06-01T23:43:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_151887374487733@lid_ACA9605983D1A95354C14403C0F59A99",
+      "fromMe": false,
+      "body": "Quero atendimento individual  02/06 terça-feira  10hrs.",
+      "type": "chat",
+      "timestamp": 1780362429,
+      "createdAt": "2026-06-02T01:07:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511959085678": [
@@ -7395,6 +9691,16 @@
       "type": "chat",
       "timestamp": 1780332154,
       "createdAt": "2026-06-01T16:42:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_121024377024548@lid_A553FD01F7CBD700364EF0B3F7B2F676",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345703,
+      "createdAt": "2026-06-01T20:28:23.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -7614,6 +9920,133 @@
       "createdAt": "2026-06-01T14:55:22.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_127358816239690@lid_ACFE6664CFA779E339F34B037CA52E3A",
+      "fromMe": false,
+      "body": "Sabe informar qual torre?",
+      "type": "chat",
+      "timestamp": 1780347886,
+      "createdAt": "2026-06-01T21:04:46.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_127358816239690@lid_A5803232FC8E5B66F881BA842071F602",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780347950,
+      "createdAt": "2026-06-01T21:05:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_127358816239690@lid_AC9648C75BAB77CC1BCA263438F146C8",
+      "fromMe": false,
+      "body": "E o inventa da basoft",
+      "type": "chat",
+      "timestamp": 1780347953,
+      "createdAt": "2026-06-01T21:05:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_127358816239690@lid_A5E5B4DC2342DCD5EBDDF9EDDFEDA1D8",
+      "fromMe": true,
+      "body": "Nem fale",
+      "type": "chat",
+      "timestamp": 1780347971,
+      "createdAt": "2026-06-01T21:06:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_127358816239690@lid_ACAD5E34BBD44A492800CA7402AA07E6",
+      "fromMe": false,
+      "body": "Quero atendimento dia 9 as 14 horas",
+      "type": "chat",
+      "timestamp": 1780362492,
+      "createdAt": "2026-06-02T01:08:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_127358816239690@lid_A597C1DDC07CB6A1FE205AB175ED3C72",
+      "fromMe": true,
+      "body": "Bom dia Eduardo, tudo bem?\nPode ser às 14h30?",
+      "type": "chat",
+      "timestamp": 1780400381,
+      "createdAt": "2026-06-02T11:39:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_127358816239690@lid_ACE278A4842A6BBFB8263D1D289DD6B1",
+      "fromMe": false,
+      "body": "Bom dia\nTudo e vc?\nSim pode ser",
+      "type": "chat",
+      "timestamp": 1780401850,
+      "createdAt": "2026-06-02T12:04:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_127358816239690@lid_A5F34FC84F892C114EDD5BF8128929A4",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780405725,
+      "createdAt": "2026-06-02T13:08:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_127358816239690_lid_A5F34FC84F892C114EDD5BF8128929A4_012830f4.ogg",
+      "mediaSize": 19087,
+      "filename": "true_127358816239690@lid_A5F34FC84F892C114EDD5BF8128929A4",
+      "originalName": "true_127358816239690@lid_A5F34FC84F892C114EDD5BF8128929A4"
+    },
+    {
+      "id": "true_127358816239690@lid_A5C728C898D92FEC87FC1AB1633C96C3",
+      "fromMe": true,
+      "body": "📅 Sua reunião está marcada para 00/06, terça feira  às 14h30.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar!",
+      "type": "chat",
+      "timestamp": 1780405764,
+      "createdAt": "2026-06-02T13:09:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_127358816239690@lid_A54D36CCF042B944F20FCD3F6CF1BDC4",
+      "fromMe": true,
+      "body": "Por gentileza me envia seu segmento e site se tiver",
+      "type": "chat",
+      "timestamp": 1780405783,
+      "createdAt": "2026-06-02T13:09:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_127358816239690@lid_ACF28C2C13FE827EE2F4FB9DC69FE972",
+      "fromMe": false,
+      "body": "Fabricação e comercialização de produtos eletrônicos",
+      "type": "chat",
+      "timestamp": 1780407100,
+      "createdAt": "2026-06-02T13:31:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_127358816239690@lid_AC4B23C7300AAD93AB5BD19015308790",
+      "fromMe": false,
+      "body": "etronic.ind.br",
+      "type": "chat",
+      "timestamp": 1780407154,
+      "createdAt": "2026-06-02T13:32:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5514981523286": [
@@ -7673,6 +10106,301 @@
       "createdAt": "2026-06-01T16:42:27.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951668277@lid_A552EA861C362A4AF516A364A325ACB8",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345708,
+      "createdAt": "2026-06-01T20:28:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951668277@lid_A506A62FDC085AB8738DAD303384B839",
+      "fromMe": true,
+      "body": "Boa noite Matheus, assim que possível me informa os dados do segundo ingresso por gentileza",
+      "type": "chat",
+      "timestamp": 1780350185,
+      "createdAt": "2026-06-01T21:43:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_182501951668277@lid_3A6F4A8E68BC430E63E8",
+      "fromMe": false,
+      "body": "ola cintia",
+      "type": "chat",
+      "timestamp": 1780362393,
+      "createdAt": "2026-06-02T01:06:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_182501951668277@lid_3AF8E74ABB587C6258AB",
+      "fromMe": false,
+      "body": "eu consegui passar aqui pra eles",
+      "type": "chat",
+      "timestamp": 1780362406,
+      "createdAt": "2026-06-02T01:06:46.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_182501951668277@lid_3A0FA023B744114C2201",
+      "fromMe": false,
+      "body": "eu e minha namorada fizemos o depoimento de prova social",
+      "type": "chat",
+      "timestamp": 1780362444,
+      "createdAt": "2026-06-02T01:07:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511966138069": [
+    {
+      "id": "true_260975315939516@lid_3EB00051F44619664AE301",
+      "fromMe": true,
+      "body": "Olá Felipe Moreira Felix! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Felipe Moreira Felix?",
+      "type": "chat",
+      "timestamp": 1780340687,
+      "createdAt": "2026-06-01T19:04:47.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_260975315939516@lid_A515996EBA3F7390EEAC8CB0DF0B98CC",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780341364,
+      "createdAt": "2026-06-01T19:16:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_260975315939516_lid_A515996EBA3F7390EEAC8CB0DF0B98CC_59ebe83e.ogg",
+      "mediaSize": 63491,
+      "filename": "true_260975315939516@lid_A515996EBA3F7390EEAC8CB0DF0B98CC",
+      "originalName": "true_260975315939516@lid_A515996EBA3F7390EEAC8CB0DF0B98CC"
+    },
+    {
+      "id": "true_260975315939516@lid_A58A18E9CBA9D64648260DB0D6DBF6BD",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Avenida Paulista 807 – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780341398,
+      "createdAt": "2026-06-01T19:16:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511947887790": [
+    {
+      "id": "true_111016415338567@lid_3EB05D789C2ABFCE313E03",
+      "fromMe": true,
+      "body": "Olá Andreia Marcia de Sousa! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Andreia Marcia de Sousa?",
+      "type": "chat",
+      "timestamp": 1780342941,
+      "createdAt": "2026-06-01T19:42:21.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_111016415338567@lid_A5C4D1D3A2CEB462F3C83FDAB27F44D1",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780343009,
+      "createdAt": "2026-06-01T19:43:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_111016415338567_lid_A5C4D1D3A2CEB462F3C83FDAB27F44D1_3a131198.ogg",
+      "mediaSize": 50495,
+      "filename": "true_111016415338567@lid_A5C4D1D3A2CEB462F3C83FDAB27F44D1",
+      "originalName": "true_111016415338567@lid_A5C4D1D3A2CEB462F3C83FDAB27F44D1"
+    },
+    {
+      "id": "true_111016415338567@lid_A5059AABDF80F7C7087C557B009FEFE6",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Avenida Paulista 807 – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780343040,
+      "createdAt": "2026-06-01T19:44:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511947082818": [
+    {
+      "id": "false_192281441259685@lid_3EB04100E2998AACE0F500",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão em Alphaville",
+      "type": "chat",
+      "timestamp": 1780344184,
+      "createdAt": "2026-06-01T20:03:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_192281441259685@lid_A5F93D53B6DDA43FBC209C9681E93F0A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780345139,
+      "createdAt": "2026-06-01T20:18:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_192281441259685_lid_A5F93D53B6DDA43FBC209C9681E93F0A_ba44e1ab.ogg",
+      "mediaSize": 49740,
+      "filename": "true_192281441259685@lid_A5F93D53B6DDA43FBC209C9681E93F0A",
+      "originalName": "true_192281441259685@lid_A5F93D53B6DDA43FBC209C9681E93F0A"
+    },
+    {
+      "id": "false_192281441259685@lid_3EB0784FA106152023E425",
+      "fromMe": false,
+      "body": "ola",
+      "type": "chat",
+      "timestamp": 1780345176,
+      "createdAt": "2026-06-01T20:19:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_192281441259685@lid_3EB036D5C0E8E4F191967B",
+      "fromMe": false,
+      "body": "estou aqui no centro comercial do alphaville",
+      "type": "chat",
+      "timestamp": 1780345191,
+      "createdAt": "2026-06-01T20:19:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_192281441259685@lid_3EB04374EDEF33D275641A",
+      "fromMe": false,
+      "body": "Pode sim",
+      "type": "chat",
+      "timestamp": 1780345193,
+      "createdAt": "2026-06-01T20:19:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_192281441259685@lid_A5F07F76963043029AD5931334A0F4E8",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780345204,
+      "createdAt": "2026-06-01T20:20:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_192281441259685_lid_A5F07F76963043029AD5931334A0F4E8_119c540f.ogg",
+      "mediaSize": 15703,
+      "filename": "true_192281441259685@lid_A5F07F76963043029AD5931334A0F4E8",
+      "originalName": "true_192281441259685@lid_A5F07F76963043029AD5931334A0F4E8"
+    },
+    {
+      "id": "true_192281441259685@lid_A50DB562EEA8F62DA030AC846CA0733E",
+      "fromMe": true,
+      "body": "*Para garantir a sua vaga no Lote atual, finalize o pagamento:*\n 💳 Cartão (até 3x): https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70 (149)",
+      "type": "chat",
+      "timestamp": 1780345244,
+      "createdAt": "2026-06-01T20:20:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_192281441259685@lid_3EB0964D5A52B66F0C507B",
+      "fromMe": false,
+      "body": "Eu ja paguei",
+      "type": "chat",
+      "timestamp": 1780345268,
+      "createdAt": "2026-06-01T20:21:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_192281441259685@lid_A59EF39B3FDCAA5D1A12A9B0E0DDD792",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780345282,
+      "createdAt": "2026-06-01T20:21:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_192281441259685_lid_A59EF39B3FDCAA5D1A12A9B0E0DDD792_f5dc96dc.ogg",
+      "mediaSize": 18599,
+      "filename": "true_192281441259685@lid_A59EF39B3FDCAA5D1A12A9B0E0DDD792",
+      "originalName": "true_192281441259685@lid_A59EF39B3FDCAA5D1A12A9B0E0DDD792"
+    },
+    {
+      "id": "true_192281441259685@lid_A5F84FF517F30B5AA95AFAC64D9017CE",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780345308,
+      "createdAt": "2026-06-01T20:21:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_192281441259685_lid_A5F84FF517F30B5AA95AFAC64D9017CE_e45aff6f.ogg",
+      "mediaSize": 30644,
+      "filename": "true_192281441259685@lid_A5F84FF517F30B5AA95AFAC64D9017CE",
+      "originalName": "true_192281441259685@lid_A5F84FF517F30B5AA95AFAC64D9017CE"
+    },
+    {
+      "id": "true_192281441259685@lid_A5AA9985933EDC0820AA01716F76EA75",
+      "fromMe": true,
+      "body": "🌟Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 01/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:*  Basoft -  Auditório para Eventos Alameda Rio Negro, 585 Alphaville • Barueri • São Paulo\n\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780345330,
+      "createdAt": "2026-06-01T20:22:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_192281441259685@lid_A5C38EBF2A2CB04706A82A7E9D040D2A",
+      "fromMe": true,
+      "body": "Falta pouco para nossa Imersão!\n\nPara adiantar a sua entrada, você ,pode acessar o link abaixo para completa ro seu cadastro:\n https://visitante.in/?l=SDPETV\n\nBasta inserir os dados simples e escolher a opção BASOFT (lLocal do evento)\n CENTRO ADMINISTRATIVO RIO NEGRO - ALAMEDA RIO NEGRO, 585 -   Bloco B - 5º andar - BASOFT - ALPHAVILLE, BARUERI \n\nSerá gerado um QRCode para você apresentar na entrada do prédio🙏\nEsperamos você!",
+      "type": "chat",
+      "timestamp": 1780345343,
+      "createdAt": "2026-06-01T20:22:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_192281441259685@lid_A5B415F9C8F88DDA06A0EFFE0F46EA3D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780345435,
+      "createdAt": "2026-06-01T20:23:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_192281441259685_lid_A5B415F9C8F88DDA06A0EFFE0F46EA3D_2e203516.ogg",
+      "mediaSize": 11715,
+      "filename": "true_192281441259685@lid_A5B415F9C8F88DDA06A0EFFE0F46EA3D",
+      "originalName": "true_192281441259685@lid_A5B415F9C8F88DDA06A0EFFE0F46EA3D"
     }
   ]
 }

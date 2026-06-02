@@ -7,24 +7,12 @@
       "name": "Funil Principal",
       "createdAt": "2026-04-29T14:37:53.708Z",
       "stageOrder": [
-        "stg_contact",
-        "stg_meeting",
         "stg_proposal",
         "stg_won",
         "stg_9024c7402b27b819dd9adbce7",
         "stg_fece3e48d3843819dd9adc389"
       ],
       "stages": {
-        "stg_contact": {
-          "id": "stg_contact",
-          "name": "Contato",
-          "leadIds": []
-        },
-        "stg_meeting": {
-          "id": "stg_meeting",
-          "name": "Reunião",
-          "leadIds": []
-        },
         "stg_proposal": {
           "id": "stg_proposal",
           "name": "Proposta",
@@ -43,7 +31,8 @@
         "stg_fece3e48d3843819dd9adc389": {
           "id": "stg_fece3e48d3843819dd9adc389",
           "name": "Nova etapa",
-          "leadIds": []
+          "leadIds": [],
+          "color": "#1A170F"
         }
       }
     },
@@ -63,5 +52,5 @@
       }
     }
   ],
-  "updatedAt": "2026-05-27T15:01:54.200Z"
+  "updatedAt": "2026-06-01T17:26:39.159Z"
 }

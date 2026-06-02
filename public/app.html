@@ -3646,6 +3646,110 @@ body:not(.hasPager) .pager{display:none!important;}
 }
 </style>
 
+
+<style id="crm-bulk-stage-color-20260601">
+/* Bulk actions e cores personalizadas no Funil de Vendas */
+#panelCrm.crmBulkActive .crmBoardHint{display:none!important;}
+#panelCrm .crmBulkToolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  margin:0 0 14px!important;padding:12px!important;border:1px solid #bfdbfe!important;border-radius:22px!important;
+  background:linear-gradient(135deg,#fff,#f8fbff)!important;box-shadow:0 14px 34px rgba(37,99,235,.09)!important;
+}
+#panelCrm .crmBulkToolbar[hidden]{display:none!important;}
+#panelCrm .crmBulkInfo{display:flex;align-items:center;gap:10px;min-width:230px;color:#0f172a;}
+#panelCrm .crmBulkInfoIcon{width:38px;height:38px;border-radius:15px;background:#eff6ff;color:#2563eb;border:1px solid #dbeafe;display:flex;align-items:center;justify-content:center;font-size:19px;}
+#panelCrm .crmBulkInfo b{display:block;font-size:13px;font-weight:1000;letter-spacing:-.02em;}
+#panelCrm .crmBulkInfo span{display:block;font-size:12px;color:#64748b;font-weight:750;margin-top:2px;}
+#panelCrm .crmBulkActions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;}
+#panelCrm .crmBulkActions select{
+  height:38px;border-radius:14px;border:1px solid #dbe3ef;background:#fff;color:#0f172a;padding:0 10px;font-weight:850;outline:none;min-width:190px;
+}
+#panelCrm .crmCardCheckWrap{display:none;position:absolute;top:12px;left:12px;z-index:3;align-items:center;justify-content:center;width:26px;height:26px;border-radius:11px;background:#fff;border:1px solid #dbeafe;box-shadow:0 8px 16px rgba(15,23,42,.08);cursor:pointer;}
+#panelCrm .crmCardCheckWrap input{width:16px;height:16px;margin:0;accent-color:#2563eb;cursor:pointer;}
+#panelCrm.crmBulkActive .crmCardCheckWrap{display:flex!important;}
+#panelCrm.crmBulkActive .crmCard{padding-left:48px!important;}
+#panelCrm .crmCard.crmCardSelected{border-color:#2563eb!important;box-shadow:0 18px 36px rgba(37,99,235,.16)!important;background:linear-gradient(180deg,#fff,#f8fbff)!important;cursor:grab!important;}
+#panelCrm .crmCardRemove:hover{color:#dc2626!important;border-color:#fecaca!important;box-shadow:0 10px 18px rgba(220,38,38,.10)!important;}
+#panelCrm .crmCardBtns{display:grid!important;grid-template-columns:repeat(2,34px)!important;gap:7px!important;}
+#panelCrm .crmCardMove{display:inline-flex!important;}
+#panelCrm .crmStageColor:hover{color:#0891b2!important;border-color:#a5f3fc!important;box-shadow:0 10px 18px rgba(8,145,178,.10)!important;}
+#panelCrm #crmBoard.crmBoard > .crmCol.crmStageCustom:before{background:linear-gradient(90deg,var(--crm-stage-color),var(--crm-stage-soft))!important;}
+#panelCrm #crmBoard.crmBoard > .crmCol.crmStageCustom .crmStageIcon{background:var(--crm-stage-bg)!important;color:var(--crm-stage-color)!important;border-color:var(--crm-stage-border)!important;}
+#panelCrm #crmBoard.crmBoard > .crmCol.crmStageCustom .crmCardAccent{background:linear-gradient(180deg,var(--crm-stage-color),var(--crm-stage-soft))!important;}
+#crmModal .crmColorPickerPanel{display:flex;flex-direction:column;gap:14px;}
+#crmModal .crmColorPickerHero{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid #dbeafe;border-radius:20px;background:linear-gradient(135deg,#fff,#f8fbff);}
+#crmModal .crmColorPreview{width:44px;height:44px;border-radius:17px;border:1px solid rgba(15,23,42,.12);box-shadow:0 12px 24px rgba(15,23,42,.10);flex:0 0 auto;background:var(--preview-color,#2563eb);}
+#crmModal .crmColorPickerHero b{display:block;font-size:14px;font-weight:1000;color:#0f172a;}
+#crmModal .crmColorPickerHero span{display:block;margin-top:3px;font-size:12px;line-height:1.35;color:#64748b;}
+#crmModal .crmColorGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:9px;}
+#crmModal .crmColorOption{height:44px;border:1px solid #e2e8f0;border-radius:16px;background:#fff;display:flex;align-items:center;gap:9px;padding:0 10px;cursor:pointer;font-weight:900;color:#0f172a;}
+#crmModal .crmColorOption:hover,#crmModal .crmColorOption.active{border-color:#bfdbfe;background:#f8fbff;box-shadow:0 10px 20px rgba(37,99,235,.09);}
+#crmModal .crmColorSwatch{width:22px;height:22px;border-radius:9px;border:1px solid rgba(15,23,42,.12);background:var(--swatch,#2563eb);flex:0 0 auto;}
+#crmModal .crmColorCustom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px;border:1px solid #e2e8f0;border-radius:18px;background:#f8fafc;}
+#crmModal .crmColorCustom label{display:flex;align-items:center;gap:10px;font-weight:900;color:#0f172a;}
+#crmModal .crmColorCustom input[type="color"]{width:52px;height:38px;padding:2px;border:1px solid #dbe3ef;border-radius:14px;background:#fff;cursor:pointer;}
+#crmModal .crmColorPickerFooter{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;padding-top:2px;}
+@media(max-width:720px){
+  #panelCrm .crmBulkToolbar{align-items:stretch;}
+  #panelCrm .crmBulkInfo{width:100%;}
+  #panelCrm .crmBulkActions{width:100%;justify-content:stretch;}
+  #panelCrm .crmBulkActions .btn,#panelCrm .crmBulkActions select{flex:1 1 100%;}
+}
+</style>
+
+
+
+<style id="crm-fix-card-compression-20260602">
+/* Correção: cards do funil não podem encolher quando há muitos leads na etapa. */
+#panelCrm .crmColBody{
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  align-items:stretch!important;
+}
+#panelCrm .crmColBody > .crmCard{
+  flex:0 0 auto!important;
+  height:auto!important;
+  min-height:82px!important;
+  box-sizing:border-box!important;
+}
+#panelCrm .crmCardTop{
+  flex:0 0 auto!important;
+  min-height:40px!important;
+}
+#panelCrm .crmCardIdentity,
+#panelCrm .crmCardIdentityText,
+#panelCrm .crmNameLine,
+#panelCrm .crmMeta,
+#panelCrm .crmMetaLine{
+  flex-shrink:0!important;
+}
+#panelCrm .crmNameLine{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-width:0!important;
+}
+#panelCrm .crmCardMove{
+  display:none!important;
+}
+#panelCrm .crmCardBtns{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  gap:7px!important;
+  flex:0 0 auto!important;
+}
+#panelCrm .crmCardBtns .btnMini{
+  flex:0 0 34px!important;
+}
+#panelCrm.crmBulkActive .crmColBody > .crmCard{
+  min-height:82px!important;
+}
+#panelCrm.crmBulkActive .crmCard{
+  padding-left:48px!important;
+}
+</style>
 </head>
 
 <body>
@@ -3964,6 +4068,7 @@ body:not(.hasPager) .pager{display:none!important;}
             <div class="crmHeaderActions crmActionDock" aria-label="Ações do funil">
               <button id="crmBtnNewLead" class="btn btnPrimary crmActionButton crmActionMain" type="button"><span class="crmActionIcon"><i class="ph ph-user-plus"></i></span><span><b>Lead manual</b><small>Cadastrar contato</small></span></button>
               <button id="crmBtnImportLead" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-upload-simple"></i></span><span><b>Importar lead</b><small>Adicionar em lote</small></span></button>
+              <button id="crmBtnBulkMode" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-check-square-offset"></i></span><span><b>Selecionar leads</b><small>Arrastar ou remover em lote</small></span></button>
               <button id="crmBtnLinkWebhook" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-plugs-connected"></i></span><span><b>Vincular webhook</b><small>Entrada automática</small></span></button>
               <button id="crmBtnNewStage" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-list-plus"></i></span><span><b>Nova etapa</b><small>Organizar funil</small></span></button>
               <button id="crmBtnNewPipeline" class="btn crmActionButton" type="button"><span class="crmActionIcon"><i class="ph ph-plus-circle"></i></span><span><b>Novo funil</b><small>Criar pipeline</small></span></button>
@@ -3989,6 +4094,7 @@ body:not(.hasPager) .pager{display:none!important;}
               </div>
               <div id="crmPipelinesBar" class="crmTabs"></div>
             </div>
+            <div id="crmBulkToolbar" class="crmBulkToolbar" hidden></div>
             <div id="crmBoardWrap" class="crmBoardWrap crmBoardWrapPolished">
               <div id="crmBoard" class="crmBoard" aria-label="Quadro do funil"></div>
             </div>
@@ -8110,12 +8216,17 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
     var crmBtnNewPipeline = document.getElementById("crmBtnNewPipeline");
     var crmBtnNewStage = document.getElementById("crmBtnNewStage");
     var crmBtnImportLead = document.getElementById("crmBtnImportLead");
+    var crmBtnBulkMode = document.getElementById("crmBtnBulkMode");
     var crmBtnLinkWebhook = document.getElementById("crmBtnLinkWebhook");
     var crmBtnNewLead = document.getElementById("crmBtnNewLead");
+    var crmBulkToolbar = document.getElementById("crmBulkToolbar");
+    var crmBulkMode = false;
+    var crmSelectedLeadIds = Object.create(null);
 
     var CRM_STAGE_DRAG_TYPE = "application/x-zape-crm-stage";
     var CRM_LEAD_DRAG_TYPE = "application/x-zape-crm-lead";
     var crmDraggedStageId = null;
+    var crmDraggedLeadIds = [];
 
     function crmDragHasType(e, type){
       var types = e && e.dataTransfer && e.dataTransfer.types;
@@ -8415,6 +8526,219 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
     function crmStageById(pipeline, stageId){
       if (!pipeline || !pipeline.stages) return null;
       return pipeline.stages[String(stageId || "")] || null;
+    }
+
+    function crmNormalizeHexColor(value){
+      value = String(value || "").trim();
+      if (!value) return "";
+      if (value.charAt(0) !== "#") value = "#" + value;
+      if (/^#[0-9a-fA-F]{3}$/.test(value)) {
+        value = "#" + value.charAt(1) + value.charAt(1) + value.charAt(2) + value.charAt(2) + value.charAt(3) + value.charAt(3);
+      }
+      if (!/^#[0-9a-fA-F]{6}$/.test(value)) return "";
+      return value.toUpperCase();
+    }
+
+    function crmHexToRgb(hex){
+      hex = crmNormalizeHexColor(hex);
+      if (!hex) return null;
+      var n = parseInt(hex.slice(1), 16);
+      return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+    }
+
+    function crmRgba(hex, alpha){
+      var rgb = crmHexToRgb(hex) || { r:37, g:99, b:235 };
+      return "rgba(" + rgb.r + "," + rgb.g + "," + rgb.b + "," + alpha + ")";
+    }
+
+    function crmStageColorOptions(){
+      return [
+        { color:"#2563EB", label:"Azul" },
+        { color:"#16A34A", label:"Verde" },
+        { color:"#F59E0B", label:"Amarelo" },
+        { color:"#7C3AED", label:"Roxo" },
+        { color:"#DC2626", label:"Vermelho" },
+        { color:"#0891B2", label:"Ciano" },
+        { color:"#DB2777", label:"Rosa" },
+        { color:"#475569", label:"Cinza" },
+        { color:"#EA4335", label:"Google vermelho" },
+        { color:"#FBBC05", label:"Google amarelo" },
+        { color:"#34A853", label:"Google verde" },
+        { color:"#4285F4", label:"Google azul" }
+      ];
+    }
+
+    function crmApplyStageColor(col, stage){
+      var color = crmNormalizeHexColor(stage && (stage.color || stage.stageColor || stage.colorHex));
+      if (!col || !color) return;
+      col.classList.add("crmStageCustom");
+      col.style.setProperty("--crm-stage-color", color);
+      col.style.setProperty("--crm-stage-soft", crmRgba(color, ".45"));
+      col.style.setProperty("--crm-stage-bg", crmRgba(color, ".10"));
+      col.style.setProperty("--crm-stage-border", crmRgba(color, ".24"));
+    }
+
+    function crmOpenStageColorPicker(pipelineId, stageId){
+      var pipeline = crmPipelineById(pipelineId) || crmActivePipeline();
+      var stage = crmStageById(pipeline, stageId);
+      if (!pipeline || !stage) {
+        toast("warn", "Cor da etapa", "Não encontrei esta etapa do funil.");
+        return;
+      }
+      var currentColor = crmNormalizeHexColor(stage.color || stage.stageColor || stage.colorHex) || "#2563EB";
+      var wrap = document.createElement("div");
+      wrap.className = "crmColorPickerPanel";
+      wrap.innerHTML =
+        "<div class='crmColorPickerHero' style='--preview-color:" + escapeHtml(currentColor) + "'>" +
+          "<div class='crmColorPreview'></div>" +
+          "<div><b>Escolha a cor desta etapa</b><span>A cor muda a faixa superior da coluna e o ícone da etapa. Isso ajuda a separar visualmente cada fase do funil.</span></div>" +
+        "</div>" +
+        "<div class='crmColorGrid'></div>" +
+        "<div class='crmColorCustom'><label>Cor personalizada <input id='crmStageCustomColor' type='color' value='" + escapeHtml(currentColor) + "'></label><button class='btn btnPrimary crmColorApplyCustom' type='button'><i class='ph ph-palette'></i> Aplicar cor</button></div>" +
+        "<div class='crmColorPickerFooter'>" +
+          "<button class='btn btnGhost crmColorReset' type='button'><i class='ph ph-arrow-counter-clockwise'></i> Usar cor padrão</button>" +
+          "<button class='btn crmColorCancel' type='button'>Cancelar</button>" +
+        "</div>";
+
+      var preview = wrap.querySelector(".crmColorPickerHero");
+      var input = wrap.querySelector("#crmStageCustomColor");
+      var grid = wrap.querySelector(".crmColorGrid");
+      function applyColor(color){
+        color = crmNormalizeHexColor(color);
+        if (!color) return;
+        stage.color = color;
+        delete stage.stageColor;
+        delete stage.colorHex;
+        crmRenderBoard();
+        crmRenderSummary();
+        crmQueueSave();
+        crmCloseModal();
+        toast("ok", "Cor da etapa", "Cor atualizada.");
+      }
+      crmStageColorOptions().forEach(function(opt){
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "crmColorOption" + (crmNormalizeHexColor(opt.color) === currentColor ? " active" : "");
+        btn.style.setProperty("--swatch", opt.color);
+        btn.innerHTML = "<span class='crmColorSwatch'></span><span>" + escapeHtml(opt.label) + "</span>";
+        btn.addEventListener("click", function(){ applyColor(opt.color); });
+        grid.appendChild(btn);
+      });
+      if (input) input.addEventListener("input", function(){ if (preview) preview.style.setProperty("--preview-color", input.value); });
+      wrap.querySelector(".crmColorApplyCustom").addEventListener("click", function(){ applyColor(input ? input.value : currentColor); });
+      wrap.querySelector(".crmColorReset").addEventListener("click", function(){
+        delete stage.color;
+        delete stage.stageColor;
+        delete stage.colorHex;
+        crmRenderBoard();
+        crmRenderSummary();
+        crmQueueSave();
+        crmCloseModal();
+        toast("ok", "Cor da etapa", "Cor padrão restaurada.");
+      });
+      wrap.querySelector(".crmColorCancel").addEventListener("click", crmCloseModal);
+      crmOpenModal("Trocar cor da coluna", (pipeline.name || "Funil") + " → " + (stage.name || "Etapa"), wrap);
+    }
+
+    function crmLeadIsPlacedInPipeline(pipeline, leadId){
+      if (!pipeline || !leadId) return false;
+      return (pipeline.stageOrder || []).some(function(sid){
+        var st = pipeline.stages && pipeline.stages[sid];
+        return !!(st && (st.leadIds || []).indexOf(leadId) !== -1);
+      });
+    }
+
+    function crmSelectedLeadIdList(){
+      var p = crmActivePipeline();
+      if (!p) return [];
+      var ids = Object.keys(crmSelectedLeadIds || {});
+      return ids.filter(function(id){ return crmSelectedLeadIds[id] && crmLeadIsPlacedInPipeline(p, id); });
+    }
+
+    function crmPlacedLeadIdList(pipeline){
+      var ids = [];
+      if (!pipeline) return ids;
+      (pipeline.stageOrder || []).forEach(function(sid){
+        var st = pipeline.stages && pipeline.stages[sid];
+        (st && st.leadIds || []).forEach(function(leadId){ if (ids.indexOf(leadId) === -1) ids.push(leadId); });
+      });
+      return ids;
+    }
+
+    function crmCleanupSelectedLeads(){
+      var valid = crmSelectedLeadIdList();
+      var next = Object.create(null);
+      valid.forEach(function(id){ next[id] = true; });
+      crmSelectedLeadIds = next;
+      return valid;
+    }
+
+    function crmRenderBulkToolbar(){
+      crmBulkToolbar = crmBulkToolbar || document.getElementById("crmBulkToolbar");
+      var panel = document.getElementById("panelCrm");
+      if (panel) panel.classList.toggle("crmBulkActive", !!crmBulkMode);
+      if (crmBtnBulkMode) {
+        crmBtnBulkMode.classList.toggle("crmActionMain", !!crmBulkMode);
+        var label = crmBtnBulkMode.querySelector("b");
+        var small = crmBtnBulkMode.querySelector("small");
+        if (label) label.textContent = crmBulkMode ? "Seleção ativa" : "Selecionar leads";
+        if (small) small.textContent = crmBulkMode ? "Arraste os selecionados" : "Arrastar ou remover em lote";
+      }
+      if (!crmBulkToolbar) return;
+      if (!crmBulkMode) {
+        crmBulkToolbar.hidden = true;
+        crmBulkToolbar.innerHTML = "";
+        return;
+      }
+      var p = crmActivePipeline();
+      var selected = crmCleanupSelectedLeads();
+      var totalPlaced = crmPlacedLeadIdList(p).length;
+      crmBulkToolbar.hidden = false;
+      crmBulkToolbar.innerHTML =
+        "<div class='crmBulkInfo'>" +
+          "<span class='crmBulkInfoIcon'><i class='ph ph-check-square-offset'></i></span>" +
+          "<div><b>" + selected.length + " lead(s) selecionado(s)</b><span>Arraste um dos selecionados para outra coluna para mover todos juntos.</span></div>" +
+        "</div>" +
+        "<div class='crmBulkActions'>" +
+          "<button class='btn crmBulkSelectAll' type='button'><i class='ph ph-checks'></i> Selecionar todos (" + totalPlaced + ")</button>" +
+          "<button class='btn crmBulkClear' type='button'><i class='ph ph-x'></i> Limpar</button>" +
+          "<button class='btn btnGhost crmBulkRemove' type='button'><i class='ph ph-trash'></i> Remover do funil</button>" +
+          "<button class='btn crmBulkDone' type='button'>Concluir</button>" +
+        "</div>";
+      crmBulkToolbar.querySelector(".crmBulkSelectAll").addEventListener("click", function(){
+        crmSelectedLeadIds = Object.create(null);
+        crmPlacedLeadIdList(crmActivePipeline()).forEach(function(id){ crmSelectedLeadIds[id] = true; });
+        crmRenderBoard();
+        crmRenderBulkToolbar();
+      });
+      crmBulkToolbar.querySelector(".crmBulkClear").addEventListener("click", function(){
+        crmSelectedLeadIds = Object.create(null);
+        crmRenderBoard();
+        crmRenderBulkToolbar();
+      });
+      crmBulkToolbar.querySelector(".crmBulkRemove").addEventListener("click", async function(){
+        var ids = crmSelectedLeadIdList();
+        if (!ids.length) { toast("warn", "Seleção", "Selecione pelo menos um lead."); return; }
+        if (!(await crmConfirm("Remover " + ids.length + " lead(s) deste funil? Eles continuarão existindo na base de leads e nas conversas."))) return;
+        crmRemoveLeadsFromFunnel(ids, true);
+      });
+      crmBulkToolbar.querySelector(".crmBulkDone").addEventListener("click", function(){ crmSetBulkMode(false); });
+    }
+
+    function crmSetBulkMode(enabled){
+      crmBulkMode = !!enabled;
+      if (!crmBulkMode) crmSelectedLeadIds = Object.create(null);
+      crmRenderBoard();
+      crmRenderBulkToolbar();
+    }
+
+    function crmToggleLeadSelection(leadId, checked){
+      if (!leadId) return;
+      if (checked) crmSelectedLeadIds[leadId] = true;
+      else delete crmSelectedLeadIds[leadId];
+      crmRenderBulkToolbar();
+      var card = crmBoard && crmBoard.querySelector(".crmCard[data-lead-id='" + String(leadId).replace(/'/g,"\\'") + "']");
+      if (card) card.classList.toggle("crmCardSelected", !!crmSelectedLeadIds[leadId]);
     }
 
     function crmWebhookDisplayName(w){
@@ -8742,6 +9066,7 @@ function crmExtractLeads(payload){
 
     function crmSetActivePipeline(pid){
       crmState.activePipelineId = pid;
+      crmSelectedLeadIds = Object.create(null);
       crmRender();
       crmQueueSave();
     }
@@ -9018,8 +9343,10 @@ function crmExtractLeads(payload){
 
       (p.stageOrder || []).forEach(function(stageId, idx){
         var st = p.stages[stageId];
+        if (!st) return;
         var col = document.createElement("div");
         col.className = "crmCol crmStageTone" + ((idx % 4) + 1);
+        crmApplyStageColor(col, st);
         col.dataset.stageId = stageId;
         col.draggable = true;
         col.setAttribute("title", "Arraste a coluna para reorganizar as etapas");
@@ -9096,16 +9423,22 @@ function crmExtractLeads(payload){
         actions.className = "crmColActions";
         actions.innerHTML =
           "<button class='btnMini crmStageMessage' title='Mensagem automática da etapa'><i class='ph ph-chat-circle-text'></i></button>" +
+          "<button class='btnMini crmStageColor' title='Alterar cor da etapa'><i class='ph ph-palette'></i></button>" +
           "<button class='btnMini crmStageEdit' title='Renomear etapa'>" + iconMarkup("edit", "Renomear", "sm") + "</button>" +
           "<button class='btnMini crmStageDelete' title='Excluir etapa'>" + iconMarkup("trash", "Excluir", "sm") + "</button>";
 
         var btnMsg = actions.querySelector(".crmStageMessage");
+        var btnColor = actions.querySelector(".crmStageColor");
         var btnRen = actions.querySelector(".crmStageEdit");
         var btnDel = actions.querySelector(".crmStageDelete");
 
         btnMsg.addEventListener("click", function(e){
           e.stopPropagation();
           crmOpenStageMessage(p.id, stageId);
+        });
+        btnColor.addEventListener("click", function(e){
+          e.stopPropagation();
+          crmOpenStageColorPicker(p.id, stageId);
         });
         btnRen.addEventListener("click", async function(e){
           e.stopPropagation();
@@ -9143,10 +9476,18 @@ function crmExtractLeads(payload){
           if (crmDraggedStageId || crmDragHasType(e, CRM_STAGE_DRAG_TYPE)) return;
           e.preventDefault();
           body.classList.remove("crmDropHint");
-          var leadId = "";
-          try { leadId = e.dataTransfer.getData(CRM_LEAD_DRAG_TYPE) || e.dataTransfer.getData("text/plain"); } catch(err) {}
-          if (!leadId || String(leadId).indexOf("stage:") === 0) return;
-          crmMoveLeadToStage(leadId, stageId);
+          var leadIds = (crmDraggedLeadIds && crmDraggedLeadIds.length) ? crmDraggedLeadIds.slice() : [];
+          var rawLeadData = "";
+          try { rawLeadData = e.dataTransfer.getData(CRM_LEAD_DRAG_TYPE) || e.dataTransfer.getData("text/plain"); } catch(err) {}
+          rawLeadData = String(rawLeadData || "");
+          if (!leadIds.length && rawLeadData && rawLeadData.indexOf("stage:") !== 0) {
+            rawLeadData.replace(/^leads:/, "").split(",").forEach(function(id){
+              id = String(id || "").trim();
+              if (id && leadIds.indexOf(id) === -1) leadIds.push(id);
+            });
+          }
+          if (!leadIds.length) return;
+          crmMoveLeadsToStage(leadIds, stageId, !!crmBulkMode);
         });
 
         (st.leadIds || []).forEach(function(leadId){
@@ -9180,7 +9521,7 @@ function crmExtractLeads(payload){
 
     function crmMakeCard(leadId, lead, stage, pipeline){
       var card = document.createElement("div");
-      card.className = "crmCard";
+      card.className = "crmCard" + (crmSelectedLeadIds[leadId] ? " crmCardSelected" : "");
       card.draggable = true;
       card.dataset.leadId = leadId;
 
@@ -9204,6 +9545,7 @@ function crmExtractLeads(payload){
 
       card.innerHTML =
         "<div class='crmCardAccent'></div>" +
+        "<label class='crmCardCheckWrap' title='Selecionar lead'><input type='checkbox' class='crmCardCheck' " + (crmSelectedLeadIds[leadId] ? "checked" : "") + "></label>" +
         "<div class='crmCardTop'>" +
           "<div class='crmCardIdentity'>" +
             "<span class='crmAvatar'>" + safeNome.slice(0,1).toUpperCase() + "</span>" +
@@ -9213,8 +9555,10 @@ function crmExtractLeads(payload){
             "</div>" +
           "</div>" +
           "<div class='crmCardBtns'>" +
+            "<button class='btnMini crmCardMove' title='Mover para outra etapa'><i class='ph ph-arrows-left-right'></i></button>" +
             "<button class='btnMini crmCardChat' title='Conversar com este lead'><i class='ph ph-whatsapp-logo'></i></button>" +
             "<button class='btnMini crmCardView' title='Ver detalhes'>" + iconMarkup("eye", "Detalhes", "sm") + "</button>" +
+            "<button class='btnMini crmCardRemove' title='Remover lead deste funil'><i class='ph ph-trash'></i></button>" +
           "</div>" +
         "</div>" +
         "<div class='crmMeta'>" +
@@ -9223,9 +9567,20 @@ function crmExtractLeads(payload){
           (safeCreated ? ("<div class='crmMetaLine'><i class='ph ph-clock crmMetaPh'></i><span>" + safeCreated + "</span></div>") : "") +
         "</div>";
 
+      var btnMove = card.querySelector(".crmCardMove");
       var btnChat = card.querySelector(".crmCardChat");
       var btnView = card.querySelector(".crmCardView");
+      var btnRemove = card.querySelector(".crmCardRemove");
+      var check = card.querySelector(".crmCardCheck");
 
+      if (check) check.addEventListener("click", function(e){
+        e.stopPropagation();
+        crmToggleLeadSelection(leadId, check.checked);
+      });
+      btnMove.addEventListener("click", function(e){
+        e.stopPropagation();
+        crmOpenMoveMenu(leadId, pipeline);
+      });
       btnChat.addEventListener("click", function(e){
         e.stopPropagation();
         crmOpenLeadChat(leadId);
@@ -9234,37 +9589,99 @@ function crmExtractLeads(payload){
         e.stopPropagation();
         crmOpenLeadDetails(leadId);
       });
-      card.addEventListener("dblclick", function(){ crmOpenLeadDetails(leadId); });
+      btnRemove.addEventListener("click", async function(e){
+        e.stopPropagation();
+        if (!(await crmConfirm("Remover este lead do funil? Ele continuará existindo na base de leads e nas conversas."))) return;
+        crmRemoveLeadsFromFunnel([leadId], false);
+      });
+      card.addEventListener("click", function(e){
+        if (!crmBulkMode) return;
+        if (e.target && e.target.closest && e.target.closest("button")) return;
+        var next = !crmSelectedLeadIds[leadId];
+        crmToggleLeadSelection(leadId, next);
+        var cb = card.querySelector(".crmCardCheck");
+        if (cb) cb.checked = next;
+      });
+      card.addEventListener("dblclick", function(){ if (!crmBulkMode) crmOpenLeadDetails(leadId); });
 
       card.addEventListener("dragstart", function(e){
         e.stopPropagation();
         card.classList.add("dragging");
+        var idsToDrag = [leadId];
+        if (crmBulkMode && crmSelectedLeadIds[leadId]) {
+          idsToDrag = crmSelectedLeadIdList();
+          if (idsToDrag.indexOf(leadId) === -1) idsToDrag.unshift(leadId);
+        }
+        crmDraggedLeadIds = idsToDrag.slice();
         try {
-          e.dataTransfer.setData(CRM_LEAD_DRAG_TYPE, leadId);
-          e.dataTransfer.setData("text/plain", leadId);
+          e.dataTransfer.setData(CRM_LEAD_DRAG_TYPE, idsToDrag.join(","));
+          e.dataTransfer.setData("text/plain", idsToDrag.length > 1 ? ("leads:" + idsToDrag.join(",")) : leadId);
           e.dataTransfer.effectAllowed = "move";
         } catch(err) {}
       });
-      card.addEventListener("dragend", function(e){ e.stopPropagation(); card.classList.remove("dragging"); });
+      card.addEventListener("dragend", function(e){
+        e.stopPropagation();
+        crmDraggedLeadIds = [];
+        card.classList.remove("dragging");
+      });
       return card;
     }
 
     function crmRemoveLeadEverywhere(pipeline, leadId){
+      if (!pipeline) return;
       (pipeline.stageOrder || []).forEach(function(sid){
-        var st = pipeline.stages[sid];
+        var st = pipeline.stages && pipeline.stages[sid];
+        if (!st) return;
         st.leadIds = (st.leadIds || []).filter(function(x){ return x !== leadId; });
       });
     }
 
+    function crmRemoveLeadsEverywhere(pipeline, leadIds){
+      if (!pipeline) return;
+      var lookup = Object.create(null);
+      (leadIds || []).forEach(function(id){ if (id) lookup[id] = true; });
+      (pipeline.stageOrder || []).forEach(function(sid){
+        var st = pipeline.stages && pipeline.stages[sid];
+        if (!st) return;
+        st.leadIds = (st.leadIds || []).filter(function(x){ return !lookup[x]; });
+      });
+    }
+
+    function crmMoveLeadsToStage(leadIds, toStageId, keepBulkMode){
+      var p = crmActivePipeline();
+      if (!p || !p.stages || !p.stages[toStageId]) return;
+      var ids = [];
+      (leadIds || []).forEach(function(id){ if (id && ids.indexOf(id) === -1) ids.push(id); });
+      if (!ids.length) return;
+      crmRemoveLeadsEverywhere(p, ids);
+      p.stages[toStageId].leadIds = p.stages[toStageId].leadIds || [];
+      ids.forEach(function(id){ if (p.stages[toStageId].leadIds.indexOf(id) === -1) p.stages[toStageId].leadIds.push(id); });
+      if (!keepBulkMode) crmSelectedLeadIds = Object.create(null);
+      crmRenderBoard();
+      crmRenderSummary();
+      crmRenderBulkToolbar();
+      crmQueueSave();
+      toast("ok", "Funil de Vendas", ids.length + " lead(s) movido(s).");
+    }
+
     function crmMoveLeadToStage(leadId, toStageId){
+      crmMoveLeadsToStage([leadId], toStageId, false);
+    }
+
+    function crmRemoveLeadsFromFunnel(leadIds, keepBulkMode){
       var p = crmActivePipeline();
       if (!p) return;
-      if (!p.stages[toStageId]) return;
-      crmRemoveLeadEverywhere(p, leadId);
-      p.stages[toStageId].leadIds = p.stages[toStageId].leadIds || [];
-      p.stages[toStageId].leadIds.push(leadId);
-      crmRenderBoard(); // atualização na hora
-      crmQueueSave();   // persistência automática
+      var ids = [];
+      (leadIds || []).forEach(function(id){ if (id && ids.indexOf(id) === -1) ids.push(id); });
+      if (!ids.length) return;
+      crmRemoveLeadsEverywhere(p, ids);
+      ids.forEach(function(id){ delete crmSelectedLeadIds[id]; });
+      if (!keepBulkMode) crmSelectedLeadIds = Object.create(null);
+      crmRenderBoard();
+      crmRenderSummary();
+      crmRenderBulkToolbar();
+      crmQueueSave();
+      toast("ok", "Funil de Vendas", ids.length + " lead(s) removido(s) do funil.");
     }
 
     function crmOpenMoveMenu(leadId, pipeline){
@@ -9517,6 +9934,7 @@ function crmExtractLeads(payload){
       crmRenderSummary();
       crmRenderTabs();
       crmRenderBoard();
+      crmRenderBulkToolbar();
     }
 
     async function crmBoot(){
@@ -9534,6 +9952,7 @@ function crmExtractLeads(payload){
     if (crmBtnNewPipeline) crmBtnNewPipeline.addEventListener("click", crmAddPipeline);
     if (crmBtnNewStage) crmBtnNewStage.addEventListener("click", crmAddStage);
     if (crmBtnImportLead) crmBtnImportLead.addEventListener("click", crmOpenImportLead);
+    if (crmBtnBulkMode) crmBtnBulkMode.addEventListener("click", function(){ crmSetBulkMode(!crmBulkMode); });
     if (crmBtnLinkWebhook) crmBtnLinkWebhook.addEventListener("click", crmOpenWebhookLink);
     if (crmBtnNewLead) crmBtnNewLead.addEventListener("click", crmOpenNewLead);
 
