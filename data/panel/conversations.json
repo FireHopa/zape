@@ -163,6 +163,16 @@
       "createdAt": "2026-06-02T12:57:50.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "false_189000069451782@lid_AC296FA249A79F04CA0C6886A3BE9AFC",
+      "fromMe": false,
+      "body": "https://www.instagram.com/stories/matheusbottarooficial/3910910194423507531?utm_source=ig_story_item_share&igsh=eW9kMGt0MjdncWhr",
+      "type": "chat",
+      "timestamp": 1780494927,
+      "createdAt": "2026-06-03T13:55:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511976202000": [
@@ -621,6 +631,26 @@
       "createdAt": "2026-06-01T00:18:47.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0B55F957A89837C4B75",
+      "fromMe": true,
+      "body": "11 995964511",
+      "type": "chat",
+      "timestamp": 1780415467,
+      "createdAt": "2026-06-02T15:51:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB008F115299A86A19C3C",
+      "fromMe": true,
+      "body": "*Atualizando* 🤓\n\nImersão em Santo André 11/06  = 80 inscritos /  35 pagantes\nImersão em Paulista 17/06 = 93 inscritos / 27 pagantes\nImersão em Portugal 22/06 =  33 inscritos / 9 pagantes",
+      "type": "chat",
+      "timestamp": 1780417227,
+      "createdAt": "2026-06-02T16:20:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511976472073": [
@@ -633,6 +663,16 @@
       "createdAt": "2026-05-27T20:15:48.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_46527514988709@lid_AC2297FC0B5B5CE5DDD4953E502AF63C",
+      "fromMe": false,
+      "body": "Sim me inscrevi",
+      "type": "chat",
+      "timestamp": 1780439524,
+      "createdAt": "2026-06-02T22:32:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "551151945088": [
@@ -737,6 +777,56 @@
       "type": "chat",
       "timestamp": 1779970248,
       "createdAt": "2026-05-28T12:10:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_162929701818541@lid_3EB032B1D1D67FB3983B65",
+      "fromMe": true,
+      "body": "Olá, Irene!\n\nComo vai? 😊 Queria reforçar que amanhã, dia 03/06, às 16h, teremos nossa reunião marcada com o Consultor de Negócios da Casa do ADS.\n\nEstamos entusiasmados  para te encontrar e proporcionar uma experiência única! A reunião será individual e já estamos preparando todo o material personalizado para você.\n\nMal podemos esperar para te apresentar as oportunidades no Google e cases de sucesso!\n\nAté amanhã!",
+      "type": "chat",
+      "timestamp": 1780418100,
+      "createdAt": "2026-06-02T16:35:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_162929701818541@lid_AC36498069244A3D14F408236E5B348B",
+      "fromMe": false,
+      "body": "Oi querida, terei de mudar para 5a feira, pode ser? Estou trabalhando em uma feira na Expo Center Norte",
+      "type": "chat",
+      "timestamp": 1780418562,
+      "createdAt": "2026-06-02T16:42:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_162929701818541@lid_3EB0B93177507A8845B1AF",
+      "fromMe": true,
+      "body": "Tenho na sexta, as 16h30. Pode ser?",
+      "type": "chat",
+      "timestamp": 1780419467,
+      "createdAt": "2026-06-02T16:57:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_162929701818541@lid_ACB1BE53A4BE20F6EF8AA1C9DF759D55",
+      "fromMe": false,
+      "body": "Pode sim por favor",
+      "type": "chat",
+      "timestamp": 1780420142,
+      "createdAt": "2026-06-02T17:09:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_162929701818541@lid_A5827F4BF612BDB85AA68C357EACC6E4",
+      "fromMe": true,
+      "body": "📅 Sua reunião está marcada para 05/06, sexta-feira  às 15h30.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar! 🙂",
+      "type": "chat",
+      "timestamp": 1780421328,
+      "createdAt": "2026-06-02T17:28:48.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -1075,6 +1165,43 @@
       "createdAt": "2026-05-28T19:46:40.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_32156571201544@lid_3EB00DA7AE1305F3D731FB",
+      "fromMe": true,
+      "body": "Boa tardeee Aloisio! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780502074,
+      "createdAt": "2026-06-03T15:54:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "video",
+      "mediaMime": "video/mp4",
+      "mediaFile": "true_32156571201544_lid_3EB00DA7AE1305F3D731FB_a2044aa0.mp4",
+      "mediaSize": 3386396,
+      "filename": "true_32156571201544@lid_3EB00DA7AE1305F3D731FB",
+      "originalName": "true_32156571201544@lid_3EB00DA7AE1305F3D731FB"
+    },
+    {
+      "id": "false_32156571201544@lid_AC3A052C032036970D6A3CB6D28EB3A6",
+      "fromMe": false,
+      "body": "Nao me interessa, obrigado",
+      "type": "chat",
+      "timestamp": 1780502107,
+      "createdAt": "2026-06-03T15:55:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_32156571201544@lid_3EB0C9EFF1847C4B184F45",
+      "fromMe": true,
+      "body": "Agradeço pelo retorno🤗",
+      "type": "chat",
+      "timestamp": 1780502348,
+      "createdAt": "2026-06-03T15:59:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511973922856": [
@@ -1097,6 +1224,16 @@
       "createdAt": "2026-05-29T12:14:23.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_278498665082923@lid_3EB0401B11D4E167473804",
+      "fromMe": true,
+      "body": "Boa tardeee Fernando! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780506714,
+      "createdAt": "2026-06-03T17:11:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511991573664": [
@@ -1109,6 +1246,33 @@
       "createdAt": "2026-05-28T19:47:18.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_58201236103296@lid_3EB028EFFA71BD0BD61F72",
+      "fromMe": true,
+      "body": "Boa tardeee Irene! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780507247,
+      "createdAt": "2026-06-03T17:20:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_58201236103296@lid_3EB0980ED1B0B52BA400C9",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780507257,
+      "createdAt": "2026-06-03T17:20:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_58201236103296_lid_3EB0980ED1B0B52BA400C9_008356be.ogg",
+      "mediaSize": 11587,
+      "filename": "true_58201236103296@lid_3EB0980ED1B0B52BA400C9",
+      "originalName": "true_58201236103296@lid_3EB0980ED1B0B52BA400C9"
     }
   ],
   "5511960943443": [
@@ -1820,6 +1984,200 @@
       "createdAt": "2026-06-02T13:37:37.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB08AC59EFC219D933C1B",
+      "fromMe": true,
+      "body": "oieee",
+      "type": "chat",
+      "timestamp": 1780503048,
+      "createdAt": "2026-06-03T16:10:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB030766DE60D4D8EAE9A",
+      "fromMe": true,
+      "body": "Boa tardeee",
+      "type": "chat",
+      "timestamp": 1780503051,
+      "createdAt": "2026-06-03T16:10:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB025145DEDF3B703CD4D",
+      "fromMe": true,
+      "body": "Lembrei agora kkkkk 🙈",
+      "type": "chat",
+      "timestamp": 1780503065,
+      "createdAt": "2026-06-03T16:11:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB016C1CEABE40A2807AB",
+      "fromMe": true,
+      "body": "No site de Portugal, qdo vai no botão de whatsapp não aparece a minha foto, é assim mesmo?",
+      "type": "chat",
+      "timestamp": 1780503095,
+      "createdAt": "2026-06-03T16:11:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB00F9F6C77D1DB22D3DF",
+      "fromMe": true,
+      "body": "Oiee",
+      "type": "chat",
+      "timestamp": 1780505908,
+      "createdAt": "2026-06-03T16:58:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0E16F24F478B7874375",
+      "fromMe": true,
+      "body": "outra coisa, a planilha de automação de Portugal não esta funcionado, é com vc???",
+      "type": "chat",
+      "timestamp": 1780505935,
+      "createdAt": "2026-06-03T16:58:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB0306AEDEEDE2162F623",
+      "fromMe": false,
+      "body": "Oi Fabi, boa tarde! Tudo bem?",
+      "type": "chat",
+      "timestamp": 1780506441,
+      "createdAt": "2026-06-03T17:07:21.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB054C1D38E3F75EFB8B8",
+      "fromMe": false,
+      "body": "Eu também não sei de número internacional",
+      "type": "chat",
+      "timestamp": 1780506455,
+      "createdAt": "2026-06-03T17:07:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB0F8D8CF526ED05D495C",
+      "fromMe": false,
+      "body": "Eu vou verificar.",
+      "type": "chat",
+      "timestamp": 1780506502,
+      "createdAt": "2026-06-03T17:08:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB03CB0CFB32C575DC9CC",
+      "fromMe": true,
+      "body": "Imaginei isso 🙃",
+      "type": "chat",
+      "timestamp": 1780506609,
+      "createdAt": "2026-06-03T17:10:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB010227272620FA42702",
+      "fromMe": true,
+      "body": "eu comentei com o Matheus mais cedo, achei que ele tinha te falado",
+      "type": "chat",
+      "timestamp": 1780506640,
+      "createdAt": "2026-06-03T17:10:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0EC53BA5572F861FC56",
+      "fromMe": true,
+      "body": "👍",
+      "type": "chat",
+      "timestamp": 1780506645,
+      "createdAt": "2026-06-03T17:10:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB035056D3299778AE048",
+      "fromMe": false,
+      "body": "false_188630819725402@lid_3EB035056D3299778AE048",
+      "type": "image",
+      "timestamp": 1780506669,
+      "createdAt": "2026-06-03T17:11:09.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_188630819725402_lid_3EB035056D3299778AE048_3cdc83b1.jpg",
+      "mediaSize": 79905,
+      "filename": "false_188630819725402@lid_3EB035056D3299778AE048",
+      "originalName": "false_188630819725402@lid_3EB035056D3299778AE048"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB07F2FCF37C3A30CCA1C",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780506693,
+      "createdAt": "2026-06-03T17:11:33.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_188630819725402_lid_3EB07F2FCF37C3A30CCA1C_d7a60f6b.ogg",
+      "mediaSize": 43829,
+      "filename": "false_188630819725402@lid_3EB07F2FCF37C3A30CCA1C",
+      "originalName": "false_188630819725402@lid_3EB07F2FCF37C3A30CCA1C"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB08E9FECE51032EEBE03",
+      "fromMe": true,
+      "body": "meu Deus",
+      "type": "chat",
+      "timestamp": 1780506743,
+      "createdAt": "2026-06-03T17:12:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB06320C033EB875F47BB",
+      "fromMe": true,
+      "body": "perdão 🙏",
+      "type": "chat",
+      "timestamp": 1780506751,
+      "createdAt": "2026-06-03T17:12:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0BF714A48AF346C16BA",
+      "fromMe": true,
+      "body": "kkkkkk",
+      "type": "chat",
+      "timestamp": 1780506754,
+      "createdAt": "2026-06-03T17:12:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB0CBFB3869917FDBA66A",
+      "fromMe": false,
+      "body": "Blz.",
+      "type": "chat",
+      "timestamp": 1780506866,
+      "createdAt": "2026-06-03T17:14:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5513997675879": [
@@ -1974,6 +2332,16 @@
       "createdAt": "2026-05-30T14:48:45.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0C6DBDEC1957015C4B1",
+      "fromMe": true,
+      "body": "Olá Cíntia teste 1! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Cíntia teste 1?",
+      "type": "chat",
+      "timestamp": 1780483264,
+      "createdAt": "2026-06-03T10:41:04.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ],
   "5511913147171": [
@@ -2062,6 +2430,16 @@
       "mediaSize": 15489,
       "filename": "true_202735408423051@lid_3EB0197EBFB86CB5BA854F",
       "originalName": "true_202735408423051@lid_3EB0197EBFB86CB5BA854F"
+    },
+    {
+      "id": "true_202735408423051@lid_3EB05E2D47B9FDEB820A15",
+      "fromMe": true,
+      "body": "Olá Jairo, imagino que você esteja na dúvida se a Imersão em São Paulo é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1780413203,
+      "createdAt": "2026-06-02T15:13:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511947474870": [
@@ -2122,6 +2500,160 @@
       "type": "chat",
       "timestamp": 1780344528,
       "createdAt": "2026-06-01T20:08:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_22630283391177@lid_3EB09CC3AF4284DF557E13",
+      "fromMe": true,
+      "body": "Bom diaa Vilma!!!",
+      "type": "chat",
+      "timestamp": 1780410325,
+      "createdAt": "2026-06-02T14:25:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_22630283391177@lid_3EB0AFF2987BDEA25C3CB3",
+      "fromMe": true,
+      "body": "Teremos agora duas turmas, em Santo André e Paulista. São acessiveis para você?",
+      "type": "chat",
+      "timestamp": 1780410350,
+      "createdAt": "2026-06-02T14:25:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_22630283391177@lid_A596E02529DB2718AF7A80DF7D07D4EF",
+      "fromMe": false,
+      "body": "Avenida Paulista",
+      "type": "chat",
+      "timestamp": 1780429104,
+      "createdAt": "2026-06-02T19:38:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_22630283391177@lid_3EB02F2C9A381C1940291D",
+      "fromMe": true,
+      "body": "📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP",
+      "type": "chat",
+      "timestamp": 1780429331,
+      "createdAt": "2026-06-02T19:42:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_22630283391177@lid_3EB048AEB94E7C11E97C16",
+      "fromMe": true,
+      "body": "Você ja faz anuncios no Google ads ou esta planejando começar agora?",
+      "type": "chat",
+      "timestamp": 1780429354,
+      "createdAt": "2026-06-02T19:42:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_22630283391177@lid_A5EE49BF45E0C6F491F13C951E9D5EC9",
+      "fromMe": false,
+      "body": "Ainda não",
+      "type": "chat",
+      "timestamp": 1780429376,
+      "createdAt": "2026-06-02T19:42:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_22630283391177@lid_3EB09C1CEDCD45499BC041",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780429451,
+      "createdAt": "2026-06-02T19:44:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_22630283391177_lid_3EB09C1CEDCD45499BC041_e176232d.ogg",
+      "mediaSize": 123955,
+      "filename": "true_22630283391177@lid_3EB09C1CEDCD45499BC041",
+      "originalName": "true_22630283391177@lid_3EB09C1CEDCD45499BC041"
+    },
+    {
+      "id": "false_22630283391177@lid_A5D9885BE3834E8BF332164D614F0DE8",
+      "fromMe": false,
+      "body": "Blza",
+      "type": "chat",
+      "timestamp": 1780429684,
+      "createdAt": "2026-06-02T19:48:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_22630283391177@lid_A5E72A12E5AC789378A644FED12E37AB",
+      "fromMe": false,
+      "body": "No Tatuapé não vai ter ?",
+      "type": "chat",
+      "timestamp": 1780429696,
+      "createdAt": "2026-06-02T19:48:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_22630283391177@lid_A5A3088DD46F5014965393BC7DE61861",
+      "fromMe": false,
+      "body": "É um dia só ?",
+      "type": "chat",
+      "timestamp": 1780429716,
+      "createdAt": "2026-06-02T19:48:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_22630283391177@lid_3EB0B4AD9F9A7034570EE9",
+      "fromMe": true,
+      "body": "Foi no dia 27/05.",
+      "type": "chat",
+      "timestamp": 1780430058,
+      "createdAt": "2026-06-02T19:54:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_22630283391177@lid_A57DB911651833BC4BE44D8825EB309D",
+      "fromMe": false,
+      "body": "E quando vai ter novamente?",
+      "type": "chat",
+      "timestamp": 1780430138,
+      "createdAt": "2026-06-02T19:55:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_22630283391177@lid_3EB09E2E110E4670F2EC8F",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780430199,
+      "createdAt": "2026-06-02T19:56:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_22630283391177_lid_3EB09E2E110E4670F2EC8F_5af806bf.ogg",
+      "mediaSize": 39378,
+      "filename": "true_22630283391177@lid_3EB09E2E110E4670F2EC8F",
+      "originalName": "true_22630283391177@lid_3EB09E2E110E4670F2EC8F"
+    },
+    {
+      "id": "false_22630283391177@lid_A57A8DE5B211B59071F9B5B7661681AC",
+      "fromMe": false,
+      "body": "Entendi",
+      "type": "chat",
+      "timestamp": 1780430248,
+      "createdAt": "2026-06-02T19:57:28.000Z",
       "ack": 1,
       "source": "incoming-event"
     }
@@ -2220,6 +2752,16 @@
       "createdAt": "2026-06-02T12:57:10.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_64441773244540@lid_3EB09D149C6FB6B9A02469",
+      "fromMe": false,
+      "body": "Bom dia, mais tarde eu vou dar uma olhada ok",
+      "type": "chat",
+      "timestamp": 1780412158,
+      "createdAt": "2026-06-02T14:55:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511931485835": [
@@ -2286,6 +2828,70 @@
       "mediaSize": 41965,
       "filename": "false_90550963331169@lid_2AA658FD728BB0FB7B12",
       "originalName": "false_90550963331169@lid_2AA658FD728BB0FB7B12"
+    },
+    {
+      "id": "true_90550963331169@lid_3EB092F63DBB7A0EED6F47",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780413137,
+      "createdAt": "2026-06-02T15:12:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_90550963331169_lid_3EB092F63DBB7A0EED6F47_24a4de57.ogg",
+      "mediaSize": 102221,
+      "filename": "true_90550963331169@lid_3EB092F63DBB7A0EED6F47",
+      "originalName": "true_90550963331169@lid_3EB092F63DBB7A0EED6F47"
+    },
+    {
+      "id": "true_90550963331169@lid_3EB0C2DF1484DC10B7ACC8",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\nhttps://casadoads.com.br/imersao-sao-paulo/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780413143,
+      "createdAt": "2026-06-02T15:12:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_90550963331169@lid_2AA4B54D61FD0459E252",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780413616,
+      "createdAt": "2026-06-02T15:20:16.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_90550963331169_lid_2AA4B54D61FD0459E252_813c12bf.ogg",
+      "mediaSize": 35917,
+      "filename": "false_90550963331169@lid_2AA4B54D61FD0459E252",
+      "originalName": "false_90550963331169@lid_2AA4B54D61FD0459E252"
+    },
+    {
+      "id": "true_90550963331169@lid_3EB04926FB4966C6693A45",
+      "fromMe": true,
+      "body": "*11/06 - Santo André - Associação Comercial Acisa*\n*17/06 - São Paulo - Espaço Paulista Eventos*",
+      "type": "chat",
+      "timestamp": 1780415604,
+      "createdAt": "2026-06-02T15:53:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_90550963331169@lid_3EB074181564C75E558DC9",
+      "fromMe": true,
+      "body": "São as 2 ultimas turmas de São Paulo, presenciais.",
+      "type": "chat",
+      "timestamp": 1780415629,
+      "createdAt": "2026-06-02T15:53:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511952418803": [
@@ -2480,6 +3086,16 @@
       "mediaSize": 86516,
       "filename": "true_279250183675999@lid_3EB0E5A08A201E8D41D39C",
       "originalName": "true_279250183675999@lid_3EB0E5A08A201E8D41D39C"
+    },
+    {
+      "id": "true_279250183675999@lid_3EB01DA37825E84A49AA63",
+      "fromMe": true,
+      "body": "Olá Larissa, imagino que você esteja na dúvida se a Imersão em São Paulo é para você… mas dá uma olhada no que vai aprender na prática:\n\n* Como criar campanhas de Google Ads com IA que realmente geram clientes\n* O novo SEO: ser indicado pelas próprias ferramentas de IA e aparecer no Google* gratuitamente\n* Como usar agentes de IA* para reduzir esforço e aumentar resultado\n* Estratégias diretas, sem enrolação, para aplicar imediatamente\n\nInclusive, dá uma olhadinha no instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/reel/DV35Ha1kb9w/?igsh=MWI4YnN6Z3lsOGxlMg==",
+      "type": "chat",
+      "timestamp": 1780413253,
+      "createdAt": "2026-06-02T15:14:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511953304052": [
@@ -3967,6 +4583,53 @@
       "createdAt": "2026-06-02T13:18:14.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_33702742622383@lid_AC11BE11F2CF4651C20DBA7217583315",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1780408016,
+      "createdAt": "2026-06-02T13:46:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_33702742622383@lid_AC5CCC16E3D9675F2469F9F055D4EB34",
+      "fromMe": false,
+      "body": "Consigo sim",
+      "type": "chat",
+      "timestamp": 1780408018,
+      "createdAt": "2026-06-02T13:46:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_33702742622383@lid_AC133A026D9800D728996C581966AB57",
+      "fromMe": false,
+      "body": "Mais é o mesmo preço?",
+      "type": "chat",
+      "timestamp": 1780408028,
+      "createdAt": "2026-06-02T13:47:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_33702742622383@lid_3EB0757D8D0BC0A4D267EE",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780408772,
+      "createdAt": "2026-06-02T13:59:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_33702742622383_lid_3EB0757D8D0BC0A4D267EE_145ba7bc.ogg",
+      "mediaSize": 76740,
+      "filename": "true_33702742622383@lid_3EB0757D8D0BC0A4D267EE",
+      "originalName": "true_33702742622383@lid_3EB0757D8D0BC0A4D267EE"
     }
   ],
   "5511960811333": [
@@ -4483,6 +5146,63 @@
       "createdAt": "2026-06-02T11:42:20.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_221173971443784@lid_AC483BB54754CEC219C2C4BCAF59044D",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780409358,
+      "createdAt": "2026-06-02T14:09:18.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_221173971443784_lid_AC483BB54754CEC219C2C4BCAF59044D_824ec2f7.ogg",
+      "mediaSize": 26859,
+      "filename": "false_221173971443784@lid_AC483BB54754CEC219C2C4BCAF59044D",
+      "originalName": "false_221173971443784@lid_AC483BB54754CEC219C2C4BCAF59044D"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB03F30BE5B880906EBFB",
+      "fromMe": true,
+      "body": "📅 Sua reunião está marcada para 04/06, quinta-feira  às 9h.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar! 🙂",
+      "type": "chat",
+      "timestamp": 1780409645,
+      "createdAt": "2026-06-02T14:14:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB0CDEDC90EFD2EC8F0F5",
+      "fromMe": true,
+      "body": "Hoje você já faz anuncios no Google Ads ou está planejando começar agora?",
+      "type": "chat",
+      "timestamp": 1780409650,
+      "createdAt": "2026-06-02T14:14:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_221173971443784@lid_AC5BF37E422650D5D3DDABB2B6892132",
+      "fromMe": false,
+      "body": "Planejo começar",
+      "type": "chat",
+      "timestamp": 1780412764,
+      "createdAt": "2026-06-02T15:06:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB0E82EDEC4FA37DE084D",
+      "fromMe": true,
+      "body": "Hoje, qual é a sua maior dificuldade ou maior dor em relação ao Google?\nPode me mandar um áudio que já encaminho direto para o consultor, assim ele prepara um estudo mais detalhado pra você!",
+      "type": "chat",
+      "timestamp": 1780412791,
+      "createdAt": "2026-06-02T15:06:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5569993319000": [
@@ -4658,6 +5378,143 @@
       "createdAt": "2026-06-02T09:23:16.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB041D26A27B2220D0188",
+      "fromMe": false,
+      "body": "https://pay.hotmart.com/Y106051061N",
+      "type": "chat",
+      "timestamp": 1780408255,
+      "createdAt": "2026-06-02T13:50:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A5980D02DF186B99F6B364BCA1AB1EBE",
+      "fromMe": true,
+      "body": "Olá, tudo bem?\n\nOntem, o Matheus Bottaro realizou mais uma *Imersão presencial sobre Google Ads e Inteligência Artificial.*\n\nQuem participou saiu com um *plano de ação prático* para entender como *aparecer nas respostas da IA do Google*, ser *recomendado pelo ChatGPT,* Gemini e outras IAs e, principalmente, como usar os *novos recursos de IA no Google Ads* para atrair *leads mais qualificados.*\n\nPode ver alguns detalhes no Instagram do Matheus:\n\n{{link_instagram}}",
+      "type": "chat",
+      "timestamp": 1780491707,
+      "createdAt": "2026-06-03T13:01:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A51D7DD01BAA09453C51F7EDAF2835B4",
+      "fromMe": true,
+      "body": "Inclusive, vou deixar aqui o PDF com todas as informações da imersão em Lisboa.\n\nA imersão será presencial, prática e focada em Google Ads, Inteligência Artificial e na *nova era da aquisição de clientes por IA.*\n\nEnviar pede jjjto com esse script",
+      "type": "chat",
+      "timestamp": 1780491708,
+      "createdAt": "2026-06-03T13:01:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A51987F0C6C9D22BCAA07EEC73708535",
+      "fromMe": true,
+      "body": "Maravilha.\n\nAlém de aprender como criar campanhas atualizadas com IA no Google Ads, você vai aprender um checklist prático de melhorias e otimizações para melhorar os seus resultados com os novos recursos da Inteligência Artificial.\n\nA imersão também vai mostrar como aparecer gratuitamente nas respostas da IA do Google e como preparar a sua empresa para ser recomendada pelo ChatGPT, Gemini e outras IAs.\n\nNão sei se você já conhece a Casa do Ads, mas somos parceiros oficiais Google Partners.\n\nVocê pode conferir aqui:\n{{link_google_partners}}\n\nEsta será a 2ª edição da imersão em Portugal.\n\n📍 Lisboa\n🏨 Hotel Holiday Inn Lisbon Continental\n📅 22 de Junho\n🕒 19h00 às 22h30\n🎟️ 25€ com IVA incluído\n\nPara finalizar a sua inscrição, você pode acessar direto pelo site:\n\n{{link_site}}\n\nSe preferir, posso enviar por aqui o link direto para pagamento seguro pela Hotmart. Posso te enviar?",
+      "type": "chat",
+      "timestamp": 1780491709,
+      "createdAt": "2026-06-03T13:01:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A542A5B6DB0AB9870A160C0F4A43EF07",
+      "fromMe": true,
+      "body": "Fulano, Hoje você já faz anúncios no Google Ads ou está a começar?",
+      "type": "chat",
+      "timestamp": 1780491709,
+      "createdAt": "2026-06-03T13:01:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A520F84DE67F236F126BE9EECB6BDA11",
+      "fromMe": true,
+      "body": "Maravilha.\n\nVocê vai aprender como começar do zero, criar as suas primeiras campanhas no Google Ads e entender como usar Inteligência Artificial para atrair clientes mais qualificados.\n\nA imersão também vai mostrar como aparecer gratuitamente nas respostas da IA do Google e como preparar a sua empresa para ser recomendada pelo ChatGPT, Gemini e outras IAs.\n\nNão sei se você já conhece a Casa do Ads, mas somos parceiros oficiais Google Partners.\n\nVocê pode conferir aqui:\n{{link_google_partners}}\n\nEsta será a 2ª edição da imersão em Portugal.\n\n📍 Lisboa\n🏨 Hotel Holiday Inn Lisbon Continental\n📅 22 de Junho\n🕒 19h00 às 22h30\n🎟️ 25€ com IVA incluído\n\nPara finalizar a sua inscrição, você pode acessar direto pelo site:\n\n{{link_site}}\n\nSe preferir, posso enviar por aqui o link direto para pagamento seguro pela Hotmartposso te enviar?",
+      "type": "chat",
+      "timestamp": 1780491710,
+      "createdAt": "2026-06-03T13:01:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A54BCC1D65976D207FC7507E796E88C7",
+      "fromMe": true,
+      "body": "Não anuncia",
+      "type": "chat",
+      "timestamp": 1780491710,
+      "createdAt": "2026-06-03T13:01:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A5CF1069D80A85DC9E1C3CC376A94A40",
+      "fromMe": true,
+      "body": "{{nome}}, vou encerrando o meu dia por aqui, mas deixo as informações para você finalizar a sua inscrição, caso faça sentido.\n\nA *Imersão Presencial Google Ads e Inteligência Artificial acontece em Lisboa,* no dia *22 de Junho,* das 19h00 às 22h30, no *Hotel Holiday Inn Lisbon Continental.*\n\nSerá a *2ª edição em Portugal*, com foco em Google Ads, IA, respostas da IA do Google, ChatGPT, Gemini e aquisição de clientes por IA.\n\n🎟️ Valor: 25€ com IVA incluído\n✅ Casa do Ads: parceira oficial Google Partners\n\nVocê pode conferir aqui:\n{{link_google_partners}}\n\nVocê pode finalizar a sua inscrição pelo site:\n\n{{link_site}}\n\nSe preferir, amanhã posso te enviar o link direto para pagamento seguro pela Hotmart.",
+      "type": "chat",
+      "timestamp": 1780491711,
+      "createdAt": "2026-06-03T13:01:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A5E7A100FCF87FC4F6C5E654281EB854",
+      "fromMe": true,
+      "body": "Para quem não responder @227753609683102 antes d rir embora você vai enviar:",
+      "type": "chat",
+      "timestamp": 1780491711,
+      "createdAt": "2026-06-03T13:01:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_A510E4FB00115D7B541F891DAC39C929",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "audio",
+      "timestamp": 1780491712,
+      "createdAt": "2026-06-03T13:01:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_96349756383259_lid_A510E4FB00115D7B541F891DAC39C929_b0578e25.ogg",
+      "mediaSize": 53861,
+      "filename": "true_96349756383259@lid_A510E4FB00115D7B541F891DAC39C929",
+      "originalName": "true_96349756383259@lid_A510E4FB00115D7B541F891DAC39C929"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0786A5D0EB7747C0FB0",
+      "fromMe": true,
+      "body": "21 992428033 João",
+      "type": "chat",
+      "timestamp": 1780507404,
+      "createdAt": "2026-06-03T17:23:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB0BEDF638D703F7CA026",
+      "fromMe": false,
+      "body": "21 992428033",
+      "type": "chat",
+      "timestamp": 1780507428,
+      "createdAt": "2026-06-03T17:23:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0FE438F972ED9C4A343",
+      "fromMe": true,
+      "body": "21 992428033",
+      "type": "chat",
+      "timestamp": 1780507501,
+      "createdAt": "2026-06-03T17:25:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351962451262": [
@@ -5250,6 +6107,46 @@
       "createdAt": "2026-06-01T19:11:12.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_111016415338567@lid_3EB0153099C6F7BAD0D4DF",
+      "fromMe": true,
+      "body": "Olá Andreia, boa tardeee!!!",
+      "type": "chat",
+      "timestamp": 1780416167,
+      "createdAt": "2026-06-02T16:02:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_111016415338567@lid_3EB0F496CC5E4788C15A12",
+      "fromMe": true,
+      "body": "Vi que você chamou no Instagram do Matheus, posso te ajudar?",
+      "type": "chat",
+      "timestamp": 1780416187,
+      "createdAt": "2026-06-02T16:03:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3A1F59ECC64040891C91",
+      "fromMe": false,
+      "body": "Já vi inscrições",
+      "type": "chat",
+      "timestamp": 1780416224,
+      "createdAt": "2026-06-02T16:03:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_111016415338567@lid_3EB06C2EC130EC14DF7FC0",
+      "fromMe": true,
+      "body": "Ah tá, ta tudo certo sim com a sua inscrição 🙏",
+      "type": "chat",
+      "timestamp": 1780416252,
+      "createdAt": "2026-06-02T16:04:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "551191772076": [
@@ -5313,6 +6210,160 @@
       "createdAt": "2026-06-01T21:22:57.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_257101087686839@lid_3EB054CA08DE435CB45714",
+      "fromMe": true,
+      "body": "Olá Rodrigo! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780411945,
+      "createdAt": "2026-06-02T14:52:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_257101087686839@lid_3EB0C79201C063594ABF36",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780411955,
+      "createdAt": "2026-06-02T14:52:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_257101087686839_lid_3EB0C79201C063594ABF36_8ed0ab7f.ogg",
+      "mediaSize": 14228,
+      "filename": "true_257101087686839@lid_3EB0C79201C063594ABF36",
+      "originalName": "true_257101087686839@lid_3EB0C79201C063594ABF36"
+    },
+    {
+      "id": "false_257101087686839@lid_3AC49469AA68A652707E",
+      "fromMe": false,
+      "body": "Ja faço",
+      "type": "chat",
+      "timestamp": 1780413667,
+      "createdAt": "2026-06-02T15:21:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_257101087686839@lid_3EB05AF9E4D0822EA03828",
+      "fromMe": true,
+      "body": "Em que area atua?",
+      "type": "chat",
+      "timestamp": 1780415324,
+      "createdAt": "2026-06-02T15:48:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_257101087686839@lid_3A2F72C1818C00839461",
+      "fromMe": false,
+      "body": "Mercado imobiliário",
+      "type": "chat",
+      "timestamp": 1780419462,
+      "createdAt": "2026-06-02T16:57:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_257101087686839@lid_3EB0A56BE6159EFB7D7B01",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780419691,
+      "createdAt": "2026-06-02T17:01:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_257101087686839_lid_3EB0A56BE6159EFB7D7B01_4a2d2017.ogg",
+      "mediaSize": 70356,
+      "filename": "true_257101087686839@lid_3EB0A56BE6159EFB7D7B01",
+      "originalName": "true_257101087686839@lid_3EB0A56BE6159EFB7D7B01"
+    },
+    {
+      "id": "false_257101087686839@lid_3A2B815D4477735181D1",
+      "fromMe": false,
+      "body": "Onde será o evento?",
+      "type": "chat",
+      "timestamp": 1780492261,
+      "createdAt": "2026-06-03T13:11:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_257101087686839@lid_A56BB6F46821119CD979B2E391C53451",
+      "fromMe": true,
+      "body": "*11/06 - Santo André - Associação Comercial Acisa* - Av. Quinze de Novembro, 442 - Centro, Santo André\n*17/06 - São Paulo - Espaço Paulista Eventos* - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP",
+      "type": "chat",
+      "timestamp": 1780493240,
+      "createdAt": "2026-06-03T13:27:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_257101087686839@lid_A5ED4E69B4C4EDCD1120A56451F0D37B",
+      "fromMe": true,
+      "body": "Bom dia Rodrigo 😊",
+      "type": "chat",
+      "timestamp": 1780493254,
+      "createdAt": "2026-06-03T13:27:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_257101087686839@lid_3A81908E9DB999E9EFB8",
+      "fromMe": false,
+      "body": "Esse evento tem pagina no Instagram?",
+      "type": "chat",
+      "timestamp": 1780493337,
+      "createdAt": "2026-06-03T13:28:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_257101087686839@lid_3AAEE858DB7CC86B9A41",
+      "fromMe": false,
+      "body": "Quem sera o apresentador?",
+      "type": "chat",
+      "timestamp": 1780493346,
+      "createdAt": "2026-06-03T13:29:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_257101087686839@lid_A5F747C97EE39593C66E77EBDA2FDFEA",
+      "fromMe": true,
+      "body": "Sim 🤗",
+      "type": "chat",
+      "timestamp": 1780494116,
+      "createdAt": "2026-06-03T13:41:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_257101087686839@lid_A5DDB3CA1AF1BDF7497770F129AC5FC5",
+      "fromMe": true,
+      "body": "https://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780494124,
+      "createdAt": "2026-06-03T13:42:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_257101087686839@lid_A50BA1739B3345D7F11C6C0B991B7AAE",
+      "fromMe": true,
+      "body": "Estávamos em Alphaville na segunda",
+      "type": "chat",
+      "timestamp": 1780494135,
+      "createdAt": "2026-06-03T13:42:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511985624914": [
@@ -5325,6 +6376,33 @@
       "createdAt": "2026-06-01T23:57:56.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_37611062186214@lid_3EB0D6C5C99A6F14590916",
+      "fromMe": true,
+      "body": "Olá Marcos! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780416215,
+      "createdAt": "2026-06-02T16:03:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_37611062186214@lid_3EB0C70DA17707920CDE65",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780416226,
+      "createdAt": "2026-06-02T16:03:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_37611062186214_lid_3EB0C70DA17707920CDE65_ef0b583f.ogg",
+      "mediaSize": 15853,
+      "filename": "true_37611062186214@lid_3EB0C70DA17707920CDE65",
+      "originalName": "true_37611062186214@lid_3EB0C70DA17707920CDE65"
     }
   ],
   "5511947978180": [
@@ -5337,6 +6415,33 @@
       "createdAt": "2026-06-02T00:18:50.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_12038927556700@lid_3EB0E3579038AB0B72CA16",
+      "fromMe": true,
+      "body": "Olá Rodrigo! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780417580,
+      "createdAt": "2026-06-02T16:26:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12038927556700@lid_3EB019FB61EE6339E2D586",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780417595,
+      "createdAt": "2026-06-02T16:26:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_12038927556700_lid_3EB019FB61EE6339E2D586_6eae81d7.ogg",
+      "mediaSize": 15028,
+      "filename": "true_12038927556700@lid_3EB019FB61EE6339E2D586",
+      "originalName": "true_12038927556700@lid_3EB019FB61EE6339E2D586"
     }
   ],
   "5511972828486": [
@@ -5379,6 +6484,33 @@
       "createdAt": "2026-06-02T00:33:39.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_87741920465014@lid_3EB031E534BBE015030673",
+      "fromMe": true,
+      "body": "Olá Odair! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780416473,
+      "createdAt": "2026-06-02T16:07:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_87741920465014@lid_3EB05ABB2307FBF8693D5E",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780416484,
+      "createdAt": "2026-06-02T16:08:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_87741920465014_lid_3EB05ABB2307FBF8693D5E_b3ca2ec9.ogg",
+      "mediaSize": 14059,
+      "filename": "true_87741920465014@lid_3EB05ABB2307FBF8693D5E",
+      "originalName": "true_87741920465014@lid_3EB05ABB2307FBF8693D5E"
     }
   ],
   "5511996337727": [
@@ -5391,6 +6523,33 @@
       "createdAt": "2026-06-02T01:03:07.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_125438865195102@lid_3EB05AEA7A38AF66AE3F66",
+      "fromMe": true,
+      "body": "Olá Regis! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780412203,
+      "createdAt": "2026-06-02T14:56:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_125438865195102@lid_3EB07CA75866DD532F4D14",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780412213,
+      "createdAt": "2026-06-02T14:56:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_125438865195102_lid_3EB07CA75866DD532F4D14_d4a3c3c9.ogg",
+      "mediaSize": 14814,
+      "filename": "true_125438865195102@lid_3EB07CA75866DD532F4D14",
+      "originalName": "true_125438865195102@lid_3EB07CA75866DD532F4D14"
     }
   ],
   "5511962826569": [
@@ -5403,6 +6562,33 @@
       "createdAt": "2026-06-02T01:25:22.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_262749019992254@lid_3EB0F09EB695C6AA74A4A3",
+      "fromMe": true,
+      "body": "Olá Priscila! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780412185,
+      "createdAt": "2026-06-02T14:56:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_262749019992254@lid_3EB0CBB8B931B402F0EBDB",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780412195,
+      "createdAt": "2026-06-02T14:56:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_262749019992254_lid_3EB0CBB8B931B402F0EBDB_2867973b.ogg",
+      "mediaSize": 14100,
+      "filename": "true_262749019992254@lid_3EB0CBB8B931B402F0EBDB",
+      "originalName": "true_262749019992254@lid_3EB0CBB8B931B402F0EBDB"
     }
   ],
   "5511995471435": [
@@ -5415,6 +6601,133 @@
       "createdAt": "2026-06-02T08:43:26.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_234569773105353@lid_3EB02ACF0CFDF6A04B62E9",
+      "fromMe": true,
+      "body": "Olá Everton! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780412110,
+      "createdAt": "2026-06-02T14:55:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_234569773105353@lid_3EB0C1CBA74891CD381E02",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780412121,
+      "createdAt": "2026-06-02T14:55:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_234569773105353_lid_3EB0C1CBA74891CD381E02_f62eeb79.ogg",
+      "mediaSize": 16339,
+      "filename": "true_234569773105353@lid_3EB0C1CBA74891CD381E02",
+      "originalName": "true_234569773105353@lid_3EB0C1CBA74891CD381E02"
+    },
+    {
+      "id": "false_234569773105353@lid_3A61E847D3F446094ECE",
+      "fromMe": false,
+      "body": "Oi",
+      "type": "chat",
+      "timestamp": 1780493309,
+      "createdAt": "2026-06-03T13:28:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_234569773105353@lid_A51307FAA2FA3C1664E517B0EFBD6C5E",
+      "fromMe": true,
+      "body": "Bom dia Everton, como vai?",
+      "type": "chat",
+      "timestamp": 1780493892,
+      "createdAt": "2026-06-03T13:38:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_234569773105353@lid_3A0909E65F0BDC8D11CE",
+      "fromMe": false,
+      "body": "Pode me pass ar as informações do curso e a data",
+      "type": "chat",
+      "timestamp": 1780494469,
+      "createdAt": "2026-06-03T13:47:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_234569773105353@lid_3A8F1C5E08F7F7EF09B8",
+      "fromMe": false,
+      "body": "Estou vendo com algumas pessoas para participarem",
+      "type": "chat",
+      "timestamp": 1780494480,
+      "createdAt": "2026-06-03T13:48:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_234569773105353@lid_3AB1BBD9C115FDE3957C",
+      "fromMe": false,
+      "body": "Eu preciso de 4 vaga em",
+      "type": "chat",
+      "timestamp": 1780494634,
+      "createdAt": "2026-06-03T13:50:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_234569773105353@lid_3A1537EE4DD775F44D3C",
+      "fromMe": false,
+      "body": "11/06",
+      "type": "chat",
+      "timestamp": 1780494639,
+      "createdAt": "2026-06-03T13:50:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_234569773105353@lid_3EB08F08E1E0A015FD2B86",
+      "fromMe": true,
+      "body": "São todos da mesma empresa?",
+      "type": "chat",
+      "timestamp": 1780499826,
+      "createdAt": "2026-06-03T15:17:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_234569773105353@lid_3EB0DE792F7B79EA85308D",
+      "fromMe": false,
+      "body": "sim",
+      "type": "chat",
+      "timestamp": 1780499976,
+      "createdAt": "2026-06-03T15:19:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_234569773105353@lid_3EB08E65DB0222DB1CD6E4",
+      "fromMe": true,
+      "body": "Qual sera a forma de pagamento?",
+      "type": "chat",
+      "timestamp": 1780500740,
+      "createdAt": "2026-06-03T15:32:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_234569773105353@lid_3EB04C01C1D8A2FC58C5D5",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780501638,
+      "createdAt": "2026-06-03T15:47:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511964191046": [
@@ -5427,6 +6740,33 @@
       "createdAt": "2026-06-02T09:31:15.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_69982297821222@lid_3EB02F11EFD1ED53AE536E",
+      "fromMe": true,
+      "body": "Olá Ricardo! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780411974,
+      "createdAt": "2026-06-02T14:52:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_69982297821222@lid_3EB0914394A3FB73D081F4",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780411984,
+      "createdAt": "2026-06-02T14:53:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_69982297821222_lid_3EB0914394A3FB73D081F4_424a5f78.ogg",
+      "mediaSize": 13156,
+      "filename": "true_69982297821222@lid_3EB0914394A3FB73D081F4",
+      "originalName": "true_69982297821222@lid_3EB0914394A3FB73D081F4"
     }
   ],
   "5511914012710": [
@@ -5449,6 +6789,33 @@
       "createdAt": "2026-06-02T11:20:50.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_57106254287071@lid_3EB04681BD74B8CC36E73D",
+      "fromMe": true,
+      "body": "Olá Wagner! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780411959,
+      "createdAt": "2026-06-02T14:52:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_57106254287071@lid_3EB0161A942D61FC244012",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780411970,
+      "createdAt": "2026-06-02T14:52:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_57106254287071_lid_3EB0161A942D61FC244012_1b234461.ogg",
+      "mediaSize": 13793,
+      "filename": "true_57106254287071@lid_3EB0161A942D61FC244012",
+      "originalName": "true_57106254287071@lid_3EB0161A942D61FC244012"
     }
   ],
   "5511999714600": [
@@ -5498,6 +6865,499 @@
       "createdAt": "2026-06-02T12:52:49.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    }
+  ],
+  "5511962616139": [
+    {
+      "id": "true_173314932789440@lid_3EB0404113DC421208F266",
+      "fromMe": true,
+      "body": "Olá Paulo Rogerio de Abrantes Cândido! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Paulo Rogerio de Abrantes Cândido?",
+      "type": "chat",
+      "timestamp": 1780410434,
+      "createdAt": "2026-06-02T14:27:14.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_173314932789440@lid_3EB0CB70EE8162614D7E5D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780412452,
+      "createdAt": "2026-06-02T15:00:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_173314932789440_lid_3EB0CB70EE8162614D7E5D_f39ce789.ogg",
+      "mediaSize": 26625,
+      "filename": "true_173314932789440@lid_3EB0CB70EE8162614D7E5D",
+      "originalName": "true_173314932789440@lid_3EB0CB70EE8162614D7E5D"
+    },
+    {
+      "id": "false_173314932789440@lid_3A850431CD2DB8202EEB",
+      "fromMe": false,
+      "body": "Muito obrigado",
+      "type": "chat",
+      "timestamp": 1780418475,
+      "createdAt": "2026-06-02T16:41:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_173314932789440@lid_3EB00674538CEFBA86110B",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780419435,
+      "createdAt": "2026-06-02T16:57:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511971703486": [
+    {
+      "id": "true_127350125670589@lid_3EB007D921F17F211D9E54",
+      "fromMe": true,
+      "body": "Olá SERGIO LUCAS DA SILVA! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição SERGIO LUCAS DA SILVA?",
+      "type": "chat",
+      "timestamp": 1780413190,
+      "createdAt": "2026-06-02T15:13:10.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_127350125670589@lid_A5D0ECD14E25AECE79589378A02B69A7",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780413278,
+      "createdAt": "2026-06-02T15:14:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_127350125670589@lid_3EB03EB2C5100948991497",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780413361,
+      "createdAt": "2026-06-02T15:16:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_127350125670589@lid_A5D60BE4729DD8DE58C7EED673ADF80A",
+      "fromMe": false,
+      "body": "false_127350125670589@lid_A5D60BE4729DD8DE58C7EED673ADF80A",
+      "type": "image",
+      "timestamp": 1780413466,
+      "createdAt": "2026-06-02T15:17:46.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_127350125670589_lid_A5D60BE4729DD8DE58C7EED673ADF80A_d4558829.jpg",
+      "mediaSize": 50750,
+      "filename": "false_127350125670589@lid_A5D60BE4729DD8DE58C7EED673ADF80A",
+      "originalName": "false_127350125670589@lid_A5D60BE4729DD8DE58C7EED673ADF80A"
+    },
+    {
+      "id": "true_127350125670589@lid_3EB0B1CF26DEAA68591137",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Associação Comercial Acisa*: Av. Quinze de Novembro, 442 - Centro, Santo André\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780415653,
+      "createdAt": "2026-06-02T15:54:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511981697122": [
+    {
+      "id": "true_170995549794407@lid_3EB0560DC2173642B170CC",
+      "fromMe": true,
+      "body": "Olá Marcos! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Marcos?",
+      "type": "chat",
+      "timestamp": 1780415168,
+      "createdAt": "2026-06-02T15:46:08.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_170995549794407@lid_2A6CBF8C935C526657EB",
+      "fromMe": false,
+      "body": "Tem como atender uma ligação",
+      "type": "chat",
+      "timestamp": 1780415237,
+      "createdAt": "2026-06-02T15:47:17.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_170995549794407@lid_A5FD94C0F02B5B6D24822EC6EB65B10A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780421550,
+      "createdAt": "2026-06-02T17:32:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_170995549794407_lid_A5FD94C0F02B5B6D24822EC6EB65B10A_58b242ec.ogg",
+      "mediaSize": 37312,
+      "filename": "true_170995549794407@lid_A5FD94C0F02B5B6D24822EC6EB65B10A",
+      "originalName": "true_170995549794407@lid_A5FD94C0F02B5B6D24822EC6EB65B10A"
+    },
+    {
+      "id": "false_170995549794407@lid_2A48F01BBF16A79D70E4",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780423697,
+      "createdAt": "2026-06-02T18:08:17.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_170995549794407_lid_2A48F01BBF16A79D70E4_bc0a9e2f.ogg",
+      "mediaSize": 75275,
+      "filename": "false_170995549794407@lid_2A48F01BBF16A79D70E4",
+      "originalName": "false_170995549794407@lid_2A48F01BBF16A79D70E4"
+    },
+    {
+      "id": "true_170995549794407@lid_A57AD471BCA6D9B5016689520C04AFC4",
+      "fromMe": true,
+      "body": "Programação\n18h - Recepção dos Convidados\n18h30 - Inteligência Artificial\n→ Agentes de IA para Pequenas e Médias Empresas;\n→ Como ser recomendado pelo ChatGPT;\n→ Como aparecer no Google com GEO e AEO.\n\n19h50 - Google Ads com IA\n→ Estratégias para atrair clientes qualificados;\n→ Distribuição de orçamento por IA;\n→ Criação de campanhas com IA;\n→ Checklist de otimizações com IA.",
+      "type": "chat",
+      "timestamp": 1780425173,
+      "createdAt": "2026-06-02T18:32:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_170995549794407@lid_A5B985E2EEA4A53267D45E7A97740C42",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780425525,
+      "createdAt": "2026-06-02T18:38:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_170995549794407_lid_A5B985E2EEA4A53267D45E7A97740C42_1f377e1f.ogg",
+      "mediaSize": 120171,
+      "filename": "true_170995549794407@lid_A5B985E2EEA4A53267D45E7A97740C42",
+      "originalName": "true_170995549794407@lid_A5B985E2EEA4A53267D45E7A97740C42"
+    },
+    {
+      "id": "false_170995549794407@lid_2A8002E5EE2E32E4D0B7",
+      "fromMe": false,
+      "body": "Já já t me chamo",
+      "type": "chat",
+      "timestamp": 1780425859,
+      "createdAt": "2026-06-02T18:44:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511941533032": [
+    {
+      "id": "true_124652936544482@lid_3EB05D216549CE46609ADF",
+      "fromMe": true,
+      "body": "Olá Luana Leão! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Luana Leão?",
+      "type": "chat",
+      "timestamp": 1780419148,
+      "createdAt": "2026-06-02T16:52:28.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_124652936544482@lid_3AD922D2C93F9DDE6977",
+      "fromMe": false,
+      "body": "Olá, tudo bem?",
+      "type": "chat",
+      "timestamp": 1780483328,
+      "createdAt": "2026-06-03T10:42:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3AD065AFCCA8761E847F",
+      "fromMe": false,
+      "body": "Há alguma forma de negociação desse valor?",
+      "type": "chat",
+      "timestamp": 1780483340,
+      "createdAt": "2026-06-03T10:42:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB0CC34B4DEDF27899E15",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780485477,
+      "createdAt": "2026-06-03T11:17:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_124652936544482_lid_3EB0CC34B4DEDF27899E15_b5fa6b50.ogg",
+      "mediaSize": 59816,
+      "filename": "true_124652936544482@lid_3EB0CC34B4DEDF27899E15",
+      "originalName": "true_124652936544482@lid_3EB0CC34B4DEDF27899E15"
+    },
+    {
+      "id": "false_124652936544482@lid_3AEC53712BDBE6D83D3F",
+      "fromMe": false,
+      "body": "Entendi!",
+      "type": "chat",
+      "timestamp": 1780485727,
+      "createdAt": "2026-06-03T11:22:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A49D8D3D5EDA19858B4",
+      "fromMe": false,
+      "body": "Você me manda o link de pagamento por favor",
+      "type": "chat",
+      "timestamp": 1780497232,
+      "createdAt": "2026-06-03T14:33:52.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3ACD0261539CC21BF4E5",
+      "fromMe": false,
+      "body": "Cartão de crédito",
+      "type": "chat",
+      "timestamp": 1780497236,
+      "createdAt": "2026-06-03T14:33:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB0B3ECB0DF0F82404081",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780499675,
+      "createdAt": "2026-06-03T15:14:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5515997992256": [
+    {
+      "id": "true_253854092406939@lid_3EB08C1C02AEC176119FCB",
+      "fromMe": true,
+      "body": "Olá André! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição André?",
+      "type": "chat",
+      "timestamp": 1780427408,
+      "createdAt": "2026-06-02T19:10:08.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_253854092406939@lid_3A40525B878D9DFD2728",
+      "fromMe": false,
+      "body": "Pode sim",
+      "type": "chat",
+      "timestamp": 1780428082,
+      "createdAt": "2026-06-02T19:21:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_253854092406939@lid_3AEC6E69DB4E2D90B751",
+      "fromMe": false,
+      "body": "Qual a programação",
+      "type": "chat",
+      "timestamp": 1780428088,
+      "createdAt": "2026-06-02T19:21:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_253854092406939@lid_3A20B648749F0296A95B",
+      "fromMe": false,
+      "body": "Vai ter outras plataformas ou só Google ?",
+      "type": "chat",
+      "timestamp": 1780428107,
+      "createdAt": "2026-06-02T19:21:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_253854092406939@lid_3EB00946B42DA7BE83D802",
+      "fromMe": true,
+      "body": "Programação\n18h - Recepção dos Convidados\n18h30 - Inteligência Artificial\n→ Agentes de IA para Pequenas e Médias Empresas;\n→ Como ser recomendado pelo ChatGPT;\n→ Como aparecer no Google com GEO e AEO.\n\n19h50 - Google Ads com IA\n→ Estratégias para atrair clientes qualificados;\n→ Distribuição de orçamento por IA;\n→ Criação de campanhas com IA;\n→ Checklist de otimizações com IA.",
+      "type": "chat",
+      "timestamp": 1780429510,
+      "createdAt": "2026-06-02T19:45:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_253854092406939@lid_3EB02FE0EBEB31CC6D53CA",
+      "fromMe": true,
+      "body": "Qual a sua necessidade hoje?",
+      "type": "chat",
+      "timestamp": 1780429520,
+      "createdAt": "2026-06-02T19:45:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_253854092406939@lid_3AB4F124B16AAF86142A",
+      "fromMe": false,
+      "body": "Serão quantas horas de curso",
+      "type": "chat",
+      "timestamp": 1780429851,
+      "createdAt": "2026-06-02T19:50:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_253854092406939@lid_3EB001F81FC1E0180DED1A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780430045,
+      "createdAt": "2026-06-02T19:54:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_253854092406939_lid_3EB001F81FC1E0180DED1A_2af788ef.ogg",
+      "mediaSize": 59810,
+      "filename": "true_253854092406939@lid_3EB001F81FC1E0180DED1A",
+      "originalName": "true_253854092406939@lid_3EB001F81FC1E0180DED1A"
+    },
+    {
+      "id": "false_253854092406939@lid_3A67BCA87EB1505B6931",
+      "fromMe": false,
+      "body": "Então",
+      "type": "chat",
+      "timestamp": 1780430922,
+      "createdAt": "2026-06-02T20:08:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_253854092406939@lid_3AD09D712A6885D7842A",
+      "fromMe": false,
+      "body": "Não sei nada",
+      "type": "chat",
+      "timestamp": 1780430925,
+      "createdAt": "2026-06-02T20:08:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_253854092406939@lid_3AC3DDEBFBF6AA21DE61",
+      "fromMe": false,
+      "body": "Acho que 4 h vai ser pouco",
+      "type": "chat",
+      "timestamp": 1780430931,
+      "createdAt": "2026-06-02T20:08:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511985585590": [
+    {
+      "id": "true_116977897046150@lid_3EB06AE247527B65E02805",
+      "fromMe": true,
+      "body": "Olá Rafael! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Rafael?",
+      "type": "chat",
+      "timestamp": 1780432067,
+      "createdAt": "2026-06-02T20:27:47.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5531992545143": [
+    {
+      "id": "true_194102490624125@lid_3EB0FCFF9C50D2C1F18842",
+      "fromMe": true,
+      "body": "Olá Nicanor Pires Ataíde! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Nicanor Pires Ataíde?",
+      "type": "chat",
+      "timestamp": 1780443330,
+      "createdAt": "2026-06-02T23:35:30.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511965775669": [
+    {
+      "id": "true_22467175305451@lid_3EB0FA2E7C2EF7AF825AB1",
+      "fromMe": true,
+      "body": "Olá Diana! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Diana?",
+      "type": "chat",
+      "timestamp": 1780444851,
+      "createdAt": "2026-06-03T00:00:51.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511946853320": [
+    {
+      "id": "true_89082604576952@lid_3EB0CA4D183B08C10BC8D0",
+      "fromMe": true,
+      "body": "Olá Jonas Daniel! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Jonas Daniel?",
+      "type": "chat",
+      "timestamp": 1780447716,
+      "createdAt": "2026-06-03T00:48:36.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511973097649": [
+    {
+      "id": "true_75823403008242@lid_3EB0F00B747B0337EB2D36",
+      "fromMe": true,
+      "body": "Olá Karina Torres! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Karina Torres?",
+      "type": "chat",
+      "timestamp": 1780453870,
+      "createdAt": "2026-06-03T02:31:10.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511985460660": [
+    {
+      "id": "true_139388902195327@lid_3EB03223D0943B35FDAEE7",
+      "fromMe": true,
+      "body": "Olá Guilherme! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Guilherme?",
+      "type": "chat",
+      "timestamp": 1780456960,
+      "createdAt": "2026-06-03T03:22:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511982229634": [
+    {
+      "id": "true_182291296968720@lid_3EB0980A9E7AFF996207D5",
+      "fromMe": true,
+      "body": "Olá Wellington! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Wellington?",
+      "type": "chat",
+      "timestamp": 1780483720,
+      "createdAt": "2026-06-03T10:48:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ]
 }

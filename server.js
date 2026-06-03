@@ -48,6 +48,15 @@ const {
   getCloudStatus,
   listStatus: listCloudStatus,
 } = require("./src/waCloud");
+const {
+  createCampaign: createCloudDispatchCampaign,
+  recordEvent: recordCloudDispatchEvent,
+  updateEvent: updateCloudDispatchEvent,
+  updateByMessageId: updateCloudDispatchByMessageId,
+  markReply: markCloudDispatchReply,
+  listCampaigns: listCloudDispatchCampaigns,
+  listEvents: listCloudDispatchEvents,
+} = require("./src/waCloudDispatchStore");
 
 const app = express();
 
@@ -1146,6 +1155,250 @@ function leadOriginInfo(lead, webhookLookup) {
   };
 }
 
+
+function dispatchSourceInfo(contact) {
+  const source = String((contact && contact.source) || "").trim();
+  const sheetName = String((contact && (contact.sheetName || contact.savedSheetName || contact.fileName)) || "").trim();
+  if (source === "filtered-leads") return { key: "filtered-leads", label: "Leads filtrados", type: "lead_filter", detail: "Selecionado a partir da base de leads existente." };
+  if (source === "spreadsheet") return { key: sheetName ? `spreadsheet:${sheetName}` : "spreadsheet", label: sheetName ? `Planilha: ${sheetName}` : "Planilha importada", type: "spreadsheet", detail: "Contato usado em um disparo a partir de planilha." };
+  if (source) return { key: source, label: sourceLabel(source), type: source, detail: "Origem informada no contato do disparo." };
+  return { key: "manual_dispatch", label: "Contato do disparo", type: "dispatch", detail: "Contato usado diretamente no disparo oficial." };
+}
+
+function dispatchStatusLabel(status) {
+  const s = String(status || "").toLowerCase();
+  const map = { pending: "Na fila", queued: "Na fila", sent: "Enviado", delivered: "Entregue", read: "Lido", responded: "Respondido", failed: "Falhou", canceled: "Cancelado" };
+  return map[s] || (s ? s.replace(/_/g, " ") : "Sem status");
+}
+
+function dispatchStatusClass(status) {
+  const s = String(status || "").toLowerCase();
+  if (s === "responded") return "ok";
+  if (s === "read") return "read";
+  if (s === "delivered") return "delivered";
+  if (s === "failed") return "err";
+  if (s === "sent") return "sent";
+  return "pending";
+}
+
+function normalizeDispatchFinalStatus(event) {
+  const s = String((event && event.status) || "").toLowerCase();
+  if (s === "responded" || event?.respondedAt) return "responded";
+  if (s === "read" || event?.readAt) return "read";
+  if (s === "delivered" || event?.deliveredAt) return "delivered";
+  if (s === "failed" || event?.failedAt || event?.error) return "failed";
+  if (s === "sent" || event?.sentAt || event?.messageId) return "sent";
+  return "pending";
+}
+
+function dispatchMetricBlank() {
+  return { total: 0, sent: 0, delivered: 0, read: 0, responded: 0, failed: 0, pending: 0 };
+}
+
+function addDispatchMetric(metrics, status) {
+  metrics.total += 1;
+  const s = normalizeDispatchFinalStatus({ status });
+  if (["sent", "delivered", "read", "responded"].includes(s)) metrics.sent += 1;
+  if (["delivered", "read", "responded"].includes(s)) metrics.delivered += 1;
+  if (["read", "responded"].includes(s)) metrics.read += 1;
+  if (s === "responded") metrics.responded += 1;
+  else if (s === "failed") metrics.failed += 1;
+  else if (s === "pending" || s === "sent") metrics.pending += 1;
+}
+
+function dispatchMetricRates(metrics) {
+  return {
+    ...metrics,
+    deliveryRate: percent(metrics.delivered, metrics.total),
+    readRate: percent(metrics.read, metrics.total),
+    responseRate: percent(metrics.responded, metrics.total),
+    failureRate: percent(metrics.failed, metrics.total),
+  };
+}
+
+function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {}) {
+  const campaigns = listCloudDispatchCampaigns(tenantId);
+  const campaignById = new Map(campaigns.map((c) => [String(c.id), c]));
+  const storedEvents = listCloudDispatchEvents(tenantId);
+  const knownMessageIds = new Set(storedEvents.map((e) => String(e.messageId || "")).filter(Boolean));
+
+  const events = storedEvents.map((ev) => ({ ...ev, legacy: false }));
+
+  // Compatibilidade: mostra status antigos da Cloud API que existiam antes do histórico de campanhas.
+  // Não grava nada, não altera lead antigo e evita quebrar bases já existentes.
+  if (tenantId === TENANT_ADMIN) {
+    for (const st of listCloudStatus()) {
+      const msgId = String(st && st.messageId || "").trim();
+      if (msgId && knownMessageIds.has(msgId)) continue;
+      const to = digitsOnlyServer(st && (st.toDigits || st.to || st.recipient_id));
+      if (!to) continue;
+      let status = String(st.state || "").toLowerCase() || "sent";
+      if (st.repliedAt) status = "responded";
+      else if (st.readAt || status === "read") status = "read";
+      else if (st.deliveredAt || status === "delivered") status = "delivered";
+      else if (status === "failed" || st.error) status = "failed";
+      else if (status === "sent") status = "sent";
+      else status = "sent";
+      events.push({
+        id: `legacy_${to}_${msgId || String(st.updatedAt || st.lastSendAt || "")}`,
+        tenantId,
+        campaignId: "legacy_cloud_history",
+        campaignName: "Histórico antigo da API oficial",
+        templateName: st.templateName || "Modelo antigo",
+        languageCode: st.languageCode || "",
+        toDigits: to,
+        leadId: "",
+        leadSnapshot: null,
+        origin: null,
+        dispatchSource: { key: "legacy", label: "Histórico antigo", type: "legacy", detail: "Status existente antes da criação do histórico por campanha." },
+        status,
+        deliveryState: st.state || status,
+        messageId: msgId || null,
+        error: st.error || null,
+        sentAt: st.lastSendAt || st.updatedAt || null,
+        deliveredAt: st.deliveredAt || null,
+        readAt: st.readAt || null,
+        respondedAt: st.repliedAt || null,
+        inbound: st.inbound || null,
+        createdAt: st.lastSendAt || st.updatedAt || null,
+        updatedAt: st.updatedAt || st.repliedAt || st.readAt || st.deliveredAt || st.lastSendAt || null,
+        legacy: true,
+      });
+    }
+  }
+
+  const summary = dispatchMetricBlank();
+  const campaignMap = new Map();
+  const originMap = new Map();
+  const statusMap = new Map();
+  const dailyMap = new Map();
+  let webhookImpacted = 0;
+  let spreadsheetImpacted = 0;
+  let mixedJourney = 0;
+
+  const rows = events.map((ev) => {
+    const phone = leadPhoneKey({ whatsapp_digits: ev.toDigits });
+    const lead = findLeadByPhoneVariants(byPhone, phone) || null;
+    const leadOrigin = lead ? leadOriginInfo(lead, webhookLookup) : null;
+    const originalOrigin = ev.origin && typeof ev.origin === "object" ? ev.origin : null;
+    const dispatchSource = ev.dispatchSource && typeof ev.dispatchSource === "object" ? ev.dispatchSource : null;
+    const finalOrigin = leadOrigin || originalOrigin || dispatchSource || { key: "unknown", label: "Sem origem identificada", type: "unknown", detail: "Contato sem lead vinculado." };
+    const finalStatus = normalizeDispatchFinalStatus(ev);
+    const campaign = campaignById.get(String(ev.campaignId)) || null;
+    const campaignId = String(ev.campaignId || "legacy_cloud_history");
+    const campaignName = ev.campaignName || (campaign && campaign.name) || ev.templateName || "Campanha oficial";
+    const day = startOfDayIso(ev.sentAt || ev.createdAt || ev.updatedAt);
+    const isMixed = Boolean(leadOrigin && dispatchSource && dispatchSource.type && leadOrigin.type && String(dispatchSource.type) !== String(leadOrigin.type));
+
+    addDispatchMetric(summary, finalStatus);
+    incMap(statusMap, finalStatus);
+    if (day) incMap(dailyMap, day);
+    if (!campaignMap.has(campaignId)) campaignMap.set(campaignId, { id: campaignId, name: campaignName, templateName: ev.templateName || (campaign && campaign.templateName) || "", languageCode: ev.languageCode || (campaign && campaign.languageCode) || "", createdAt: (campaign && campaign.createdAt) || ev.createdAt || null, metrics: dispatchMetricBlank() });
+    addDispatchMetric(campaignMap.get(campaignId).metrics, finalStatus);
+
+    const originKey = finalOrigin.key || finalOrigin.label || "unknown";
+    if (!originMap.has(originKey)) originMap.set(originKey, { key: originKey, label: finalOrigin.label || "Origem", type: finalOrigin.type || "", detail: finalOrigin.detail || "", metrics: dispatchMetricBlank() });
+    addDispatchMetric(originMap.get(originKey).metrics, finalStatus);
+
+    if (finalOrigin.type === "webhook") webhookImpacted += 1;
+    if (dispatchSource && dispatchSource.type === "spreadsheet" && !lead) spreadsheetImpacted += 1;
+    if (isMixed) mixedJourney += 1;
+
+    return {
+      id: ev.id,
+      campaignId,
+      campaignName,
+      templateName: ev.templateName || "",
+      languageCode: ev.languageCode || "",
+      whatsapp_digits: phone,
+      nome: (lead && lead.nome) || (ev.leadSnapshot && ev.leadSnapshot.nome) || "",
+      empresa: (lead && lead.empresa) || (ev.leadSnapshot && ev.leadSnapshot.empresa) || "",
+      email: (lead && lead.email) || (ev.leadSnapshot && ev.leadSnapshot.email) || "",
+      leadId: (lead && lead.id) || ev.leadId || "",
+      leadExists: Boolean(lead),
+      originLabel: finalOrigin.label || "Sem origem",
+      originType: finalOrigin.type || "",
+      originDetail: finalOrigin.detail || "",
+      dispatchSourceLabel: (dispatchSource && dispatchSource.label) || "Disparo oficial",
+      mixedJourney: isMixed,
+      status: finalStatus,
+      statusLabel: dispatchStatusLabel(finalStatus),
+      statusClass: dispatchStatusClass(finalStatus),
+      messageId: ev.messageId || "",
+      error: ev.error || null,
+      sentAt: ev.sentAt || null,
+      deliveredAt: ev.deliveredAt || null,
+      readAt: ev.readAt || null,
+      respondedAt: ev.respondedAt || null,
+      updatedAt: ev.updatedAt || null,
+      legacy: Boolean(ev.legacy),
+    };
+  });
+
+  const campaignRows = Array.from(campaignMap.values()).map((c) => ({ ...c, metrics: dispatchMetricRates(c.metrics) }))
+    .sort((a, b) => b.metrics.total - a.metrics.total || String(b.createdAt || "").localeCompare(String(a.createdAt || ""))).slice(0, 12);
+  const originRows = Array.from(originMap.values()).map((o) => ({ ...o, metrics: dispatchMetricRates(o.metrics) }))
+    .sort((a, b) => b.metrics.total - a.metrics.total || String(a.label).localeCompare(String(b.label))).slice(0, 12);
+  const statusRows = Array.from(statusMap.entries()).map(([status, count]) => ({ status, label: dispatchStatusLabel(status), className: dispatchStatusClass(status), count, percentage: percent(count, events.length) }))
+    .sort((a, b) => b.count - a.count);
+
+  const last14 = [];
+  for (let i = 13; i >= 0; i--) {
+    const day = daysAgoIso(i);
+    last14.push({ date: day, count: dailyMap.get(day) || 0 });
+  }
+
+  return {
+    totalEvents: events.length,
+    summary: dispatchMetricRates(summary),
+    context: {
+      webhookImpacted,
+      spreadsheetOnly: spreadsheetImpacted,
+      mixedJourney,
+      legacyEvents: rows.filter((r) => r.legacy).length,
+    },
+    campaigns: campaignRows,
+    origins: originRows,
+    statuses: statusRows,
+    timeline: { last14 },
+    recent: rows.sort((a, b) => String(b.updatedAt || b.sentAt || "").localeCompare(String(a.updatedAt || a.sentAt || ""))).slice(0, 20),
+  };
+}
+
+function syncCloudDispatchFromWebhook(body) {
+  const nowIso = new Date().toISOString();
+  const entry = Array.isArray(body && body.entry) ? body.entry : [];
+  for (const e of entry) {
+    const changes = Array.isArray(e && e.changes) ? e.changes : [];
+    for (const c of changes) {
+      const value = c && c.value ? c.value : {};
+      const statuses = Array.isArray(value.statuses) ? value.statuses : [];
+      for (const st of statuses) {
+        const messageId = String(st && st.id || "").trim();
+        const state = String(st && st.status || "").trim().toLowerCase();
+        if (!messageId || !state) continue;
+        const patch = { deliveryState: state };
+        if (state === "sent") { patch.status = "sent"; patch.sentAckAt = nowIso; }
+        else if (state === "delivered") { patch.status = "delivered"; patch.deliveredAt = nowIso; }
+        else if (state === "read") { patch.status = "read"; patch.readAt = nowIso; }
+        else if (state === "failed") { patch.status = "failed"; patch.failedAt = nowIso; patch.error = (Array.isArray(st.errors) && st.errors[0]) || null; }
+        patch.conversation = st.conversation || null;
+        patch.pricing = st.pricing || null;
+        updateCloudDispatchByMessageId(messageId, patch);
+      }
+      const msgs = Array.isArray(value.messages) ? value.messages : [];
+      for (const msg of msgs) {
+        const from = String(msg && msg.from || "").trim();
+        if (!from) continue;
+        markCloudDispatchReply(from, {
+          respondedAt: nowIso,
+          inbound: { id: msg.id || null, type: msg.type || null, text: msg.text && msg.text.body ? msg.text.body : null, timestamp: msg.timestamp || null },
+        }, { windowMs: 7 * 24 * 60 * 60 * 1000 });
+      }
+    }
+  }
+}
+
 function incMap(map, key, amount = 1) {
   if (!key) return;
   map.set(key, (map.get(key) || 0) + amount);
@@ -1204,6 +1457,7 @@ function buildTenantInsights(tenantId, req) {
   const notDeliveredAfterMin = Number((req && req.query && req.query.notDeliveredAfterMin) || 30);
   const notDeliveredAfterMs = Math.max(1, notDeliveredAfterMin) * 60 * 1000;
   const leadsRaw = readLeads(tenantId);
+  const leadById = new Map(leadsRaw.map((l) => [String(l && l.id || ""), l]).filter(([id]) => id));
   const leadTags = getLeadTagsMap(tenantId);
   const tags = listTags(tenantId);
   const tagById = Object.fromEntries(tags.map((t) => [String(t.id), t]));
@@ -1226,9 +1480,34 @@ function buildTenantInsights(tenantId, req) {
   const dailyMap = new Map();
   const tagCount = new Map();
   const recentLeads = [];
+  const timelineLeadRefsByDay = new Map();
+  const webhookLeadRefsById = new Map();
 
   const statusCounts = { replied: 0, delivered: 0, notDelivered: 0, notExists: 0, pending: 0, none: 0 };
   const statusByPhone = new Map();
+
+  function makeInsightLeadRow(ref) {
+    const lead = ref && ref.lead ? ref.lead : ref;
+    if (!lead) return null;
+    const origin = (ref && ref.origin) ? ref.origin : leadOriginInfo(lead, webhookLookup);
+    const ids = Array.isArray(leadTags[lead.id]) ? leadTags[lead.id] : [];
+    const phone = leadPhoneKey(lead) || String(lead.whatsapp_digits || lead.whatsapp_raw || "").replace(/\D+/g, "");
+    return {
+      id: lead.id || "",
+      nome: lead.nome || "",
+      empresa: lead.empresa || "",
+      email: lead.email || "",
+      whatsapp_digits: phone,
+      createdAt: lead.createdAt || null,
+      updatedAt: lead.updatedAt || null,
+      source: lead.source || "",
+      originLabel: origin.label || "",
+      originDetail: origin.detail || "",
+      originType: origin.type || "",
+      status: phone ? (statusByPhone.get(phone) || "") : "",
+      tags: ids.map((id) => tagById[id]).filter(Boolean),
+    };
+  }
 
   for (const lead of leadsRaw) {
     const phone = leadPhoneKey(lead);
@@ -1250,9 +1529,20 @@ function buildTenantInsights(tenantId, req) {
     if (lead.empresa) withCompany++;
 
     const day = startOfDayIso(lead.createdAt);
-    if (day) incMap(dailyMap, day);
+    if (day) {
+      incMap(dailyMap, day);
+    }
 
     const origin = leadOriginInfo(lead, webhookLookup);
+    if (day) {
+      if (!timelineLeadRefsByDay.has(day)) timelineLeadRefsByDay.set(day, []);
+      timelineLeadRefsByDay.get(day).push({ lead, origin });
+    }
+    if (origin && origin.type === "webhook" && origin.webhookId) {
+      const whid = String(origin.webhookId);
+      if (!webhookLeadRefsById.has(whid)) webhookLeadRefsById.set(whid, []);
+      webhookLeadRefsById.get(whid).push({ lead, origin });
+    }
     incMap(sourceMap, origin.key);
     if (!sourceDetails.has(origin.key)) {
       sourceDetails.set(origin.key, { ...origin, count: 0, firstAt: lead.createdAt || null, lastAt: lead.createdAt || null });
@@ -1349,10 +1639,12 @@ function buildTenantInsights(tenantId, req) {
     }
     const normalizedDigits = normalizePhoneToE164Digits(digits) || digitsOnlyServer(digits);
     const leadMatch = findLeadByPhoneVariants(byPhone, normalizedDigits || digits) || null;
+    const convStatus = statusByPhone.get(normalizedDigits || digits) || (leadMatch ? statusByPhone.get(leadPhoneKey(leadMatch)) : "") || "";
     conversationRows.push({
       whatsapp_digits: normalizedDigits || digits,
       nome: leadMatch ? (leadMatch.nome || "") : "",
       empresa: leadMatch ? (leadMatch.empresa || "") : "",
+      status: convStatus,
       total: messages.length,
       incoming: inCount,
       outgoing: outCount,
@@ -1369,19 +1661,54 @@ function buildTenantInsights(tenantId, req) {
   for (const p of pipelines) {
     const stagesObj = p && p.stages && typeof p.stages === "object" ? p.stages : {};
     const stages = Object.values(stagesObj).map((st) => {
-      const count = Array.isArray(st.leadIds) ? st.leadIds.length : 0;
+      const leadIds = Array.isArray(st.leadIds) ? st.leadIds.map((id) => String(id)) : [];
+      const count = leadIds.length;
       crmCards += count;
-      return { id: st.id || "", name: st.name || "Etapa", count };
+      const stageLeads = leadIds
+        .map((id) => leadById.get(String(id)))
+        .filter(Boolean)
+        .map((lead) => makeInsightLeadRow({ lead, origin: leadOriginInfo(lead, webhookLookup) }))
+        .filter(Boolean);
+      return { id: st.id || "", name: st.name || "Etapa", count, leads: stageLeads };
     });
     pipelineRows.push({ id: p.id || "", name: p.name || "Funil", stages, total: stages.reduce((a, s) => a + s.count, 0) });
   }
 
   const today = daysAgoIso(0);
-  const last30 = [];
-  for (let i = 29; i >= 0; i--) {
-    const day = daysAgoIso(i);
-    last30.push({ date: day, count: dailyMap.get(day) || 0 });
+  function buildTimelineRange(days) {
+    const out = [];
+    const n = Math.max(1, Number(days || 30));
+    for (let i = n - 1; i >= 0; i--) {
+      const day = daysAgoIso(i);
+      const refs = timelineLeadRefsByDay.get(day) || [];
+      out.push({
+        date: day,
+        count: dailyMap.get(day) || 0,
+        leads: refs
+          .slice()
+          .sort((a, b) => String((b.lead && b.lead.createdAt) || "").localeCompare(String((a.lead && a.lead.createdAt) || "")))
+          .map(makeInsightLeadRow)
+          .filter(Boolean)
+          .slice(0, 500),
+      });
+    }
+    return out;
   }
+  const last7 = buildTimelineRange(7);
+  const last30 = buildTimelineRange(30);
+  const last60 = buildTimelineRange(60);
+  const allDays = Array.from(dailyMap.entries())
+    .map(([date, count]) => ({ date, count }))
+    .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  const dayLeads = Object.fromEntries(Array.from(timelineLeadRefsByDay.entries()).map(([date, refs]) => [
+    date,
+    refs
+      .slice()
+      .sort((a, b) => String((b.lead && b.lead.createdAt) || "").localeCompare(String((a.lead && a.lead.createdAt) || "")))
+      .map(makeInsightLeadRow)
+      .filter(Boolean)
+      .slice(0, 500),
+  ]));
 
   const duplicatePhones = Array.from(byPhone.entries()).filter(([, row]) => row.count > 1);
   const uniqueWhatsapp = byPhone.size;
@@ -1411,6 +1738,12 @@ function buildTenantInsights(tenantId, req) {
       leadPercentage: stats.percentage,
       firstLeadAt: stats.firstAt,
       lastLeadAt: stats.lastAt,
+      leads: (webhookLeadRefsById.get(String(wb.id)) || [])
+        .slice()
+        .sort((a, b) => String((b.lead && b.lead.createdAt) || "").localeCompare(String((a.lead && a.lead.createdAt) || "")))
+        .map(makeInsightLeadRow)
+        .filter(Boolean)
+        .slice(0, 500),
     };
   });
 
@@ -1441,6 +1774,8 @@ function buildTenantInsights(tenantId, req) {
         .slice(0, 300),
     };
   });
+
+  const dispatchInsights = buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup });
 
   return {
     ok: true,
@@ -1473,6 +1808,7 @@ function buildTenantInsights(tenantId, req) {
       crmCards,
       todayLeads: dailyMap.get(today) || 0,
     },
+    dispatch: dispatchInsights,
     whatsapp: {
       ...statusCounts,
       totalTrackedUnique: uniqueWhatsapp,
@@ -1485,7 +1821,7 @@ function buildTenantInsights(tenantId, req) {
     ddds: dddRows,
     tags: topFromMap(tagCount, 20).map((x) => ({ ...(tagById[x.key] || { id: x.key, name: x.key, color: "#64748b" }), count: x.count, percentage: percent(x.count, totalLeads) })),
     webhooks: webhooksWithCounts,
-    timeline: { last30 },
+    timeline: { last7, last30, last60, allDays, dayLeads },
     crm: { pipelines: pipelineRows },
     conversations: {
       top: conversationRows.slice(0, 15),
@@ -2307,6 +2643,103 @@ app.delete("/api/portugal/webhooks/:id", portugalAuth, (req, res) => {
 
 /* -------------------- WhatsApp Cloud API (oficial) -------------------- */
 // Mantido como ADMIN (segurança).
+function getCloudSheetsFile() {
+  return path.join(__dirname, "data", TENANT_ADMIN, "wa_cloud_saved_sheets.json");
+}
+
+function readCloudSavedSheets() {
+  try {
+    const file = getCloudSheetsFile();
+    if (!fs.existsSync(file)) return [];
+    const parsed = JSON.parse(fs.readFileSync(file, "utf8") || "[]");
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (err) {
+    console.error("[wa-cloud:sheets] read error", err);
+    return [];
+  }
+}
+
+function writeCloudSavedSheets(items) {
+  const file = getCloudSheetsFile();
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, JSON.stringify(Array.isArray(items) ? items : [], null, 2), "utf8");
+}
+
+function normalizeCloudSavedSheetPayload(body = {}) {
+  const now = new Date().toISOString();
+  const columns = Array.isArray(body.columns) ? body.columns : [];
+  const rows = Array.isArray(body.rows) ? body.rows : [];
+  const mapping = body.mapping && typeof body.mapping === "object" ? body.mapping : {};
+  return {
+    id: String(body.id || "").trim() || genId(),
+    name: String(body.name || body.fileName || "Planilha sem nome").trim().slice(0, 140),
+    fileName: String(body.fileName || "").trim().slice(0, 180),
+    columns,
+    rows,
+    mapping,
+    rowCount: rows.length,
+    columnCount: columns.length,
+    createdAt: String(body.createdAt || now),
+    updatedAt: now,
+  };
+}
+
+function cloudSavedSheetListMeta(sheet) {
+  return {
+    id: sheet.id,
+    name: sheet.name,
+    fileName: sheet.fileName,
+    rowCount: Number(sheet.rowCount || (Array.isArray(sheet.rows) ? sheet.rows.length : 0)),
+    columnCount: Number(sheet.columnCount || (Array.isArray(sheet.columns) ? sheet.columns.length : 0)),
+    mapping: sheet.mapping || {},
+    createdAt: sheet.createdAt,
+    updatedAt: sheet.updatedAt,
+  };
+}
+
+app.get("/api/wa-cloud/sheets", adminAuth, (req, res) => {
+  const items = readCloudSavedSheets()
+    .map(cloudSavedSheetListMeta)
+    .sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
+  res.json({ ok: true, items });
+});
+
+app.get("/api/wa-cloud/sheets/:id", adminAuth, (req, res) => {
+  const id = String(req.params.id || "");
+  const item = readCloudSavedSheets().find((sheet) => String(sheet.id) === id);
+  if (!item) return res.status(404).json({ ok: false, error: "Planilha não encontrada" });
+  res.json({ ok: true, item });
+});
+
+app.post("/api/wa-cloud/sheets", adminAuth, (req, res) => {
+  try {
+    const next = normalizeCloudSavedSheetPayload(req.body || {});
+    if (!next.rows.length || !next.columns.length) {
+      return res.status(400).json({ ok: false, error: "Envie uma planilha com linhas e colunas." });
+    }
+    const items = readCloudSavedSheets();
+    const idx = items.findIndex((sheet) => String(sheet.id) === String(next.id));
+    if (idx >= 0) {
+      next.createdAt = items[idx].createdAt || next.createdAt;
+      items[idx] = next;
+    } else {
+      items.unshift(next);
+    }
+    writeCloudSavedSheets(items);
+    res.json({ ok: true, item: cloudSavedSheetListMeta(next) });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: err.message || "Erro ao salvar planilha" });
+  }
+});
+
+app.delete("/api/wa-cloud/sheets/:id", adminAuth, (req, res) => {
+  const id = String(req.params.id || "");
+  const before = readCloudSavedSheets();
+  const after = before.filter((sheet) => String(sheet.id) !== id);
+  writeCloudSavedSheets(after);
+  res.json({ ok: true, removed: before.length - after.length });
+});
+
 app.get("/api/wa-cloud/status", adminAuth, (req, res) => {
   res.json(getCloudStatus());
 });
@@ -2365,9 +2798,26 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
     const languageCode = String(req.body?.languageCode || "pt_BR").trim();
     const contacts = Array.isArray(req.body?.contacts) ? req.body.contacts : [];
     const throttleMs = Math.max(0, Number(req.body?.throttleMs || 250));
+    const campaignName = String(req.body?.campaignName || templateName || "Campanha oficial").trim();
 
     if (!templateName) throw new Error("templateName obrigatório.");
     if (!contacts.length) throw new Error("contacts vazio.");
+
+    const webhookLookup = buildWebhookLookup(listWebhooks(TENANT_ADMIN), req);
+    const sourceSummary = {};
+    for (const c of contacts) {
+      const src = dispatchSourceInfo(c).label || "Contato do disparo";
+      sourceSummary[src] = (sourceSummary[src] || 0) + 1;
+    }
+
+    const campaign = createCloudDispatchCampaign({
+      tenantId: TENANT_ADMIN,
+      name: campaignName,
+      templateName,
+      languageCode,
+      total: contacts.length,
+      sourceSummary,
+    });
 
     const results = [];
     for (const c of contacts) {
@@ -2379,23 +2829,44 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
         ? [{ type: "body", parameters: vars.map((t) => ({ type: "text", text: t })) }]
         : [];
 
+      const lead = findLeadByDigits(TENANT_ADMIN, to);
+      const origin = lead ? leadOriginInfo(lead, webhookLookup) : dispatchSourceInfo(c);
+      const dispatchSource = dispatchSourceInfo(c);
+      const event = recordCloudDispatchEvent({
+        tenantId: TENANT_ADMIN,
+        campaignId: campaign.id,
+        campaignName: campaign.name,
+        templateName,
+        languageCode,
+        toDigits: to,
+        leadId: lead ? lead.id : "",
+        leadSnapshot: lead ? { id: lead.id, nome: lead.nome || "", empresa: lead.empresa || "", email: lead.email || "", source: lead.source || "" } : { nome: c?.nome || "", empresa: c?.companyName || "", email: c?.email || "" },
+        origin,
+        dispatchSource,
+        vars,
+        status: "pending",
+      });
+
       try {
         const out = await sendCloudTemplate({
           toE164Digits: to,
           templateName,
           languageCode,
           components,
-          meta: { nome: c?.nome || null, source: "admin-batch" },
+          meta: { nome: c?.nome || null, source: "admin-batch", campaignId: campaign.id, dispatchEventId: event.id },
         });
-        results.push({ to, ok: true, messageId: out?.messages?.[0]?.id || null });
+        const messageId = out?.messages?.[0]?.id || null;
+        updateCloudDispatchEvent(event.id, { status: "sent", sentAt: new Date().toISOString(), messageId });
+        results.push({ to, ok: true, messageId, campaignId: campaign.id, eventId: event.id });
       } catch (err) {
-        results.push({ to, ok: false, error: err?.message || String(err) });
+        updateCloudDispatchEvent(event.id, { status: "failed", failedAt: new Date().toISOString(), error: err?.payload || err?.message || String(err) });
+        results.push({ to, ok: false, error: err?.message || String(err), campaignId: campaign.id, eventId: event.id });
       }
 
       if (throttleMs) await new Promise((r) => setTimeout(r, throttleMs));
     }
 
-    res.json({ ok: true, total: results.length, results });
+    res.json({ ok: true, campaignId: campaign.id, campaignName: campaign.name, total: results.length, results });
   } catch (err) {
     res.status(400).json({ ok: false, error: err?.message || String(err) });
   }
@@ -2419,6 +2890,8 @@ app.get("/webhooks/wa-cloud", (req, res) => {
 
 app.post("/webhooks/wa-cloud", (req, res) => {
   handleCloudWebhook(req.body);
+  try { syncCloudDispatchFromWebhook(req.body); }
+  catch (err) { console.error("⚠️ WA_CLOUD dispatch sync error:", err?.message || err); }
   res.sendStatus(200);
 });
 

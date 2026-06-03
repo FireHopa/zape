@@ -9,6 +9,16 @@
       "createdAt": "2026-06-01T13:50:40.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0BF4D56EAE17B3769D9_out",
+      "fromMe": true,
+      "body": "Olá Faby, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Faby?",
+      "type": "chat",
+      "timestamp": 1780502482,
+      "createdAt": "2026-06-03T16:01:22.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ],
   "5513997367592": [
@@ -29,6 +39,16 @@
       "type": "chat",
       "timestamp": 1780405137,
       "createdAt": "2026-06-02T12:58:57.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_189000069451782@lid_3EB02E794F4D471C57A023",
+      "fromMe": true,
+      "body": "Olá Faby, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Faby?",
+      "type": "chat",
+      "timestamp": 1780502413,
+      "createdAt": "2026-06-03T16:00:13.000Z",
       "ack": 0,
       "source": "send-custom"
     }
@@ -194,6 +214,36 @@
       "type": "chat",
       "timestamp": 1780395337,
       "createdAt": "2026-06-02T10:15:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_73950931484780@lid_3EB0D6A0EF3B8C4508959E",
+      "fromMe": true,
+      "body": "Olá Alessandro, boa tarde!!",
+      "type": "chat",
+      "timestamp": 1780502633,
+      "createdAt": "2026-06-03T16:03:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_73950931484780@lid_3EB0FAA91F3FDEF2C027D6",
+      "fromMe": true,
+      "body": "Foi feito a correção, segue o link:",
+      "type": "chat",
+      "timestamp": 1780502684,
+      "createdAt": "2026-06-03T16:04:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_73950931484780@lid_3EB0E53014EAC325B73305",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão:https://pay.hotmart.com/Y106051061N\n 💸 PIX (CNPJ): 27.921.309/0001-70\nhttps://casadoads.com.br/imersao-lisboa/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780502690,
+      "createdAt": "2026-06-03T16:04:50.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -395,6 +445,333 @@
       "createdAt": "2026-06-02T13:45:22.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_369501442175@lid_3EB03F1D59C1EB01100A2E",
+      "fromMe": true,
+      "body": "Vou te passar informações da *Imersão Presencial Google Ads e Inteligência Artificial* será realizada em *Lisboa, na 2ª edição* em Portugal.\n\n🏨 Hotel Holiday Inn Lisbon Continental\n📅 22 de Junho\n🕒 19h00 às 22h30\n🎟️ Lote 1: 25€ com IVA\n\nA Casa do Ads é parceira oficial Google Partners e esta será a 2ª edição presencial em Portugal.\nhttps://www.google.com/partners/agency?id=1175990135\n\nVeja as últimas edições no Instagram do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/\n\nSite para Inscrição:\nhttps://casadoads.com.br/imersao-lisboa/\n\nVou te enviar algum PDF com todos os detalhes!",
+      "type": "chat",
+      "timestamp": 1780407937,
+      "createdAt": "2026-06-02T13:45:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351927522256": [
+    {
+      "id": "true_233367786287254@lid_3EB0517C93B4D41C0FCE83",
+      "fromMe": true,
+      "body": "Olá Shaul Salim, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Shaul Salim?",
+      "type": "chat",
+      "timestamp": 1780428918,
+      "createdAt": "2026-06-02T19:35:18.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB040E153787D1F745DF1",
+      "fromMe": false,
+      "body": "Não aparece no hotmart a opção de colocar o NIF para faturação do IVA",
+      "type": "chat",
+      "timestamp": 1780429534,
+      "createdAt": "2026-06-02T19:45:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB0EAC01279156E1E958A",
+      "fromMe": false,
+      "body": "Bom dia, para a inscrição via empresa preciso colocar os dados de faturação devido ao IVA.",
+      "type": "chat",
+      "timestamp": 1780479270,
+      "createdAt": "2026-06-03T09:34:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB02F4F71D2F2ABAB45CC",
+      "fromMe": false,
+      "body": "COmo pode ser feito?",
+      "type": "chat",
+      "timestamp": 1780479274,
+      "createdAt": "2026-06-03T09:34:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB0201672FF24E0BECA2A",
+      "fromMe": true,
+      "body": "Bom dia Shaul!",
+      "type": "chat",
+      "timestamp": 1780479921,
+      "createdAt": "2026-06-03T09:45:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB0CB9D7BB969BD63181C",
+      "fromMe": true,
+      "body": "Na plataforma da Hotmart, não tem uma area especifica para o NIT, você ja preencheu com os dados da empresa e colocou no campo do CNPJ?",
+      "type": "chat",
+      "timestamp": 1780480262,
+      "createdAt": "2026-06-03T09:51:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB0A59315ACEFDAAFA3BD",
+      "fromMe": true,
+      "body": "Veja se consegue e me avisa.",
+      "type": "chat",
+      "timestamp": 1780480270,
+      "createdAt": "2026-06-03T09:51:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB03EF1DB1EC2CD3A0180",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão:https://pay.hotmart.com/Y106051061N\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780480288,
+      "createdAt": "2026-06-03T09:51:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB06E826AE342ED6C54B0",
+      "fromMe": false,
+      "body": "A nossa empresa é portuguesa não temos cnpj. Qual será a lotação máxima do evento?",
+      "type": "chat",
+      "timestamp": 1780480496,
+      "createdAt": "2026-06-03T09:54:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB0041AE894ED08EEAFC4",
+      "fromMe": true,
+      "body": "Sim entendi, estou vendo com o fincanceiro qual a opção para o preenchimento do NIF",
+      "type": "chat",
+      "timestamp": 1780481926,
+      "createdAt": "2026-06-03T10:18:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB06C2E2937D2B5E78674",
+      "fromMe": true,
+      "body": "Você ja entrou aqui e tentou preencher os dados da empresa e finalizar, pois na Hotmart não pede CPF, nem CNPJ ou NIF. Assim a compra sairia em nome da empresa.",
+      "type": "image",
+      "timestamp": 1780482427,
+      "createdAt": "2026-06-03T10:27:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_233367786287254_lid_3EB06C2E2937D2B5E78674_c02814ed.jpg",
+      "mediaSize": 71848,
+      "filename": "true_233367786287254@lid_3EB06C2E2937D2B5E78674",
+      "originalName": "true_233367786287254@lid_3EB06C2E2937D2B5E78674"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB0BA6A25071224CEEBF1",
+      "fromMe": true,
+      "body": "Ministramos turmas de no máximo 100 pessoas, como feito da ultima vez que estivemos em Portugal.",
+      "type": "chat",
+      "timestamp": 1780482476,
+      "createdAt": "2026-06-03T10:27:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB09DBABB90B29CCE525D",
+      "fromMe": false,
+      "body": "Não aparece a opção de NIF",
+      "type": "chat",
+      "timestamp": 1780496087,
+      "createdAt": "2026-06-03T14:14:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB0297401E7EC2317DB8B",
+      "fromMe": false,
+      "body": "para pagar em R$ qual valor é? pode ser via pix? posso fazer pela outra empresa do BRasil",
+      "type": "chat",
+      "timestamp": 1780496101,
+      "createdAt": "2026-06-03T14:15:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB03B8852A95960D8EACD",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão:https://pay.hotmart.com/Y106051061N\n 💸 PIX (CNPJ): 27.921.309/0001-70\nhttps://casadoads.com.br/imersao-lisboa/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780502280,
+      "createdAt": "2026-06-03T15:58:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB01CEBCFCCD739DCC40C",
+      "fromMe": true,
+      "body": "O pix pode ser pelo CNPJ da empresa  27.921.309/0001-70, aparece \"Casa do Ads\"",
+      "type": "chat",
+      "timestamp": 1780502315,
+      "createdAt": "2026-06-03T15:58:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB0F0C19BAC96DAD884AB",
+      "fromMe": false,
+      "body": "qual o valor? vou pedir para o financeiro fazer",
+      "type": "chat",
+      "timestamp": 1780502562,
+      "createdAt": "2026-06-03T16:02:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB0FBCD14D767666E4E1C",
+      "fromMe": true,
+      "body": "149,00",
+      "type": "chat",
+      "timestamp": 1780502661,
+      "createdAt": "2026-06-03T16:04:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_233367786287254@lid_3EB06EAA460D6CFCE9D7F4",
+      "fromMe": false,
+      "body": "financeiro fez agora Arrobainfo CNPJ 11247373000188",
+      "type": "chat",
+      "timestamp": 1780503560,
+      "createdAt": "2026-06-03T16:19:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_233367786287254@lid_3EB0A5D191CC58AF7284BF",
+      "fromMe": true,
+      "body": "Consegue enviar o comprovante, vou passar para o financeiro.",
+      "type": "chat",
+      "timestamp": 1780505800,
+      "createdAt": "2026-06-03T16:56:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5519998401805": [
+    {
+      "id": "true_60163952242818@lid_3EB0C0BAD4412758ED0A5E",
+      "fromMe": true,
+      "body": "Olá Thiago Nazare bottaro, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Thiago Nazare bottaro?",
+      "type": "chat",
+      "timestamp": 1780433358,
+      "createdAt": "2026-06-02T20:49:18.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_60163952242818@lid_3EB07E6FB9778B782C43FF",
+      "fromMe": false,
+      "body": "😍",
+      "type": "chat",
+      "timestamp": 1780433441,
+      "createdAt": "2026-06-02T20:50:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "351965698323": [
+    {
+      "id": "true_261035277717588@lid_3EB00785F7DFBAA918B779",
+      "fromMe": true,
+      "body": "Olá Filomena, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Filomena?",
+      "type": "chat",
+      "timestamp": 1780435003,
+      "createdAt": "2026-06-02T21:16:43.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_261035277717588@lid_3ACB8EC849A55D0BF13F",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780435724,
+      "createdAt": "2026-06-02T21:28:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB0920C953FCA628B3B1F",
+      "fromMe": true,
+      "body": "Bom dia Filomena!!!",
+      "type": "chat",
+      "timestamp": 1780480400,
+      "createdAt": "2026-06-03T09:53:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB0B3F14FE83C57A6D924",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão:https://pay.hotmart.com/Y106051061N\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780480428,
+      "createdAt": "2026-06-03T09:53:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351912363487": [
+    {
+      "id": "true_11437565038618@lid_3EB05E3E3B4A6A235C628C",
+      "fromMe": true,
+      "body": "Olá Douglas Borges Carvalho, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Douglas Borges Carvalho?",
+      "type": "chat",
+      "timestamp": 1780444916,
+      "createdAt": "2026-06-03T00:01:56.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_11437565038618@lid_3EB0DBACC52205CDA21A1F",
+      "fromMe": true,
+      "body": "Olá Douglas, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1780480366,
+      "createdAt": "2026-06-03T09:52:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_11437565038618@lid_3EB032D3D415CC7DA4BDA2",
+      "fromMe": true,
+      "body": "Vou te passar informações da *Imersão Presencial Google Ads e Inteligência Artificial* será realizada em *Lisboa, na 2ª edição* em Portugal.\n\n🏨 Hotel Holiday Inn Lisbon Continental\n📅 22 de Junho\n🕒 19h00 às 22h30\n🎟️ Lote 1: 25€ com IVA\n\nA Casa do Ads é parceira oficial Google Partners e esta será a 2ª edição presencial em Portugal.\nhttps://www.google.com/partners/agency?id=1175990135\n\nVeja as últimas edições no Instagram do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/\n\nSite para Inscrição:\nhttps://casadoads.com.br/imersao-lisboa/\n\nVou te enviar algum PDF com todos os detalhes!",
+      "type": "chat",
+      "timestamp": 1780480372,
+      "createdAt": "2026-06-03T09:52:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351923577880": [
+    {
+      "id": "true_112571780743401@lid_3EB094A55B7F256B06C3A6",
+      "fromMe": true,
+      "body": "Olá Ana Silva, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ (IVA incluído)\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição Ana Silva?",
+      "type": "chat",
+      "timestamp": 1780498106,
+      "createdAt": "2026-06-03T14:48:26.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ]
 }

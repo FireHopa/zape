@@ -166,15 +166,30 @@ function assertSequentialVariables(text, label) {
   return nums;
 }
 
-function normalizeQuickReplyButtons(buttons) {
-  const raw = Array.isArray(buttons)
+function normalizeTemplateButtons(buttons, fallbackQuickReplies) {
+  const raw = Array.isArray(buttons) && buttons.length
     ? buttons
-    : String(buttons || "").split(/\r?\n/).map((x) => x.trim()).filter(Boolean);
+    : (Array.isArray(fallbackQuickReplies)
+      ? fallbackQuickReplies
+      : String(fallbackQuickReplies || "").split(/\r?\n/).map((x) => x.trim()).filter(Boolean));
 
   return raw
     .map((b) => (typeof b === "string" ? { type: "QUICK_REPLY", text: b } : b))
-    .map((b) => ({ type: "QUICK_REPLY", text: String(b?.text || "").trim() }))
-    .filter((b) => b.text)
+    .map((b) => {
+      const type = String(b?.type || "QUICK_REPLY").trim().toUpperCase();
+      const text = String(b?.text || "").trim();
+      if (!text) return null;
+      if (type === "URL") {
+        const url = String(b?.url || "").trim();
+        return { type: "URL", text, url };
+      }
+      if (type === "PHONE_NUMBER") {
+        const phone_number = String(b?.phone_number || b?.phoneNumber || "").trim();
+        return { type: "PHONE_NUMBER", text, phone_number };
+      }
+      return { type: "QUICK_REPLY", text };
+    })
+    .filter(Boolean)
     .slice(0, 3);
 }
 
@@ -220,10 +235,16 @@ function buildTemplateComponents(input = {}) {
     components.push({ type: "FOOTER", text: footerText });
   }
 
-  const buttons = normalizeQuickReplyButtons(input.quickReplyButtons || input.buttons || []);
+  const buttons = normalizeTemplateButtons(input.templateButtons || input.buttons || [], input.quickReplyButtons || []);
   if (buttons.length) {
     for (const b of buttons) {
       if (b.text.length > 25) throw new Error(`Botão \"${b.text}\" deve ter no máximo 25 caracteres.`);
+      if (b.type === "URL" && !/^https:\/\//i.test(b.url || "")) {
+        throw new Error(`Botão \"${b.text}\": informe uma URL começando com https://.`);
+      }
+      if (b.type === "PHONE_NUMBER" && !String(b.phone_number || "").replace(/\D+/g, "")) {
+        throw new Error(`Botão \"${b.text}\": informe um telefone válido.`);
+      }
     }
     components.push({ type: "BUTTONS", buttons });
   }

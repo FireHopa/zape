@@ -5,5 +5,29 @@
   "graphVersion": "v25.0",
   "redirectUri": "",
   "enabled": true,
-  "updatedAt": "2026-05-26T17:27:11.349Z"
+  "updatedAt": "2026-06-03T17:26:58.983Z",
+  "accessToken": "EAAPpnYZA3cNsBRpZC1zuXxJKEUN9hp1Hoy5qZCaMbWpp40ZB4sMw7ovnprga5gEbVy5ciP8B3tqMu7I3EyMEIN9vBH9aZAbIL7uzqjWjVpvPaTaIHuBjBuYFn48t0ZAmNCA7WAL2RLuiuKZAtZBb4p4W6XycXtboLkwj9rzh3uKdYWZBbFKtwIKGXtSy5xQ1XZA4F1eoEHuZAZAVgnbh9AeGC7X5yZAr00Sla0nh8EXjQdtiVubEC7YPMPGnxo6PrImuLO5NUt2Uq0bsiBXwoS8vyxCVAmuai4KLmz2RdQZB7eaw1VEMwKZAgZDZD",
+  "tokenType": "bearer",
+  "tokenExpiresIn": "",
+  "phoneNumberId": "1205115542677153",
+  "wabaId": "2546113369139392",
+  "businessId": "960279950155230",
+  "displayPhoneNumber": "+1 555-983-6640",
+  "verifiedName": "Cíntia",
+  "lastEmbeddedSession": {
+    "data": {
+      "phone_number_id": "1205115542677153",
+      "waba_id": "2546113369139392",
+      "page_ids": [],
+      "catalog_ids": [],
+      "dataset_ids": [],
+      "business_id": "960279950155230",
+      "instagram_account_ids": []
+    },
+    "type": "WA_EMBEDDED_SIGNUP",
+    "event": "FINISH"
+  },
+  "linkedAt": "2026-06-03T17:26:58.982Z",
+  "subscribedAt": "2026-06-03T17:26:58.982Z",
+  "lastSubscribeError": null
 }

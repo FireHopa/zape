@@ -20,9 +20,7 @@
       "timestamp": 1779897324,
       "createdAt": "2026-05-27T15:55:24.000Z",
       "ack": 0,
-      "source": "send-custom",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "send-custom"
     },
     {
       "id": "false_231787204767760@lid_3EB01EEE59408A4DC3AD3E",
@@ -32,9 +30,7 @@
       "timestamp": 1779897329,
       "createdAt": "2026-05-27T15:55:29.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "false_231787204767760@lid_3EB0398CE64C3B445AE696",
@@ -44,9 +40,7 @@
       "timestamp": 1779897489,
       "createdAt": "2026-05-27T15:58:09.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_231787204767760@lid_3EB0ABE90A0E1A25CE232A",
@@ -56,9 +50,7 @@
       "timestamp": 1779908325,
       "createdAt": "2026-05-27T18:58:45.000Z",
       "ack": 0,
-      "source": "send-custom",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "send-custom"
     },
     {
       "id": "true_231787204767760@lid_3EB0030DB74DB330CF2144",
@@ -68,9 +60,7 @@
       "timestamp": 1779908329,
       "createdAt": "2026-05-27T18:58:49.000Z",
       "ack": 0,
-      "source": "send-custom",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "send-custom"
     },
     {
       "id": "false_231787204767760@lid_3EB0F56A22F0740A77E00F",
@@ -80,9 +70,7 @@
       "timestamp": 1779908332,
       "createdAt": "2026-05-27T18:58:52.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_231787204767760@lid_3EB00AB97E0F729943453F",
@@ -92,9 +80,7 @@
       "timestamp": 1779912050,
       "createdAt": "2026-05-27T20:00:50.000Z",
       "ack": 0,
-      "source": "send-custom",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "send-custom"
     },
     {
       "id": "true_231787204767760@lid_3EB0FAC3B483415BFD3F65",
@@ -184,9 +170,7 @@
       "timestamp": 1779982924,
       "createdAt": "2026-05-28T15:42:04.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "false_231787204767760@lid_AC943DD418A45BF63D1FAD62861D12C1",
@@ -196,9 +180,7 @@
       "timestamp": 1779982927,
       "createdAt": "2026-05-28T15:42:07.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "false_231787204767760@lid_ACB6FDC8643A9734C17B14B2112206CF",
@@ -208,9 +190,7 @@
       "timestamp": 1779982931,
       "createdAt": "2026-05-28T15:42:11.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_231787204767760@lid_A548ADEFB94738C25B507639561E3623",
@@ -252,9 +232,7 @@
       "timestamp": 1779982987,
       "createdAt": "2026-05-28T15:43:07.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "false_231787204767760@lid_AC678B9323B24A21432FA09106827A86",
@@ -264,9 +242,7 @@
       "timestamp": 1779982991,
       "createdAt": "2026-05-28T15:43:11.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_231787204767760@lid_A52B3321ECC14B0709D48617BADFFF99",
@@ -292,9 +268,7 @@
       "timestamp": 1779983038,
       "createdAt": "2026-05-28T15:43:58.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_231787204767760@lid_A59FD4640308AAF268ED8F94ED05B924",
@@ -320,9 +294,7 @@
       "timestamp": 1779983096,
       "createdAt": "2026-05-28T15:44:56.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "false_231787204767760@lid_ACB3AB6579070BC10D533DCC64E441EE",
@@ -332,9 +304,7 @@
       "timestamp": 1779983104,
       "createdAt": "2026-05-28T15:45:04.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_231787204767760@lid_648DB11DA76C09F7FE",
@@ -344,9 +314,7 @@
       "timestamp": 1779983193,
       "createdAt": "2026-05-28T15:46:33.000Z",
       "ack": 1,
-      "source": "outgoing-external-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "outgoing-external-event"
     },
     {
       "id": "true_231787204767760@lid_3EB0431B36374D17472712",
@@ -372,9 +340,7 @@
       "timestamp": 1780063733,
       "createdAt": "2026-05-29T14:08:53.000Z",
       "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "incoming-event"
     },
     {
       "id": "true_231787204767760@lid_A530AC25DD01505DC1B10F7662DF2CAB",
@@ -384,9 +350,37 @@
       "timestamp": 1780064583,
       "createdAt": "2026-05-29T14:23:03.000Z",
       "ack": 1,
-      "source": "outgoing-external-event",
-      "hasMedia": true,
-      "mediaKind": "file"
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_231787204767760@lid_3EB0BEC0D731EDD65C4C45",
+      "fromMe": false,
+      "body": "a",
+      "type": "chat",
+      "timestamp": 1780499139,
+      "createdAt": "2026-06-03T15:05:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_231787204767760@lid_B9045936A55DD52F2F",
+      "fromMe": true,
+      "body": "a",
+      "type": "chat",
+      "timestamp": 1780499158,
+      "createdAt": "2026-06-03T15:05:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB01C7D14A83AF1533CA6",
+      "fromMe": true,
+      "body": "Olá teste saopaulo ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição teste saopaulo ?",
+      "type": "chat",
+      "timestamp": 1780500110,
+      "createdAt": "2026-06-03T15:21:50.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ],
   "5513997675879": [
@@ -1140,6 +1134,186 @@
       "createdAt": "2026-06-02T13:34:10.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_A5C720903847C1A380D0E19C36A12C21",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780412783,
+      "createdAt": "2026-06-02T15:06:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB02ED8FD141D6381DBC5",
+      "fromMe": false,
+      "body": "54 99648 5075",
+      "type": "chat",
+      "timestamp": 1780427519,
+      "createdAt": "2026-06-02T19:11:59.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB048EB7444D4D4B53645",
+      "fromMe": false,
+      "body": "(Cintia Alphaville 01/06) Pedro Mendes\tDrogaria Multifarma\t11999845039\tpedro.multifarma@gmail.com",
+      "type": "chat",
+      "timestamp": 1780429128,
+      "createdAt": "2026-06-02T19:38:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0EAD2DE3DE0E7FE552F",
+      "fromMe": false,
+      "body": "(Cintia Alphaville 01/06) Vanília da Costa oliveira\tAgência Prime Ads\t11983160121\tagencyprimeads@gmail.com",
+      "type": "chat",
+      "timestamp": 1780484356,
+      "createdAt": "2026-06-03T10:59:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0E759E443B1D8B29FA9",
+      "fromMe": false,
+      "body": "Bom diaaaa Vanilia, tudo bem?\n\nPassando pra lembrar que hoje é a reunião com nosso especialista direto ao ponto, com estratégias pensadas para seu negócio.\n\nEle vai te mostrar como usar o Google para atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona para seu nicho.\n\n🗓️ 03/05\n🕘 11h em ponto\n💻 Se puder, acesse pelo notebook ou computador para aproveitar melhor!",
+      "type": "chat",
+      "timestamp": 1780484552,
+      "createdAt": "2026-06-03T11:02:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0AEF55E1029057782A4",
+      "fromMe": false,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nQuarta-feira, 3 de junho · 11:00am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/mqv-gkun-sps\nOu disque: ‪(BR) +55 11 4949-9617‬ PIN: ‪713 911 962‬#\nOutros números de telefone: https://tel.meet/mqv-gkun-sps?pin=2761624616981",
+      "type": "chat",
+      "timestamp": 1780485840,
+      "createdAt": "2026-06-03T11:24:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0D9A444FC87E4BF0A9A",
+      "fromMe": false,
+      "body": "(Cintia Imersão Online 25 e 26/06) Marielle 5591507785  Loja de Cosméticos em Uruguaiana mariellesevero@gmail.com   Site não temos no momento Instagram @gabbicosmeticosuruguaiana",
+      "type": "chat",
+      "timestamp": 1780487370,
+      "createdAt": "2026-06-03T11:49:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB004A9402E8C97904896",
+      "fromMe": false,
+      "body": "(Cintia Alphaville) Alex Sakai\tacupunturista na Avalon Terapias integrativas\t69999678689\tsakaialex@gmail.com\n\nReunião das 17h30",
+      "type": "chat",
+      "timestamp": 1780489544,
+      "createdAt": "2026-06-03T12:25:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_A5C4552C76B67D1BBED0F96154065070",
+      "fromMe": true,
+      "body": "Bom diaaaa Alexandre, tudo bem?\n\nPassando pra lembrar que hoje é a reunião com nosso especialista direto ao ponto, com estratégias pensadas para seu negócio.\n\nEle vai te mostrar como usar o Google para atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona para seu nicho.\n\n🗓️ 03/05\n🕘 17h em ponto\n💻 Se puder, acesse pelo notebook ou computador para aproveitar melhor!",
+      "type": "chat",
+      "timestamp": 1780489807,
+      "createdAt": "2026-06-03T12:30:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB076CBA631CF739D1EC6",
+      "fromMe": false,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nQuarta-feira, 3 de junho · 5:00 – 6:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/sie-xzjh-qnm\nOu disque: ‪(BR) +55 11 4935-2679‬ PIN: ‪583 321 390‬#\nOutros números de telefone: https://tel.meet/sie-xzjh-qnm?pin=9086734599023",
+      "type": "chat",
+      "timestamp": 1780489834,
+      "createdAt": "2026-06-03T12:30:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB03B276120264910DAF1",
+      "fromMe": false,
+      "body": "Bom diaaaa Mari, tudo bem?\n\nPassando pra lembrar que hoje é o encontro com o Matheus Bottaro direto ao ponto, com estratégias pensadas para seu negócio.\n\nEle vai te mostrar como usar o Google para atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona para seu nicho.\n\n🗓️ 28/05\n🕘 13h em ponto\n💻 Se puder, acesse pelo notebook ou computador para aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1780489964,
+      "createdAt": "2026-06-03T12:32:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0B1CCBEFA2A6325669D",
+      "fromMe": false,
+      "body": "Bom diaaaa Alexandre, tudo bem?\n\nPassando pra lembrar que hoje é o encontro com o Matheus Bottaro direto ao ponto, com estratégias pensadas para seu negócio.\n\nEle vai te mostrar como usar o Google para atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona para seu nicho.\n\n🗓️ 03/05\n🕘 17h em ponto\n💻 Se puder, acesse pelo notebook ou computador para aproveitar melhor!",
+      "type": "chat",
+      "timestamp": 1780489999,
+      "createdAt": "2026-06-03T12:33:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0304C8535D2BCACFFEA",
+      "fromMe": false,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nQuarta-feira, 3 de junho · 5:30 – 6:30pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/rtp-txwy-vuw\nOu disque: ‪(BR) +55 51 4560-7435‬ PIN: ‪993 701 743‬#\nOutros números de telefone: https://tel.meet/rtp-txwy-vuw?pin=3379354843764",
+      "type": "chat",
+      "timestamp": 1780496861,
+      "createdAt": "2026-06-03T14:27:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_BA5EA93C166D4C6C8C",
+      "fromMe": true,
+      "body": "oi",
+      "type": "chat",
+      "timestamp": 1780499249,
+      "createdAt": "2026-06-03T15:07:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB045CE89B5665B77C2E2",
+      "fromMe": false,
+      "body": "55991156220\n75992603646\n11982796021\n5511992215676\n11987656138\n35999524000\n5511996971797\n11991463707\n11983220201",
+      "type": "chat",
+      "timestamp": 1780500626,
+      "createdAt": "2026-06-03T15:30:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_A57C339E1CB80CF2E3FA30C58090EE28",
+      "fromMe": true,
+      "body": "Vamos finalizar a sua inscrição ou posso liberar sua reserva?",
+      "type": "chat",
+      "timestamp": 1780504769,
+      "createdAt": "2026-06-03T16:39:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB084023FE5AB1671A668",
+      "fromMe": false,
+      "body": "(Cintia Alphaville 01/06) Thomas Taiwo Oriade\tCorretor Autônomo\t119.6085-3857\tabencoado.corretor1@gmail.com",
+      "type": "chat",
+      "timestamp": 1780505013,
+      "createdAt": "2026-06-03T16:43:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0A24C8781FBA1FBA4A0",
+      "fromMe": true,
+      "body": "Olá cintia jujeque ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição cintia jujeque ?",
+      "type": "chat",
+      "timestamp": 1780507222,
+      "createdAt": "2026-06-03T17:20:22.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ],
   "5511976971746": [
@@ -1960,6 +2134,16 @@
       "createdAt": "2026-06-01T20:26:49.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_524002844867@lid_A58A4510399283A0CEFFA3D91496F086",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427901,
+      "createdAt": "2026-06-02T19:18:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511970752631": [
@@ -2027,6 +2211,16 @@
       "type": "chat",
       "timestamp": 1780405703,
       "createdAt": "2026-06-02T13:08:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_267778342793375@lid_A50CBC222DD42C2C3C5956703781ED0D",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780411166,
+      "createdAt": "2026-06-02T14:39:26.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -2557,6 +2751,16 @@
       "createdAt": "2026-06-01T13:09:10.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB024A399BC2AA58BEF85",
+      "fromMe": true,
+      "body": "Olá Alex! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Santo André.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Alex?",
+      "type": "chat",
+      "timestamp": 1780488814,
+      "createdAt": "2026-06-03T12:13:34.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ],
   "5511970784860": [
@@ -2645,6 +2849,16 @@
       "createdAt": "2026-06-01T20:27:12.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_177940679675917@lid_A5B8F82A5349DDAF574D8CE5B8ED4640",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427891,
+      "createdAt": "2026-06-02T19:18:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511991463707": [
@@ -2657,6 +2871,33 @@
       "createdAt": "2026-05-27T18:47:09.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_29222957543644@lid_A53C83939BA667798A073CBEC7072111",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780503843,
+      "createdAt": "2026-06-03T16:24:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_29222957543644_lid_A53C83939BA667798A073CBEC7072111_9ff180e0.ogg",
+      "mediaSize": 60567,
+      "filename": "true_29222957543644@lid_A53C83939BA667798A073CBEC7072111",
+      "originalName": "true_29222957543644@lid_A53C83939BA667798A073CBEC7072111"
+    },
+    {
+      "id": "true_29222957543644@lid_A56D76E4EC9C26C78F16B904DBD0AE57",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para a *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* ACISA - Associação Comercial e Industrial de Santo André -Av. Quinze de Novembro, 442 - Centro, Santo André \n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780503885,
+      "createdAt": "2026-06-03T16:24:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511915073525": [
@@ -3762,6 +4003,16 @@
       "createdAt": "2026-06-02T13:11:59.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_50169513046183@lid_A5ACE4C4C098C97F814B9CFA52D5E231",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780411159,
+      "createdAt": "2026-06-02T14:39:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511983457181": [
@@ -4520,6 +4771,16 @@
       "mediaSize": 37583,
       "filename": "true_191345205489688@lid_A52D145EE580D4105996F0E302FD6F62",
       "originalName": "true_191345205489688@lid_A52D145EE580D4105996F0E302FD6F62"
+    },
+    {
+      "id": "false_191345205489688@lid_3AD84F2F1D09CDE116A5",
+      "fromMe": false,
+      "body": "Blza! Muito obrigado",
+      "type": "chat",
+      "timestamp": 1780433340,
+      "createdAt": "2026-06-02T20:49:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511940212876": [
@@ -4612,6 +4873,33 @@
       "createdAt": "2026-05-28T08:41:16.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_170437220823179@lid_A5418E499C61CC12C6EFBDED0D986B32",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780503928,
+      "createdAt": "2026-06-03T16:25:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_170437220823179_lid_A5418E499C61CC12C6EFBDED0D986B32_4dab5005.ogg",
+      "mediaSize": 70098,
+      "filename": "true_170437220823179@lid_A5418E499C61CC12C6EFBDED0D986B32",
+      "originalName": "true_170437220823179@lid_A5418E499C61CC12C6EFBDED0D986B32"
+    },
+    {
+      "id": "true_170437220823179@lid_A510D54129A0B7F907722F28BDBE58FF",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para a *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 11/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* ACISA - Associação Comercial e Industrial de Santo André -Av. Quinze de Novembro, 442 - Centro, Santo André \n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780503930,
+      "createdAt": "2026-06-03T16:25:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511999845039": [
@@ -4674,6 +4962,76 @@
       "createdAt": "2026-06-02T12:58:52.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A5BE97FDDC6DADA121593D07684A27DF",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780421894,
+      "createdAt": "2026-06-02T17:38:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A54B0071E6DB2D9E31C31A7B9CA3D3B3",
+      "fromMe": true,
+      "body": "Olá Pedro boa tarde tudo bem?",
+      "type": "chat",
+      "timestamp": 1780429305,
+      "createdAt": "2026-06-02T19:41:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A5C611112348F1DE8B15008B7886A0D6",
+      "fromMe": true,
+      "body": "Consegui agendar sua reunião para amanhã às 11h, ok?",
+      "type": "chat",
+      "timestamp": 1780429352,
+      "createdAt": "2026-06-02T19:42:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A5A26125DCB70FBCAE029969D498ECB0",
+      "fromMe": true,
+      "body": "Bom dia Pedro",
+      "type": "chat",
+      "timestamp": 1780484128,
+      "createdAt": "2026-06-03T10:55:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A5B5A32CBBEA0B0092B9792FD75429E3",
+      "fromMe": true,
+      "body": "Bom diaaaa Pedro, tudo bem?\n\nPassando pra lembrar que hoje é a reunião com nosso especialista direto ao ponto, com estratégias pensadas para seu negócio.\n\nEle vai te mostrar como usar o Google para atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona para seu nicho.\n\n🗓️ 03/05\n🕘 11h em ponto\n💻 Se puder, acesse pelo notebook ou computador para aproveitar melhor!",
+      "type": "chat",
+      "timestamp": 1780484641,
+      "createdAt": "2026-06-03T11:04:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A58723D1F0EF3E693AB10E6DAA8D4A36",
+      "fromMe": true,
+      "body": "Encaminhei o link no seu e-mail e vou enviar por aqui também",
+      "type": "chat",
+      "timestamp": 1780485884,
+      "createdAt": "2026-06-03T11:24:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12154807812220@lid_A5F989734B2001EEC2736758635F2C54",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nQuarta-feira, 3 de junho · 11:00am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/mqv-gkun-sps\nOu disque: ‪(BR) +55 11 4949-9617‬ PIN: ‪713 911 962‬#\nOutros números de telefone: https://tel.meet/mqv-gkun-sps?pin=2761624616981",
+      "type": "chat",
+      "timestamp": 1780485889,
+      "createdAt": "2026-06-03T11:24:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511992882483": [
@@ -4734,6 +5092,16 @@
       "type": "chat",
       "timestamp": 1780345588,
       "createdAt": "2026-06-01T20:26:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_67701586276585@lid_A5DA2F0DC1BC88DB2C9C1A1173FA98B0",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427905,
+      "createdAt": "2026-06-02T19:18:25.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -4938,6 +5306,16 @@
       "createdAt": "2026-06-01T20:33:16.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_44517352800330@lid_A530AB3F1AE07F9FFAEB3E0A7C88DA4A",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427734,
+      "createdAt": "2026-06-02T19:15:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511996423323": [
@@ -5224,6 +5602,16 @@
       "type": "chat",
       "timestamp": 1780345637,
       "createdAt": "2026-06-01T20:27:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50560489234436@lid_A551436BB6663F7F5EF10F6B9889D2B3",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427887,
+      "createdAt": "2026-06-02T19:18:07.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -6068,6 +6456,90 @@
       "mediaSize": 4151,
       "filename": "false_207623081197652@lid_A582D0383D345613A41902B93B0F5410",
       "originalName": "false_207623081197652@lid_A582D0383D345613A41902B93B0F5410"
+    },
+    {
+      "id": "true_207623081197652@lid_A5ABD84DD0E557357C8B1B3FBF555FE0",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780411152,
+      "createdAt": "2026-06-02T14:39:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5E027A27ABAC18CBCFEE2F779E3BE69",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780416184,
+      "createdAt": "2026-06-02T16:03:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_207623081197652_lid_A5E027A27ABAC18CBCFEE2F779E3BE69_9d84fc38.ogg",
+      "mediaSize": 31751,
+      "filename": "true_207623081197652@lid_A5E027A27ABAC18CBCFEE2F779E3BE69",
+      "originalName": "true_207623081197652@lid_A5E027A27ABAC18CBCFEE2F779E3BE69"
+    },
+    {
+      "id": "false_207623081197652@lid_A5A04A577A36EB25116222E52088986C",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1780494474,
+      "createdAt": "2026-06-03T13:47:54.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_207623081197652@lid_A54BD2043153DCAA00392F0FFB9468FB",
+      "fromMe": false,
+      "body": "Passando para confirmar minha reunião com o Matheus as 17:30",
+      "type": "chat",
+      "timestamp": 1780494500,
+      "createdAt": "2026-06-03T13:48:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A56077B63E89102177CAD5B6ACBCD7F7",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780495075,
+      "createdAt": "2026-06-03T13:57:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_207623081197652_lid_A56077B63E89102177CAD5B6ACBCD7F7_5483d72b.ogg",
+      "mediaSize": 45736,
+      "filename": "true_207623081197652@lid_A56077B63E89102177CAD5B6ACBCD7F7",
+      "originalName": "true_207623081197652@lid_A56077B63E89102177CAD5B6ACBCD7F7"
+    },
+    {
+      "id": "false_207623081197652@lid_A51AAEBC701A7EBF3294B4ACEEF9E9F8",
+      "fromMe": false,
+      "body": "Grato",
+      "type": "chat",
+      "timestamp": 1780495119,
+      "createdAt": "2026-06-03T13:58:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_207623081197652@lid_A5EB7C4A542EE005613B601AFAF6AF80",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nQuarta-feira, 3 de junho · 5:30 – 6:30pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/rtp-txwy-vuw\nOu disque: ‪(BR) +55 51 4560-7435‬ PIN: ‪993 701 743‬#\nOutros números de telefone: https://tel.meet/rtp-txwy-vuw?pin=3379354843764",
+      "type": "chat",
+      "timestamp": 1780496908,
+      "createdAt": "2026-06-03T14:28:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511983839878": [
@@ -6334,6 +6806,16 @@
       "mediaSize": 23552,
       "filename": "true_18322347290767@lid_A5F911646B3AD7353D280E1219F2F867",
       "originalName": "true_18322347290767@lid_A5F911646B3AD7353D280E1219F2F867"
+    },
+    {
+      "id": "true_18322347290767@lid_A5B09D53D48A5644566169CEE03DE463",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780421918,
+      "createdAt": "2026-06-02T17:38:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511947185335": [
@@ -6543,6 +7025,16 @@
       "mediaSize": 31572,
       "filename": "true_193050357796937@lid_A5CB13CBC188EFCA47C9D7B7FEA96E84",
       "originalName": "true_193050357796937@lid_A5CB13CBC188EFCA47C9D7B7FEA96E84"
+    },
+    {
+      "id": "true_193050357796937@lid_A56DF7D6F3D5709B65930146FC91DDD6",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427936,
+      "createdAt": "2026-06-02T19:18:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511947694201": [
@@ -6671,6 +7163,73 @@
       "createdAt": "2026-06-02T01:06:16.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A5114F3B2FA1637058C32DAAF17E77E3",
+      "fromMe": true,
+      "body": "Olá bom dia Ana Carolina, tudo bem?",
+      "type": "chat",
+      "timestamp": 1780408153,
+      "createdAt": "2026-06-02T13:49:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A5CE32108DEA554F88FAC7AF066CFF3B",
+      "fromMe": true,
+      "body": "Pode ser às 10h?",
+      "type": "chat",
+      "timestamp": 1780408175,
+      "createdAt": "2026-06-02T13:49:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_172533315805299@lid_2A355348F332522BCC2F",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1780408791,
+      "createdAt": "2026-06-02T13:59:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_172533315805299@lid_2A6A709474703DDD8861",
+      "fromMe": false,
+      "body": "Pode ser às 11:00?",
+      "type": "chat",
+      "timestamp": 1780408796,
+      "createdAt": "2026-06-02T13:59:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A509C39E1FCEA09CBDCB6B9245C98FFF",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780408868,
+      "createdAt": "2026-06-02T14:01:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_172533315805299_lid_A509C39E1FCEA09CBDCB6B9245C98FFF_62baf771.ogg",
+      "mediaSize": 10679,
+      "filename": "true_172533315805299@lid_A509C39E1FCEA09CBDCB6B9245C98FFF",
+      "originalName": "true_172533315805299@lid_A509C39E1FCEA09CBDCB6B9245C98FFF"
+    },
+    {
+      "id": "true_172533315805299@lid_A5E96507416D3CE373DD0D01C9B5C18C",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410407,
+      "createdAt": "2026-06-02T14:26:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511972170621": [
@@ -6838,6 +7397,107 @@
       "createdAt": "2026-06-01T23:39:09.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A5D479F662A6AE984493A0EDDB250F8E",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427741,
+      "createdAt": "2026-06-02T19:15:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_171455228674158@lid_3EB07D71321A4E682A12C3",
+      "fromMe": false,
+      "body": "Tem uma planilha que tá faltando",
+      "type": "chat",
+      "timestamp": 1780491432,
+      "createdAt": "2026-06-03T12:57:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A5A64CEE603CD65E2D70584779182E35",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780499188,
+      "createdAt": "2026-06-03T15:06:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_171455228674158_lid_A5A64CEE603CD65E2D70584779182E35_38288850.ogg",
+      "mediaSize": 31981,
+      "filename": "true_171455228674158@lid_A5A64CEE603CD65E2D70584779182E35",
+      "originalName": "true_171455228674158@lid_A5A64CEE603CD65E2D70584779182E35"
+    },
+    {
+      "id": "false_171455228674158@lid_2A59DBB129877063ED5D",
+      "fromMe": false,
+      "body": "A de campanhas x ROO",
+      "type": "chat",
+      "timestamp": 1780500683,
+      "createdAt": "2026-06-03T15:31:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_171455228674158@lid_2AB5CC3609A850ABBBFF",
+      "fromMe": false,
+      "body": "ROI",
+      "type": "chat",
+      "timestamp": 1780500684,
+      "createdAt": "2026-06-03T15:31:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A5A49D6C88B6730E4F32E70029456E51",
+      "fromMe": true,
+      "body": "Ah sim.",
+      "type": "chat",
+      "timestamp": 1780501237,
+      "createdAt": "2026-06-03T15:40:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_171455228674158@lid_A5F5774FC175083611B892D40C467CA7",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780504480,
+      "createdAt": "2026-06-03T16:34:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_171455228674158_lid_A5F5774FC175083611B892D40C467CA7_da43718f.ogg",
+      "mediaSize": 22470,
+      "filename": "true_171455228674158@lid_A5F5774FC175083611B892D40C467CA7",
+      "originalName": "true_171455228674158@lid_A5F5774FC175083611B892D40C467CA7"
+    },
+    {
+      "id": "true_171455228674158@lid_A5014B4A1FFDCDF96E9E8C46D9CB158A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780504498,
+      "createdAt": "2026-06-03T16:34:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_171455228674158_lid_A5014B4A1FFDCDF96E9E8C46D9CB158A_3e3c77a9.ogg",
+      "mediaSize": 19891,
+      "filename": "true_171455228674158@lid_A5014B4A1FFDCDF96E9E8C46D9CB158A",
+      "originalName": "true_171455228674158@lid_A5014B4A1FFDCDF96E9E8C46D9CB158A"
     }
   ],
   "5511975984338": [
@@ -6992,6 +7652,36 @@
       "createdAt": "2026-06-02T01:05:58.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_204423414419541@lid_A5081D7D18FAB5CD33CA9A4CEFBA6EDB",
+      "fromMe": true,
+      "body": "Bom dia Rejane, obrigada por aguardar",
+      "type": "chat",
+      "timestamp": 1780408079,
+      "createdAt": "2026-06-02T13:47:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_204423414419541@lid_A54D102C95FA62980AD6CBF0B49E717E",
+      "fromMe": true,
+      "body": "Agendado aqui, pode informar seu segmento e site por gentileza",
+      "type": "chat",
+      "timestamp": 1780408098,
+      "createdAt": "2026-06-02T13:48:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_204423414419541@lid_A51D99AC296516F8CC8B0746AB699125",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410671,
+      "createdAt": "2026-06-02T14:31:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511987150877": [
@@ -7171,6 +7861,73 @@
       "createdAt": "2026-06-02T01:06:44.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_52862574973145@lid_A595717EB121CA52680A8B713D8373CC",
+      "fromMe": true,
+      "body": "Bom dia Karina, obrigada por aguardar",
+      "type": "chat",
+      "timestamp": 1780408637,
+      "createdAt": "2026-06-02T13:57:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_52862574973145@lid_A55E761124EF813C3CF69B685F90D6BC",
+      "fromMe": true,
+      "body": "Agendado aqui as 10h",
+      "type": "chat",
+      "timestamp": 1780408652,
+      "createdAt": "2026-06-02T13:57:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_52862574973145@lid_A59A71F6B7B250B348C2C2BC24EF8DDB",
+      "fromMe": true,
+      "body": "Por gentileza pode informar seu segmento e site.",
+      "type": "chat",
+      "timestamp": 1780408662,
+      "createdAt": "2026-06-02T13:57:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_52862574973145@lid_A5AC45B9B44714338418BDDCB08D2CE4",
+      "fromMe": false,
+      "body": "Bom dia, tudo bem?\n\nCorretora de imóveis não tenho site",
+      "type": "chat",
+      "timestamp": 1780409803,
+      "createdAt": "2026-06-02T14:16:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_52862574973145@lid_A54DFF458623F81EA9DB501F800B481D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410267,
+      "createdAt": "2026-06-02T14:24:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_52862574973145_lid_A54DFF458623F81EA9DB501F800B481D_392c8dc5.ogg",
+      "mediaSize": 57531,
+      "filename": "true_52862574973145@lid_A54DFF458623F81EA9DB501F800B481D",
+      "originalName": "true_52862574973145@lid_A54DFF458623F81EA9DB501F800B481D"
+    },
+    {
+      "id": "true_52862574973145@lid_A5C48420EC96BDFF46355D4AD430BCD2",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410350,
+      "createdAt": "2026-06-02T14:25:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511960240030": [
@@ -7233,6 +7990,26 @@
       "createdAt": "2026-06-02T01:07:19.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_154580235083866@lid_A5DB857CEEF209E3171DEF085181D974",
+      "fromMe": true,
+      "body": "Bom dia Heloísa obrigada por aguardar",
+      "type": "chat",
+      "timestamp": 1780409967,
+      "createdAt": "2026-06-02T14:19:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_154580235083866@lid_A5F8AD93DB0FFC38C80BA77742412507",
+      "fromMe": true,
+      "body": "Agendado, pode informar seu segmento e site por gentileza",
+      "type": "chat",
+      "timestamp": 1780409981,
+      "createdAt": "2026-06-02T14:19:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511999991490": [
@@ -7320,6 +8097,16 @@
       "type": "chat",
       "timestamp": 1780345660,
       "createdAt": "2026-06-01T20:27:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_50723781922897@lid_A51A9C2108A7F894B415AB33239A4248",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427883,
+      "createdAt": "2026-06-02T19:18:03.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -7578,6 +8365,292 @@
       "createdAt": "2026-06-02T13:30:07.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A5019ADC57D01506C3E8A9534FA92C89",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410476,
+      "createdAt": "2026-06-02T14:27:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_45153108652118_lid_A5019ADC57D01506C3E8A9534FA92C89_6c9856a1.ogg",
+      "mediaSize": 25034,
+      "filename": "true_45153108652118@lid_A5019ADC57D01506C3E8A9534FA92C89",
+      "originalName": "true_45153108652118@lid_A5019ADC57D01506C3E8A9534FA92C89"
+    },
+    {
+      "id": "false_45153108652118@lid_2ADDD8615BB0359E5A04",
+      "fromMe": false,
+      "body": "Pra eu agendar eu preciso saber o valor",
+      "type": "chat",
+      "timestamp": 1780410554,
+      "createdAt": "2026-06-02T14:29:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2A4428117C16749DEDE2",
+      "fromMe": false,
+      "body": "Pr quer se consigo agora",
+      "type": "chat",
+      "timestamp": 1780410561,
+      "createdAt": "2026-06-02T14:29:21.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A5DBAD722C33CFBFCDA4BC3FACECB94F",
+      "fromMe": true,
+      "body": "Vamos agendar a reunião para saber como funciona",
+      "type": "chat",
+      "timestamp": 1780410562,
+      "createdAt": "2026-06-02T14:29:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2AA38FF0CEADFCBF01DC",
+      "fromMe": false,
+      "body": "A sim a reunião",
+      "type": "chat",
+      "timestamp": 1780410574,
+      "createdAt": "2026-06-02T14:29:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A5E7CEEE8D21AF4C673EDAB52E84288F",
+      "fromMe": true,
+      "body": "O valor da reunião?",
+      "type": "chat",
+      "timestamp": 1780410575,
+      "createdAt": "2026-06-02T14:29:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A5E779BFA715DE44FDEA09D682C055E7",
+      "fromMe": true,
+      "body": "É gratuito",
+      "type": "chat",
+      "timestamp": 1780410586,
+      "createdAt": "2026-06-02T14:29:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2A7FBAC872EB0AFD0E4F",
+      "fromMe": false,
+      "body": "Pode agendar amanhã ou quinta",
+      "type": "chat",
+      "timestamp": 1780410612,
+      "createdAt": "2026-06-02T14:30:12.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A55634BC00E5C24736C5E9FCE7AC0849",
+      "fromMe": true,
+      "body": "Amanhã dia 03 temos as 9h 10h 11h",
+      "type": "chat",
+      "timestamp": 1780410622,
+      "createdAt": "2026-06-02T14:30:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A5B24BD1C69033FD679B464D3EDFD7BC",
+      "fromMe": true,
+      "body": "Na quinta feriado temos as 9h 12h",
+      "type": "chat",
+      "timestamp": 1780410657,
+      "createdAt": "2026-06-02T14:30:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2A61A19319560947CD12",
+      "fromMe": false,
+      "body": "Pode ser amanhã às 11hs",
+      "type": "chat",
+      "timestamp": 1780410709,
+      "createdAt": "2026-06-02T14:31:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A57D05BBE87E0165E8A05D1504E26D33",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410806,
+      "createdAt": "2026-06-02T14:33:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_45153108652118_lid_A57D05BBE87E0165E8A05D1504E26D33_f7a44f53.ogg",
+      "mediaSize": 40336,
+      "filename": "true_45153108652118@lid_A57D05BBE87E0165E8A05D1504E26D33",
+      "originalName": "true_45153108652118@lid_A57D05BBE87E0165E8A05D1504E26D33"
+    },
+    {
+      "id": "true_45153108652118@lid_A51A04F9E990A57A65870DE675B6E24B",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410809,
+      "createdAt": "2026-06-02T14:33:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2AD648E68DB647BF5080",
+      "fromMe": false,
+      "body": "Ta joia querida muito obrigada ta!",
+      "type": "chat",
+      "timestamp": 1780410844,
+      "createdAt": "2026-06-02T14:34:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_45153108652118@lid_A584F73AAC24EED7530379144F231240",
+      "fromMe": true,
+      "body": "Eu que agradeço",
+      "type": "chat",
+      "timestamp": 1780411051,
+      "createdAt": "2026-06-02T14:37:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2ADE1609DF20BA79204F",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780419346,
+      "createdAt": "2026-06-02T16:55:46.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_45153108652118_lid_2ADE1609DF20BA79204F_9fb4b796.ogg",
+      "mediaSize": 31320,
+      "filename": "false_45153108652118@lid_2ADE1609DF20BA79204F",
+      "originalName": "false_45153108652118@lid_2ADE1609DF20BA79204F"
+    },
+    {
+      "id": "true_45153108652118@lid_A5E40FDF601076B15B45076C8774A206",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780420008,
+      "createdAt": "2026-06-02T17:06:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_45153108652118_lid_A5E40FDF601076B15B45076C8774A206_c9adc4b7.ogg",
+      "mediaSize": 86031,
+      "filename": "true_45153108652118@lid_A5E40FDF601076B15B45076C8774A206",
+      "originalName": "true_45153108652118@lid_A5E40FDF601076B15B45076C8774A206"
+    },
+    {
+      "id": "false_45153108652118@lid_2A4E63544832E4049FA7",
+      "fromMe": false,
+      "body": "Sim sim Vanília",
+      "type": "chat",
+      "timestamp": 1780420038,
+      "createdAt": "2026-06-02T17:07:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_45153108652118@lid_2A010773E4326BB624C0",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780420085,
+      "createdAt": "2026-06-02T17:08:05.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_45153108652118_lid_2A010773E4326BB624C0_ce8ef979.ogg",
+      "mediaSize": 45121,
+      "filename": "false_45153108652118@lid_2A010773E4326BB624C0",
+      "originalName": "false_45153108652118@lid_2A010773E4326BB624C0"
+    },
+    {
+      "id": "true_45153108652118@lid_A5815ADEC58CEA92024E803F91C1B3FB",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780421822,
+      "createdAt": "2026-06-02T17:37:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_45153108652118_lid_A5815ADEC58CEA92024E803F91C1B3FB_b819e456.ogg",
+      "mediaSize": 29839,
+      "filename": "true_45153108652118@lid_A5815ADEC58CEA92024E803F91C1B3FB",
+      "originalName": "true_45153108652118@lid_A5815ADEC58CEA92024E803F91C1B3FB"
+    },
+    {
+      "id": "false_45153108652118@lid_2AAECAA52582E47B67CC",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780424684,
+      "createdAt": "2026-06-02T18:24:44.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_45153108652118_lid_2AAECAA52582E47B67CC_1f44566f.ogg",
+      "mediaSize": 9467,
+      "filename": "false_45153108652118@lid_2AAECAA52582E47B67CC",
+      "originalName": "false_45153108652118@lid_2AAECAA52582E47B67CC"
+    },
+    {
+      "id": "true_45153108652118@lid_A52CC77D935797F3AEF301356CBF69D4",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780425576,
+      "createdAt": "2026-06-02T18:39:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_45153108652118_lid_A52CC77D935797F3AEF301356CBF69D4_1757dd37.ogg",
+      "mediaSize": 6627,
+      "filename": "true_45153108652118@lid_A52CC77D935797F3AEF301356CBF69D4",
+      "originalName": "true_45153108652118@lid_A52CC77D935797F3AEF301356CBF69D4"
+    },
+    {
+      "id": "true_45153108652118@lid_A5B6C7D902301CAE2D4249000CA8EFEB",
+      "fromMe": true,
+      "body": "Bom diaaaa Vanilia, tudo bem?\n\nPassando pra lembrar que hoje é a reunião com nosso especialista direto ao ponto, com estratégias pensadas para seu negócio.\n\nEle vai te mostrar como usar o Google para atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona para seu nicho.\n\n🗓️ 03/05\n🕘 11h em ponto\n💻 Se puder, acesse pelo notebook ou computador para aproveitar melhor!",
+      "type": "chat",
+      "timestamp": 1780484590,
+      "createdAt": "2026-06-03T11:03:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511989651268": [
@@ -7950,6 +9023,161 @@
       "createdAt": "2026-06-02T13:44:01.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A521E4C574102894AEE7B83F8BECD2BC",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410678,
+      "createdAt": "2026-06-02T14:31:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A5BF8D4AB3EE503D47C0EB96BF3EE66C",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780416298,
+      "createdAt": "2026-06-02T16:04:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_164952547582011_lid_A5BF8D4AB3EE503D47C0EB96BF3EE66C_8b2d88b7.ogg",
+      "mediaSize": 24927,
+      "filename": "true_164952547582011@lid_A5BF8D4AB3EE503D47C0EB96BF3EE66C",
+      "originalName": "true_164952547582011@lid_A5BF8D4AB3EE503D47C0EB96BF3EE66C"
+    },
+    {
+      "id": "false_164952547582011@lid_3A50350512DD2FA202F2",
+      "fromMe": false,
+      "body": "Oi Cíntia, tudo bem?\nJá comentei sobre a imersão.\nMeu segmento é Eventos para casamento",
+      "type": "chat",
+      "timestamp": 1780431937,
+      "createdAt": "2026-06-02T20:25:37.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A5C73313FED9206DAA70200A3B2EB496",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780433419,
+      "createdAt": "2026-06-02T20:50:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_164952547582011_lid_A5C73313FED9206DAA70200A3B2EB496_0f3181ea.ogg",
+      "mediaSize": 85681,
+      "filename": "true_164952547582011@lid_A5C73313FED9206DAA70200A3B2EB496",
+      "originalName": "true_164952547582011@lid_A5C73313FED9206DAA70200A3B2EB496"
+    },
+    {
+      "id": "false_164952547582011@lid_3A1354E655E834CF7530",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780433536,
+      "createdAt": "2026-06-02T20:52:16.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_164952547582011_lid_3A1354E655E834CF7530_748cf693.ogg",
+      "mediaSize": 135693,
+      "filename": "false_164952547582011@lid_3A1354E655E834CF7530",
+      "originalName": "false_164952547582011@lid_3A1354E655E834CF7530"
+    },
+    {
+      "id": "false_164952547582011@lid_3ACAD22EBE69BF950EEC",
+      "fromMe": false,
+      "body": "false_164952547582011@lid_3ACAD22EBE69BF950EEC",
+      "type": "sticker",
+      "timestamp": 1780481566,
+      "createdAt": "2026-06-03T10:12:46.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/webp",
+      "mediaFile": "false_164952547582011_lid_3ACAD22EBE69BF950EEC_b72b56d2.webp",
+      "mediaSize": 36272,
+      "filename": "false_164952547582011@lid_3ACAD22EBE69BF950EEC",
+      "originalName": "false_164952547582011@lid_3ACAD22EBE69BF950EEC"
+    },
+    {
+      "id": "false_164952547582011@lid_3A081B21586E49896488",
+      "fromMe": false,
+      "body": "Oi Cíntia",
+      "type": "chat",
+      "timestamp": 1780481577,
+      "createdAt": "2026-06-03T10:12:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3AF984140F121F33C6B8",
+      "fromMe": false,
+      "body": "Tudo bem?",
+      "type": "chat",
+      "timestamp": 1780481582,
+      "createdAt": "2026-06-03T10:13:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3AEA925F7098CE60BA35",
+      "fromMe": false,
+      "body": "Então a mentoria marcada no dia 05 não acontecerá né ?",
+      "type": "chat",
+      "timestamp": 1780481620,
+      "createdAt": "2026-06-03T10:13:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_164952547582011@lid_3A5E7740CBC291135A36",
+      "fromMe": false,
+      "body": "A Ana irá marcar um outro dia?",
+      "type": "chat",
+      "timestamp": 1780481634,
+      "createdAt": "2026-06-03T10:13:54.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_164952547582011@lid_A506281C8B91D496D9EF00E425C51399",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780483956,
+      "createdAt": "2026-06-03T10:52:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_164952547582011_lid_A506281C8B91D496D9EF00E425C51399_9dfefcb9.ogg",
+      "mediaSize": 67819,
+      "filename": "true_164952547582011@lid_A506281C8B91D496D9EF00E425C51399",
+      "originalName": "true_164952547582011@lid_A506281C8B91D496D9EF00E425C51399"
+    },
+    {
+      "id": "false_164952547582011@lid_3A5EC3FEED9D0839A647",
+      "fromMe": false,
+      "body": "Ah tá ótimo. Obrigada 🙏🏻",
+      "type": "chat",
+      "timestamp": 1780484726,
+      "createdAt": "2026-06-03T11:05:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511960853857": [
@@ -8059,6 +9287,73 @@
       "createdAt": "2026-06-02T11:29:45.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_146716200304792@lid_A5B88D448FADC6D607D37F0ADC474C7C",
+      "fromMe": true,
+      "body": "Olá posso confirmar?",
+      "type": "chat",
+      "timestamp": 1780411224,
+      "createdAt": "2026-06-02T14:40:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_146716200304792@lid_A58FAC5791A254C091E9311236168B27",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780411581,
+      "createdAt": "2026-06-02T14:46:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_146716200304792@lid_A53B8C52071F62D23E4E08736C87499B",
+      "fromMe": false,
+      "body": "Pode",
+      "type": "chat",
+      "timestamp": 1780411919,
+      "createdAt": "2026-06-02T14:51:59.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_146716200304792@lid_A5027F64B4D43DBB81576F44E1581293",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780415994,
+      "createdAt": "2026-06-02T15:59:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_146716200304792_lid_A5027F64B4D43DBB81576F44E1581293_aca8eee5.ogg",
+      "mediaSize": 28910,
+      "filename": "true_146716200304792@lid_A5027F64B4D43DBB81576F44E1581293",
+      "originalName": "true_146716200304792@lid_A5027F64B4D43DBB81576F44E1581293"
+    },
+    {
+      "id": "false_146716200304792@lid_A53122C07F4CC489E96C3A3507DEA650",
+      "fromMe": false,
+      "body": "Ta bom",
+      "type": "chat",
+      "timestamp": 1780418132,
+      "createdAt": "2026-06-02T16:35:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_146716200304792@lid_A5E25205CD825E4BB77A3E05B7A5E87D",
+      "fromMe": true,
+      "body": "Olá boa tarde Thomas tudo bem? O Matheus pediu para perguntar se você pode adiantar sua reunião para as 16h",
+      "type": "chat",
+      "timestamp": 1780505412,
+      "createdAt": "2026-06-03T16:50:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511981486600": [
@@ -8158,6 +9453,133 @@
       "createdAt": "2026-06-02T01:07:09.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A58C82294374EDFB1FF8D672A1771ABD",
+      "fromMe": true,
+      "body": "Olá bom dia Alberto, obrigada por aguardar",
+      "type": "chat",
+      "timestamp": 1780409778,
+      "createdAt": "2026-06-02T14:16:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A53783ED54E6D5CC7087E3F616B5C3E4",
+      "fromMe": true,
+      "body": "Na sexta temos as 9h ou na parte da tarde as 14h 15h 16h 17h.\n\nIremos atender na quinta feriado, temos as 10h",
+      "type": "chat",
+      "timestamp": 1780409880,
+      "createdAt": "2026-06-02T14:18:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_143885732966424@lid_2A7C43CF275AD73F1263",
+      "fromMe": false,
+      "body": "Oi bom dia. Pode ser quinta às 10h",
+      "type": "chat",
+      "timestamp": 1780409983,
+      "createdAt": "2026-06-02T14:19:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A5D6252BF1E2C1593E097B916770AD0E",
+      "fromMe": true,
+      "body": "Perfeito, vou agendar aqui.",
+      "type": "chat",
+      "timestamp": 1780410095,
+      "createdAt": "2026-06-02T14:21:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A5A802AA2BCB7EB4DEA03E25CEFB6245",
+      "fromMe": true,
+      "body": "Por gentileza pode informar seu segmento e site se tiver",
+      "type": "chat",
+      "timestamp": 1780410110,
+      "createdAt": "2026-06-02T14:21:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A51BB9997B30DB528ADC0A8E84C2FED1",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780411094,
+      "createdAt": "2026-06-02T14:38:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_143885732966424@lid_2A855E1B7B8BD51A0D04",
+      "fromMe": false,
+      "body": "Sou Advogado especialista em Usucapião e Inventários. Eu falei com o Matheus que só faço “Google Meu Negócio” e com muito êxito. Ele ia me dar uma dica mas eu precisei ir embora.",
+      "type": "chat",
+      "timestamp": 1780411355,
+      "createdAt": "2026-06-02T14:42:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_143885732966424@lid_2A693D450087BC9D5AD3",
+      "fromMe": false,
+      "body": "https://albertocancissu.com.br/#top",
+      "type": "chat",
+      "timestamp": 1780411401,
+      "createdAt": "2026-06-02T14:43:21.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A52957845695F764465EE8EA3924FA48",
+      "fromMe": true,
+      "body": "Na reunião ele fala com você.",
+      "type": "chat",
+      "timestamp": 1780411499,
+      "createdAt": "2026-06-02T14:44:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_143885732966424@lid_2A5D85478F6FC7FFBEF1",
+      "fromMe": false,
+      "body": "Ah blz. Obrigado Cíntia. Agendado e até quinta-feira",
+      "type": "chat",
+      "timestamp": 1780411541,
+      "createdAt": "2026-06-02T14:45:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A533CA857A66D104852CCDF483CFB546",
+      "fromMe": true,
+      "body": "Eu que agradeço toda atenção e até quinta.",
+      "type": "chat",
+      "timestamp": 1780411568,
+      "createdAt": "2026-06-02T14:46:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_143885732966424@lid_A5D12D06FAD7DD15A54B6CA145105437",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780416044,
+      "createdAt": "2026-06-02T16:00:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_143885732966424_lid_A5D12D06FAD7DD15A54B6CA145105437_d80ca7df.ogg",
+      "mediaSize": 41835,
+      "filename": "true_143885732966424@lid_A5D12D06FAD7DD15A54B6CA145105437",
+      "originalName": "true_143885732966424@lid_A5D12D06FAD7DD15A54B6CA145105437"
     }
   ],
   "5511984571720": [
@@ -8227,6 +9649,53 @@
       "createdAt": "2026-06-01T20:27:51.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_11218555289662@lid_AC27E7DE18E88DF548C0DA3D8D79E804",
+      "fromMe": false,
+      "body": "Cintia,  boa tarde. Ainda aguardando o material prometido para as 14hrs. Alguma previsão?",
+      "type": "chat",
+      "timestamp": 1780427494,
+      "createdAt": "2026-06-02T19:11:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_11218555289662@lid_A56F2EEA152149A9A54DDB42BE225B75",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780427734,
+      "createdAt": "2026-06-02T19:15:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_11218555289662_lid_A56F2EEA152149A9A54DDB42BE225B75_ebd43e5a.ogg",
+      "mediaSize": 14071,
+      "filename": "true_11218555289662@lid_A56F2EEA152149A9A54DDB42BE225B75",
+      "originalName": "true_11218555289662@lid_A56F2EEA152149A9A54DDB42BE225B75"
+    },
+    {
+      "id": "true_11218555289662@lid_A5DBA71CD4D32554C15EB64C8D7180E1",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427750,
+      "createdAt": "2026-06-02T19:15:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_11218555289662@lid_AC0E472CFC066C294EFB62C021B27B16",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1780427829,
+      "createdAt": "2026-06-02T19:17:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511961391714": [
@@ -8625,6 +10094,114 @@
       "createdAt": "2026-06-02T13:37:18.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A59B241BA2872767384AE8E6C459A241",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410422,
+      "createdAt": "2026-06-02T14:27:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3A9140747BAF744503F3",
+      "fromMe": false,
+      "body": "To entrando",
+      "type": "chat",
+      "timestamp": 1780410759,
+      "createdAt": "2026-06-02T14:32:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5BF29C35867BB9C4C711D3282B04A5A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410820,
+      "createdAt": "2026-06-02T14:33:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_217368361971739_lid_A5BF29C35867BB9C4C711D3282B04A5A_628680c8.ogg",
+      "mediaSize": 4957,
+      "filename": "true_217368361971739@lid_A5BF29C35867BB9C4C711D3282B04A5A",
+      "originalName": "true_217368361971739@lid_A5BF29C35867BB9C4C711D3282B04A5A"
+    },
+    {
+      "id": "false_217368361971739@lid_3AFF052539496B7784FC",
+      "fromMe": false,
+      "body": "Boa tarde Cíntia",
+      "type": "chat",
+      "timestamp": 1780421264,
+      "createdAt": "2026-06-02T17:27:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_217368361971739@lid_3AED561A27D583B5FD8C",
+      "fromMe": false,
+      "body": "Não chegou o material",
+      "type": "chat",
+      "timestamp": 1780421288,
+      "createdAt": "2026-06-02T17:28:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_217368361971739@lid_A5BC4C731FECA835D6D9F9608CF9E100",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780421529,
+      "createdAt": "2026-06-02T17:32:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_217368361971739_lid_A5BC4C731FECA835D6D9F9608CF9E100_0a935b9d.ogg",
+      "mediaSize": 20968,
+      "filename": "true_217368361971739@lid_A5BC4C731FECA835D6D9F9608CF9E100",
+      "originalName": "true_217368361971739@lid_A5BC4C731FECA835D6D9F9608CF9E100"
+    },
+    {
+      "id": "false_217368361971739@lid_3A8C33EFE8466E5FF333",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780421996,
+      "createdAt": "2026-06-02T17:39:56.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_217368361971739_lid_3A8C33EFE8466E5FF333_b4195e64.ogg",
+      "mediaSize": 13008,
+      "filename": "false_217368361971739@lid_3A8C33EFE8466E5FF333",
+      "originalName": "false_217368361971739@lid_3A8C33EFE8466E5FF333"
+    },
+    {
+      "id": "true_217368361971739@lid_A521C4FE520AD9243D8621D6EF447742",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780422034,
+      "createdAt": "2026-06-02T17:40:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_217368361971739_lid_A521C4FE520AD9243D8621D6EF447742_fde4ad49.ogg",
+      "mediaSize": 47750,
+      "filename": "true_217368361971739@lid_A521C4FE520AD9243D8621D6EF447742",
+      "originalName": "true_217368361971739@lid_A521C4FE520AD9243D8621D6EF447742"
     }
   ],
   "5511964213501": [
@@ -8714,6 +10291,46 @@
       "createdAt": "2026-06-02T01:06:31.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_152123614441709@lid_A55743F2DC1C560A45322493679417EE",
+      "fromMe": true,
+      "body": "Bom dia Fernando, obrigada por aguardar",
+      "type": "chat",
+      "timestamp": 1780408402,
+      "createdAt": "2026-06-02T13:53:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_152123614441709@lid_A547A540341124186880B5716FA7685C",
+      "fromMe": true,
+      "body": "Dia 03 temos as 16h\n\nVamos atender na quinta feriado e no sábado também, ambos até às 13h.",
+      "type": "chat",
+      "timestamp": 1780408462,
+      "createdAt": "2026-06-02T13:54:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_152123614441709@lid_A52508BB497321AD8DB763A1E4D9CA42",
+      "fromMe": true,
+      "body": "Oieee pode ser às 14h30 dia 03/06?",
+      "type": "chat",
+      "timestamp": 1780421976,
+      "createdAt": "2026-06-02T17:39:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_152123614441709@lid_A51885A9BE1AC627DFA5C83E542D1885",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780421981,
+      "createdAt": "2026-06-02T17:39:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511986511320": [
@@ -8861,6 +10478,63 @@
       "createdAt": "2026-06-02T01:06:18.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_35991825973344@lid_A58C76867AB6D039F965A7EE0B5BFC7F",
+      "fromMe": true,
+      "body": "Bom dia Gabriel, obrigada por aguardar",
+      "type": "chat",
+      "timestamp": 1780408295,
+      "createdAt": "2026-06-02T13:51:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_35991825973344@lid_A5815E684F8F26B0D4704338C7A36422",
+      "fromMe": true,
+      "body": "Agendado, pode informar seu segmento e site por gentileza",
+      "type": "chat",
+      "timestamp": 1780408317,
+      "createdAt": "2026-06-02T13:51:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_35991825973344@lid_A5A4B739C3BF240A0C397B24B8D2771F",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410396,
+      "createdAt": "2026-06-02T14:26:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_35991825973344_lid_A5A4B739C3BF240A0C397B24B8D2771F_222c8069.ogg",
+      "mediaSize": 33233,
+      "filename": "true_35991825973344@lid_A5A4B739C3BF240A0C397B24B8D2771F",
+      "originalName": "true_35991825973344@lid_A5A4B739C3BF240A0C397B24B8D2771F"
+    },
+    {
+      "id": "true_35991825973344@lid_A5FCD73843429F2808F41FDD5A069416",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410399,
+      "createdAt": "2026-06-02T14:26:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_35991825973344@lid_AC0ABEC8FDC15A7DC403F9861895522D",
+      "fromMe": false,
+      "body": "Legal, quinta 11h",
+      "type": "chat",
+      "timestamp": 1780413246,
+      "createdAt": "2026-06-02T15:14:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511962594705": [
@@ -8979,6 +10653,26 @@
       "createdAt": "2026-06-01T20:25:53.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_125026514821347@lid_A5375228EC889DAEB56B9F055D9E7F41",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427919,
+      "createdAt": "2026-06-02T19:18:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_125026514821347@lid_3A14099A08E6EFB50600",
+      "fromMe": false,
+      "body": "Muito obrigado 🙏🏽",
+      "type": "chat",
+      "timestamp": 1780430749,
+      "createdAt": "2026-06-02T20:05:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511940151170": [
@@ -9046,6 +10740,16 @@
       "type": "chat",
       "timestamp": 1780345691,
       "createdAt": "2026-06-01T20:28:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_190026633748615@lid_A52F49C37FE48B6996A787909AA3D017",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427880,
+      "createdAt": "2026-06-02T19:18:00.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -9634,6 +11338,393 @@
       "createdAt": "2026-06-02T01:07:09.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5095C52EF9CB1CEEA602B514F31B899",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780409213,
+      "createdAt": "2026-06-02T14:06:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A5095C52EF9CB1CEEA602B514F31B899_c0d73425.ogg",
+      "mediaSize": 99105,
+      "filename": "true_151887374487733@lid_A5095C52EF9CB1CEEA602B514F31B899",
+      "originalName": "true_151887374487733@lid_A5095C52EF9CB1CEEA602B514F31B899"
+    },
+    {
+      "id": "true_151887374487733@lid_A57FEC3CEA4B81207619137707ABD301",
+      "fromMe": true,
+      "body": "Atendimento de segunda a sexta das 9h as 18h",
+      "type": "chat",
+      "timestamp": 1780409234,
+      "createdAt": "2026-06-02T14:07:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5A89539683A4AD53D4292A515BE7E14",
+      "fromMe": true,
+      "body": "Quinta feira feriado temos as 9h 10h 11h 12h ou as 13h",
+      "type": "chat",
+      "timestamp": 1780409285,
+      "createdAt": "2026-06-02T14:08:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC8ABF2B00EA33E048B954ED7871DFC8",
+      "fromMe": false,
+      "body": "Vou ver direitinho, pq no feriado estamos com compromisso.",
+      "type": "chat",
+      "timestamp": 1780409420,
+      "createdAt": "2026-06-02T14:10:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5BCC7563C3DF4B5AD4C16FD49DEA922",
+      "fromMe": true,
+      "body": "Entendo",
+      "type": "chat",
+      "timestamp": 1780409589,
+      "createdAt": "2026-06-02T14:13:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A56E6EE716C269C4158C489949B2FF11",
+      "fromMe": true,
+      "body": "Amanhã às 9h30?",
+      "type": "chat",
+      "timestamp": 1780409610,
+      "createdAt": "2026-06-02T14:13:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC804DFEA938DCCF5DA5B5B3CF7A7E32",
+      "fromMe": false,
+      "body": "Esse atendimento que vcs oferecem é  pra tirar  dúvidas?",
+      "type": "chat",
+      "timestamp": 1780409981,
+      "createdAt": "2026-06-02T14:19:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC0D33558306BAF5FF7AE9164AE7D6C4",
+      "fromMe": false,
+      "body": "Trabalham com algum produto?",
+      "type": "chat",
+      "timestamp": 1780410010,
+      "createdAt": "2026-06-02T14:20:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5D69549295940C44E7FE0E452BC6E43",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410160,
+      "createdAt": "2026-06-02T14:22:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A5D69549295940C44E7FE0E452BC6E43_a2ecbafe.ogg",
+      "mediaSize": 69420,
+      "filename": "true_151887374487733@lid_A5D69549295940C44E7FE0E452BC6E43",
+      "originalName": "true_151887374487733@lid_A5D69549295940C44E7FE0E452BC6E43"
+    },
+    {
+      "id": "true_151887374487733@lid_A56C1463E49C448D3442FFE05B1E6CEF",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410196,
+      "createdAt": "2026-06-02T14:23:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A56C1463E49C448D3442FFE05B1E6CEF_a3233705.ogg",
+      "mediaSize": 64739,
+      "filename": "true_151887374487733@lid_A56C1463E49C448D3442FFE05B1E6CEF",
+      "originalName": "true_151887374487733@lid_A56C1463E49C448D3442FFE05B1E6CEF"
+    },
+    {
+      "id": "false_151887374487733@lid_AC5BCB1798C55A963857E6D3CA30CCF8",
+      "fromMe": false,
+      "body": "Ok.",
+      "type": "chat",
+      "timestamp": 1780410665,
+      "createdAt": "2026-06-02T14:31:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5B8742FF5E3215281AC02C2601FE1BA",
+      "fromMe": true,
+      "body": "Vamos agendar",
+      "type": "chat",
+      "timestamp": 1780411073,
+      "createdAt": "2026-06-02T14:37:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC3BEE91EC9B5B402C0D6CA0C1029F24",
+      "fromMe": false,
+      "body": "Sim. 9hrs na quinta",
+      "type": "chat",
+      "timestamp": 1780421568,
+      "createdAt": "2026-06-02T17:32:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5FFCDF90EA9627CD633CB1A4E93CCCF",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780421756,
+      "createdAt": "2026-06-02T17:35:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A5FFCDF90EA9627CD633CB1A4E93CCCF_07bf6a59.ogg",
+      "mediaSize": 28715,
+      "filename": "true_151887374487733@lid_A5FFCDF90EA9627CD633CB1A4E93CCCF",
+      "originalName": "true_151887374487733@lid_A5FFCDF90EA9627CD633CB1A4E93CCCF"
+    },
+    {
+      "id": "true_151887374487733@lid_A5F4E2366F9C13A53D267FC9665EE6E5",
+      "fromMe": true,
+      "body": "Pode informar seu segmento e site por gentileza",
+      "type": "chat",
+      "timestamp": 1780421775,
+      "createdAt": "2026-06-02T17:36:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5C4FE175F33D7244507F9F2C669E75C",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780421871,
+      "createdAt": "2026-06-02T17:37:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC585F33CFBDBCD20233DD15CE512CE4",
+      "fromMe": false,
+      "body": "Moda feminina. Esse é  o problema. Nao tenho site. Ele puxou super a orelha ontem. Eu estava fechando com um, mas depois de ontem fiquei na duvida. Por isso queria fazer  a reunião.",
+      "type": "chat",
+      "timestamp": 1780421970,
+      "createdAt": "2026-06-02T17:39:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A50F3DA9785824FB55E51FB0E932FCB5",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780422076,
+      "createdAt": "2026-06-02T17:41:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A50F3DA9785824FB55E51FB0E932FCB5_37884276.ogg",
+      "mediaSize": 44532,
+      "filename": "true_151887374487733@lid_A50F3DA9785824FB55E51FB0E932FCB5",
+      "originalName": "true_151887374487733@lid_A50F3DA9785824FB55E51FB0E932FCB5"
+    },
+    {
+      "id": "false_151887374487733@lid_AC61838D9C691488D9FB763402862F21",
+      "fromMe": false,
+      "body": "Isso. Pq acredito que vamos tirar as dívidas juntos.",
+      "type": "chat",
+      "timestamp": 1780423564,
+      "createdAt": "2026-06-02T18:06:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC05F9A2646F34538E2F84EC3B54CCEC",
+      "fromMe": false,
+      "body": "É  nesse mesmo que devo comentar ? Esse nao foi o de Alphaville né? É  nesse mesmo?",
+      "type": "chat",
+      "timestamp": 1780423687,
+      "createdAt": "2026-06-02T18:08:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_151887374487733@lid_ACF627687040ACEEE60A7B4E3A52CC3C",
+      "fromMe": false,
+      "body": "Comentario no video",
+      "type": "image",
+      "timestamp": 1780424017,
+      "createdAt": "2026-06-02T18:13:37.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_151887374487733_lid_ACF627687040ACEEE60A7B4E3A52CC3C_65b676df.jpg",
+      "mediaSize": 115525,
+      "filename": "false_151887374487733@lid_ACF627687040ACEEE60A7B4E3A52CC3C",
+      "originalName": "false_151887374487733@lid_ACF627687040ACEEE60A7B4E3A52CC3C"
+    },
+    {
+      "id": "true_151887374487733@lid_A5950C6DE7CEEE0561AED3FE6EE391A0",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780424079,
+      "createdAt": "2026-06-02T18:14:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A5950C6DE7CEEE0561AED3FE6EE391A0_b23cff1e.ogg",
+      "mediaSize": 9458,
+      "filename": "true_151887374487733@lid_A5950C6DE7CEEE0561AED3FE6EE391A0",
+      "originalName": "true_151887374487733@lid_A5950C6DE7CEEE0561AED3FE6EE391A0"
+    },
+    {
+      "id": "true_151887374487733@lid_A5DC3AAF1B81392BC96C0218C590365B",
+      "fromMe": true,
+      "body": "O de Alphaville é o último link",
+      "type": "chat",
+      "timestamp": 1780424257,
+      "createdAt": "2026-06-02T18:17:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC730C97CAD0EDB22DECB5D94233808A",
+      "fromMe": false,
+      "body": "false_151887374487733@lid_AC730C97CAD0EDB22DECB5D94233808A",
+      "type": "image",
+      "timestamp": 1780424314,
+      "createdAt": "2026-06-02T18:18:34.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_151887374487733_lid_AC730C97CAD0EDB22DECB5D94233808A_f266474d.jpg",
+      "mediaSize": 126749,
+      "filename": "false_151887374487733@lid_AC730C97CAD0EDB22DECB5D94233808A",
+      "originalName": "false_151887374487733@lid_AC730C97CAD0EDB22DECB5D94233808A"
+    },
+    {
+      "id": "false_151887374487733@lid_ACDB6EE51928FBC1BAB4E9D617BCBFF3",
+      "fromMe": false,
+      "body": "Mandei nos dois. Rs",
+      "type": "chat",
+      "timestamp": 1780424322,
+      "createdAt": "2026-06-02T18:18:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A5868F666F237727C9970D2CE21B0162",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780424366,
+      "createdAt": "2026-06-02T18:19:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A5868F666F237727C9970D2CE21B0162_9f7caf60.ogg",
+      "mediaSize": 8757,
+      "filename": "true_151887374487733@lid_A5868F666F237727C9970D2CE21B0162",
+      "originalName": "true_151887374487733@lid_A5868F666F237727C9970D2CE21B0162"
+    },
+    {
+      "id": "false_151887374487733@lid_AC6A3D52535EB8F67D741197E5D6E407",
+      "fromMe": false,
+      "body": "Mas deixa eu te falar: o cara é  bom!!!!!! Me deu uma visão  em 4 horas que há  muito tempo eu buscava. Não  sou expert em tecnologia, ate por isso levei meu marido pra me acompanhar. Mas a dinâmica dele fica fácil  de entender, até pra quem é  leigo.",
+      "type": "chat",
+      "timestamp": 1780424487,
+      "createdAt": "2026-06-02T18:21:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A50652FE559F3DC4BB72E56C4A4293EA",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780424784,
+      "createdAt": "2026-06-02T18:26:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A50652FE559F3DC4BB72E56C4A4293EA_d66261fa.ogg",
+      "mediaSize": 37828,
+      "filename": "true_151887374487733@lid_A50652FE559F3DC4BB72E56C4A4293EA",
+      "originalName": "true_151887374487733@lid_A50652FE559F3DC4BB72E56C4A4293EA"
+    },
+    {
+      "id": "false_151887374487733@lid_AC7CE9EFDDD484D958C10BDD2C2CD223",
+      "fromMe": false,
+      "body": "Claro.",
+      "type": "chat",
+      "timestamp": 1780425465,
+      "createdAt": "2026-06-02T18:37:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_151887374487733@lid_AC0A43420CE7B974CDF4D08E3173612F",
+      "fromMe": false,
+      "body": "Ficou faltando um acento no até.  Rs. Desculpa",
+      "type": "chat",
+      "timestamp": 1780425509,
+      "createdAt": "2026-06-02T18:38:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_151887374487733@lid_A586CBF44C7E1D9C9798D9505C1D5FB7",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780425562,
+      "createdAt": "2026-06-02T18:39:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_151887374487733_lid_A586CBF44C7E1D9C9798D9505C1D5FB7_d5c47757.ogg",
+      "mediaSize": 23495,
+      "filename": "true_151887374487733@lid_A586CBF44C7E1D9C9798D9505C1D5FB7",
+      "originalName": "true_151887374487733@lid_A586CBF44C7E1D9C9798D9505C1D5FB7"
     }
   ],
   "5511959085678": [
@@ -9701,6 +11792,16 @@
       "type": "chat",
       "timestamp": 1780345703,
       "createdAt": "2026-06-01T20:28:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_121024377024548@lid_A5D3028F7F8921A3A3EB83BFB049865C",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427876,
+      "createdAt": "2026-06-02T19:17:56.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -10047,6 +12148,33 @@
       "createdAt": "2026-06-02T13:32:34.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_127358816239690@lid_A53A005D18941C20E210B4F37EEE9920",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780410447,
+      "createdAt": "2026-06-02T14:27:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_127358816239690_lid_A53A005D18941C20E210B4F37EEE9920_3ce5bc70.ogg",
+      "mediaSize": 39233,
+      "filename": "true_127358816239690@lid_A53A005D18941C20E210B4F37EEE9920",
+      "originalName": "true_127358816239690@lid_A53A005D18941C20E210B4F37EEE9920"
+    },
+    {
+      "id": "true_127358816239690@lid_A5175DC45B24D334530E5BC8EEC8DF31",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780410449,
+      "createdAt": "2026-06-02T14:27:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5514981523286": [
@@ -10156,6 +12284,60 @@
       "createdAt": "2026-06-02T01:07:24.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_182501951668277@lid_A5D7FEB8288928B387D2090C3148DD3E",
+      "fromMe": true,
+      "body": "Olá bom dia Matheus tudo bem?",
+      "type": "chat",
+      "timestamp": 1780412118,
+      "createdAt": "2026-06-02T14:55:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951668277@lid_A52B9F75CBB757ADA9DD94CFC29AFEA5",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780412136,
+      "createdAt": "2026-06-02T14:55:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951668277@lid_A5408DDD1BD56F57DA21193DF02A111A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780415902,
+      "createdAt": "2026-06-02T15:58:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_182501951668277_lid_A5408DDD1BD56F57DA21193DF02A111A_12884e70.ogg",
+      "mediaSize": 30670,
+      "filename": "true_182501951668277@lid_A5408DDD1BD56F57DA21193DF02A111A",
+      "originalName": "true_182501951668277@lid_A5408DDD1BD56F57DA21193DF02A111A"
+    },
+    {
+      "id": "true_182501951668277@lid_A5D129280338F276B868B9A9C2C2B56B",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780415931,
+      "createdAt": "2026-06-02T15:58:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_182501951668277_lid_A5D129280338F276B868B9A9C2C2B56B_cd370f28.ogg",
+      "mediaSize": 26050,
+      "filename": "true_182501951668277@lid_A5D129280338F276B868B9A9C2C2B56B",
+      "originalName": "true_182501951668277@lid_A5D129280338F276B868B9A9C2C2B56B"
     }
   ],
   "5511966138069": [
@@ -10401,6 +12583,95 @@
       "mediaSize": 11715,
       "filename": "true_192281441259685@lid_A5B415F9C8F88DDA06A0EFFE0F46EA3D",
       "originalName": "true_192281441259685@lid_A5B415F9C8F88DDA06A0EFFE0F46EA3D"
+    },
+    {
+      "id": "true_192281441259685@lid_A5EAA885C305E1A3C2E4088668C96874",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Alphaville ontem!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/p/DY455DQEYSu/?igsh=Njgza3hpb3dnYzR5\n\nPode comentar o que você achou da Imersão no comentário do vídeo que o Matheus postou?\nhttps://www.instagram.com/reel/DZFD_pyOS2_/?igsh=MW1uZnphYWR4eTNkbQ==\n\nEle vai enviar os prompt de reputação mais tarde 🙏",
+      "type": "chat",
+      "timestamp": 1780427927,
+      "createdAt": "2026-06-02T19:18:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_192281441259685@lid_2AC37F144F03A03D91B8",
+      "fromMe": false,
+      "body": "Boa tarde!",
+      "type": "chat",
+      "timestamp": 1780428361,
+      "createdAt": "2026-06-02T19:26:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_192281441259685@lid_2A5FF6D1D4F755EE8A11",
+      "fromMe": false,
+      "body": "Eu vou fazer parte do grupo?",
+      "type": "chat",
+      "timestamp": 1780428368,
+      "createdAt": "2026-06-02T19:26:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_192281441259685@lid_2A573FE46CBD0D490D47",
+      "fromMe": false,
+      "body": "Gravei vídeo",
+      "type": "chat",
+      "timestamp": 1780428375,
+      "createdAt": "2026-06-02T19:26:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_192281441259685@lid_A5C90154581D61790C5823F7163418B9",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780429168,
+      "createdAt": "2026-06-02T19:39:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_192281441259685_lid_A5C90154581D61790C5823F7163418B9_879ea827.ogg",
+      "mediaSize": 46629,
+      "filename": "true_192281441259685@lid_A5C90154581D61790C5823F7163418B9",
+      "originalName": "true_192281441259685@lid_A5C90154581D61790C5823F7163418B9"
+    }
+  ],
+  "5511950810210": [
+    {
+      "id": "true_269191437353032@lid_3EB0EB07DF409F56464C26",
+      "fromMe": true,
+      "body": "Olá MARCELO MELLO MARTINS ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição MARCELO MELLO MARTINS ?",
+      "type": "chat",
+      "timestamp": 1780506786,
+      "createdAt": "2026-06-03T17:13:06.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_269191437353032@lid_A5220A02662C5BA15754C754BB9D9B1C",
+      "fromMe": false,
+      "body": "‎M3 Informática e Nobreaks agradece seu contato. Em que podemos ajudar? Deixe seu recado que logo retornaremos.\nObrigado",
+      "type": "chat",
+      "timestamp": 1780506790,
+      "createdAt": "2026-06-03T17:13:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_269191437353032@lid_3EB0177E2A3CFE6017A0C0",
+      "fromMe": false,
+      "body": "tem 1 cupon de deconto?",
+      "type": "chat",
+      "timestamp": 1780506927,
+      "createdAt": "2026-06-03T17:15:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ]
 }
