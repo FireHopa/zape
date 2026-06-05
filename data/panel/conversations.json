@@ -173,6 +173,186 @@
       "createdAt": "2026-06-03T13:55:27.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_189000069451782@lid_3EB0DEC1C91936FD5D27C4",
+      "fromMe": true,
+      "body": "true_189000069451782@lid_3EB0DEC1C91936FD5D27C4",
+      "type": "image",
+      "timestamp": 1780579337,
+      "createdAt": "2026-06-04T13:22:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_189000069451782_lid_3EB0DEC1C91936FD5D27C4_efed9dfc.jpg",
+      "mediaSize": 59713,
+      "filename": "true_189000069451782@lid_3EB0DEC1C91936FD5D27C4",
+      "originalName": "true_189000069451782@lid_3EB0DEC1C91936FD5D27C4"
+    },
+    {
+      "id": "false_189000069451782@lid_ACB350A9977CFC027E3ABA8C1288A134",
+      "fromMe": false,
+      "body": "+55 13 99731-1323",
+      "type": "chat",
+      "timestamp": 1780598894,
+      "createdAt": "2026-06-04T18:48:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_189000069451782@lid_AC8882584BA6EAD5DE409A1B16299E43",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_AC8882584BA6EAD5DE409A1B16299E43",
+      "type": "image",
+      "timestamp": 1780600797,
+      "createdAt": "2026-06-04T19:19:57.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_AC8882584BA6EAD5DE409A1B16299E43_681b6921.jpg",
+      "mediaSize": 110429,
+      "filename": "false_189000069451782@lid_AC8882584BA6EAD5DE409A1B16299E43",
+      "originalName": "false_189000069451782@lid_AC8882584BA6EAD5DE409A1B16299E43"
+    },
+    {
+      "id": "false_189000069451782@lid_ACC18E0A34E58059D887F68A78DE60AA",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_ACC18E0A34E58059D887F68A78DE60AA",
+      "type": "image",
+      "timestamp": 1780600858,
+      "createdAt": "2026-06-04T19:20:58.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_ACC18E0A34E58059D887F68A78DE60AA_16deef1d.jpg",
+      "mediaSize": 260525,
+      "filename": "false_189000069451782@lid_ACC18E0A34E58059D887F68A78DE60AA",
+      "originalName": "false_189000069451782@lid_ACC18E0A34E58059D887F68A78DE60AA"
+    },
+    {
+      "id": "false_189000069451782@lid_AC5D670DF66711BCC7549C2DAEC58D94",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_AC5D670DF66711BCC7549C2DAEC58D94",
+      "type": "image",
+      "timestamp": 1780600904,
+      "createdAt": "2026-06-04T19:21:44.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_AC5D670DF66711BCC7549C2DAEC58D94_6decabe2.jpg",
+      "mediaSize": 82947,
+      "filename": "false_189000069451782@lid_AC5D670DF66711BCC7549C2DAEC58D94",
+      "originalName": "false_189000069451782@lid_AC5D670DF66711BCC7549C2DAEC58D94"
+    },
+    {
+      "id": "false_189000069451782@lid_ACC1AED45A7B122A0FBA3165CACB4FF7",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_ACC1AED45A7B122A0FBA3165CACB4FF7",
+      "type": "image",
+      "timestamp": 1780600940,
+      "createdAt": "2026-06-04T19:22:20.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_ACC1AED45A7B122A0FBA3165CACB4FF7_992bceed.jpg",
+      "mediaSize": 103795,
+      "filename": "false_189000069451782@lid_ACC1AED45A7B122A0FBA3165CACB4FF7",
+      "originalName": "false_189000069451782@lid_ACC1AED45A7B122A0FBA3165CACB4FF7"
+    },
+    {
+      "id": "false_189000069451782@lid_AC5417F1F3AF2326257A68081DFF245F",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_AC5417F1F3AF2326257A68081DFF245F",
+      "type": "image",
+      "timestamp": 1780601045,
+      "createdAt": "2026-06-04T19:24:05.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_AC5417F1F3AF2326257A68081DFF245F_c0c9917a.jpg",
+      "mediaSize": 84684,
+      "filename": "false_189000069451782@lid_AC5417F1F3AF2326257A68081DFF245F",
+      "originalName": "false_189000069451782@lid_AC5417F1F3AF2326257A68081DFF245F"
+    },
+    {
+      "id": "false_189000069451782@lid_AC85F89738B2F2EF0435E74CA158F4E6",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_AC85F89738B2F2EF0435E74CA158F4E6",
+      "type": "image",
+      "timestamp": 1780601200,
+      "createdAt": "2026-06-04T19:26:40.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_AC85F89738B2F2EF0435E74CA158F4E6_54990e7d.jpg",
+      "mediaSize": 539873,
+      "filename": "false_189000069451782@lid_AC85F89738B2F2EF0435E74CA158F4E6",
+      "originalName": "false_189000069451782@lid_AC85F89738B2F2EF0435E74CA158F4E6"
+    },
+    {
+      "id": "false_189000069451782@lid_ACA0D5FEE4B3B76B52C63E937FE2E7B3",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_ACA0D5FEE4B3B76B52C63E937FE2E7B3",
+      "type": "image",
+      "timestamp": 1780601778,
+      "createdAt": "2026-06-04T19:36:18.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_ACA0D5FEE4B3B76B52C63E937FE2E7B3_fee8aef5.jpg",
+      "mediaSize": 224749,
+      "filename": "false_189000069451782@lid_ACA0D5FEE4B3B76B52C63E937FE2E7B3",
+      "originalName": "false_189000069451782@lid_ACA0D5FEE4B3B76B52C63E937FE2E7B3"
+    },
+    {
+      "id": "false_189000069451782@lid_ACF0BCB4C4ACB356C8A1F62D6BF5F19E",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_ACF0BCB4C4ACB356C8A1F62D6BF5F19E",
+      "type": "image",
+      "timestamp": 1780602222,
+      "createdAt": "2026-06-04T19:43:42.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_189000069451782_lid_ACF0BCB4C4ACB356C8A1F62D6BF5F19E_57f58a5b.jpg",
+      "mediaSize": 92632,
+      "filename": "false_189000069451782@lid_ACF0BCB4C4ACB356C8A1F62D6BF5F19E",
+      "originalName": "false_189000069451782@lid_ACF0BCB4C4ACB356C8A1F62D6BF5F19E"
+    },
+    {
+      "id": "false_189000069451782@lid_ACC74B0736A84651EC85A89D813747C3",
+      "fromMe": false,
+      "body": "false_189000069451782@lid_ACC74B0736A84651EC85A89D813747C3",
+      "type": "video",
+      "timestamp": 1780617821,
+      "createdAt": "2026-06-05T00:03:41.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "video",
+      "mediaMime": "video/mp4",
+      "mediaFile": "false_189000069451782_lid_ACC74B0736A84651EC85A89D813747C3_a0bd0a51.mp4",
+      "mediaSize": 8952026,
+      "filename": "false_189000069451782@lid_ACC74B0736A84651EC85A89D813747C3",
+      "originalName": "false_189000069451782@lid_ACC74B0736A84651EC85A89D813747C3"
     }
   ],
   "5511976202000": [
@@ -255,6 +435,33 @@
       "createdAt": "2026-05-28T19:48:12.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_56010718875754@lid_3EB0FD8F68EF506395EC22",
+      "fromMe": true,
+      "body": "Boa tardeee Dandrea! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780508094,
+      "createdAt": "2026-06-03T17:34:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_56010718875754@lid_3EB016ABADFA854F5420F9",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780508115,
+      "createdAt": "2026-06-03T17:35:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_56010718875754_lid_3EB016ABADFA854F5420F9_9ab0f9f9.ogg",
+      "mediaSize": 13575,
+      "filename": "true_56010718875754@lid_3EB016ABADFA854F5420F9",
+      "originalName": "true_56010718875754@lid_3EB016ABADFA854F5420F9"
     }
   ],
   "5511975053300": [
@@ -651,6 +858,46 @@
       "createdAt": "2026-06-02T16:20:27.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB055001991D3BE5CE16A",
+      "fromMe": true,
+      "body": "Genilde nunes\t11982100307\nJOSE HENRIQUE CARDOSO DA SILVA\t11960222231\nRoberto\t11953632000\nAlessandra Barbierato\t11999977732\nRODRIGO MILANESI CASTANHEIRA DE SOUZA\t11961813111\nJuliana Tiemi Matsunaga\t11985889265\nCintia\t11997752425\nIgor Forti\t11953281359\nJonas Ferreira\t11969052090\nMichele\t5511958026210\nEdilson Teodósio\t11973596671\nValdivio\t11999305242\nFABIO PAVAN\t11999899032\nCarlos\t11951769404\nNataly Meira\t79991522221\nCristiane\t11982443808\nEduardo Mourao\t5511995999703\nRodrigo Tadeu Alves Reina\t11975902030\nRichard Crívelari\t11984446333\nJosé Alancezar Almino Alencar\t11 968358615\nAlindaiane Silva\t11 95139-6506\nMaria Rita de Jesus de Freitas da mata\t5535998046546\nIsrael Custódio Costa\t11987583565\nFernando Schmidt Ely\t5551992412186\nMallu\t11971017075\nJocelia\t11 99469-7752\nDaniel Garrido Garozzo\t11987300096\nVictor Jacó\t71981412211\nJorge Fernandes\t5511996771968\nNathalie\t447473861696",
+      "type": "chat",
+      "timestamp": 1780662550,
+      "createdAt": "2026-06-05T12:29:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB08459E1062A342C6D62",
+      "fromMe": true,
+      "body": "Genilde nunes\t11982100307\nRoberto\t11953632000\nCintia\t11997752425\nIgor Forti\t11953281359\nJonas Ferreira\t11969052090\nMichele\t5511958026210\nEdilson Teodósio\t11973596671\nValdivio\t11999305242\nFABIO PAVAN\t11999899032\nCarlos\t11951769404\nNataly Meira\t79991522221\nCristiane\t11982443808\nEduardo Mourao\t5511995999703\nRodrigo Tadeu Alves Reina\t11975902030\nJosé Alancezar Almino Alencar\t11 968358615\nAlindaiane Silva\t11 95139-6506\nMaria Rita de Jesus de Freitas da mata\t5535998046546\nMallu\t11971017075\nJocelia\t11 99469-7752\nVictor Jacó\t71981412211\nJorge Fernandes\t5511996771968\nNathalie\t447473861696\nDanielle Raymund\t11993638757\nNeuza\t11992397443\nCarlos Henrique Martins dos Santos Carvalho\t11992582827\nGislaine Cristina\t11951758430\nJanete Aparecida Paoleschi\t11-957902653\nKAROLINE de Macedo\t11948516231\nJames Dean Gomes\t11993494901\nArtur\t5511983395246",
+      "type": "chat",
+      "timestamp": 1780664293,
+      "createdAt": "2026-06-05T12:58:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0CD3D8A715124CC64D7",
+      "fromMe": true,
+      "body": "Bom dia! Passando para avisar que 70% das vagas disponíveis para a Imersão na Paulista já esgotaram...\n\nEssa será uma *oportunidade* de aprender as atualizações do *Google Ads com IA* e saber como *aparecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780666409,
+      "createdAt": "2026-06-05T13:33:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227753609683102@lid_3EB01830414DC33E425F2B",
+      "fromMe": false,
+      "body": "aihttps://docs.google.com/document/d/1ARE46r8Ddg4Wzg-p_4eHma5k6P4Pu8KSx67GkmdrSQM/edit?usp=sharing",
+      "type": "chat",
+      "timestamp": 1780666483,
+      "createdAt": "2026-06-05T13:34:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511976472073": [
@@ -829,6 +1076,56 @@
       "createdAt": "2026-06-02T17:28:48.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_162929701818541@lid_3EB04F47A94EBB0067709C",
+      "fromMe": true,
+      "body": "Bom diaaa Irene, como vai?",
+      "type": "chat",
+      "timestamp": 1780655219,
+      "createdAt": "2026-06-05T10:26:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_162929701818541@lid_3EB0A50507929921FE19BB",
+      "fromMe": true,
+      "body": "Passando para confirmar o atendimento com o Matheus Bottaro hoje as 15h30, ok.",
+      "type": "chat",
+      "timestamp": 1780655245,
+      "createdAt": "2026-06-05T10:27:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_162929701818541@lid_ACDEDBDE6615B36E3A7C7D00B3ECD507",
+      "fromMe": false,
+      "body": "Confirmado.",
+      "type": "chat",
+      "timestamp": 1780665533,
+      "createdAt": "2026-06-05T13:18:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_162929701818541@lid_3EB01F1128CD919EDA70E7",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nSexta-feira, 5 de junho · 3:30 – 4:30pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/kug-otqq-xhf\nOu disque: ‪(BR) +55 19 4560-9916‬ PIN: ‪383 021 174‬#\nOutros números de telefone: https://tel.meet/kug-otqq-xhf?pin=4187842910651",
+      "type": "chat",
+      "timestamp": 1780665877,
+      "createdAt": "2026-06-05T13:24:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_162929701818541@lid_3EB0ECB42375754815901F",
+      "fromMe": true,
+      "body": "O Matheus e o Roberto, estarão aguardando no link.",
+      "type": "chat",
+      "timestamp": 1780665894,
+      "createdAt": "2026-06-05T13:24:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511988517447": [
@@ -841,6 +1138,33 @@
       "createdAt": "2026-05-28T01:53:51.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_276458538844167@lid_3EB0AF39F21E26A10287DE",
+      "fromMe": true,
+      "body": "Boa tardeee Pedro! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780508219,
+      "createdAt": "2026-06-03T17:36:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_276458538844167@lid_3EB08E7EDDA74EC050A07F",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780508232,
+      "createdAt": "2026-06-03T17:37:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_276458538844167_lid_3EB08E7EDDA74EC050A07F_ac32fc03.ogg",
+      "mediaSize": 13844,
+      "filename": "true_276458538844167@lid_3EB08E7EDDA74EC050A07F",
+      "originalName": "true_276458538844167@lid_3EB08E7EDDA74EC050A07F"
     }
   ],
   "5511983220201": [
@@ -877,6 +1201,70 @@
       "createdAt": "2026-05-28T11:12:49.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_21990970777836@lid_3EB0FA92CEEBC8D9C5C489",
+      "fromMe": true,
+      "body": "Olá Gregoria! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780508268,
+      "createdAt": "2026-06-03T17:37:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_21990970777836@lid_3EB0EA4C9B0CCB6767F981",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780508281,
+      "createdAt": "2026-06-03T17:38:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_21990970777836_lid_3EB0EA4C9B0CCB6767F981_a5372638.ogg",
+      "mediaSize": 16616,
+      "filename": "true_21990970777836@lid_3EB0EA4C9B0CCB6767F981",
+      "originalName": "true_21990970777836@lid_3EB0EA4C9B0CCB6767F981"
+    },
+    {
+      "id": "false_21990970777836@lid_ACF35AEC0CBD3292FC0B28B821798E5A",
+      "fromMe": false,
+      "body": "Oi",
+      "type": "chat",
+      "timestamp": 1780529217,
+      "createdAt": "2026-06-03T23:26:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21990970777836@lid_ACC6B5F1AD05147EEE2E5CBCAC466461",
+      "fromMe": false,
+      "body": "Boa noite",
+      "type": "chat",
+      "timestamp": 1780529221,
+      "createdAt": "2026-06-03T23:27:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21990970777836@lid_AC87BF2152395FADAC5EAD1755467343",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780529262,
+      "createdAt": "2026-06-03T23:27:42.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_21990970777836_lid_AC87BF2152395FADAC5EAD1755467343_69f7894e.ogg",
+      "mediaSize": 69836,
+      "filename": "false_21990970777836@lid_AC87BF2152395FADAC5EAD1755467343",
+      "originalName": "false_21990970777836@lid_AC87BF2152395FADAC5EAD1755467343"
     }
   ],
   "5511963442253": [
@@ -1037,6 +1425,33 @@
       "mediaFile": "true_274247201071299_lid_3EB05610F39BA66A900112.ogg",
       "mediaSize": 14879,
       "filename": "true_274247201071299_lid_3EB05610F39BA66A900112.ogg"
+    },
+    {
+      "id": "true_274247201071299@lid_3EB05D58EC89B20997ACA8",
+      "fromMe": true,
+      "body": "Boa tardeee Pedro! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780508305,
+      "createdAt": "2026-06-03T17:38:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_274247201071299@lid_3EB06B12363265D13F302B",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780508314,
+      "createdAt": "2026-06-03T17:38:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_274247201071299_lid_3EB06B12363265D13F302B_f397b26e.ogg",
+      "mediaSize": 12866,
+      "filename": "true_274247201071299@lid_3EB06B12363265D13F302B",
+      "originalName": "true_274247201071299@lid_3EB06B12363265D13F302B"
     }
   ],
   "5511963831649": [
@@ -1073,6 +1488,33 @@
       "createdAt": "2026-05-28T14:56:32.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_4553034489968@lid_3EB0E4E0DF06BFEEB109ED",
+      "fromMe": true,
+      "body": "Olá Alexandra! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780508341,
+      "createdAt": "2026-06-03T17:39:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_4553034489968@lid_3EB03BFD972ACA27B6E678",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780508978,
+      "createdAt": "2026-06-03T17:49:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_4553034489968_lid_3EB03BFD972ACA27B6E678_494a54f3.ogg",
+      "mediaSize": 14531,
+      "filename": "true_4553034489968@lid_3EB03BFD972ACA27B6E678",
+      "originalName": "true_4553034489968@lid_3EB03BFD972ACA27B6E678"
     }
   ],
   "5511991914828": [
@@ -1285,6 +1727,33 @@
       "createdAt": "2026-05-28T19:47:53.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_120083192008843@lid_3EB042FC87762472FC2B44",
+      "fromMe": true,
+      "body": "Boa tardeee Tamiris! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780508067,
+      "createdAt": "2026-06-03T17:34:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_120083192008843@lid_3EB02B14AD38C5DC8C73CB",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780508077,
+      "createdAt": "2026-06-03T17:34:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_120083192008843_lid_3EB02B14AD38C5DC8C73CB_4dbcb1ab.ogg",
+      "mediaSize": 12305,
+      "filename": "true_120083192008843@lid_3EB02B14AD38C5DC8C73CB",
+      "originalName": "true_120083192008843@lid_3EB02B14AD38C5DC8C73CB"
     }
   ],
   "5511988571774": [
@@ -1327,6 +1796,16 @@
       "createdAt": "2026-05-29T10:55:25.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_155198710411474@lid_3EB0D4E3D0DE39E4C32E97",
+      "fromMe": true,
+      "body": "Boa tardeee Gilson! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780508173,
+      "createdAt": "2026-06-03T17:36:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511947947044": [
@@ -1337,6 +1816,16 @@
       "type": "chat",
       "timestamp": 1779997717,
       "createdAt": "2026-05-28T19:48:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_13095489515630@lid_3EB0D6A711D01000F02EA3",
+      "fromMe": true,
+      "body": "Boa tardeee Marcelo! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780508188,
+      "createdAt": "2026-06-03T17:36:28.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -1435,6 +1924,70 @@
       "createdAt": "2026-05-29T02:07:56.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_102989155029000@lid_3EB0627A655FC7737111A5",
+      "fromMe": true,
+      "body": "Olá Livia! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780508995,
+      "createdAt": "2026-06-03T17:49:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_102989155029000@lid_3EB0FB4438CE299C57887A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780509006,
+      "createdAt": "2026-06-03T17:50:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_102989155029000_lid_3EB0FB4438CE299C57887A_ad64eb4c.ogg",
+      "mediaSize": 15468,
+      "filename": "true_102989155029000@lid_3EB0FB4438CE299C57887A",
+      "originalName": "true_102989155029000@lid_3EB0FB4438CE299C57887A"
+    },
+    {
+      "id": "false_102989155029000@lid_3ADA5421E329C961BCEA",
+      "fromMe": false,
+      "body": "Sim já fazemos",
+      "type": "chat",
+      "timestamp": 1780509355,
+      "createdAt": "2026-06-03T17:55:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_102989155029000@lid_3EB04D5C193E84EEB45589",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780509484,
+      "createdAt": "2026-06-03T17:58:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_102989155029000_lid_3EB04D5C193E84EEB45589_62c1403d.ogg",
+      "mediaSize": 91494,
+      "filename": "true_102989155029000@lid_3EB04D5C193E84EEB45589",
+      "originalName": "true_102989155029000@lid_3EB04D5C193E84EEB45589"
+    },
+    {
+      "id": "true_102989155029000@lid_3EB0B1C19220EBC7B5435D",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780509495,
+      "createdAt": "2026-06-03T17:58:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511995120327": [
@@ -1467,6 +2020,43 @@
       "createdAt": "2026-05-29T10:37:55.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_72550604357882@lid_3EB004401895D5EDCC5AD6",
+      "fromMe": true,
+      "body": "Olá Ana! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780509026,
+      "createdAt": "2026-06-03T17:50:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_72550604357882@lid_3EB0FB8DCA9648F4BE6B87",
+      "fromMe": true,
+      "body": "Boa tardeee Ana! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780509976,
+      "createdAt": "2026-06-03T18:06:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_72550604357882@lid_3EB045EC942561F42FBB36",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780509986,
+      "createdAt": "2026-06-03T18:06:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_72550604357882_lid_3EB045EC942561F42FBB36_37af2931.ogg",
+      "mediaSize": 14295,
+      "filename": "true_72550604357882@lid_3EB045EC942561F42FBB36",
+      "originalName": "true_72550604357882@lid_3EB045EC942561F42FBB36"
     }
   ],
   "5511976962073": [
@@ -1678,6 +2268,16 @@
       "type": "chat",
       "timestamp": 1780339504,
       "createdAt": "2026-06-01T18:45:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_250448267182230@lid_3EB0117A1255EAD96E81E4",
+      "fromMe": true,
+      "body": "Boa tardeee Karina! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510148,
+      "createdAt": "2026-06-03T18:09:08.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -2342,6 +2942,206 @@
       "createdAt": "2026-06-03T10:41:04.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB022CFC2B50F10A0AEFD",
+      "fromMe": true,
+      "body": "oiee 🚨🚨🚨",
+      "type": "chat",
+      "timestamp": 1780659988,
+      "createdAt": "2026-06-05T11:46:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0A1E96E803DE4621EED",
+      "fromMe": false,
+      "body": "oieeee",
+      "type": "chat",
+      "timestamp": 1780660008,
+      "createdAt": "2026-06-05T11:46:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB042E718A4ABD3E086A9",
+      "fromMe": true,
+      "body": "Falei com vc no coordenadora",
+      "type": "chat",
+      "timestamp": 1780660023,
+      "createdAt": "2026-06-05T11:47:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0E8343A60A59F983F04",
+      "fromMe": true,
+      "body": "Menina",
+      "type": "chat",
+      "timestamp": 1780660024,
+      "createdAt": "2026-06-05T11:47:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB001CFC31ED6BA86B4FB",
+      "fromMe": false,
+      "body": "vou la perai",
+      "type": "chat",
+      "timestamp": 1780660036,
+      "createdAt": "2026-06-05T11:47:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0B1C6223623A3A7BF3A",
+      "fromMe": true,
+      "body": "que horas o Matheus pediu para a gente disparar",
+      "type": "chat",
+      "timestamp": 1780660039,
+      "createdAt": "2026-06-05T11:47:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0D73D087C858AFD9FB8",
+      "fromMe": true,
+      "body": "para os antigos na quarta???",
+      "type": "chat",
+      "timestamp": 1780660047,
+      "createdAt": "2026-06-05T11:47:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0E9CC0D68B7552EFEB6",
+      "fromMe": true,
+      "body": "nem sabia",
+      "type": "chat",
+      "timestamp": 1780660054,
+      "createdAt": "2026-06-05T11:47:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0ABD25D99D06ED3D455",
+      "fromMe": true,
+      "body": "qual o script",
+      "type": "chat",
+      "timestamp": 1780660059,
+      "createdAt": "2026-06-05T11:47:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0430B919E4764568F34",
+      "fromMe": false,
+      "body": "eita perai que acho que eu comi mosca",
+      "type": "chat",
+      "timestamp": 1780660067,
+      "createdAt": "2026-06-05T11:47:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB01F363041317763DE6F",
+      "fromMe": true,
+      "body": "ele pediu somente a planilha não foi",
+      "type": "chat",
+      "timestamp": 1780660069,
+      "createdAt": "2026-06-05T11:47:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB004BE52EBF9C8042104",
+      "fromMe": false,
+      "body": "deixa ver",
+      "type": "chat",
+      "timestamp": 1780660071,
+      "createdAt": "2026-06-05T11:47:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB038DDC8045A8C092A26",
+      "fromMe": false,
+      "body": "mandou script pra mim e eu nao te mandei",
+      "type": "chat",
+      "timestamp": 1780660082,
+      "createdAt": "2026-06-05T11:48:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB054F3E8D0004088C23F",
+      "fromMe": false,
+      "body": "pera",
+      "type": "chat",
+      "timestamp": 1780660085,
+      "createdAt": "2026-06-05T11:48:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0DEB35C31E0223E5CD1",
+      "fromMe": true,
+      "body": "e agora",
+      "type": "chat",
+      "timestamp": 1780660091,
+      "createdAt": "2026-06-05T11:48:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0BFF8CC5AAABB85524C",
+      "fromMe": true,
+      "body": "ele esta no grupo perguntando",
+      "type": "chat",
+      "timestamp": 1780660098,
+      "createdAt": "2026-06-05T11:48:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB045680CEFDF71111560",
+      "fromMe": false,
+      "body": "deixa eu ver aqui",
+      "type": "chat",
+      "timestamp": 1780660110,
+      "createdAt": "2026-06-05T11:48:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB026B8008EBBF81EE097",
+      "fromMe": true,
+      "body": "eu ja recebi um gif de enforcamento hj",
+      "type": "chat",
+      "timestamp": 1780660121,
+      "createdAt": "2026-06-05T11:48:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB00185AC0CBF7C93CBD4",
+      "fromMe": false,
+      "body": "mandei la",
+      "type": "chat",
+      "timestamp": 1780660218,
+      "createdAt": "2026-06-05T11:50:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB07924446B18FBBC6818",
+      "fromMe": false,
+      "body": "vou te ligar",
+      "type": "chat",
+      "timestamp": 1780660223,
+      "createdAt": "2026-06-05T11:50:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511913147171": [
@@ -2990,6 +3790,16 @@
       "mediaSize": 15305,
       "filename": "true_22780775010350@lid_3EB028E9B980B190F2A2AC",
       "originalName": "true_22780775010350@lid_3EB028E9B980B190F2A2AC"
+    },
+    {
+      "id": "true_22780775010350@lid_3EB0C9BAF7617621D483DD",
+      "fromMe": true,
+      "body": "Boa tardeee Naiane! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510306,
+      "createdAt": "2026-06-03T18:11:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511970223245": [
@@ -3157,6 +3967,16 @@
       "createdAt": "2026-06-01T18:35:55.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_281222244728860@lid_3EB0D2DD7BFA439FC1D1D0",
+      "fromMe": true,
+      "body": "Boa tardeee Tiago! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510436,
+      "createdAt": "2026-06-03T18:13:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511992816413": [
@@ -3187,6 +4007,16 @@
       "type": "chat",
       "timestamp": 1780338946,
       "createdAt": "2026-06-01T18:35:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_236022159945731@lid_3EB0AD96FD4C8D2F5D3808",
+      "fromMe": true,
+      "body": "Boa tardeee Airton! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510460,
+      "createdAt": "2026-06-03T18:14:20.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -3500,6 +4330,16 @@
       "type": "chat",
       "timestamp": 1780338950,
       "createdAt": "2026-06-01T18:35:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_72972115169282@lid_3EB0A5566169C5A68C4F46",
+      "fromMe": true,
+      "body": "Boa tardeee Afonso! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510480,
+      "createdAt": "2026-06-03T18:14:40.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -4081,6 +4921,16 @@
       "mediaSize": 88863,
       "filename": "true_80303624315022@lid_3EB0C65D57A328CFD30BDE",
       "originalName": "true_80303624315022@lid_3EB0C65D57A328CFD30BDE"
+    },
+    {
+      "id": "true_80303624315022@lid_3EB0412F99A21CCB6E4547",
+      "fromMe": true,
+      "body": "Boa tardeee Carlos! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510564,
+      "createdAt": "2026-06-03T18:16:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5535998060604": [
@@ -4189,6 +5039,36 @@
       "mediaSize": 15144,
       "filename": "true_191040396996679@lid_3EB033E096BF1A5F3E22E3",
       "originalName": "true_191040396996679@lid_3EB033E096BF1A5F3E22E3"
+    },
+    {
+      "id": "false_191040396996679@lid_3A74F9AC5C6780AEA430",
+      "fromMe": false,
+      "body": "Oii\n\nEstou começando agora do zero .",
+      "type": "chat",
+      "timestamp": 1780521411,
+      "createdAt": "2026-06-03T21:16:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_191040396996679@lid_3EB0BC4AC2DBA2DBDC7B19",
+      "fromMe": true,
+      "body": "Bom diaaa Karina!!!",
+      "type": "chat",
+      "timestamp": 1780575624,
+      "createdAt": "2026-06-04T12:20:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_191040396996679@lid_3EB07DBF61C637BFF97E01",
+      "fromMe": true,
+      "body": "Em que area atua?",
+      "type": "chat",
+      "timestamp": 1780575631,
+      "createdAt": "2026-06-04T12:20:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511973320072": [
@@ -4484,6 +5364,16 @@
       "createdAt": "2026-06-01T20:16:55.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_68423207932052@lid_3EB0ED00828A3E1BF2E945",
+      "fromMe": true,
+      "body": "Boa tardeee Rogerio! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510642,
+      "createdAt": "2026-06-03T18:17:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5513997068927": [
@@ -4708,6 +5598,16 @@
       "mediaSize": 14631,
       "filename": "true_232787814654108@lid_3EB0C5259A8ED5FD2C58FE",
       "originalName": "true_232787814654108@lid_3EB0C5259A8ED5FD2C58FE"
+    },
+    {
+      "id": "true_232787814654108@lid_3EB00E450BCA674CFAC25B",
+      "fromMe": true,
+      "body": "Boa tardeee Osvaldo! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510664,
+      "createdAt": "2026-06-03T18:17:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511982659000": [
@@ -4806,6 +5706,53 @@
       "mediaSize": 15217,
       "filename": "true_126594278531109@lid_3EB048230D7DD8D291640D",
       "originalName": "true_126594278531109@lid_3EB048230D7DD8D291640D"
+    },
+    {
+      "id": "true_126594278531109@lid_3EB015A3C7A878326C611D",
+      "fromMe": true,
+      "body": "Boa tardeee Jorge! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510681,
+      "createdAt": "2026-06-03T18:18:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_126594278531109@lid_3A9F6E762A365AE5165C",
+      "fromMe": false,
+      "body": "Bom dia, vou começar a fazer",
+      "type": "chat",
+      "timestamp": 1780569451,
+      "createdAt": "2026-06-04T10:37:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_126594278531109@lid_3EB03F8063F2BD959A0C06",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780574855,
+      "createdAt": "2026-06-04T12:07:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_126594278531109_lid_3EB03F8063F2BD959A0C06_8a7f7235.ogg",
+      "mediaSize": 122976,
+      "filename": "true_126594278531109@lid_3EB03F8063F2BD959A0C06",
+      "originalName": "true_126594278531109@lid_3EB03F8063F2BD959A0C06"
+    },
+    {
+      "id": "true_126594278531109@lid_3EB094E13579EC4B76868C",
+      "fromMe": true,
+      "body": "Em que are você atua?",
+      "type": "chat",
+      "timestamp": 1780574865,
+      "createdAt": "2026-06-04T12:07:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511982655818": [
@@ -5203,6 +6150,46 @@
       "createdAt": "2026-06-02T15:06:31.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB01F333C86CEE922B2A2",
+      "fromMe": true,
+      "body": "Olá, Beatriz!\n\nComo vai? 😊 Queria reforçar que amanhã, dia 04/06, às 9h, teremos nossa reunião marcada com o Consultor de Negócios da Casa do ADS.\n\nEstamos entusiasmados  para te encontrar e proporcionar uma experiência única! A reunião será individual e já estamos preparando todo o material personalizado para você.\n\nMal podemos esperar para te apresentar as oportunidades no Google e cases de sucesso!\n\nAté amanhã!",
+      "type": "chat",
+      "timestamp": 1780509913,
+      "createdAt": "2026-06-03T18:05:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB0D14714445312CE3E73",
+      "fromMe": true,
+      "body": "Bom diaaaa Beatriz, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 04/06\n🕘 9h em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1780572249,
+      "createdAt": "2026-06-04T11:24:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB04763F4731F5B8A2454",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nQuinta-feira, 4 de junho · 9:00 – 10:00am\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/hif-thrg-yjq\nOu disque: ‪(BR) +55 11 4935-1275‬ PIN: ‪977 844 280‬#\nOutros números de telefone: https://tel.meet/hif-thrg-yjq?pin=8213133892783",
+      "type": "chat",
+      "timestamp": 1780572279,
+      "createdAt": "2026-06-04T11:24:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221173971443784@lid_3EB039E3FD1BD568FE6ED9",
+      "fromMe": true,
+      "body": "A consultora Marina estara na sala aguardando.",
+      "type": "chat",
+      "timestamp": 1780572295,
+      "createdAt": "2026-06-04T11:24:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5569993319000": [
@@ -5515,6 +6502,113 @@
       "createdAt": "2026-06-03T17:25:01.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB03C74EBA2579ABEAE36",
+      "fromMe": true,
+      "body": "+351923577880  ana",
+      "type": "chat",
+      "timestamp": 1780507733,
+      "createdAt": "2026-06-03T17:28:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB04F9316A403777166CB",
+      "fromMe": false,
+      "body": "false_96349756383259@lid_3EB04F9316A403777166CB",
+      "type": "image",
+      "timestamp": 1780511705,
+      "createdAt": "2026-06-03T18:35:05.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_96349756383259_lid_3EB04F9316A403777166CB_4d399371.jpg",
+      "mediaSize": 81524,
+      "filename": "false_96349756383259@lid_3EB04F9316A403777166CB",
+      "originalName": "false_96349756383259@lid_3EB04F9316A403777166CB"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB00DA6784D8093068474",
+      "fromMe": false,
+      "body": "🌟 A sua inscrição está CONFIRMADA para a *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\n\nEstamos entusiasmados por o receber e por partilhar conhecimentos que poderão ajudar a transformar o seu negócio.\n\n*📅 Data:* 22/06/2026\n*🕘 Horário:* Das 19h00 às 22h30\n*📍 Local:* Rua Laura Alves, 9 - 1069-169 Lisboa\n\nAgradecemos a sua confiança e estamos empenhados em tornar esta formação numa experiência enriquecedora e de elevado valor para si.\n\nAté lá, não hesite em contactar-nos caso tenha alguma dúvida ou necessite de informações adicionais.\n\nEsperamos vê-lo em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780512205,
+      "createdAt": "2026-06-03T18:43:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB08EC79202FB9B6558B0",
+      "fromMe": false,
+      "body": "351965698323",
+      "type": "chat",
+      "timestamp": 1780577861,
+      "createdAt": "2026-06-04T12:57:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB04C1E06D209D68C2D37",
+      "fromMe": false,
+      "body": "Joana Pereira Galante\tNoisy wizard\t351918813785\nEduardo Caperta\tMata & Delaunay Unipessoal Lda\t351913072715\nPedro Correia\tO chefe Voltou Unipessoal lda.\t351910616172\nPaulo BRas\tVCeletricar\t351924390450\nShaul Salim Vilasboa\tBinovar lda\t351927522256\nGiselle Tiradentes\tPercent Servicios Inmobiliarios\t351919777068\nCristina Escórcio\tNutri\t351960119910\nMichel Reis\tMRT NL - PROVMEC\t351924117579\nCamila Grossers da Costa\tATELIERS L’ATTITUDE\t351935106005\nCleiton Vieria da Rocha\tGrupo Alternativa Verde\t351925062092\nDamian Pianowski\tI Want Travel\t351963520647\nFilomena Chainho\tBe.ok\t351965698323\nAna Silva\tCentury21 Move.On\t351923577880\nJose Luís Leitão Condeça Marques\tPaladares do Mundo Lda.\t351963388141\nSara Reis\tVolse Agency Unipessoal LDA\t351924372296\nJoão Passos\tJPVA - Real Estate Group @ KW\t351961729480\nCarla Guerra\tCVMI-climica veterinária medicina integrada\t351912613992",
+      "type": "chat",
+      "timestamp": 1780651388,
+      "createdAt": "2026-06-05T09:23:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB06900D34BDD54CF696B",
+      "fromMe": true,
+      "body": "Olá! 😊\n\nEstamos a finalizar os últimos detalhes da imersão em Lisboa.\n\nPor curiosidade, qual é o principal desafio que enfrenta atualmente com o Google Ads ou com a captação de clientes online?\n\nEstamos a adaptar alguns conteúdos às necessidades dos participantes e o seu feedback será muito útil.",
+      "type": "chat",
+      "timestamp": 1780652841,
+      "createdAt": "2026-06-05T09:47:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0CE23169AA23A5AAA20",
+      "fromMe": true,
+      "body": "351912513992",
+      "type": "chat",
+      "timestamp": 1780653453,
+      "createdAt": "2026-06-05T09:57:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB04F2AEB308F2D69D5F4",
+      "fromMe": true,
+      "body": "+351 914217343 Em Lisboa\nJuliana Vip",
+      "type": "chat",
+      "timestamp": 1780654103,
+      "createdAt": "2026-06-05T10:08:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB06318969D23CC70F61C",
+      "fromMe": false,
+      "body": "351935148960",
+      "type": "chat",
+      "timestamp": 1780654309,
+      "createdAt": "2026-06-05T10:11:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB089BC9864199C140D29",
+      "fromMe": false,
+      "body": "https://docs.google.com/document/d/1ARE46r8Ddg4Wzg-p_4eHma5k6P4Pu8KSx67GkmdrSQM/edit?usp=sharing",
+      "type": "chat",
+      "timestamp": 1780666551,
+      "createdAt": "2026-06-05T13:35:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "351962451262": [
@@ -6442,6 +7536,16 @@
       "mediaSize": 15028,
       "filename": "true_12038927556700@lid_3EB019FB61EE6339E2D586",
       "originalName": "true_12038927556700@lid_3EB019FB61EE6339E2D586"
+    },
+    {
+      "id": "true_12038927556700@lid_3EB0A949843BC29754F461",
+      "fromMe": true,
+      "body": "Boa tardeee Rodrigo! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510739,
+      "createdAt": "2026-06-03T18:18:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511972828486": [
@@ -6511,6 +7615,16 @@
       "mediaSize": 14059,
       "filename": "true_87741920465014@lid_3EB05ABB2307FBF8693D5E",
       "originalName": "true_87741920465014@lid_3EB05ABB2307FBF8693D5E"
+    },
+    {
+      "id": "true_87741920465014@lid_3EB07012F043668D1BE8E7",
+      "fromMe": true,
+      "body": "Boa tardeee Odair! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510765,
+      "createdAt": "2026-06-03T18:19:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511996337727": [
@@ -6767,6 +7881,16 @@
       "mediaSize": 13156,
       "filename": "true_69982297821222@lid_3EB0914394A3FB73D081F4",
       "originalName": "true_69982297821222@lid_3EB0914394A3FB73D081F4"
+    },
+    {
+      "id": "true_69982297821222@lid_3EB064B3594AFEB247AFE1",
+      "fromMe": true,
+      "body": "Boa tardeee Ricardo! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510829,
+      "createdAt": "2026-06-03T18:20:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511914012710": [
@@ -7274,6 +8398,63 @@
       "createdAt": "2026-06-02T20:08:51.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_253854092406939@lid_3EB00D1C4B5B1829EE772D",
+      "fromMe": true,
+      "body": "Boa tardeee Andre! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Santo André.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *apatecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini, Claude* e outras inteligências artificiais. \n\nVeja como foi a Imersão em Alphaville e alguns pontos que serão abordados nos stories do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "video",
+      "timestamp": 1780510885,
+      "createdAt": "2026-06-03T18:21:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_253854092406939@lid_3EB0595ABF045FF82AFFB5",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780511015,
+      "createdAt": "2026-06-03T18:23:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_253854092406939_lid_3EB0595ABF045FF82AFFB5_64a0ecad.ogg",
+      "mediaSize": 145187,
+      "filename": "true_253854092406939@lid_3EB0595ABF045FF82AFFB5",
+      "originalName": "true_253854092406939@lid_3EB0595ABF045FF82AFFB5"
+    },
+    {
+      "id": "false_253854092406939@lid_3A39BFDF66D2D6271FF1",
+      "fromMe": false,
+      "body": "Energia Solar",
+      "type": "chat",
+      "timestamp": 1780513506,
+      "createdAt": "2026-06-03T19:05:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_253854092406939@lid_3EB018A6402A1B013C5F9C",
+      "fromMe": true,
+      "body": "Bom diaaa Andre!!",
+      "type": "chat",
+      "timestamp": 1780657852,
+      "createdAt": "2026-06-05T11:10:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_253854092406939@lid_3EB0F4E674CFC7F19C2D82",
+      "fromMe": true,
+      "body": "Maravilha, você vai aprender como começar do zero, criar as suas primeiras campanhas no Google Ads e entender como usar Inteligência Artificial para atrair clientes mais qualificados.\n\nA imersão também vai mostrar como aparecer gratuitamente nas respostas da IA do Google e como preparar a sua empresa para ser recomendada pelo ChatGPT, Gemini e outras IAs.",
+      "type": "chat",
+      "timestamp": 1780657884,
+      "createdAt": "2026-06-05T11:11:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511985585590": [
@@ -7310,6 +8491,33 @@
       "createdAt": "2026-06-03T00:00:51.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_22467175305451@lid_3EB0F77953BA4B715138F7",
+      "fromMe": true,
+      "body": "Olá Diana! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780511037,
+      "createdAt": "2026-06-03T18:23:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_22467175305451@lid_3EB096C302E567C35E60CC",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780511054,
+      "createdAt": "2026-06-03T18:24:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_22467175305451_lid_3EB096C302E567C35E60CC_0ae27f6a.ogg",
+      "mediaSize": 15352,
+      "filename": "true_22467175305451@lid_3EB096C302E567C35E60CC",
+      "originalName": "true_22467175305451@lid_3EB096C302E567C35E60CC"
     }
   ],
   "5511946853320": [
@@ -7334,6 +8542,33 @@
       "createdAt": "2026-06-03T02:31:10.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_75823403008242@lid_3EB07E04EE1FE0DE5D1256",
+      "fromMe": true,
+      "body": "Olá Karina! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780511081,
+      "createdAt": "2026-06-03T18:24:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_75823403008242@lid_3EB0857520B923048D57F5",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780511092,
+      "createdAt": "2026-06-03T18:24:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_75823403008242_lid_3EB0857520B923048D57F5_b882ec68.ogg",
+      "mediaSize": 14191,
+      "filename": "true_75823403008242@lid_3EB0857520B923048D57F5",
+      "originalName": "true_75823403008242@lid_3EB0857520B923048D57F5"
     }
   ],
   "5511985460660": [
@@ -7346,6 +8581,70 @@
       "createdAt": "2026-06-03T03:22:40.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_139388902195327@lid_3EB0B72E93A6096B0C3653",
+      "fromMe": true,
+      "body": "Olá Guilherme! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em São Paulo!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1780511120,
+      "createdAt": "2026-06-03T18:25:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_139388902195327@lid_3EB05B8CF515C157C65D7D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780511130,
+      "createdAt": "2026-06-03T18:25:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_139388902195327_lid_3EB05B8CF515C157C65D7D_d3b9e335.ogg",
+      "mediaSize": 13505,
+      "filename": "true_139388902195327@lid_3EB05B8CF515C157C65D7D",
+      "originalName": "true_139388902195327@lid_3EB05B8CF515C157C65D7D"
+    },
+    {
+      "id": "false_139388902195327@lid_A580A970F09B29D8AE54914025E29932",
+      "fromMe": false,
+      "body": "Olá Fabiane, tudo bem e por ai?!\nFaço sim, dei uma pausa por uns meses mas pretendo retomar ainda esse mes!",
+      "type": "chat",
+      "timestamp": 1780511216,
+      "createdAt": "2026-06-03T18:26:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_139388902195327@lid_3EB02AF541916B3791AE5D",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780511861,
+      "createdAt": "2026-06-03T18:37:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_139388902195327_lid_3EB02AF541916B3791AE5D_16eda4df.ogg",
+      "mediaSize": 135471,
+      "filename": "true_139388902195327@lid_3EB02AF541916B3791AE5D",
+      "originalName": "true_139388902195327@lid_3EB02AF541916B3791AE5D"
+    },
+    {
+      "id": "true_139388902195327@lid_3EB0D803ED5B0AB9A281FC",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1780512186,
+      "createdAt": "2026-06-03T18:43:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511982229634": [

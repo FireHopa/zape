@@ -44,6 +44,7 @@ const {
   createTemplate: createCloudTemplate,
   sendTemplate: sendCloudTemplate,
   listTemplates: listCloudTemplates,
+  listTemplateLibrary: listCloudTemplateLibrary,
   handleWebhook: handleCloudWebhook,
   getCloudStatus,
   listStatus: listCloudStatus,
@@ -2744,6 +2745,38 @@ app.get("/api/wa-cloud/status", adminAuth, (req, res) => {
   res.json(getCloudStatus());
 });
 
+function isMetaTokenInvalidError(err) {
+  const payload = err && err.payload;
+  const metaError = payload && typeof payload === "object" ? payload.error : null;
+  const code = metaError && Number(metaError.code);
+  const type = String((metaError && metaError.type) || "");
+  const msg = String((metaError && metaError.message) || (err && err.message) || "");
+
+  // Meta usa code 190 para token inválido/expirado.
+  if (code === 190) return true;
+  if (err && err.code === "META_TOKEN_INVALID") return true;
+
+  // Alguns retornos de OAuth vêm sem code normalizado no wrapper.
+  if (/OAuthException/i.test(type) && /access token|session/i.test(msg) && /invalid|expired|logged out|expire|expirad|saiu/i.test(msg)) return true;
+
+  // Erros de permissão, WABA incorreto ou objeto inexistente NÃO são tratados como sessão expirada.
+  return false;
+}
+
+function metaTokenInvalidResponse(err) {
+  return {
+    ok: false,
+    code: "META_TOKEN_INVALID",
+    error: "A Meta recusou o token salvo. Refaça o vínculo com o Facebook/WhatsApp para gerar um novo token e carregar os modelos.",
+    details: err && err.payload ? err.payload : null,
+  };
+}
+
+function sendMetaTokenInvalid(res, err) {
+  // Não usamos 401 aqui para não confundir com logout do painel/admin.
+  // 424 = falha de dependência externa: a Meta recusou o token salvo.
+  return res.status(424).json(metaTokenInvalidResponse(err));
+}
 
 app.put("/api/wa-cloud/embedded/settings", adminAuth, (req, res) => {
   try {
@@ -2759,7 +2792,14 @@ app.post("/api/wa-cloud/embedded/exchange", adminAuth, async (req, res) => {
     const out = await exchangeEmbeddedSignupCode(req.body || {});
     res.json(out);
   } catch (err) {
-    res.status(400).json({ ok: false, error: err?.message || String(err), details: err?.payload || null });
+    if (isMetaTokenInvalidError(err)) return sendMetaTokenInvalid(res, err);
+    const status = Number(err?.status || 400);
+    res.status(status >= 400 && status < 600 ? status : 400).json({
+      ok: false,
+      code: err?.code || err?.payload?.code || undefined,
+      error: err?.message || String(err),
+      details: err?.payload || null,
+    });
   }
 });
 
@@ -2773,10 +2813,45 @@ app.delete("/api/wa-cloud/embedded", adminAuth, (req, res) => {
 
 app.get("/api/wa-cloud/templates", adminAuth, async (req, res) => {
   try {
-    const out = await listCloudTemplates({ limit: 200 });
+    const limit = Math.min(Math.max(Number(req.query?.limit || 1000), 25), 2000);
+    const out = await listCloudTemplates({ limit });
     res.json(out);
   } catch (err) {
-    res.status(400).json({ error: err?.message || String(err) });
+    if (isMetaTokenInvalidError(err)) {
+      return sendMetaTokenInvalid(res, err);
+    }
+    const status = Number(err?.status || 400);
+    res.status(status >= 400 && status < 600 ? status : 400).json({
+      ok: false,
+      code: err?.code || err?.payload?.code || undefined,
+      error: err?.message || String(err),
+      details: err?.payload || null,
+    });
+  }
+});
+
+app.get("/api/wa-cloud/template-library", adminAuth, async (req, res) => {
+  try {
+    const out = await listCloudTemplateLibrary({
+      language: String(req.query?.language || "pt_BR"),
+      search: String(req.query?.search || ""),
+      topic: String(req.query?.topic || ""),
+      usecase: String(req.query?.usecase || ""),
+      industry: String(req.query?.industry || ""),
+      limit: Math.min(Math.max(Number(req.query?.limit || 300), 25), 1000),
+    });
+    res.json(out);
+  } catch (err) {
+    if (isMetaTokenInvalidError(err)) {
+      return sendMetaTokenInvalid(res, err);
+    }
+    const status = Number(err?.status || 400);
+    res.status(status >= 400 && status < 600 ? status : 400).json({
+      ok: false,
+      code: err?.code || err?.payload?.code || undefined,
+      error: err?.message || String(err),
+      details: err?.payload || null,
+    });
   }
 });
 
@@ -2786,7 +2861,14 @@ app.post("/api/wa-cloud/templates", adminAuth, async (req, res) => {
     const out = await createCloudTemplate(req.body || {});
     res.json({ ok: true, ...out });
   } catch (err) {
-    res.status(400).json({ ok: false, error: err?.message || String(err), details: err?.payload || null });
+    if (isMetaTokenInvalidError(err)) return sendMetaTokenInvalid(res, err);
+    const status = Number(err?.status || 400);
+    res.status(status >= 400 && status < 600 ? status : 400).json({
+      ok: false,
+      code: err?.code || err?.payload?.code || undefined,
+      error: err?.message || String(err),
+      details: err?.payload || null,
+    });
   }
 });
 
@@ -2860,6 +2942,7 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
         results.push({ to, ok: true, messageId, campaignId: campaign.id, eventId: event.id });
       } catch (err) {
         updateCloudDispatchEvent(event.id, { status: "failed", failedAt: new Date().toISOString(), error: err?.payload || err?.message || String(err) });
+        if (isMetaTokenInvalidError(err)) throw err;
         results.push({ to, ok: false, error: err?.message || String(err), campaignId: campaign.id, eventId: event.id });
       }
 
@@ -2868,7 +2951,8 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
 
     res.json({ ok: true, campaignId: campaign.id, campaignName: campaign.name, total: results.length, results });
   } catch (err) {
-    res.status(400).json({ ok: false, error: err?.message || String(err) });
+    if (isMetaTokenInvalidError(err)) return sendMetaTokenInvalid(res, err);
+    res.status(400).json({ ok: false, error: err?.message || String(err), details: err?.payload || null });
   }
 });
 

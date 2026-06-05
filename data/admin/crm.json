@@ -10,7 +10,8 @@
         "stg_proposal",
         "stg_won",
         "stg_9024c7402b27b819dd9adbce7",
-        "stg_fece3e48d3843819dd9adc389"
+        "stg_fece3e48d3843819dd9adc389",
+        "stg_3a4fefd67085b19e942b2492"
       ],
       "stages": {
         "stg_proposal": {
@@ -21,7 +22,12 @@
         "stg_won": {
           "id": "stg_won",
           "name": "Fechou",
-          "leadIds": []
+          "leadIds": [
+            "4546000f089b82828c948086"
+          ],
+          "autoMessages": [
+            "Teste felipe etapa"
+          ]
         },
         "stg_9024c7402b27b819dd9adbce7": {
           "id": "stg_9024c7402b27b819dd9adbce7",
@@ -33,6 +39,11 @@
           "name": "Nova etapa",
           "leadIds": [],
           "color": "#1A170F"
+        },
+        "stg_3a4fefd67085b19e942b2492": {
+          "id": "stg_3a4fefd67085b19e942b2492",
+          "name": "Nova etapa",
+          "leadIds": []
         }
       }
     },
@@ -52,5 +63,5 @@
       }
     }
   ],
-  "updatedAt": "2026-06-01T17:26:39.159Z"
+  "updatedAt": "2026-06-04T19:45:16.999Z"
 }

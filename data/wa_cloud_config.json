@@ -5,18 +5,18 @@
   "graphVersion": "v25.0",
   "redirectUri": "",
   "enabled": true,
-  "updatedAt": "2026-06-03T17:26:58.983Z",
-  "accessToken": "EAAPpnYZA3cNsBRpZC1zuXxJKEUN9hp1Hoy5qZCaMbWpp40ZB4sMw7ovnprga5gEbVy5ciP8B3tqMu7I3EyMEIN9vBH9aZAbIL7uzqjWjVpvPaTaIHuBjBuYFn48t0ZAmNCA7WAL2RLuiuKZAtZBb4p4W6XycXtboLkwj9rzh3uKdYWZBbFKtwIKGXtSy5xQ1XZA4F1eoEHuZAZAVgnbh9AeGC7X5yZAr00Sla0nh8EXjQdtiVubEC7YPMPGnxo6PrImuLO5NUt2Uq0bsiBXwoS8vyxCVAmuai4KLmz2RdQZB7eaw1VEMwKZAgZDZD",
+  "updatedAt": "2026-06-03T18:06:47.204Z",
+  "accessToken": "EAAPpnYZA3cNsBRu32KyOmeiH8BbQLkDYzkoFA6FMGBsNuVqAA2GBZAyAPc4fI0ZAPFJLxGYzpQ0j87wYmghCq4pL0eeGZBZBiseQdZCG5SPL1Ge3051yEinO5vhprLooVhWQOTjO3Nkmc5VsJBYfJrIUUZCZB9HQ9YwPnBEP3FoYNoc9ih0M17NYjOZBRZBfx6LzapULHwII3BtsVhuqPK7WIBo5gDr2DuBASyUx6uJux6QZAEE6fZB0yRUdEVnqQkorSkmH88Pmj1KMUnWj1hYAAqpa6BST6cUokhxcIqda3Bq9LCWrCwZDZD",
   "tokenType": "bearer",
   "tokenExpiresIn": "",
-  "phoneNumberId": "1205115542677153",
+  "phoneNumberId": "1104617112742276",
   "wabaId": "2546113369139392",
   "businessId": "960279950155230",
-  "displayPhoneNumber": "+1 555-983-6640",
+  "displayPhoneNumber": "+55 11 95093-4104",
   "verifiedName": "Cíntia",
   "lastEmbeddedSession": {
     "data": {
-      "phone_number_id": "1205115542677153",
+      "phone_number_id": "1104617112742276",
       "waba_id": "2546113369139392",
       "page_ids": [],
       "catalog_ids": [],
@@ -27,7 +27,38 @@
     "type": "WA_EMBEDDED_SIGNUP",
     "event": "FINISH"
   },
-  "linkedAt": "2026-06-03T17:26:58.982Z",
-  "subscribedAt": "2026-06-03T17:26:58.982Z",
-  "lastSubscribeError": null
+  "linkedAt": "2026-06-03T18:06:47.203Z",
+  "subscribedAt": "2026-06-03T18:06:47.203Z",
+  "lastSubscribeError": null,
+  "lastTokenDebug": {
+    "data": {
+      "app_id": "1101287705243867",
+      "type": "SYSTEM_USER",
+      "application": "Disparo API",
+      "data_access_expires_at": 0,
+      "expires_at": 0,
+      "is_valid": true,
+      "issued_at": 1780510003,
+      "scopes": [
+        "whatsapp_business_management",
+        "whatsapp_business_messaging",
+        "public_profile"
+      ],
+      "granular_scopes": [
+        {
+          "scope": "whatsapp_business_management",
+          "target_ids": [
+            "2546113369139392"
+          ]
+        },
+        {
+          "scope": "whatsapp_business_messaging",
+          "target_ids": [
+            "2546113369139392"
+          ]
+        }
+      ],
+      "user_id": "122103893559342349"
+    }
+  }
 }

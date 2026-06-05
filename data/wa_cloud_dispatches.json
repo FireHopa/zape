@@ -1,0 +1,514 @@
+{
+  "version": 1,
+  "campaigns": [
+    {
+      "id": "camp_059a8bae22009f198d8c",
+      "tenantId": "admin",
+      "name": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "total": 10,
+      "sourceSummary": {
+        "Planilha importada": 10
+      },
+      "createdAt": "2026-06-05T14:03:11.468Z",
+      "updatedAt": "2026-06-05T14:03:18.839Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_d960c20d6d5f0d4fdbe0",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11919942261",
+      "leadId": "e2655634648a2a9e59e49dbe",
+      "leadSnapshot": {
+        "id": "e2655634648a2a9e59e49dbe",
+        "nome": "cintia jujeque",
+        "empresa": "autonomo",
+        "email": "cintiacasadoads@gmail.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "generated_webhook_activecampaign",
+        "label": "Webhook ActiveCampaign",
+        "type": "webhook",
+        "detail": "Origem via webhook. Leads antigos podem não ter o nome exato do webhook salvo.",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AA6yQR2inB89ttgADPSUrqq"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:11.920Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:11.493Z",
+      "updatedAt": "2026-06-05T14:03:11.921Z"
+    },
+    {
+      "id": "evt_9738acf6398c612e6060",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11910532718",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Cintia",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "Ad5ZiUs3w9ZFCcOMb3f1ZEF"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:12.660Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:12.448Z",
+      "updatedAt": "2026-06-05T14:03:12.660Z"
+    },
+    {
+      "id": "evt_14f8b3f97db788bf96ec",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11918963746",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Cintia",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AK-8WQjbpOrN3wwWBZFtpTw"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:13.426Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:13.177Z",
+      "updatedAt": "2026-06-05T14:03:13.426Z"
+    },
+    {
+      "id": "evt_ac1772d0864d28aae839",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "13997201891",
+      "leadId": "4546000f089b82828c948086",
+      "leadSnapshot": {
+        "id": "4546000f089b82828c948086",
+        "nome": "teste saopaulo",
+        "empresa": "casadoads",
+        "email": "ajudantezzzzxcdsfire@gmail.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "webhook:13e6b0728c76a19e8d6e6561",
+        "label": "Webhook: Webhook São Paulo",
+        "type": "webhook",
+        "detail": "Webhook Webhook São Paulo recebido no formato ActiveCampaign",
+        "messages": [
+          "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?"
+        ],
+        "payloadType": "activecampaign",
+        "webhookId": "13e6b0728c76a19e8d6e6561",
+        "webhookName": "Webhook São Paulo"
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "ATBh-p6mcZouIFE_XXDGYsn"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:14.165Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:13.944Z",
+      "updatedAt": "2026-06-05T14:03:14.166Z"
+    },
+    {
+      "id": "evt_6bbaa442b2376067650c",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11931458117",
+      "leadId": "cc473284e0f5cfbbfc4a43e7",
+      "leadSnapshot": {
+        "id": "cc473284e0f5cfbbfc4a43e7",
+        "nome": "felipe",
+        "empresa": "empresa teste",
+        "email": "matheusbottarobh@gmail.com",
+        "source": "webhook_activecampaign"
+      },
+      "origin": {
+        "key": "webhook_activecampaign",
+        "label": "Webhook Activecampaign",
+        "type": "webhook_activecampaign",
+        "detail": "Webhook Activecampaign",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "Ap9W0DajQGN6jbA68z2V3Ps"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:14.895Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:14.689Z",
+      "updatedAt": "2026-06-05T14:03:14.896Z"
+    },
+    {
+      "id": "evt_b77db6461d0c8fd51d06",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11975065443",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Faby",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "A1WHNKjNGzWniItMtrAr-vz"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:15.909Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:15.413Z",
+      "updatedAt": "2026-06-05T14:03:15.909Z"
+    },
+    {
+      "id": "evt_22dc63c01ea5587253e5",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "19998401805",
+      "leadId": "750b5ae591870313801ff404",
+      "leadSnapshot": {
+        "id": "750b5ae591870313801ff404",
+        "nome": "Thiago Nazare bottaro",
+        "empresa": "asasa",
+        "email": "thiagolbottaro@gmail.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "generated_webhook_activecampaign",
+        "label": "Webhook ActiveCampaign",
+        "type": "webhook",
+        "detail": "Origem via webhook. Leads antigos podem não ter o nome exato do webhook salvo.",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AXLyDiW7XFhBi-XdGZlXWKF"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:16.649Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:16.433Z",
+      "updatedAt": "2026-06-05T14:03:16.649Z"
+    },
+    {
+      "id": "evt_ffff8a44ba0e6370d118",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11949204665",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Carla",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AqsPh0IIAWVKYUVX_4GfNl-"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:17.378Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:17.171Z",
+      "updatedAt": "2026-06-05T14:03:17.379Z"
+    },
+    {
+      "id": "evt_46636634c439c6a0a920",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "13997367592",
+      "leadId": "a664b951c0b8d316ece8fe61",
+      "leadSnapshot": {
+        "id": "a664b951c0b8d316ece8fe61",
+        "nome": "faby",
+        "empresa": "casa",
+        "email": "fabianecasadoads@gmai.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "generated_webhook_activecampaign",
+        "label": "Webhook ActiveCampaign",
+        "type": "webhook",
+        "detail": "Origem via webhook. Leads antigos podem não ter o nome exato do webhook salvo.",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "ArKxJeh49BWwubnowZiqWTR"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:18.104Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:17.895Z",
+      "updatedAt": "2026-06-05T14:03:18.105Z"
+    },
+    {
+      "id": "evt_a4897a4bec12fe9ee112",
+      "tenantId": "admin",
+      "campaignId": "camp_059a8bae22009f198d8c",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11975755030",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Andreia",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "ATk7QE-HIJc-8tzb-2XBn8G"
+        }
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:03:18.839Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:03:18.631Z",
+      "updatedAt": "2026-06-05T14:03:18.839Z"
+    }
+  ]
+}
