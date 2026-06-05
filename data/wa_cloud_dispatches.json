@@ -13,6 +13,19 @@
       },
       "createdAt": "2026-06-05T14:03:11.468Z",
       "updatedAt": "2026-06-05T14:03:18.839Z"
+    },
+    {
+      "id": "camp_fd593ba9bd515da293b9",
+      "tenantId": "admin",
+      "name": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "total": 10,
+      "sourceSummary": {
+        "Planilha importada": 10
+      },
+      "createdAt": "2026-06-05T14:28:10.216Z",
+      "updatedAt": "2026-06-05T14:28:17.230Z"
     }
   ],
   "events": [
@@ -509,6 +522,770 @@
       "inbound": null,
       "createdAt": "2026-06-05T14:03:18.631Z",
       "updatedAt": "2026-06-05T14:03:18.839Z"
+    },
+    {
+      "id": "evt_be640c984337eafa1a96",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11919942261",
+      "leadId": "e2655634648a2a9e59e49dbe",
+      "leadSnapshot": {
+        "id": "e2655634648a2a9e59e49dbe",
+        "nome": "cintia jujeque",
+        "empresa": "autonomo",
+        "email": "cintiacasadoads@gmail.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "generated_webhook_activecampaign",
+        "label": "Webhook ActiveCampaign",
+        "type": "webhook",
+        "detail": "Origem via webhook. Leads antigos podem não ter o nome exato do webhook salvo.",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AJ9i87ScSd37_1zHAK8q3du"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:10.593Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:10.263Z",
+      "updatedAt": "2026-06-05T14:28:10.595Z"
+    },
+    {
+      "id": "evt_5b5089605aeda2eebef6",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11910532718",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Cintia",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "ACqtQc60aXZSKFopxuqoAgR"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:11.331Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:11.127Z",
+      "updatedAt": "2026-06-05T14:28:11.332Z"
+    },
+    {
+      "id": "evt_e95b155292d530e2bc76",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11918963746",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Cintia",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "A-DVohofczRPoNN9O9ltaeI"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:12.077Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:11.859Z",
+      "updatedAt": "2026-06-05T14:28:12.077Z"
+    },
+    {
+      "id": "evt_76de2f5d8990d10214b0",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "13997201891",
+      "leadId": "4546000f089b82828c948086",
+      "leadSnapshot": {
+        "id": "4546000f089b82828c948086",
+        "nome": "teste saopaulo",
+        "empresa": "casadoads",
+        "email": "ajudantezzzzxcdsfire@gmail.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "webhook:13e6b0728c76a19e8d6e6561",
+        "label": "Webhook: Webhook São Paulo",
+        "type": "webhook",
+        "detail": "Webhook Webhook São Paulo recebido no formato ActiveCampaign",
+        "messages": [
+          "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?"
+        ],
+        "payloadType": "activecampaign",
+        "webhookId": "13e6b0728c76a19e8d6e6561",
+        "webhookName": "Webhook São Paulo"
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AIJXS1yxql5v60asKgJbt1J"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:12.803Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:12.597Z",
+      "updatedAt": "2026-06-05T14:28:12.804Z"
+    },
+    {
+      "id": "evt_01229744282040435748",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11931458117",
+      "leadId": "cc473284e0f5cfbbfc4a43e7",
+      "leadSnapshot": {
+        "id": "cc473284e0f5cfbbfc4a43e7",
+        "nome": "felipe",
+        "empresa": "empresa teste",
+        "email": "matheusbottarobh@gmail.com",
+        "source": "webhook_activecampaign"
+      },
+      "origin": {
+        "key": "webhook_activecampaign",
+        "label": "Webhook Activecampaign",
+        "type": "webhook_activecampaign",
+        "detail": "Webhook Activecampaign",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AspVnFGBP-aR-Y0dOz50IJe"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:13.536Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:13.320Z",
+      "updatedAt": "2026-06-05T14:28:13.536Z"
+    },
+    {
+      "id": "evt_be0941841e3ec04817d6",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11975065443",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Faby",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "A5hmfhIBwkSjb61QO72DDZR"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:14.273Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:14.062Z",
+      "updatedAt": "2026-06-05T14:28:14.273Z"
+    },
+    {
+      "id": "evt_c099648c647da006e03f",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "19998401805",
+      "leadId": "750b5ae591870313801ff404",
+      "leadSnapshot": {
+        "id": "750b5ae591870313801ff404",
+        "nome": "Thiago Nazare bottaro",
+        "empresa": "asasa",
+        "email": "thiagolbottaro@gmail.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "generated_webhook_activecampaign",
+        "label": "Webhook ActiveCampaign",
+        "type": "webhook",
+        "detail": "Origem via webhook. Leads antigos podem não ter o nome exato do webhook salvo.",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AlXwuYPvr06rV63yzsMCVkq"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:15.009Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:14.796Z",
+      "updatedAt": "2026-06-05T14:28:15.010Z"
+    },
+    {
+      "id": "evt_86e7f2d55cf290d7e50a",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11949204665",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Carla",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "ASVqbW0lcDcB3R4CpWEZ7lI"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:15.756Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:15.533Z",
+      "updatedAt": "2026-06-05T14:28:15.757Z"
+    },
+    {
+      "id": "evt_8bcb026c3046a84ed87d",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "13997367592",
+      "leadId": "a664b951c0b8d316ece8fe61",
+      "leadSnapshot": {
+        "id": "a664b951c0b8d316ece8fe61",
+        "nome": "faby",
+        "empresa": "casa",
+        "email": "fabianecasadoads@gmai.com",
+        "source": "generated_webhook_activecampaign"
+      },
+      "origin": {
+        "key": "generated_webhook_activecampaign",
+        "label": "Webhook ActiveCampaign",
+        "type": "webhook",
+        "detail": "Origem via webhook. Leads antigos podem não ter o nome exato do webhook salvo.",
+        "messages": [],
+        "payloadType": ""
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AiMIJ9R064KUBUMB_ZhhO3a"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:16.495Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:16.281Z",
+      "updatedAt": "2026-06-05T14:28:16.496Z"
+    },
+    {
+      "id": "evt_7d2c2cde213389418019",
+      "tenantId": "admin",
+      "campaignId": "camp_fd593ba9bd515da293b9",
+      "campaignName": "teste_marketing",
+      "templateName": "teste_marketing",
+      "languageCode": "pt_BR",
+      "toDigits": "11975755030",
+      "leadId": "",
+      "leadSnapshot": {
+        "nome": "Andreia",
+        "empresa": "",
+        "email": ""
+      },
+      "origin": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "dispatchSource": {
+        "key": "spreadsheet",
+        "label": "Planilha importada",
+        "type": "spreadsheet",
+        "detail": "Contato usado em um disparo a partir de planilha."
+      },
+      "vars": [],
+      "status": "failed",
+      "deliveryState": "",
+      "messageId": null,
+      "error": {
+        "error": {
+          "message": "(#133010) Account not registered",
+          "code": 133010,
+          "type": "OAuthException",
+          "fbtrace_id": "AoLprYIa-fgyWnQG0kf0Okx"
+        }
+      },
+      "errorInfo": {
+        "provider": "meta",
+        "code": 133010,
+        "subcode": null,
+        "httpStatus": 400,
+        "type": "OAuthException",
+        "fbtraceId": "",
+        "userTitle": "",
+        "userMessage": "",
+        "originalMessage": "Número remetente não registrado na Cloud API",
+        "technicalMessage": "Número remetente não registrado na Cloud API",
+        "title": "Número remetente não registrado na Cloud API",
+        "category": "Conta/Registro",
+        "severity": "error",
+        "retryable": false,
+        "cause": "O número oficial usado como remetente não está registrado corretamente na WhatsApp Business Platform/Cloud API. Isso normalmente não é erro do lead.",
+        "action": "Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "nextSteps": [
+          "Abrir WhatsApp Manager e conferir se o número está conectado/registrado",
+          "Se estiver pendente, registrar o número pela API /register",
+          "Confirmar se o Phone Number ID salvo é o número correto",
+          "Refazer o vínculo do WhatsApp oficial no painel"
+        ],
+        "display": "Número remetente não registrado na Cloud API. Registre o número da empresa na Cloud API ou refaça o vínculo do WhatsApp oficial no painel com o WABA e Phone Number ID corretos.",
+        "key": "meta_133010",
+        "mapped": true
+      },
+      "sentAt": null,
+      "deliveredAt": null,
+      "readAt": null,
+      "failedAt": "2026-06-05T14:28:17.229Z",
+      "respondedAt": null,
+      "inbound": null,
+      "createdAt": "2026-06-05T14:28:17.018Z",
+      "updatedAt": "2026-06-05T14:28:17.230Z"
     }
   ]
 }

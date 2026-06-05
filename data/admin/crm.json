@@ -7,42 +7,39 @@
       "name": "Funil Principal",
       "createdAt": "2026-04-29T14:37:53.708Z",
       "stageOrder": [
-        "stg_proposal",
-        "stg_won",
+        "stg_3a4fefd67085b19e942b2492",
         "stg_9024c7402b27b819dd9adbce7",
         "stg_fece3e48d3843819dd9adc389",
-        "stg_3a4fefd67085b19e942b2492"
+        "stg_won"
       ],
       "stages": {
-        "stg_proposal": {
-          "id": "stg_proposal",
-          "name": "Proposta",
-          "leadIds": []
-        },
         "stg_won": {
           "id": "stg_won",
           "name": "Fechou",
-          "leadIds": [
-            "4546000f089b82828c948086"
-          ],
+          "leadIds": [],
           "autoMessages": [
             "Teste felipe etapa"
           ]
         },
         "stg_9024c7402b27b819dd9adbce7": {
           "id": "stg_9024c7402b27b819dd9adbce7",
-          "name": "Nova etapa",
-          "leadIds": []
+          "name": "Relacionamento 1",
+          "leadIds": [
+            "b202496578fd11839fa255ae"
+          ],
+          "autoMessages": [
+            "Vou te passar mais informações sobre esse evento:\n\nO evento *A Nova Era da Aquisição de Clientes por IA* será nos dias *08 e 09* de junho, com o Matheus Bottaro.\n\n*Formato:* online\n*Acesso:* pelo  do Google Meet\n*Horário:* 19h30 às 21h\n\nEntre no grupo do Whatsapp Privado apra receber todas as informações e materiais complementares que o Matheus Bottaro vai disponibilizar:\nhttps://chat.whatsapp.com/DrXVnOBxEOy5JCZblCWaMZ"
+          ]
         },
         "stg_fece3e48d3843819dd9adc389": {
           "id": "stg_fece3e48d3843819dd9adc389",
-          "name": "Nova etapa",
+          "name": "Relacionamento 2",
           "leadIds": [],
           "color": "#1A170F"
         },
         "stg_3a4fefd67085b19e942b2492": {
           "id": "stg_3a4fefd67085b19e942b2492",
-          "name": "Nova etapa",
+          "name": "Inscrito",
           "leadIds": []
         }
       }
@@ -63,5 +60,5 @@
       }
     }
   ],
-  "updatedAt": "2026-06-04T19:45:16.999Z"
+  "updatedAt": "2026-06-05T18:14:05.080Z"
 }

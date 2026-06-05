@@ -58,6 +58,7 @@ const {
   listCampaigns: listCloudDispatchCampaigns,
   listEvents: listCloudDispatchEvents,
 } = require("./src/waCloudDispatchStore");
+const { normalizeMetaError, groupMetaErrors } = require("./src/metaErrorHelper");
 
 const app = express();
 
@@ -1256,6 +1257,7 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
         deliveryState: st.state || status,
         messageId: msgId || null,
         error: st.error || null,
+        errorInfo: st.errorInfo || (st.error ? normalizeMetaError(st.error) : null),
         sentAt: st.lastSendAt || st.updatedAt || null,
         deliveredAt: st.deliveredAt || null,
         readAt: st.readAt || null,
@@ -1277,6 +1279,48 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
   let spreadsheetImpacted = 0;
   let mixedJourney = 0;
 
+  function eventSortDate(ev) {
+    return ev && (ev.updatedAt || ev.respondedAt || ev.readAt || ev.deliveredAt || ev.sentAt || ev.createdAt || "");
+  }
+  function isAfter(a, b) {
+    return String(a || "").localeCompare(String(b || "")) > 0;
+  }
+  function ensureCampaignRow(campaignId, campaignName, ev, campaign) {
+    if (!campaignMap.has(campaignId)) {
+      const createdAt = (campaign && campaign.createdAt) || ev.createdAt || ev.sentAt || null;
+      const updatedAt = (campaign && campaign.updatedAt) || eventSortDate(ev) || createdAt;
+      campaignMap.set(campaignId, {
+        id: campaignId,
+        name: campaignName,
+        templateName: ev.templateName || (campaign && campaign.templateName) || "",
+        languageCode: ev.languageCode || (campaign && campaign.languageCode) || "",
+        createdAt,
+        updatedAt,
+        total: Number((campaign && campaign.total) || 0),
+        metrics: dispatchMetricBlank(),
+        context: { webhookImpacted: 0, spreadsheetOnly: 0, mixedJourney: 0, legacyEvents: 0 },
+        _originMap: new Map(),
+        recent: [],
+      });
+    }
+    const row = campaignMap.get(campaignId);
+    const candidateUpdatedAt = (campaign && campaign.updatedAt) || eventSortDate(ev);
+    if (isAfter(candidateUpdatedAt, row.updatedAt)) row.updatedAt = candidateUpdatedAt;
+    return row;
+  }
+  function ensureOrigin(map, originKey, finalOrigin) {
+    if (!map.has(originKey)) {
+      map.set(originKey, {
+        key: originKey,
+        label: finalOrigin.label || "Origem",
+        type: finalOrigin.type || "",
+        detail: finalOrigin.detail || "",
+        metrics: dispatchMetricBlank(),
+      });
+    }
+    return map.get(originKey);
+  }
+
   const rows = events.map((ev) => {
     const phone = leadPhoneKey({ whatsapp_digits: ev.toDigits });
     const lead = findLeadByPhoneVariants(byPhone, phone) || null;
@@ -1290,22 +1334,25 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
     const campaignName = ev.campaignName || (campaign && campaign.name) || ev.templateName || "Campanha oficial";
     const day = startOfDayIso(ev.sentAt || ev.createdAt || ev.updatedAt);
     const isMixed = Boolean(leadOrigin && dispatchSource && dispatchSource.type && leadOrigin.type && String(dispatchSource.type) !== String(leadOrigin.type));
+    const originKey = finalOrigin.key || finalOrigin.label || "unknown";
+    const campaignRow = ensureCampaignRow(campaignId, campaignName, ev, campaign);
 
     addDispatchMetric(summary, finalStatus);
+    addDispatchMetric(campaignRow.metrics, finalStatus);
     incMap(statusMap, finalStatus);
     if (day) incMap(dailyMap, day);
-    if (!campaignMap.has(campaignId)) campaignMap.set(campaignId, { id: campaignId, name: campaignName, templateName: ev.templateName || (campaign && campaign.templateName) || "", languageCode: ev.languageCode || (campaign && campaign.languageCode) || "", createdAt: (campaign && campaign.createdAt) || ev.createdAt || null, metrics: dispatchMetricBlank() });
-    addDispatchMetric(campaignMap.get(campaignId).metrics, finalStatus);
 
-    const originKey = finalOrigin.key || finalOrigin.label || "unknown";
-    if (!originMap.has(originKey)) originMap.set(originKey, { key: originKey, label: finalOrigin.label || "Origem", type: finalOrigin.type || "", detail: finalOrigin.detail || "", metrics: dispatchMetricBlank() });
-    addDispatchMetric(originMap.get(originKey).metrics, finalStatus);
+    const globalOrigin = ensureOrigin(originMap, originKey, finalOrigin);
+    addDispatchMetric(globalOrigin.metrics, finalStatus);
+    const campaignOrigin = ensureOrigin(campaignRow._originMap, originKey, finalOrigin);
+    addDispatchMetric(campaignOrigin.metrics, finalStatus);
 
-    if (finalOrigin.type === "webhook") webhookImpacted += 1;
-    if (dispatchSource && dispatchSource.type === "spreadsheet" && !lead) spreadsheetImpacted += 1;
-    if (isMixed) mixedJourney += 1;
+    if (finalOrigin.type === "webhook") { webhookImpacted += 1; campaignRow.context.webhookImpacted += 1; }
+    if (dispatchSource && dispatchSource.type === "spreadsheet" && !lead) { spreadsheetImpacted += 1; campaignRow.context.spreadsheetOnly += 1; }
+    if (isMixed) { mixedJourney += 1; campaignRow.context.mixedJourney += 1; }
+    if (ev.legacy) campaignRow.context.legacyEvents += 1;
 
-    return {
+    const row = {
       id: ev.id,
       campaignId,
       campaignName,
@@ -1327,6 +1374,7 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
       statusClass: dispatchStatusClass(finalStatus),
       messageId: ev.messageId || "",
       error: ev.error || null,
+      errorInfo: ev.errorInfo || (ev.error ? normalizeMetaError(ev.error) : null),
       sentAt: ev.sentAt || null,
       deliveredAt: ev.deliveredAt || null,
       readAt: ev.readAt || null,
@@ -1334,10 +1382,32 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
       updatedAt: ev.updatedAt || null,
       legacy: Boolean(ev.legacy),
     };
+
+    campaignRow.recent.push(row);
+    return row;
   });
 
-  const campaignRows = Array.from(campaignMap.values()).map((c) => ({ ...c, metrics: dispatchMetricRates(c.metrics) }))
-    .sort((a, b) => b.metrics.total - a.metrics.total || String(b.createdAt || "").localeCompare(String(a.createdAt || ""))).slice(0, 12);
+  const campaignRows = Array.from(campaignMap.values()).map((c) => {
+    const origins = Array.from(c._originMap.values()).map((o) => ({ ...o, metrics: dispatchMetricRates(o.metrics) }))
+      .sort((a, b) => b.metrics.total - a.metrics.total || String(a.label).localeCompare(String(b.label))).slice(0, 12);
+    const recent = (Array.isArray(c.recent) ? c.recent : [])
+      .sort((a, b) => String(eventSortDate(b)).localeCompare(String(eventSortDate(a))))
+      .slice(0, 120);
+    return {
+      id: c.id,
+      name: c.name,
+      templateName: c.templateName,
+      languageCode: c.languageCode,
+      createdAt: c.createdAt,
+      updatedAt: c.updatedAt,
+      total: c.total,
+      metrics: dispatchMetricRates(c.metrics),
+      context: c.context,
+      origins,
+      recent,
+    };
+  }).sort((a, b) => String(b.updatedAt || b.createdAt || "").localeCompare(String(a.updatedAt || a.createdAt || ""))).slice(0, 50);
+
   const originRows = Array.from(originMap.values()).map((o) => ({ ...o, metrics: dispatchMetricRates(o.metrics) }))
     .sort((a, b) => b.metrics.total - a.metrics.total || String(a.label).localeCompare(String(b.label))).slice(0, 12);
   const statusRows = Array.from(statusMap.entries()).map(([status, count]) => ({ status, label: dispatchStatusLabel(status), className: dispatchStatusClass(status), count, percentage: percent(count, events.length) }))
@@ -1359,10 +1429,11 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
       legacyEvents: rows.filter((r) => r.legacy).length,
     },
     campaigns: campaignRows,
+    selectedCampaignId: campaignRows[0] ? campaignRows[0].id : "",
     origins: originRows,
     statuses: statusRows,
     timeline: { last14 },
-    recent: rows.sort((a, b) => String(b.updatedAt || b.sentAt || "").localeCompare(String(a.updatedAt || a.sentAt || ""))).slice(0, 20),
+    recent: rows.sort((a, b) => String(eventSortDate(b)).localeCompare(String(eventSortDate(a)))).slice(0, 50),
   };
 }
 
@@ -1382,7 +1453,13 @@ function syncCloudDispatchFromWebhook(body) {
         if (state === "sent") { patch.status = "sent"; patch.sentAckAt = nowIso; }
         else if (state === "delivered") { patch.status = "delivered"; patch.deliveredAt = nowIso; }
         else if (state === "read") { patch.status = "read"; patch.readAt = nowIso; }
-        else if (state === "failed") { patch.status = "failed"; patch.failedAt = nowIso; patch.error = (Array.isArray(st.errors) && st.errors[0]) || null; }
+        else if (state === "failed") {
+          const webhookError = (Array.isArray(st.errors) && st.errors[0]) || null;
+          patch.status = "failed";
+          patch.failedAt = nowIso;
+          patch.error = webhookError;
+          patch.errorInfo = webhookError ? normalizeMetaError(webhookError) : null;
+        }
         patch.conversation = st.conversation || null;
         patch.pricing = st.pricing || null;
         updateCloudDispatchByMessageId(messageId, patch);
@@ -2941,18 +3018,46 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
         updateCloudDispatchEvent(event.id, { status: "sent", sentAt: new Date().toISOString(), messageId });
         results.push({ to, ok: true, messageId, campaignId: campaign.id, eventId: event.id });
       } catch (err) {
-        updateCloudDispatchEvent(event.id, { status: "failed", failedAt: new Date().toISOString(), error: err?.payload || err?.message || String(err) });
+        const errorInfo = normalizeMetaError(err);
+        const rawError = err?.payload || err?.message || String(err);
+        updateCloudDispatchEvent(event.id, {
+          status: "failed",
+          failedAt: new Date().toISOString(),
+          error: rawError,
+          errorInfo,
+        });
         if (isMetaTokenInvalidError(err)) throw err;
-        results.push({ to, ok: false, error: err?.message || String(err), campaignId: campaign.id, eventId: event.id });
+        results.push({
+          to,
+          ok: false,
+          error: errorInfo.display || err?.message || String(err),
+          errorInfo,
+          campaignId: campaign.id,
+          eventId: event.id,
+        });
       }
 
       if (throttleMs) await new Promise((r) => setTimeout(r, throttleMs));
     }
 
-    res.json({ ok: true, campaignId: campaign.id, campaignName: campaign.name, total: results.length, results });
+    const sentCount = results.filter((x) => x && x.ok).length;
+    const failedCount = results.filter((x) => x && !x.ok).length;
+    res.json({
+      ok: true,
+      campaignId: campaign.id,
+      campaignName: campaign.name,
+      total: results.length,
+      summary: {
+        total: results.length,
+        sent: sentCount,
+        failed: failedCount,
+        errorGroups: groupMetaErrors(results),
+      },
+      results,
+    });
   } catch (err) {
     if (isMetaTokenInvalidError(err)) return sendMetaTokenInvalid(res, err);
-    res.status(400).json({ ok: false, error: err?.message || String(err), details: err?.payload || null });
+    res.status(400).json({ ok: false, error: err?.message || String(err), errorInfo: normalizeMetaError(err), details: err?.payload || null });
   }
 });
 

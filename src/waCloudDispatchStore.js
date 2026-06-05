@@ -71,6 +71,7 @@ function recordEvent(input = {}){
     deliveryState: String(input.deliveryState || ""),
     messageId: input.messageId || null,
     error: input.error || null,
+    errorInfo: input.errorInfo || null,
     sentAt: input.sentAt || null,
     deliveredAt: input.deliveredAt || null,
     readAt: input.readAt || null,

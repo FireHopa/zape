@@ -27,6 +27,7 @@ const {
   maskValue,
   clearLinkedCloudConfig,
 } = require("./waCloudConfigStore");
+const { normalizeMetaError } = require("./metaErrorHelper");
 
 function ensureDir() {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -101,10 +102,14 @@ async function graphFetch(url, { method = "GET", body, headers, token } = {}) {
   try { json = text ? JSON.parse(text) : null; } catch { /* ignore */ }
 
   if (!res.ok) {
-    const msg = (json && (json.error?.message || json.error?.error_user_msg)) || text || `HTTP ${res.status}`;
+    const metaError = normalizeMetaError(json || text || {}, { httpStatus: res.status });
+    const msg = metaError.display || (json && (json.error?.message || json.error?.error_user_msg)) || text || `HTTP ${res.status}`;
     const e = new Error(msg);
     e.status = res.status;
     e.payload = json || text;
+    e.metaError = metaError;
+    e.metaCode = metaError.code || null;
+    e.metaSubcode = metaError.subcode || null;
     throw e;
   }
   return json;
@@ -125,10 +130,14 @@ async function graphFetchNoAuth(url, { method = "GET", body, headers } = {}) {
   try { json = text ? JSON.parse(text) : null; } catch { /* ignore */ }
 
   if (!res.ok) {
-    const msg = (json && (json.error?.message || json.error?.error_user_msg)) || text || `HTTP ${res.status}`;
+    const metaError = normalizeMetaError(json || text || {}, { httpStatus: res.status });
+    const msg = metaError.display || (json && (json.error?.message || json.error?.error_user_msg)) || text || `HTTP ${res.status}`;
     const e = new Error(msg);
     e.status = res.status;
     e.payload = json || text;
+    e.metaError = metaError;
+    e.metaCode = metaError.code || null;
+    e.metaSubcode = metaError.subcode || null;
     throw e;
   }
   return json;
