@@ -3075,6 +3075,143 @@
       "createdAt": "2026-06-03T17:14:26.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB09A585960944E28B355",
+      "fromMe": true,
+      "body": "Oiee Alex",
+      "type": "chat",
+      "timestamp": 1780746843,
+      "createdAt": "2026-06-06T11:54:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB01F1BED0C738306C434",
+      "fromMe": true,
+      "body": "Esta por ai?",
+      "type": "chat",
+      "timestamp": 1780746848,
+      "createdAt": "2026-06-06T11:54:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB07C4D7D611E177F13DF",
+      "fromMe": true,
+      "body": "Bom diaaa Alex!!!",
+      "type": "chat",
+      "timestamp": 1780917917,
+      "createdAt": "2026-06-08T11:25:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0F75F5EE061F7CB81D6",
+      "fromMe": true,
+      "body": "Segundouuuu kkk",
+      "type": "chat",
+      "timestamp": 1780917924,
+      "createdAt": "2026-06-08T11:25:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB007BB2088B707F11484",
+      "fromMe": true,
+      "body": "Espero que esteja tudo bem? ☺️",
+      "type": "chat",
+      "timestamp": 1780917944,
+      "createdAt": "2026-06-08T11:25:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB00967B236D5754A88DA",
+      "fromMe": true,
+      "body": "Olá Helena Figueiredo, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ + IVA\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição?",
+      "type": "chat",
+      "timestamp": 1780918001,
+      "createdAt": "2026-06-08T11:26:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB06F659F6EF08FEECF44",
+      "fromMe": true,
+      "body": "Foi feita a alteração no Lote, pois tinha que colocar o valor + IVA, pois não sera mais incluido?",
+      "type": "chat",
+      "timestamp": 1780918062,
+      "createdAt": "2026-06-08T11:27:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB089271DB1958C9565FB",
+      "fromMe": false,
+      "body": "Oi Fabi, bom dia! tudo bem sim e você?\n\nNão será mais incluido, o Matheus pediu para tirar o IVA.",
+      "type": "chat",
+      "timestamp": 1780918127,
+      "createdAt": "2026-06-08T11:28:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB01C99CFB57EF8FC3D38",
+      "fromMe": true,
+      "body": "isso mesmo",
+      "type": "chat",
+      "timestamp": 1780918449,
+      "createdAt": "2026-06-08T11:34:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0BC933191CFD33CBD58",
+      "fromMe": true,
+      "body": "true_188630819725402@lid_3EB0BC933191CFD33CBD58",
+      "type": "image",
+      "timestamp": 1780918534,
+      "createdAt": "2026-06-08T11:35:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_188630819725402_lid_3EB0BC933191CFD33CBD58_c6c9c6f1.jpg",
+      "mediaSize": 215009,
+      "filename": "true_188630819725402@lid_3EB0BC933191CFD33CBD58",
+      "originalName": "true_188630819725402@lid_3EB0BC933191CFD33CBD58"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0BAA75AE6373B425D19",
+      "fromMe": true,
+      "body": "Outra coisa, o PDF de Portugal esta com o horario errado, é vc que corrige?",
+      "type": "chat",
+      "timestamp": 1780918565,
+      "createdAt": "2026-06-08T11:36:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB02F6031ED0A5A235DFD",
+      "fromMe": false,
+      "body": "Não, o PDF não sou eu quem arruma.",
+      "type": "chat",
+      "timestamp": 1780918601,
+      "createdAt": "2026-06-08T11:36:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB08DEF45D30BADF210B3",
+      "fromMe": true,
+      "body": "Beleza.",
+      "type": "chat",
+      "timestamp": 1780918729,
+      "createdAt": "2026-06-08T11:38:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5513997675879": [
@@ -3687,6 +3824,106 @@
       "type": "chat",
       "timestamp": 1780684293,
       "createdAt": "2026-06-05T18:31:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB013CEE34E0FB0758477",
+      "fromMe": false,
+      "body": "Bom dia maiga tudo bem?",
+      "type": "chat",
+      "timestamp": 1780917682,
+      "createdAt": "2026-06-08T11:21:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB05020E6D8BD4D4DCB05",
+      "fromMe": false,
+      "body": "Fa o teste neste link e veja qual número esta para falar comigo, por favor",
+      "type": "chat",
+      "timestamp": 1780917718,
+      "createdAt": "2026-06-08T11:21:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB00F2B7A78CBD5CE45E1",
+      "fromMe": false,
+      "body": "*Imersão Google Ads IO - 08 e 09/06/26*\n*Página do Evento:* https://casadoads.com.br/google-io/\n*Formulário:* IMERSÃO GOOGLE ADS | GOOGLE IO - 08 E 09/06/26",
+      "type": "chat",
+      "timestamp": 1780917725,
+      "createdAt": "2026-06-08T11:22:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0787E0AD53F3BF84969",
+      "fromMe": false,
+      "body": "aqui não estou conseguindo finalizar pelo notebook",
+      "type": "chat",
+      "timestamp": 1780917745,
+      "createdAt": "2026-06-08T11:22:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0EDBB6180326F268F8F",
+      "fromMe": true,
+      "body": "o botão ta no 2661",
+      "type": "chat",
+      "timestamp": 1780917808,
+      "createdAt": "2026-06-08T11:23:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0AF43066B6D6EEC6572",
+      "fromMe": false,
+      "body": "ah ta",
+      "type": "chat",
+      "timestamp": 1780917860,
+      "createdAt": "2026-06-08T11:24:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0E5BDAC4A5AC1C64420",
+      "fromMe": true,
+      "body": "A mensagem de automação vem pelo 2412",
+      "type": "chat",
+      "timestamp": 1780917860,
+      "createdAt": "2026-06-08T11:24:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0BF0EFFA61368CE0BD3",
+      "fromMe": false,
+      "body": "por isso que o pessoal me chamando por ele",
+      "type": "chat",
+      "timestamp": 1780917873,
+      "createdAt": "2026-06-08T11:24:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB00B8FF7344484E8616D",
+      "fromMe": false,
+      "body": "vou pedir pra Alex alterar, aff",
+      "type": "chat",
+      "timestamp": 1780917881,
+      "createdAt": "2026-06-08T11:24:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB03C8FD75ECB3C0935D2",
+      "fromMe": false,
+      "body": "se nãi fico maluca",
+      "type": "chat",
+      "timestamp": 1780918081,
+      "createdAt": "2026-06-08T11:28:01.000Z",
       "ack": 1,
       "source": "incoming-event"
     }
@@ -7233,6 +7470,143 @@
       "createdAt": "2026-06-05T15:09:03.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB05713A3EB00FA5A7D79",
+      "fromMe": false,
+      "body": "Olá Helena Figueiredo, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ + IVA\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição?",
+      "type": "chat",
+      "timestamp": 1780747141,
+      "createdAt": "2026-06-06T11:59:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A503C030BC64E8D6D33ADB7129D54E0E",
+      "fromMe": false,
+      "body": "Maravilha, além de aprender como criar campanhas atualizadas com IA no Google Ads, você vai aprender um checklist prático de melhorias e otimizações para melhorar os seus resultados com os novos recursos da Inteligência Artificial.\n\nA imersão também vai mostrar como aparecer gratuitamente nas respostas da IA do Google e como preparar a sua empresa para ser recomendada pelo ChatGPT, Gemini e outras IAs.\n\nNão sei se você já conhece a Casa do Ads, mas somos parceiros oficiais Google Partners.\n\nVocê pode conferir aqui: https://www.google.com/partners/agency?id=1175990135\n\nEsta será a 2ª edição da imersão em Portugal.\n📍 Lisboa\n🏨 Hotel Holiday Inn Lisbon Continental\n📅 22 de Junho\n🕒 19h00 às 22h30\n🎟️ 25€ com IVA incluído\n\nPara finalizar a sua inscrição, você pode acessar direto pelo site: https://casadoads.com.br/imersao-lisboa/\n\nSe preferir, posso enviar por aqui o link direto para pagamento seguro pela Hotmart. Posso te enviar?",
+      "type": "chat",
+      "timestamp": 1780749716,
+      "createdAt": "2026-06-06T12:41:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB078BF86F52576012498",
+      "fromMe": false,
+      "body": "Joana Pereira Galante\tNoisy wizard\t351918813785\nEduardo Caperta\tMata & Delaunay Unipessoal Lda\t351913072715\nPedro Correia\tO chefe Voltou Unipessoal lda.\t351910616172\nPaulo BRas\tVCeletricar\t351924390450\nShaul Salim Vilasboa\tBinovar lda\t351927522256\nGiselle Tiradentes\tPercent Servicios Inmobiliarios\t351919777068\nCristina Escórcio\tNutri\t351960119910\nCamila Grossers da Costa\tATELIERS L’ATTITUDE\t351935106005\nCleiton Vieria da Rocha\tGrupo Alternativa Verde\t351925062092\nDamian Pianowski\tI Want Travel\t351963520647\nFilomena Chainho\tBe.ok\t351965698323\nAna Silva\tCentury21 Move.On\t351923577880\nJose Luís Leitão Condeça Marques\tPaladares do Mundo Lda.\t351963388141\nSara Reis\tVolse Agency Unipessoal LDA\t351924372296\nJoão Passos\tJPVA - Real Estate Group @ KW\t351961729480\nCarla Guerra\tCVMI-climica veterinária medicina integrada\t351912613992\nJuliana Carneiro Alves de Oliveira\tAna Sica Terapeuta\t351 914217343\nMiguel Vitar\tExpopneu\t3519635305\nCristielen Vieira\tArcanas digital\t351910978733\nGUSTAVO TSUNEO TANAKA\tTSL Growth\t351925200752\nDamires soares\tStudio de beleza LIORA\t351926526997\nLuiz\tLuiz Frederico Costa , unip lda\t351913019824\nSusana Tenedório\tIAD Real Estate\t351 961805938\nRodrigo Duarte\tDuarte Advocacia Internacional\t351934910937",
+      "type": "chat",
+      "timestamp": 1780912793,
+      "createdAt": "2026-06-08T09:59:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0C9D9B6883B950103A5",
+      "fromMe": true,
+      "body": "351912513992",
+      "type": "chat",
+      "timestamp": 1780913605,
+      "createdAt": "2026-06-08T10:13:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB03F8B41B4C93E5D2FA6",
+      "fromMe": true,
+      "body": "3513519635305",
+      "type": "chat",
+      "timestamp": 1780913701,
+      "createdAt": "2026-06-08T10:15:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB024BBF64D02E401C4BA",
+      "fromMe": false,
+      "body": "+3513519635305",
+      "type": "chat",
+      "timestamp": 1780913717,
+      "createdAt": "2026-06-08T10:15:17.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB05F083424EE21785E0C",
+      "fromMe": false,
+      "body": "351 964 804 660",
+      "type": "chat",
+      "timestamp": 1780915016,
+      "createdAt": "2026-06-08T10:36:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB0289667DF37C66E01AA",
+      "fromMe": false,
+      "body": "351964804660",
+      "type": "chat",
+      "timestamp": 1780915061,
+      "createdAt": "2026-06-08T10:37:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB07F40F4DE975D88870F",
+      "fromMe": true,
+      "body": "true_96349756383259@lid_3EB07F40F4DE975D88870F",
+      "type": "image",
+      "timestamp": 1780915527,
+      "createdAt": "2026-06-08T10:45:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_96349756383259_lid_3EB07F40F4DE975D88870F_b71a48e5.jpg",
+      "mediaSize": 215009,
+      "filename": "true_96349756383259@lid_3EB07F40F4DE975D88870F",
+      "originalName": "true_96349756383259@lid_3EB07F40F4DE975D88870F"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB0F90B7B1BF81CBC9A73",
+      "fromMe": false,
+      "body": "{Nome}, bom dia! Aqui é a Fabiane da equipa do Matheus Bottaro.\n\nFez a pré-inscrição na Imerção Presencial Google Ads e Inteligência Artificial em Lisboa!\n\nPosso enviar o link para finalizar a sua inscrição, ficou alguma dúvida?\n\nAtualmente já anuncia no Google ou está a querer começar agora?",
+      "type": "chat",
+      "timestamp": 1780917628,
+      "createdAt": "2026-06-08T11:20:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB0A7FF49E2B2ACEA35F7",
+      "fromMe": false,
+      "body": "Ótimo, {nome}! Então vai aproveitar ainda mais! Vai aprender todas as novidades do Google Ads com IA, como configurar campanhas da forma correta e ainda sair com um checklist de 10 passos para otimizar e melhorar os seus resultados.\n\nInclusive {nome}, além de mostrar como atrair clientes qualificados usando novos recursos da IA do Google Ads, vai entender como o seu negócio pode aparecer nas respostas da IA do Google e ser recomendado pelo ChatGPT e outras IAs…\n\nFicou a saber desta novidade?",
+      "type": "chat",
+      "timestamp": 1780917732,
+      "createdAt": "2026-06-08T11:22:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_3EB0E4AF0B476FD5DE7CFD",
+      "fromMe": false,
+      "body": "https://docs.google.com/document/d/1ARE46r8Ddg4Wzg-p_4eHma5k6P4Pu8KSx67GkmdrSQM/edit?tab=t.0",
+      "type": "chat",
+      "timestamp": 1780920031,
+      "createdAt": "2026-06-08T12:00:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB03E7DB9A9D2755EF708",
+      "fromMe": true,
+      "body": "Marcia\tNewface\t351935581377\nFilomena Linares\tGoamhouses\t351960357257\nMário Frazão da Rocha\t4Be 2Me Designers Unip lda\t351968664643\nJacinto\tFrqgoso\t351924074061\nAnita Tomas\tAnitatomas\t351918994180\nRodrigo\tDuarte Advocacia Internacional\t351934910937\nCarlos Tamietto Junio\tAgência Sol OnLine\t351926112844\nIsabelle Gomes Marques\tExpressão Nobilissima lda\t351913 333 225\nCarlos Dias Alves\tResteloVida, Cuidados de Saúde, Lda\t351922002105\nAfonso\tMaria\t351 934505855\nMaria\tCompanhia Jiménez tuesta\t351968664285\nMichel Reis\tMRT NL - PROVMEC\t351924117579\nManuel Cosme\tEngel & Voelkers\t351965704615\nAhmad Riaz\tSeara Feliz Lda\t351933534704\nMichael Tosin Adesanwo\tRapido Relief App\t351920818033\nNuno\tRemax\t351961220247\nAlessandro Souza\tAGAPE Portugal\t351934066810\nJeanne\tExpress Pison\t351929433412\nCamila\tREMAX Siimgroup\t351936202608\nMarta Fino\tFactor Espaço\t351962301763\nMaria ines\tOw\t351912140682\nRita Baptista\tINDEBT\t351967500736\nShaul Salim\tBinovar Lda\t351927522256\nDouglas Borges Carvalho\tViaja Mundo Global\t351912363487\nWillian\tGrupo WS\t351938931140\njoaquim Dju\tJOAQUIM DJU\t351937608844\nyosi zana\tseo ppc meruba\t351525681233\nValessa Fradique\tLx5\t351920147605\nDenniz\tObeheim\t351932270534\nPedro Majid\tEuronics-Fazila Lda\t351936313050\nCristiana Soares\tConsultora Independente\t351927353615\nSabryna Pinto\tSabryna Edvirges dos Santos Pinto Boechat\t351 964 231 689\nGeni Barbosa\tEconil Mineracao Urbana\t351964787892\nRaquel pereira\tWe sum unipessoal\t351918571028\nRoberta\tNão tenho empresa\t351935148960\nBianca Rosendo Servin\tFreelancer\t351939171030\nCatarina Figueira\tFarmácia Reis Barata\t351917015285\nMaria\tMaria Vargas Consultoria  Imobiliaria Lda\t351966164756\nSandra Simões\tThe Pet Store CD, Lda\t351919 561 431\nCláudio Starec\tCertigica Med\t351 939083665\nAlexandro\tTopRouter Telecom\t351930635483\nFrancisco\tREWARD Consulting\t351934028816\nHelena Figueiredo\tFreelancer\t351964848212\nMiguel Borges\tMATRIZ Phi\t351912307784\nSara Bandali\tFreelancer\t351920405951\nMarcelo Henrique Battaglion\tSonho Encantado LDA\t351911918449\nMarina Ventura\tSereno Critério Lda\t351911 077 023\nManuela Palma\tManuela Palma Unipessoal Lda\t351912110646\nLucia\tLucia Alves Nunes Unipessoal Lda\t351926419796\nJosé Guimarães\tBlue Collective\t351916848540\nRandell Alex Lima Silveira\tHome7 Reparações\t351962 220 622\nCarlos\tHCJF, Lda.\t351964046771",
+      "type": "chat",
+      "timestamp": 1780924494,
+      "createdAt": "2026-06-08T13:14:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351962451262": [

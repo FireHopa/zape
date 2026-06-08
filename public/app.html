@@ -5470,14 +5470,15 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
   <script>
     var APP_TENANT = (function(){
       var first = String(location.pathname || "").split("/").filter(Boolean)[0] || "admin";
-      return ["admin", "panel", "regina", "portugal"].includes(first) ? first : "admin";
+      return ["admin", "panel", "regina", "portugal", "felipe"].includes(first) ? first : "admin";
     })();
 
     var APP_CONFIGS = {
       admin: { label: "Admin", title: "Casa do Ads • Admin", apiBase: "/api/admin", csvBase: "/admin/leads.csv" },
       panel: { label: "Painel", title: "Casa do Ads • Painel", apiBase: "/api/panel", csvBase: "/panel/leads.csv" },
       regina: { label: "Regina", title: "Casa do Ads • Regina", apiBase: "/api/regina", csvBase: "/regina/leads.csv" },
-      portugal: { label: "Portugal", title: "Casa do Ads • Portugal", apiBase: "/api/portugal", csvBase: "/portugal/leads.csv" }
+      portugal: { label: "Portugal", title: "Casa do Ads • Portugal", apiBase: "/api/portugal", csvBase: "/portugal/leads.csv" },
+      felipe: { label: "Felipe", title: "Casa do Ads • Felipe", apiBase: "/api/felipe", csvBase: "/felipe/leads.csv" }
     };
 
     var APP_CONFIG = APP_CONFIGS[APP_TENANT] || APP_CONFIGS.admin;

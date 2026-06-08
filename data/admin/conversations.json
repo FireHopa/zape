@@ -1838,6 +1838,126 @@
       "createdAt": "2026-06-05T18:58:08.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB013124E2C3F567BF3AA",
+      "fromMe": false,
+      "body": "(Cintia Alphaville 01/06) Fernanda Carvalho Oliveira\tUninter\t11943367506\tfernanda@sabermais.org.br",
+      "type": "chat",
+      "timestamp": 1780914829,
+      "createdAt": "2026-06-08T10:33:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_A5C48FD425BE730B29B5ED43293DCD97",
+      "fromMe": true,
+      "body": "11 989877748",
+      "type": "chat",
+      "timestamp": 1780915189,
+      "createdAt": "2026-06-08T10:39:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0A7223334DC780046A8",
+      "fromMe": true,
+      "body": "Olá, Cíntia teste 1 tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780916748,
+      "createdAt": "2026-06-08T11:05:48.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0EE1867037A86D53DA9",
+      "fromMe": true,
+      "body": "Olá, Cíntia teste 2 tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780917501,
+      "createdAt": "2026-06-08T11:18:21.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB004BD07C4A3D5A7DDED",
+      "fromMe": true,
+      "body": "Olá, cintia jujeque tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780917767,
+      "createdAt": "2026-06-08T11:22:47.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0A9BD8707678F846CDB",
+      "fromMe": false,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nSegunda-feira, 8 de junho · 11:00am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/kua-pdah-snn\nOu disque: ‪(BR) +55 11 4935-5976‬ PIN: ‪931 173 909‬#\nOutros números de telefone: https://tel.meet/kua-pdah-snn?pin=5085992264596",
+      "type": "chat",
+      "timestamp": 1780919294,
+      "createdAt": "2026-06-08T11:48:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB06A119AED1A6ABCA7B5",
+      "fromMe": false,
+      "body": "(Cintia Alphaville -1/06) Ana Carolina ferreira Garcia\tImobiliária lapa Ltda\t5511947694201\tana@imobiliarialapa.com.br",
+      "type": "chat",
+      "timestamp": 1780919333,
+      "createdAt": "2026-06-08T11:48:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB0678DD6D80DCD603300",
+      "fromMe": false,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nSegunda-feira, 8 de junho · 11:00am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/yxy-mexm-iar\nOu disque: ‪(BR) +55 19 4560-9964‬ PIN: ‪575 966 448‬#\nOutros números de telefone: https://tel.meet/yxy-mexm-iar?pin=9067718378155",
+      "type": "chat",
+      "timestamp": 1780919579,
+      "createdAt": "2026-06-08T11:52:59.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB003D60F7F1EF5DEF808",
+      "fromMe": false,
+      "body": "#(Cintia Alphaville 01/06) Fernanda Carvalho Oliveira\tUninter\t11943367506\tfernanda@sabermais.org.br\n\nReunião das 15h confirmada",
+      "type": "chat",
+      "timestamp": 1780919908,
+      "createdAt": "2026-06-08T11:58:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB09CAF819A0718B4D616",
+      "fromMe": false,
+      "body": "(Cintia Alphaville 01/06) Vanessa Siqueira Araujo\tTutti Dent Clínica Odontológica\t11981457715\tvsaraujo04@gmail.com",
+      "type": "chat",
+      "timestamp": 1780919908,
+      "createdAt": "2026-06-08T11:58:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_3EB06ED3DBDBE4B8B1B912",
+      "fromMe": false,
+      "body": "(Cintia Alphaville 01/06) Sibeli Trimboli da Silva  Auto Peças Sibeli  11 947430198   Sibelitsilva@gmail.com",
+      "type": "chat",
+      "timestamp": 1780920331,
+      "createdAt": "2026-06-08T12:05:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_277261748011176@lid_A5CF558070B01376DBAB1E252D8BBCA5",
+      "fromMe": true,
+      "body": "11998234492",
+      "type": "chat",
+      "timestamp": 1780924513,
+      "createdAt": "2026-06-08T13:15:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511976971746": [
@@ -6545,6 +6665,355 @@
       "mediaSize": 12457,
       "filename": "false_194029543227477@lid_2AED8E6D265AEED2696A",
       "originalName": "false_194029543227477@lid_2AED8E6D265AEED2696A"
+    },
+    {
+      "id": "true_194029543227477@lid_A5B3EA97CB39C71436C4BA65E75D7F45",
+      "fromMe": true,
+      "body": "Nem eu vi essa mensagem, está em outro número",
+      "type": "chat",
+      "timestamp": 1780686345,
+      "createdAt": "2026-06-05T19:05:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A16C2A2D444279ECFCC",
+      "fromMe": false,
+      "body": "Sim vê isso",
+      "type": "chat",
+      "timestamp": 1780686448,
+      "createdAt": "2026-06-05T19:07:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2AC0FFD6D5DC2D445537",
+      "fromMe": false,
+      "body": "Vai começar a rodar",
+      "type": "chat",
+      "timestamp": 1780686451,
+      "createdAt": "2026-06-05T19:07:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5D8A49FF70651F247490613A5B2EF34",
+      "fromMe": true,
+      "body": "Chamei ela",
+      "type": "chat",
+      "timestamp": 1780686459,
+      "createdAt": "2026-06-05T19:07:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A516BA0B634BC956AFA611CD2BEF15B6",
+      "fromMe": true,
+      "body": "Evento on-line?",
+      "type": "chat",
+      "timestamp": 1780686535,
+      "createdAt": "2026-06-05T19:08:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A10DD83F7C4120E4D1C",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780686722,
+      "createdAt": "2026-06-05T19:12:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5C0C6754E3997CF81C184BB11148F70",
+      "fromMe": true,
+      "body": "Vamos criar grupos novos ou usar os mesmos?",
+      "type": "chat",
+      "timestamp": 1780686901,
+      "createdAt": "2026-06-05T19:15:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2AF466E1F1A0411FE5A2",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780686925,
+      "createdAt": "2026-06-05T19:15:25.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2AF466E1F1A0411FE5A2_902aa895.ogg",
+      "mediaSize": 50817,
+      "filename": "false_194029543227477@lid_2AF466E1F1A0411FE5A2",
+      "originalName": "false_194029543227477@lid_2AF466E1F1A0411FE5A2"
+    },
+    {
+      "id": "true_194029543227477@lid_A529EB27B23E82AD83BFD4D612C43F4C",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780686987,
+      "createdAt": "2026-06-05T19:16:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_194029543227477_lid_A529EB27B23E82AD83BFD4D612C43F4C_67728263.ogg",
+      "mediaSize": 43685,
+      "filename": "true_194029543227477@lid_A529EB27B23E82AD83BFD4D612C43F4C",
+      "originalName": "true_194029543227477@lid_A529EB27B23E82AD83BFD4D612C43F4C"
+    },
+    {
+      "id": "false_194029543227477@lid_2AC95205A9B6D9D0AF05",
+      "fromMe": false,
+      "body": "Fechou",
+      "type": "chat",
+      "timestamp": 1780687101,
+      "createdAt": "2026-06-05T19:18:21.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5B75D038891AE96A69ECD284E586618",
+      "fromMe": true,
+      "body": "Nane segunda as 16h?",
+      "type": "chat",
+      "timestamp": 1780687176,
+      "createdAt": "2026-06-05T19:19:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A511CB7E115966017346F939D97B59A2",
+      "fromMe": true,
+      "body": "Pode ser",
+      "type": "chat",
+      "timestamp": 1780687191,
+      "createdAt": "2026-06-05T19:19:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2AC5EAAA6E97E311A644",
+      "fromMe": false,
+      "body": "👀",
+      "type": "chat",
+      "timestamp": 1780687450,
+      "createdAt": "2026-06-05T19:24:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2AF1DD3B1837591250F9",
+      "fromMe": false,
+      "body": "Para de trabalhar meninaaaaaa",
+      "type": "chat",
+      "timestamp": 1780687457,
+      "createdAt": "2026-06-05T19:24:17.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A06BDD0E0B2B6099809",
+      "fromMe": false,
+      "body": "false_194029543227477@lid_2A06BDD0E0B2B6099809",
+      "type": "sticker",
+      "timestamp": 1780687460,
+      "createdAt": "2026-06-05T19:24:20.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/webp",
+      "mediaFile": "false_194029543227477_lid_2A06BDD0E0B2B6099809_65ea7910.webp",
+      "mediaSize": 86258,
+      "filename": "false_194029543227477@lid_2A06BDD0E0B2B6099809",
+      "originalName": "false_194029543227477@lid_2A06BDD0E0B2B6099809"
+    },
+    {
+      "id": "false_194029543227477@lid_2A89516841F63BECF19B",
+      "fromMe": false,
+      "body": "false_194029543227477@lid_2A89516841F63BECF19B",
+      "type": "sticker",
+      "timestamp": 1780687460,
+      "createdAt": "2026-06-05T19:24:20.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/webp",
+      "mediaFile": "false_194029543227477_lid_2A89516841F63BECF19B_a3ae3de8.webp",
+      "mediaSize": 136948,
+      "filename": "false_194029543227477@lid_2A89516841F63BECF19B",
+      "originalName": "false_194029543227477@lid_2A89516841F63BECF19B"
+    },
+    {
+      "id": "false_194029543227477@lid_2A039D11604C37FFF9EA",
+      "fromMe": false,
+      "body": "false_194029543227477@lid_2A039D11604C37FFF9EA",
+      "type": "sticker",
+      "timestamp": 1780687462,
+      "createdAt": "2026-06-05T19:24:22.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/webp",
+      "mediaFile": "false_194029543227477_lid_2A039D11604C37FFF9EA_6e5e1b5c.webp",
+      "mediaSize": 73322,
+      "filename": "false_194029543227477@lid_2A039D11604C37FFF9EA",
+      "originalName": "false_194029543227477@lid_2A039D11604C37FFF9EA"
+    },
+    {
+      "id": "false_194029543227477@lid_2AD075BBB7BD157D7C6B",
+      "fromMe": false,
+      "body": "false_194029543227477@lid_2AD075BBB7BD157D7C6B",
+      "type": "sticker",
+      "timestamp": 1780687470,
+      "createdAt": "2026-06-05T19:24:30.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/webp",
+      "mediaFile": "false_194029543227477_lid_2AD075BBB7BD157D7C6B_b26c7f26.webp",
+      "mediaSize": 58800,
+      "filename": "false_194029543227477@lid_2AD075BBB7BD157D7C6B",
+      "originalName": "false_194029543227477@lid_2AD075BBB7BD157D7C6B"
+    },
+    {
+      "id": "true_194029543227477@lid_A5D08F679875FFC959E54C0E44429899",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780687493,
+      "createdAt": "2026-06-05T19:24:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_194029543227477_lid_A5D08F679875FFC959E54C0E44429899_de8c356a.ogg",
+      "mediaSize": 28137,
+      "filename": "true_194029543227477@lid_A5D08F679875FFC959E54C0E44429899",
+      "originalName": "true_194029543227477@lid_A5D08F679875FFC959E54C0E44429899"
+    },
+    {
+      "id": "false_194029543227477@lid_2AD78C69160E0FA7B809",
+      "fromMe": false,
+      "body": "Vai beber",
+      "type": "chat",
+      "timestamp": 1780687542,
+      "createdAt": "2026-06-05T19:25:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A521D34CD4C545C8B73A2A56C1E24657",
+      "fromMe": true,
+      "body": "Vou hahaha",
+      "type": "chat",
+      "timestamp": 1780687601,
+      "createdAt": "2026-06-05T19:26:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5AC1F5034F071F71CB3B2C419F852EA",
+      "fromMe": true,
+      "body": "O suplemento tira toda vontade de beber",
+      "type": "chat",
+      "timestamp": 1780687616,
+      "createdAt": "2026-06-05T19:26:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A596D3BDC98AC60D469173090B5BABD5",
+      "fromMe": true,
+      "body": "15 dias eliminei 4k",
+      "type": "chat",
+      "timestamp": 1780687632,
+      "createdAt": "2026-06-05T19:27:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A4CB530FDE2192E64BB",
+      "fromMe": false,
+      "body": "Ai simmm",
+      "type": "chat",
+      "timestamp": 1780689269,
+      "createdAt": "2026-06-05T19:54:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A7E10BCD1D18A3966E6",
+      "fromMe": false,
+      "body": "Genteee",
+      "type": "chat",
+      "timestamp": 1780689271,
+      "createdAt": "2026-06-05T19:54:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2AFB2E30B29545AC657F",
+      "fromMe": false,
+      "body": "Qual nome",
+      "type": "chat",
+      "timestamp": 1780689275,
+      "createdAt": "2026-06-05T19:54:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A530DBB75C1364A9A39C69C0C29C2739",
+      "fromMe": true,
+      "body": "São 2 life Herbal 1 por dia",
+      "type": "chat",
+      "timestamp": 1780691105,
+      "createdAt": "2026-06-05T20:25:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A554EDA86CFF0B555AB4F9AA0D6FD05B",
+      "fromMe": true,
+      "body": "Mas pense na sede que dá",
+      "type": "chat",
+      "timestamp": 1780691167,
+      "createdAt": "2026-06-05T20:26:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A538E3C55BF9E80EB049A5D0AA32A386",
+      "fromMe": true,
+      "body": "Se não vigiar vc não come o dia todo",
+      "type": "chat",
+      "timestamp": 1780691235,
+      "createdAt": "2026-06-05T20:27:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2AC7C595A8185D819803",
+      "fromMe": false,
+      "body": "Kkkkkk",
+      "type": "chat",
+      "timestamp": 1780691547,
+      "createdAt": "2026-06-05T20:32:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511993806510": [
@@ -7929,6 +8398,36 @@
       "type": "chat",
       "timestamp": 1780410407,
       "createdAt": "2026-06-02T14:26:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A55D70AA2154FA09C521B6AAD40E6007",
+      "fromMe": true,
+      "body": "Bom dia Ana Carolina, tudo bem?\n\nPassando para lembrar da sua reunião hoje às 11h, ok?\n\nEle vai te mostrar como usar o Google para atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona para seu nicho.\n\n💻 Se puder, acesse pelo notebook ou computador para aproveitar melhor!",
+      "type": "chat",
+      "timestamp": 1780919454,
+      "createdAt": "2026-06-08T11:50:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A5B62AAA0232D6026D8CF3441BD6BEEB",
+      "fromMe": true,
+      "body": "Encaminhei o link no seu e-mail, mas vou enviar por aqui também 😃",
+      "type": "chat",
+      "timestamp": 1780919476,
+      "createdAt": "2026-06-08T11:51:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_172533315805299@lid_A5D6C469E0B1614E5E973819CF8A1224",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nSegunda-feira, 8 de junho · 11:00am – 12:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/yxy-mexm-iar\nOu disque: ‪(BR) +55 19 4560-9964‬ PIN: ‪575 966 448‬#\nOutros números de telefone: https://tel.meet/yxy-mexm-iar?pin=9067718378155",
+      "type": "chat",
+      "timestamp": 1780919593,
+      "createdAt": "2026-06-08T11:53:13.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -11029,6 +11528,114 @@
       "createdAt": "2026-06-02T19:17:09.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_11218555289662@lid_ACBE24DC0B6CFE64BACBEBEACD0A1CCC",
+      "fromMe": false,
+      "body": "Oi Cintia,  boa tarde. Espero que esteja trabalhando rsrs. O Matheus comentou no curso a possibilidade de fazermos uma imersão individual,  principalmente para mim que não tenho google ads. Quais seriam os dias possíveis,  e horários?",
+      "type": "chat",
+      "timestamp": 1780686898,
+      "createdAt": "2026-06-05T19:14:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_11218555289662@lid_A5022E0B6028E0DB4D3C4D528B7257E9",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780687057,
+      "createdAt": "2026-06-05T19:17:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_11218555289662_lid_A5022E0B6028E0DB4D3C4D528B7257E9_a9e0f8df.ogg",
+      "mediaSize": 81928,
+      "filename": "true_11218555289662@lid_A5022E0B6028E0DB4D3C4D528B7257E9",
+      "originalName": "true_11218555289662@lid_A5022E0B6028E0DB4D3C4D528B7257E9"
+    },
+    {
+      "id": "false_11218555289662@lid_ACD56B006C7258CC76D5576A95525FC5",
+      "fromMe": false,
+      "body": "O atendimento é aí em Alphaville?",
+      "type": "chat",
+      "timestamp": 1780687130,
+      "createdAt": "2026-06-05T19:18:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_11218555289662@lid_A5E2E926D34C31CA53CD79EC5B7C084A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780687213,
+      "createdAt": "2026-06-05T19:20:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_11218555289662_lid_A5E2E926D34C31CA53CD79EC5B7C084A_f4b59787.ogg",
+      "mediaSize": 25656,
+      "filename": "true_11218555289662@lid_A5E2E926D34C31CA53CD79EC5B7C084A",
+      "originalName": "true_11218555289662@lid_A5E2E926D34C31CA53CD79EC5B7C084A"
+    },
+    {
+      "id": "false_11218555289662@lid_AC8F9C9E3F74C26F92F57A329F73F461",
+      "fromMe": false,
+      "body": "Ah tá.  Posso ver com calma e te falar na segunda-feira? Assim você e eu podemos aproveitar esse restinho de \"dia de trabalho\" kkk sem muito o que pensar kkkk",
+      "type": "chat",
+      "timestamp": 1780687302,
+      "createdAt": "2026-06-05T19:21:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_11218555289662@lid_A5EF1214D7B59DA5EF102DAD9B46DF52",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780687347,
+      "createdAt": "2026-06-05T19:22:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_11218555289662_lid_A5EF1214D7B59DA5EF102DAD9B46DF52_bf79ddda.ogg",
+      "mediaSize": 16419,
+      "filename": "true_11218555289662@lid_A5EF1214D7B59DA5EF102DAD9B46DF52",
+      "originalName": "true_11218555289662@lid_A5EF1214D7B59DA5EF102DAD9B46DF52"
+    },
+    {
+      "id": "false_11218555289662@lid_AC471A6A65CC648989642118DF8388DE",
+      "fromMe": false,
+      "body": "Maravilha,  ótimo FDS para você,  e obrigado",
+      "type": "chat",
+      "timestamp": 1780687378,
+      "createdAt": "2026-06-05T19:22:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_11218555289662@lid_A55E6CC5265A92D9AD667980F9E46A66",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780687400,
+      "createdAt": "2026-06-05T19:23:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_11218555289662_lid_A55E6CC5265A92D9AD667980F9E46A66_948cb2cb.ogg",
+      "mediaSize": 6953,
+      "filename": "true_11218555289662@lid_A55E6CC5265A92D9AD667980F9E46A66",
+      "originalName": "true_11218555289662@lid_A55E6CC5265A92D9AD667980F9E46A66"
     }
   ],
   "5511961391714": [
@@ -15874,6 +16481,120 @@
       "mediaSize": 10217,
       "filename": "true_275299417739448@lid_A5AB7B7C3AE1AAA371411A19D2E465C2",
       "originalName": "true_275299417739448@lid_A5AB7B7C3AE1AAA371411A19D2E465C2"
+    },
+    {
+      "id": "true_275299417739448@lid_A5A241FA64AA291310546AC251778FCB",
+      "fromMe": true,
+      "body": "Olá bom dia tudo bem?",
+      "type": "chat",
+      "timestamp": 1780924529,
+      "createdAt": "2026-06-08T13:15:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_275299417739448@lid_A521E202940A6D8C50AF8C9BCEBA12FA",
+      "fromMe": true,
+      "body": "Temos 01 vaga, tem interesse ou posso desconsiderar sua pré inscrição?",
+      "type": "chat",
+      "timestamp": 1780924560,
+      "createdAt": "2026-06-08T13:16:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_275299417739448@lid_2A4A4AED0B23F26E2515",
+      "fromMe": false,
+      "body": "Bom dia! Tudo bem?",
+      "type": "chat",
+      "timestamp": 1780924749,
+      "createdAt": "2026-06-08T13:19:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_275299417739448@lid_2A166069628C5E1144F1",
+      "fromMe": false,
+      "body": "Vocês emitem nota fiscal também?",
+      "type": "chat",
+      "timestamp": 1780924759,
+      "createdAt": "2026-06-08T13:19:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_275299417739448@lid_2A56FBF77D50DDB9B734",
+      "fromMe": false,
+      "body": "Vou ver com a empresa",
+      "type": "chat",
+      "timestamp": 1780924787,
+      "createdAt": "2026-06-08T13:19:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_275299417739448@lid_A551898E5EC487B62E498B2606F0DAB1",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780924788,
+      "createdAt": "2026-06-08T13:19:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_275299417739448_lid_A551898E5EC487B62E498B2606F0DAB1_d67d9260.ogg",
+      "mediaSize": 23719,
+      "filename": "true_275299417739448@lid_A551898E5EC487B62E498B2606F0DAB1",
+      "originalName": "true_275299417739448@lid_A551898E5EC487B62E498B2606F0DAB1"
+    },
+    {
+      "id": "false_275299417739448@lid_2AE6D1E307EAB470F4D4",
+      "fromMe": false,
+      "body": "Outra coisa: associados Acisa tem algum tipo de desconto?",
+      "type": "chat",
+      "timestamp": 1780924824,
+      "createdAt": "2026-06-08T13:20:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_275299417739448@lid_A5DA81A0D4ED8FD7C447C2DE70CEDA07",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780924848,
+      "createdAt": "2026-06-08T13:20:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_275299417739448_lid_A5DA81A0D4ED8FD7C447C2DE70CEDA07_be9b6971.ogg",
+      "mediaSize": 29230,
+      "filename": "true_275299417739448@lid_A5DA81A0D4ED8FD7C447C2DE70CEDA07",
+      "originalName": "true_275299417739448@lid_A5DA81A0D4ED8FD7C447C2DE70CEDA07"
+    },
+    {
+      "id": "false_275299417739448@lid_3EB039046D6B2CC233F59C",
+      "fromMe": false,
+      "body": "já ouço os áudios",
+      "type": "chat",
+      "timestamp": 1780924875,
+      "createdAt": "2026-06-08T13:21:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_275299417739448@lid_A5477C138E9B82C55AFCC86F8C0A1747",
+      "fromMe": true,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1780924916,
+      "createdAt": "2026-06-08T13:21:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511971614715": [
@@ -16007,6 +16728,1279 @@
       "createdAt": "2026-06-05T17:55:24.000Z",
       "ack": 1,
       "source": "incoming-event"
+    }
+  ],
+  "5511948387170": [
+    {
+      "id": "true_41588604555297@lid_3EB067668A7B537F36F684",
+      "fromMe": true,
+      "body": "Olá augusto nogueira ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição augusto nogueira ?",
+      "type": "chat",
+      "timestamp": 1780694550,
+      "createdAt": "2026-06-05T21:22:30.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_41588604555297@lid_AC2EF16CC52482D3709E2A4A920A7FEE",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1780766007,
+      "createdAt": "2026-06-06T17:13:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_41588604555297@lid_A522A08D77B8832E5CADBA504914E281",
+      "fromMe": true,
+      "body": "Bom dia Augusto! Segue o link para finalizar sua inscrição!",
+      "type": "chat",
+      "timestamp": 1780923956,
+      "createdAt": "2026-06-08T13:05:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_41588604555297@lid_A511E48A54923EFC648A9B418E14F42A",
+      "fromMe": true,
+      "body": "*Para garantir a sua vaga no Lote atual, finalize o pagamento:*\n 💳 Cartão (até 3x): https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70 (149)",
+      "type": "chat",
+      "timestamp": 1780923964,
+      "createdAt": "2026-06-08T13:06:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511940377202": [
+    {
+      "id": "true_265532175573065@lid_3EB0AB150E3316713B2988",
+      "fromMe": true,
+      "body": "Olá Rubens Batista ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Rubens Batista ?",
+      "type": "chat",
+      "timestamp": 1780696412,
+      "createdAt": "2026-06-05T21:53:32.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_265532175573065@lid_3AE0C53077C56FDFE1DA",
+      "fromMe": false,
+      "body": "Me manda na segunda feira",
+      "type": "chat",
+      "timestamp": 1780696664,
+      "createdAt": "2026-06-05T21:57:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_265532175573065@lid_A536332D3ABB72CDEE67ECBE19C8605A",
+      "fromMe": true,
+      "body": "Bom dia Rubens, tudo bem?\n\nSegue o link para finalizar sua inscrição!",
+      "type": "chat",
+      "timestamp": 1780923969,
+      "createdAt": "2026-06-08T13:06:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_265532175573065@lid_A512CEA70535CB437F562097D5EE4C87",
+      "fromMe": true,
+      "body": "*Para garantir a sua vaga no Lote atual, finalize o pagamento:*\n 💳 Cartão (até 3x): https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70 (149)",
+      "type": "chat",
+      "timestamp": 1780923972,
+      "createdAt": "2026-06-08T13:06:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511940180987": [
+    {
+      "id": "true_133114022105131@lid_3EB064376E25A6BC868EE3",
+      "fromMe": true,
+      "body": "Olá Lene ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Lene ?",
+      "type": "chat",
+      "timestamp": 1780705357,
+      "createdAt": "2026-06-06T00:22:37.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_133114022105131@lid_AC4632C52026F2B2E717B74EA44436AE",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão em São Paulo",
+      "type": "chat",
+      "timestamp": 1780705441,
+      "createdAt": "2026-06-06T00:24:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_133114022105131@lid_A56FDCABB90F09D085F22C8D7B2FD781",
+      "fromMe": true,
+      "body": "Olá bom dia Lene, tudo bem?\nFicou alguma dúvida ou posso enviar o link para finalizar sua inscrição",
+      "type": "chat",
+      "timestamp": 1780923992,
+      "createdAt": "2026-06-08T13:06:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_133114022105131@lid_ACD57F571F0C563A2018C2751E1574C0",
+      "fromMe": false,
+      "body": "Vou analisar direitinho.",
+      "type": "chat",
+      "timestamp": 1780925444,
+      "createdAt": "2026-06-08T13:30:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511997821316": [
+    {
+      "id": "true_53085829345460@lid_3EB0F50E9FE7FCE426D9FF",
+      "fromMe": true,
+      "body": "Olá Luciana ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Luciana ?",
+      "type": "chat",
+      "timestamp": 1780707586,
+      "createdAt": "2026-06-06T00:59:46.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511999861009": [
+    {
+      "id": "true_95606139838610@lid_3EB091DBA686BC1197354C",
+      "fromMe": true,
+      "body": "Olá Orlando Gomes ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Orlando Gomes ?",
+      "type": "chat",
+      "timestamp": 1780708006,
+      "createdAt": "2026-06-06T01:06:46.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511994556907": [
+    {
+      "id": "true_10063141953567@lid_3EB04E796EF629602E0329",
+      "fromMe": true,
+      "body": "Olá Antonio Nocente Junior ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Antonio Nocente Junior ?",
+      "type": "chat",
+      "timestamp": 1780732092,
+      "createdAt": "2026-06-06T07:48:12.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_10063141953567@lid_3EB0EF0E7448E5419C06B1",
+      "fromMe": true,
+      "body": "Olá Thyago ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Thyago ?",
+      "type": "chat",
+      "timestamp": 1780732728,
+      "createdAt": "2026-06-06T07:58:48.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_10063141953567@lid_3EB0D0A2880C3CA05FBAC5",
+      "fromMe": true,
+      "body": "Olá Thyago ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Thyago ?",
+      "type": "chat",
+      "timestamp": 1780732741,
+      "createdAt": "2026-06-06T07:59:01.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511947803517": [
+    {
+      "id": "true_121792538648662@lid_3EB0817AFE23F5FE58C151",
+      "fromMe": true,
+      "body": "Olá Cassia ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Cassia ?",
+      "type": "chat",
+      "timestamp": 1780740820,
+      "createdAt": "2026-06-06T10:13:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511940162334": [
+    {
+      "id": "true_171919085182990@lid_3EB077414BAE4B4BAC38FD",
+      "fromMe": true,
+      "body": "Olá Adeilson de Oliveira ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Adeilson de Oliveira ?",
+      "type": "chat",
+      "timestamp": 1780750582,
+      "createdAt": "2026-06-06T12:56:22.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511992789982": [
+    {
+      "id": "true_138895115165851@lid_3EB05829E1F64C55802AD2",
+      "fromMe": true,
+      "body": "Olá Marcia ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Marcia ?",
+      "type": "chat",
+      "timestamp": 1780762720,
+      "createdAt": "2026-06-06T16:18:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5584987076407": [
+    {
+      "id": "true_165983843045471@lid_3EB06AFF990652A0B59484",
+      "fromMe": true,
+      "body": "Olá, Alecsandro Costa Madaleno tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780763458,
+      "createdAt": "2026-06-06T16:30:58.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511974385497": [
+    {
+      "id": "true_224029889843333@lid_3EB04D9F1114D9BCD2205F",
+      "fromMe": true,
+      "body": "Olá, Solange Garcia tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780764188,
+      "createdAt": "2026-06-06T16:43:08.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5521982995532": [
+    {
+      "id": "true_273490649305239@lid_3EB01DF820679E9177673B",
+      "fromMe": true,
+      "body": "Olá, Diogo Barros tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780764794,
+      "createdAt": "2026-06-06T16:53:14.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5532988964076": [
+    {
+      "id": "true_11596529193186@lid_3EB04A7F578CB059E1C8E9",
+      "fromMe": true,
+      "body": "Olá, Nancy tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780765244,
+      "createdAt": "2026-06-06T17:00:44.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5535998060604": [
+    {
+      "id": "true_228208976863272@lid_3EB05547D2E7AC395125F0",
+      "fromMe": true,
+      "body": "Olá, Jesiel Almeida tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780768954,
+      "createdAt": "2026-06-06T18:02:34.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5513991245913": [
+    {
+      "id": "true_199690259845213@lid_3EB01A2B11A12E1BCC8680",
+      "fromMe": true,
+      "body": "Olá Lucas Rodrigues de matos ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Lucas Rodrigues de matos ?",
+      "type": "chat",
+      "timestamp": 1780771679,
+      "createdAt": "2026-06-06T18:47:59.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5562982049448": [
+    {
+      "id": "true_124683018051736@lid_3EB08CEBCA96764AE71A0A",
+      "fromMe": true,
+      "body": "Olá, Leandro Botacin Junior tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780856123,
+      "createdAt": "2026-06-07T18:15:23.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_124683018051736@lid_A5271894737759E4070DFB39A1FA9705",
+      "fromMe": false,
+      "body": "Não estou disponível no momento. Por favor, envie uma mensagem de texto.",
+      "type": "chat",
+      "timestamp": 1780856127,
+      "createdAt": "2026-06-07T18:15:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5585996306473": [
+    {
+      "id": "true_253995926945910@lid_3EB0844C6A9A9BFCD33A50",
+      "fromMe": true,
+      "body": "Olá, Éder tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780857922,
+      "createdAt": "2026-06-07T18:45:22.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_253995926945910@lid_A590EB50A1728D34028057FC41AF3E74",
+      "fromMe": false,
+      "body": "Pode",
+      "type": "chat",
+      "timestamp": 1780858872,
+      "createdAt": "2026-06-07T19:01:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5561996013898": [
+    {
+      "id": "true_197688805044463@lid_3EB0D0F101F330DB395C6C",
+      "fromMe": true,
+      "body": "Olá, Marcos Roberto Boschini tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780857997,
+      "createdAt": "2026-06-07T18:46:37.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_197688805044463@lid_AC49DE8A8A69F3A6ACE1671B3E365FEB",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780858020,
+      "createdAt": "2026-06-07T18:47:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5521995043989": [
+    {
+      "id": "true_123098124792056@lid_3EB044C649D55C35E8C67B",
+      "fromMe": true,
+      "body": "Olá, Frank Carvalho tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780858484,
+      "createdAt": "2026-06-07T18:54:44.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5561983079508": [
+    {
+      "id": "true_63801789542534@lid_3EB0C7F33812FDCFECF78A",
+      "fromMe": true,
+      "body": "Olá, Sheila Pinho tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780859755,
+      "createdAt": "2026-06-07T19:15:55.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_63801789542534@lid_AC668D7CF84BC0AB36214E10EACE4EA9",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1780862561,
+      "createdAt": "2026-06-07T20:02:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5551984830395": [
+    {
+      "id": "true_245491908489470@lid_3EB051AB1407D4C06F0027",
+      "fromMe": true,
+      "body": "Olá, Jason Baum tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780860101,
+      "createdAt": "2026-06-07T19:21:41.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_245491908489470@lid_2A45B61A4401865A65EA",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780873613,
+      "createdAt": "2026-06-07T23:06:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5577988218022": [
+    {
+      "id": "true_170819472900337@lid_3EB07C8F2A16F2525F63E2",
+      "fromMe": true,
+      "body": "Olá, Alessandra tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780862178,
+      "createdAt": "2026-06-07T19:56:18.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_170819472900337@lid_6A318F17CCFD4A3B6110",
+      "fromMe": false,
+      "body": "Bem-vindo(a) ao Oliveira & Oliveira Advogados! Estamos online e prontos para te ajudar. Como posso te auxiliar hoje?",
+      "type": "chat",
+      "timestamp": 1780862182,
+      "createdAt": "2026-06-07T19:56:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_170819472900337@lid_2A660F09FC404000039F",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780864375,
+      "createdAt": "2026-06-07T20:32:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5521988546487": [
+    {
+      "id": "true_130970799878333@lid_3EB05C2D2FA431DC5615E3",
+      "fromMe": true,
+      "body": "Olá, Rosely tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780862273,
+      "createdAt": "2026-06-07T19:57:53.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5513996779060": [
+    {
+      "id": "true_270252277530641@lid_3EB0D4194E13BDC0D3E0CE",
+      "fromMe": true,
+      "body": "Olá Marcelo ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Marcelo ?",
+      "type": "chat",
+      "timestamp": 1780862513,
+      "createdAt": "2026-06-07T20:01:53.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5541995211111": [
+    {
+      "id": "true_235033646383233@lid_3EB067BF850530938A561C",
+      "fromMe": true,
+      "body": "Olá, Momesso tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780863463,
+      "createdAt": "2026-06-07T20:17:43.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_235033646383233@lid_3EB0A5BE9AA2F43E7E1DB4",
+      "fromMe": false,
+      "body": "ok",
+      "type": "chat",
+      "timestamp": 1780864238,
+      "createdAt": "2026-06-07T20:30:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5551997800745": [
+    {
+      "id": "true_114577010360463@lid_3EB0BCB6989F3DC2CF6973",
+      "fromMe": true,
+      "body": "Olá, Mateus Bonassina tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780863928,
+      "createdAt": "2026-06-07T20:25:28.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5512996693588": [
+    {
+      "id": "true_42052175790266@lid_3EB02C6C84195B281C1CC9",
+      "fromMe": true,
+      "body": "Olá, Daniela tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780864758,
+      "createdAt": "2026-06-07T20:39:18.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_42052175790266@lid_A572306DEA8699380B833E1C0D1E669C",
+      "fromMe": false,
+      "body": "Olá! Bem vindo(a) à ‎Maison Daniela Carrara agradece seu contato. Como posso ajudar você ?",
+      "type": "chat",
+      "timestamp": 1780864763,
+      "createdAt": "2026-06-07T20:39:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5562992140759": [
+    {
+      "id": "true_558547120202@lid_3EB03B45AF3BB693B51CE7",
+      "fromMe": true,
+      "body": "Olá, Jorge Márcio tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780864960,
+      "createdAt": "2026-06-07T20:42:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_558547120202@lid_3EB0593D85C7B2B616868D",
+      "fromMe": false,
+      "body": "sim",
+      "type": "chat",
+      "timestamp": 1780865106,
+      "createdAt": "2026-06-07T20:45:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5551991624775": [
+    {
+      "id": "true_255073896689696@lid_3EB08FC9655A02E16F454F",
+      "fromMe": true,
+      "body": "Olá, Lisiane Padilha da Silva tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780865245,
+      "createdAt": "2026-06-07T20:47:25.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_255073896689696@lid_6A200186F1F3E0A5E77B",
+      "fromMe": false,
+      "body": "Agradecemos sua mensagem. Não estamos disponíveis no momento, mas entraremos em contato assim que possível.",
+      "type": "chat",
+      "timestamp": 1780865248,
+      "createdAt": "2026-06-07T20:47:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_255073896689696@lid_2A574873AF61E313CE00",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780871646,
+      "createdAt": "2026-06-07T22:34:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_255073896689696@lid_2ADF3FCBC87282711408",
+      "fromMe": false,
+      "body": "Obrigada",
+      "type": "chat",
+      "timestamp": 1780871649,
+      "createdAt": "2026-06-07T22:34:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5521996136023": [
+    {
+      "id": "true_268057666666599@lid_3EB0E43F00E25BD3624BB2",
+      "fromMe": true,
+      "body": "Olá, Carla Niza tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780867200,
+      "createdAt": "2026-06-07T21:20:00.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5521975032649": [
+    {
+      "id": "true_269290892746966@lid_3EB0A7E14D5A741870A0DB",
+      "fromMe": true,
+      "body": "Olá, Daniel tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780868585,
+      "createdAt": "2026-06-07T21:43:05.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5584991994413": [
+    {
+      "id": "true_93506420900075@lid_3EB0FE2957D2919AECAA0A",
+      "fromMe": true,
+      "body": "Olá, Luis tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780868604,
+      "createdAt": "2026-06-07T21:43:24.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_93506420900075@lid_ACEB7F0DFEB31ED71A1B40B52EAC33D0",
+      "fromMe": false,
+      "body": "Sim, claro",
+      "type": "chat",
+      "timestamp": 1780873239,
+      "createdAt": "2026-06-07T23:00:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5519992619249": [
+    {
+      "id": "true_91405561118815@lid_3EB00102FCB715397A7789",
+      "fromMe": true,
+      "body": "Olá, Sidney Bellotto tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780868698,
+      "createdAt": "2026-06-07T21:44:58.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5521979905123": [
+    {
+      "id": "true_266743356383313@lid_3EB0B7C7336ADA364DA1F1",
+      "fromMe": true,
+      "body": "Olá, Adriana Alves tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780869712,
+      "createdAt": "2026-06-07T22:01:52.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_266743356383313@lid_ACFD344E5B4F35E29734289873307912",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780869799,
+      "createdAt": "2026-06-07T22:03:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5531991411028": [
+    {
+      "id": "true_29858981793925@lid_3EB0AF257B15A165D5F0F4",
+      "fromMe": true,
+      "body": "Olá walter da luz ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição walter da luz ?",
+      "type": "chat",
+      "timestamp": 1780870145,
+      "createdAt": "2026-06-07T22:09:05.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511996771968": [
+    {
+      "id": "true_44543290396797@lid_3EB0CECCCEC5EFA39C4B9F",
+      "fromMe": true,
+      "body": "Olá Jorge Fernandes ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Jorge Fernandes ?",
+      "type": "chat",
+      "timestamp": 1780870169,
+      "createdAt": "2026-06-07T22:09:29.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_44543290396797@lid_ACCD01399FC3C7B8EB94078C6F9DAB58",
+      "fromMe": false,
+      "body": "Quel endereço",
+      "type": "chat",
+      "timestamp": 1780870201,
+      "createdAt": "2026-06-07T22:10:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_44543290396797@lid_A5F968B223D23D690AE46EF5787536DF",
+      "fromMe": true,
+      "body": "Bom diaaa Jorge!\n\nAvenida Paulista 807 Espaço Paulista Eventos \n17/06\nDas 18h30 as 22h\n\nPosso enviar o link para finalizar sua inscrição?\n\nPosso enviar o link para finalizar a inscrição?",
+      "type": "chat",
+      "timestamp": 1780924001,
+      "createdAt": "2026-06-08T13:06:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_44543290396797@lid_A588B24DD36CCE23820563CFBDB19692",
+      "fromMe": true,
+      "body": "*Para garantir a sua vaga no Lote atual, finalize o pagamento:*\n 💳 Cartão (até 3x): https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70 (149)",
+      "type": "chat",
+      "timestamp": 1780924005,
+      "createdAt": "2026-06-08T13:06:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5563992839552": [
+    {
+      "id": "true_63453947515038@lid_3EB0352F8D0A299F4A1F3B",
+      "fromMe": true,
+      "body": "Olá, João Filho tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780870636,
+      "createdAt": "2026-06-07T22:17:16.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5551998856988": [
+    {
+      "id": "true_99067765997667@lid_3EB09D1B32AB4E96F2E152",
+      "fromMe": true,
+      "body": "Olá, ANGELO WRAGUE tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780871415,
+      "createdAt": "2026-06-07T22:30:15.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_99067765997667@lid_ACFCC005D835A7DBA62045C543D1FF2C",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1780871680,
+      "createdAt": "2026-06-07T22:34:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_99067765997667@lid_AC308BF953483382A0A907453829F096",
+      "fromMe": false,
+      "body": "Pode ser",
+      "type": "chat",
+      "timestamp": 1780871687,
+      "createdAt": "2026-06-07T22:34:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5521998875001": [
+    {
+      "id": "true_151676921086046@lid_3EB09CC0889E6E0BB346CB",
+      "fromMe": true,
+      "body": "Olá, Henrique quintaes tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780874511,
+      "createdAt": "2026-06-07T23:21:51.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5521964667988": [
+    {
+      "id": "true_194905649455119@lid_3EB0225D9FD2D4CD0F165E",
+      "fromMe": true,
+      "body": "Olá, Luciana Montenegro tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780874556,
+      "createdAt": "2026-06-07T23:22:36.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_194905649455119@lid_ACC88B5B997A3C2B972B77ADB48DA4D5",
+      "fromMe": false,
+      "body": "ok. pode. obrigada",
+      "type": "chat",
+      "timestamp": 1780923790,
+      "createdAt": "2026-06-08T13:03:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5551981425665": [
+    {
+      "id": "true_185671469822079@lid_3EB02465503893512A0C44",
+      "fromMe": true,
+      "body": "Olá, Diego Valle tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780874878,
+      "createdAt": "2026-06-07T23:27:58.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_185671469822079@lid_A55078EE71CFA95CFE48F82CDA264B10",
+      "fromMe": false,
+      "body": "A lua azul entulhos agradece seu contato, já já  vamos lhe atender 😁",
+      "type": "chat",
+      "timestamp": 1780874884,
+      "createdAt": "2026-06-07T23:28:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_185671469822079@lid_A559BD2CCF85F8C1517252CF3B9B8DE4",
+      "fromMe": false,
+      "body": "👍🏻👍🏻",
+      "type": "chat",
+      "timestamp": 1780874930,
+      "createdAt": "2026-06-07T23:28:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511997583397": [
+    {
+      "id": "true_33195819045025@lid_3EB0BEBBF557DC33C7FD6A",
+      "fromMe": true,
+      "body": "Olá Vagner! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Vagner?",
+      "type": "chat",
+      "timestamp": 1780878263,
+      "createdAt": "2026-06-08T00:24:23.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511995331063": [
+    {
+      "id": "true_207511462387781@lid_3EB03260DD9E03FA97D7A0",
+      "fromMe": true,
+      "body": "Olá, Leandro tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780878498,
+      "createdAt": "2026-06-08T00:28:18.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5541984173590": [
+    {
+      "id": "true_100133068910653@lid_3EB0FFB2A60790C1497FE1",
+      "fromMe": true,
+      "body": "Olá, Elaine gastao tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780878654,
+      "createdAt": "2026-06-08T00:30:54.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_100133068910653@lid_A572F03833DB8439CDA6BA2BB665D1B3",
+      "fromMe": false,
+      "body": "Pode",
+      "type": "chat",
+      "timestamp": 1780882804,
+      "createdAt": "2026-06-08T01:40:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5521980886100": [
+    {
+      "id": "true_146011792125997@lid_3EB0A96FFB4B2B99C80E36",
+      "fromMe": true,
+      "body": "Olá, Monick tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780879123,
+      "createdAt": "2026-06-08T00:38:43.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_146011792125997@lid_3A2BA96D4C697BED2932",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780879145,
+      "createdAt": "2026-06-08T00:39:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511951311406": [
+    {
+      "id": "true_155027045883993@lid_3EB0EF045502B91745E4CD",
+      "fromMe": true,
+      "body": "Olá jefferson Da Silva ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição jefferson Da Silva ?",
+      "type": "chat",
+      "timestamp": 1780879721,
+      "createdAt": "2026-06-08T00:48:41.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511959225641": [
+    {
+      "id": "true_203143430336633@lid_3EB0B2BC25F6FD532FDDCA",
+      "fromMe": true,
+      "body": "Olá Pietro ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Pietro ?",
+      "type": "chat",
+      "timestamp": 1780879939,
+      "createdAt": "2026-06-08T00:52:19.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5531985118000": [
+    {
+      "id": "true_22209343041758@lid_3EB00B52941610923B9D5C",
+      "fromMe": true,
+      "body": "Olá, Valdir tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780881340,
+      "createdAt": "2026-06-08T01:15:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_22209343041758@lid_3EB0DC331D51ECF1A9075E",
+      "fromMe": true,
+      "body": "Olá, Valdir Eustáquio Gomes tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780919095,
+      "createdAt": "2026-06-08T11:44:55.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5551995915760": [
+    {
+      "id": "true_134832008994833@lid_3EB00E3397CB52DE7A2233",
+      "fromMe": true,
+      "body": "Olá, Daiane Siqueira tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780885634,
+      "createdAt": "2026-06-08T02:27:14.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_134832008994833@lid_ACE0FAA5AD238CF3F7B6C8710E31E7A8",
+      "fromMe": false,
+      "body": "Tudo bem Cintia e você?",
+      "type": "chat",
+      "timestamp": 1780885696,
+      "createdAt": "2026-06-08T02:28:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_134832008994833@lid_ACA7118598D0F61D6D1F5448D648013E",
+      "fromMe": false,
+      "body": "Sim!",
+      "type": "chat",
+      "timestamp": 1780885700,
+      "createdAt": "2026-06-08T02:28:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5582988340425": [
+    {
+      "id": "true_53159028326419@lid_3EB075BCCD4A23ACD0B7C9",
+      "fromMe": true,
+      "body": "Olá, Diogo Amazonas tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780886330,
+      "createdAt": "2026-06-08T02:38:50.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_53159028326419@lid_AC8AFC13EBAC327CC5126D11115C9CE1",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780889024,
+      "createdAt": "2026-06-08T03:23:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5521964236455": [
+    {
+      "id": "true_100455073972423@lid_3EB04EFB4F99353DEB2C49",
+      "fromMe": true,
+      "body": "Olá, Oton tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780887754,
+      "createdAt": "2026-06-08T03:02:34.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_100455073972423@lid_2AC676B6C9B27EDA89C1",
+      "fromMe": false,
+      "body": "Pode sim",
+      "type": "chat",
+      "timestamp": 1780915795,
+      "createdAt": "2026-06-08T10:49:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5585988304421": [
+    {
+      "id": "true_209418327220365@lid_3EB0DC8DF14C48E63B9868",
+      "fromMe": true,
+      "body": "Olá, Marcelo Rossy tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780888444,
+      "createdAt": "2026-06-08T03:14:04.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5519996067117": [
+    {
+      "id": "true_279065617547487@lid_3EB0C7E2281D2C5BA8C4EA",
+      "fromMe": true,
+      "body": "Olá, Celso Marcondes tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780888614,
+      "createdAt": "2026-06-08T03:16:54.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_279065617547487@lid_ACF7C8005DAF062366BFF7F1D41E1166",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780888648,
+      "createdAt": "2026-06-08T03:17:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511996776901": [
+    {
+      "id": "true_227422880407568@lid_3EB02279C1D1D9DC2C5D69",
+      "fromMe": true,
+      "body": "Olá Helcio ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Helcio ?",
+      "type": "chat",
+      "timestamp": 1780888832,
+      "createdAt": "2026-06-08T03:20:32.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_227422880407568@lid_3AA2DAC617E327174F51",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão em São Paulo",
+      "type": "chat",
+      "timestamp": 1780889138,
+      "createdAt": "2026-06-08T03:25:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_227422880407568@lid_3AC562FF1A0CC101835A",
+      "fromMe": false,
+      "body": "Qual horário vai começar?",
+      "type": "chat",
+      "timestamp": 1780911535,
+      "createdAt": "2026-06-08T09:38:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_227422880407568@lid_A5810572331A8F8B5CBD6C882AEA3930",
+      "fromMe": true,
+      "body": "Bom dia Hélcio, tudo bem?",
+      "type": "chat",
+      "timestamp": 1780921899,
+      "createdAt": "2026-06-08T12:31:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227422880407568@lid_A565CB33310BC49D1ADAA3E7B16F5A49",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Avenida Paulista 807 – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1780921912,
+      "createdAt": "2026-06-08T12:31:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227422880407568@lid_3B52C751F76BB415A1E4",
+      "fromMe": false,
+      "body": "obrigado",
+      "type": "chat",
+      "timestamp": 1780923510,
+      "createdAt": "2026-06-08T12:58:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_227422880407568@lid_A5C5E63FB5083F4C5B47E321426A2BC0",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1780923858,
+      "createdAt": "2026-06-08T13:04:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_227422880407568_lid_A5C5E63FB5083F4C5B47E321426A2BC0_68d60e31.ogg",
+      "mediaSize": 19419,
+      "filename": "true_227422880407568@lid_A5C5E63FB5083F4C5B47E321426A2BC0",
+      "originalName": "true_227422880407568@lid_A5C5E63FB5083F4C5B47E321426A2BC0"
+    }
+  ],
+  "5543996757691": [
+    {
+      "id": "true_119997745623058@lid_3EB04AD588808C6B39E638",
+      "fromMe": true,
+      "body": "Olá, Sheyla tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780889328,
+      "createdAt": "2026-06-08T03:28:48.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5519983015513": [
+    {
+      "id": "true_61525523984585@lid_3EB0230408EE31CD1E396C",
+      "fromMe": true,
+      "body": "Olá, Hércules tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780890407,
+      "createdAt": "2026-06-08T03:46:47.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511987790088": [
+    {
+      "id": "true_200682514714817@lid_3EB0FEFD516BB368C35C80",
+      "fromMe": true,
+      "body": "Olá, Paula tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780893160,
+      "createdAt": "2026-06-08T04:32:40.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5519992031965": [
+    {
+      "id": "true_96331871817930@lid_3EB09E39A17D064F45F8C4",
+      "fromMe": true,
+      "body": "Olá, Andreia Bernardino dos tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780906539,
+      "createdAt": "2026-06-08T08:15:39.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_96331871817930@lid_AC9D9A154EDED2D401A568BDBD3D7A02",
+      "fromMe": false,
+      "body": "SIM",
+      "type": "chat",
+      "timestamp": 1780907873,
+      "createdAt": "2026-06-08T08:37:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511988297663": [
+    {
+      "id": "true_212661077848209@lid_3EB03B5FC21AD81E32D582",
+      "fromMe": true,
+      "body": "Olá Valéria gomes ribeiro ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Valéria gomes ribeiro ?",
+      "type": "chat",
+      "timestamp": 1780907707,
+      "createdAt": "2026-06-08T08:35:07.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5521998748203": [
+    {
+      "id": "true_242077325611208@lid_3EB0DE5E8DD3E0548BB56C",
+      "fromMe": true,
+      "body": "Olá, Eduardo Cadidé tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780908111,
+      "createdAt": "2026-06-08T08:41:51.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_242077325611208@lid_A561D63B54C5510BDAC6AC108B1BB89E",
+      "fromMe": false,
+      "body": "👨‍⚕️ Olá, seja muito bem vindo (a) !\nAqui é o Dr. Eduardo Cadidé, referência em Quiropraxia e especialista no tratamento das doenças da coluna Vertebral há mais de 25 anos.\nComo posso ajudar ?",
+      "type": "chat",
+      "timestamp": 1780908117,
+      "createdAt": "2026-06-08T08:41:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5563992678514": [
+    {
+      "id": "true_59966937374789@lid_3EB099752332E32215B7CA",
+      "fromMe": true,
+      "body": "Olá, Marcão Andrade tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780910138,
+      "createdAt": "2026-06-08T09:15:38.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5547999663241": [
+    {
+      "id": "true_167001431507118@lid_3EB0AFD70197C55D6C1013",
+      "fromMe": true,
+      "body": "Olá, Marcelo Oliveira tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780911111,
+      "createdAt": "2026-06-08T09:31:51.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_167001431507118@lid_3EB09F8EB530773AA4AF03",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1780912858,
+      "createdAt": "2026-06-08T10:00:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5513997367592": [
+    {
+      "id": "true_189000069451782@lid_3EB088FAB12EA578D9BF57",
+      "fromMe": true,
+      "body": "Olá, Faby tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+      "type": "chat",
+      "timestamp": 1780917787,
+      "createdAt": "2026-06-08T11:23:07.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ]
 }

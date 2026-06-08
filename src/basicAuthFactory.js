@@ -6,6 +6,7 @@ const TENANT_CONFIGS = {
   panel: { userEnv: "PANEL_USER", passEnv: "PANEL_PASS", realm: "Panel", path: "/panel" },
   regina: { userEnv: "REGINA_USER", passEnv: "REGINA_PASS", realm: "Painel da Regina", path: "/regina" },
   portugal: { userEnv: "PORTUGAL_USER", passEnv: "PORTUGAL_PASS", realm: "Painel Portugal", path: "/portugal" },
+  felipe: { userEnv: "FELIPE_USER", passEnv: "FELIPE_PASS", realm: "Painel Felipe", path: "/felipe" },
 };
 
 function tenantFromEnv(userEnv) {
@@ -274,6 +275,7 @@ function renderLoginPage() {
       <option value="panel">Painel</option>
       <option value="regina">Regina</option>
       <option value="portugal">Portugal</option>
+      <option value="felipe">Felipe</option>
     </select>
 
     <label for="username">Usuário</label>
@@ -295,7 +297,7 @@ function renderLoginPage() {
     const tenantEl = document.getElementById('tenant');
     const userEl = document.getElementById('username');
     const errEl = document.getElementById('err');
-    tenantEl.value = ['admin','panel','regina','portugal'].includes(tenant) ? tenant : 'admin';
+    tenantEl.value = ['admin','panel','regina','portugal','felipe'].includes(tenant) ? tenant : 'admin';
     userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || '';
     tenantEl.addEventListener('change', () => { userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || ''; });
     function showError(message){

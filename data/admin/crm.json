@@ -40,7 +40,58 @@
         "stg_3a4fefd67085b19e942b2492": {
           "id": "stg_3a4fefd67085b19e942b2492",
           "name": "Inscrito",
-          "leadIds": []
+          "leadIds": [
+            "5f368b2e1261139422a2cd42",
+            "d0d9e187637fc9cdf7bcf2a0",
+            "f10f8df11c014f7d03a8d22b",
+            "de53ceb5b7e8f510dc6567b2",
+            "6c36d3d1a2d1e85f32f7ad6c",
+            "aa03b2a119006a505a730afd",
+            "520ad079add63d13beb4d049",
+            "6ed8adedcd752658da319c37",
+            "da78a99f0dcadbdf74142112",
+            "1aea1bd4aacd09d7ab7d355b",
+            "928f6205b91996722c1ec1e6",
+            "4fb0011468889ac192597962",
+            "78805f5e20030705e2eb04d9",
+            "771a4b2191eb68e3c4dfe0b5",
+            "4f2a65a02b31efd5e276dce5",
+            "8ebc2cf086da562df3ab46e5",
+            "79b6dc71d80bfa23a25aa640",
+            "f96ced937f6279d080bfa9a9",
+            "45e815cec5be32b79aa5fe68",
+            "7f9373a1a24e02d117e0e4fa",
+            "26a3f2125aefc56a74fe056d",
+            "700a7cd4ce296bcefe2267a3",
+            "af0b7cea3254d680dcc51069",
+            "d3ee72604276071d355efd8b",
+            "ebf25be19bd1e81c41571935",
+            "867444ebfc95a6db22c93383",
+            "7268b2a7c71859c41c51d89c",
+            "a9c5094cb16e2ffe99804370",
+            "60c861dc988de71389df67ac",
+            "070bb0e380a7ef751035cb4f",
+            "98129373788290aa19407840",
+            "d5252e53f6bbf60b85a0dfe7",
+            "682d94ce82c307503d739c52",
+            "3e02b1f8aea980c5bcb2d954",
+            "8efc58ae3ec3396c5ae6fcd1",
+            "765022c877cf452a96fb5dff",
+            "b5ce76cceffa0b9b2f3fe0cb",
+            "0800f651efad6791af5d8824",
+            "0fb3af1b83c23595e93bf5b3",
+            "7bf9fbd7f0d5b09333e20190",
+            "a2e16476e1f1eafaeca72d06",
+            "f98f8aa7a904739252d01914",
+            "83268b9d8c04247ba6a582ad",
+            "2bec9e28ed1a6bb849dc7cb0",
+            "dd91e9402ea53c737e416240",
+            "2b6ae74f46ab86ecb120032d",
+            "b830d1b4c70b160512b2ff88",
+            "0e61bf08ed5cc673f460d16f",
+            "359469cf936c6524e5d6e8e5",
+            "98c4c2a4b8bd783deb6ae5a5"
+          ]
         }
       }
     },
@@ -60,5 +111,5 @@
       }
     }
   ],
-  "updatedAt": "2026-06-05T18:14:05.080Z"
+  "updatedAt": "2026-06-08T11:44:55.096Z"
 }

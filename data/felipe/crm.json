@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "activePipelineId": "pipe_main",
+  "pipelines": [
+    {
+      "id": "pipe_main",
+      "name": "Funil Principal",
+      "createdAt": "2026-06-05T19:21:13.248Z",
+      "stageOrder": [
+        "stg_new",
+        "stg_contact",
+        "stg_meeting",
+        "stg_proposal",
+        "stg_won",
+        "stg_7caf99407509d19e993c5fdf",
+        "stg_b54e375e83b20819e993c6764",
+        "stg_a219fe3309f7219e993c70a6",
+        "stg_7bb8fc621e6a2819e993c7c30"
+      ],
+      "stages": {
+        "stg_new": {
+          "id": "stg_new",
+          "name": "Novo lead",
+          "leadIds": []
+        },
+        "stg_contact": {
+          "id": "stg_contact",
+          "name": "D1",
+          "leadIds": [],
+          "autoMessages": [
+            "Vou te passar mais informações sobre esse evento:\n\nO evento *A Nova Era da Aquisição de Clientes por IA* será nos dias *08 e 09* de junho, com o Matheus Bottaro.\n\n*Formato:* online\n*Acesso:* pelo  do Google Meet\n*Horário:* 19h30 às 21h\n\nEntre no grupo do Whatsapp Privado para receber todas as informações e materiais complementares que o Matheus Bottaro vai disponibilizar:\nhttps://chat.whatsapp.com/DrXVnOBxEOy5JCZblCWaMZ"
+          ]
+        },
+        "stg_meeting": {
+          "id": "stg_meeting",
+          "name": "D2",
+          "leadIds": [],
+          "autoMessages": [
+            "Veja esse vídeo que o Matheus Bottaro gravou e qualquer dúvida me fale aqui!\n\nComo são muitas atualizações importantes, criamos um grupo para enviar avisos, conteúdos rápidos e o link para você participar ao vivo.\n\nEle é silenciosos e apenas nós enviaremos os materiais extras, prompts e informações importantes 🙏\n\nhttps://chat.whatsapp.com/DrXVnOBxEOy5JCZblCWaMZ\n\nPodemos contar com a sua presença segunda dia 15 ás 19h30?"
+          ]
+        },
+        "stg_proposal": {
+          "id": "stg_proposal",
+          "name": "D3",
+          "leadIds": [],
+          "autoMessages": [
+            "Olá {{nome}}, boa tarde.\n\nSegunda começa o evento *A Nova Era da Aquisição de Clientes por IA*.\n\nE logo no primeiro dia você vai entender como *aparecer nas respostas da IA do Google e ser recomendado pelo ChatGPT, Gemini e outras inteligências artificiais.*\n\nSaber posicionar sua empresa com *autoridade no digital* pode ajudar você a *atrair novos clientes* nessa nova era da aquisição de clientes, inclusive *sem depender apenas de anúncios.*\n\nBora entender isso na prática?\n\nAcesse o link às *19h30 em ponto*:\nhttps://meet.google.com/ong-jzyg-qmb"
+          ]
+        },
+        "stg_won": {
+          "id": "stg_won",
+          "name": "D4",
+          "leadIds": [],
+          "autoMessages": [
+            "Olá, {{nome}}, tudo bem?\n\nEstá tudo preparado para o início do evento de hoje com o Matheus Bottaro\nE logo no primeiro dia, você vai ficar por dentro das mudanças do Google e entender:\n\n* Como *aparecer nas respostas da IA*\n* Como ser *recomendado pelo ChatGPT, Gemini e outras IAs*\n* Quais são os *novos recursos do Google Ads*\n* Como *atrair leads mais qualificados* nessa nova fase\n\nPara participar basta acessar o link do google meet:\nhttps://meet.google.com/ong-jzyg-qmb\n\nPodemos contar com a sua participação ao vivo hoje?"
+          ]
+        },
+        "stg_7caf99407509d19e993c5fdf": {
+          "id": "stg_7caf99407509d19e993c5fdf",
+          "name": "D5",
+          "leadIds": [],
+          "autoMessages": [
+            "Passando aqui para avisar que começamos em alguns minutos o nosso evento A Nova Era da Aquisição de Clientes por IA.\n\nPara receber os *materiais complementares* disponibilizados pelo Matheus Bottaro, é importante *participar ao vivo.*\n\n*Acesse o link* às 19h30 em ponto:\nhttps://meet.google.com/ong-jzyg-qmb"
+          ]
+        },
+        "stg_b54e375e83b20819e993c6764": {
+          "id": "stg_b54e375e83b20819e993c6764",
+          "name": "D6",
+          "leadIds": [],
+          "autoMessages": [
+            "Olá {{nome}}, boa tarde.\n\nHoje é o segundo dia do evento e o foco é entender todas as mudanças e atualizações que envolvem *IA no Google Ads*.\nVocê vai ver, na prática, como usar campanhas com IA da forma correta para atrair leads mais qualificados.\nTambém vamos falar sobre as principais mudanças:\n • Novos públicos com IA.\n • Quais recursos da IA vai *realmente ajudar a vender mais*\n • Quais atualizações você *não pode fazer de jeito nenhum*\n • *Novos processos de melhoria e otimização* para filtrar melhor suas campanhas.\n • *Nova forma de distribuir o orçamento* para conseguir converter mais.\n\nAlém disso, o Matheus também vai falar sobre Tag Manager e Google Analytics, para analisar dados e tomar decisões melhores."
+          ]
+        },
+        "stg_a219fe3309f7219e993c70a6": {
+          "id": "stg_a219fe3309f7219e993c70a6",
+          "name": "D7",
+          "leadIds": [],
+          "autoMessages": [
+            "Informações importantes para o nosso último dia!\n\nSomente quem *participar ao vivo* vai receber todos os *materiais prontos apresentados pelo Matheus Bottaro*, além da *apresentação com os passos para seguir depois do evento.*\n\nEsperamos vocês às *19h30 em ponto*.\n\nAcesse pelo link do Google Meet:\nhttps://meet.google.com/ong-jzyg-qmb"
+          ]
+        },
+        "stg_7bb8fc621e6a2819e993c7c30": {
+          "id": "stg_7bb8fc621e6a2819e993c7c30",
+          "name": "D8",
+          "leadIds": [],
+          "autoMessages": [
+            "Estamos *ao vivo !* Segue o link do meet:\nhttps://meet.google.com/ong-jzyg-qmb"
+          ]
+        }
+      }
+    }
+  ],
+  "updatedAt": "2026-06-05T19:33:07.724Z"
+}
