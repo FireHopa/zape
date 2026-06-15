@@ -489,6 +489,19 @@ function getLeadItemsForRequest(tenantId, req, { limit = 2000 } = {}) {
 }
 
 
+function getConversationStatusForItem(item, lastMessage = null) {
+  let status = String((item && item.leadStatus) || '').trim();
+  if (!status || status === 'none') {
+    try {
+      status = computeLeadStatus(item && item.messageStatus, { notDeliveredAfterMs: 30 * 60 * 1000 });
+    } catch (e) {
+      status = 'none';
+    }
+  }
+  if ((!status || status === 'none') && lastMessage && lastMessage.fromMe === false) return 'replied';
+  return status || 'none';
+}
+
 async function getConversationContacts(tenantId, req) {
   // Lista unificada: leads da planilha + conversas locais + chats reais do WhatsApp Web.
   // Assim, se um número novo mandar mensagem antes de estar na planilha, ele aparece em Conversas.
@@ -589,14 +602,26 @@ async function getConversationContacts(tenantId, req) {
     const digits = leadPhoneKey(item);
     const chat = chats[digits] || item.chat || null;
     const lastMessage = (chat && chat.lastMessage) || item.lastMessage || null;
+    const computedStatus = getConversationStatusForItem(item, lastMessage);
     return {
       ...item,
       chat,
       unreadCount: Number((chat && chat.unreadCount) || item.unreadCount || 0),
       lastMessage,
       lastActivity: (lastMessage && lastMessage.createdAt) || item.lastActivity || item.createdAt || null,
+      conversationStatus: computedStatus,
     };
   });
+
+  const statusParam = String((req && req.query && (req.query.status || req.query.chatStatus)) || '').trim();
+  if (statusParam) {
+    const allowed = statusParam === 'active'
+      ? ['replied', 'delivered']
+      : statusParam.split(',').map((x) => String(x || '').trim()).filter(Boolean);
+    if (allowed.length) {
+      merged = merged.filter((item) => allowed.includes(String(item.conversationStatus || 'none')));
+    }
+  }
 
   const q = String((req && req.query && req.query.q) || '').trim().toLowerCase();
   const qDigits = q.replace(/\D+/g, '');
@@ -2877,7 +2902,10 @@ app.delete("/api/felipe/webhooks/:id", felipeAuth, (req, res) => {
 
 
 /* -------------------- WhatsApp Cloud API (oficial) -------------------- */
-// Mantido como ADMIN (segurança).
+// WhatsApp Oficial é compartilhado entre painéis autenticados.
+// Assim o painel Felipe não precisa pedir login admin separado para listar modelos/enviar campanhas.
+const waCloudAuth = anyTenantAuth;
+// Dados da Cloud API permanecem centralizados no tenant ADMIN.
 function getCloudSheetsFile() {
   return path.join(__dirname, "data", TENANT_ADMIN, "wa_cloud_saved_sheets.json");
 }
@@ -2932,21 +2960,21 @@ function cloudSavedSheetListMeta(sheet) {
   };
 }
 
-app.get("/api/wa-cloud/sheets", adminAuth, (req, res) => {
+app.get("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
   const items = readCloudSavedSheets()
     .map(cloudSavedSheetListMeta)
     .sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
   res.json({ ok: true, items });
 });
 
-app.get("/api/wa-cloud/sheets/:id", adminAuth, (req, res) => {
+app.get("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
   const id = String(req.params.id || "");
   const item = readCloudSavedSheets().find((sheet) => String(sheet.id) === id);
   if (!item) return res.status(404).json({ ok: false, error: "Planilha não encontrada" });
   res.json({ ok: true, item });
 });
 
-app.post("/api/wa-cloud/sheets", adminAuth, (req, res) => {
+app.post("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
   try {
     const next = normalizeCloudSavedSheetPayload(req.body || {});
     if (!next.rows.length || !next.columns.length) {
@@ -2967,7 +2995,7 @@ app.post("/api/wa-cloud/sheets", adminAuth, (req, res) => {
   }
 });
 
-app.delete("/api/wa-cloud/sheets/:id", adminAuth, (req, res) => {
+app.delete("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
   const id = String(req.params.id || "");
   const before = readCloudSavedSheets();
   const after = before.filter((sheet) => String(sheet.id) !== id);
@@ -2975,7 +3003,7 @@ app.delete("/api/wa-cloud/sheets/:id", adminAuth, (req, res) => {
   res.json({ ok: true, removed: before.length - after.length });
 });
 
-app.get("/api/wa-cloud/status", adminAuth, (req, res) => {
+app.get("/api/wa-cloud/status", waCloudAuth, (req, res) => {
   res.json(getCloudStatus());
 });
 
@@ -3012,7 +3040,7 @@ function sendMetaTokenInvalid(res, err) {
   return res.status(424).json(metaTokenInvalidResponse(err));
 }
 
-app.put("/api/wa-cloud/embedded/settings", adminAuth, (req, res) => {
+app.put("/api/wa-cloud/embedded/settings", waCloudAuth, (req, res) => {
   try {
     const out = saveEmbeddedSignupSettings(req.body || {});
     res.json(out);
@@ -3021,7 +3049,7 @@ app.put("/api/wa-cloud/embedded/settings", adminAuth, (req, res) => {
   }
 });
 
-app.post("/api/wa-cloud/embedded/exchange", adminAuth, async (req, res) => {
+app.post("/api/wa-cloud/embedded/exchange", waCloudAuth, async (req, res) => {
   try {
     const out = await exchangeEmbeddedSignupCode(req.body || {});
     res.json(out);
@@ -3037,7 +3065,7 @@ app.post("/api/wa-cloud/embedded/exchange", adminAuth, async (req, res) => {
   }
 });
 
-app.delete("/api/wa-cloud/embedded", adminAuth, (req, res) => {
+app.delete("/api/wa-cloud/embedded", waCloudAuth, (req, res) => {
   try {
     res.json(disconnectCloudApi());
   } catch (err) {
@@ -3045,7 +3073,7 @@ app.delete("/api/wa-cloud/embedded", adminAuth, (req, res) => {
   }
 });
 
-app.get("/api/wa-cloud/templates", adminAuth, async (req, res) => {
+app.get("/api/wa-cloud/templates", waCloudAuth, async (req, res) => {
   try {
     const limit = Math.min(Math.max(Number(req.query?.limit || 1000), 25), 2000);
     const out = await listCloudTemplates({ limit });
@@ -3064,7 +3092,7 @@ app.get("/api/wa-cloud/templates", adminAuth, async (req, res) => {
   }
 });
 
-app.get("/api/wa-cloud/template-library", adminAuth, async (req, res) => {
+app.get("/api/wa-cloud/template-library", waCloudAuth, async (req, res) => {
   try {
     const out = await listCloudTemplateLibrary({
       language: String(req.query?.language || "pt_BR"),
@@ -3089,7 +3117,7 @@ app.get("/api/wa-cloud/template-library", adminAuth, async (req, res) => {
   }
 });
 
-app.post("/api/wa-cloud/templates", adminAuth, async (req, res) => {
+app.post("/api/wa-cloud/templates", waCloudAuth, async (req, res) => {
   try {
     if (!isCloudApiConfigured()) throw new Error("WA_CLOUD não configurado.");
     const out = await createCloudTemplate(req.body || {});
@@ -3106,14 +3134,44 @@ app.post("/api/wa-cloud/templates", adminAuth, async (req, res) => {
   }
 });
 
-app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
+function clampWaCloudThrottleMs(value, fallback = 0) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return Math.max(0, Math.min(Number(fallback || 0), 600000));
+  return Math.max(0, Math.min(Math.round(n), 600000));
+}
+
+function normalizeWaCloudThrottle(body = {}) {
+  const legacy = clampWaCloudThrottleMs(body.throttleMs, 250);
+  let minMs = body.throttleMinMs == null ? legacy : clampWaCloudThrottleMs(body.throttleMinMs, legacy);
+  let maxMs = body.throttleMaxMs == null ? minMs : clampWaCloudThrottleMs(body.throttleMaxMs, minMs);
+  if (maxMs < minMs) {
+    const tmp = minMs;
+    minMs = maxMs;
+    maxMs = tmp;
+  }
+  return {
+    minMs,
+    maxMs,
+    mode: maxMs > minMs ? "random" : "fixed",
+  };
+}
+
+function nextWaCloudThrottleDelay(range) {
+  const minMs = clampWaCloudThrottleMs(range?.minMs, 0);
+  const maxMs = clampWaCloudThrottleMs(range?.maxMs, minMs);
+  if (!maxMs) return 0;
+  if (maxMs <= minMs) return minMs;
+  return minMs + Math.floor(Math.random() * (maxMs - minMs + 1));
+}
+
+app.post("/api/wa-cloud/send-template-batch", waCloudAuth, async (req, res) => {
   try {
     if (!isCloudApiConfigured()) throw new Error("WA_CLOUD não configurado.");
 
     const templateName = String(req.body?.templateName || "").trim();
     const languageCode = String(req.body?.languageCode || "pt_BR").trim();
     const contacts = Array.isArray(req.body?.contacts) ? req.body.contacts : [];
-    const throttleMs = Math.max(0, Number(req.body?.throttleMs || 250));
+    const throttleRange = normalizeWaCloudThrottle(req.body || {});
     const campaignName = String(req.body?.campaignName || templateName || "Campanha oficial").trim();
 
     if (!templateName) throw new Error("templateName obrigatório.");
@@ -3194,7 +3252,8 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
         });
       }
 
-      if (throttleMs) await new Promise((r) => setTimeout(r, throttleMs));
+      const waitMs = nextWaCloudThrottleDelay(throttleRange);
+      if (waitMs) await new Promise((r) => setTimeout(r, waitMs));
     }
 
     const sentCount = results.filter((x) => x && x.ok).length;
@@ -3210,6 +3269,7 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
         failed: failedCount,
         errorGroups: groupMetaErrors(results),
       },
+      throttle: throttleRange,
       results,
     });
   } catch (err) {
@@ -3218,7 +3278,7 @@ app.post("/api/wa-cloud/send-template-batch", adminAuth, async (req, res) => {
   }
 });
 
-app.get("/api/wa-cloud/statuses", adminAuth, (req, res) => {
+app.get("/api/wa-cloud/statuses", waCloudAuth, (req, res) => {
   res.json({ total: listCloudStatus().length, items: listCloudStatus() });
 });
 

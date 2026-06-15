@@ -25,7 +25,6 @@
             "c4887b864bf6034c89724c58",
             "1b9eaf6bad7f8f48cd7b98ad",
             "2945b4d5c4d82f364d23af69",
-            "8948473a14287643a65b2897",
             "de1d62ec3b86416588c3720c",
             "e4a647f7169774b6d2ce8531",
             "8042d0e469e8047ecee8b48d",
@@ -82,7 +81,59 @@
             "522bc62a4df1de55ce20d5e7",
             "3c1ec3c2804e05fb23124920",
             "e1b7c822205c7df8cc8dae28",
-            "83f961a405a2cbb089467324"
+            "83f961a405a2cbb089467324",
+            "0761c596bf47e34a4ac818b8",
+            "dc012da60b8bbdf3aa42af63",
+            "f1bc4c137ea09e8287f19800",
+            "7ca9e6831d5705011fcb73b7",
+            "2e9b99fe0d8ea95c111fceb0",
+            "44e41ffe4a9fc9d5c52ac962",
+            "8949ca2bff42a361cd8a9739",
+            "58998f26254be7dc14e92d41",
+            "56a7bff1717b95bcc312b3b4",
+            "da2386615d94651a3d6bd242",
+            "1cef10755009b928a2e2acc6",
+            "46ee9010129dc12cd703cbac",
+            "e04a84fa178d155ff25d25aa",
+            "61ab2e3053c913e4d9550e1a",
+            "9510ecc86ae034990900c730",
+            "d4144a73e15528e7db7715e4",
+            "2c6741af00d9387f4741ea6e",
+            "f29ac9d03c301e8ad6f20b78",
+            "48e84322190e77a61908cf8e",
+            "2144708b2c73f48367416cc2",
+            "47ee25af1d70fcf47f68c39f",
+            "082686c54bac30903a142c76",
+            "d8f52e6fc50ccee8197ce227",
+            "bf4943b87c5ec0e068611c02",
+            "ac1332fd2ee6cace18aa157c",
+            "03d49c28abfcea260c7bfaac",
+            "6a7e9a71c3d60cfc2b240503",
+            "296bb2768366af0d6b5c2dd6",
+            "46a22fba2fad31350cd23d1b",
+            "674a122daec0be595856ff88",
+            "68c4b1920e315493261ce929",
+            "3f405e8fafe11eec9bed8e0d",
+            "9728bff5bd7c62ba8dbd9017",
+            "1b2dbaceef0866a93b56146f",
+            "ee4cef10c6f42bea125a78c5",
+            "8f5e90fc63ea44e7c04187e2",
+            "c0e56c49853d14a2af339c49",
+            "5490180a32b247afcc2231c3",
+            "0ca60f47282b6b08064c823c",
+            "b0fe976e3cbb7185036d3820",
+            "574ef7853c6f7d1560f2577a",
+            "7309619ee193b88531988324",
+            "e0a97ed6dfa8efdcdc0dddde",
+            "444dbc0c1d177d33af85b476",
+            "813ca2941c7e88c6633e379e",
+            "fc492c871b328d891dc54575",
+            "31a43a10ccdf120a6b34a39e",
+            "89951a3be41cf69844e8e00c",
+            "cbead438be6c261160d38e8c",
+            "07f9a6803a5866cc4c33e7e8",
+            "5fa20436f915694e37926346",
+            "343cd62aa0005e15a040c917"
           ]
         },
         "stg_contact": {
@@ -94,7 +145,12 @@
         "stg_meeting": {
           "id": "stg_meeting",
           "name": "Reunião",
-          "leadIds": []
+          "leadIds": [
+            "8948473a14287643a65b2897"
+          ],
+          "autoMessages": [
+            "ola {{nome}}"
+          ]
         },
         "stg_proposal": {
           "id": "stg_proposal",
@@ -109,5 +165,5 @@
       }
     }
   ],
-  "updatedAt": "2026-06-08T12:49:37.901Z"
+  "updatedAt": "2026-06-15T13:09:37.317Z"
 }

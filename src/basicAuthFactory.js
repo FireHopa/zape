@@ -187,7 +187,9 @@ function unauthorized(req, res, realm, tenantId) {
     return res.redirect(`/login?tenant=${encodeURIComponent(tenantId)}&next=${next}`);
   }
 
-  res.set("WWW-Authenticate", `Basic realm="${realm || "Protected"}"`);
+  // Para chamadas de API/JSON, não envie WWW-Authenticate.
+  // Esse header faz o Chrome/Edge abrir a caixa nativa de autorização mesmo quando o painel já usa login por cookie.
+  res.setHeader("Cache-Control", "no-store");
   return res.status(401).json({ ok: false, error: "Unauthorized", login: `/login?tenant=${tenantId}` });
 }
 

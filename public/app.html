@@ -1949,6 +1949,39 @@ body:not(.hasPager) .pager{display:none!important;}
   }
   .conversationListHead{ flex-direction:column; align-items:stretch; }
   .chatSearchRow{ display:flex; gap:8px; align-items:center; }
+  .chatFilterChips{
+    display:flex;
+    gap:6px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-top:2px;
+  }
+  .chatFilterChips button{
+    appearance:none;
+    border:1px solid #d7e3ff;
+    background:#fff;
+    color:#38506b;
+    border-radius:999px;
+    padding:8px 10px;
+    font-size:11px;
+    line-height:1;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 8px 18px rgba(15,23,42,.04);
+    transition:.16s ease;
+    white-space:nowrap;
+  }
+  .chatFilterChips button:hover{
+    border-color:rgba(26,115,232,.45);
+    background:rgba(26,115,232,.06);
+    color:#174ea6;
+  }
+  .chatFilterChips button.active{
+    border-color:rgba(26,115,232,.55);
+    background:linear-gradient(135deg, rgba(26,115,232,.14), rgba(52,168,83,.10));
+    color:#0b57d0;
+    box-shadow:0 8px 20px rgba(26,115,232,.10);
+  }
   .conversationList{
     height: calc(100vh - 330px);
     min-height: 420px;
@@ -1973,6 +2006,12 @@ body:not(.hasPager) .pager{display:none!important;}
     background: rgba(26,115,232,.10);
     border-color: rgba(26,115,232,.20);
   }
+  .chatAvatarWrap{
+    position:relative;
+    width:44px;
+    height:44px;
+    flex:0 0 auto;
+  }
   .chatAvatar{
     width:44px;
     height:44px;
@@ -1985,6 +2024,57 @@ body:not(.hasPager) .pager{display:none!important;}
     background: linear-gradient(135deg, #1a73e8, #34a853);
     box-shadow: 0 10px 22px rgba(26,115,232,.18);
   }
+  .chatStatusDot{
+    position:absolute;
+    right:-2px;
+    bottom:-2px;
+    width:14px;
+    height:14px;
+    border-radius:999px;
+    border:2px solid #fff;
+    background:#94a3b8;
+    box-shadow:0 6px 12px rgba(15,23,42,.20);
+  }
+  .chatStatusDot.status-replied{ background:#16a34a; }
+  .chatStatusDot.status-delivered{ background:#2563eb; }
+  .chatStatusDot.status-pending{ background:#f59e0b; }
+  .chatStatusDot.status-notDelivered{ background:#dc2626; }
+  .chatStatusDot.status-notExists{ background:#d97706; }
+  .chatStatusDot.status-none{ background:#94a3b8; }
+  .chatStatusText{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    font-size:10px;
+    line-height:1;
+    font-weight:950;
+    border-radius:999px;
+    padding:4px 6px;
+    border:1px solid #e4e7ec;
+    background:#fff;
+    color:#667085;
+    white-space:nowrap;
+  }
+  .chatStatusText:before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:999px;
+    background:#94a3b8;
+    flex:0 0 auto;
+  }
+  .chatStatusText.status-replied{ color:#027a48; border-color:#abefc6; background:#ecfdf3; }
+  .chatStatusText.status-replied:before{ background:#16a34a; }
+  .chatStatusText.status-delivered{ color:#174ea6; border-color:#bfdbfe; background:#eff6ff; }
+  .chatStatusText.status-delivered:before{ background:#2563eb; }
+  .chatStatusText.status-pending{ color:#92400e; border-color:#fedf89; background:#fffbeb; }
+  .chatStatusText.status-pending:before{ background:#f59e0b; }
+  .chatStatusText.status-notDelivered{ color:#b42318; border-color:#fecdca; background:#fff5f5; }
+  .chatStatusText.status-notDelivered:before{ background:#dc2626; }
+  .chatStatusText.status-notExists{ color:#b54708; border-color:#fedf89; background:#fff7ed; }
+  .chatStatusText.status-notExists:before{ background:#d97706; }
+  .chatStatusText.status-none{ color:#667085; border-color:#e4e7ec; background:#f8fafc; }
+  .chatStatusText.status-none:before{ background:#94a3b8; }
   .chatName{ font-weight:900; color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .chatMeta{ font-size:12px; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:2px; }
   .chatPreview{ font-size:12px; color:rgba(71,85,105,.95); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:5px; }
@@ -4337,10 +4427,6 @@ body.cloudFullMode #panelCloudMain{background:#f5f7fb!important;}
               <span class="menuLabel"><i class="ph ph-kanban"></i><span>Funil de Vendas</span></span>
               <span class="menuPill">CRM</span>
             </button>
-            <button id="navOwner" class="menuBtn" type="button">
-              <span class="menuLabel"><i class="ph ph-identification-card"></i><span>Dono do Negócio</span></span>
-              <span class="menuPill">VIP</span>
-            </button>
           </div>
         </div>
       </aside>
@@ -4434,6 +4520,12 @@ body.cloudFullMode #panelCloudMain{background:#f5f7fb!important;}
                   </div>
                   <div class="chatSearchRow">
                     <input id="chatSearch" class="input" placeholder="Buscar conversa por nome, empresa ou número" />
+                  </div>
+                  <div id="chatStatusFilter" class="chatFilterChips" role="tablist" aria-label="Filtrar conversas por status">
+                    <button type="button" class="active" data-chat-status-filter="active">Recebeu/respondeu</button>
+                    <button type="button" data-chat-status-filter="replied">Respondeu</button>
+                    <button type="button" data-chat-status-filter="delivered">Recebeu</button>
+                    <button type="button" data-chat-status-filter="all">Todos</button>
                   </div>
                 </div>
                 <div id="chatList" class="conversationList">
@@ -4731,29 +4823,32 @@ body.cloudFullMode #panelCloudMain{background:#f5f7fb!important;}
                 <div class="cloudFormGrid three">
                   <label class="field">
                     <div class="label">Modelo aprovado</div>
-                    <input id="cloudTemplateName" class="input" placeholder="Ex: confirmacao_cadastro" />
-                    <div class="hint">Precisa estar com status aprovado na Meta.</div>
+                    <select id="cloudTemplateSelect" class="input">
+                      <option value="">Carregue os modelos aprovados da conta</option>
+                    </select>
+                    <input id="cloudTemplateName" type="hidden" />
+                    <div class="hint">Selecione um modelo aprovado já existente na conta Meta.</div>
                   </label>
                   <label class="field">
                     <div class="label">Idioma</div>
-                    <input id="cloudLanguage" class="input" placeholder="pt_BR" value="pt_BR" />
-                    <div class="hint">Use o mesmo idioma do modelo.</div>
+                    <input id="cloudLanguage" class="input" placeholder="pt_BR" value="pt_BR" readonly />
+                    <div class="hint">O idioma vem automaticamente junto com o modelo.</div>
                   </label>
                   <label class="field">
                     <div class="label">Intervalo entre envios</div>
                     <select id="cloudThrottle" class="input">
-                      <option value="500" selected>Seguro, 500ms</option>
-                      <option value="1000">Mais conservador, 1s</option>
-                      <option value="250">Rápido, 250ms</option>
-                      <option value="0">Sem intervalo</option>
+                      <option value="500:1200" selected>Seguro aleatório, 0,5s a 1,2s</option>
+                      <option value="1000:2200">Mais conservador, 1s a 2,2s</option>
+                      <option value="250:700">Rápido aleatório, 0,25s a 0,7s</option>
+                      <option value="0:0">Sem intervalo</option>
                     </select>
-                    <div class="hint">Para primeiros disparos, mantenha 500ms ou 1s.</div>
+                    <div class="hint">O sistema sorteia um intervalo diferente a cada mensagem.</div>
                   </label>
                 </div>
 
                 <div id="cloudSelectedTemplateCard" class="cloudSelectedTemplateCard">
                   <i class="ph ph-check-circle"></i>
-                  <div><b>Nenhum modelo selecionado</b><span>Escolha um modelo aprovado na lista ou digite o nome manualmente.</span></div>
+                  <div><b>Nenhum modelo selecionado</b><span>Escolha um modelo aprovado na lista.</span></div>
                 </div>
               </div>
 
@@ -6782,6 +6877,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       if (!ov) return;
       ov.style.display = "none";
       ov.setAttribute("aria-hidden","true");
+      if (navTags) navTags.classList.remove("active");
       if (!anyOverlayOpen()) document.body.classList.remove("noScroll");
     }
 
@@ -6803,6 +6899,14 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
     }
 
     function setActiveNav(which){
+      if (which === "tags"){
+        // Tags agora abre como sobreposição e mantém a tela atual exatamente como está.
+        // Não troca o painel principal, não volta para Leads e não altera o scroll.
+        if (navTags) navTags.classList.add("active");
+        openTagDrawer();
+        return;
+      }
+
       try { document.body.classList.toggle("cloudFullMode", which === "cloud"); } catch(e) {}
 
       if (which === "chats"){
@@ -6928,28 +7032,6 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         setMainPanelScrollTop(panelCloudMain);
         try{ loadCloudStatus(); }catch(e){}
         try{ cloudListTemplates(); }catch(e){}
-        return;
-      }
-
-      if (which === "tags"){
-        // Pedido: abrir Tags em drawer e manter a lista de leads visível
-        navTags.classList.add("active");
-        if (navChats) navChats.classList.remove("active");
-        if (navInsights) navInsights.classList.remove("active");
-        if (navOwner) navOwner.classList.remove("active");
-        navCloud.classList.remove("active");
-        navLeads.classList.add("active");
-
-        panelCloudMain.style.display = "none";
-        if (panelChats) panelChats.style.display = "none";
-        if (panelInsights) panelInsights.style.display = "none";
-        if (panelCrm) panelCrm.style.display = "none";
-        if (panelOwner) panelOwner.style.display = "none";
-        panelLeads.style.display = "flex";
-        togglePagerForLeads(true);
-        setMainPanelScrollTop(panelLeads);
-
-        openTagDrawer();
         return;
       }
 
@@ -7940,16 +8022,42 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       return (message.fromMe ? "Você: " : "") + label;
     }
 
+    function chatContactStatusValue(contact){
+      var serverStatus = contact && (contact.conversationStatus || contact.chatStatus);
+      var st = serverStatus ? String(serverStatus || "") : leadStatusValue(contact);
+      var last = contact && contact.lastMessage;
+      if ((st === "none" || !st) && last && last.fromMe === false) return "replied";
+      return st || "none";
+    }
+
+    function chatContactStatusLabel(contact){
+      var st = chatContactStatusValue(contact);
+      var map = {
+        replied: "Respondeu",
+        delivered: "Recebeu",
+        pending: "Pendente",
+        notDelivered: "Não recebeu",
+        notExists: "Não existe",
+        none: "Sem envio"
+      };
+      return map[st] || "Sem envio";
+    }
+
     function renderChatList(){
       var el = document.getElementById("chatList");
       var hint = document.getElementById("chatListHint");
       if (!el) return;
-      if (hint) hint.textContent = chatContacts.length ? (chatContacts.length + " conversa(s) encontrada(s)") : "Nenhuma conversa encontrada.";
+      if (hint) {
+        var filterEl = document.querySelector("[data-chat-status-filter].active");
+        var filterVal = filterEl ? String(filterEl.getAttribute("data-chat-status-filter") || "active") : "active";
+        var filterText = filterVal === "active" ? "receberam ou responderam" : filterVal === "replied" ? "responderam" : filterVal === "delivered" ? "receberam" : "todos os status";
+        hint.textContent = chatContacts.length ? (chatContacts.length + " conversa(s) encontrada(s) • " + filterText) : ("Nenhuma conversa encontrada • " + filterText);
+      }
       var pill = document.getElementById("navChatsCount");
       if (pill) pill.textContent = chatContacts.length ? String(chatContacts.length) : "0";
 
       if (!chatContacts.length){
-        el.innerHTML = '<div class="chatEmpty"><div class="chatEmptyBox"><b>Nenhuma conversa encontrada</b><br><span>Quando um lead da planilha ou um número novo chamar no WhatsApp, a conversa aparece aqui.</span></div></div>';
+        el.innerHTML = '<div class="chatEmpty"><div class="chatEmptyBox"><b>Nenhuma conversa encontrada</b><br><span>Nenhum contato encontrado para o filtro selecionado. Por padrão, aparecem só quem recebeu ou respondeu.</span></div></div>';
         return;
       }
 
@@ -7958,8 +8066,13 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         var selected = chatSelected && String(chatSelected.whatsapp_digits || "") === digits;
         var preview = chatMessagePreview(c.lastMessage);
         var unread = Number(c.unreadCount || 0);
-        return '<button class="conversationItem ' + (selected ? 'active' : '') + '" type="button" data-chat-digits="' + escapeHtml(digits) + '">' +
-          '<div class="chatAvatar">' + escapeHtml(chatInitials(c.nome)) + '</div>' +
+        var statusValue = chatContactStatusValue(c);
+        var statusLabel = chatContactStatusLabel(c);
+        return '<button class="conversationItem ' + (selected ? 'active' : '') + '" type="button" data-chat-digits="' + escapeHtml(digits) + '" title="Status: ' + escapeHtml(statusLabel) + '">' +
+          '<div class="chatAvatarWrap">' +
+            '<div class="chatAvatar">' + escapeHtml(chatInitials(c.nome)) + '</div>' +
+            '<span class="chatStatusDot status-' + escapeHtml(statusValue) + '" aria-label="' + escapeHtml(statusLabel) + '"></span>' +
+          '</div>' +
           '<div style="min-width:0;">' +
             '<div class="chatName">' + escapeHtml(c.nome || formatWhatsAppPretty(digits)) + '</div>' +
             '<div class="chatMeta">' + escapeHtml(chatSub(c)) + '</div>' +
@@ -7967,6 +8080,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
           '</div>' +
           '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">' +
             '<small class="hint">' + escapeHtml(chatLastTime(c)) + '</small>' +
+            '<span class="chatStatusText status-' + escapeHtml(statusValue) + '">' + escapeHtml(statusLabel) + '</span>' +
             (unread ? '<span class="chatBadge">' + unread + '</span>' : '') +
           '</div>' +
         '</button>';
@@ -7984,7 +8098,9 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
     async function loadConversations(opts){
       opts = opts || {};
       var q = String((document.getElementById("chatSearch") || {}).value || "").trim();
-      var url = API_BASE + "/conversations?limit=300" + (q ? ("&q=" + encodeURIComponent(q)) : "");
+      var statusFilterEl = document.querySelector("[data-chat-status-filter].active");
+      var statusFilter = statusFilterEl ? String(statusFilterEl.getAttribute("data-chat-status-filter") || "active") : "active";
+      var url = API_BASE + "/conversations?limit=1000" + (q ? ("&q=" + encodeURIComponent(q)) : "") + (statusFilter && statusFilter !== "all" ? ("&status=" + encodeURIComponent(statusFilter)) : "");
       var list = document.getElementById("chatList");
       if (list && !opts.keepSelected) list.innerHTML = '<div class="chatLoadState">Carregando conversas...</div>';
       try{
@@ -8384,6 +8500,13 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         clearTimeout(timer);
         timer = setTimeout(function(){ loadConversations({ keepSelected:true }); }, 250);
       });
+      document.querySelectorAll("[data-chat-status-filter]").forEach(function(btn){
+        btn.addEventListener("click", function(){
+          document.querySelectorAll("[data-chat-status-filter]").forEach(function(other){ other.classList.remove("active"); });
+          btn.classList.add("active");
+          loadConversations({ keepSelected:false });
+        });
+      });
       document.getElementById("chatRefresh")?.addEventListener("click", function(){ loadConversations({ keepSelected:true }); if (chatSelected) loadConversationMessages(); });
       document.getElementById("chatReloadThread")?.addEventListener("click", loadConversationMessages);
       document.getElementById("chatSend")?.addEventListener("click", sendChatText);
@@ -8444,7 +8567,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
     function normalizeCloudApiError(status, payload, fallback){
       payload = payload || {};
       if (status === 401 && payload.login) {
-        return "Sua sessão do painel expirou. Faça login novamente no /admin e tente de novo.";
+        return "Sua sessão do painel expirou. Faça login novamente neste painel e tente de novo.";
       }
       if (payload.code === "META_TOKEN_INVALID") {
         return payload.error || "A conexão com a Meta foi invalidada. Vincule novamente o WhatsApp para gerar um novo token.";
@@ -9992,31 +10115,30 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       var selectedStatus = String(selected && selected.status || "").toUpperCase();
       var selectedIsLibrary = selected && String(selected.source || "") === "library";
       var approvedKnown = selected && selectedStatus === "APPROVED" && !selectedIsLibrary;
-      var manualTemplate = selected && selectedStatus === "MANUAL";
       var hasTemplate = !!templateName;
       var hasContacts = Array.isArray(cloudContacts) && cloudContacts.length > 0;
-      var ready = connected && hasTemplate && hasContacts && (approvedKnown || manualTemplate);
+      var ready = connected && approvedKnown && hasContacts;
       var approvedCount = (cloudTemplatesCache || []).filter(function(t){ return String(t && t.source || 'account') !== 'library' && String(t && t.status || "").toUpperCase() === "APPROVED"; }).length;
 
       var summary = document.getElementById("cloudQuickSummary");
       if (summary){
         summary.innerHTML = '' +
           '<div class="cloudMetric ' + (connected ? 'ok' : 'warn') + '"><span>Conexão</span><b>' + (connected ? 'Ativa' : 'Pendente') + '</b><small>' + escapeHtml(st.displayPhoneNumber || st.verifiedName || 'Vincule pela Meta') + '</small></div>' +
-          '<div class="cloudMetric ' + (hasTemplate ? (approvedKnown ? 'ok' : 'warn') : 'warn') + '"><span>Modelo</span><b>' + escapeHtml(hasTemplate ? templateName : 'Nenhum') + '</b><small>' + escapeHtml(hasTemplate ? (approvedKnown ? 'Aprovado na Meta' : selectedIsLibrary ? 'Modelo da biblioteca, adicione à conta antes de enviar' : manualTemplate ? 'Digitado manualmente' : cloudStatusLabel(selected && selected.status)) : approvedCount + ' aprovado(s) encontrados') + '</small></div>' +
+          '<div class="cloudMetric ' + (approvedKnown ? 'ok' : 'warn') + '"><span>Modelo</span><b>' + escapeHtml(hasTemplate ? templateName : 'Nenhum') + '</b><small>' + escapeHtml(hasTemplate ? (approvedKnown ? 'Aprovado na Meta' : 'Selecione um modelo aprovado da lista') : approvedCount + ' aprovado(s) encontrados') + '</small></div>' +
           '<div class="cloudMetric ' + (hasContacts ? 'ok' : 'warn') + '"><span>Contatos</span><b>' + (Array.isArray(cloudContacts) ? cloudContacts.length : 0) + '</b><small>' + (hasContacts ? 'Deduplicados e prontos' : 'Importe ou use leads filtrados') + '</small></div>' +
           '<div class="cloudMetric ' + (ready ? 'ok' : 'warn') + '"><span>Checklist</span><b>' + (ready ? 'Pronto' : 'Pendente') + '</b><small>' + (ready ? 'Pode revisar e enviar' : 'Faltam passos obrigatórios') + '</small></div>';
       }
 
       cloudSetStepState("connection", connected ? "done" : "current");
-      cloudSetStepState("template", connected ? (hasTemplate ? "done" : "current") : "blocked");
-      cloudSetStepState("contacts", connected && hasTemplate ? (hasContacts ? "done" : "current") : "blocked");
+      cloudSetStepState("template", connected ? (approvedKnown ? "done" : "current") : "blocked");
+      cloudSetStepState("contacts", connected && approvedKnown ? (hasContacts ? "done" : "current") : "blocked");
       cloudSetStepState("send", ready ? "current" : "blocked");
 
       var selectedCard = document.getElementById("cloudSelectedTemplateCard");
       if (selectedCard){
         selectedCard.classList.remove("ok", "warn");
         if (!hasTemplate){
-          selectedCard.innerHTML = '<i class="ph ph-check-circle"></i><div><b>Nenhum modelo selecionado</b><span>Escolha um modelo aprovado na lista ou digite o nome manualmente.</span></div>';
+          selectedCard.innerHTML = '<i class="ph ph-check-circle"></i><div><b>Nenhum modelo selecionado</b><span>Escolha um modelo aprovado na lista.</span></div>';
         } else if (approvedKnown){
           selectedCard.classList.add("ok");
           selectedCard.innerHTML = '<i class="ph ph-check-circle"></i><div><b>Modelo aprovado selecionado</b><span>' + escapeHtml(templateName) + ' • ' + escapeHtml(languageCode) + '</span></div>';
@@ -10038,7 +10160,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         }
         checklist.innerHTML = '' +
           item(connected, 'Conexão oficial', connected ? 'API vinculada e pronta.' : 'Vincule o WhatsApp oficial antes do disparo.') +
-          item(hasTemplate, 'Modelo escolhido', hasTemplate ? (approvedKnown ? 'Modelo aprovado encontrado na Meta.' : selectedIsLibrary ? 'Modelo da biblioteca precisa ser adicionado à conta.' : 'Modelo informado manualmente ou ainda não aprovado. Confirme a aprovação.') : 'Escolha um modelo aprovado.', hasTemplate && !approvedKnown) +
+          item(approvedKnown, 'Modelo aprovado', approvedKnown ? 'Modelo aprovado encontrado na Meta.' : 'Escolha um modelo aprovado da lista da conta.', hasTemplate && !approvedKnown) +
           item(hasContacts, 'Contatos carregados', hasContacts ? cloudContacts.length + ' contato(s) prontos.' : 'Importe uma planilha ou use leads filtrados.') +
           item(ready, 'Envio', ready ? 'Tudo pronto para enviar.' : 'Finalize os itens pendentes antes de enviar.', true);
       }
@@ -10192,6 +10314,102 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       return (cloudTemplatesCache || []).filter(function(t){ return !cloudIsLibraryTemplate(t); });
     }
 
+    function cloudApprovedAccountTemplates(){
+      return cloudAccountTemplates().filter(function(t){
+        return String(t && t.status || '').toUpperCase() === 'APPROVED' && String(t && t.name || '').trim();
+      }).sort(function(a,b){
+        var an = String(a.name || '').toLowerCase();
+        var bn = String(b.name || '').toLowerCase();
+        if (an !== bn) return an.localeCompare(bn);
+        return String(a.language || '').localeCompare(String(b.language || ''));
+      });
+    }
+
+    function cloudTemplateSelectKey(t){
+      if (!t) return '';
+      return String(t.name || '').trim() + '||' + String(t.language || '').trim();
+    }
+
+    function cloudFindTemplateBySelectKey(key){
+      key = String(key || '');
+      if (!key) return null;
+      return cloudApprovedAccountTemplates().find(function(t){ return cloudTemplateSelectKey(t) === key; }) || null;
+    }
+
+    function cloudSetTemplateSelectLoading(text){
+      var select = document.getElementById('cloudTemplateSelect');
+      if (!select) return;
+      select.innerHTML = '<option value="">' + escapeHtml(text || 'Carregando modelos aprovados...') + '</option>';
+      select.disabled = true;
+    }
+
+    function cloudApplySelectedTemplate(t, opts){
+      opts = opts || {};
+      var nameEl = document.getElementById('cloudTemplateName');
+      var langEl = document.getElementById('cloudLanguage');
+      var select = document.getElementById('cloudTemplateSelect');
+      if (!t){
+        if (nameEl) nameEl.value = '';
+        if (langEl) langEl.value = 'pt_BR';
+        if (select) select.value = '';
+      } else {
+        if (nameEl) nameEl.value = t.name || '';
+        if (langEl) langEl.value = t.language || 'pt_BR';
+        if (select) select.value = cloudTemplateSelectKey(t);
+      }
+      if (!opts.silentToast && t) toast('ok', 'Modelo selecionado', (t.name || 'Template') + ' pronto para envio');
+      if (!opts.skipPreview) renderCloudPreview();
+      updateCloudUxState();
+    }
+
+    function cloudSyncTemplateSelect(){
+      var select = document.getElementById('cloudTemplateSelect');
+      if (!select) return;
+      var nameEl = document.getElementById('cloudTemplateName');
+      var langEl = document.getElementById('cloudLanguage');
+      var currentKey = String(nameEl && nameEl.value || '').trim() ? (String(nameEl.value || '').trim() + '||' + String(langEl && langEl.value || '').trim()) : '';
+      var approved = cloudApprovedAccountTemplates();
+      if (!approved.length){
+        select.innerHTML = '<option value="">Nenhum modelo aprovado encontrado</option>';
+        select.disabled = true;
+        if (nameEl) nameEl.value = '';
+        if (langEl) langEl.value = 'pt_BR';
+        return;
+      }
+      select.disabled = false;
+      var html = '<option value="">Selecione um modelo aprovado</option>';
+      approved.forEach(function(t){
+        var label = (t.name || 'Modelo') + ' · ' + (t.language || '—') + (t.category ? ' · ' + t.category : '');
+        html += '<option value="' + escapeHtml(cloudTemplateSelectKey(t)) + '">' + escapeHtml(label) + '</option>';
+      });
+      select.innerHTML = html;
+      var selected = cloudFindTemplateBySelectKey(currentKey);
+      if (selected){
+        select.value = currentKey;
+      } else {
+        if (nameEl) nameEl.value = '';
+        if (langEl) langEl.value = 'pt_BR';
+        select.value = '';
+      }
+    }
+
+    function cloudThrottleRangeFromControl(){
+      var el = document.getElementById('cloudThrottle');
+      var raw = String(el && el.value || '500:1200');
+      var parts = raw.split(':').map(function(x){ return Number(x); });
+      var min = Number.isFinite(parts[0]) ? Math.max(0, parts[0]) : 500;
+      var max = Number.isFinite(parts[1]) ? Math.max(0, parts[1]) : min;
+      if (max < min){ var tmp = min; min = max; max = tmp; }
+      return { minMs: min, maxMs: max, mode: max > min ? 'random' : 'fixed' };
+    }
+
+    function cloudThrottleRangeLabel(range){
+      range = range || cloudThrottleRangeFromControl();
+      if (!range.maxMs) return 'sem intervalo';
+      if (range.maxMs === range.minMs) return String(range.minMs) + 'ms fixo';
+      return 'aleatório entre ' + String(range.minMs) + 'ms e ' + String(range.maxMs) + 'ms';
+    }
+
     function cloudLibraryTemplates(){
       return (cloudTemplatesCache || []).filter(function(t){ return cloudIsLibraryTemplate(t); });
     }
@@ -10330,10 +10548,11 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         btn.addEventListener('click', function(){
           var t = cloudTemplatesCache[Number(btn.getAttribute('data-cloud-use-template'))];
           if (!t) return;
-          document.getElementById('cloudTemplateName').value = t.name || '';
-          document.getElementById('cloudLanguage').value = t.language || 'pt_BR';
-          updateCloudUxState();
-          toast('ok', 'Modelo selecionado', (t.name || 'Template') + ' pronto para envio');
+          if (cloudIsLibraryTemplate(t) || String(t.status || '').toUpperCase() !== 'APPROVED'){
+            toast('warn', 'Modelo não disponível', 'Só é possível selecionar modelos aprovados da conta.');
+            return;
+          }
+          cloudApplySelectedTemplate(t);
         });
       });
     }
@@ -10350,7 +10569,8 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         '</div></div></div>' +
         '<div class="cloudTemplatePreview">' + escapeHtml(cloudTemplateBodyPreview(t)) + '</div>' +
         (t.rejected_reason && t.rejected_reason !== 'NONE' ? '<div class="cloudCheckItem err"><i class="ph ph-x-circle"></i><div><b>Motivo da rejeição</b><span>' + escapeHtml(t.rejected_reason) + '</span></div></div>' : '') +
-        '<div class="cloudTemplateActions"><button class="btn btnGhost" type="button" data-cloud-preview-template="' + originalIndex + '"><i class="ph ph-eye"></i> Visualizar</button><button class="btn btnSoft" type="button" data-cloud-use-template="' + originalIndex + '"><i class="ph ph-check"></i> Usar</button></div>' +
+        '<div class="cloudTemplateActions"><button class="btn btnGhost" type="button" data-cloud-preview-template="' + originalIndex + '"><i class="ph ph-eye"></i> Visualizar</button>' +
+        (kind === 'approved' ? '<button class="btn btnSoft" type="button" data-cloud-use-template="' + originalIndex + '"><i class="ph ph-check"></i> Selecionar</button>' : '<button class="btn btnGhost" type="button" disabled><i class="ph ph-lock"></i> Não aprovado</button>') + '</div>' +
       '</div>';
     }
 
@@ -10462,6 +10682,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         }
       }
       cloudRenderPremiumLibrary();
+      cloudSyncTemplateSelect();
       updateCloudUxState();
       renderCloudTemplateStatusPanel();
     }
@@ -10470,6 +10691,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       var list = document.getElementById("cloudTemplatesList");
       var log = document.getElementById("cloudLog");
       try{
+        cloudSetTemplateSelectLoading('Carregando modelos aprovados...');
         if (list) list.innerHTML = '<div class="cloudEmptyState"><i class="ph ph-spinner-gap"></i><div><b>Buscando modelos</b><span>Consultando seus modelos da conta.</span></div></div>';
         var premiumList = document.getElementById('cloudLibraryPremiumList');
         if (premiumList) premiumList.innerHTML = '<div class="cloudEmptyState"><i class="ph ph-spinner-gap"></i><div><b>Buscando biblioteca</b><span>Consultando os modelos pré-aprovados da Meta.</span></div></div>';
@@ -10512,6 +10734,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
         if (premiumListErr) premiumListErr.innerHTML = '<div class="cloudResultCard err"><b>Não foi possível carregar a biblioteca</b><p class="cloudHelp">' + escapeHtml(msg) + '</p></div>';
         if (log) log.innerHTML = '<div class="cloudResultCard err"><b>Erro ao atualizar modelos</b><p class="cloudHelp">' + escapeHtml(msg) + '</p></div>';
       }
+      cloudSyncTemplateSelect();
       updateCloudUxState();
       renderCloudTemplateStatusPanel();
     }
@@ -10556,21 +10779,21 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
     async function cloudSendBatch(){
       var templateName = String(document.getElementById("cloudTemplateName").value || "").trim();
       var languageCode = String(document.getElementById("cloudLanguage").value || "pt_BR").trim();
-      var throttleMs = Number(document.getElementById("cloudThrottle").value || 500);
-      if (!templateName){ toast("err","Modelo","Escolha ou informe um modelo aprovado"); return; }
+      var throttleRange = cloudThrottleRangeFromControl();
+      if (!templateName){ toast("err","Modelo","Escolha um modelo aprovado da lista"); return; }
       if (!cloudContacts.length){ toast("err","Contatos","Importe um CSV ou use os leads filtrados"); return; }
       var st = cloudStatusCache || {};
       if (!st.configured){
         var goNoConnection = await uiConfirm("Conexão oficial não confirmada", "O painel ainda não confirmou a conexão com a API oficial. Deseja tentar enviar mesmo assim?", { tone:"warn", okText:"Tentar mesmo assim", icon:"ph-warning-circle" });
         if (!goNoConnection) return;
       }
-      var approved = cloudTemplatesCache.find(function(t){ return t && t.name === templateName && String(t.language || "") === languageCode; });
-      if (approved && String(approved.status || "").toUpperCase() !== "APPROVED"){
-        var go = await uiConfirm("Modelo ainda não aprovado", "Este modelo aparece na Meta com status " + approved.status + ". O envio pode falhar. Deseja tentar mesmo assim?", { tone: "warn", okText: "Tentar mesmo assim", icon: "ph-warning-circle" });
-        if (!go) return;
+      var approved = cloudApprovedAccountTemplates().find(function(t){ return t && t.name === templateName && String(t.language || "") === languageCode; });
+      if (!approved){
+        toast("err", "Modelo", "Selecione um modelo aprovado existente na conta Meta antes de enviar.");
+        return;
       }
       var total = cloudContacts.length;
-      var okConfirm = await uiConfirm("Enviar campanha oficial?", "Serão enviados " + total + " contato(s) usando o modelo " + templateName + ".", { okText: "Enviar campanha", icon: "ph-paper-plane-tilt" });
+      var okConfirm = await uiConfirm("Enviar campanha oficial?", "Serão enviados " + total + " contato(s) usando o modelo " + templateName + " com intervalo " + cloudThrottleRangeLabel(throttleRange) + ".", { okText: "Enviar campanha", icon: "ph-paper-plane-tilt" });
       if (!okConfirm) return;
       var log = document.getElementById("cloudLog");
       if (log) log.innerHTML = '<div class="cloudResultCard"><b>Enviando campanha...</b><p class="cloudHelp">Mantenha esta tela aberta até finalizar o retorno do servidor.</p></div>';
@@ -10580,7 +10803,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
           copy.vars = cloudVarsForSend(c || {});
           return copy;
         });
-        var r = await cloudFetch("/api/wa-cloud/send-template-batch", { method: "POST", headers: { "Content-Type":"application/json" }, body: JSON.stringify({ templateName: templateName, languageCode: languageCode, throttleMs: throttleMs, contacts: outboundContacts }) });
+        var r = await cloudFetch("/api/wa-cloud/send-template-batch", { method: "POST", headers: { "Content-Type":"application/json" }, body: JSON.stringify({ templateName: templateName, languageCode: languageCode, throttleMinMs: throttleRange.minMs, throttleMaxMs: throttleRange.maxMs, throttleMode: throttleRange.mode, contacts: outboundContacts }) });
         var j = await r.json();
         if (!r.ok) throw new Error(normalizeCloudApiError(r.status, j, "Falha no envio"));
         var results = Array.isArray(j.results) ? j.results : [];
@@ -10655,6 +10878,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       var btnLibClear = document.getElementById("btnCloudLibraryClearFilters");
       var tplTabAccount = document.getElementById("cloudTemplateTabAccount");
       var tplTabLibrary = document.getElementById("cloudTemplateTabLibrary");
+      var sendTplSelect = document.getElementById("cloudTemplateSelect");
       var sendTplName = document.getElementById("cloudTemplateName");
       var sendTplLang = document.getElementById("cloudLanguage");
       var sendThrottle = document.getElementById("cloudThrottle");
@@ -10705,6 +10929,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       });
       if (tplTabAccount) tplTabAccount.addEventListener("click", function(){ cloudTemplateActiveTab = "account"; renderCloudTemplatesList(); });
       if (tplTabLibrary) tplTabLibrary.addEventListener("click", function(){ cloudTemplateActiveTab = "library"; cloudLibraryActiveCategory = cloudLibraryActiveCategory || "all"; renderCloudTemplatesList(); });
+      if (sendTplSelect) sendTplSelect.addEventListener("change", function(){ cloudApplySelectedTemplate(cloudFindTemplateBySelectKey(sendTplSelect.value), { silentToast: !sendTplSelect.value }); });
       if (sendTplName) sendTplName.addEventListener("input", function(){ renderCloudPreview(); updateCloudUxState(); });
       if (sendTplLang) sendTplLang.addEventListener("input", function(){ renderCloudPreview(); updateCloudUxState(); });
       if (sendThrottle) sendThrottle.addEventListener("change", updateCloudUxState);
@@ -12569,79 +12794,364 @@ function crmExtractLeads(payload){
       crmQueueSave();
     }
 
-    function crmOpenImportLead(){
+    async function crmOpenImportLead(){
       var p = crmActivePipeline();
       if (!p) return;
 
-      var wrap = document.createElement("div");
-      var row = document.createElement("div");
-      row.className = "crmFormRow";
-      row.innerHTML =
-        "<label>Buscar<input id='crmImpQ' placeholder='nome, email, whatsapp...'></label>" +
-        "<label>Etapa destino<select id='crmImpStage'></select></label>";
-      wrap.appendChild(row);
+      try {
+        if (typeof fetchTags === "function" && (!Array.isArray(cachedTags) || !cachedTags.length)) await fetchTags();
+      } catch(e) {}
+      try {
+        if (typeof loadWebhooks === "function" && !webhooksLoadedOnce) {
+          await loadWebhooks();
+          webhooksLoadedOnce = true;
+        }
+      } catch(e) {}
 
-      var sel = row.querySelector("#crmImpStage");
+      var wrap = document.createElement("div");
+      wrap.className = "crmImportLeadWrap";
+      wrap.innerHTML =
+        "<style>" +
+          ".crmImportLeadWrap{display:flex;flex-direction:column;gap:12px;}" +
+          ".crmImportFilters{border:1px solid #dbeafe;background:linear-gradient(135deg,#fff,#f8fbff);border-radius:22px;padding:14px;}" +
+          ".crmImportGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}" +
+          ".crmImportGrid label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:800;color:#475569;}" +
+          ".crmImportGrid input,.crmImportGrid select{height:42px;border:1px solid #d7e2f2;border-radius:14px;padding:0 12px;background:#fff;color:#0f172a;font-weight:700;outline:none;}" +
+          ".crmImportGrid input:focus,.crmImportGrid select:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.10);}" +
+          ".crmImportActions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed #cbd5e1;}" +
+          ".crmImportActionsLeft,.crmImportActionsRight{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}" +
+          ".crmImportCheck{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:900;color:#334155;}" +
+          ".crmImportCount{font-size:12px;color:#64748b;font-weight:800;}" +
+          ".crmImportListHead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}" +
+          ".crmImportListHead b{font-size:13px;color:#0f172a;}" +
+          ".crmImportListHead span{font-size:12px;color:#64748b;}.crmImportListHeadActions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;}.crmImportListHeadActions .btn{white-space:nowrap;}" +
+          ".crmImportLeadMeta{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}" +
+          ".crmImportPill{display:inline-flex;align-items:center;gap:4px;max-width:100%;padding:4px 8px;border-radius:999px;background:#f1f5f9;color:#475569;font-size:11px;font-weight:800;}" +
+          ".crmImportPill.warn{background:#fff7ed;color:#9a3412;}" +
+          ".crmImportPill.ok{background:#ecfdf5;color:#047857;}" +
+          ".crmImportPill.blue{background:#eff6ff;color:#1d4ed8;}" +
+          ".crmImportPill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}" +
+          "@media(max-width:760px){.crmImportGrid{grid-template-columns:1fr 1fr}.crmImportActions{align-items:flex-start}}" +
+          "@media(max-width:520px){.crmImportGrid{grid-template-columns:1fr}}" +
+        "</style>" +
+        "<div class='crmImportFilters'>" +
+          "<div class='crmImportGrid'>" +
+            "<label>Buscar<input id='crmImpQ' placeholder='nome, email, whatsapp, empresa...'></label>" +
+            "<label>Etapa destino<select id='crmImpStage'></select></label>" +
+            "<label>Origem / webhook<select id='crmImpOrigin'><option value=''>Todas as origens</option></select></label>" +
+            "<label>Tag<select id='crmImpTag'><option value=''>Todas as tags</option></select></label>" +
+            "<label>Tag contém<input id='crmImpTagText' placeholder='parte do nome da tag'></label>" +
+            "<label>Status WhatsApp<select id='crmImpStatus'>" +
+              "<option value=''>Todos</option><option value='replied'>Responderam</option><option value='delivered'>Receberam</option><option value='pending'>Pendentes</option><option value='notDelivered'>Não receberam</option><option value='notExists'>Não existem</option><option value='none'>Sem envio</option>" +
+            "</select></label>" +
+            "<label>Período inicial<input id='crmImpFrom' type='date'></label>" +
+            "<label>Período final<input id='crmImpTo' type='date'></label>" +
+            "<label>DDD / país<input id='crmImpDdd' placeholder='Ex: 11, 31, 351'></label>" +
+            "<label>Já anuncia<select id='crmImpAnuncia'><option value=''>Todos</option><option value='sim'>Sim</option><option value='nao'>Não</option><option value='vazio'>Sem informação</option></select></label>" +
+            "<label>Contato<select id='crmImpContato'><option value=''>Todos</option><option value='whatsapp'>Com WhatsApp</option><option value='email'>Com e-mail</option><option value='both'>Com WhatsApp e e-mail</option><option value='no_whatsapp'>Sem WhatsApp</option><option value='no_email'>Sem e-mail</option></select></label>" +
+            "<label>Funil<select id='crmImpPlacement'><option value='outside'>Somente fora deste funil</option><option value='inside'>Somente já neste funil</option><option value='all'>Todos</option></select></label>" +
+          "</div>" +
+          "<div class='crmImportActions'>" +
+            "<div class='crmImportActionsLeft'>" +
+              "<button class='btn btnGhost' id='crmImpClear' type='button'><i class='ph ph-eraser'></i> Limpar filtros</button>" +
+              "<span class='crmImportCount' id='crmImpCount'>Calculando...</span>" +
+            "</div>" +
+            "<div class='crmImportActionsRight'>" +
+              "<button class='btn btnPrimary' id='crmImpAddAll' type='button'><i class='ph ph-plus-circle'></i> Adicionar todos de uma vez</button>" +
+            "</div>" +
+          "</div>" +
+        "</div>" +
+        "<div class='crmImportListHead'><div><b>Leads encontrados</b><br><span>Use os filtros acima para importar apenas os leads certos para a etapa escolhida.</span></div><div class='crmImportListHeadActions'><span id='crmImpLimitHint'></span><button class='btn btnPrimary' id='crmImpAddAllTop' type='button'><i class='ph ph-plus-circle'></i> Adicionar todos de uma vez</button></div></div>";
+
+      var stageSel = wrap.querySelector("#crmImpStage");
       (p.stageOrder || []).forEach(function(sid){
-        var st = p.stages[sid];
+        var st = p.stages && p.stages[sid];
+        if (!st) return;
         var opt = document.createElement("option");
         opt.value = sid;
         opt.textContent = st.name;
-        sel.appendChild(opt);
+        stageSel.appendChild(opt);
       });
+
+      var originSel = wrap.querySelector("#crmImpOrigin");
+      var tagSel = wrap.querySelector("#crmImpTag");
+      var countEl = wrap.querySelector("#crmImpCount");
+      var limitHint = wrap.querySelector("#crmImpLimitHint");
+      var addAllBtn = wrap.querySelector("#crmImpAddAll");
+      var addAllTopBtn = wrap.querySelector("#crmImpAddAllTop");
+      var clearBtn = wrap.querySelector("#crmImpClear");
 
       var list = document.createElement("div");
       list.className = "crmList";
       wrap.appendChild(list);
 
       var placed = crmAllPlacedLeadIds(p);
+      var filteredCache = [];
 
-      function renderList(q){
+      function crmImpNorm(value){
+        return String(value || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+      }
+      function crmImpDigits(value){ return String(value || "").replace(/\D+/g, ""); }
+      function crmImpDateOnly(value){
+        if (!value) return "";
+        var s = String(value);
+        if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+        var d = new Date(value);
+        if (isNaN(d.getTime())) return "";
+        return d.toISOString().slice(0, 10);
+      }
+      function crmImpLeadOriginLabel(lead){
+        var meta = lead && lead.sourceMeta && typeof lead.sourceMeta === "object" ? lead.sourceMeta : null;
+        return (meta && (meta.webhookName || meta.name || meta.webhookId)) ||
+          (lead && (lead.originLabel || lead.origem || lead.sourceDetail || lead.source)) ||
+          "Sem origem";
+      }
+      function crmImpLeadOriginHay(lead){
+        var meta = lead && lead.sourceMeta && typeof lead.sourceMeta === "object" ? lead.sourceMeta : null;
+        return crmImpNorm([
+          lead && lead.source,
+          lead && lead.origem,
+          lead && lead.originLabel,
+          lead && lead.originDetail,
+          lead && lead.sourceDetail,
+          meta && meta.type,
+          meta && meta.webhookId,
+          meta && meta.webhookName,
+          meta && meta.webhookToken,
+          meta && meta.webhookUrl,
+          meta && meta.payloadType
+        ].filter(Boolean).join(" "));
+      }
+      function crmImpRawTags(lead){
+        var out = [];
+        function add(v){ if (v != null && String(v).trim()) out.push(String(v).trim()); }
+        if (!lead) return out;
+        if (Array.isArray(lead.tagIds)) lead.tagIds.forEach(add);
+        if (Array.isArray(lead.tagsFull)) lead.tagsFull.forEach(function(t){ if (t) { add(t.id); add(t.name); } });
+        if (Array.isArray(lead.tags)) {
+          lead.tags.forEach(function(t){
+            if (t && typeof t === "object") { add(t.id); add(t.name); }
+            else add(t);
+          });
+        } else if (lead.tags) {
+          String(lead.tags).split(/[,;|\n]+/).forEach(add);
+        }
+        return out;
+      }
+      function crmImpTagsHay(lead){ return crmImpNorm(crmImpRawTags(lead).join(" ")); }
+      function crmImpDdd(lead){
+        var d = crmImpDigits((lead && (lead.whatsapp_digits || lead.whatsapp_raw || lead.whatsapp)) || "");
+        if (!d) return "";
+        if (d.indexOf("55") === 0 && d.length >= 12) return d.slice(2, 4);
+        if (d.indexOf("351") === 0) return "351";
+        return d.slice(0, Math.min(3, d.length));
+      }
+      function crmImpLeadHay(lead){
+        return crmImpNorm([
+          lead && lead.nome,
+          lead && lead.email,
+          lead && lead.empresa,
+          lead && lead.website,
+          lead && lead.jaAnuncia,
+          lead && lead.whatsapp_raw,
+          lead && lead.whatsapp_digits,
+          lead && lead.source,
+          lead && lead.sourceDetail,
+          crmImpRawTags(lead).join(" ")
+        ].filter(Boolean).join(" "));
+      }
+      function crmImpAddOption(select, value, label){
+        value = String(value || "").trim();
+        label = String(label || value || "").trim();
+        if (!value || !label || !select) return;
+        var exists = Array.prototype.some.call(select.options, function(o){ return o.value === value; });
+        if (exists) return;
+        var opt = document.createElement("option");
+        opt.value = value;
+        opt.textContent = label.length > 82 ? (label.slice(0, 79) + "...") : label;
+        select.appendChild(opt);
+      }
+
+      function populateOriginOptions(){
+        var origins = [];
+        (Array.isArray(webhookItems) ? webhookItems : []).forEach(function(w){
+          var label = (w && (w.displayName || w.name || w.url || w.id)) ? String(w.displayName || w.name || w.url || w.id) : "Webhook";
+          origins.push({ value: crmImpNorm([w && w.id, w && w.name, w && w.displayName, w && w.url, w && w.token].filter(Boolean).join(" ")), label: label });
+        });
+        (Array.isArray(crmLeads) ? crmLeads : []).forEach(function(l){
+          var label = crmImpLeadOriginLabel(l);
+          var value = crmImpLeadOriginHay(l);
+          if (value) origins.push({ value: value, label: label });
+        });
+        origins.sort(function(a,b){ return String(a.label).localeCompare(String(b.label), "pt-BR"); });
+        origins.forEach(function(o){ crmImpAddOption(originSel, o.value, o.label); });
+      }
+
+      function populateTagOptions(){
+        (Array.isArray(cachedTags) ? cachedTags : []).forEach(function(t){
+          if (!t) return;
+          var label = t.name || t.id;
+          var value = crmImpNorm([t.id, t.name].filter(Boolean).join(" "));
+          crmImpAddOption(tagSel, value, label);
+        });
+        var raw = Object.create(null);
+        (Array.isArray(crmLeads) ? crmLeads : []).forEach(function(l){
+          crmImpRawTags(l).forEach(function(t){
+            var n = crmImpNorm(t);
+            if (!n || n.length < 2) return;
+            if (!raw[n]) raw[n] = String(t).trim();
+          });
+        });
+        Object.keys(raw).sort(function(a,b){ return raw[a].localeCompare(raw[b], "pt-BR"); }).slice(0, 500).forEach(function(k){
+          crmImpAddOption(tagSel, k, raw[k]);
+        });
+      }
+
+      function getFilters(){
+        return {
+          q: crmImpNorm(wrap.querySelector("#crmImpQ").value),
+          origin: originSel.value,
+          tag: tagSel.value,
+          tagText: crmImpNorm(wrap.querySelector("#crmImpTagText").value),
+          status: wrap.querySelector("#crmImpStatus").value,
+          from: wrap.querySelector("#crmImpFrom").value,
+          to: wrap.querySelector("#crmImpTo").value,
+          ddd: crmImpDigits(wrap.querySelector("#crmImpDdd").value),
+          anuncia: wrap.querySelector("#crmImpAnuncia").value,
+          contato: wrap.querySelector("#crmImpContato").value,
+          placement: wrap.querySelector("#crmImpPlacement").value
+        };
+      }
+
+      function matchesImportFilters(lead, f){
+        if (!lead || !lead.id) return false;
+        var isPlaced = !!placed[lead.id];
+        if (f.placement === "outside" && isPlaced) return false;
+        if (f.placement === "inside" && !isPlaced) return false;
+        if (f.q && crmImpLeadHay(lead).indexOf(f.q) === -1 && crmImpDigits(lead.whatsapp_digits || lead.whatsapp_raw).indexOf(f.q) === -1) return false;
+        if (f.origin && crmImpLeadOriginHay(lead).indexOf(f.origin) === -1) return false;
+        var tagHay = crmImpTagsHay(lead);
+        if (f.tag && tagHay.indexOf(f.tag) === -1) return false;
+        if (f.tagText && tagHay.indexOf(f.tagText) === -1) return false;
+        if (f.status && leadStatusValue(lead) !== f.status) return false;
+        var date = crmImpDateOnly(lead.createdAt);
+        if (f.from && (!date || date < f.from)) return false;
+        if (f.to && (!date || date > f.to)) return false;
+        if (f.ddd) {
+          var digits = crmImpDigits(lead.whatsapp_digits || lead.whatsapp_raw || "");
+          var ddd = crmImpDdd(lead);
+          if (ddd !== f.ddd && digits.indexOf(f.ddd) !== 0) return false;
+        }
+        var anuncia = crmImpNorm(lead.jaAnuncia || "");
+        if (f.anuncia === "sim" && !(anuncia === "sim" || anuncia === "s" || anuncia === "yes")) return false;
+        if (f.anuncia === "nao" && !(anuncia === "nao" || anuncia === "não" || anuncia === "n" || anuncia === "no")) return false;
+        if (f.anuncia === "vazio" && anuncia) return false;
+        var hasWa = !!crmImpDigits(lead.whatsapp_digits || lead.whatsapp_raw || "");
+        var hasEmail = !!String(lead.email || "").trim();
+        if (f.contato === "whatsapp" && !hasWa) return false;
+        if (f.contato === "email" && !hasEmail) return false;
+        if (f.contato === "both" && (!hasWa || !hasEmail)) return false;
+        if (f.contato === "no_whatsapp" && hasWa) return false;
+        if (f.contato === "no_email" && hasEmail) return false;
+        return true;
+      }
+
+      function renderList(){
         list.innerHTML = "";
-        q = (q || "").toLowerCase().trim();
-        var items = crmLeads.filter(function(l){
-          if (!l || !l.id) return false;
-          if (placed[l.id]) return false; // já no funil
-          if (!q) return true;
-          var s = ((l.nome||"") + " " + (l.email||"") + " " + (l.whatsapp_raw||"") + " " + (l.whatsapp_digits||"") + " " + (l.source||"")).toLowerCase();
-          return s.indexOf(q) !== -1;
-        }).slice(0, 80);
+        var f = getFilters();
+        var items = (Array.isArray(crmLeads) ? crmLeads : []).filter(function(l){ return matchesImportFilters(l, f); });
+        items.sort(function(a,b){ return String(b.createdAt || "").localeCompare(String(a.createdAt || "")); });
+        filteredCache = items;
 
-        if (!items.length) {
+        var outsideCount = items.filter(function(l){ return !placed[l.id]; }).length;
+        var insideCount = items.length - outsideCount;
+        countEl.textContent = items.length + " lead(s) encontrados" + (insideCount ? (" · " + insideCount + " já no funil") : "");
+        var addAllDisabled = !items.length || !stageSel.value;
+        addAllBtn.disabled = addAllDisabled;
+        if (addAllTopBtn) addAllTopBtn.disabled = addAllDisabled;
+
+        var shown = items.slice(0, 120);
+        limitHint.textContent = items.length > shown.length ? ("Mostrando 120 de " + items.length + ". Refine os filtros para ver menos leads.") : "";
+
+        if (!shown.length) {
           var empty = document.createElement("div");
           empty.className = "hint";
-          empty.textContent = "Nenhum lead disponível para importar (ou já estão no funil).";
+          empty.style.padding = "14px";
+          empty.textContent = "Nenhum lead encontrado com esses filtros.";
           list.appendChild(empty);
           return;
         }
 
-        items.forEach(function(l){
+        shown.forEach(function(l){
           var it = document.createElement("div");
           it.className = "crmListItem";
           var contato = l.whatsapp_raw || l.email || l.whatsapp_digits || "";
+          var dateLabel = l.createdAt ? crmFormatDate(l.createdAt) : "Sem data";
+          var originLabel = crmImpLeadOriginLabel(l);
+          var statusLabel = leadStatusLabel(l);
+          var already = !!placed[l.id];
+          var rawTags = crmImpRawTags(l).slice(0, 4);
+          var tagHtml = rawTags.length ? rawTags.map(function(t){ return "<span class='crmImportPill'><i class='ph ph-tag'></i><span>" + escapeHtml(t) + "</span></span>"; }).join("") : "";
           it.innerHTML =
-            "<div style='min-width:0;'>" +
-              "<b style='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + (l.nome||"—") + "</b>" +
-              "<small style='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + contato + (l.source ? (" • " + l.source) : "") + "</small>" +
+            "<div style='min-width:0;flex:1 1 auto;'>" +
+              "<b style='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + escapeHtml(l.nome || "—") + "</b>" +
+              "<small style='display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;'>" + escapeHtml(contato) + (l.empresa ? (" • " + escapeHtml(l.empresa)) : "") + "</small>" +
+              "<div class='crmImportLeadMeta'>" +
+                "<span class='crmImportPill blue'><i class='ph ph-webhooks-logo'></i><span>" + escapeHtml(originLabel) + "</span></span>" +
+                "<span class='crmImportPill'><i class='ph ph-calendar'></i><span>" + escapeHtml(dateLabel) + "</span></span>" +
+                "<span class='crmImportPill'><i class='ph ph-whatsapp-logo'></i><span>" + escapeHtml(statusLabel) + "</span></span>" +
+                (already ? "<span class='crmImportPill warn'><i class='ph ph-funnel'></i><span>Já no funil</span></span>" : "<span class='crmImportPill ok'><i class='ph ph-plus-circle'></i><span>Fora do funil</span></span>") +
+                tagHtml +
+              "</div>" +
             "</div>" +
-            "<button class='btn btnPrimary' type='button'>Adicionar</button>";
+            "<button class='btn btnPrimary' type='button'>" + (already ? "Mover" : "Adicionar") + "</button>";
           it.querySelector("button").addEventListener("click", function(){
-            crmMoveLeadToStage(l.id, sel.value);
+            crmMoveLeadToStage(l.id, stageSel.value);
             placed[l.id] = true;
-            renderList(row.querySelector("#crmImpQ").value);
+            renderList();
           });
           list.appendChild(it);
         });
       }
 
-      row.querySelector("#crmImpQ").addEventListener("input", function(e){
-        renderList(e.target.value);
+      function resetFilters(){
+        ["#crmImpQ", "#crmImpTagText", "#crmImpFrom", "#crmImpTo", "#crmImpDdd"].forEach(function(id){ var el = wrap.querySelector(id); if (el) el.value = ""; });
+        ["#crmImpOrigin", "#crmImpTag", "#crmImpStatus", "#crmImpAnuncia", "#crmImpContato"].forEach(function(id){ var el = wrap.querySelector(id); if (el) el.value = ""; });
+        var placement = wrap.querySelector("#crmImpPlacement");
+        if (placement) placement.value = "outside";
+        renderList();
+      }
+
+      populateOriginOptions();
+      populateTagOptions();
+
+      Array.prototype.forEach.call(wrap.querySelectorAll("input,select"), function(el){
+        if (el.id === "crmImpStage") return;
+        el.addEventListener("input", renderList);
+        el.addEventListener("change", renderList);
       });
+      stageSel.addEventListener("change", function(){
+        var disabled = !filteredCache.length || !stageSel.value;
+        addAllBtn.disabled = disabled;
+        if (addAllTopBtn) addAllTopBtn.disabled = disabled;
+      });
+      clearBtn.addEventListener("click", resetFilters);
+      async function crmImpAddAllFiltered(){
+        var ids = filteredCache.map(function(l){ return l && l.id; }).filter(Boolean);
+        if (!ids.length) return;
+        var ok = await crmConfirm("Adicionar todos os " + ids.length + " leads encontrados pelos filtros à etapa selecionada?");
+        if (!ok) return;
+        crmMoveLeadsToStage(ids, stageSel.value, false);
+        ids.forEach(function(id){ placed[id] = true; });
+        renderList();
+      }
+      addAllBtn.addEventListener("click", crmImpAddAllFiltered);
+      if (addAllTopBtn) addAllTopBtn.addEventListener("click", crmImpAddAllFiltered);
 
-      renderList("");
-
-      crmOpenModal("Importar lead", "Leads já existentes no sistema.", wrap);
+      renderList();
+      crmOpenModal("Importar lead", "Filtre por webhook, período, tag, status, DDD e dados do contato antes de adicionar ao funil.", wrap);
     }
+
 
     function crmOpenNewLead(){
       var p = crmActivePipeline();
