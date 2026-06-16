@@ -91,6 +91,203 @@
       "createdAt": "2026-05-27T20:00:01.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC21972EA1A0F62E2A961797A15BDBD2",
+      "fromMe": false,
+      "body": "Boa tarde",
+      "type": "chat",
+      "timestamp": 1781623413,
+      "createdAt": "2026-06-16T15:23:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_ACDB02AC4AFBCBBF122EF716C1EA7566",
+      "fromMe": false,
+      "body": "Pode me passar o endereço horários e o que devo levar para o curso de amanha",
+      "type": "chat",
+      "timestamp": 1781623433,
+      "createdAt": "2026-06-16T15:23:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC9A133650597B70030D54AEB0B427D0",
+      "fromMe": false,
+      "body": "Por favor",
+      "type": "chat",
+      "timestamp": 1781623440,
+      "createdAt": "2026-06-16T15:24:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB00E55C686A44A7B92AD",
+      "fromMe": true,
+      "body": "Olá bom diaaaa !\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data:* 17/06/2026\n *Horário:* Das 18h30 às 22h\n *Endereço* Avenida Paulista 807 – São Paulo/SP \n *Local:* Espaço Paulista Eventos\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781623693,
+      "createdAt": "2026-06-16T15:28:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_74414720839895@lid_ACC3A5CDAAA2F8A6C2EC10F5964527DE",
+      "fromMe": false,
+      "body": "Preciso levar noutbook",
+      "type": "chat",
+      "timestamp": 1781623786,
+      "createdAt": "2026-06-16T15:29:46.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC9410DF2B4C3A87F5D7C9A3467C2A19",
+      "fromMe": false,
+      "body": "Ou alguma coisa",
+      "type": "chat",
+      "timestamp": 1781623795,
+      "createdAt": "2026-06-16T15:29:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC8F012378F7CE33F4778745E5ABDC9A",
+      "fromMe": false,
+      "body": "?",
+      "type": "chat",
+      "timestamp": 1781623796,
+      "createdAt": "2026-06-16T15:29:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB0259635960DAB01779D",
+      "fromMe": true,
+      "body": "Não é necessário, vamos disponibilzar material de apoio para as anotações.",
+      "type": "chat",
+      "timestamp": 1781623832,
+      "createdAt": "2026-06-16T15:30:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC705E9546CAEB78BE2C74BF7E130FC2",
+      "fromMe": false,
+      "body": "Lá tem estacionamento",
+      "type": "chat",
+      "timestamp": 1781623865,
+      "createdAt": "2026-06-16T15:31:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC01AE1CB4910F9854AA8AF4246C5667",
+      "fromMe": false,
+      "body": "Vc tem mais vaga pra esse curso",
+      "type": "chat",
+      "timestamp": 1781624378,
+      "createdAt": "2026-06-16T15:39:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_ACEEA35A682B0B2602392B4F9016FAC3",
+      "fromMe": false,
+      "body": "Estou tentando ver se um amigo meu quer ir",
+      "type": "chat",
+      "timestamp": 1781624388,
+      "createdAt": "2026-06-16T15:39:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC61897EA9ECE69BC1259CE8CA208FF3",
+      "fromMe": false,
+      "body": "?",
+      "type": "chat",
+      "timestamp": 1781624390,
+      "createdAt": "2026-06-16T15:39:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB0708C9D0E414A824EDF",
+      "fromMe": true,
+      "body": "true_74414720839895@lid_3EB0708C9D0E414A824EDF",
+      "type": "image",
+      "timestamp": 1781627630,
+      "createdAt": "2026-06-16T16:33:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_74414720839895_lid_3EB0708C9D0E414A824EDF_86cedf90.jpg",
+      "mediaSize": 473169,
+      "filename": "true_74414720839895@lid_3EB0708C9D0E414A824EDF",
+      "originalName": "true_74414720839895@lid_3EB0708C9D0E414A824EDF"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB09A6B3B3E17AD97CF14",
+      "fromMe": true,
+      "body": "O estacionamento Massis fica no 1º subsolo do nosso prédio, com o nosso carimbo no ticket do estacionamento tem 20% de desconto",
+      "type": "chat",
+      "timestamp": 1781627687,
+      "createdAt": "2026-06-16T16:34:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB02E84C4F1AD4EC3F1A6",
+      "fromMe": true,
+      "body": "Estou verificando.",
+      "type": "chat",
+      "timestamp": 1781627710,
+      "createdAt": "2026-06-16T16:35:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB0E8B5D41AA3D81079CE",
+      "fromMe": true,
+      "body": "Temos sim, restam 5 vagas, Daniel.",
+      "type": "chat",
+      "timestamp": 1781629733,
+      "createdAt": "2026-06-16T17:08:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB0C4B944CF69558318B6",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/G105707040B\n 💸 PIX (CNPJ): 27.921.309/0001-70\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1781629756,
+      "createdAt": "2026-06-16T17:09:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_74414720839895@lid_AC16BBCA544A7A6722C499AD7252CEE1",
+      "fromMe": false,
+      "body": "Qual o valor ?",
+      "type": "chat",
+      "timestamp": 1781629981,
+      "createdAt": "2026-06-16T17:13:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_74414720839895@lid_3EB03EE902F6C65ED7C311",
+      "fromMe": true,
+      "body": "149,00",
+      "type": "chat",
+      "timestamp": 1781630006,
+      "createdAt": "2026-06-16T17:13:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5513997367592": [
@@ -689,6 +886,26 @@
       "createdAt": "2026-06-01T19:31:08.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_14559989526605@lid_3EB0076FC3C8C171ABB9B9",
+      "fromMe": true,
+      "body": "Olá Janise, boa tardee!\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data: 17/06/2026*\n*Horário: Das 18h30 às 22h*\n*Endereço: Avenida Paulista 807 – São Paulo/SP*\n*Local: Espaço Paulista Eventos*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781632006,
+      "createdAt": "2026-06-16T17:46:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_14559989526605@lid_3A467888DD173DD83B",
+      "fromMe": false,
+      "body": "Muito obrigada por confirmar os detalhes! Já está tudo anotado e estou super animada para a nossa imersão de amanhã. Nos vemos lá às 18h30!",
+      "type": "chat",
+      "timestamp": 1781632022,
+      "createdAt": "2026-06-16T17:47:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511988511917": [
@@ -1051,6 +1268,210 @@
       "createdAt": "2026-06-13T12:51:59.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB018297F032DC3701F4F",
+      "fromMe": true,
+      "body": "Bom diaaaa Silvio, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 16/06\n🕘 13h em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1781619217,
+      "createdAt": "2026-06-16T14:13:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB05C30A8378AA11DC429",
+      "fromMe": true,
+      "body": "Me passa seu site?",
+      "type": "chat",
+      "timestamp": 1781619664,
+      "createdAt": "2026-06-16T14:21:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_21174272704632@lid_ACC1B0C5C31A55E87A66ACF9279D24DC",
+      "fromMe": false,
+      "body": "Só um minuto",
+      "type": "chat",
+      "timestamp": 1781619698,
+      "createdAt": "2026-06-16T14:21:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21174272704632@lid_AC69D748ADCE5F4E993DDCB40A52C1CC",
+      "fromMe": false,
+      "body": "sstransportesexecutivos.com.br",
+      "type": "chat",
+      "timestamp": 1781619732,
+      "createdAt": "2026-06-16T14:22:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21174272704632@lid_AC8A534DA28678F9F7E7C39ED79F89B9",
+      "fromMe": false,
+      "body": "Gostaria de mudar algumas coisas no site",
+      "type": "chat",
+      "timestamp": 1781619894,
+      "createdAt": "2026-06-16T14:24:54.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21174272704632@lid_AC177B6E033CD5F937923AB8BE267529",
+      "fromMe": false,
+      "body": "Aperfeiçoar mudar o veículo que agora é outro e colocar inteligência artificial",
+      "type": "chat",
+      "timestamp": 1781619909,
+      "createdAt": "2026-06-16T14:25:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB064512D80D73A59C8A4",
+      "fromMe": true,
+      "body": "Você ja anuncia no Google ads?",
+      "type": "chat",
+      "timestamp": 1781619931,
+      "createdAt": "2026-06-16T14:25:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_21174272704632@lid_ACE6BA644E9F6D6028CDFBEDB413124E",
+      "fromMe": false,
+      "body": "Já comecei com vocês",
+      "type": "chat",
+      "timestamp": 1781619956,
+      "createdAt": "2026-06-16T14:25:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21174272704632@lid_ACB94D0294BABAB63B16C9A1FF066DD5",
+      "fromMe": false,
+      "body": "Vocês montaram meu site e eu anunciei com vocês",
+      "type": "chat",
+      "timestamp": 1781619964,
+      "createdAt": "2026-06-16T14:26:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21174272704632@lid_ACE1E9228E7315FA4592A8301564A43F",
+      "fromMe": false,
+      "body": "false_21174272704632@lid_ACE1E9228E7315FA4592A8301564A43F",
+      "type": "image",
+      "timestamp": 1781620033,
+      "createdAt": "2026-06-16T14:27:13.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_21174272704632_lid_ACE1E9228E7315FA4592A8301564A43F_77493534.jpg",
+      "mediaSize": 74568,
+      "filename": "false_21174272704632@lid_ACE1E9228E7315FA4592A8301564A43F",
+      "originalName": "false_21174272704632@lid_ACE1E9228E7315FA4592A8301564A43F"
+    },
+    {
+      "id": "false_21174272704632@lid_AC54F3910B980C49C810E1904BB6AC3A",
+      "fromMe": false,
+      "body": "false_21174272704632@lid_AC54F3910B980C49C810E1904BB6AC3A",
+      "type": "image",
+      "timestamp": 1781620146,
+      "createdAt": "2026-06-16T14:29:06.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_21174272704632_lid_AC54F3910B980C49C810E1904BB6AC3A_84971849.jpg",
+      "mediaSize": 98852,
+      "filename": "false_21174272704632@lid_AC54F3910B980C49C810E1904BB6AC3A",
+      "originalName": "false_21174272704632@lid_AC54F3910B980C49C810E1904BB6AC3A"
+    },
+    {
+      "id": "false_21174272704632@lid_AC05A1A7841E25EFCBCE1D9D1CE37F0B",
+      "fromMe": false,
+      "body": "O Google está me mostrando para pessoas erradas",
+      "type": "chat",
+      "timestamp": 1781620154,
+      "createdAt": "2026-06-16T14:29:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB03D3E473E6B2E016910",
+      "fromMe": true,
+      "body": "Hoje você tem jornada ativa com a gente?",
+      "type": "chat",
+      "timestamp": 1781620260,
+      "createdAt": "2026-06-16T14:31:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_21174272704632@lid_AC160CBF0A7DED15864A474A3D96816F",
+      "fromMe": false,
+      "body": "Hoje não",
+      "type": "chat",
+      "timestamp": 1781620398,
+      "createdAt": "2026-06-16T14:33:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21174272704632@lid_ACF5D84611DA02434C486ED871DCCC2B",
+      "fromMe": false,
+      "body": "Gostaria de voltar se possível",
+      "type": "chat",
+      "timestamp": 1781620414,
+      "createdAt": "2026-06-16T14:33:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_21174272704632@lid_AC3F0BFEE1415AC663A139D3CED64B03",
+      "fromMe": false,
+      "body": "Vai depender dos gastos",
+      "type": "chat",
+      "timestamp": 1781620429,
+      "createdAt": "2026-06-16T14:33:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB0DB923D8CA164EDED5C",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nTerça-feira, 16 de junho · 1:00 – 2:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/vxb-xgwd-tfq\nOu disque: ‪(BR) +55 11 4949-9694‬ PIN: ‪629 264 840‬#\nOutros números de telefone: https://tel.meet/vxb-xgwd-tfq?pin=3287293663668",
+      "type": "chat",
+      "timestamp": 1781623120,
+      "createdAt": "2026-06-16T15:18:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_21174272704632@lid_3EB06498D077233CA02E07",
+      "fromMe": true,
+      "body": "A consultora Marina ira te aguardar na sala.",
+      "type": "chat",
+      "timestamp": 1781623137,
+      "createdAt": "2026-06-16T15:18:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_21174272704632@lid_ACFC99DC708F2F186A2D37CA62E9776E",
+      "fromMe": false,
+      "body": "Ok obrigado",
+      "type": "chat",
+      "timestamp": 1781623163,
+      "createdAt": "2026-06-16T15:19:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511940109697": [
@@ -1229,6 +1650,66 @@
       "createdAt": "2026-06-13T12:52:14.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_176871182442647@lid_3EB0F71AEB076A1AB39789",
+      "fromMe": true,
+      "body": "Oiiiii Junior, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781531478,
+      "createdAt": "2026-06-15T13:51:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_176871182442647@lid_3EB0B21D8C468B70D4FB3B",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781531484,
+      "createdAt": "2026-06-15T13:51:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_176871182442647@lid_3EB019498EFD379E446CDD",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781531489,
+      "createdAt": "2026-06-15T13:51:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_176871182442647@lid_3A615A6A8202B67C5D9F",
+      "fromMe": false,
+      "body": "Ele será físico tbm ?",
+      "type": "chat",
+      "timestamp": 1781531755,
+      "createdAt": "2026-06-15T13:55:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_176871182442647@lid_3EB0B09FF986462C921B8F",
+      "fromMe": true,
+      "body": "Online.",
+      "type": "chat",
+      "timestamp": 1781535218,
+      "createdAt": "2026-06-15T14:53:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_176871182442647@lid_3AC2E3CFC4F8337958A4",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1781535828,
+      "createdAt": "2026-06-15T15:03:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511971167129": [
@@ -1550,6 +2031,43 @@
       "createdAt": "2026-06-13T12:30:06.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0E9A438E6BB1328EAB5",
+      "fromMe": true,
+      "body": "#(Faby-campinas 09/04)Jéssica Aparecida Rodrigues Garcia\tMosca Logística\t19999014814\tjessicaargarcia@gmail.com    https://mosca.com.br",
+      "type": "chat",
+      "timestamp": 1781543959,
+      "createdAt": "2026-06-15T17:19:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0F31E48F469177C87B9",
+      "fromMe": true,
+      "body": "JOSE HENRIQUE CARDOSO DA SILVA\tEv7 Performance Digital\t11960222231\nSara Donamaria\t\t(11) 983911412\nAlessandra Barbierato\tBenx\t11999977732\nRODRIGO MILANESI CASTANHEIRA DE SOUZA\tHipMusic\t11961813111\nJuliana Tiemi Matsunaga\tHipmusic\t11985889265\nRichard Crívelari\tRDS Digital\t11984446333\nIsrael Custódio Costa\tIsrael\t11987583565\nFernando Schmidt Ely\tEasy tecnologia\t5551992412186\nDaniel Garrido Garozzo\tD&G Academia de vendas\t11987300096\nShirlei  A Jeszensky\tPqa produtos químicos\t5511984476594\nFrancisco Lima\tGaussix Bussiness Intelligence & AI\t11999777954\nPatricia\tBellary Adm e Marketing\t11999702498\nTiago Henrique Rodriguez Morandi\tIniciativa Agro\t11998980441\nSergio Costa\tOrtomedica\t11999697146\nVictor Khaznadar Lancuba\tEngrena Ai\t11996134752\nPaula Laureano Hipolito\tAgora vai\t11982323674\nRogerio patarra\tInstituto Bressane\t11982695161\nDébora de Jesus dos Santos\tMJ Crispim\t11986548018\nEdione Nascimento\tAhs\t11-984626659\nAngela Celia Casseb\tEstambul Tapetes\t11976002141\nVALQUIRIA ALVARES CRISPIM\tSTROKE\t11932032229\nSoraya Nascimento\tSoraya saúde e bem-estar\t(11) 99000-7026\nRicardo Lagonegro\tDr investimento\t11959065100\nLarissa Saqueto\tEstamina\t61982796344\nShirley Sobreira da Silva Ferreira\tOtica Sul\t(11) 9993-4411\nLarissa Ap Forner\tMacrodados\t16981194658\nMauro Dos Santos\tAuto M veiculos\t11972101255\nFernando Jorge Moura dos Santos\tBig locadora de máquinas e ferramentas\t11999297458\nNathan Nascimento de Oliveira\tDecor Magic\t(11) 96665-7242\nSeiso Shinzaki\tShinzaki Representações Ltda\t11913147171\nElaine Silva\tMiau Gourmet\t11991765828\nCarlos Henrique de Souza\tMiau Gourmet\t11991765858\nJanise Aparecida Allegranci\tAllegranci imóveis\t11975053300\nAndreia Marcia de Sousa\tCasa Transfer\t11947887790\nElcio Siqueira Cavalcanti\t\t(11) 981476437\nWalace Bispo\t\t(11) 993445299",
+      "type": "chat",
+      "timestamp": 1781623795,
+      "createdAt": "2026-06-16T15:29:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227753609683102@lid_3EB0A285BB9E9BA2630223",
+      "fromMe": false,
+      "body": "false_227753609683102@lid_3EB0A285BB9E9BA2630223",
+      "type": "image",
+      "timestamp": 1781632567,
+      "createdAt": "2026-06-16T17:56:07.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_227753609683102_lid_3EB0A285BB9E9BA2630223_73bf19e6.jpg",
+      "mediaSize": 49396,
+      "filename": "false_227753609683102@lid_3EB0A285BB9E9BA2630223",
+      "originalName": "false_227753609683102@lid_3EB0A285BB9E9BA2630223"
     }
   ],
   "5511976472073": [
@@ -2208,6 +2726,183 @@
       "createdAt": "2026-06-15T13:18:58.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_80625293897895@lid_3EB0ED234D5ADCCC4EF071",
+      "fromMe": true,
+      "body": "Oiiiii Ingrid, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781534297,
+      "createdAt": "2026-06-15T14:38:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_80625293897895@lid_3EB05BF1809B9FA879E568",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781534301,
+      "createdAt": "2026-06-15T14:38:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_80625293897895@lid_3EB0DEEFA68B6BC5FD10F1",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781534306,
+      "createdAt": "2026-06-15T14:38:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3ADB892F5E8D83B44CE2",
+      "fromMe": false,
+      "body": "Oi Fabiane",
+      "type": "chat",
+      "timestamp": 1781546691,
+      "createdAt": "2026-06-15T18:04:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3AA7ADB71E076BBF9C77",
+      "fromMe": false,
+      "body": "Boa tarde",
+      "type": "chat",
+      "timestamp": 1781546693,
+      "createdAt": "2026-06-15T18:04:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3A355686E4E437505B2B",
+      "fromMe": false,
+      "body": "Fui assaltada sábado",
+      "type": "chat",
+      "timestamp": 1781546701,
+      "createdAt": "2026-06-15T18:05:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3A849CAEC1DA49E733BC",
+      "fromMe": false,
+      "body": "Estou impossibilitado de qualquer meio de parto",
+      "type": "chat",
+      "timestamp": 1781546731,
+      "createdAt": "2026-06-15T18:05:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3A9EACFEDCB702B949FF",
+      "fromMe": false,
+      "body": "Colocando a vida em ordem",
+      "type": "chat",
+      "timestamp": 1781546743,
+      "createdAt": "2026-06-15T18:05:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3AB8A4DAD2F69DA1C58B",
+      "fromMe": false,
+      "body": "Inclusive compartilha novamente os arquivos pq n deu tempo de baixar",
+      "type": "chat",
+      "timestamp": 1781547358,
+      "createdAt": "2026-06-15T18:15:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3A40979074549E0BD4B3",
+      "fromMe": false,
+      "body": "Por gentileza",
+      "type": "chat",
+      "timestamp": 1781547374,
+      "createdAt": "2026-06-15T18:16:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_80625293897895@lid_3EB0A2FAECBEAA538668DC",
+      "fromMe": true,
+      "body": "Muito obrigado pela sua participação na Imersão em Santo André!\n\nFaça o download dos materiais complementares que eu prometi!\nhttps://drive.google.com/drive/folders/1d1g1-MOxSBIuF2hR_tggVramgItgz9QO?usp=sharing\n\nSegue também o link do treinamento completo do Perfil de Empresa Google: \nhttps://youtube.com/live/zcSODO0SvA0?feature=share\n\nTreinamento para criar vídeos no Google Ads com IA:\nhttps://www.youtube.com/live/GokzV4v9c3Q\n\nMentoria experiência do usuário em sites:\nhttps://youtu.be/-AGNayG5JNE\n\nPara conversar com o Pelé basta clicar no link abaixo:\n\nTodos os materiais ficarão disponíveis para você aplicar por mais 7 dias!\n\n*E sobre o prompt para saber a sua reputação, basta você comentar o que achou na imersão agora e a noite k Matheus vai te enviar!*\n\nhttps://www.instagram.com/reel/DZd9ZWTxFjG/?igsh=czE2Y3F1OGtsMjFw",
+      "type": "chat",
+      "timestamp": 1781548023,
+      "createdAt": "2026-06-15T18:27:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_80625293897895@lid_3EB08697C523BFBB9016B8",
+      "fromMe": true,
+      "body": "Prontinho Ingrid 🤗",
+      "type": "chat",
+      "timestamp": 1781548037,
+      "createdAt": "2026-06-15T18:27:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_80625293897895@lid_3EB09C276F921B1B8955C7",
+      "fromMe": true,
+      "body": "Bom diaaaa Ingrid, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 16/06\n🕘 16h30 em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1781621527,
+      "createdAt": "2026-06-16T14:52:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3A091EA872181BDFAB18",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1781621595,
+      "createdAt": "2026-06-16T14:53:15.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_80625293897895_lid_3A091EA872181BDFAB18_7479bb03.ogg",
+      "mediaSize": 116789,
+      "filename": "false_80625293897895@lid_3A091EA872181BDFAB18",
+      "originalName": "false_80625293897895@lid_3A091EA872181BDFAB18"
+    },
+    {
+      "id": "false_80625293897895@lid_3AE4D5F1286827F046E3",
+      "fromMe": false,
+      "body": "Tenta mudar p mim por favor",
+      "type": "chat",
+      "timestamp": 1781621624,
+      "createdAt": "2026-06-16T14:53:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80625293897895@lid_3A7DB33381E29F7C939C",
+      "fromMe": false,
+      "body": "Esse horário estarei na estrada depois de 2 voos",
+      "type": "chat",
+      "timestamp": 1781621645,
+      "createdAt": "2026-06-16T14:54:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_80625293897895@lid_3EB0828509A2582199C675",
+      "fromMe": true,
+      "body": "Entendo, podemos reagendar sim.",
+      "type": "chat",
+      "timestamp": 1781621708,
+      "createdAt": "2026-06-16T14:55:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511989687172": [
@@ -2825,6 +3520,36 @@
       "createdAt": "2026-06-15T11:38:35.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_276145039794406@lid_3EB0F7BD32F394CB332B6F",
+      "fromMe": true,
+      "body": "Oiiiii Alice, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781531329,
+      "createdAt": "2026-06-15T13:48:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_276145039794406@lid_3EB0EA2CBA5D7E6848D284",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781531332,
+      "createdAt": "2026-06-15T13:48:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_276145039794406@lid_3EB0C3DAB1CB8C41EE5BA1",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781531385,
+      "createdAt": "2026-06-15T13:49:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511970319885": [
@@ -3099,6 +3824,133 @@
       "createdAt": "2026-06-13T12:51:26.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB02CDE7951A3C7F2F91B",
+      "fromMe": true,
+      "body": "Oiiiii Sandra, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781531449,
+      "createdAt": "2026-06-15T13:50:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB0C0EC869DDECB635300",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781531455,
+      "createdAt": "2026-06-15T13:50:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB0421342AEAFC16E8C06",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781531475,
+      "createdAt": "2026-06-15T13:51:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_168504485490839@lid_3EB0FBB546A06E530E1C53",
+      "fromMe": false,
+      "body": "false_168504485490839@lid_3EB0FBB546A06E530E1C53",
+      "type": "image",
+      "timestamp": 1781532385,
+      "createdAt": "2026-06-15T14:06:25.000Z",
+      "ack": 3,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_168504485490839_lid_3EB0FBB546A06E530E1C53_84ddc817.jpg",
+      "mediaSize": 136330,
+      "filename": "false_168504485490839@lid_3EB0FBB546A06E530E1C53",
+      "originalName": "false_168504485490839@lid_3EB0FBB546A06E530E1C53"
+    },
+    {
+      "id": "false_168504485490839@lid_3EB0D50182120102BC0756",
+      "fromMe": false,
+      "body": "bom dia",
+      "type": "chat",
+      "timestamp": 1781532411,
+      "createdAt": "2026-06-15T14:06:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_168504485490839@lid_3EB056605C3D1364354AA9",
+      "fromMe": false,
+      "body": "Fabiane, eu tinha conversado com o  Matheus  no dia da imersão e ele comentou  para eu verificar com você o link da Rosa... 🤔 eu consigo pelo livro ?",
+      "type": "chat",
+      "timestamp": 1781532508,
+      "createdAt": "2026-06-15T14:08:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB03CB6BCAC2D705359A4",
+      "fromMe": true,
+      "body": "Só um momento.",
+      "type": "chat",
+      "timestamp": 1781532851,
+      "createdAt": "2026-06-15T14:14:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB00496D8571408BC1CF3",
+      "fromMe": true,
+      "body": "Muito obrigado por adquirir o livro *A Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVocê está participando do pré-lançamento oficial do livro, que será lançado no dia 22 de junho, em Lisboa, Portugal.\n\nComo forma de antecipar parte da experiência, já estou *liberando o acesso ao time de agentes de IA* para que você possa começar a utilizar as os Agentes e possa colocar os conceitos em prática desde agora.\n\nNos próximos dias, você receberá os demais materiais e conteúdos complementares do projeto, além do acesso antecipado ao livro.\n\nAgora vou te passar o acesso aos agentes!",
+      "type": "chat",
+      "timestamp": 1781534391,
+      "createdAt": "2026-06-15T14:39:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB037ABC09669C6D3AF64",
+      "fromMe": true,
+      "body": "Bob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-67a1437aff248191b32d2240d3e40b04-pepe-perfil-de-empre;sa\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1781534446,
+      "createdAt": "2026-06-15T14:40:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_168504485490839@lid_3EB0D75429AF117DBE4F74",
+      "fromMe": true,
+      "body": "Existe também o acesso à vídeo aulas para instruções de acesso ao Livro e serão liberadas oficialmente na quarta!\n\nQual o e-mail posso te enviar?",
+      "type": "chat",
+      "timestamp": 1781534524,
+      "createdAt": "2026-06-15T14:42:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_168504485490839@lid_AC5AC6A87A382AAB1A17B59B00B61BC0",
+      "fromMe": false,
+      "body": "paladino.sandra@gmail.com",
+      "type": "chat",
+      "timestamp": 1781534630,
+      "createdAt": "2026-06-15T14:43:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_168504485490839@lid_ACF17BFA714D3794591DE25912E88CE5",
+      "fromMe": false,
+      "body": "Obrigada",
+      "type": "chat",
+      "timestamp": 1781534652,
+      "createdAt": "2026-06-15T14:44:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511943754206": [
@@ -3602,18 +4454,6 @@
       "source": "incoming-event"
     },
     {
-      "id": "false_101404312109117@lid_3A538A9515347A61FA7F",
-      "fromMe": false,
-      "body": "",
-      "type": "image",
-      "timestamp": 1779999427,
-      "createdAt": "2026-05-28T20:17:07.000Z",
-      "ack": 1,
-      "source": "incoming-event",
-      "hasMedia": true,
-      "mediaKind": "media"
-    },
-    {
       "id": "true_101404312109117@lid_3EB02AF80F8FF6AB9DAD89",
       "fromMe": true,
       "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 17/06/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Espaço Paulista Eventos - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
@@ -3642,6 +4482,36 @@
       "createdAt": "2026-05-29T11:00:07.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_101404312109117@lid_3EB0D08CC606B40CFAD3E2",
+      "fromMe": true,
+      "body": "Olá Mauro, boa tardee!\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data: 17/06/2026*\n*Horário: Das 18h30 às 22h*\n*Endereço: Avenida Paulista 807 – São Paulo/SP*\n*Local: Espaço Paulista Eventos*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781631358,
+      "createdAt": "2026-06-16T17:35:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_101404312109117@lid_3A4A93F2920B6A5ED6AB",
+      "fromMe": false,
+      "body": "Boa tarde",
+      "type": "chat",
+      "timestamp": 1781631388,
+      "createdAt": "2026-06-16T17:36:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_101404312109117@lid_3A812D5D505167996E4C",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1781631389,
+      "createdAt": "2026-06-16T17:36:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511999427090": [
@@ -4388,6 +5258,76 @@
       "type": "chat",
       "timestamp": 1781528533,
       "createdAt": "2026-06-15T13:02:13.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB06D0013E805FFF57CE6",
+      "fromMe": true,
+      "body": "Olá Fernando, tudo bem? Complementando o vídeo:\n\n*Como vai funcionar nos próximos dias?*\n\nA partir de amanhã, vamos apresentar uma sequência prática de dicas e estrategias para você entender como *aparecer nas respostas da IA do Google e ser recomendado pelo ChatGPT, Gemini* e outras inteligências artificiais.\n\n*Todos os dias você vai receber:*\n\n1. Uma dica gravada, curta e direta.\n2. Um prompt pronto para aplicar.\n3. Uma orientação prática para você melhorar de imediato.\n\n*A ideia é simples:* você não vai apenas assistir. Você vai aplicar.\n\nTodas as dicas e materiais complementares serão enviadas no grupo silencioso que criamos.\n\nInclusive, você já entrou no grupo ou posso te enviar o link?",
+      "type": "video",
+      "timestamp": 1781563392,
+      "createdAt": "2026-06-15T22:43:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3A9EB5709A44D9BD8E1C",
+      "fromMe": false,
+      "body": "Pode enviar o link",
+      "type": "chat",
+      "timestamp": 1781605696,
+      "createdAt": "2026-06-16T10:28:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3A85CB6334ACB790FB38",
+      "fromMe": false,
+      "body": "Por favor",
+      "type": "chat",
+      "timestamp": 1781605698,
+      "createdAt": "2026-06-16T10:28:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB02C36B3FC6A5390835C",
+      "fromMe": true,
+      "body": "Para entrar no grupo, basta acessar o link abaixo:\n\nhttps://chat.whatsapp.com/Cp7o6j21XET3XY9j0JUqv8?s=cl&p=a&ilr=2",
+      "type": "chat",
+      "timestamp": 1781605817,
+      "createdAt": "2026-06-16T10:30:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_170879619215473@lid_3EB094EEFAA4C471BD2F08",
+      "fromMe": true,
+      "body": "Bom diaaa 🤗",
+      "type": "chat",
+      "timestamp": 1781605847,
+      "createdAt": "2026-06-16T10:30:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3A4E93C72653947504AD",
+      "fromMe": false,
+      "body": "Bom dia!!!",
+      "type": "chat",
+      "timestamp": 1781608453,
+      "createdAt": "2026-06-16T11:14:13.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_170879619215473@lid_3A2ACC60411E4DB737D2",
+      "fromMe": false,
+      "body": "Muito obrigado",
+      "type": "chat",
+      "timestamp": 1781608455,
+      "createdAt": "2026-06-16T11:14:15.000Z",
       "ack": 1,
       "source": "incoming-event"
     }
@@ -5666,6 +6606,86 @@
       "createdAt": "2026-06-10T17:12:47.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB057CF00282133CA93A5",
+      "fromMe": true,
+      "body": "Olá Alex! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Alex?",
+      "type": "chat",
+      "timestamp": 1781608717,
+      "createdAt": "2026-06-16T11:18:37.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB07AA2EB5CA522EB29DE",
+      "fromMe": true,
+      "body": "oiee",
+      "type": "chat",
+      "timestamp": 1781608834,
+      "createdAt": "2026-06-16T11:20:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0A343AC105FD8787328",
+      "fromMe": true,
+      "body": "Bom diaaa",
+      "type": "chat",
+      "timestamp": 1781608837,
+      "createdAt": "2026-06-16T11:20:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0A1FEF7626234396056",
+      "fromMe": true,
+      "body": "Caro Senhor",
+      "type": "chat",
+      "timestamp": 1781608843,
+      "createdAt": "2026-06-16T11:20:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB07F3A421E1F3F4EA547",
+      "fromMe": true,
+      "body": "Faz um teste, a automação de lisboa não ta caindo no meu celular 😳",
+      "type": "chat",
+      "timestamp": 1781608880,
+      "createdAt": "2026-06-16T11:21:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0696078651810720449",
+      "fromMe": true,
+      "body": "é com vc???",
+      "type": "chat",
+      "timestamp": 1781608884,
+      "createdAt": "2026-06-16T11:21:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_188630819725402@lid_3EB0BEABF9F2F94A615F91",
+      "fromMe": false,
+      "body": "Eu acho que nesse caso é com o Felipe.",
+      "type": "chat",
+      "timestamp": 1781608899,
+      "createdAt": "2026-06-16T11:21:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0AD8BECF7AFD677A9D8",
+      "fromMe": true,
+      "body": "ok ok rsr",
+      "type": "chat",
+      "timestamp": 1781609220,
+      "createdAt": "2026-06-16T11:27:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5513997675879": [
@@ -6574,6 +7594,16 @@
       "type": "chat",
       "timestamp": 1780142487,
       "createdAt": "2026-05-30T12:01:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_63462772359257@lid_3EB0FFD4D776980E4B684D",
+      "fromMe": true,
+      "body": "Olá Seiso, boa tardee!\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data: 17/06/2026*\n*Horário: Das 18h30 às 22h*\n*Endereço: Avenida Paulista 807 – São Paulo/SP*\n*Local: Espaço Paulista Eventos*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781631884,
+      "createdAt": "2026-06-16T17:44:44.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -8203,6 +9233,116 @@
       "createdAt": "2026-06-15T11:42:18.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_138521302048923@lid_3EB02A4D708C0B5BDFE3A3",
+      "fromMe": true,
+      "body": "Oiiiii Juliana, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781531608,
+      "createdAt": "2026-06-15T13:53:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_138521302048923@lid_3EB08DA9FDB6B6EDB60A06",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781531615,
+      "createdAt": "2026-06-15T13:53:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_138521302048923@lid_3EB0F76EB04BE0E9028DD5",
+      "fromMe": false,
+      "body": "Maravilha",
+      "type": "chat",
+      "timestamp": 1781531656,
+      "createdAt": "2026-06-15T13:54:16.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_138521302048923@lid_3EB0D17502CE31002AFF87",
+      "fromMe": false,
+      "body": "qual o valor ?",
+      "type": "chat",
+      "timestamp": 1781531997,
+      "createdAt": "2026-06-15T13:59:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_138521302048923@lid_3EB0105C5669E224468F70",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781532011,
+      "createdAt": "2026-06-15T14:00:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_138521302048923@lid_3EB0F70CDFC19A5B5A67B1",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1781532061,
+      "createdAt": "2026-06-15T14:01:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_138521302048923@lid_3EB0C75473557CD903D5CC",
+      "fromMe": false,
+      "body": "Fabi ja fiz o pagto",
+      "type": "chat",
+      "timestamp": 1781544030,
+      "createdAt": "2026-06-15T17:20:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_138521302048923@lid_3EB03DDB3F130CEEFCCC14",
+      "fromMe": true,
+      "body": "Muito obrigado por adquirir o livro *A Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVocê está participando do pré-lançamento oficial do livro, que será lançado no dia 22 de junho, em Lisboa, Portugal.\n\nComo forma de antecipar parte da experiência, já estou *liberando o acesso ao time de agentes de IA* para que você possa começar a utilizar as os Agentes e possa colocar os conceitos em prática desde agora.\n\nNos próximos dias, você receberá os demais materiais e conteúdos complementares do projeto, além do acesso antecipado ao livro.\n\nAgora vou te passar o acesso aos agentes!",
+      "type": "chat",
+      "timestamp": 1781547933,
+      "createdAt": "2026-06-15T18:25:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_138521302048923@lid_3EB0022A9D909E85B4E087",
+      "fromMe": true,
+      "body": "Bob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-67a1437aff248191b32d2240d3e40b04-pepe-perfil-de-empre;sa\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1781547956,
+      "createdAt": "2026-06-15T18:25:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_138521302048923@lid_3EB087AD6068D3C4C69AA2",
+      "fromMe": true,
+      "body": "Existe também o acesso à vídeo aulas para instruções de acesso ao Livro e serão liberadas oficialmente na quarta!\n\nQual o e-mail posso te enviar?",
+      "type": "chat",
+      "timestamp": 1781547987,
+      "createdAt": "2026-06-15T18:26:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_138521302048923@lid_3EB02F9F389D66AA50872F",
+      "fromMe": false,
+      "body": "pode enviar no juliana@dnalustres.com.br",
+      "type": "chat",
+      "timestamp": 1781548350,
+      "createdAt": "2026-06-15T18:32:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511998499747": [
@@ -8484,6 +9624,46 @@
       "type": "chat",
       "timestamp": 1781528934,
       "createdAt": "2026-06-15T13:08:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_93218171568221@lid_2A590F2664D795E67232",
+      "fromMe": false,
+      "body": "Bom dia! \nAh então vai ser hoje?",
+      "type": "chat",
+      "timestamp": 1781529737,
+      "createdAt": "2026-06-15T13:22:17.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_93218171568221@lid_3EB09656A604FCD08C9C23",
+      "fromMe": true,
+      "body": "Não, O Matheus teve que alterar por conta de um imprevisto de saude.",
+      "type": "chat",
+      "timestamp": 1781529803,
+      "createdAt": "2026-06-15T13:23:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_93218171568221@lid_2A11BBFC2922487BFC7D",
+      "fromMe": false,
+      "body": "Tá bem \nObrigada",
+      "type": "chat",
+      "timestamp": 1781530518,
+      "createdAt": "2026-06-15T13:35:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_93218171568221@lid_3EB0035CDD360B838890F2",
+      "fromMe": true,
+      "body": "Olá Eliane, tudo bem? Complementando o vídeo:\n\n*Como vai funcionar nos próximos dias?*\n\nA partir de amanhã, vamos apresentar uma sequência prática de dicas e estrategias para você entender como *aparecer nas respostas da IA do Google e ser recomendado pelo ChatGPT, Gemini* e outras inteligências artificiais.\n\n*Todos os dias você vai receber:*\n\n1. Uma dica gravada, curta e direta.\n2. Um prompt pronto para aplicar.\n3. Uma orientação prática para você melhorar de imediato.\n\n*A ideia é simples:* você não vai apenas assistir. Você vai aplicar.\n\nTodas as dicas e materiais complementares serão enviadas no grupo silencioso que criamos.\n\nInclusive, você já entrou no grupo ou posso te enviar o link?",
+      "type": "video",
+      "timestamp": 1781563430,
+      "createdAt": "2026-06-15T22:43:50.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -8813,6 +9993,16 @@
       "createdAt": "2026-06-12T13:10:44.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_204775618519050@lid_3EB05C7D7EF03AA4164611",
+      "fromMe": true,
+      "body": "Olá Angela, boa tardee!\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data: 17/06/2026*\n *Horário: Das 18h30 às 22h*\n *Endereço: Avenida Paulista 807 – São Paulo/SP*\n *Local: Espaço Paulista Eventos*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781630352,
+      "createdAt": "2026-06-16T17:19:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511947316904": [
@@ -9904,6 +11094,103 @@
       "createdAt": "2026-06-15T12:18:17.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB0EDA73EBAB2ED66D8D2",
+      "fromMe": true,
+      "body": "Oiiiii Henrique, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781532372,
+      "createdAt": "2026-06-15T14:06:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB0A869983E7D0B061EC7",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781532376,
+      "createdAt": "2026-06-15T14:06:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB0E4CB1DE0F02D0183C7",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781532381,
+      "createdAt": "2026-06-15T14:06:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45445166420043@lid_3A33C7F25C21CA16B17F",
+      "fromMe": false,
+      "body": "Compra efetuada",
+      "type": "image",
+      "timestamp": 1781533140,
+      "createdAt": "2026-06-15T14:19:00.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_45445166420043_lid_3A33C7F25C21CA16B17F_6ff06e2d.jpg",
+      "mediaSize": 156764,
+      "filename": "false_45445166420043@lid_3A33C7F25C21CA16B17F",
+      "originalName": "false_45445166420043@lid_3A33C7F25C21CA16B17F"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB03CED0616076515C01F",
+      "fromMe": true,
+      "body": "Só um momento.",
+      "type": "chat",
+      "timestamp": 1781533462,
+      "createdAt": "2026-06-15T14:24:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB083F9B04BB1EBE9476F",
+      "fromMe": true,
+      "body": "Muito obrigado por adquirir o livro *A Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVocê está participando do pré-lançamento oficial do livro, que será lançado no dia 22 de junho, em Lisboa, Portugal.\n\nComo forma de antecipar parte da experiência, já estou *liberando o acesso ao time de agentes de IA* para que você possa começar a utilizar as os Agentes e possa colocar os conceitos em prática desde agora.\n\nNos próximos dias, você receberá os demais materiais e conteúdos complementares do projeto, além do acesso antecipado ao livro.\n\nAgora vou te passar o acesso aos agentes!",
+      "type": "chat",
+      "timestamp": 1781534387,
+      "createdAt": "2026-06-15T14:39:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB044CE16B812086703C5",
+      "fromMe": true,
+      "body": "Bob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-67a1437aff248191b32d2240d3e40b04-pepe-perfil-de-empre;sa\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1781534442,
+      "createdAt": "2026-06-15T14:40:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_45445166420043@lid_3EB058D106CC406703E66C",
+      "fromMe": true,
+      "body": "Existe também o acesso à vídeo aulas para instruções de acesso ao Livro e serão liberadas oficialmente na quarta!\n\nQual o e-mail posso te enviar?",
+      "type": "chat",
+      "timestamp": 1781534522,
+      "createdAt": "2026-06-15T14:42:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_45445166420043@lid_3AECA1371F7394290F8F",
+      "fromMe": false,
+      "body": "Pode enviar no \n\nhenriqueficher@gmail.com",
+      "type": "chat",
+      "timestamp": 1781541925,
+      "createdAt": "2026-06-15T16:45:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511975106315": [
@@ -10304,6 +11591,53 @@
       "type": "chat",
       "timestamp": 1781353920,
       "createdAt": "2026-06-13T12:32:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_33702742622383@lid_3EB052E0A513A9CE2B976F",
+      "fromMe": true,
+      "body": "Olá Sandra, tudo bem? Complementando o vídeo:\n\n*Como vai funcionar nos próximos dias?*\n\nA partir de amanhã, vamos apresentar uma sequência prática de dicas e estrategias para você entender como *aparecer nas respostas da IA do Google e ser recomendado pelo ChatGPT, Gemini* e outras inteligências artificiais.\n\n*Todos os dias você vai receber:*\n\n1. Uma dica gravada, curta e direta.\n2. Um prompt pronto para aplicar.\n3. Uma orientação prática para você melhorar de imediato.\n\n*A ideia é simples:* você não vai apenas assistir. Você vai aplicar.\n\nTodas as dicas e materiais complementares serão enviadas no grupo silencioso que criamos.\n\nInclusive, você já entrou no grupo ou posso te enviar o link?",
+      "type": "video",
+      "timestamp": 1781563294,
+      "createdAt": "2026-06-15T22:41:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "video",
+      "mediaMime": "video/mp4",
+      "mediaFile": "true_33702742622383_lid_3EB052E0A513A9CE2B976F_fcc751f8.mp4",
+      "mediaSize": 18681562,
+      "filename": "true_33702742622383@lid_3EB052E0A513A9CE2B976F",
+      "originalName": "true_33702742622383@lid_3EB052E0A513A9CE2B976F"
+    },
+    {
+      "id": "false_33702742622383@lid_ACCA0CF3795725DE900BE33939832898",
+      "fromMe": false,
+      "body": "Ainda não entrei no grupo",
+      "type": "chat",
+      "timestamp": 1781564751,
+      "createdAt": "2026-06-15T23:05:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_33702742622383@lid_3EB0EAC48412E324A32FE4",
+      "fromMe": true,
+      "body": "Para entrar no grupo, basta acessar o link abaixo:\n\nhttps://chat.whatsapp.com/Cp7o6j21XET3XY9j0JUqv8?s=cl&p=a&ilr=2",
+      "type": "chat",
+      "timestamp": 1781605823,
+      "createdAt": "2026-06-16T10:30:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_33702742622383@lid_3EB0E46D745A9CF72D0B98",
+      "fromMe": true,
+      "body": "Bom diaaa 🤗",
+      "type": "chat",
+      "timestamp": 1781605840,
+      "createdAt": "2026-06-16T10:30:40.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -10776,6 +12110,26 @@
       "createdAt": "2026-06-15T12:08:41.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_80457773351076@lid_3EB0FC049BBD6E555434C0",
+      "fromMe": true,
+      "body": "Oiiiii Sandra, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781532300,
+      "createdAt": "2026-06-15T14:05:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80457773351076@lid_2AEDC0A8C4EE666F945E",
+      "fromMe": false,
+      "body": "Maravilha",
+      "type": "chat",
+      "timestamp": 1781539283,
+      "createdAt": "2026-06-15T16:01:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511976089095": [
@@ -11032,6 +12386,106 @@
       "type": "chat",
       "timestamp": 1781355169,
       "createdAt": "2026-06-13T12:52:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_42189614784628@lid_3EB06252F2FB36CF4E13BA",
+      "fromMe": true,
+      "body": "Bom diaaaa Regis, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 16/06\n🕘 10h30 em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1781608123,
+      "createdAt": "2026-06-16T11:08:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_42189614784628@lid_A5EF0387CA60995AA80AAAD4351ACEE2",
+      "fromMe": false,
+      "body": "Oi. Ok. Mas não consigo pelo note, estou em trânsito",
+      "type": "chat",
+      "timestamp": 1781614338,
+      "createdAt": "2026-06-16T12:52:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_42189614784628@lid_3EB06EE5BC51CD035279E5",
+      "fromMe": true,
+      "body": "Você esta dirigindo?",
+      "type": "chat",
+      "timestamp": 1781615463,
+      "createdAt": "2026-06-16T13:11:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_42189614784628@lid_A508A99664D4F7BB9B162517FCBDA0A0",
+      "fromMe": false,
+      "body": "Não",
+      "type": "chat",
+      "timestamp": 1781615491,
+      "createdAt": "2026-06-16T13:11:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_42189614784628@lid_3EB0F0264712EC5F66E6C3",
+      "fromMe": true,
+      "body": "Vamos reagendar para mais tarde, assim consegue conversar melhor com o Matheus. Tenho hoje as 13h30 ou 15h30?",
+      "type": "chat",
+      "timestamp": 1781615636,
+      "createdAt": "2026-06-16T13:13:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_42189614784628@lid_A5B603A372955A6E36DEFE5368362DB5",
+      "fromMe": false,
+      "body": "Oi",
+      "type": "chat",
+      "timestamp": 1781616691,
+      "createdAt": "2026-06-16T13:31:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_42189614784628@lid_A5E868DAAC722DD2AC3AC536F5953A34",
+      "fromMe": false,
+      "body": "Estarei em voo das 14h às 15h55",
+      "type": "chat",
+      "timestamp": 1781616721,
+      "createdAt": "2026-06-16T13:32:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_42189614784628@lid_3EB0E630716316C2952324",
+      "fromMe": true,
+      "body": "Certo, a Giovanna vai entrar em contato com você agora.",
+      "type": "chat",
+      "timestamp": 1781616745,
+      "createdAt": "2026-06-16T13:32:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_42189614784628@lid_3EB052C653D1A139D58C9F",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nTerça-feira, 16 de junho · 10:30 – 11:30am\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/gsd-rscg-ner\nOu disque: ‪(BR) +55 11 4560-4355‬ PIN: ‪117 368 397‬#\nOutros números de telefone: https://tel.meet/gsd-rscg-ner?pin=1829561965004",
+      "type": "chat",
+      "timestamp": 1781616783,
+      "createdAt": "2026-06-16T13:33:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_42189614784628@lid_3EB00C7A9ED4DCDB122EF5",
+      "fromMe": true,
+      "body": "Pode entrar na sala",
+      "type": "chat",
+      "timestamp": 1781616790,
+      "createdAt": "2026-06-16T13:33:10.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -11871,6 +13325,16 @@
       "createdAt": "2026-06-01T09:48:28.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_42288466145355@lid_3EB0EBA47718793247C937",
+      "fromMe": true,
+      "body": "Olá Elaine, boa tardee!\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data: 17/06/2026*\n*Horário: Das 18h30 às 22h*\n*Endereço: Avenida Paulista 807 – São Paulo/SP*\n*Local: Espaço Paulista Eventos*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781631935,
+      "createdAt": "2026-06-16T17:45:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511991765858": [
@@ -11920,6 +13384,26 @@
       "createdAt": "2026-06-01T18:07:54.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_27801474338934@lid_3EB0EC269C704AD96B7F80",
+      "fromMe": true,
+      "body": "Olá Carlos, boa tardee!\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data: 17/06/2026*\n*Horário: Das 18h30 às 22h*\n*Endereço: Avenida Paulista 807 – São Paulo/SP*\n*Local: Espaço Paulista Eventos*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781631988,
+      "createdAt": "2026-06-16T17:46:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_27801474338934@lid_3A35F4E81C1506292DCC",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1781632364,
+      "createdAt": "2026-06-16T17:52:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "351910538886": [
@@ -13056,6 +14540,347 @@
       "mediaSize": 62966,
       "filename": "false_96349756383259@lid_A5072D9FC18224D031C56C99B887451C",
       "originalName": "false_96349756383259@lid_A5072D9FC18224D031C56C99B887451C"
+    },
+    {
+      "id": "false_96349756383259@lid_A5B2336B59EA7195F09C279E57A2C25F",
+      "fromMe": false,
+      "body": "🌟 A sua inscrição está CONFIRMADA para a *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\n\nEstamos entusiasmados por o receber e por partilhar conhecimentos que poderão ajudar a transformar o seu negócio.\n\n*📅 Data:* 22/06/2026\n*🕘 Horário:* Das 19h00 às 22h30\n*📍 Local:* Rua Laura Alves, 9 - 1069-169 Lisboa\n\nAgradecemos a sua confiança e estamos empenhados em tornar esta formação numa experiência enriquecedora e de elevado valor para si.\n\nAté lá, não hesite em contactar-nos caso tenha alguma dúvida ou necessite de informações adicionais.\n\nEsperamos vê-lo em breve! 😃",
+      "type": "chat",
+      "timestamp": 1781533527,
+      "createdAt": "2026-06-15T14:25:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0C89291F209FBBAFA65",
+      "fromMe": true,
+      "body": "🌟 A sua presença VIP está CONFIRMADA para a *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\n\nEstamos entusiasmados por o receber e por partilhar conhecimentos que poderão ajudar a transformar o seu negócio.\n\n*📅 Data:* 22/06/2026\n*🕘 Horário:* Das 19h00 às 22h30\n*📍 Local:* Rua Laura Alves, 9 - 1069-169 Lisboa\n\nAgradecemos a sua confiança e estamos empenhados em tornar esta formação numa experiência enriquecedora e de elevado valor para si.\n\nAté lá, não hesite em contactar-nos caso tenha alguma dúvida ou necessite de informações adicionais.\n\nEsperamos vê-lo em breve! 😃",
+      "type": "chat",
+      "timestamp": 1781533575,
+      "createdAt": "2026-06-15T14:26:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0A7A12788941435FB03",
+      "fromMe": true,
+      "body": "351929445085",
+      "type": "chat",
+      "timestamp": 1781534628,
+      "createdAt": "2026-06-15T14:43:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A5C7A8715FB1BF748459A8D5ED7A5D83",
+      "fromMe": false,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/Y106051061N?bid=1781014450493\nhttps://casadoads.com.br/imersao-lisboa/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1781534896,
+      "createdAt": "2026-06-15T14:48:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A5C32F120A61EE8A62F0645DA6FC16B8",
+      "fromMe": false,
+      "body": "https://pay.hotmart.com/X106208825R?off=gnn8mmk6&bid=1781006095572",
+      "type": "chat",
+      "timestamp": 1781534904,
+      "createdAt": "2026-06-15T14:48:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0922AB995D1676A2CC6",
+      "fromMe": true,
+      "body": "Dia 22 de junho acontece a 2ª edição da imersão em Lisboa\n\nOlá, Fulano, tudo bem?\n\nNo ano passado você se inscreveu para a minha Imersão em Google Ads e Inteligência Artificial e agora, no dia 22 de junho, volto a Portugal para a 2ª edição presencial.\n\nE desta vez num momento muito especial.\n\nNos últimos dias, o Google realizou o seu evento oficial e apresentou uma série de novidades envolvendo Inteligência Artificial, Google Ads e a forma como as empresas podem ser encontradas e recomendadas.\n\nPor isso, esta edição será dedicada à Nova Era de Aquisição de Clientes por Inteligência Artificial.\n\nVamos falar sobre como preparar a sua empresa para aparecer nas respostas da IA do Google, ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais, além de utilizar os novos recursos do Google Ads para atrair mais leads qualificados.\n\nComo você já participou de eventos, treinamentos ou acompanha o meu trabalho há algum tempo, reservei alguns ingressos VIP para esta edição.\n\nPara retirar a sua Inscrição VIP, acesse o link abaixo: https://casadoads.com.br/imersao-lisboa-vip\n\nInformações no Whatsapp: https://wa.me/351910538886\n\nMatheus Bottaro\nCasa do Ads\nA Nova era de aquisição de clientes por Inteligência Artificial",
+      "type": "chat",
+      "timestamp": 1781536187,
+      "createdAt": "2026-06-15T15:09:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0782CDB96C39687C765",
+      "fromMe": true,
+      "body": "Olá, Fulano, tudo bem?\n\nVocê demonstrou interesse na Imersão Presencial de Lisboa, mas a sua inscrição ainda não foi concluída.\n\n*As vagas estão a terminar.*\n\n*22 de Junho de 19h às 22h30*\n📍 Hotel Holiday Inn Lisboa\n\n*A Nova Era de Aquisição de Clientes por Inteligência Artificial já começou.*\n\nVou mostrar como a sua empresa pode *aparecer nas respostas da IA do Google, ser recomendada pelo ChatGPT, Gemini* e outras Inteligências Artificiais, além das principais novidades apresentadas pelo Google Ads com IA*.\n\nVeja no Instagram do Matheus Bottaro o sucesso da última edição:\nhttps://www.instagram.com/matheusbottarooficial/\n\nVamos finalizar a sua inscrição?",
+      "type": "chat",
+      "timestamp": 1781536423,
+      "createdAt": "2026-06-15T15:13:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB06250AFE533F0EB2BE3",
+      "fromMe": true,
+      "body": "Olá, Fulano, tudo bem? Aqui é a Fabiane da equipa do Matheus Bottaro.\n\nNo dia 22 de junho volto a Portugal para a *2ª edição* para apresentar as novidades anunciadas no evento oficial do *Google I/O 2026* , sobre à *Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVamos falar sobre como sua empresa pode *aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini* e outras Inteligências Artificiais, além dos *novos recursos com IA no Google Ads.*\n\nComo você já se inscreveu ou acompanha o meu trabalho, reservei um *ingressos VIP* para esta edição.\n\nPosso te enviar as informações para você receber o ingresso gratuito?",
+      "type": "chat",
+      "timestamp": 1781536521,
+      "createdAt": "2026-06-15T15:15:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0C09C2C56D48EED8C93",
+      "fromMe": true,
+      "body": "enviar para a lista da base",
+      "type": "chat",
+      "timestamp": 1781536540,
+      "createdAt": "2026-06-15T15:15:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB00E41026E11152BE752",
+      "fromMe": true,
+      "body": "Olá, Fulano, tudo bem?\n\nEstive a conversar com o Matheus Bottaro e, como já acompanha o nosso trabalho, ele reservou um *ingresso VIP* para a Imersão Presencial **A Nova Era de Aquisição de Clientes por Inteligência Artificial**.\n\nTerá acesso gratuito ao evento e também a uma oportunidade de networking durante o coquetel no intervalo.\n\n*22 de junho*\n📍 Hotel Holiday Inn Lisboa Continental\n\nPosso enviar-lhe as informações para receber o seu ingresso gratuito?",
+      "type": "chat",
+      "timestamp": 1781536666,
+      "createdAt": "2026-06-15T15:17:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0539F64FC95CC26D7F2",
+      "fromMe": true,
+      "body": "Enviei o convite, mas não respondeu. Mandar Vip direto",
+      "type": "chat",
+      "timestamp": 1781536687,
+      "createdAt": "2026-06-15T15:18:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0011560FBDA11825AA6",
+      "fromMe": true,
+      "body": "true_96349756383259@lid_3EB0011560FBDA11825AA6",
+      "type": "image",
+      "timestamp": 1781538174,
+      "createdAt": "2026-06-15T15:42:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_96349756383259_lid_3EB0011560FBDA11825AA6_3117f129.jpg",
+      "mediaSize": 84021,
+      "filename": "true_96349756383259@lid_3EB0011560FBDA11825AA6",
+      "originalName": "true_96349756383259@lid_3EB0011560FBDA11825AA6"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB08B192C7C79B0D6B084",
+      "fromMe": true,
+      "body": "true_96349756383259@lid_3EB08B192C7C79B0D6B084",
+      "type": "image",
+      "timestamp": 1781538313,
+      "createdAt": "2026-06-15T15:45:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_96349756383259_lid_3EB08B192C7C79B0D6B084_84114935.jpg",
+      "mediaSize": 88091,
+      "filename": "true_96349756383259@lid_3EB08B192C7C79B0D6B084",
+      "originalName": "true_96349756383259@lid_3EB08B192C7C79B0D6B084"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0008E4883B3176BF4C8",
+      "fromMe": true,
+      "body": "351929445085",
+      "type": "chat",
+      "timestamp": 1781546541,
+      "createdAt": "2026-06-15T18:02:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0C088A713400C78032C",
+      "fromMe": true,
+      "body": "Mário Frazão da Rocha\t4Be 2Me Designers Unip lda\t351968664643\nJacinto\tFrqgoso\t351924074061\nAnita Tomas\tAnitatomas\t351918994180\nCarlos Tamietto Junio\tAgência Sol OnLine\t351926112844\nIsabelle Gomes Marques\tExpressão Nobilissima lda\t351913 333 225\nAfonso\tMaria\t351 934505855\nMaria\tCompanhia Jiménez tuesta\t351968664285\nManuel Cosme\tEngel & Voelkers\t351965704615\nAhmad Riaz\tSeara Feliz Lda\t351933534704\nMichael Tosin Adesanwo\tRapido Relief App\t351920818033\nNuno\tRemax\t351961220247\nAlessandro Souza\tAGAPE Portugal\t351934066810\nJeanne\tExpress Pison\t351929433412\nCamila\tREMAX Siimgroup\t351936202608\nMaria ines\tOw\t351912140682\nRita Baptista\tINDEBT\t351967500736\nShaul Salim\tBinovar Lda\t351927522256\nWillian Bastos\tGrupo WS\t351 934 705 787\nyosi zana\tseo ppc meruba\t351525681233\nValessa Fradique\tLx5\t351920147605\nDenniz\tObeheim\t351932270534\nPedro Majid\tEuronics-Fazila Lda\t351936313050\nCristiana Soares\tConsultora Independente\t351927353615\nRoberta\tNão tenho empresa\t351935148960\nBianca Rosendo Servin\tFreelancer\t351939171030\nMaria\tMaria Vargas Consultoria  Imobiliaria Lda\t351966164756\nSandra Simões\tThe Pet Store CD, Lda\t351 919 561 431\nHelena Figueiredo\tFreelancer\t351964848212\nMiguel Borges\tMATRIZ Phi\t351912307784\nSara Bandali\tFreelancer\t351920405951\nManuela Palma\tManuela Palma Unipessoal Lda\t351912110646\nJosé Guimarães\tBlue Collective\t351916848540\nRandell Alex Lima Silveira\tHome7 Reparações\t351962 220 622\nCarlos\tHCJF, Lda.\t351964046771\nLianderson\tLianderson Lima\t351937179684\nSandra Cristina dos Santos costa\tIntelioffice lda\t351 910 757 520\nGil\tFlyrke\t351918715710\nValéria Leite\tValeria consulting\t351963405686\nTherezinha Vollú\tCasa Yoca\t351926988130\nJacilene\tKaka Mendes estética\t351918193110\nFlaviano Baptista\tFIGETEC\t351936 553 269\nCristina Bento\tCAETANO&BENTO\t351917 579 680\nVanessa Fragoso\tVanessa Fragoso UNIP lda\t351914158665\nKleberson Pereira\tAlways World Unipessoal Lda\t351911 949 880\nCarolina Veras\tCarolina Veras\t351 931 941 798\nLuiz Barreto\tSara Barreto unipessoal lda (lavandaria brancor)\t351969603178\npaulo roberto\tStudio 8A\t351965071948\nJoel\tTecnofrequencia\t351917253448\nClaudia Grimm Pizarro Bravo\tConsultora\t351968044307\nFatima Moniz\tSempre100fim@gmail.com\t351933365686\nJoao\tResponsive 4\t351939220911\nCandice Kipper\tCandice Fotografias\t351928115091\nJose antunes\tMagical pop up\t351935740958\nAna Valente\tWebmar Studio\t351917368792\nMaria\tInfinity Portugal Group\t351934493520\nSandra Braz\tValente Desafio  UNIP LDA.\t351 913 521 274\nSamuel\t.\t351932926678\nElaine Linhares\tElaine Linhares\t351964775777\nTiago Agua\tCarby Vesauto\t351915266645\nDiana Santos\tIndependent\t351960408628\nLuis Felicio\tSky Viagens\t351930545150\nClaudia\tLisbon Streets Mediação imobiliária Lda\t351960159169\nJoseth Balcazar\tAngel Micropigmentação\t351928124007\nIsabel Pinho\tAcrosscoast Mediação imobiliária, Lda\t351932984109\nInes martins\tMatamba Dibata\t351967693327\nAlexandre Ament\t\t351929445085",
+      "type": "chat",
+      "timestamp": 1781547426,
+      "createdAt": "2026-06-15T18:17:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB011C2F7E1D3A47DB0C6",
+      "fromMe": true,
+      "body": "carolinaveras.pt@gmail.com",
+      "type": "chat",
+      "timestamp": 1781548870,
+      "createdAt": "2026-06-15T18:41:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB030FDD9BD564B265F21",
+      "fromMe": true,
+      "body": "Sheila Raimbox Mia\tExecutive Moçambique\t351961810447\tmia.temporario@gmail.com",
+      "type": "chat",
+      "timestamp": 1781549590,
+      "createdAt": "2026-06-15T18:53:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB03D823E384CA79ECD70",
+      "fromMe": true,
+      "body": "+351 961 810 447",
+      "type": "chat",
+      "timestamp": 1781549619,
+      "createdAt": "2026-06-15T18:53:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB00AB92A7E34F7809A96",
+      "fromMe": true,
+      "body": "351934910937\n351918813785\n351913072715\n351910616172\n351924390450\n351927522256\n351919777068\n351960119910\n351924117579\n351935106005\n351925062092\n351963520647\n351965698323\n351923577880\n351963388141\n351924372296\n351961729480\n351912513992\n351964787892\n351 914217343\n351 939083665\n351 930 526 162\n11 99639-2676\n351963589605\n351910978733\n351925200752\n351 933 651 070\n351911918449\n351926526997\n351911077023\n351913019824\n351916848540\n351 961805938\n351934910937\n351 934 560 518\n351966941665\n------\n351969866778\n351960179819\n351931842990\n351938018199\n351933608759\n351914010093\n351914010093\n351 931 941 798\n351929445085\n351935407895\n351961810447\n351934599434\n351968732980\n351962015621\n351963253153\n351930544919\n351 913 521 274\n351929433412\n351913488187\n351926823227\n351966597156\n351968664285",
+      "type": "chat",
+      "timestamp": 1781602929,
+      "createdAt": "2026-06-16T09:42:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A516100E6B86EC9B4B113F6AA473F367",
+      "fromMe": false,
+      "body": "Sucesso Convergente Lda.\nRua de França 44 - 1º Dto\n2775-398 Carcavelos \nNIF 516357085",
+      "type": "chat",
+      "timestamp": 1781603480,
+      "createdAt": "2026-06-16T09:51:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0A3C982F4D0CEDAE2BD",
+      "fromMe": true,
+      "body": "Mário Frazão da Rocha\t4Be 2Me Designers Unip lda\t351968664643\nJacinto\tFrqgoso\t351924074061\nAnita Tomas\tAnitatomas\t351918994180\nCarlos Tamietto Junio\tAgência Sol OnLine\t351926112844\nIsabelle Gomes Marques\tExpressão Nobilissima lda\t351913 333 225\nAfonso\tMaria\t351 934505855\nMaria\tCompanhia Jiménez tuesta\t351968664285\nManuel Cosme\tEngel & Voelkers\t351965704615\nAhmad Riaz\tSeara Feliz Lda\t351933534704\nMichael Tosin Adesanwo\tRapido Relief App\t351920818033\nNuno\tRemax\t351961220247\nAlessandro Souza\tAGAPE Portugal\t351934066810\nJeanne\tExpress Pison\t351929433412\nCamila\tREMAX Siimgroup\t351936202608\nMaria ines\tOw\t351912140682\nRita Baptista\tINDEBT\t351967500736\nShaul Salim\tBinovar Lda\t351927522256\nWillian Bastos\tGrupo WS\t351 934 705 787\nyosi zana\tseo ppc meruba\t351525681233\nValessa Fradique\tLx5\t351920147605\nDenniz\tObeheim\t351932270534\nPedro Majid\tEuronics-Fazila Lda\t351936313050\nCristiana Soares\tConsultora Independente\t351927353615\nRoberta\tNão tenho empresa\t351935148960\nBianca Rosendo Servin\tFreelancer\t351939171030\nMaria\tMaria Vargas Consultoria  Imobiliaria Lda\t351966164756\nSandra Simões\tThe Pet Store CD, Lda\t351 919 561 431\nHelena Figueiredo\tFreelancer\t351964848212\nMiguel Borges\tMATRIZ Phi\t351912307784\nSara Bandali\tFreelancer\t351920405951\nManuela Palma\tManuela Palma Unipessoal Lda\t351912110646\nRandell Alex Lima Silveira\tHome7 Reparações\t351962 220 622\nCarlos\tHCJF, Lda.\t351964046771\nLianderson\tLianderson Lima\t351937179684\nSandra Cristina dos Santos costa\tIntelioffice lda\t351 910 757 520\nGil\tFlyrke\t351918715710\nValéria Leite\tValeria consulting\t351963405686\nTherezinha Vollú\tCasa Yoca\t351926988130\nJacilene\tKaka Mendes estética\t351918193110\nFlaviano Baptista\tFIGETEC\t351936 553 269\nCristina Bento\tCAETANO&BENTO\t351917 579 680\nVanessa Fragoso\tVanessa Fragoso UNIP lda\t351914158665\nKleberson Pereira\tAlways World Unipessoal Lda\t351911 949 880\nLuiz Barreto\tSara Barreto unipessoal lda (lavandaria brancor)\t351969603178\npaulo roberto\tStudio 8A\t351965071948\nJoel\tTecnofrequencia\t351917253448\nClaudia Grimm Pizarro Bravo\tConsultora\t351968044307\nFatima Moniz\tSempre100fim@gmail.com\t351933365686\nJoao\tResponsive 4\t351939220911\nCandice Kipper\tCandice Fotografias\t351928115091\nJose antunes\tMagical pop up\t351935740958\nAna Valente\tWebmar Studio\t351917368792\nMaria\tInfinity Portugal Group\t351934493520\nSamuel\t.\t351932926678\nElaine Linhares\tElaine Linhares\t351964775777\nTiago Agua\tCarby Vesauto\t351915266645\nDiana Santos\tIndependent\t351960408628\nLuis Felicio\tSky Viagens\t351930545150\nClaudia\tLisbon Streets Mediação imobiliária Lda\t351960159169\nJoseth Balcazar\tAngel Micropigmentação\t351928124007\nIsabel Pinho\tAcrosscoast Mediação imobiliária, Lda\t351932984109\nInes martins\tMatamba Dibata\t351967693327\nKatia Moura Rodrigues\tKatia Moura Unipessoal LDA\t351969736081\nMonica\tCavalos da vinha\t351919066095\nM R\tAvalanche de Sonhos lda\t351967734378\nRoberto\tFontenelle Decorações\t351933974748\nErika\tLunera, lda\t351962 540 272\nMoísés\tMoisés Lourenço Quissanga\t351914217592\nMarcelo Moreira\tWebfy\t351923540313",
+      "type": "chat",
+      "timestamp": 1781605127,
+      "createdAt": "2026-06-16T10:18:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB04D72691AA65B81809D",
+      "fromMe": true,
+      "body": "true_96349756383259@lid_3EB04D72691AA65B81809D",
+      "type": "video",
+      "timestamp": 1781605225,
+      "createdAt": "2026-06-16T10:20:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "video",
+      "mediaMime": "video/mp4",
+      "mediaFile": "true_96349756383259_lid_3EB04D72691AA65B81809D_4b46e92b.mp4",
+      "mediaSize": 4647379,
+      "filename": "true_96349756383259@lid_3EB04D72691AA65B81809D",
+      "originalName": "true_96349756383259@lid_3EB04D72691AA65B81809D"
+    },
+    {
+      "id": "false_96349756383259@lid_A587F9F4B41B7F6A32A3261D0EC0BDE0",
+      "fromMe": false,
+      "body": "Sim. Mas então será adequado para a minha área de trabalho como consultora imobiliária e horses Showjumping ?",
+      "type": "chat",
+      "timestamp": 1781610336,
+      "createdAt": "2026-06-16T11:45:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A58776E8C92704E0CCC2D2F296DF478B",
+      "fromMe": false,
+      "body": "Intelioffice lda\nRua direita de massamá 106 b\n2745-751 massamá \nNif 507557069",
+      "type": "chat",
+      "timestamp": 1781614403,
+      "createdAt": "2026-06-16T12:53:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB01A750DB96FCA9BB164",
+      "fromMe": true,
+      "body": "Por curiosidade, qual é atualmente o seu principal desafio com o Google Ads?\nGerar mais leads, melhorar a qualidade dos contactos ou aumentar a rentabilidade das campanhas?",
+      "type": "chat",
+      "timestamp": 1781617289,
+      "createdAt": "2026-06-16T13:41:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A55DF332BF6584FEA4AFD5B8041C59DB",
+      "fromMe": false,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão: https://pay.hotmart.com/Y106051061N?bid=1781014450493\nhttps://casadoads.com.br/imersao-lisboa/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1781617660,
+      "createdAt": "2026-06-16T13:47:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0E1A4A3584B440C1215",
+      "fromMe": true,
+      "body": "Cristina Bento\tCAETANO&BENTO\t351917 579 680\tc.bento16@gmail.com",
+      "type": "chat",
+      "timestamp": 1781618775,
+      "createdAt": "2026-06-16T14:06:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A5ACFB786D7A1EA00A1FFF769F1E008D",
+      "fromMe": false,
+      "body": "ricardonegrao@ithlux.com",
+      "type": "chat",
+      "timestamp": 1781619040,
+      "createdAt": "2026-06-16T14:10:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_96349756383259@lid_3EB0EFD2E325DDD659BCD2",
+      "fromMe": true,
+      "body": "351967166641",
+      "type": "chat",
+      "timestamp": 1781620880,
+      "createdAt": "2026-06-16T14:41:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A5F8C9352908227A0C160FEAFD898D94",
+      "fromMe": false,
+      "body": "Sandra.costa.form@outlook.pt",
+      "type": "chat",
+      "timestamp": 1781620921,
+      "createdAt": "2026-06-16T14:42:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A5CC90A9B6121E0F7DA80514D3569CCC",
+      "fromMe": false,
+      "body": "https://pay.hotmart.com/Y106051061N?bid=1781014450493",
+      "type": "chat",
+      "timestamp": 1781631497,
+      "createdAt": "2026-06-16T17:38:17.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A5F494362B32319A6C52DF283136D02B",
+      "fromMe": false,
+      "body": "https://pay.hotmart.com/X106208825R?off=gnn8mmk6&bid=1781006095572",
+      "type": "chat",
+      "timestamp": 1781631506,
+      "createdAt": "2026-06-16T17:38:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "351962451262": [
@@ -13965,6 +15790,36 @@
       "createdAt": "2026-06-15T12:35:56.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_185499704643712@lid_3EB0171E468BD21B544212",
+      "fromMe": true,
+      "body": "Oiiiii Selma, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781533803,
+      "createdAt": "2026-06-15T14:30:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_185499704643712@lid_3EB05EA1B8B20695393A8D",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781533808,
+      "createdAt": "2026-06-15T14:30:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_185499704643712@lid_3EB091DFE571D333F54CF0",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781533815,
+      "createdAt": "2026-06-15T14:30:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511992778115": [
@@ -14445,6 +16300,263 @@
       "createdAt": "2026-06-15T12:31:35.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB04C59A5F041DC0CE945",
+      "fromMe": true,
+      "body": "Oiiiii Sheila, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781532386,
+      "createdAt": "2026-06-15T14:06:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB0DD85E968E7A8AA87BD",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781532391,
+      "createdAt": "2026-06-15T14:06:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB0FDCED1955255644067",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781532395,
+      "createdAt": "2026-06-15T14:06:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_183446810955838@lid_ACEAF6C510371DFB8A28282CB186274F",
+      "fromMe": false,
+      "body": "false_183446810955838@lid_ACEAF6C510371DFB8A28282CB186274F",
+      "type": "image",
+      "timestamp": 1781539070,
+      "createdAt": "2026-06-15T15:57:50.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_183446810955838_lid_ACEAF6C510371DFB8A28282CB186274F_1b392f95.jpg",
+      "mediaSize": 83164,
+      "filename": "false_183446810955838@lid_ACEAF6C510371DFB8A28282CB186274F",
+      "originalName": "false_183446810955838@lid_ACEAF6C510371DFB8A28282CB186274F"
+    },
+    {
+      "id": "false_183446810955838@lid_AC6643D427AA5007774197A76B646AC9",
+      "fromMe": false,
+      "body": "Pronto😉",
+      "type": "chat",
+      "timestamp": 1781539077,
+      "createdAt": "2026-06-15T15:57:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_183446810955838@lid_AC5677D252D75D0D76BF3F80EFD3C8CD",
+      "fromMe": false,
+      "body": "Será com o próprio Matheus certo?",
+      "type": "chat",
+      "timestamp": 1781539127,
+      "createdAt": "2026-06-15T15:58:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB032638AF5D83A6B3D4B",
+      "fromMe": true,
+      "body": "Sim.",
+      "type": "chat",
+      "timestamp": 1781542901,
+      "createdAt": "2026-06-15T17:01:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_183446810955838@lid_AC5476995734662BCCC499D4FB01F931",
+      "fromMe": false,
+      "body": "Viu o pgto🙂",
+      "type": "chat",
+      "timestamp": 1781543033,
+      "createdAt": "2026-06-15T17:03:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB0584DB0DEB16293C271",
+      "fromMe": true,
+      "body": "Vi sim 🤗",
+      "type": "chat",
+      "timestamp": 1781543654,
+      "createdAt": "2026-06-15T17:14:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB030A070052ABFCEFACA",
+      "fromMe": true,
+      "body": "Sheila conseguimos antecipar a sua reunião hoje as 16h? Matheus teve um imprevisto de saude e como quer fazer o atendimento, perguntou se você consegue?",
+      "type": "chat",
+      "timestamp": 1781543702,
+      "createdAt": "2026-06-15T17:15:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_183446810955838@lid_ACCBBD4DC1F714986AD28274F6FA1CEA",
+      "fromMe": false,
+      "body": "Podemos sim",
+      "type": "chat",
+      "timestamp": 1781544534,
+      "createdAt": "2026-06-15T17:28:54.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_183446810955838@lid_ACE3F7BB1F861FC88E32F08FDBC41219",
+      "fromMe": false,
+      "body": "Qual o link da reunião?",
+      "type": "chat",
+      "timestamp": 1781547512,
+      "createdAt": "2026-06-15T18:18:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_183446810955838@lid_AC686DA190CACE72A9D12D8E54965179",
+      "fromMe": false,
+      "body": "Me envia o link dos  especialistas pf🙂",
+      "type": "chat",
+      "timestamp": 1781547550,
+      "createdAt": "2026-06-15T18:19:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB07391CDA241E2ECC63D",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nSegunda-feira, 15 de junho · 4:00 – 5:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/vpc-quzc-yxb\nOu disque: ‪(BR) +55 19 4560-9971‬ PIN: ‪386 111 050‬#\nOutros números de telefone: https://tel.meet/vpc-quzc-yxb?pin=4189787491488",
+      "type": "chat",
+      "timestamp": 1781547885,
+      "createdAt": "2026-06-15T18:24:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB0C87E298883DA45FAEC",
+      "fromMe": true,
+      "body": "Muito obrigado por adquirir o livro *A Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVocê está participando do pré-lançamento oficial do livro, que será lançado no dia 22 de junho, em Lisboa, Portugal.\n\nComo forma de antecipar parte da experiência, já estou *liberando o acesso ao time de agentes de IA* para que você possa começar a utilizar as os Agentes e possa colocar os conceitos em prática desde agora.\n\nNos próximos dias, você receberá os demais materiais e conteúdos complementares do projeto, além do acesso antecipado ao livro.\n\nAgora vou te passar o acesso aos agentes!",
+      "type": "chat",
+      "timestamp": 1781547934,
+      "createdAt": "2026-06-15T18:25:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB0A9FED474091A47E694",
+      "fromMe": true,
+      "body": "Bob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-67a1437aff248191b32d2240d3e40b04-pepe-perfil-de-empre;sa\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1781547960,
+      "createdAt": "2026-06-15T18:26:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB007FC60CC2785AD45FE",
+      "fromMe": true,
+      "body": "Existe também o acesso à vídeo aulas para instruções de acesso ao Livro e serão liberadas oficialmente na quarta!\n\nQual o e-mail posso te enviar?",
+      "type": "chat",
+      "timestamp": 1781547984,
+      "createdAt": "2026-06-15T18:26:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_183446810955838@lid_ACA2CDB162551D759B3A5AAD7B552FE7",
+      "fromMe": false,
+      "body": "Sheila.camargo@gmail.com",
+      "type": "chat",
+      "timestamp": 1781548066,
+      "createdAt": "2026-06-15T18:27:46.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_183446810955838@lid_3EB0F2FFC765226632E2B7",
+      "fromMe": false,
+      "body": "estou na sala",
+      "type": "chat",
+      "timestamp": 1781550132,
+      "createdAt": "2026-06-15T19:02:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_183446810955838@lid_3EB0642A82C7144367A6BA",
+      "fromMe": false,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nSegunda-feira, 15 de junho · 4:00 – 5:00pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/vpc-quzc-yxb\nOu disque: ‪(BR) +55 19 4560-9971‬ PIN: ‪386 111 050‬#\nOutros números de telefone: https://tel.meet/vpc-quzc-yxb?pin=4189787491488",
+      "type": "chat",
+      "timestamp": 1781550319,
+      "createdAt": "2026-06-15T19:05:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_183446810955838@lid_3EB0EB9F4E012B6C7F7B80",
+      "fromMe": false,
+      "body": "neste link",
+      "type": "chat",
+      "timestamp": 1781550330,
+      "createdAt": "2026-06-15T19:05:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB035EED6E935A0AB8C0C",
+      "fromMe": true,
+      "body": "sim",
+      "type": "chat",
+      "timestamp": 1781550365,
+      "createdAt": "2026-06-15T19:06:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_183446810955838@lid_ACF0687219194C47D6EA67759253602F",
+      "fromMe": false,
+      "body": "Fabiane bom dia, se puder enviar o meu contato para a Giovana agradeço",
+      "type": "chat",
+      "timestamp": 1781601607,
+      "createdAt": "2026-06-16T09:20:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB0491F6DE204016208FA",
+      "fromMe": true,
+      "body": "Bom diaaa Sheila!!!",
+      "type": "chat",
+      "timestamp": 1781602165,
+      "createdAt": "2026-06-16T09:29:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183446810955838@lid_3EB06FFCF01BAAD4E66DA8",
+      "fromMe": true,
+      "body": "Envio sim 🤗",
+      "type": "chat",
+      "timestamp": 1781602177,
+      "createdAt": "2026-06-16T09:29:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511954773878": [
@@ -14594,6 +16706,136 @@
       "type": "chat",
       "timestamp": 1780416252,
       "createdAt": "2026-06-02T16:04:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3A5A188FE30EBEB4B7CB",
+      "fromMe": false,
+      "body": "Boa tarde",
+      "type": "chat",
+      "timestamp": 1781542107,
+      "createdAt": "2026-06-15T16:48:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3A1255BF55D791F1DF0E",
+      "fromMe": false,
+      "body": "Fiz as inscrições",
+      "type": "chat",
+      "timestamp": 1781542112,
+      "createdAt": "2026-06-15T16:48:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3A322D3F57C61279976D",
+      "fromMe": false,
+      "body": "Mas não recebi os ingressos",
+      "type": "chat",
+      "timestamp": 1781542118,
+      "createdAt": "2026-06-15T16:48:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3A2D84FD6B8DEAE5AF02",
+      "fromMe": false,
+      "body": "Como faço",
+      "type": "chat",
+      "timestamp": 1781542123,
+      "createdAt": "2026-06-15T16:48:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_111016415338567@lid_3EB01F28A82968EA6A9052",
+      "fromMe": true,
+      "body": "Boa tardee Andreia!!!",
+      "type": "chat",
+      "timestamp": 1781542960,
+      "createdAt": "2026-06-15T17:02:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_111016415338567@lid_3EB04DBFAD33B37349F183",
+      "fromMe": true,
+      "body": "Qual o nome do outro inscrito?",
+      "type": "chat",
+      "timestamp": 1781542981,
+      "createdAt": "2026-06-15T17:03:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3EB0E1783700A0EAA5EFA2",
+      "fromMe": false,
+      "body": "ja consegui aqui",
+      "type": "chat",
+      "timestamp": 1781543081,
+      "createdAt": "2026-06-15T17:04:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3EB0114777A64D3186B8E4",
+      "fromMe": false,
+      "body": "obg",
+      "type": "chat",
+      "timestamp": 1781543083,
+      "createdAt": "2026-06-15T17:04:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_111016415338567@lid_3EB01CDBC3F86EE2DEAD3B",
+      "fromMe": true,
+      "body": "Perguntei pois organizo a planilha de inscritos que é encaminhado para o local do evento, e para ter certeza se estão todos os nomes na lista.",
+      "type": "chat",
+      "timestamp": 1781543197,
+      "createdAt": "2026-06-15T17:06:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3AF4939F7D2A8CC90063",
+      "fromMe": false,
+      "body": "Andréia Márcia de Sousa",
+      "type": "chat",
+      "timestamp": 1781543248,
+      "createdAt": "2026-06-15T17:07:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3A0FFAF070F639EE5CE8",
+      "fromMe": false,
+      "body": "E",
+      "type": "chat",
+      "timestamp": 1781543250,
+      "createdAt": "2026-06-15T17:07:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_111016415338567@lid_3A8A2D0CFCCC001E46C2",
+      "fromMe": false,
+      "body": "Felipe Moreira Félix",
+      "type": "chat",
+      "timestamp": 1781543271,
+      "createdAt": "2026-06-15T17:07:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_111016415338567@lid_3EB0C1914A1BB89F9D6729",
+      "fromMe": true,
+      "body": "Certo, a Cintia esta seguindo com o atendimento. 🤗",
+      "type": "chat",
+      "timestamp": 1781545451,
+      "createdAt": "2026-06-15T17:44:11.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -15561,6 +17803,26 @@
       "createdAt": "2026-06-13T12:50:53.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_203899462004934@lid_3EB0FD88F1B6C2C7BD69AB",
+      "fromMe": true,
+      "body": "Olá Adriana! Bom diaaa, como você está? \n\nGostariamos de agradecer pela sua presença na Imersão com Matheus Bottaro!\n\nAgora é hora de colocar tudo em prática e obter mais resultados com chave de OURO 🚀",
+      "type": "chat",
+      "timestamp": 1781529762,
+      "createdAt": "2026-06-15T13:22:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_203899462004934@lid_3EB09D63AD1B4E1C8E84AB",
+      "fromMe": true,
+      "body": "Percebemos que você ainda não agendou sua consultoria individual gratuita. \n\nNessa consultoria, vamos te mostrar de forma personalizada de acordo com o seu nicho, como você pode atrair mais clientes tanto no Google quanto no Instagram!\n\nNa consultoria, vamos:\n- Analisar quantas pessoas estão buscando pelo que você oferece e entender como elas pesquisam no Google.\n- Mostrar cases de sucesso do seu nicho para inspirar suas campanhas.\n- E, se você já anuncia, faremos um diagnóstico das suas campanhas atuais no Google!\n\nTemos horários para amanhã, quinta e sexta-feira.\n\nQual melhor dia e horário  para você?",
+      "type": "chat",
+      "timestamp": 1781529766,
+      "createdAt": "2026-06-15T13:22:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511962616139": [
@@ -16118,6 +18380,246 @@
       "createdAt": "2026-06-13T12:53:20.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB0CC66D2A5F249A0EF64",
+      "fromMe": true,
+      "body": "Bom diaaaa Luana, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 15/06\n🕘 16h em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1781530873,
+      "createdAt": "2026-06-15T13:41:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A5E70F9CB268B090E31",
+      "fromMe": false,
+      "body": "Bom dia, tudo bem?",
+      "type": "chat",
+      "timestamp": 1781530890,
+      "createdAt": "2026-06-15T13:41:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A981ADD3A5518B7745C",
+      "fromMe": false,
+      "body": "Ok, obrigada",
+      "type": "chat",
+      "timestamp": 1781530909,
+      "createdAt": "2026-06-15T13:41:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A5D181737FAC71A25FB",
+      "fromMe": false,
+      "body": "O curso possui certificado?",
+      "type": "chat",
+      "timestamp": 1781530927,
+      "createdAt": "2026-06-15T13:42:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB0D579618DD9E96BC6E1",
+      "fromMe": true,
+      "body": "Tudo bem sim, obrigada por perguntar 😊",
+      "type": "chat",
+      "timestamp": 1781533871,
+      "createdAt": "2026-06-15T14:31:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB06B0C35B7620988027F",
+      "fromMe": true,
+      "body": "Sim, vou solicitar o seu.",
+      "type": "chat",
+      "timestamp": 1781533881,
+      "createdAt": "2026-06-15T14:31:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB008888188A0C4AB0089",
+      "fromMe": true,
+      "body": "Luana Leão?",
+      "type": "chat",
+      "timestamp": 1781533900,
+      "createdAt": "2026-06-15T14:31:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A1396A67F868F3A3434",
+      "fromMe": false,
+      "body": "Isso mesmo!",
+      "type": "chat",
+      "timestamp": 1781533916,
+      "createdAt": "2026-06-15T14:31:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3AFD4D8E4E7672DDA4EC",
+      "fromMe": false,
+      "body": "Obrigadaa",
+      "type": "chat",
+      "timestamp": 1781533918,
+      "createdAt": "2026-06-15T14:31:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB04CCAB5E964B0069533",
+      "fromMe": true,
+      "body": "Luana, nós conseguimos antecipar sua reunião com o Matheus para hoje as 14h?",
+      "type": "chat",
+      "timestamp": 1781534148,
+      "createdAt": "2026-06-15T14:35:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB02BB4270B053233B6A7",
+      "fromMe": true,
+      "body": "Oi Luana.",
+      "type": "chat",
+      "timestamp": 1781541601,
+      "createdAt": "2026-06-15T16:40:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A50FFD08D95C4C673C7",
+      "fromMe": false,
+      "body": "Olá",
+      "type": "chat",
+      "timestamp": 1781541648,
+      "createdAt": "2026-06-15T16:40:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3AAB04A3CF2485AF0001",
+      "fromMe": false,
+      "body": "Desculpe a demora",
+      "type": "chat",
+      "timestamp": 1781541651,
+      "createdAt": "2026-06-15T16:40:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3AB52B4ADA7B9ABE509B",
+      "fromMe": false,
+      "body": "Esse horário não consigo estou no trânsito a caminho de Sp, hoje está terrível",
+      "type": "chat",
+      "timestamp": 1781541670,
+      "createdAt": "2026-06-15T16:41:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3AE391471524BC068E28",
+      "fromMe": false,
+      "body": "Inclusive, para não correr o risco de prejudicar a agenda do professor, já vou me adiantar para desmarcar a das 16:00",
+      "type": "chat",
+      "timestamp": 1781541709,
+      "createdAt": "2026-06-15T16:41:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB0A5E6C9B6EA24838CD6",
+      "fromMe": true,
+      "body": "Certo, pode ser amanhã no mesmo horario?",
+      "type": "chat",
+      "timestamp": 1781541739,
+      "createdAt": "2026-06-15T16:42:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A00D3A4877500E9842B",
+      "fromMe": false,
+      "body": "Pode sim!",
+      "type": "chat",
+      "timestamp": 1781541810,
+      "createdAt": "2026-06-15T16:43:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB00D6E97C703A4430ECC",
+      "fromMe": true,
+      "body": "📅 Sua reunião foi reagendada para 16/06, amanhã  às 16h.\n\n💻 Sugerimos que você participe desta reunião através de um computador ou notebook. Assim você poderá conferir tudo com mais detalhes.\n\nCaso surja alguma pergunta, sinta-se à vontade para nos contatar. Estamos aqui para ajudar! 🙂",
+      "type": "chat",
+      "timestamp": 1781541908,
+      "createdAt": "2026-06-15T16:45:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB0FF66C4FDE757AF1C4B",
+      "fromMe": true,
+      "body": "Bom diaaaa Luana, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 16/06\n🕘 16h em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1781620451,
+      "createdAt": "2026-06-16T14:34:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB0AFEC79AA28C82D263F",
+      "fromMe": true,
+      "body": "Hoje você já faz anuncios no Google Ads ou está planejando começar agora?",
+      "type": "chat",
+      "timestamp": 1781620487,
+      "createdAt": "2026-06-16T14:34:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A1F66192FDA32B4E185",
+      "fromMe": false,
+      "body": "Oi bom dia, tudo bem?",
+      "type": "chat",
+      "timestamp": 1781624694,
+      "createdAt": "2026-06-16T15:44:54.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A21908572304B7D2D30",
+      "fromMe": false,
+      "body": "Já faço sim",
+      "type": "chat",
+      "timestamp": 1781624720,
+      "createdAt": "2026-06-16T15:45:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_124652936544482@lid_3A8B7BD9507B8263E829",
+      "fromMe": false,
+      "body": "Maravilha!",
+      "type": "chat",
+      "timestamp": 1781624729,
+      "createdAt": "2026-06-16T15:45:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_124652936544482@lid_3EB06BB555C5BF832494B4",
+      "fromMe": true,
+      "body": "Ah legal, hoje qual é a sua maior dificuldade ou maior dor em relação ao Google?\nPode me mandar um áudio que já encaminho direto para o consultor, assim ele prepara um estudo mais detalhado pra você!",
+      "type": "chat",
+      "timestamp": 1781626836,
+      "createdAt": "2026-06-16T16:20:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5515997992256": [
@@ -16548,6 +19050,193 @@
       "createdAt": "2026-06-13T12:49:27.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB09FCE3B38FB9E18506D",
+      "fromMe": true,
+      "body": "Olá, Nicanor!\n\nComo vai? 😊 Queria reforçar que amanhã, dia 16/06, às 9h30, teremos nossa reunião marcada com o Consultor de Negócios da Casa do ADS.\n\nEstamos entusiasmados  para te encontrar e proporcionar uma experiência única! A reunião será individual e já estamos preparando todo o material personalizado para você.\n\nMal podemos esperar para te apresentar as oportunidades no Google e cases de sucesso!\n\nAté amanhã!",
+      "type": "chat",
+      "timestamp": 1781529565,
+      "createdAt": "2026-06-15T13:19:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194102490624125@lid_3A6B86BF94D89F0AFEC1",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1781529854,
+      "createdAt": "2026-06-15T13:24:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB0E9AC3DE57F95AAEA06",
+      "fromMe": true,
+      "body": "Oiiiii Nicanor, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781534281,
+      "createdAt": "2026-06-15T14:38:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB06E132E9127A2BF824E",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781534287,
+      "createdAt": "2026-06-15T14:38:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB0DE560E524B6424AB70",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781534291,
+      "createdAt": "2026-06-15T14:38:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194102490624125@lid_3B2A2928844FE2A2166A",
+      "fromMe": false,
+      "body": "ok",
+      "type": "chat",
+      "timestamp": 1781534316,
+      "createdAt": "2026-06-15T14:38:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_194102490624125@lid_3B5437CBDA80BFD5B28F",
+      "fromMe": false,
+      "body": "false_194102490624125@lid_3B5437CBDA80BFD5B28F",
+      "type": "image",
+      "timestamp": 1781534428,
+      "createdAt": "2026-06-15T14:40:28.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_194102490624125_lid_3B5437CBDA80BFD5B28F_8283efde.jpg",
+      "mediaSize": 58410,
+      "filename": "false_194102490624125@lid_3B5437CBDA80BFD5B28F",
+      "originalName": "false_194102490624125@lid_3B5437CBDA80BFD5B28F"
+    },
+    {
+      "id": "false_194102490624125@lid_3B10CA7CAFBE19109E33",
+      "fromMe": false,
+      "body": "pagamento realizado",
+      "type": "chat",
+      "timestamp": 1781534431,
+      "createdAt": "2026-06-15T14:40:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB0286DD4E28D449A4034",
+      "fromMe": true,
+      "body": "Muito obrigado por adquirir o livro *A Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVocê está participando do pré-lançamento oficial do livro, que será lançado no dia 22 de junho, em Lisboa, Portugal.\n\nComo forma de antecipar parte da experiência, já estou *liberando o acesso ao time de agentes de IA* para que você possa começar a utilizar as os Agentes e possa colocar os conceitos em prática desde agora.\n\nNos próximos dias, você receberá os demais materiais e conteúdos complementares do projeto, além do acesso antecipado ao livro.\n\nAgora vou te passar o acesso aos agentes!",
+      "type": "chat",
+      "timestamp": 1781534557,
+      "createdAt": "2026-06-15T14:42:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB096CC31F507D8481EE5",
+      "fromMe": true,
+      "body": "Bob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-67a1437aff248191b32d2240d3e40b04-pepe-perfil-de-empre;sa\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1781535499,
+      "createdAt": "2026-06-15T14:58:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB09F1E3D4E7EA46FB4C6",
+      "fromMe": true,
+      "body": "Existe também o acesso à vídeo aulas para instruções de acesso ao Livro e serão liberadas oficialmente na quarta!\n\nQual o e-mail posso te enviar?",
+      "type": "chat",
+      "timestamp": 1781535513,
+      "createdAt": "2026-06-15T14:58:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194102490624125@lid_3B6DE7E3742DA29A772A",
+      "fromMe": false,
+      "body": "nicanorpires@gmail.com",
+      "type": "chat",
+      "timestamp": 1781535522,
+      "createdAt": "2026-06-15T14:58:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB09E6D261E937509B61B",
+      "fromMe": true,
+      "body": "Bom diaaaa Nicanor, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 16/06\n🕘 9h30 em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1781607980,
+      "createdAt": "2026-06-16T11:06:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194102490624125@lid_3A0D5553C147346161FB",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1781609358,
+      "createdAt": "2026-06-16T11:29:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_194102490624125@lid_3A676E157F62662849FF",
+      "fromMe": false,
+      "body": "Vc vai me mandar o link?",
+      "type": "chat",
+      "timestamp": 1781609371,
+      "createdAt": "2026-06-16T11:29:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB0F78642D04A52F36480",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nTerça-feira, 16 de junho · 9:30 – 10:30am\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/hxe-jvay-gax\nOu disque: ‪(BR) +55 11 4949-9618‬ PIN: ‪339 097 673‬#\nOutros números de telefone: https://tel.meet/hxe-jvay-gax?pin=7649230521138",
+      "type": "chat",
+      "timestamp": 1781609578,
+      "createdAt": "2026-06-16T11:32:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194102490624125@lid_3EB0FD99C5A40F526265C8",
+      "fromMe": true,
+      "body": "O Matheus e a Danielle estarão aguardando na sala.",
+      "type": "chat",
+      "timestamp": 1781609595,
+      "createdAt": "2026-06-16T11:33:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194102490624125@lid_3AED14C2E131FDDF55D1",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1781609751,
+      "createdAt": "2026-06-16T11:35:51.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511965775669": [
@@ -16876,6 +19565,136 @@
       "createdAt": "2026-06-13T12:53:56.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB0DE935B34D3B8E3F17A",
+      "fromMe": true,
+      "body": "Oiiiii Daniel, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781531496,
+      "createdAt": "2026-06-15T13:51:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB00815A7734BC717341D",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781531501,
+      "createdAt": "2026-06-15T13:51:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB09048CEA887BB6A2D2D",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781531510,
+      "createdAt": "2026-06-15T13:51:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_136588633886953@lid_3EB07413C26A107040845D",
+      "fromMe": false,
+      "body": "Já fiz o pagamento",
+      "type": "chat",
+      "timestamp": 1781533006,
+      "createdAt": "2026-06-15T14:16:46.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB00D49FD9BE9016CD5BA",
+      "fromMe": true,
+      "body": "Só um momento.",
+      "type": "chat",
+      "timestamp": 1781533450,
+      "createdAt": "2026-06-15T14:24:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB048DB07AA2659DAC359",
+      "fromMe": true,
+      "body": "Muito obrigado por adquirir o livro *A Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVocê está participando do pré-lançamento oficial do livro, que será lançado no dia 22 de junho, em Lisboa, Portugal.\n\nComo forma de antecipar parte da experiência, já estou *liberando o acesso ao time de agentes de IA* para que você possa começar a utilizar as os Agentes e possa colocar os conceitos em prática desde agora.\n\nNos próximos dias, você receberá os demais materiais e conteúdos complementares do projeto, além do acesso antecipado ao livro.\n\nAgora vou te passar o acesso aos agentes!",
+      "type": "chat",
+      "timestamp": 1781534393,
+      "createdAt": "2026-06-15T14:39:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB0DF9045EBE9EE50938F",
+      "fromMe": true,
+      "body": "Bob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-67a1437aff248191b32d2240d3e40b04-pepe-perfil-de-empre;sa\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1781534427,
+      "createdAt": "2026-06-15T14:40:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB07FAE5EA8A99ED5E96A",
+      "fromMe": true,
+      "body": "Existe também o acesso à vídeo aulas para instruções de acesso ao Livro e serão liberadas oficialmente na quarta!\n\nQual o e-mail posso te enviar?",
+      "type": "chat",
+      "timestamp": 1781534520,
+      "createdAt": "2026-06-15T14:42:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_136588633886953@lid_3EB01516382C589400E323",
+      "fromMe": false,
+      "body": "dc.gutierre@gmail.com",
+      "type": "chat",
+      "timestamp": 1781537307,
+      "createdAt": "2026-06-15T15:28:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_136588633886953@lid_3EB0A96CD83CEF14F52ABD",
+      "fromMe": false,
+      "body": "Desculpa a ignorancia, eu preciso salvar, ou quando for usar preciso acessar esse link",
+      "type": "chat",
+      "timestamp": 1781537849,
+      "createdAt": "2026-06-15T15:37:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB0CBD3ABB9EA551AFC46",
+      "fromMe": true,
+      "body": "No video tem as instruções certinhas de como acessar.",
+      "type": "chat",
+      "timestamp": 1781545500,
+      "createdAt": "2026-06-15T17:45:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_136588633886953@lid_3A3C8301520FEE22ACBB",
+      "fromMe": false,
+      "body": "Ok, fico no aguardo de você enviar os videos",
+      "type": "chat",
+      "timestamp": 1781549107,
+      "createdAt": "2026-06-15T18:45:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_136588633886953@lid_3AB70DD555EC2469DB6D",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1781549110,
+      "createdAt": "2026-06-15T18:45:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511999813054": [
@@ -17160,6 +19979,205 @@
       "type": "chat",
       "timestamp": 1781355072,
       "createdAt": "2026-06-13T12:51:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB072712DA74DC809BCF3",
+      "fromMe": true,
+      "body": "Olá, Adriano!\n\nComo vai? 😊 Queria reforçar que amanhã, dia 16/06, às 11h30, teremos nossa reunião marcada com o Consultor de Negócios da Casa do ADS.\n\nEstamos entusiasmados  para te encontrar e proporcionar uma experiência única! A reunião será individual e já estamos preparando todo o material personalizado para você.\n\nMal podemos esperar para te apresentar as oportunidades no Google e cases de sucesso!\n\nAté amanhã!",
+      "type": "chat",
+      "timestamp": 1781529836,
+      "createdAt": "2026-06-15T13:23:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_166752138825750@lid_AC1F511F774CC12410EABF6CC0DEF17B",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1781530352,
+      "createdAt": "2026-06-15T13:32:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_166752138825750@lid_AC27F9A4F0F3903E832A6D9118336F32",
+      "fromMe": false,
+      "body": "Ok. Até amanhã 👍",
+      "type": "chat",
+      "timestamp": 1781530360,
+      "createdAt": "2026-06-15T13:32:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB04CCAE65E29A35A8FAC",
+      "fromMe": true,
+      "body": "Oiiiii Adriano, vou te passar as informações sobre o Livro do Matheus Bottaro!",
+      "type": "chat",
+      "timestamp": 1781534210,
+      "createdAt": "2026-06-15T14:36:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB031D1952E83664C99BD",
+      "fromMe": true,
+      "body": "Livro: *A nova era de aquisição de clientes por IA*\n\nVocê já imaginou ter um time de especialistas em IA trabalhando para você 24 horas por dia?\n\nAgora isso é possível. Além do livro, você terá acesso aos agentes virtuais para te auxiliar em diversas áreas:\n\n✅ *Pépe →* Especialista em Perfil de Empresa.\n\n✅ *George →* Especialista em Instagram.\n\n✅ *Rosa →* Especialista em Copywriting e Blog.\n\n✅ *Liam →* Ensina a gravar e editar vídeos para YouTube profissional.\n\n✅ *MIA →* Especialista em TikTok e Geração Z.\n\n✅ *Mônica →* Especialista em LinkedIn.",
+      "type": "chat",
+      "timestamp": 1781534215,
+      "createdAt": "2026-06-15T14:36:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB0287D297B64090AAB74",
+      "fromMe": true,
+      "body": "O lançamento oficial do livro será no dia 22, em Portugal, mas você já pode garantir o pré-lançamento e ter *acesso imediato aos agentes de IA.*\n\n*Segue o link para finalizar:*\nhttps://pay.hotmart.com/T106280927D\n\nMe avisa assim que fizer o pagamento que já te envio os acessos!",
+      "type": "chat",
+      "timestamp": 1781534221,
+      "createdAt": "2026-06-15T14:37:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_166752138825750@lid_ACF2F629D6D7F78625D63C0E12606D0F",
+      "fromMe": false,
+      "body": "false_166752138825750@lid_ACF2F629D6D7F78625D63C0E12606D0F",
+      "type": "image",
+      "timestamp": 1781534777,
+      "createdAt": "2026-06-15T14:46:17.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_166752138825750_lid_ACF2F629D6D7F78625D63C0E12606D0F_4d3c11a3.jpg",
+      "mediaSize": 43915,
+      "filename": "false_166752138825750@lid_ACF2F629D6D7F78625D63C0E12606D0F",
+      "originalName": "false_166752138825750@lid_ACF2F629D6D7F78625D63C0E12606D0F"
+    },
+    {
+      "id": "false_166752138825750@lid_ACD5297965B86F4673F591BA44BBDFC5",
+      "fromMe": false,
+      "body": "Segue o comprovante de pagamento",
+      "type": "chat",
+      "timestamp": 1781534784,
+      "createdAt": "2026-06-15T14:46:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB0585D6330141DBF1BA3",
+      "fromMe": true,
+      "body": "Muito obrigado por adquirir o livro *A Nova Era de Aquisição de Clientes por Inteligência Artificial.*\n\nVocê está participando do pré-lançamento oficial do livro, que será lançado no dia 22 de junho, em Lisboa, Portugal.\n\nComo forma de antecipar parte da experiência, já estou *liberando o acesso ao time de agentes de IA* para que você possa começar a utilizar as os Agentes e possa colocar os conceitos em prática desde agora.\n\nNos próximos dias, você receberá os demais materiais e conteúdos complementares do projeto, além do acesso antecipado ao livro.\n\nAgora vou te passar o acesso aos agentes!",
+      "type": "chat",
+      "timestamp": 1781535441,
+      "createdAt": "2026-06-15T14:57:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB0A093F6D261E25B7481",
+      "fromMe": true,
+      "body": "Bob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-67a1437aff248191b32d2240d3e40b04-pepe-perfil-de-empre;sa\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1781535479,
+      "createdAt": "2026-06-15T14:57:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB0A94910247CE8417820",
+      "fromMe": true,
+      "body": "Existe também o acesso à vídeo aulas para instruções de acesso ao Livro e serão liberadas oficialmente na quarta!\n\nQual o e-mail posso te enviar?",
+      "type": "chat",
+      "timestamp": 1781535515,
+      "createdAt": "2026-06-15T14:58:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_166752138825750@lid_3EB0D8D7D0BDBD24296FF5",
+      "fromMe": false,
+      "body": "adrianobaldini@bol.com.br",
+      "type": "chat",
+      "timestamp": 1781535853,
+      "createdAt": "2026-06-15T15:04:13.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB07BF51280114E730E4F",
+      "fromMe": true,
+      "body": "Bom diaaaa Adriano, tudo bem?\n\nPassando pra lembrar que hoje é o nosso encontro com o nosso consultor, direto ao ponto, com estratégias pensadas pro seu negócio.\n\nEle vai te mostrar como usar o Google pra atrair o cliente certo, de forma mais inteligente e com foco no que realmente funciona pro seu nicho.\n\n🗓️ 16/06\n🕘 11h30 em ponto\n💻 Se puder, acesse pelo notebook ou computador pra aproveitar melhor!\n\nEle já preparou algumas informações importantes para você!",
+      "type": "chat",
+      "timestamp": 1781608523,
+      "createdAt": "2026-06-16T11:15:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_166752138825750@lid_ACF51265D3BD5F69E3C3E74365943999",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1781608901,
+      "createdAt": "2026-06-16T11:21:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_166752138825750@lid_ACF2184BF1321099C4B769FBB720B644",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1781608903,
+      "createdAt": "2026-06-16T11:21:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_166752138825750@lid_ACA62D32712C8B8099B53406055193AB",
+      "fromMe": false,
+      "body": "Obrigado",
+      "type": "chat",
+      "timestamp": 1781608905,
+      "createdAt": "2026-06-16T11:21:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB0A8340DC1192D714D32",
+      "fromMe": true,
+      "body": "Reunião de Análise Estratégica com Consultora da Experiência Ads\nTerça-feira, 16 de junho · 11:30am – 12:30pm\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/rob-awpb-upa\nOu disque: ‪(BR) +55 19 4560-9693‬ PIN: ‪486 852 266‬#\nOutros números de telefone: https://tel.meet/rob-awpb-upa?pin=2389242523572",
+      "type": "chat",
+      "timestamp": 1781609621,
+      "createdAt": "2026-06-16T11:33:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_166752138825750@lid_3EB0D277C531E5A720F49E",
+      "fromMe": true,
+      "body": "O Matheus e o Roberto, estarão aguardando na sala.",
+      "type": "chat",
+      "timestamp": 1781609633,
+      "createdAt": "2026-06-16T11:33:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5516981194658": [
+    {
+      "id": "true_45625555025944@lid_3EB0E8C16EBA4BEF90A927",
+      "fromMe": true,
+      "body": "Olá Larissa, boa tardee!\n\nPassando aqui para lembrar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* 🤩\t\t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google, Matheus Bottaro!\t\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n*Data: 17/06/2026*\n *Horário: Das 18h30 às 22h*\n *Endereço: Avenida Paulista 807 – São Paulo/SP*\n *Local: Espaço Paulista Eventos*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento!\t\t\t\t\t\nPrograme-se, pois começaremos às 18h30 em ponto!",
+      "type": "chat",
+      "timestamp": 1781630552,
+      "createdAt": "2026-06-16T17:22:32.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }

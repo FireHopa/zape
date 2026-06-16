@@ -4,62 +4,20 @@
   "configurationId": "3132371690303919",
   "graphVersion": "v25.0",
   "redirectUri": "",
-  "enabled": true,
-  "updatedAt": "2026-06-05T15:52:36.675Z",
-  "accessToken": "EAAPpnYZA3cNsBRqcBYEl7wy43PV5UokNxpZBmrKMaBsC4SanlCNRuBJb8CF5ZC5nFKvxWm87OkwsJLi0hSAuaM1MQ0I3TDZA3vmw5QOrH16Ah0KaDDOeV81nbNv1O7ZCBqTlgcc3RCRWZCNfF6ZB8eE3KnUQoQkPBJWlGx8a0NJ2Nb8QW0xqh8AI9UuUJy2Fq8GzcCe7PD7iRcvJ2vFRadreCZCXdg4TqMKR31JZCkgRs4N7GpSQKHc4IA2mNjnCgQHHwqxHmCJ8DKArDZANGayjNkZBOaNbCKYmgeEKIqA4sYrGay4bgZDZD",
-  "tokenType": "bearer",
+  "enabled": false,
+  "updatedAt": "2026-06-15T14:00:00.027Z",
+  "accessToken": "",
+  "tokenType": "",
   "tokenExpiresIn": "",
-  "phoneNumberId": "1175232818987221",
-  "wabaId": "1461990975164146",
-  "businessId": "960279950155230",
-  "displayPhoneNumber": "+55 11 95093-4104",
-  "verifiedName": "Cíntia",
-  "lastEmbeddedSession": {
-    "data": {
-      "phone_number_id": "1175232818987221",
-      "waba_id": "1461990975164146",
-      "page_ids": [],
-      "catalog_ids": [],
-      "dataset_ids": [],
-      "business_id": "960279950155230",
-      "instagram_account_ids": []
-    },
-    "type": "WA_EMBEDDED_SIGNUP",
-    "event": "FINISH_WHATSAPP_BUSINESS_APP_ONBOARDING"
-  },
-  "linkedAt": "2026-06-05T15:52:36.675Z",
-  "subscribedAt": "2026-06-05T15:52:36.675Z",
+  "phoneNumberId": "",
+  "wabaId": "",
+  "businessId": "",
+  "displayPhoneNumber": "",
+  "verifiedName": "",
+  "lastEmbeddedSession": null,
+  "linkedAt": "",
+  "subscribedAt": "",
   "lastSubscribeError": null,
-  "lastTokenDebug": {
-    "data": {
-      "app_id": "1101287705243867",
-      "type": "SYSTEM_USER",
-      "application": "Disparo API",
-      "data_access_expires_at": 0,
-      "expires_at": 0,
-      "is_valid": true,
-      "issued_at": 1780674549,
-      "scopes": [
-        "whatsapp_business_management",
-        "whatsapp_business_messaging",
-        "public_profile"
-      ],
-      "granular_scopes": [
-        {
-          "scope": "whatsapp_business_management",
-          "target_ids": [
-            "1461990975164146"
-          ]
-        },
-        {
-          "scope": "whatsapp_business_messaging",
-          "target_ids": [
-            "1461990975164146"
-          ]
-        }
-      ],
-      "user_id": "122103893559342349"
-    }
-  },
+  "lastTokenDebug": null,
   "preferPanelCredentials": true
 }

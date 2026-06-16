@@ -2905,14 +2905,23 @@ app.delete("/api/felipe/webhooks/:id", felipeAuth, (req, res) => {
 // WhatsApp Oficial é compartilhado entre painéis autenticados.
 // Assim o painel Felipe não precisa pedir login admin separado para listar modelos/enviar campanhas.
 const waCloudAuth = anyTenantAuth;
-// Dados da Cloud API permanecem centralizados no tenant ADMIN.
-function getCloudSheetsFile() {
-  return path.join(__dirname, "data", TENANT_ADMIN, "wa_cloud_saved_sheets.json");
+// A conexão da Cloud API continua compartilhada, mas os dados operacionais
+// do disparo precisam respeitar o painel autenticado.
+// Ex.: usuário Portugal usa os leads, planilhas salvas e histórico do tenant Portugal.
+function getWaCloudTenantId(req) {
+  const tenant = String(req?.auth?.tenantId || TENANT_ADMIN).toLowerCase();
+  const allowed = new Set([TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL, TENANT_FELIPE]);
+  return allowed.has(tenant) ? tenant : TENANT_ADMIN;
 }
 
-function readCloudSavedSheets() {
+function getCloudSheetsFile(tenantId = TENANT_ADMIN) {
+  const safeTenant = String(tenantId || TENANT_ADMIN).replace(/[^a-z0-9_-]/gi, "") || TENANT_ADMIN;
+  return path.join(__dirname, "data", safeTenant, "wa_cloud_saved_sheets.json");
+}
+
+function readCloudSavedSheets(tenantId = TENANT_ADMIN) {
   try {
-    const file = getCloudSheetsFile();
+    const file = getCloudSheetsFile(tenantId);
     if (!fs.existsSync(file)) return [];
     const parsed = JSON.parse(fs.readFileSync(file, "utf8") || "[]");
     return Array.isArray(parsed) ? parsed : [];
@@ -2922,8 +2931,8 @@ function readCloudSavedSheets() {
   }
 }
 
-function writeCloudSavedSheets(items) {
-  const file = getCloudSheetsFile();
+function writeCloudSavedSheets(tenantId = TENANT_ADMIN, items) {
+  const file = getCloudSheetsFile(tenantId);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, JSON.stringify(Array.isArray(items) ? items : [], null, 2), "utf8");
 }
@@ -2961,15 +2970,17 @@ function cloudSavedSheetListMeta(sheet) {
 }
 
 app.get("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
-  const items = readCloudSavedSheets()
+  const cloudTenantId = getWaCloudTenantId(req);
+  const items = readCloudSavedSheets(cloudTenantId)
     .map(cloudSavedSheetListMeta)
     .sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
   res.json({ ok: true, items });
 });
 
 app.get("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
+  const cloudTenantId = getWaCloudTenantId(req);
   const id = String(req.params.id || "");
-  const item = readCloudSavedSheets().find((sheet) => String(sheet.id) === id);
+  const item = readCloudSavedSheets(cloudTenantId).find((sheet) => String(sheet.id) === id);
   if (!item) return res.status(404).json({ ok: false, error: "Planilha não encontrada" });
   res.json({ ok: true, item });
 });
@@ -2980,7 +2991,8 @@ app.post("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
     if (!next.rows.length || !next.columns.length) {
       return res.status(400).json({ ok: false, error: "Envie uma planilha com linhas e colunas." });
     }
-    const items = readCloudSavedSheets();
+    const cloudTenantId = getWaCloudTenantId(req);
+    const items = readCloudSavedSheets(cloudTenantId);
     const idx = items.findIndex((sheet) => String(sheet.id) === String(next.id));
     if (idx >= 0) {
       next.createdAt = items[idx].createdAt || next.createdAt;
@@ -2988,7 +3000,7 @@ app.post("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
     } else {
       items.unshift(next);
     }
-    writeCloudSavedSheets(items);
+    writeCloudSavedSheets(cloudTenantId, items);
     res.json({ ok: true, item: cloudSavedSheetListMeta(next) });
   } catch (err) {
     res.status(500).json({ ok: false, error: err.message || "Erro ao salvar planilha" });
@@ -2996,10 +3008,11 @@ app.post("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
 });
 
 app.delete("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
+  const cloudTenantId = getWaCloudTenantId(req);
   const id = String(req.params.id || "");
-  const before = readCloudSavedSheets();
+  const before = readCloudSavedSheets(cloudTenantId);
   const after = before.filter((sheet) => String(sheet.id) !== id);
-  writeCloudSavedSheets(after);
+  writeCloudSavedSheets(cloudTenantId, after);
   res.json({ ok: true, removed: before.length - after.length });
 });
 
@@ -3173,11 +3186,12 @@ app.post("/api/wa-cloud/send-template-batch", waCloudAuth, async (req, res) => {
     const contacts = Array.isArray(req.body?.contacts) ? req.body.contacts : [];
     const throttleRange = normalizeWaCloudThrottle(req.body || {});
     const campaignName = String(req.body?.campaignName || templateName || "Campanha oficial").trim();
+    const cloudTenantId = getWaCloudTenantId(req);
 
     if (!templateName) throw new Error("templateName obrigatório.");
     if (!contacts.length) throw new Error("contacts vazio.");
 
-    const webhookLookup = buildWebhookLookup(listWebhooks(TENANT_ADMIN), req);
+    const webhookLookup = buildWebhookLookup(listWebhooks(cloudTenantId), req);
     const sourceSummary = {};
     for (const c of contacts) {
       const src = dispatchSourceInfo(c).label || "Contato do disparo";
@@ -3185,7 +3199,7 @@ app.post("/api/wa-cloud/send-template-batch", waCloudAuth, async (req, res) => {
     }
 
     const campaign = createCloudDispatchCampaign({
-      tenantId: TENANT_ADMIN,
+      tenantId: cloudTenantId,
       name: campaignName,
       templateName,
       languageCode,
@@ -3203,11 +3217,11 @@ app.post("/api/wa-cloud/send-template-batch", waCloudAuth, async (req, res) => {
         ? [{ type: "body", parameters: vars.map((t) => ({ type: "text", text: t })) }]
         : [];
 
-      const lead = findLeadByDigits(TENANT_ADMIN, to);
+      const lead = findLeadByDigits(cloudTenantId, to);
       const origin = lead ? leadOriginInfo(lead, webhookLookup) : dispatchSourceInfo(c);
       const dispatchSource = dispatchSourceInfo(c);
       const event = recordCloudDispatchEvent({
-        tenantId: TENANT_ADMIN,
+        tenantId: cloudTenantId,
         campaignId: campaign.id,
         campaignName: campaign.name,
         templateName,
@@ -3227,7 +3241,7 @@ app.post("/api/wa-cloud/send-template-batch", waCloudAuth, async (req, res) => {
           templateName,
           languageCode,
           components,
-          meta: { nome: c?.nome || null, source: "admin-batch", campaignId: campaign.id, dispatchEventId: event.id },
+          meta: { nome: c?.nome || null, source: `${cloudTenantId}-batch`, tenantId: cloudTenantId, campaignId: campaign.id, dispatchEventId: event.id },
         });
         const messageId = out?.messages?.[0]?.id || null;
         updateCloudDispatchEvent(event.id, { status: "sent", sentAt: new Date().toISOString(), messageId });

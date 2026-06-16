@@ -5576,6 +5576,23 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       felipe: { label: "Felipe", title: "Casa do Ads • Felipe", apiBase: "/api/felipe", csvBase: "/felipe/leads.csv" }
     };
 
+
+    function getDefaultCloudLanguage(){
+      return APP_TENANT === "portugal" ? "pt_PT" : "pt_BR";
+    }
+
+    function applyTenantCloudDefaults(){
+      var lang = getDefaultCloudLanguage();
+      ["cloudLanguage", "cloudTemplateLanguage", "cloudLibraryPremiumLanguage"].forEach(function(id){
+        var el = document.getElementById(id);
+        if (el && (!el.value || el.value === "pt_BR" || (APP_TENANT === "portugal" && id === "cloudLanguage"))) el.value = lang;
+      });
+      var sendLang = document.getElementById("cloudLanguage");
+      if (sendLang && APP_TENANT === "portugal") sendLang.placeholder = "pt_PT";
+      var tplLang = document.getElementById("cloudTemplateLanguage");
+      if (tplLang && APP_TENANT === "portugal") tplLang.placeholder = "pt_PT";
+    }
+
     var APP_CONFIG = APP_CONFIGS[APP_TENANT] || APP_CONFIGS.admin;
     var API_BASE = APP_CONFIG.apiBase;
     document.title = APP_CONFIG.title;
@@ -10882,6 +10899,8 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       var sendTplName = document.getElementById("cloudTemplateName");
       var sendTplLang = document.getElementById("cloudLanguage");
       var sendThrottle = document.getElementById("cloudThrottle");
+
+      applyTenantCloudDefaults();
 
       if (btnSend) btnSend.addEventListener("click", cloudSendBatch);
       if (btnTpl) btnTpl.addEventListener("click", cloudListTemplates);
