@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "activePipelineId": "pipe_main",
+  "pipelines": [
+    {
+      "id": "pipe_main",
+      "name": "Funil Principal",
+      "createdAt": "2026-06-19T00:00:00.000Z",
+      "stageOrder": [
+        "stg_new",
+        "stg_contact",
+        "stg_meeting",
+        "stg_proposal",
+        "stg_won"
+      ],
+      "stages": {
+        "stg_new": { "id": "stg_new", "name": "Novo lead", "leadIds": [] },
+        "stg_contact": { "id": "stg_contact", "name": "Contato", "leadIds": [] },
+        "stg_meeting": { "id": "stg_meeting", "name": "Reunião", "leadIds": [] },
+        "stg_proposal": { "id": "stg_proposal", "name": "Proposta", "leadIds": [] },
+        "stg_won": { "id": "stg_won", "name": "Fechou", "leadIds": [] }
+      }
+    }
+  ],
+  "updatedAt": "2026-06-19T00:00:00.000Z"
+}

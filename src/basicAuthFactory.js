@@ -7,6 +7,7 @@ const TENANT_CONFIGS = {
   regina: { userEnv: "REGINA_USER", passEnv: "REGINA_PASS", realm: "Painel da Regina", path: "/regina" },
   portugal: { userEnv: "PORTUGAL_USER", passEnv: "PORTUGAL_PASS", realm: "Painel Portugal", path: "/portugal" },
   felipe: { userEnv: "FELIPE_USER", passEnv: "FELIPE_PASS", realm: "Painel Felipe", path: "/felipe" },
+  ana: { userEnv: "ANA_USER", passEnv: "ANA_PASS", realm: "Painel Ana Salomão", path: "/ana" },
 };
 
 function tenantFromEnv(userEnv) {
@@ -24,6 +25,9 @@ function getSecret() {
     process.env.ADMIN_PASS,
     process.env.PANEL_PASS,
     process.env.REGINA_PASS,
+    process.env.PORTUGAL_PASS,
+    process.env.FELIPE_PASS,
+    process.env.ANA_PASS,
     process.env.PUBLIC_BASE_URL,
     process.env.APP_BASE_URL,
   ].filter(Boolean).join("|");
@@ -278,6 +282,7 @@ function renderLoginPage() {
       <option value="regina">Regina</option>
       <option value="portugal">Portugal</option>
       <option value="felipe">Felipe</option>
+      <option value="ana">Ana Salomão</option>
     </select>
 
     <label for="username">Usuário</label>
@@ -299,7 +304,7 @@ function renderLoginPage() {
     const tenantEl = document.getElementById('tenant');
     const userEl = document.getElementById('username');
     const errEl = document.getElementById('err');
-    tenantEl.value = ['admin','panel','regina','portugal','felipe'].includes(tenant) ? tenant : 'admin';
+    tenantEl.value = ['admin','panel','regina','portugal','felipe','ana'].includes(tenant) ? tenant : 'admin';
     userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || '';
     tenantEl.addEventListener('change', () => { userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || ''; });
     function showError(message){

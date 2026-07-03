@@ -5565,7 +5565,7 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
   <script>
     var APP_TENANT = (function(){
       var first = String(location.pathname || "").split("/").filter(Boolean)[0] || "admin";
-      return ["admin", "panel", "regina", "portugal", "felipe"].includes(first) ? first : "admin";
+      return ["admin", "panel", "regina", "portugal", "felipe", "ana"].includes(first) ? first : "admin";
     })();
 
     var APP_CONFIGS = {
@@ -5573,7 +5573,8 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
       panel: { label: "Painel", title: "Casa do Ads • Painel", apiBase: "/api/panel", csvBase: "/panel/leads.csv" },
       regina: { label: "Regina", title: "Casa do Ads • Regina", apiBase: "/api/regina", csvBase: "/regina/leads.csv" },
       portugal: { label: "Portugal", title: "Casa do Ads • Portugal", apiBase: "/api/portugal", csvBase: "/portugal/leads.csv" },
-      felipe: { label: "Felipe", title: "Casa do Ads • Felipe", apiBase: "/api/felipe", csvBase: "/felipe/leads.csv" }
+      felipe: { label: "Felipe", title: "Casa do Ads • Felipe", apiBase: "/api/felipe", csvBase: "/felipe/leads.csv" },
+      ana: { label: "Ana Salomão", title: "Casa do Ads • Ana Salomão", apiBase: "/api/ana", csvBase: "/ana/leads.csv" }
     };
 
 

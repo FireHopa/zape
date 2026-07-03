@@ -11,6 +11,7 @@ const { panelAuth } = require("./src/panelAuth");
 const { reginaAuth } = require("./src/reginaAuth"); // NOVO: Autenticação da Regina
 const { portugalAuth } = require("./src/portugalAuth"); // NOVO: Autenticação do painel Portugal
 const { felipeAuth } = require("./src/felipeAuth"); // NOVO: Autenticação do painel Felipe
+const { anaAuth } = require("./src/anaAuth"); // NOVO: Autenticação do painel Ana Salomão
 const { registerAuthRoutes, anyTenantAuth } = require("./src/basicAuthFactory");
 
 const { normalizeBRPhoneToE164Digits, normalizePhoneToE164Digits, phoneSearchVariants, extractPhoneRegion } = require("./src/phone");
@@ -76,6 +77,7 @@ const TENANT_PANEL = "panel";
 const TENANT_REGINA = "regina"; // NOVO: Inquilino da Regina
 const TENANT_PORTUGAL = "portugal"; // NOVO: Inquilino do painel Portugal
 const TENANT_FELIPE = "felipe"; // NOVO: Inquilino do painel Felipe
+const TENANT_ANA = "ana"; // NOVO: Inquilino do painel Ana Salomão
 
 /* -------------------- middlewares -------------------- */
 app.use(cors());
@@ -104,9 +106,9 @@ app.get("/", (req, res) => {
 });
 
 // Evita acesso direto aos HTMLs estáticos. As telas passam pelas rotas autenticadas.
-app.get(["/index.html", "/app.html", "/admin.html", "/panel.html", "/regina.html", "/portugal.html", "/felipe.html"], (req, res) => {
+app.get(["/index.html", "/app.html", "/admin.html", "/panel.html", "/regina.html", "/portugal.html", "/felipe.html", "/ana.html"], (req, res) => {
   const p = String(req.path || "");
-  const target = p.includes("panel") ? "/panel" : p.includes("regina") ? "/regina" : p.includes("portugal") ? "/portugal" : p.includes("felipe") ? "/felipe" : "/admin";
+  const target = p.includes("panel") ? "/panel" : p.includes("regina") ? "/regina" : p.includes("portugal") ? "/portugal" : p.includes("felipe") ? "/felipe" : p.includes("ana") ? "/ana" : "/admin";
   res.redirect(target);
 });
 
@@ -2901,6 +2903,162 @@ app.delete("/api/felipe/webhooks/:id", felipeAuth, (req, res) => {
 });
 
 
+// Painel Ana Salomão: tenant independente com as mesmas rotas do painel/regina.
+app.get("/ana", anaAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "app.html"));
+});
+
+app.get("/api/ana/leads", anaAuth, buildLeadsHandler({ tenantId: TENANT_ANA }));
+
+app.delete("/api/ana/leads/:id", anaAuth, (req, res) => {
+  const out = deleteLeadEverywhere(TENANT_ANA, req.params.id, req);
+  if (!out.ok) return res.status(404).json(out);
+  res.json(out);
+});
+
+app.get("/api/ana/crm", anaAuth, (req, res) => {
+  const state = readCrmState(TENANT_ANA);
+  res.json({ ok: true, state });
+});
+app.put("/api/ana/crm", anaAuth, (req, res) => {
+  const state = saveCrmStateAndQueueMessages(TENANT_ANA, req.body && (req.body.state || req.body));
+  res.json({ ok: true, state });
+});
+app.post("/api/ana/leads/manual", anaAuth, async (req, res) => {
+  try {
+    const lead = await createManualLead(TENANT_ANA, req.body || {});
+    res.json({ ok: true, lead });
+  } catch (err) {
+    res.status(400).json({ ok: false, error: err.message });
+  }
+});
+
+app.get("/ana/leads.csv", anaAuth, (req, res) => {
+  const payload = getLeadItemsForRequest(TENANT_ANA, req, { limit: 100000 });
+  const csv = toCSV(payload.items);
+  res.setHeader("Content-Type", "text/csv; charset=utf-8");
+  res.setHeader("Content-Disposition", `attachment; filename="leads_ana.csv"`);
+  res.send(csv);
+});
+
+app.get("/api/ana/whatsapp/status", anaAuth, (req, res) => {
+  res.json(getTenantWA(TENANT_ANA).getWhatsAppStatus());
+});
+
+app.post("/api/ana/whatsapp/init", anaAuth, async (req, res) => {
+  try {
+    await getTenantWA(TENANT_ANA).initWhatsApp();
+    res.json({ ok: true, ...getTenantWA(TENANT_ANA).getWhatsAppStatus() });
+  } catch (err) {
+    res.status(500).json({
+      ok: false,
+      error: err?.message || String(err),
+      ...getTenantWA(TENANT_ANA).getWhatsAppStatus(),
+    });
+  }
+});
+
+app.get("/api/ana/whatsapp/qr", anaAuth, (req, res) => {
+  res.json({ ok: true, qr: getTenantWA(TENANT_ANA).getLatestQr() });
+});
+
+app.get("/api/ana/whatsapp/stats", anaAuth, (req, res) => {
+  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
+  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_ANA, { notDeliveredAfterMin }) });
+});
+app.get("/api/ana/insights", anaAuth, (req, res) => {
+  try { res.json(buildTenantInsights(TENANT_ANA, req)); }
+  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
+});
+buildConversationsRoutes({ tenantId: TENANT_ANA, authMw: anaAuth, prefix: "/api/ana" });
+
+app.get("/api/ana/tags", anaAuth, (req, res) => {
+  res.json({ ok: true, items: listTags(TENANT_ANA) });
+});
+
+app.post("/api/ana/tags", anaAuth, (req, res) => {
+  try {
+    const tag = upsertTag(TENANT_ANA, {
+      id: req.body?.id || null,
+      name: req.body?.name,
+      color: req.body?.color,
+    });
+    res.json({ ok: true, item: tag });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+app.delete("/api/ana/tags/:id", anaAuth, (req, res) => {
+  try {
+    const id = req.params.id;
+    deleteTag(TENANT_ANA, id);
+    removeTagFromAllLeads(TENANT_ANA, id);
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+app.post("/api/ana/leads/:id/tags", anaAuth, (req, res) => {
+  try {
+    const leadId = req.params.id;
+    const tagIds = req.body?.tagIds;
+
+    const allTags = listTags(TENANT_ANA);
+    const allowed = new Set(allTags.map((t) => t.id));
+    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
+      .map((x) => String(x).trim())
+      .filter((x) => allowed.has(x));
+
+    const out = setLeadTags(TENANT_ANA, leadId, cleaned);
+    res.json({ ok: true, ...out });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+app.post("/api/ana/leads/bulk-tags", anaAuth, buildBulkLeadTagsHandler(TENANT_ANA));
+
+app.get("/api/ana/message-template", anaAuth, (req, res) => {
+  res.json({ ok: true, ...getTemplate(TENANT_ANA) });
+});
+
+app.post("/api/ana/message-template", anaAuth, (req, res) => {
+  try {
+    const out = updateTemplateSafe(TENANT_ANA, req.body?.text);
+    res.json({ ok: true, ...out });
+  } catch (e) {
+    res.status(400).json({ ok: false, error: e.message });
+  }
+});
+
+// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Ana Salomão)
+app.get("/api/ana/webhooks", anaAuth, (req, res) => {
+  const items = listWebhooks(TENANT_ANA).map((w) => serializeWebhook(w, req));
+  res.json({ ok: true, webhooks: items });
+});
+
+app.post("/api/ana/webhooks", anaAuth, (req, res) => {
+  const w = createWebhook(TENANT_ANA, { name: req.body && req.body.name });
+  res.json({ ok: true, ...serializeWebhook(w, req) });
+});
+
+// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Ana Salomão)
+app.put("/api/ana/webhooks/:id", anaAuth, (req, res) => {
+  const out = updateWebhook(TENANT_ANA, req.params.id, req.body);
+  if (!out.ok) return res.status(400).json(out);
+  res.json(out);
+});
+
+app.delete("/api/ana/webhooks/:id", anaAuth, (req, res) => {
+  const out = deleteWebhook(TENANT_ANA, req.params.id);
+  if (!out.ok) return res.status(400).json(out);
+  res.json({ ok: true });
+});
+
+
+
 /* -------------------- WhatsApp Cloud API (oficial) -------------------- */
 // WhatsApp Oficial é compartilhado entre painéis autenticados.
 // Assim o painel Felipe não precisa pedir login admin separado para listar modelos/enviar campanhas.
@@ -2910,7 +3068,7 @@ const waCloudAuth = anyTenantAuth;
 // Ex.: usuário Portugal usa os leads, planilhas salvas e histórico do tenant Portugal.
 function getWaCloudTenantId(req) {
   const tenant = String(req?.auth?.tenantId || TENANT_ADMIN).toLowerCase();
-  const allowed = new Set([TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL, TENANT_FELIPE]);
+  const allowed = new Set([TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL, TENANT_FELIPE, TENANT_ANA]);
   return allowed.has(tenant) ? tenant : TENANT_ADMIN;
 }
 
@@ -3384,13 +3542,14 @@ function tenantHasLoginConfigured(tenantId) {
     regina: ["REGINA_USER", "REGINA_PASS"],
     portugal: ["PORTUGAL_USER", "PORTUGAL_PASS"],
     felipe: ["FELIPE_USER", "FELIPE_PASS"],
+    ana: ["ANA_USER", "ANA_PASS"],
   };
   const keys = map[t];
   return Boolean(keys && String(process.env[keys[0]] || "").trim() && String(process.env[keys[1]] || "").trim());
 }
 
 function getWhatsAppAutoStartTenants() {
-  const allowed = [TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL, TENANT_FELIPE];
+  const allowed = [TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL, TENANT_FELIPE, TENANT_ANA];
   const explicit = String(process.env.WEBJS_AUTO_START_TENANTS || "")
     .split(",")
     .map((v) => v.trim().toLowerCase())
@@ -3404,7 +3563,7 @@ function getWhatsAppAutoStartTenants() {
   // tenants antigos só sobem automaticamente quando já têm sessão salva.
   // O tenant Portugal também sobe quando o login dele está configurado no .env,
   // para ficar visível no boot e disponível para gerar QR/conectar como os outros painéis.
-  return allowed.filter((tenantId) => hasExistingWhatsAppSession(tenantId) || ((tenantId === TENANT_PORTUGAL || tenantId === TENANT_FELIPE) && tenantHasLoginConfigured(tenantId)));
+  return allowed.filter((tenantId) => hasExistingWhatsAppSession(tenantId) || ((tenantId === TENANT_PORTUGAL || tenantId === TENANT_FELIPE || tenantId === TENANT_ANA) && tenantHasLoginConfigured(tenantId)));
 }
 
 function startWhatsAppClientsInBackground() {
@@ -3472,6 +3631,7 @@ migrateLegacyData().finally(() => {
     console.log("➡️ Regina:", "/regina");
     console.log("➡️ Portugal:", "/portugal");
     console.log("➡️ Felipe:", "/felipe");
+    console.log("➡️ Ana Salomão:", "/ana");
 
     // Mantém a sessão do WhatsApp viva após pm2 restart.
     // Se já existe sessão local salva, o painel volta conectado sem precisar clicar em Conectar.

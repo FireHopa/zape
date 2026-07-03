@@ -1,5 +1,89 @@
 [
   {
+    "id": "41d96bc725fa19f053b590c",
+    "tenantId": "admin",
+    "token": "mhhfC_kT7Xy9yZqHjhxhLBJe0CvG-vRd",
+    "name": "IMERSÃO SP 09 E 16/07/26",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+    ],
+    "crmTarget": null,
+    "createdAt": "2026-06-26T18:40:03.340Z",
+    "updatedAt": "2026-06-26T18:40:09.749Z",
+    "deletedAt": null
+  },
+  {
+    "id": "b19c8647b852d19ef063defe",
+    "tenantId": "admin",
+    "token": "wILKeWZyqFJFESzyn8KRsh2vV_XWuVZx",
+    "name": "IMERSÃO GUARULHOS",
+    "messageText": "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?",
+    "messages": [
+      "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?"
+    ],
+    "crmTarget": null,
+    "createdAt": "2026-06-22T17:32:17.534Z",
+    "updatedAt": "2026-06-22T17:32:25.017Z",
+    "deletedAt": null
+  },
+  {
+    "id": "8a9c61d151c6d19ee13a94e8",
+    "tenantId": "ana",
+    "token": "hMnNxbThU4SmOdacr4t8oD5a6NjlMExp",
+    "name": "Google IO - 26/06/26",
+    "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+    "messages": [
+      "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?"
+    ],
+    "crmTarget": null,
+    "createdAt": "2026-06-19T18:52:53.352Z",
+    "updatedAt": "2026-06-19T18:52:57.621Z",
+    "deletedAt": null
+  },
+  {
+    "id": "ca3a30ea1b22419ee0fb4083",
+    "tenantId": "regina",
+    "token": "byGVSoY7TpZAtk-cO42jPFXmDvW3yx-q",
+    "name": "GOOGLE IO - 23/06/26",
+    "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+    "messages": [
+      "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?"
+    ],
+    "crmTarget": null,
+    "createdAt": "2026-06-19T17:43:42.979Z",
+    "updatedAt": "2026-06-19T17:43:53.362Z",
+    "deletedAt": null
+  },
+  {
+    "id": "56e15406fa74d19ed1d68094",
+    "tenantId": "portugal",
+    "token": "_noXxOqfZj1gwpldz9VriPqoTtoYGkNY",
+    "name": "GOOGLE IO PORTUGAL",
+    "messageText": "Olá {{nome}} tudo bem?\n\nAqui é a *Fabiane*, da equipa do *Matheus Bottaro*.\n\nA sua inscrição foi recebida com sucesso para o evento online:\n\nA *Nova Era da Aquisição de Clientes por IA*\n\n📅 *07 e 08 de Julho*\n🕖 *19h00*\n\nDurante o evento, vamos abordar como aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini e outras Inteligências Artificiais, além das mais recentes atualizações do Google Ads com IA para atrair leads mais qualificados.\n\nEm breve irá receber mais informações por aqui e também no seu e-mail.\n\nCriámos também grupos silenciosos para enviar os acessos, materiais complementares, gravações e conteúdos extras do evento.\n\nPosso enviar-lhe o link de acesso ao grupo?",
+    "messages": [
+      "Olá {{nome}} tudo bem?\n\nAqui é a *Fabiane*, da equipa do *Matheus Bottaro*.\n\nA sua inscrição foi recebida com sucesso para o evento online:\n\nA *Nova Era da Aquisição de Clientes por IA*\n\n📅 *07 e 08 de Julho*\n🕖 *19h00*\n\nDurante o evento, vamos abordar como aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini e outras Inteligências Artificiais, além das mais recentes atualizações do Google Ads com IA para atrair leads mais qualificados.\n\nEm breve irá receber mais informações por aqui e também no seu e-mail.\n\nCriámos também grupos silenciosos para enviar os acessos, materiais complementares, gravações e conteúdos extras do evento.\n\nPosso enviar-lhe o link de acesso ao grupo?"
+    ],
+    "crmTarget": null,
+    "createdAt": "2026-06-16T19:09:16.308Z",
+    "updatedAt": "2026-06-30T13:06:28.497Z",
+    "deletedAt": null
+  },
+  {
+    "id": "bddbaaf88e6b719ed1c6d4cb",
+    "tenantId": "panel",
+    "token": "59EYZJfQg63ybOcUFNSkg52OnwWXOgQA",
+    "name": "GOOGLE IO PORTUGAL",
+    "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *22 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
+    "messages": [
+      "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *22 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?"
+    ],
+    "crmTarget": null,
+    "createdAt": "2026-06-16T18:52:09.291Z",
+    "updatedAt": "2026-06-16T18:52:25.290Z",
+    "deletedAt": null
+  },
+  {
     "id": "b86edaf2e6b4119ed020e221",
     "tenantId": "panel",
     "token": "AYTM9rfok3Sp-zcFS8Wak61qj1jgOUsI",
@@ -160,7 +244,7 @@
       "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?"
     ],
     "createdAt": "2026-05-27T15:23:10.544Z",
-    "updatedAt": "2026-06-16T17:42:38.195Z",
+    "updatedAt": "2026-06-17T17:05:10.498Z",
     "deletedAt": null,
     "crmTarget": {
       "enabled": true,
