@@ -90,4 +90,12 @@ temp/
 
 # 🧠 Chrome (automação)
 chrome/data/portugal/conversation_media/Curriculum_Eng_43d0fa44.pdf
+
+# Browsers / Playwright / Chromium
+chrome/
 .chrome/
+chromium/
+.playwright/
+ms-playwright/
+playwright-report/
+test-results/
