@@ -54,7 +54,25 @@ function _sanitizeCrmTarget(value) {
   };
 }
 
-function createWebhook(tenantId, { name, messageText, messages, crmTarget } = {}) {
+function _sanitizeExternalCrmTarget(value) {
+  if (value === null || value === false || value === "") return null;
+  if (!value || typeof value !== "object") return undefined;
+  if (value.enabled === false) return null;
+
+  const allowedSources = new Set(["WhatsApp", "Landing Page", "Evento", "Instagram", "Google", "Indicação", "Tráfego Pago", "Outro"]);
+  const source = String(value.source || "WhatsApp").trim();
+  const now = new Date().toISOString();
+  return {
+    enabled: true,
+    pipelineId: String(value.pipelineId || "").trim(),
+    stageId: String(value.stageId || "").trim(),
+    source: allowedSources.has(source) ? source : "WhatsApp",
+    linkedAt: value.linkedAt || now,
+    updatedAt: now,
+  };
+}
+
+function createWebhook(tenantId, { name, messageText, messages, crmTarget, externalCrmTarget } = {}) {
   const t = String(tenantId || "").trim() || "admin";
   const all = _loadAll();
 
@@ -75,7 +93,8 @@ function createWebhook(tenantId, { name, messageText, messages, crmTarget } = {}
     name: String(name || "Webhook").trim() || "Webhook",
     messageText: msgsArray[0] || "", // mantido por compatibilidade com rotas antigas
     messages: msgsArray,             // NOVO CAMPO: Lista de mensagens
-    crmTarget: _sanitizeCrmTarget(crmTarget) || null, // vínculo opcional com o Funil de Vendas
+    crmTarget: _sanitizeCrmTarget(crmTarget) || null, // vínculo opcional com o Funil de Vendas interno
+    externalCrmTarget: _sanitizeExternalCrmTarget(externalCrmTarget) || null,
     createdAt: now,
     updatedAt: now,
     deletedAt: null,
@@ -110,6 +129,11 @@ function updateWebhook(tenantId, webhookId, patch = {}) {
   if (Object.prototype.hasOwnProperty.call(patch, "crmTarget")) {
     const cleanedTarget = _sanitizeCrmTarget(patch.crmTarget);
     next.crmTarget = cleanedTarget === undefined ? (next.crmTarget || null) : cleanedTarget;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(patch, "externalCrmTarget")) {
+    const cleanedTarget = _sanitizeExternalCrmTarget(patch.externalCrmTarget);
+    next.externalCrmTarget = cleanedTarget === undefined ? (next.externalCrmTarget || null) : cleanedTarget;
   }
 
   next.updatedAt = new Date().toISOString();

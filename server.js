@@ -34,6 +34,14 @@ const { listConversationDigits, listConversationMessages, listConversationSummar
 
 // CORREÇÃO: importando updateWebhook
 const { listWebhooks, createWebhook, updateWebhook, deleteWebhook, resolveWebhookToken } = require("./src/webhooksStore");
+const {
+  enqueueExternalCrmLead,
+  fetchExternalCrmCatalog,
+  getExternalCrmQueueStatus,
+  getLegacyActiveCampaignTarget,
+  startExternalCrmWorker,
+  stopExternalCrmWorker,
+} = require("./src/externalCrmIntegration");
 
 // CORREÇÃO: importando as funções do Dono do Negócio
 const { readBusinessOwner, writeBusinessOwner } = require("./src/businessStore");
@@ -194,7 +202,11 @@ async function processLead(tenantId, source, payload) {
     active_seriesid: payload.active_seriesid || "",
   };
 
-  if (!lead.nome || !lead.email || !lead.whatsapp_digits) {
+  const allowPhoneOnly = payload.allowPhoneOnly === true;
+  if (!lead.whatsapp_digits) {
+    throw new Error("Lead inválido (WhatsApp obrigatório e válido).");
+  }
+  if (!allowPhoneOnly && (!lead.nome || !lead.email)) {
     throw new Error("Lead inválido (nome/email/whatsapp válido).");
   }
 
@@ -1137,6 +1149,14 @@ function serializeWebhook(webhook, req) {
       linkedAt: webhook.crmTarget.linkedAt || null,
       updatedAt: webhook.crmTarget.updatedAt || null,
     } : null,
+    externalCrmTarget: webhook.externalCrmTarget && typeof webhook.externalCrmTarget === "object" ? {
+      enabled: webhook.externalCrmTarget.enabled !== false,
+      pipelineId: String(webhook.externalCrmTarget.pipelineId || ""),
+      stageId: String(webhook.externalCrmTarget.stageId || ""),
+      source: String(webhook.externalCrmTarget.source || "WhatsApp"),
+      linkedAt: webhook.externalCrmTarget.linkedAt || null,
+      updatedAt: webhook.externalCrmTarget.updatedAt || null,
+    } : null,
     urlPreview: webhook.token ? `/webhooks/${String(webhook.token).slice(0, 6)}...` : "",
   };
 }
@@ -1970,13 +1990,19 @@ app.post("/debug/active", (req, res) => {
   res.json({ ok: true });
 });
 
-/** mantém comportamento antigo: ActiveCampaign cai no tenant ADMIN */
+/**
+ * Entrada fixa da ActiveCampaign no tenant ADMIN.
+ * Esta rota permanece sempre ativa: recebe dados da ActiveCampaign, cria o lead
+ * e, quando o CRM estiver configurado, também registra o mesmo lead no CRM Inteligente.
+ * Não existe envio de dados deste sistema para a ActiveCampaign.
+ */
 app.post("/webhooks/activecampaign", async (req, res) => {
   try {
     const c = req.body?.contact || {};
     const f = c?.fields || {};
 
     const lead = await processLead(TENANT_ADMIN, "activecampaign", {
+      allowPhoneOnly: true,
       sourceDetail: "Webhook fixo do ActiveCampaign",
       sourceMeta: { type: "activecampaign", payloadType: "activecampaign" },
       active_contact_id: c.id || "",
@@ -1991,6 +2017,23 @@ app.post("/webhooks/activecampaign", async (req, res) => {
       email: c.email || "",
       whatsapp: c.phone || "",
     });
+
+    // Fluxo unidirecional: ActiveCampaign -> WhatsApp -> CRM Inteligente.
+    const legacyExternalTarget = getLegacyActiveCampaignTarget();
+    if (legacyExternalTarget) {
+      try {
+        const queued = enqueueExternalCrmLead({
+          tenantId: TENANT_ADMIN,
+          webhook: { id: "activecampaign-legacy", name: "ActiveCampaign legado" },
+          lead,
+          target: legacyExternalTarget,
+          payloadType: "activecampaign",
+        });
+        console.log("📥 Sincronização com CRM Inteligente registrada:", queued);
+      } catch (queueError) {
+        console.error("⚠️ Lead salvo, mas não foi possível gravar a fila do CRM Inteligente:", queueError?.message || queueError);
+      }
+    }
 
     res.json({ ok: true, leadId: lead.id });
   } catch (err) {
@@ -2018,6 +2061,7 @@ app.post("/webhooks/:token", async (req, res) => {
       const c = body.contact || {};
       const f = c?.fields || {};
       lead = await processLead(tenantId, "generated_webhook_activecampaign", {
+        allowPhoneOnly: true,
         sourceDetail: `Webhook ${webhookName || row.id} recebido no formato ActiveCampaign`,
         sourceMeta: {
           type: "webhook",
@@ -2042,6 +2086,7 @@ app.post("/webhooks/:token", async (req, res) => {
       // Payload genérico
       const p = body;
       lead = await processLead(tenantId, "generated_webhook_generic", {
+        allowPhoneOnly: true,
         sourceDetail: `Webhook ${webhookName || row.id} recebido por POST JSON`,
         sourceMeta: {
           type: "webhook",
@@ -2069,6 +2114,22 @@ app.post("/webhooks/:token", async (req, res) => {
       console.log(`✅ Lead vinculado ao CRM pelo webhook [${tenantId}]:`, { leadId: lead.id, webhookId: row.id, pipelineId: crmTargetResult.pipelineId, stageId: crmTargetResult.stageId });
     } else if (row && row.crmTarget && row.crmTarget.enabled !== false) {
       console.warn(`⚠️ Webhook com vínculo de CRM não aplicado [${tenantId}]:`, { webhookId: row.id, leadId: lead && lead.id, reason: crmTargetResult && crmTargetResult.reason });
+    }
+
+    if (row && row.externalCrmTarget && row.externalCrmTarget.enabled !== false) {
+      try {
+        const queued = enqueueExternalCrmLead({
+          tenantId,
+          webhook: { ...row, displayName: webhookName },
+          lead,
+          target: row.externalCrmTarget,
+          payloadType: lead?.sourceMeta?.payloadType || "json",
+        });
+        console.log(`📥 Lead registrado na fila do CRM Inteligente [${tenantId}]:`, queued);
+      } catch (queueError) {
+        // A falha da integração nunca pode interromper o cadastro nem as mensagens do WhatsApp.
+        console.error(`⚠️ Lead salvo, mas não foi possível gravar a fila do CRM Inteligente [${tenantId}]:`, queueError?.message || queueError);
+      }
     }
 
     // NOVO: dispara mensagens em lote salvas no webhook, se existirem
@@ -2112,6 +2173,34 @@ app.post("/webhooks/:token", async (req, res) => {
   }
 });
 
+
+function registerExternalCrmApi(apiPrefix, authMiddleware, tenantId) {
+  app.get(`${apiPrefix}/external-crm/status`, authMiddleware, (req, res) => {
+    res.json({ ok: true, ...getExternalCrmQueueStatus(tenantId) });
+  });
+
+  app.get(`${apiPrefix}/external-crm/catalog`, authMiddleware, async (req, res) => {
+    try {
+      const catalog = await fetchExternalCrmCatalog();
+      res.json({ ok: true, ...catalog, queue: getExternalCrmQueueStatus(tenantId).counts });
+    } catch (error) {
+      res.status(error?.statusCode && error.statusCode < 500 ? error.statusCode : 502).json({
+        ok: false,
+        configured: getExternalCrmQueueStatus(tenantId).configured,
+        pipelines: [],
+        error: error?.message || "Não foi possível consultar o CRM Inteligente.",
+        queue: getExternalCrmQueueStatus(tenantId).counts,
+      });
+    }
+  });
+}
+
+registerExternalCrmApi("/api/admin", adminAuth, TENANT_ADMIN);
+registerExternalCrmApi("/api/panel", panelAuth, TENANT_PANEL);
+registerExternalCrmApi("/api/regina", reginaAuth, TENANT_REGINA);
+registerExternalCrmApi("/api/portugal", portugalAuth, TENANT_PORTUGAL);
+registerExternalCrmApi("/api/felipe", felipeAuth, TENANT_FELIPE);
+registerExternalCrmApi("/api/ana", anaAuth, TENANT_ANA);
 
 /* -------------------- Business Owner (Dono do Negócio) API -------------------- */
 // CORREÇÃO: Rotas para visualização/edição das informações do Dono (atrelado ao ADMIN)
@@ -3604,6 +3693,7 @@ async function gracefulShutdown(signal) {
 
   console.log(`🛑 Recebido ${signal}. Encerrando clientes do WhatsApp com segurança...`);
   try {
+    stopExternalCrmWorker();
     await destroyCachedWhatsAppClients();
   } catch (err) {
     console.error("⚠️ Falha ao encerrar clientes WhatsApp:", err?.message || err);
@@ -3632,6 +3722,9 @@ migrateLegacyData().finally(() => {
     console.log("➡️ Portugal:", "/portugal");
     console.log("➡️ Felipe:", "/felipe");
     console.log("➡️ Ana Salomão:", "/ana");
+
+    // A fila é persistente: eventos pendentes voltam a ser processados após reinício do servidor.
+    startExternalCrmWorker();
 
     // Mantém a sessão do WhatsApp viva após pm2 restart.
     // Se já existe sessão local salva, o painel volta conectado sem precisar clicar em Conectar.

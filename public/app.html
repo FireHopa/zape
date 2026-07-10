@@ -3410,6 +3410,26 @@ body:not(.hasPager) .pager{display:none!important;}
   .sheetBody{padding:12px!important;}
   #ovTemplate .webhookSheet{width:calc(100vw - 20px)!important;max-height:calc(100dvh - 20px)!important;}
 }
+.externalCrmPanel{display:flex;flex-direction:column;gap:13px;border-color:#bfdbfe!important;background:linear-gradient(145deg,#eff6ff,#fff 62%)!important;}
+.externalCrmToggleRow{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;}
+.externalCrmToggleCopy{display:flex;gap:11px;align-items:flex-start;}
+.externalCrmToggleCopy>i{width:38px;height:38px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#2563eb;color:#fff;font-size:19px;flex:0 0 auto;}
+.externalCrmToggleCopy b{display:block;color:#0f172a;font-size:14px;font-weight:950;}
+.externalCrmToggleCopy span{display:block;color:#64748b;font-size:12px;line-height:1.45;margin-top:3px;}
+.externalCrmSwitch{position:relative;width:48px;height:28px;flex:0 0 auto;}
+.externalCrmSwitch input{position:absolute;opacity:0;pointer-events:none;}
+.externalCrmSwitch span{position:absolute;inset:0;border-radius:999px;background:#cbd5e1;cursor:pointer;transition:.2s;}
+.externalCrmSwitch span:after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;left:3px;top:3px;background:#fff;box-shadow:0 2px 6px rgba(15,23,42,.22);transition:.2s;}
+.externalCrmSwitch input:checked+span{background:#2563eb;}
+.externalCrmSwitch input:checked+span:after{transform:translateX(20px);}
+.externalCrmFields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.externalCrmField{display:grid;gap:6px;}
+.externalCrmField label{font-size:11px;font-weight:900;color:#475569;}
+.externalCrmStatus{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #dbeafe;border-radius:14px;background:rgba(255,255,255,.8);padding:10px 12px;color:#475569;font-size:12px;line-height:1.4;}
+.externalCrmStatusText{min-width:0;}
+.externalCrmStatus strong{color:#0f172a;}
+.externalCrmFields.is-disabled{opacity:.5;pointer-events:none;}
+@media(max-width:760px){.externalCrmFields{grid-template-columns:1fr;}.externalCrmToggleRow,.externalCrmStatus{align-items:flex-start;}.externalCrmStatus{flex-direction:column;}}
 </style>
 
 
@@ -5428,6 +5448,49 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
           <div class="webhookSafeNote"><i class="ph ph-shield-check"></i><span>Este link recebe o cadastro, cria o lead no painel e dispara as mensagens configuradas abaixo. Guarde o link com cuidado e exclua quando não for mais usar.</span></div>
         </section>
       </div>
+
+      <section class="webhookPanel externalCrmPanel">
+        <div class="externalCrmToggleRow">
+          <div class="externalCrmToggleCopy">
+            <i class="ph ph-arrows-left-right"></i>
+            <div>
+              <b>Enviar também para o CRM Inteligente</b>
+              <span>Quando ativado, cada novo lead deste webhook é registrado no CRM externo. Falhas ficam numa fila e são tentadas novamente sem interromper o WhatsApp.</span>
+            </div>
+          </div>
+          <label class="externalCrmSwitch" title="Ativar integração deste webhook">
+            <input id="whExternalCrmEnabled" type="checkbox">
+            <span></span>
+          </label>
+        </div>
+        <div id="whExternalCrmFields" class="externalCrmFields is-disabled">
+          <div class="externalCrmField">
+            <label for="whExternalCrmPipeline">Funil de destino</label>
+            <select id="whExternalCrmPipeline" class="input"><option value="">Funil padrão do CRM</option></select>
+          </div>
+          <div class="externalCrmField">
+            <label for="whExternalCrmStage">Etapa inicial</label>
+            <select id="whExternalCrmStage" class="input"><option value="">Etapa “Novo lead” padrão</option></select>
+          </div>
+          <div class="externalCrmField">
+            <label for="whExternalCrmSource">Origem no CRM</label>
+            <select id="whExternalCrmSource" class="input">
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Landing Page">Landing Page</option>
+              <option value="Evento">Evento</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Google">Google</option>
+              <option value="Indicação">Indicação</option>
+              <option value="Tráfego Pago">Tráfego Pago</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="externalCrmStatus">
+          <div id="whExternalCrmStatus" class="externalCrmStatusText"><strong>Integração desativada neste webhook.</strong></div>
+          <button id="btnExternalCrmRefresh" class="btn btnSoft" type="button"><i class="ph ph-arrows-clockwise"></i> Atualizar conexão</button>
+        </div>
+      </section>
 
       <section class="webhookPanel messagesPanel">
         <div class="panelMiniHead">
@@ -11008,9 +11071,18 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
     var whMsgMeta = document.getElementById("whMsgMeta");
     var btnWebhookAddMsg = document.getElementById("btnWebhookAddMsg");
     var whMessagesList = document.getElementById("whMessagesList");
+    var whExternalCrmEnabled = document.getElementById("whExternalCrmEnabled");
+    var whExternalCrmFields = document.getElementById("whExternalCrmFields");
+    var whExternalCrmPipeline = document.getElementById("whExternalCrmPipeline");
+    var whExternalCrmStage = document.getElementById("whExternalCrmStage");
+    var whExternalCrmSource = document.getElementById("whExternalCrmSource");
+    var whExternalCrmStatus = document.getElementById("whExternalCrmStatus");
+    var btnExternalCrmRefresh = document.getElementById("btnExternalCrmRefresh");
 
     var webhookItems = [];
     var webhooksLoadedOnce = false;
+    var externalCrmCatalog = { ok:false, configured:false, pipelines:[], queue:{} };
+    var externalCrmCatalogLoading = false;
 
     function addMessageTextarea(text) {
       if (!whMessagesList) return;
@@ -11044,6 +11116,168 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
 
     function currentWebhookNameInput(){
       return whNameInput ? String(whNameInput.value || "").trim() : "";
+    }
+
+    function externalCrmTargetOf(webhook){
+      var target = webhook && webhook.externalCrmTarget && webhook.externalCrmTarget.enabled !== false
+        ? webhook.externalCrmTarget
+        : null;
+      return target || { enabled:false, pipelineId:"", stageId:"", source:"WhatsApp" };
+    }
+
+    function externalCrmPipelineById(id){
+      var wanted = String(id || "");
+      var pipelines = Array.isArray(externalCrmCatalog.pipelines) ? externalCrmCatalog.pipelines : [];
+      return pipelines.find(function(p){ return String(p.id || "") === wanted; }) || null;
+    }
+
+    function populateExternalCrmStages(pipelineId, selectedStageId){
+      if (!whExternalCrmStage) return;
+      var wantedStage = String(selectedStageId || "");
+      whExternalCrmStage.innerHTML = "";
+
+      if (!pipelineId) {
+        var defaultStageOption = document.createElement("option");
+        defaultStageOption.value = "";
+        defaultStageOption.textContent = "Etapa “Novo lead” padrão";
+        whExternalCrmStage.appendChild(defaultStageOption);
+        whExternalCrmStage.value = "";
+        whExternalCrmStage.disabled = true;
+        return;
+      }
+
+      var pipeline = externalCrmPipelineById(pipelineId);
+      var stages = pipeline && Array.isArray(pipeline.stages) ? pipeline.stages : [];
+      stages.forEach(function(stage){
+        var option = document.createElement("option");
+        option.value = String(stage.id || "");
+        option.textContent = String(stage.name || "Etapa");
+        whExternalCrmStage.appendChild(option);
+      });
+
+      if (wantedStage && !stages.some(function(stage){ return String(stage.id || "") === wantedStage; })) {
+        var missingStage = document.createElement("option");
+        missingStage.value = wantedStage;
+        missingStage.textContent = "Etapa configurada não encontrada";
+        whExternalCrmStage.appendChild(missingStage);
+      }
+
+      whExternalCrmStage.disabled = stages.length === 0 && !wantedStage;
+      whExternalCrmStage.value = wantedStage || (stages[0] ? String(stages[0].id || "") : "");
+    }
+
+    function populateExternalCrmPipelines(target){
+      if (!whExternalCrmPipeline) return;
+      var wantedPipeline = String((target && target.pipelineId) || "");
+      var wantedStage = String((target && target.stageId) || "");
+      var pipelines = Array.isArray(externalCrmCatalog.pipelines) ? externalCrmCatalog.pipelines : [];
+      whExternalCrmPipeline.innerHTML = "";
+
+      var defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.textContent = "Funil padrão do CRM";
+      whExternalCrmPipeline.appendChild(defaultOption);
+
+      pipelines.forEach(function(pipeline){
+        var option = document.createElement("option");
+        option.value = String(pipeline.id || "");
+        option.textContent = String(pipeline.name || "Funil") + (pipeline.isDefault ? " · padrão" : "");
+        whExternalCrmPipeline.appendChild(option);
+      });
+
+      if (wantedPipeline && !pipelines.some(function(pipeline){ return String(pipeline.id || "") === wantedPipeline; })) {
+        var missingPipeline = document.createElement("option");
+        missingPipeline.value = wantedPipeline;
+        missingPipeline.textContent = "Funil configurado não encontrado";
+        whExternalCrmPipeline.appendChild(missingPipeline);
+      }
+
+      whExternalCrmPipeline.value = wantedPipeline;
+      populateExternalCrmStages(wantedPipeline, wantedStage);
+    }
+
+    function externalCrmQueueSummary(){
+      var queue = externalCrmCatalog && externalCrmCatalog.queue ? externalCrmCatalog.queue : {};
+      var pending = Number(queue.pending || 0) + Number(queue.sending || 0);
+      var failed = Number(queue.failedPermanent || 0);
+      var delivered = Number(queue.delivered || 0);
+      var parts = [];
+      if (pending) parts.push(pending + " pendente" + (pending === 1 ? "" : "s"));
+      if (failed) parts.push(failed + " falha" + (failed === 1 ? " definitiva" : "s definitivas"));
+      if (delivered) parts.push(delivered + " entregue" + (delivered === 1 ? "" : "s"));
+      return parts.length ? parts.join(" · ") : "fila sem pendências";
+    }
+
+    function renderExternalCrmStatus(webhook){
+      if (!whExternalCrmStatus) return;
+      var enabled = Boolean(webhook && whExternalCrmEnabled && whExternalCrmEnabled.checked);
+      var queueText = externalCrmQueueSummary();
+
+      if (externalCrmCatalogLoading) {
+        whExternalCrmStatus.innerHTML = "<strong>Consultando o CRM Inteligente...</strong>";
+        return;
+      }
+      if (!externalCrmCatalog.configured) {
+        var errorText = String(externalCrmCatalog.error || "Defina a URL e a chave da integração no servidor do WhatsApp.");
+        whExternalCrmStatus.innerHTML = "<strong>Conexão ainda não configurada.</strong> " + escapeHtml(errorText);
+        return;
+      }
+      if (externalCrmCatalog.ok === false) {
+        whExternalCrmStatus.innerHTML = "<strong>Não foi possível consultar o CRM.</strong> " + escapeHtml(String(externalCrmCatalog.error || "Verifique a conexão.")) + " · " + escapeHtml(queueText);
+        return;
+      }
+      if (!webhook) {
+        whExternalCrmStatus.innerHTML = "<strong>Gere ou selecione um webhook.</strong> A integração é configurada separadamente para cada origem. · " + escapeHtml(queueText);
+        return;
+      }
+      if (!enabled) {
+        whExternalCrmStatus.innerHTML = "<strong>CRM conectado.</strong> Integração desativada neste webhook. · " + escapeHtml(queueText);
+        return;
+      }
+      whExternalCrmStatus.innerHTML = "<strong>CRM conectado e ativo neste webhook.</strong> " + escapeHtml(queueText);
+    }
+
+    function renderExternalCrmUi(webhook){
+      var target = externalCrmTargetOf(webhook);
+      var enabled = Boolean(webhook && target.enabled);
+      if (whExternalCrmEnabled) {
+        whExternalCrmEnabled.checked = enabled;
+        whExternalCrmEnabled.disabled = !webhook;
+      }
+      if (whExternalCrmFields) whExternalCrmFields.classList.toggle("is-disabled", !enabled || !webhook);
+      populateExternalCrmPipelines(target);
+      if (whExternalCrmSource) whExternalCrmSource.value = String(target.source || "WhatsApp");
+      renderExternalCrmStatus(webhook);
+    }
+
+    async function loadExternalCrmCatalog(){
+      if (externalCrmCatalogLoading) return externalCrmCatalog;
+      externalCrmCatalogLoading = true;
+      renderExternalCrmStatus(selectedWebhook());
+      try {
+        var response = await fetch(API_BASE + "/external-crm/catalog");
+        var data = await response.json().catch(function(){ return {}; });
+        externalCrmCatalog = {
+          ok: Boolean(response.ok && data && data.ok !== false),
+          configured: Boolean(data && data.configured),
+          pipelines: data && Array.isArray(data.pipelines) ? data.pipelines : [],
+          queue: data && data.queue ? data.queue : {},
+          defaultPipelineId: data && data.defaultPipelineId ? String(data.defaultPipelineId) : "",
+          error: data && (data.error || data.message) ? String(data.error || data.message) : "",
+        };
+      } catch(e) {
+        externalCrmCatalog = {
+          ok:false,
+          configured:Boolean(externalCrmCatalog.configured),
+          pipelines:Array.isArray(externalCrmCatalog.pipelines) ? externalCrmCatalog.pipelines : [],
+          queue:externalCrmCatalog.queue || {},
+          error:"Falha de conexão com o servidor do WhatsApp.",
+        };
+      } finally {
+        externalCrmCatalogLoading = false;
+        renderExternalCrmUi(selectedWebhook());
+      }
+      return externalCrmCatalog;
     }
 
     function renderWebhooks(){
@@ -11096,6 +11330,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
         var msgs = (w.messages && w.messages.length > 0) ? w.messages : (w.messageText ? [w.messageText] : [""]);
         msgs.forEach(function(m) { addMessageTextarea(m); });
       }
+      renderExternalCrmUi(w);
     }
 
     async function loadWebhooks(){
@@ -11109,6 +11344,17 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
     }
 
     if (whSelect) whSelect.addEventListener("change", updateWebhookInfo);
+    if (whExternalCrmEnabled) whExternalCrmEnabled.addEventListener("change", function(){
+      var enabled = Boolean(whExternalCrmEnabled.checked && selectedWebhook());
+      if (whExternalCrmFields) whExternalCrmFields.classList.toggle("is-disabled", !enabled);
+      renderExternalCrmStatus(selectedWebhook());
+    });
+    if (whExternalCrmPipeline) whExternalCrmPipeline.addEventListener("change", function(){
+      populateExternalCrmStages(whExternalCrmPipeline.value, "");
+    });
+    if (btnExternalCrmRefresh) btnExternalCrmRefresh.addEventListener("click", function(){
+      loadExternalCrmCatalog();
+    });
 
     if (btnWebhookNew) btnWebhookNew.addEventListener("click", async function(){
       try {
@@ -11193,6 +11439,25 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
         var webhookName = currentWebhookNameInput();
         var body = { messages: messagesArray };
         if (webhookName) body.name = webhookName;
+
+        if (whExternalCrmEnabled && whExternalCrmEnabled.checked) {
+          var pipelineId = whExternalCrmPipeline ? String(whExternalCrmPipeline.value || "") : "";
+          var stageId = whExternalCrmStage ? String(whExternalCrmStage.value || "") : "";
+          if (pipelineId && !stageId) {
+            toast("warn", "CRM Inteligente", "Selecione a etapa inicial do funil escolhido.");
+            if (whMsgMeta) whMsgMeta.textContent = "";
+            return;
+          }
+          body.externalCrmTarget = {
+            enabled: true,
+            pipelineId: pipelineId,
+            stageId: stageId,
+            source: whExternalCrmSource ? String(whExternalCrmSource.value || "WhatsApp") : "WhatsApp"
+          };
+        } else {
+          body.externalCrmTarget = null;
+        }
+
         var r = await fetch(API_BASE + "/webhooks/" + encodeURIComponent(w.id), {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -11203,7 +11468,7 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
           await loadWebhooks();
           if (whSelect) whSelect.value = r.webhook.id;
           updateWebhookInfo();
-          toast("ok","Entrada automática","Mensagens automáticas salvas.");
+          toast("ok","Entrada automática","Origem, mensagens e integração salvas.");
         } else {
           toast("err", "Mensagens automáticas", (r && r.error) ? r.error : "Falha ao salvar mensagens.");
           if (whMsgMeta) whMsgMeta.textContent = "";
@@ -11219,7 +11484,10 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
 
     btnOpenTemplate?.addEventListener("click", async () => {
       ovTemplate.classList.add("open");
-      try { await loadWebhooks(); webhooksLoadedOnce = true; } catch(e) {}
+      try {
+        await Promise.allSettled([loadWebhooks(), loadExternalCrmCatalog()]);
+        webhooksLoadedOnce = true;
+      } catch(e) {}
     });
     btnCloseTemplate?.addEventListener("click", () => ovTemplate.classList.remove("open"));
     ovTemplate?.addEventListener("click", (e) => { if (e.target === ovTemplate) ovTemplate.classList.remove("open"); });

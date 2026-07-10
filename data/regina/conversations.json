@@ -1331,6 +1331,33 @@
       "createdAt": "2026-06-24T12:26:16.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_199174930878468@lid_3EB0B4F57333AE7AC97620",
+      "fromMe": true,
+      "body": "11 99645-9440 flavio",
+      "type": "chat",
+      "timestamp": 1783455494,
+      "createdAt": "2026-07-07T20:18:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_199174930878468@lid_ACAE2A565A5FE219C63156D31569DF59",
+      "fromMe": false,
+      "body": "Vem comigo no TikTok Lite! Jogue FuteBônus e ganhe R$ 105 em recompensas! https://www.tiktok.com/d/4/ZS9Mymw5FLH3R-TVwLz/",
+      "type": "image",
+      "timestamp": 1783624624,
+      "createdAt": "2026-07-09T19:17:04.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_199174930878468_lid_ACAE2A565A5FE219C63156D31569DF59_9d535f39.jpg",
+      "mediaSize": 32754,
+      "filename": "false_199174930878468@lid_ACAE2A565A5FE219C63156D31569DF59",
+      "originalName": "false_199174930878468@lid_ACAE2A565A5FE219C63156D31569DF59"
     }
   ],
   "5533987266829": [
@@ -1383,6 +1410,16 @@
       "type": "chat",
       "timestamp": 1783001260,
       "createdAt": "2026-07-02T14:07:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_131739733209313@lid_3EB05AC36E63D95262804E",
+      "fromMe": true,
+      "body": "Boa tarde, Eduarda! Tudo bem? 😊\n\nEstou retomando contato com algumas pessoas que demonstraram interesse em conhecer melhor as estratégias da Casa do Ads e lembrei de você.\n\nTenho conversado com empresários para entender o momento de cada negócio e mostrar, de forma personalizada, como as novas estratégias com Inteligência Artificial e as atualizações do Google podem contribuir para gerar mais oportunidades.\n\nAntes de agendarmos uma conversa, me conta: hoje o seu maior objetivo é atrair mais clientes, aumentar as vendas ou estruturar melhor o marketing?",
+      "type": "chat",
+      "timestamp": 1783362351,
+      "createdAt": "2026-07-06T18:25:51.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }

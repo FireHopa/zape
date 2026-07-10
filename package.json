@@ -13,7 +13,8 @@
     "pm2:restart": "pm2 restart bobia",
     "pm2:logs": "pm2 logs bobia --lines 200",
     "pm2:stop": "pm2 stop bobia",
-    "pm2:delete": "pm2 delete bobia"
+    "pm2:delete": "pm2 delete bobia",
+    "test:crm-integration": "node --test tests/externalCrmIntegration.test.js"
   },
   "dependencies": {
     "basic-auth": "^2.0.1",

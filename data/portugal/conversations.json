@@ -2733,6 +2733,16 @@
       "createdAt": "2026-07-02T10:58:50.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_220749155537017@lid_3EB013E5A7B5F3DFC42E4D",
+      "fromMe": true,
+      "body": "Olá Camila! Boa tarde.l!\n\nNa mentoria de quarta-feira vamos falar sobre *3 estratégias importantes* que voce deve começar a usar agora no *ChatGPT, Gemini, Claude e qualquer outra IA*\n\n1️⃣ *Prompt Negativo:* como dizer para a IA o que ela não deve fazer para reduzir alucinações e melhorar a qualidade das respostas.\n\n2️⃣ *Documento Mestre Técnica Perfeita 3.0:* o que a IA precisa saber sobre você, sua empresa e seus objetivos para entregar respostas muito mais inteligentes e personalizadas.\n\n3️⃣ *Análise da Concorrência com IA:* como mapear concorrentes, identificar oportunidades e transformar essas informações em mais clientes e melhores estratégias.\n\n*Quarta-feira*\n🇧🇷 Brasil: 8h30 às 10h\n🇵🇹 Portugal: 12h30 às 14h\n\nAcesse o Link do Google Meet:\n\n*meet.google.com/vwp-fkes-hvb*",
+      "type": "chat",
+      "timestamp": 1783444835,
+      "createdAt": "2026-07-07T17:20:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351963520647": [
@@ -4262,6 +4272,144 @@
       "createdAt": "2026-07-01T14:26:43.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB07C0B21CFA7AB32A4DE",
+      "fromMe": true,
+      "body": "Boa tarde Filomena!!!!",
+      "type": "chat",
+      "timestamp": 1783422799,
+      "createdAt": "2026-07-07T11:13:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB0ABBFC441E81232342C",
+      "fromMe": true,
+      "body": "NF Correta 270 -  BE.OK, Unipessoal.pdf",
+      "type": "document",
+      "timestamp": 1783422826,
+      "createdAt": "2026-07-07T11:13:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "pdf",
+      "mediaMime": "application/pdf",
+      "mediaFile": "NF_Correta_270_-_BE.OK_Unipessoal_6bd7fa3e.pdf",
+      "mediaSize": 72876,
+      "filename": "NF Correta 270 -  BE.OK, Unipessoal.pdf",
+      "originalName": "NF Correta 270 -  BE.OK, Unipessoal.pdf"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB026FA260154B51C8452",
+      "fromMe": true,
+      "body": "NF 269 - LIVRO Be.ok, unipessoal, lda.pdf",
+      "type": "document",
+      "timestamp": 1783422941,
+      "createdAt": "2026-07-07T11:15:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "pdf",
+      "mediaMime": "application/pdf",
+      "mediaFile": "NF_269_-_LIVRO_Be.ok_unipessoal_lda_f91a4bc8.pdf",
+      "mediaSize": 71424,
+      "filename": "NF 269 - LIVRO Be.ok, unipessoal, lda.pdf",
+      "originalName": "NF 269 - LIVRO Be.ok, unipessoal, lda.pdf"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB0CBA275CE4B412CA561",
+      "fromMe": true,
+      "body": "Segue as faturas do livro e da imersão.",
+      "type": "chat",
+      "timestamp": 1783423036,
+      "createdAt": "2026-07-07T11:17:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3A9ABB239DAECB75082C",
+      "fromMe": false,
+      "body": "As faturas estão a 0, preciso que tenham os valores. E preferível anular as faturas e fazer só uma a faturar tudo com os dados corretos e os valores",
+      "type": "chat",
+      "timestamp": 1783434146,
+      "createdAt": "2026-07-07T14:22:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3A8B7F998928AED6E3C5",
+      "fromMe": false,
+      "body": "Necessito também da fatura referente à formação q comprei",
+      "type": "chat",
+      "timestamp": 1783434166,
+      "createdAt": "2026-07-07T14:22:46.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB0A3A990C8B485829B7D",
+      "fromMe": true,
+      "body": "true_261035277717588@lid_3EB0A3A990C8B485829B7D",
+      "type": "image",
+      "timestamp": 1783434281,
+      "createdAt": "2026-07-07T14:24:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_261035277717588_lid_3EB0A3A990C8B485829B7D_7c9c8b2d.jpg",
+      "mediaSize": 99907,
+      "filename": "true_261035277717588@lid_3EB0A3A990C8B485829B7D",
+      "originalName": "true_261035277717588@lid_3EB0A3A990C8B485829B7D"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB0AD6D71916F7F16A969",
+      "fromMe": true,
+      "body": "Os valores foram faturado sim.",
+      "type": "image",
+      "timestamp": 1783434321,
+      "createdAt": "2026-07-07T14:25:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_261035277717588_lid_3EB0AD6D71916F7F16A969_f0227497.jpg",
+      "mediaSize": 96537,
+      "filename": "true_261035277717588@lid_3EB0AD6D71916F7F16A969",
+      "originalName": "true_261035277717588@lid_3EB0AD6D71916F7F16A969"
+    },
+    {
+      "id": "false_261035277717588@lid_3EB0827E983FAFB33F53FC",
+      "fromMe": false,
+      "body": "Olá Fabiane, as faturas que recebi foram referentes ao livro e à imersao do google, correto? Falta a fatura referente ao Plano Elite",
+      "type": "chat",
+      "timestamp": 1783685158,
+      "createdAt": "2026-07-10T12:05:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB04AED8ED5B76A462EDA",
+      "fromMe": true,
+      "body": "Boa tarde Filomena!!!",
+      "type": "chat",
+      "timestamp": 1783690437,
+      "createdAt": "2026-07-10T13:33:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_3EB0B57BA1D0F47EC4C0FE",
+      "fromMe": true,
+      "body": "Vou pedir para gerar a fatura do plano adquirido e colocar essa observação.",
+      "type": "chat",
+      "timestamp": 1783690497,
+      "createdAt": "2026-07-10T13:34:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351912363487": [
@@ -4890,6 +5038,16 @@
       "createdAt": "2026-07-02T09:53:01.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_112571780743401@lid_3EB01E2300811858D81AA5",
+      "fromMe": true,
+      "body": "Olá Ana! Boa tarde.l!\n\nNa mentoria de quarta-feira vamos falar sobre *3 estratégias importantes* que voce deve começar a usar agora no *ChatGPT, Gemini, Claude e qualquer outra IA*\n\n1️⃣ *Prompt Negativo:* como dizer para a IA o que ela não deve fazer para reduzir alucinações e melhorar a qualidade das respostas.\n\n2️⃣ *Documento Mestre Técnica Perfeita 3.0:* o que a IA precisa saber sobre você, sua empresa e seus objetivos para entregar respostas muito mais inteligentes e personalizadas.\n\n3️⃣ *Análise da Concorrência com IA:* como mapear concorrentes, identificar oportunidades e transformar essas informações em mais clientes e melhores estratégias.\n\n*Quarta-feira*\n🇧🇷 Brasil: 8h30 às 10h\n🇵🇹 Portugal: 12h30 às 14h\n\nAcesse o Link do Google Meet:\n\n*meet.google.com/vwp-fkes-hvb*",
+      "type": "chat",
+      "timestamp": 1783444821,
+      "createdAt": "2026-07-07T17:20:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351937608844": [
@@ -5001,6 +5159,146 @@
       "createdAt": "2026-06-19T17:46:25.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB0D74D117A0E6C80D095",
+      "fromMe": false,
+      "body": "boa tarde",
+      "type": "chat",
+      "timestamp": 1783432403,
+      "createdAt": "2026-07-07T13:53:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB0D48CABBEFA7BB58CA4",
+      "fromMe": false,
+      "body": "tudo bem?",
+      "type": "chat",
+      "timestamp": 1783432417,
+      "createdAt": "2026-07-07T13:53:37.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB0BEC7D3F95399E5F356",
+      "fromMe": false,
+      "body": "por favor, quando vai acontecer ?",
+      "type": "chat",
+      "timestamp": 1783432425,
+      "createdAt": "2026-07-07T13:53:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_242949187199220@lid_3EB0A2A93B75B9D08A54A2",
+      "fromMe": true,
+      "body": "Olá Valessa, boa tarde!!!",
+      "type": "chat",
+      "timestamp": 1783434069,
+      "createdAt": "2026-07-07T14:21:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB02AD16F44034C7440E9",
+      "fromMe": false,
+      "body": "viva",
+      "type": "chat",
+      "timestamp": 1783434083,
+      "createdAt": "2026-07-07T14:21:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB091B4A72B80B942293F",
+      "fromMe": false,
+      "body": "por favor, perdi o time",
+      "type": "chat",
+      "timestamp": 1783434091,
+      "createdAt": "2026-07-07T14:21:31.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB0A24B41DDA3CA1D40B9",
+      "fromMe": false,
+      "body": "poderia me atualizar quando acontecerá o proximo",
+      "type": "chat",
+      "timestamp": 1783434102,
+      "createdAt": "2026-07-07T14:21:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_242949187199220@lid_3EB06F1FB83EACBA7323AE",
+      "fromMe": true,
+      "body": "Foi no dia 22/06, o Matheus esteve em Lisboa presencialmente ministrando a imersão.",
+      "type": "chat",
+      "timestamp": 1783434113,
+      "createdAt": "2026-07-07T14:21:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_242949187199220@lid_3EB01FD950D703E7887636",
+      "fromMe": true,
+      "body": "Não há previsão de próxima turma presencial por hora.",
+      "type": "chat",
+      "timestamp": 1783434136,
+      "createdAt": "2026-07-07T14:22:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_242949187199220@lid_3EB030BF8E2F81D46C3B44",
+      "fromMe": true,
+      "body": "Teremos uma turma online ha definir data ainda.",
+      "type": "chat",
+      "timestamp": 1783434152,
+      "createdAt": "2026-07-07T14:22:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB0CEE804F5D375881877",
+      "fromMe": false,
+      "body": "ok",
+      "type": "chat",
+      "timestamp": 1783434173,
+      "createdAt": "2026-07-07T14:22:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB05B7BE783988EDAEA0E",
+      "fromMe": false,
+      "body": "este nao ficou gravado?",
+      "type": "chat",
+      "timestamp": 1783434181,
+      "createdAt": "2026-07-07T14:23:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_242949187199220@lid_3EB03D203F04EBFFA79991",
+      "fromMe": true,
+      "body": "Não.",
+      "type": "chat",
+      "timestamp": 1783434331,
+      "createdAt": "2026-07-07T14:25:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_242949187199220@lid_3EB0970303EA1F1AC36405",
+      "fromMe": false,
+      "body": "que pena",
+      "type": "chat",
+      "timestamp": 1783434363,
+      "createdAt": "2026-07-07T14:26:03.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "351932270534": [
@@ -6787,6 +7085,16 @@
       "createdAt": "2026-07-02T18:41:10.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_142627341086730@lid_3EB02108842361B6BEB8FF",
+      "fromMe": true,
+      "body": "Olá João! Boa tarde.l!\n\nNa mentoria de quarta-feira vamos falar sobre *3 estratégias importantes* que voce deve começar a usar agora no *ChatGPT, Gemini, Claude e qualquer outra IA*\n\n1️⃣ *Prompt Negativo:* como dizer para a IA o que ela não deve fazer para reduzir alucinações e melhorar a qualidade das respostas.\n\n2️⃣ *Documento Mestre Técnica Perfeita 3.0:* o que a IA precisa saber sobre você, sua empresa e seus objetivos para entregar respostas muito mais inteligentes e personalizadas.\n\n3️⃣ *Análise da Concorrência com IA:* como mapear concorrentes, identificar oportunidades e transformar essas informações em mais clientes e melhores estratégias.\n\n*Quarta-feira*\n🇧🇷 Brasil: 8h30 às 10h\n🇵🇹 Portugal: 12h30 às 14h\n\nAcesse o Link do Google Meet:\n\n*meet.google.com/vwp-fkes-hvb*",
+      "type": "chat",
+      "timestamp": 1783444870,
+      "createdAt": "2026-07-07T17:21:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351964231689": [
@@ -11627,6 +11935,46 @@
       "createdAt": "2026-06-30T16:59:28.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221057755684982@lid_3EB00AB94069322B6FCEE0",
+      "fromMe": true,
+      "body": "Boa tarde Sandra, tudo bem contigo?",
+      "type": "chat",
+      "timestamp": 1783435007,
+      "createdAt": "2026-07-07T14:36:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221057755684982@lid_3EB07211E6B95B2FAD8171",
+      "fromMe": true,
+      "body": "Boa tarde Sandra!!!",
+      "type": "chat",
+      "timestamp": 1783510989,
+      "createdAt": "2026-07-08T11:43:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221057755684982@lid_3EB0EB46284FB9DDAF0F45",
+      "fromMe": true,
+      "body": "Recebemos o seu pagamento, segue o livro digital e o acesso aos agentes.",
+      "type": "chat",
+      "timestamp": 1783511002,
+      "createdAt": "2026-07-08T11:43:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221057755684982@lid_3EB0B0B2F0C4AB3E209C60",
+      "fromMe": true,
+      "body": "*O Livro digital está disponível!*\nhttps://heyzine.com/flip-book/aefd30f8c7.html/\n\nPara instalar os Agentes, basta clicar no link correspondente:\n\nBob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-6a3949138ddc81918b021695e2abde7d-pepe-especialista-em-portugal\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1783511007,
+      "createdAt": "2026-07-08T11:43:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351918715710": [
@@ -13463,6 +13811,16 @@
       "createdAt": "2026-07-02T09:51:52.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_61495408898074@lid_3EB0EADA66B449CB01E195",
+      "fromMe": true,
+      "body": "Olá Daniel! Boa tarde.l!\n\nNa mentoria de quarta-feira vamos falar sobre *3 estratégias importantes* que voce deve começar a usar agora no *ChatGPT, Gemini, Claude e qualquer outra IA*\n\n1️⃣ *Prompt Negativo:* como dizer para a IA o que ela não deve fazer para reduzir alucinações e melhorar a qualidade das respostas.\n\n2️⃣ *Documento Mestre Técnica Perfeita 3.0:* o que a IA precisa saber sobre você, sua empresa e seus objetivos para entregar respostas muito mais inteligentes e personalizadas.\n\n3️⃣ *Análise da Concorrência com IA:* como mapear concorrentes, identificar oportunidades e transformar essas informações em mais clientes e melhores estratégias.\n\n*Quarta-feira*\n🇧🇷 Brasil: 8h30 às 10h\n🇵🇹 Portugal: 12h30 às 14h\n\nAcesse o Link do Google Meet:\n\n*meet.google.com/vwp-fkes-hvb*",
+      "type": "chat",
+      "timestamp": 1783444794,
+      "createdAt": "2026-07-07T17:19:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351960179819": [
@@ -13990,6 +14348,240 @@
       "type": "chat",
       "timestamp": 1782985690,
       "createdAt": "2026-07-02T09:48:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB078C26019501C493A66",
+      "fromMe": true,
+      "body": "Olá Patricia! Boa tarde.l!\n\nNa mentoria de quarta-feira vamos falar sobre *3 estratégias importantes* que voce deve começar a usar agora no *ChatGPT, Gemini, Claude e qualquer outra IA*\n\n1️⃣ *Prompt Negativo:* como dizer para a IA o que ela não deve fazer para reduzir alucinações e melhorar a qualidade das respostas.\n\n2️⃣ *Documento Mestre Técnica Perfeita 3.0:* o que a IA precisa saber sobre você, sua empresa e seus objetivos para entregar respostas muito mais inteligentes e personalizadas.\n\n3️⃣ *Análise da Concorrência com IA:* como mapear concorrentes, identificar oportunidades e transformar essas informações em mais clientes e melhores estratégias.\n\n*Quarta-feira*\n🇧🇷 Brasil: 8h30 às 10h\n🇵🇹 Portugal: 12h30 às 14h\n\nAcesse o Link do Google Meet:\n\n*meet.google.com/vwp-fkes-hvb*",
+      "type": "chat",
+      "timestamp": 1783444753,
+      "createdAt": "2026-07-07T17:19:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2ADB9D137634DFAC84BB",
+      "fromMe": false,
+      "body": "Bom dia Fabiane, estava em processo de mudança e com alguns problemas na obra. Acabei nem entrando na anterior, mas hj acredito que consiga entrar.\n\nObrigada",
+      "type": "chat",
+      "timestamp": 1783508565,
+      "createdAt": "2026-07-08T11:02:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB07E1D48AB268CD4560D",
+      "fromMe": true,
+      "body": "Boa tarde Patricia 🤗",
+      "type": "chat",
+      "timestamp": 1783509751,
+      "createdAt": "2026-07-08T11:22:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB0473D4D7E32D74863F5",
+      "fromMe": true,
+      "body": "Espero que de certo.",
+      "type": "chat",
+      "timestamp": 1783509767,
+      "createdAt": "2026-07-08T11:22:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2A9C942568DB5A640373",
+      "fromMe": false,
+      "body": "Fabiane, boa tarde\n\nTudo bem?\n\nAcabei de participar da mentoria, porém estava com problemas no chat e não consegui vi o numero do whats/ grupo que o Matheus disse que vai enviar o conteúdo da mentoria de hoje. Poderia me passar ou me enviar esse conteúdo?",
+      "type": "chat",
+      "timestamp": 1783516237,
+      "createdAt": "2026-07-08T13:10:37.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_20766368227358@lid_A5FB7839CD868CBEDD1403107B3FD82B",
+      "fromMe": true,
+      "body": "Só um momento.",
+      "type": "chat",
+      "timestamp": 1783516447,
+      "createdAt": "2026-07-08T13:14:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_20766368227358@lid_A5ED3373D4C48010B531468CAC055F40",
+      "fromMe": true,
+      "body": "https://chat.whatsapp.com/F2znbCMo5RdHgubaJvEK7j",
+      "type": "chat",
+      "timestamp": 1783517014,
+      "createdAt": "2026-07-08T13:23:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2A115EC8814BDC1A7163",
+      "fromMe": false,
+      "body": "Mto obrigada",
+      "type": "chat",
+      "timestamp": 1783519806,
+      "createdAt": "2026-07-08T14:10:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_20766368227358@lid_A5CDF247CC593CF063C5B846F5648356",
+      "fromMe": true,
+      "body": "Conseguiu entrar no grupo?",
+      "type": "chat",
+      "timestamp": 1783519850,
+      "createdAt": "2026-07-08T14:10:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2AE44A67305AD0CC8A44",
+      "fromMe": false,
+      "body": "false_20766368227358@lid_2AE44A67305AD0CC8A44",
+      "type": "image",
+      "timestamp": 1783519977,
+      "createdAt": "2026-07-08T14:12:57.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_20766368227358_lid_2AE44A67305AD0CC8A44_653e491f.jpg",
+      "mediaSize": 150037,
+      "filename": "false_20766368227358@lid_2AE44A67305AD0CC8A44",
+      "originalName": "false_20766368227358@lid_2AE44A67305AD0CC8A44"
+    },
+    {
+      "id": "false_20766368227358@lid_2A7CE4C6DCB56FAAC591",
+      "fromMe": false,
+      "body": "Ele mostra que tem 1 grupo na comunidade",
+      "type": "chat",
+      "timestamp": 1783519990,
+      "createdAt": "2026-07-08T14:13:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2A47FC2977B1C5CB57E6",
+      "fromMe": false,
+      "body": "Mas não aparece para eu entrar nesse grupo",
+      "type": "chat",
+      "timestamp": 1783520003,
+      "createdAt": "2026-07-08T14:13:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB0EE91531A5C3C393825",
+      "fromMe": true,
+      "body": "https://chat.whatsapp.com/F2znbCMo5RdHgubaJvEK7j",
+      "type": "chat",
+      "timestamp": 1783523080,
+      "createdAt": "2026-07-08T15:04:40.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB055AFDC758C595E5013",
+      "fromMe": true,
+      "body": "Veja agora",
+      "type": "chat",
+      "timestamp": 1783523085,
+      "createdAt": "2026-07-08T15:04:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2A62387A430BCF16F6F1",
+      "fromMe": false,
+      "body": "Entrei na comunidade está aparecendo assim",
+      "type": "chat",
+      "timestamp": 1783524294,
+      "createdAt": "2026-07-08T15:24:54.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2A86C08CCEB0B2C69311",
+      "fromMe": false,
+      "body": "Postaram algo hoje?",
+      "type": "chat",
+      "timestamp": 1783524306,
+      "createdAt": "2026-07-08T15:25:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2A0C48CCA6E5255E0868",
+      "fromMe": false,
+      "body": "Ja deu certo",
+      "type": "chat",
+      "timestamp": 1783525989,
+      "createdAt": "2026-07-08T15:53:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_20766368227358@lid_2AC60BCEC3521FF9270B",
+      "fromMe": false,
+      "body": "Obrigada",
+      "type": "chat",
+      "timestamp": 1783525991,
+      "createdAt": "2026-07-08T15:53:11.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB068E122AF1ACE161B28",
+      "fromMe": true,
+      "body": "Pessoal, para saber sobre como Aparecer nas respostas da IA, ser recomendado pelo ChatGPT, Gemini e outras IA´s, além de melhorar o seu site para ser encontrado pelas Inteligências Artificiais, chame agora no Whatsapp para tirar as dúvidas com o Matheus Bottaro!\n\nChame nesse número Agora",
+      "type": "image",
+      "timestamp": 1783527244,
+      "createdAt": "2026-07-08T16:14:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "true_20766368227358_lid_3EB068E122AF1ACE161B28_dd095f47.jpg",
+      "mediaSize": 280497,
+      "filename": "true_20766368227358@lid_3EB068E122AF1ACE161B28",
+      "originalName": "true_20766368227358@lid_3EB068E122AF1ACE161B28"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB08C203930BE73076414",
+      "fromMe": true,
+      "body": "Para quem deseja adquirir o Livro do Matheus Bottaro que está incluso os Prompts e os Agentes de IA para Autoridade, chame nesse Whatsapp também!",
+      "type": "chat",
+      "timestamp": 1783527244,
+      "createdAt": "2026-07-08T16:14:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB085BBD2488C875283EF",
+      "fromMe": true,
+      "body": "*Pessoal, segue o passo a passo para a construção do DNA da empresa:*\n\n*1.  Reúna as informações da empresa*\n\nAntes de começar, separe tudo o que for importante sobre a marca: serviços, produtos, público-alvo, diferenciais, objetivos, concorrentes, redes sociais, site, histórico e principais desafios.\n\n*2. Preencha o Prompt de Comunicação Empresarial*\n\nRespondam com atenção e com o máximo de detalhes possível. Quanto mais completas forem as respostas, mais assertivo será o direcionamento da comunicação.\n\nLink do Prompt de Comunicação Empresarial:\nhttps://docs.google.com/document/d/1tRvWC7LugEVLi6G1FZsMyuUTy8Dk3_FAljCwM3xHaBo/edit?usp=drivesdk\n\n*3. Organize as informações da empresa*\n\nUtilizem este material para estruturar e aprofundar as respostas antes de gerar o relatório final.\n\nLink do material de apoio:\nhttps://docs.google.com/document/d/1DwI_N6jxIsgf7MMHEQBtUSV20gsOHQB80gpysSqCj8Q/edit?usp=drivesdk\n\n*4. Gere o Relatório de DNA da Empresa*\n\nCom todas as informações preenchidas, utilizem este documento para gerar o Relatório de DNA da empresa.\n\nLink para geração do Relatório de DNA:\nhttps://docs.google.com/document/d/1Ip_-PzeJplKMTrrCno6VVPAKKnK6RmCviWXBNV6MRVM/edit?usp=drivesdk\n\nDepois de finalizar, salvem o Relatório de DNA completo. Se possível, imprimam e leiam cada página com calma. Esse material será a base para entender melhor o posicionamento, a comunicação, o público, os diferenciais e os próximos passos da empresa.\n\nA partir de agora, sempre que abrirem um novo chat no ChatGPT, Gemini, Claude ou outra inteligência artificial, anexem o Relatório de DNA completo junto com a frase abaixo. Isso fará com que a IA compreenda melhor a empresa e entregue conteúdos, estratégias e sugestões mais alinhadas à marca.\n\n*Frase para copiar e colar:*\n\n“Este é o Relatório de DNA da empresa. Analise todas as informações deste documento e utilize-as como base para compreender a identidade, o posicionamento, o público, os diferenciais, o tom de voz, os objetivos e a comunicação da marca. A partir de agora, todas as respostas, estratégias, conteúdos e sugestões devem estar alinhados a essas informações. Caso alguma solicitação esteja fora do posicionamento definido, sinalize e sugira uma alternativa coerente com o DNA da empresa.”",
+      "type": "chat",
+      "timestamp": 1783527245,
+      "createdAt": "2026-07-08T16:14:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_20766368227358@lid_3EB0C9B7235D44C6CFA702",
+      "fromMe": true,
+      "body": "Em breve enviaremos a gravação por aqui!",
+      "type": "chat",
+      "timestamp": 1783527245,
+      "createdAt": "2026-07-08T16:14:05.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -15422,6 +16014,16 @@
       "type": "chat",
       "timestamp": 1782985902,
       "createdAt": "2026-07-02T09:51:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_27376188661968@lid_3EB02AB43E7C610C66BDC1",
+      "fromMe": true,
+      "body": "Olá Angel! Boa tarde.l!\n\nNa mentoria de quarta-feira vamos falar sobre *3 estratégias importantes* que voce deve começar a usar agora no *ChatGPT, Gemini, Claude e qualquer outra IA*\n\n1️⃣ *Prompt Negativo:* como dizer para a IA o que ela não deve fazer para reduzir alucinações e melhorar a qualidade das respostas.\n\n2️⃣ *Documento Mestre Técnica Perfeita 3.0:* o que a IA precisa saber sobre você, sua empresa e seus objetivos para entregar respostas muito mais inteligentes e personalizadas.\n\n3️⃣ *Análise da Concorrência com IA:* como mapear concorrentes, identificar oportunidades e transformar essas informações em mais clientes e melhores estratégias.\n\n*Quarta-feira*\n🇧🇷 Brasil: 8h30 às 10h\n🇵🇹 Portugal: 12h30 às 14h\n\nAcesse o Link do Google Meet:\n\n*meet.google.com/vwp-fkes-hvb*",
+      "type": "chat",
+      "timestamp": 1783444782,
+      "createdAt": "2026-07-07T17:19:42.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -17262,6 +17864,16 @@
       "type": "chat",
       "timestamp": 1782985667,
       "createdAt": "2026-07-02T09:47:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_269728895475887@lid_3EB01C70F0735FDB847944",
+      "fromMe": true,
+      "body": "Olá, Tiago! Boa tarde.l!\n\nNa mentoria de quarta-feira vamos falar sobre *3 estratégias importantes* que voce deve começar a usar agora no *ChatGPT, Gemini, Claude e qualquer outra IA*\n\n1️⃣ *Prompt Negativo:* como dizer para a IA o que ela não deve fazer para reduzir alucinações e melhorar a qualidade das respostas.\n\n2️⃣ *Documento Mestre Técnica Perfeita 3.0:* o que a IA precisa saber sobre você, sua empresa e seus objetivos para entregar respostas muito mais inteligentes e personalizadas.\n\n3️⃣ *Análise da Concorrência com IA:* como mapear concorrentes, identificar oportunidades e transformar essas informações em mais clientes e melhores estratégias.\n\n*Quarta-feira*\n🇧🇷 Brasil: 8h30 às 10h\n🇵🇹 Portugal: 12h30 às 14h\n\nAcesse o Link do Google Meet:\n\n*meet.google.com/vwp-fkes-hvb*",
+      "type": "chat",
+      "timestamp": 1783444738,
+      "createdAt": "2026-07-07T17:18:58.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -22311,6 +22923,23 @@
       "createdAt": "2026-07-02T19:22:46.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A397AB3D74734324FFA",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783520782,
+      "createdAt": "2026-07-08T14:26:22.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2A397AB3D74734324FFA_133b44c2.ogg",
+      "mediaSize": 30305,
+      "filename": "false_194029543227477@lid_2A397AB3D74734324FFA",
+      "originalName": "false_194029543227477@lid_2A397AB3D74734324FFA"
     }
   ],
   "351967166641": [
@@ -28612,6 +29241,133 @@
       "createdAt": "2026-07-01T16:01:08.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_187514161787112@lid_3EB078250150DCEC40BE29",
+      "fromMe": true,
+      "body": "Olá Mauro, boa tarde!!",
+      "type": "chat",
+      "timestamp": 1783434889,
+      "createdAt": "2026-07-07T14:34:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_187514161787112@lid_3EB0FBDC63EA07E2F916FD",
+      "fromMe": true,
+      "body": "Gostaria apenas de saber se já teve oportunidade de concluir o pagamento do livro.\nCaso necessite de algum apoio ou tenha qualquer dúvida, estou inteiramente à sua disposição. 🤗",
+      "type": "chat",
+      "timestamp": 1783434910,
+      "createdAt": "2026-07-07T14:35:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_187514161787112@lid_3EB0FCB89FCCFEA362BAA6",
+      "fromMe": false,
+      "body": "Olá...Boa tarde",
+      "type": "chat",
+      "timestamp": 1783442187,
+      "createdAt": "2026-07-07T16:36:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_187514161787112@lid_3EB0B1502A724255096771",
+      "fromMe": false,
+      "body": "a Ly pagou",
+      "type": "chat",
+      "timestamp": 1783442201,
+      "createdAt": "2026-07-07T16:36:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_187514161787112@lid_3EB0E9C1688D1BA4C05DCB",
+      "fromMe": true,
+      "body": "Recebemos o pagamento, muito obrigada.",
+      "type": "chat",
+      "timestamp": 1783442308,
+      "createdAt": "2026-07-07T16:38:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_187514161787112@lid_3EB0CBABC2D406633F37B4",
+      "fromMe": false,
+      "body": "false_187514161787112@lid_3EB0CBABC2D406633F37B4",
+      "type": "image",
+      "timestamp": 1783442315,
+      "createdAt": "2026-07-07T16:38:35.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_187514161787112_lid_3EB0CBABC2D406633F37B4_754006fe.jpg",
+      "mediaSize": 98899,
+      "filename": "false_187514161787112@lid_3EB0CBABC2D406633F37B4",
+      "originalName": "false_187514161787112@lid_3EB0CBABC2D406633F37B4"
+    },
+    {
+      "id": "false_187514161787112@lid_3EB06A6470A655E9C71B62",
+      "fromMe": false,
+      "body": "desculpa a demora",
+      "type": "chat",
+      "timestamp": 1783442323,
+      "createdAt": "2026-07-07T16:38:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_187514161787112@lid_3EB0376E48B560D5F76932",
+      "fromMe": true,
+      "body": "*O Livro digital está disponível!*\nhttps://heyzine.com/flip-book/aefd30f8c7.html/\n\nPara instalar os Agentes, basta clicar no link correspondente:\n\nBob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-6a3949138ddc81918b021695e2abde7d-pepe-especialista-em-portugal\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1783442334,
+      "createdAt": "2026-07-07T16:38:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_187514161787112@lid_3EB02CF954DC5B54D60C1B",
+      "fromMe": true,
+      "body": "Segue o digital e o acesso aos agentes.",
+      "type": "chat",
+      "timestamp": 1783442349,
+      "createdAt": "2026-07-07T16:39:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_187514161787112@lid_3EB041EBBE29F8FC82895B",
+      "fromMe": true,
+      "body": "Vamos agendar o atendimento com o Matheus Bottaro, ele abriu mais alguns horarios amanhã a tarde.",
+      "type": "chat",
+      "timestamp": 1783442404,
+      "createdAt": "2026-07-07T16:40:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_187514161787112@lid_3AD4384672EA8ED25495",
+      "fromMe": false,
+      "body": "Esses dias não consigo infelizmente",
+      "type": "chat",
+      "timestamp": 1783517673,
+      "createdAt": "2026-07-08T13:34:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_187514161787112@lid_A54E800F2A995CB1EBD5543D47CBA017",
+      "fromMe": true,
+      "body": "Entendo e agradeço o retorno.",
+      "type": "chat",
+      "timestamp": 1783518300,
+      "createdAt": "2026-07-08T13:45:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351912825947": [
@@ -30634,6 +31390,56 @@
       "type": "chat",
       "timestamp": 1782979684,
       "createdAt": "2026-07-02T08:08:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_101009040904443@lid_3EB08650AEE2D83BD5CA31",
+      "fromMe": true,
+      "body": "Olá Nelson, boa tarde!!",
+      "type": "chat",
+      "timestamp": 1783423289,
+      "createdAt": "2026-07-07T11:21:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_101009040904443@lid_3EB00D81B60A66F7CB18B6",
+      "fromMe": true,
+      "body": "Passando para confirmar o atendimento hoje as 17h com o Matheus Bottaro e o Marcos, esta certo?",
+      "type": "chat",
+      "timestamp": 1783423330,
+      "createdAt": "2026-07-07T11:22:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_101009040904443@lid_AC33D63B3AE4BE44F0942F394BF68F5E",
+      "fromMe": false,
+      "body": "bom dia vai me ser impossível estar presente hoje agradeço mas não vou conseguir",
+      "type": "chat",
+      "timestamp": 1783424133,
+      "createdAt": "2026-07-07T11:35:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_101009040904443@lid_AC5E4FA4897376FF9DC40E41ACB9370A",
+      "fromMe": false,
+      "body": "muito obrigado",
+      "type": "chat",
+      "timestamp": 1783424136,
+      "createdAt": "2026-07-07T11:35:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_101009040904443@lid_3EB0495A7011DDD7B19665",
+      "fromMe": true,
+      "body": "Compreendo perfeitamente. 😊\nPodemos reagendar a reunião para amanhã, às 19h00. Caso não lhe seja conveniente, tenho também disponibilidade em vários horários na quarta-feira. Qual a opção que prefere?",
+      "type": "chat",
+      "timestamp": 1783424718,
+      "createdAt": "2026-07-07T11:45:18.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -33837,6 +34643,73 @@
       "createdAt": "2026-07-02T11:36:17.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0AF1FB105B0CCB6AEC2",
+      "fromMe": false,
+      "body": "Olá Faby !\nTem reunião agendada hoje ás 17h PT , tá confirmado?",
+      "type": "chat",
+      "timestamp": 1783422502,
+      "createdAt": "2026-07-07T11:08:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_167022688211083@lid_3EB0319CA0174AE8D430C9",
+      "fromMe": true,
+      "body": "Bom diaaa",
+      "type": "chat",
+      "timestamp": 1783423251,
+      "createdAt": "2026-07-07T11:20:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_167022688211083@lid_A532C1C0101E96852C9F8C3DEBBE06F2",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783434488,
+      "createdAt": "2026-07-07T14:28:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_167022688211083_lid_A532C1C0101E96852C9F8C3DEBBE06F2_027e82ec.ogg",
+      "mediaSize": 103076,
+      "filename": "true_167022688211083@lid_A532C1C0101E96852C9F8C3DEBBE06F2",
+      "originalName": "true_167022688211083@lid_A532C1C0101E96852C9F8C3DEBBE06F2"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB09C8E6A2748F1E9B593",
+      "fromMe": false,
+      "body": "Já vi com ele, diz que tem a semana totalmente preenchida e não deu abertura pra marcar na semana seguinte pois ainda não sabe como vai ser essa semana... Enfim, diria que típico comportamento de quem está fugindo...",
+      "type": "chat",
+      "timestamp": 1783435089,
+      "createdAt": "2026-07-07T14:38:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0A2B3309F724D05DEB9",
+      "fromMe": false,
+      "body": "Então, não sou contador, mas do que eu entendo, a fatura pode ser emitida em reais, desde que traga o artigo que isenta da cobrança do imposto português e depois na contabilidade da pessoa de Portugal , essa fatura deve ser lançada em Euros ao cambio ( *com base Banco Central Europeu* ) da transação na data da fatura.",
+      "type": "chat",
+      "timestamp": 1783435409,
+      "createdAt": "2026-07-07T14:43:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_167022688211083@lid_3EB0883E0D60DCC609517D",
+      "fromMe": true,
+      "body": "Beleza",
+      "type": "chat",
+      "timestamp": 1783435876,
+      "createdAt": "2026-07-07T14:51:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351932974998": [
@@ -38179,6 +39052,28 @@
       "createdAt": "2026-06-22T14:23:05.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    }
+  ],
+  "351934497375": [
+    {
+      "id": "true_19894389223678@lid_3EB0FEAFB1569B593C05F9",
+      "fromMe": true,
+      "body": "Olá Helena Além tudo bem?\n\nAqui é a *Fabiane*, da equipa do *Matheus Bottaro*.\n\nA sua inscrição foi recebida com sucesso para o evento online:\n\nA *Nova Era da Aquisição de Clientes por IA*\n\n📅 *13 e 14 de Julho*\n🕖 *19h00*\n\nDurante o evento, vamos abordar como aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini e outras Inteligências Artificiais, além das mais recentes atualizações do Google Ads com IA para atrair leads mais qualificados.\n\nEm breve irá receber mais informações por aqui e também no seu e-mail.\n\nCriámos também grupos silenciosos para enviar os acessos, materiais complementares, gravações e conteúdos extras do evento.\n\nPosso enviar-lhe o link de acesso ao grupo?",
+      "type": "chat",
+      "timestamp": 1783505944,
+      "createdAt": "2026-07-08T10:19:04.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_19894389223678@lid_3EB0AD195E712B031BF951",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão Online em Lisboa",
+      "type": "chat",
+      "timestamp": 1783505990,
+      "createdAt": "2026-07-08T10:19:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ]
 }
