@@ -34710,6 +34710,143 @@
       "createdAt": "2026-07-07T14:51:16.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB00AA69FEB8C5435EACD",
+      "fromMe": false,
+      "body": "Vou tentar reagendar com ela, pois  o Matheus esqueceu, falei pra ela que estavamos na sala e ninguém chamou e aí depois de 20 minutos saímos, ela falou que tavam desde o inicio tentando entrar",
+      "type": "chat",
+      "timestamp": 1783702579,
+      "createdAt": "2026-07-10T16:56:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_167022688211083@lid_A5131343E1CF1FE30C0998E7C1157D28",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783704421,
+      "createdAt": "2026-07-10T17:27:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_167022688211083_lid_A5131343E1CF1FE30C0998E7C1157D28_fc81462b.ogg",
+      "mediaSize": 43030,
+      "filename": "true_167022688211083@lid_A5131343E1CF1FE30C0998E7C1157D28",
+      "originalName": "true_167022688211083@lid_A5131343E1CF1FE30C0998E7C1157D28"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0CBC858A32798E0E564",
+      "fromMe": false,
+      "body": "Falei pra ela que deu problema no link e não conseguimos dar permissão",
+      "type": "chat",
+      "timestamp": 1783704488,
+      "createdAt": "2026-07-10T17:28:08.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0A4E3A8B6A46E4CAA19",
+      "fromMe": false,
+      "body": "Ja mandei pra ela e até liguei pra ver se agente agora essa marcação",
+      "type": "chat",
+      "timestamp": 1783704510,
+      "createdAt": "2026-07-10T17:28:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0BD9E9E764DCA19B1A5",
+      "fromMe": false,
+      "body": "mas ela as vezes demora...",
+      "type": "chat",
+      "timestamp": 1783704519,
+      "createdAt": "2026-07-10T17:28:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0417DACCDBF2A2DB3B6",
+      "fromMe": false,
+      "body": "Terça feira ás 15h00",
+      "type": "chat",
+      "timestamp": 1783704705,
+      "createdAt": "2026-07-10T17:31:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0C5F4CF98863398A8E0",
+      "fromMe": false,
+      "body": "BR",
+      "type": "chat",
+      "timestamp": 1783704718,
+      "createdAt": "2026-07-10T17:31:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB08074873A98EBFABDFF",
+      "fromMe": false,
+      "body": "nao é segundaa",
+      "type": "chat",
+      "timestamp": 1783705008,
+      "createdAt": "2026-07-10T17:36:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB0697486037199C9201E",
+      "fromMe": false,
+      "body": "é terça q foi a opção que vc me deu",
+      "type": "chat",
+      "timestamp": 1783705023,
+      "createdAt": "2026-07-10T17:37:03.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_167022688211083@lid_3EB074A01C8795B012B3CF",
+      "fromMe": false,
+      "body": "perfeito agora!",
+      "type": "chat",
+      "timestamp": 1783705095,
+      "createdAt": "2026-07-10T17:38:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_167022688211083@lid_A53181D46976AC9D9D6B4907789CEC16",
+      "fromMe": true,
+      "body": "Isso mesmo",
+      "type": "chat",
+      "timestamp": 1783705297,
+      "createdAt": "2026-07-10T17:41:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_167022688211083@lid_A5FF9C768A3C83C34079A4EBB7E96BFD",
+      "fromMe": true,
+      "body": "Já arrumei lá",
+      "type": "chat",
+      "timestamp": 1783705310,
+      "createdAt": "2026-07-10T17:41:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_167022688211083@lid_A56310E63774209E82B1EFEAA0C7EE2C",
+      "fromMe": true,
+      "body": "Confere por gentileza",
+      "type": "chat",
+      "timestamp": 1783705314,
+      "createdAt": "2026-07-10T17:41:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351932974998": [

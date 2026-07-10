@@ -3430,6 +3430,96 @@ body:not(.hasPager) .pager{display:none!important;}
 .externalCrmStatus strong{color:#0f172a;}
 .externalCrmFields.is-disabled{opacity:.5;pointer-events:none;}
 @media(max-width:760px){.externalCrmFields{grid-template-columns:1fr;}.externalCrmToggleRow,.externalCrmStatus{align-items:flex-start;}.externalCrmStatus{flex-direction:column;}}
+
+/* Hotfix 20260710: CRM Inteligente no modal de webhooks
+   Garante rolagem real do modal e evita que a configuração do CRM fique cortada em telas menores. */
+#ovTemplate{
+  align-items:flex-start!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  padding:12px!important;
+}
+#ovTemplate .webhookSheet{
+  max-height:calc(100dvh - 24px)!important;
+  height:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+}
+#ovTemplate .webhookHead{
+  flex:0 0 auto!important;
+}
+#ovTemplate .webhookBody{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  scroll-padding:18px!important;
+}
+#ovTemplate .webhookPanel{
+  overflow:visible!important;
+}
+#ovTemplate .externalCrmPanel{
+  flex:0 0 auto!important;
+  overflow:visible!important;
+  scroll-margin-top:14px!important;
+}
+#ovTemplate .externalCrmToggleRow{
+  align-items:flex-start!important;
+  min-height:44px!important;
+}
+#ovTemplate .externalCrmToggleCopy{
+  min-width:0!important;
+  flex:1 1 auto!important;
+}
+#ovTemplate .externalCrmToggleCopy span{
+  max-width:720px!important;
+}
+#ovTemplate .externalCrmSwitch{
+  margin-top:2px!important;
+}
+#ovTemplate .externalCrmFields{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr))!important;
+  gap:10px!important;
+  min-height:0!important;
+}
+#ovTemplate .externalCrmFields.is-disabled{
+  display:none!important;
+}
+#ovTemplate .externalCrmStatus{
+  flex-wrap:wrap!important;
+}
+#ovTemplate .externalCrmStatusText{
+  flex:1 1 260px!important;
+}
+#ovTemplate #btnExternalCrmRefresh{
+  flex:0 0 auto!important;
+}
+#ovTemplate .webhookMessagesList{
+  max-height:min(32dvh,320px)!important;
+  min-height:96px!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  padding-right:4px!important;
+}
+@media (max-height:760px){
+  #ovTemplate .webhookSheet{max-height:calc(100dvh - 16px)!important;}
+  #ovTemplate .webhookIntro,
+  #ovTemplate .webhookHowItWorks{display:none!important;}
+  #ovTemplate .webhookBody{padding-top:12px!important;}
+  #ovTemplate .webhookMessagesList{max-height:24dvh!important;}
+}
+@media (max-width:720px){
+  #ovTemplate{padding:8px!important;}
+  #ovTemplate .webhookSheet{width:calc(100vw - 16px)!important;max-height:calc(100dvh - 16px)!important;}
+  #ovTemplate .externalCrmToggleRow,
+  #ovTemplate .externalCrmStatus{flex-direction:column!important;}
+  #ovTemplate .externalCrmSwitch{align-self:flex-start!important;}
+  #ovTemplate #btnExternalCrmRefresh{width:100%!important;}
+}
+
 </style>
 
 
@@ -11348,6 +11438,12 @@ const btnCloseTemplate = document.getElementById("btnCloseTemplate");
       var enabled = Boolean(whExternalCrmEnabled.checked && selectedWebhook());
       if (whExternalCrmFields) whExternalCrmFields.classList.toggle("is-disabled", !enabled);
       renderExternalCrmStatus(selectedWebhook());
+      if (enabled) {
+        setTimeout(function(){
+          var panel = document.querySelector("#ovTemplate .externalCrmPanel");
+          if (panel && panel.scrollIntoView) panel.scrollIntoView({ block:"nearest", behavior:"smooth" });
+        }, 80);
+      }
     });
     if (whExternalCrmPipeline) whExternalCrmPipeline.addEventListener("change", function(){
       populateExternalCrmStages(whExternalCrmPipeline.value, "");

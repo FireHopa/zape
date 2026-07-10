@@ -11021,6 +11021,70 @@
       "createdAt": "2026-07-04T15:55:30.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "false_277261748011176@lid_AC3EE799E8EAE32D31BBCA4ADD7F3B4D",
+      "fromMe": false,
+      "body": "Amiga",
+      "type": "chat",
+      "timestamp": 1783706040,
+      "createdAt": "2026-07-10T17:54:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_ACF1F923601FFCC89A183F2C6D040506",
+      "fromMe": false,
+      "body": "Kkkk esqueci que aquele número tá no kommo",
+      "type": "chat",
+      "timestamp": 1783706056,
+      "createdAt": "2026-07-10T17:54:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_ACA9220C8AE89CF4D438915AA1023FB1",
+      "fromMe": false,
+      "body": "Bottaro pediu.pra eu logar no bobbia mas chamar Felipe né",
+      "type": "chat",
+      "timestamp": 1783706076,
+      "createdAt": "2026-07-10T17:54:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_277261748011176@lid_ACC36FDA471F9528F799ED4C9C937C96",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783706113,
+      "createdAt": "2026-07-10T17:55:13.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_277261748011176_lid_ACC36FDA471F9528F799ED4C9C937C96_f1540953.ogg",
+      "mediaSize": 58979,
+      "filename": "false_277261748011176@lid_ACC36FDA471F9528F799ED4C9C937C96",
+      "originalName": "false_277261748011176@lid_ACC36FDA471F9528F799ED4C9C937C96"
+    },
+    {
+      "id": "false_277261748011176@lid_AC9C7BDE0DD455A28A1BF128F5889230",
+      "fromMe": false,
+      "body": "false_277261748011176@lid_AC9C7BDE0DD455A28A1BF128F5889230",
+      "type": "sticker",
+      "timestamp": 1783706119,
+      "createdAt": "2026-07-10T17:55:19.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/webp",
+      "mediaFile": "false_277261748011176_lid_AC9C7BDE0DD455A28A1BF128F5889230_ec5c3bf5.webp",
+      "mediaSize": 303296,
+      "filename": "false_277261748011176@lid_AC9C7BDE0DD455A28A1BF128F5889230",
+      "originalName": "false_277261748011176@lid_AC9C7BDE0DD455A28A1BF128F5889230"
     }
   ],
   "5511913147171": [
@@ -21154,6 +21218,23 @@
       "createdAt": "2026-07-02T14:05:00.000Z",
       "ack": 3,
       "source": "fetchMessages"
+    },
+    {
+      "id": "false_96349756383259@lid_A58844290EDCF43C62A77BCE9621F315",
+      "fromMe": false,
+      "body": "R. de Santo Antônio Nº09,  Apartamnto Cave Esquerda, Venteira / Amadora / Portugal  2700-738",
+      "type": "image",
+      "timestamp": 1783695920,
+      "createdAt": "2026-07-10T15:05:20.000Z",
+      "ack": 3,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaFile": "false_96349756383259_lid_A58844290EDCF43C62A77BCE9621F315_5fbd305e.jpg",
+      "mediaSize": 170868,
+      "filename": "false_96349756383259@lid_A58844290EDCF43C62A77BCE9621F315",
+      "originalName": "false_96349756383259@lid_A58844290EDCF43C62A77BCE9621F315"
     }
   ],
   "351962451262": [
@@ -28167,6 +28248,86 @@
       "createdAt": "2026-07-10T01:36:47.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "false_121393039573019@lid_AC0784F114382B6057F9F67A4E670450",
+      "fromMe": false,
+      "body": "Olá  Fabiane",
+      "type": "chat",
+      "timestamp": 1783693778,
+      "createdAt": "2026-07-10T14:29:38.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_121393039573019@lid_AC58FBCC4C63CE1D449CEE17BDC4311D",
+      "fromMe": false,
+      "body": "Tudo bem?",
+      "type": "chat",
+      "timestamp": 1783693781,
+      "createdAt": "2026-07-10T14:29:41.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_121393039573019@lid_AC2EBD0A70C4BA53EA04A67C64C53EA8",
+      "fromMe": false,
+      "body": "Gostaria de compra 1 ingresso a mais",
+      "type": "chat",
+      "timestamp": 1783693805,
+      "createdAt": "2026-07-10T14:30:05.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_121393039573019@lid_3EB070667F1F3D9BC7C442",
+      "fromMe": true,
+      "body": "Oi Kelly, bom dia!!!",
+      "type": "chat",
+      "timestamp": 1783694112,
+      "createdAt": "2026-07-10T14:35:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_121393039573019@lid_3EB0371565C19787CFBB74",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão:  https://chk.eduzz.com/8017OZOR07?np=3\n 💸 PIX (CNPJ): 27.921.309/0001-70\nhttps://casadoads.com.br/imersao-guarulhos/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1783694127,
+      "createdAt": "2026-07-10T14:35:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_121393039573019@lid_AC402D3D973DD93BE54CBB125C292AFC",
+      "fromMe": false,
+      "body": "Obrigada",
+      "type": "chat",
+      "timestamp": 1783694136,
+      "createdAt": "2026-07-10T14:35:36.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_121393039573019@lid_3EB08D3483922565C0BCDA",
+      "fromMe": true,
+      "body": "Deixei o site de inscriçã acima",
+      "type": "chat",
+      "timestamp": 1783694143,
+      "createdAt": "2026-07-10T14:35:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_121393039573019@lid_ACF7CA09049503E649808CD6D0278C4B",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1783694154,
+      "createdAt": "2026-07-10T14:35:54.000Z",
+      "ack": 3,
+      "source": "incoming-event"
     }
   ],
   "5511985979371": [
