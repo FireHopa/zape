@@ -1331,6 +1331,16 @@
       "createdAt": "2026-07-07T11:25:32.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_189000069451782@lid_3EB0C1A544CD8FAC957080",
+      "fromMe": true,
+      "body": "Olá Fabi ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Fabi ?",
+      "type": "chat",
+      "timestamp": 1783944094,
+      "createdAt": "2026-07-13T12:01:34.000Z",
+      "ack": 0,
+      "source": "send-custom"
     }
   ],
   "5511976202000": [
@@ -3171,6 +3181,46 @@
       "createdAt": "2026-07-01T17:15:04.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0B9A628E081DB5DE0A6",
+      "fromMe": true,
+      "body": "Olá Fulano! Como você está? Aqui é a Fabiane da equipe do *Matheus Bottaro* da Casa do Ads.\n\nVocê ficou sabendo das mudanças recentes do *Google* que permite sua empresa *aparecer nas respostas da IA do Google* e ser *recomendado pelo ChatGPT e Gemini*?\n\nAlém das *atualizações* importantes no *Google Ads* para você usar a *IA* para pagar mais barato pelo clique e converter mais *clientes qualificados*?\n\nO *Matheus Bottaro* vai fazer uma *imersão presencial* nos dias 9/07 e 16/07, para ensinar na prática tudo isso! \n\nPosso te enviar as informações por aqui?",
+      "type": "chat",
+      "timestamp": 1783707262,
+      "createdAt": "2026-07-10T18:14:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB09C50A163084FA48D81",
+      "fromMe": true,
+      "body": "Olá Maria, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1783708427,
+      "createdAt": "2026-07-10T18:33:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0F3956C2C5B71E0F07B",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*09/07 (Feriado) - Espaço Maestro* - Rua Maestro Cardim, nº 1.170  - sala 61 - 6° andar - Paraíso - São Paulo/SP\n\n*16/07 - Espaço Paulista Eventos* - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP\n\n*20/07 - Summit Hotel Monaco* - Rua Diogo Farias, 137 – Centro – Guarulhos/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-guarulhos/",
+      "type": "chat",
+      "timestamp": 1783708444,
+      "createdAt": "2026-07-10T18:34:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227753609683102@lid_3EB0A01528137CD3CCF51C",
+      "fromMe": false,
+      "body": "Angela\tAngela Regina\t(11) 98846-7627\nLeonardo\tBell Ville imobiliária\t11969002529\nAna Paula Toledo\tPartner\t11976163717\nTatiana de Macedo Custodio\tQualicorp\t1194631-4397\nTati\tFlor de lingerie\t11977365566\nNathalie\tGroundScope\t447473861696\nThiago Vinicius de Andrade\tGrupo SIC\t69999917462\nANDERSON EVANDRO URBANO DE SOUZA\tUrbanidades\t11940201494\nGisele Rocha\tImagine\t11 97326-9510\nCarlos Eduardo\tOtacon engenharia\t11988318042\nAline Gomes\tAutônomo\t11962744800\nDini\tSucesso Contabilidade\t5598982936913\nSonia\tBrenda\t11999026681\nCesar\tNatoon\t11939228895\nTiago\tEstilos Pintura\t11972302325\nJuliana\tJuliana dos Santos veloso\t11985470583\nIsabella Belotti\tIsabella\t1196742-0473\nNatali\tBombril\t11997886037\nRicardo Ferreira\tGeofud\t18997715999\nLana\tAnoussita\t(11) 98305-9369\nCamila\tCAMILAblesshub\t11916623666",
+      "type": "chat",
+      "timestamp": 1783711555,
+      "createdAt": "2026-07-10T19:25:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511976472073": [
@@ -16898,6 +16948,126 @@
       "createdAt": "2026-06-19T16:37:08.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80457773351076@lid_2A2C05716AEC751822F5",
+      "fromMe": false,
+      "body": "Bom dia Fabiane \nGostaria de saber quando vou receber o livro do Matheus?",
+      "type": "chat",
+      "timestamp": 1783856659,
+      "createdAt": "2026-07-12T11:44:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_80457773351076@lid_3EB03EA42EA645E1D83FFF",
+      "fromMe": true,
+      "body": "Bom diaaa Sandra, como vai?",
+      "type": "chat",
+      "timestamp": 1783945786,
+      "createdAt": "2026-07-13T12:29:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_80457773351076@lid_3EB0CD6D248A4C287251DE",
+      "fromMe": true,
+      "body": "Me passa seu endereço certinho, por favor.",
+      "type": "chat",
+      "timestamp": 1783945805,
+      "createdAt": "2026-07-13T12:30:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80457773351076@lid_2A776F168D673068285D",
+      "fromMe": false,
+      "body": "Bom dia, estou bem e vc?",
+      "type": "chat",
+      "timestamp": 1783945825,
+      "createdAt": "2026-07-13T12:30:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_80457773351076@lid_3EB0505B927049430C0E0A",
+      "fromMe": true,
+      "body": "Matheus chegou da Europa na semana passada e ja esta fazendo o envio dos livros.",
+      "type": "chat",
+      "timestamp": 1783945827,
+      "createdAt": "2026-07-13T12:30:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_80457773351076@lid_3EB012BCA24A26DFB58FE2",
+      "fromMe": true,
+      "body": "Bem também 🤗",
+      "type": "chat",
+      "timestamp": 1783945839,
+      "createdAt": "2026-07-13T12:30:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80457773351076@lid_2A3299AA6707A7DD3A38",
+      "fromMe": false,
+      "body": "Rua: Mal me quer, 99 Jardim Primavera, Mauá - SP\nCep: 09361-240",
+      "type": "chat",
+      "timestamp": 1783945875,
+      "createdAt": "2026-07-13T12:31:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_80457773351076@lid_3EB0CA738A88890099F2AC",
+      "fromMe": true,
+      "body": "Ja inclui na lista, para o envio da próxima remessa.",
+      "type": "chat",
+      "timestamp": 1783946064,
+      "createdAt": "2026-07-13T12:34:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80457773351076@lid_2A3058C06928E3BEF297",
+      "fromMe": false,
+      "body": "Fabiane tem previsão do envio?",
+      "type": "chat",
+      "timestamp": 1783946160,
+      "createdAt": "2026-07-13T12:36:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_80457773351076@lid_3EB0BCB5CA939164680837",
+      "fromMe": true,
+      "body": "Matheus ja esta separando os livros para o envio hoje.",
+      "type": "chat",
+      "timestamp": 1783948286,
+      "createdAt": "2026-07-13T13:11:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_80457773351076@lid_2AECE62C7251F3D5D0BF",
+      "fromMe": false,
+      "body": "Maravilha 🙌🏼",
+      "type": "chat",
+      "timestamp": 1783949178,
+      "createdAt": "2026-07-13T13:26:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_80457773351076@lid_2A0570CC6AF214B00D27",
+      "fromMe": false,
+      "body": "Obrigada",
+      "type": "chat",
+      "timestamp": 1783949183,
+      "createdAt": "2026-07-13T13:26:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "5511976089095": [
@@ -26451,6 +26621,56 @@
       "createdAt": "2026-06-19T16:36:57.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_136588633886953@lid_3EB0954F8654AAE9EE3318",
+      "fromMe": false,
+      "body": "Bom dia, tudo bem ?\nEstou no aguardo dos videos e do livro digital",
+      "type": "chat",
+      "timestamp": 1783946619,
+      "createdAt": "2026-07-13T12:43:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB0A26EF3554C1E1B5C6E",
+      "fromMe": true,
+      "body": "Bom diaa Daniel!!!",
+      "type": "chat",
+      "timestamp": 1783947459,
+      "createdAt": "2026-07-13T12:57:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB09E43933FE75263BA03",
+      "fromMe": true,
+      "body": "Obrigada por aguardar, estava em um treinamento na sexta e acabei muito tarde. 🙏",
+      "type": "chat",
+      "timestamp": 1783947488,
+      "createdAt": "2026-07-13T12:58:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB03DF452A301D8A9B7F1",
+      "fromMe": true,
+      "body": "Sim, inclusive já íamos entrar em contato essa semana, pois ele decidiu fazer uma Imersão só para quem comprou o livro!\nEle vai apresentar o mapeamento que ele fez sobre a nova era de aqusiição de clientes no Brasil e na Europa, além de disponibilizar o passo a passo para melhor aproveitar o livro...\n\nSerá dia 22/07, no Google Meet.",
+      "type": "chat",
+      "timestamp": 1783947537,
+      "createdAt": "2026-07-13T12:58:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136588633886953@lid_3EB08788971E3A25437592",
+      "fromMe": true,
+      "body": "Mas você está com alguma dúvida específica sobre o uso dos Agentes ou Prompts?",
+      "type": "chat",
+      "timestamp": 1783947570,
+      "createdAt": "2026-07-13T12:59:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511999813054": [
@@ -28352,6 +28572,43 @@
       "createdAt": "2026-07-10T10:07:23.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "false_90997556015130@lid_2AE97D6326DB66A444C1",
+      "fromMe": false,
+      "body": "Me manda por favor link de São Paulo",
+      "type": "chat",
+      "timestamp": 1783707738,
+      "createdAt": "2026-07-10T18:22:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_90997556015130@lid_3EB034A47277104E4582EE",
+      "fromMe": true,
+      "body": "Vou deixar as informações para você fazer a sua inscrição:\n\nPara garantir a sua vaga no Lote atual, finalize o pagamento:\n 💳 Cartão:  https://chk.eduzz.com/8017OZOR07?np=3\n 💸 PIX (CNPJ): 27.921.309/0001-70\nhttps://casadoads.com.br/imersao-guarulhos/\n\nInclusive, dá uma olhadinha no Instagram do Matheus Bottaro, veja essa matéria que saiu na Globo e os comentários de quem participou:\nhttps://www.instagram.com/matheusbottarooficial/",
+      "type": "chat",
+      "timestamp": 1783708509,
+      "createdAt": "2026-07-10T18:35:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_90997556015130@lid_3EB06C84313419334A6075",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783708559,
+      "createdAt": "2026-07-10T18:35:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_90997556015130_lid_3EB06C84313419334A6075_777e79ed.ogg",
+      "mediaSize": 21159,
+      "filename": "true_90997556015130@lid_3EB06C84313419334A6075",
+      "originalName": "true_90997556015130@lid_3EB06C84313419334A6075"
     }
   ],
   "5514991766923": [
@@ -28372,6 +28629,552 @@
       "type": "chat",
       "timestamp": 1783688671,
       "createdAt": "2026-07-10T13:04:31.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511952367490": [
+    {
+      "id": "true_31666827477045@lid_3EB07AE0C30B66518961EE",
+      "fromMe": true,
+      "body": "Olá Rodolfo Santos Chaves ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Rodolfo Santos Chaves ?",
+      "type": "chat",
+      "timestamp": 1783711515,
+      "createdAt": "2026-07-10T19:25:15.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_31666827477045@lid_3EB0758B6A332AFA33D467",
+      "fromMe": true,
+      "body": "Olá Rodolfo, conforme alinhado com Carla, segue a confirmação da sua inscrição.",
+      "type": "chat",
+      "timestamp": 1783712610,
+      "createdAt": "2026-07-10T19:43:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_31666827477045@lid_ACD34FE715322F163BA0A8B2719591C6",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1783712652,
+      "createdAt": "2026-07-10T19:44:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_31666827477045@lid_3EB04475177460D6811217",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 16/07/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1783712697,
+      "createdAt": "2026-07-10T19:44:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511986686228": [
+    {
+      "id": "true_248292126511346@lid_3EB075B16606337882EB12",
+      "fromMe": true,
+      "body": "Olá tadeu ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição tadeu ?",
+      "type": "chat",
+      "timestamp": 1783727287,
+      "createdAt": "2026-07-10T23:48:07.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_248292126511346@lid_3A5539B6E5C363652842",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1783727342,
+      "createdAt": "2026-07-10T23:49:02.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_248292126511346@lid_3EB003F4BA205736D28149",
+      "fromMe": true,
+      "body": "Olá Tadeu, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1783944610,
+      "createdAt": "2026-07-13T12:10:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_248292126511346@lid_3EB03B063E0C0875720161",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*20/07 - Summit Hotel Monaco* - Rua Diogo Farias, 137 – Centro – Guarulhos/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-guarulhos",
+      "type": "chat",
+      "timestamp": 1783944614,
+      "createdAt": "2026-07-13T12:10:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_248292126511346@lid_3AEC40BFDBF2687FC8FB",
+      "fromMe": false,
+      "body": "Tudo bem",
+      "type": "chat",
+      "timestamp": 1783945238,
+      "createdAt": "2026-07-13T12:20:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_248292126511346@lid_3EB02A7A0580E853994B73",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783945288,
+      "createdAt": "2026-07-13T12:21:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_248292126511346_lid_3EB02A7A0580E853994B73_47567ad4.ogg",
+      "mediaSize": 13013,
+      "filename": "true_248292126511346@lid_3EB02A7A0580E853994B73",
+      "originalName": "true_248292126511346@lid_3EB02A7A0580E853994B73"
+    },
+    {
+      "id": "false_248292126511346@lid_3AFE744E19C59ABECF1E",
+      "fromMe": false,
+      "body": "Já faço eu pago uma pessoa para otimizar para mim",
+      "type": "chat",
+      "timestamp": 1783945514,
+      "createdAt": "2026-07-13T12:25:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_248292126511346@lid_3A378517B51D939D0C05",
+      "fromMe": false,
+      "body": "Razão de aprender é essa criar minha próprias campanhas",
+      "type": "chat",
+      "timestamp": 1783945535,
+      "createdAt": "2026-07-13T12:25:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_248292126511346@lid_3EB02845061D4430556C65",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783950502,
+      "createdAt": "2026-07-13T13:48:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_248292126511346_lid_3EB02845061D4430556C65_5df17363.ogg",
+      "mediaSize": 90939,
+      "filename": "true_248292126511346@lid_3EB02845061D4430556C65",
+      "originalName": "true_248292126511346@lid_3EB02845061D4430556C65"
+    }
+  ],
+  "5511949105368": [
+    {
+      "id": "true_182158354309354@lid_3EB0873649ABD561D17446",
+      "fromMe": true,
+      "body": "Olá Flavia ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Flavia ?",
+      "type": "chat",
+      "timestamp": 1783731735,
+      "createdAt": "2026-07-11T01:02:15.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5565999036066": [
+    {
+      "id": "true_191401107144941@lid_3EB0990EAB5ADF5FD32575",
+      "fromMe": true,
+      "body": "Olá Jose ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Jose ?",
+      "type": "chat",
+      "timestamp": 1783738418,
+      "createdAt": "2026-07-11T02:53:38.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511988080377": [
+    {
+      "id": "true_40003996491865@lid_3EB0C36F84FEE37DED84B0",
+      "fromMe": true,
+      "body": "Olá Josenildo ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Josenildo ?",
+      "type": "chat",
+      "timestamp": 1783771985,
+      "createdAt": "2026-07-11T12:13:05.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511994263644": [
+    {
+      "id": "true_232001315569741@lid_3EB0569DA1EF3B57C88A11",
+      "fromMe": true,
+      "body": "Olá Dimas Theodoro ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Dimas Theodoro ?",
+      "type": "chat",
+      "timestamp": 1783793401,
+      "createdAt": "2026-07-11T18:10:01.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_232001315569741@lid_A55E8A179F78102210C7CDA8D9881F85",
+      "fromMe": false,
+      "body": "Ok",
+      "type": "chat",
+      "timestamp": 1783798130,
+      "createdAt": "2026-07-11T19:28:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_232001315569741@lid_3EB0CF6D7F308D5DC127F8",
+      "fromMe": true,
+      "body": "Olá Dimas, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1783945524,
+      "createdAt": "2026-07-13T12:25:24.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_232001315569741@lid_3EB079AF87AFF7F826A582",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*16/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*20/07 - Summit Hotel Monaco* - Rua Diogo Farias, 137 – Centro – Guarulhos/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-guarulhos/",
+      "type": "chat",
+      "timestamp": 1783945529,
+      "createdAt": "2026-07-13T12:25:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511949122471": [
+    {
+      "id": "true_220099961159864@lid_3EB03FBF1A94D70BBAD5C3",
+      "fromMe": true,
+      "body": "Olá Kennedy ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Kennedy ?",
+      "type": "chat",
+      "timestamp": 1783797621,
+      "createdAt": "2026-07-11T19:20:21.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_220099961159864@lid_2A4E909C68EA1B73BC79",
+      "fromMe": false,
+      "body": "AIRAN )Kennedy) - APÊEMSP Imóveis agradece seu contato. Como posso te ajudar?",
+      "type": "chat",
+      "timestamp": 1783797627,
+      "createdAt": "2026-07-11T19:20:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_220099961159864@lid_3EB0350CB2F741D5C2807D",
+      "fromMe": true,
+      "body": "Olá Kennedy ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Kennedy ?",
+      "type": "chat",
+      "timestamp": 1783801113,
+      "createdAt": "2026-07-11T20:18:33.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_220099961159864@lid_2AD5FBFF1556603345B8",
+      "fromMe": false,
+      "body": "Ola",
+      "type": "chat",
+      "timestamp": 1783801585,
+      "createdAt": "2026-07-11T20:26:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_220099961159864@lid_2AB5F76C23E85049CEC7",
+      "fromMe": false,
+      "body": "Eu escolhi São Paulo",
+      "type": "chat",
+      "timestamp": 1783801590,
+      "createdAt": "2026-07-11T20:26:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_220099961159864@lid_2A602DF0D63AB4F712CB",
+      "fromMe": false,
+      "body": "Guarulhos não consigo",
+      "type": "chat",
+      "timestamp": 1783801595,
+      "createdAt": "2026-07-11T20:26:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511966969402": [
+    {
+      "id": "true_251625088237820@lid_3EB0DD32C9DA4C05BA1BAB",
+      "fromMe": true,
+      "body": "Olá Elaine Cristina ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Elaine Cristina ?",
+      "type": "chat",
+      "timestamp": 1783806550,
+      "createdAt": "2026-07-11T21:49:10.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511982827535": [
+    {
+      "id": "true_244052943478985@lid_3EB0F8E8356297C6BF483D",
+      "fromMe": true,
+      "body": "Olá Daniella Morelli ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Daniella Morelli ?",
+      "type": "chat",
+      "timestamp": 1783815962,
+      "createdAt": "2026-07-12T00:26:02.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511983117084": [
+    {
+      "id": "true_272975253242058@lid_3EB0416683B2F33184D2E3",
+      "fromMe": true,
+      "body": "Olá Fabiana Marques Pereira ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Fabiana Marques Pereira ?",
+      "type": "chat",
+      "timestamp": 1783847443,
+      "createdAt": "2026-07-12T09:10:43.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511978933615": [
+    {
+      "id": "true_257715989405817@lid_3EB0D6F0FF64FCBB2F2EDA",
+      "fromMe": true,
+      "body": "Olá Ricardo Costa Dos Reis ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Ricardo Costa Dos Reis ?",
+      "type": "chat",
+      "timestamp": 1783852073,
+      "createdAt": "2026-07-12T10:27:53.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511984061951": [
+    {
+      "id": "true_273796263071768@lid_3EB0890D58A3636A780315",
+      "fromMe": true,
+      "body": "Olá Vanessa ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Vanessa ?",
+      "type": "chat",
+      "timestamp": 1783863615,
+      "createdAt": "2026-07-12T13:40:15.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_273796263071768@lid_6A9754D7FC97889390FF",
+      "fromMe": false,
+      "body": "Correspondente Bancario agradece seu contato. Como podemos ajudar?",
+      "type": "chat",
+      "timestamp": 1783863620,
+      "createdAt": "2026-07-12T13:40:20.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511946862087": [
+    {
+      "id": "true_234183226052722@lid_3EB01412A7882E7D61648B",
+      "fromMe": true,
+      "body": "Olá Pablo ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Pablo ?",
+      "type": "chat",
+      "timestamp": 1783864825,
+      "createdAt": "2026-07-12T14:00:25.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511976938666": [
+    {
+      "id": "true_269621034762493@lid_3EB01C2EF44489E0302D29",
+      "fromMe": true,
+      "body": "Olá Isabel Cristina Motta araujo ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Isabel Cristina Motta araujo ?",
+      "type": "chat",
+      "timestamp": 1783868924,
+      "createdAt": "2026-07-12T15:08:44.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511912621736": [
+    {
+      "id": "true_278984281571334@lid_3EB092161780503040857D",
+      "fromMe": true,
+      "body": "Olá Lusitania dos Santos Borges ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Lusitania dos Santos Borges ?",
+      "type": "chat",
+      "timestamp": 1783879593,
+      "createdAt": "2026-07-12T18:06:33.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_278984281571334@lid_AC84509EAB13A5A79BD8C16844B406B7",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1783879646,
+      "createdAt": "2026-07-12T18:07:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_278984281571334@lid_ACBC6E5075861B3B852723875337F148",
+      "fromMe": false,
+      "body": "Pix",
+      "type": "chat",
+      "timestamp": 1783879661,
+      "createdAt": "2026-07-12T18:07:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_278984281571334@lid_3EB09DB6459E19504A77C3",
+      "fromMe": true,
+      "body": "Olá Lusitania dos Santos Borges ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Lusitania dos Santos Borges ?",
+      "type": "chat",
+      "timestamp": 1783879688,
+      "createdAt": "2026-07-12T18:08:08.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511984648086": [
+    {
+      "id": "true_96477984632874@lid_3EB010A3C9D522595ADC09",
+      "fromMe": true,
+      "body": "Olá Meire Ellen CR ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Meire Ellen CR ?",
+      "type": "chat",
+      "timestamp": 1783880956,
+      "createdAt": "2026-07-12T18:29:16.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511994974159": [
+    {
+      "id": "true_64257089613911@lid_3EB0DD0F7C21C84255BADB",
+      "fromMe": true,
+      "body": "Olá Danieli ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Danieli ?",
+      "type": "chat",
+      "timestamp": 1783891810,
+      "createdAt": "2026-07-12T21:30:10.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "false_64257089613911@lid_3A2F7D0798D08D4EFB4C",
+      "fromMe": false,
+      "body": "Acabei de pagar",
+      "type": "chat",
+      "timestamp": 1783891969,
+      "createdAt": "2026-07-12T21:32:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_64257089613911@lid_3EB070DEFEF6E472862D55",
+      "fromMe": true,
+      "body": "Bom diaa Danieli!!!",
+      "type": "chat",
+      "timestamp": 1783942391,
+      "createdAt": "2026-07-13T11:33:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_64257089613911@lid_3EB01016DA8434DC1C7FAA",
+      "fromMe": true,
+      "body": "Recebemos seu pagamento no sistema.",
+      "type": "chat",
+      "timestamp": 1783942405,
+      "createdAt": "2026-07-13T11:33:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_64257089613911@lid_3EB06F98B413F9EF0AF715",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 16/07/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1783942494,
+      "createdAt": "2026-07-13T11:34:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511978447749": [
+    {
+      "id": "true_83597746790519@lid_3EB07D99691124D711C1B8",
+      "fromMe": true,
+      "body": "Olá Rhian ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Rhian ?",
+      "type": "chat",
+      "timestamp": 1783899176,
+      "createdAt": "2026-07-12T23:32:56.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    },
+    {
+      "id": "true_83597746790519@lid_3EB03DCF104F6E6235284D",
+      "fromMe": true,
+      "body": "Olá Rhian ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Rhian ?",
+      "type": "chat",
+      "timestamp": 1783899201,
+      "createdAt": "2026-07-12T23:33:21.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511998821777": [
+    {
+      "id": "true_122131874639958@lid_3EB0E68137BAE3E7978CC5",
+      "fromMe": true,
+      "body": "Olá Lourdes dos Santos ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Lourdes dos Santos ?",
+      "type": "chat",
+      "timestamp": 1783900664,
+      "createdAt": "2026-07-12T23:57:44.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511966732127": [
+    {
+      "id": "true_230068597059787@lid_3EB0301AEF1EF9BAB63419",
+      "fromMe": true,
+      "body": "Olá Ivonete Pereira da Penha de Oliveira ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Ivonete Pereira da Penha de Oliveira ?",
+      "type": "chat",
+      "timestamp": 1783915508,
+      "createdAt": "2026-07-13T04:05:08.000Z",
+      "ack": 0,
+      "source": "send-custom"
+    }
+  ],
+  "5511981581601": [
+    {
+      "id": "true_225868102287547@lid_3EB00FE4670EDA0178019B",
+      "fromMe": true,
+      "body": "Olá Sérgio Almeida ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Sérgio Almeida ?",
+      "type": "chat",
+      "timestamp": 1783937286,
+      "createdAt": "2026-07-13T10:08:06.000Z",
       "ack": 0,
       "source": "send-custom"
     }

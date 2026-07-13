@@ -22940,6 +22940,46 @@
       "mediaSize": 30305,
       "filename": "false_194029543227477@lid_2A397AB3D74734324FFA",
       "originalName": "false_194029543227477@lid_2A397AB3D74734324FFA"
+    },
+    {
+      "id": "true_194029543227477@lid_A59841AB114E9B325F9B808A0A8A19A1",
+      "fromMe": true,
+      "body": "Olá Helena Além tudo bem?\n\nAqui é a *Fabiane*, da equipa do *Matheus Bottaro*.\n\nA sua inscrição foi recebida com sucesso para o evento online:\n\nA *Nova Era da Aquisição de Clientes por IA*\n\n📅 *13 e 14 de Julho*\n🕖 *19h00*\n\nDurante o evento, vamos abordar como aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini e outras Inteligências Artificiais, além das mais recentes atualizações do Google Ads com IA para atrair leads mais qualificados.\n\nEm breve irá receber mais informações por aqui e também no seu e-mail.\n\nCriámos também grupos silenciosos para enviar os acessos, materiais complementares, gravações e conteúdos extras do evento.\n\nPosso enviar-lhe o link de acesso ao grupo?",
+      "type": "chat",
+      "timestamp": 1783948880,
+      "createdAt": "2026-07-13T13:21:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5688555DF60D07AFFFB448C967955F3",
+      "fromMe": true,
+      "body": "Matheus, bom dia!",
+      "type": "chat",
+      "timestamp": 1783948887,
+      "createdAt": "2026-07-13T13:21:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A558CFC45065D90DBE6B6251F64C2BA5",
+      "fromMe": true,
+      "body": "Recebi essa mensagem de uma lead portuguesa",
+      "type": "chat",
+      "timestamp": 1783948904,
+      "createdAt": "2026-07-13T13:21:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5AE3902233D8E9D4AA55DF5D659B507",
+      "fromMe": true,
+      "body": "Vai ter essa turma mesmo???",
+      "type": "chat",
+      "timestamp": 1783948953,
+      "createdAt": "2026-07-13T13:22:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351967166641": [
