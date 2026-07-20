@@ -113,8 +113,10 @@ const {
 } = require("./src/waCloudDispatchStore");
 const { normalizeMetaError } = require("./src/metaErrorHelper");
 const { PersistentJobQueue, QueueError } = require("./src/persistentJobQueue");
+const { createAutomaticMessageQueue } = require("./src/automaticMessageQueue");
 const { maskIdentifier, safeError, sanitizeForLog } = require("./src/safeLog");
 const { StructuredLogger, correlationMiddleware, installConsoleBridge } = require("./src/structuredLogger");
+const { createWebhookRequestDiagnostics, webhookTransportDiagnosticsMiddleware } = require("./src/webhookDiagnosticLogger");
 const { defaultMetrics } = require("./src/metricsRegistry");
 const { AlertManager } = require("./src/alertManager");
 const { collectSystemSnapshot, evaluateSystemAlerts } = require("./src/systemMonitor");
@@ -157,6 +159,7 @@ const {
 const {
   claimWebhookEvent,
   completeWebhookEvent,
+  releaseWebhookEvent,
 } = require("./src/webhookEventStore");
 
 const app = express();
@@ -174,6 +177,18 @@ const logOk = (...a) => console.log("[OK]", ...a);
 const logErr = (...a) => console.error("[ERROR]", ...a);
 const PORT = runtimeConfig.port;
 const HOST = runtimeConfig.host;
+
+const automaticMessageQueue = createAutomaticMessageQueue({
+  file: path.join(dataRoot(), "automatic_message_jobs.json"),
+  sendMessage: sendCustomMessage,
+  getTenantWhatsApp: getTenantWA,
+  logger: console,
+  pollIntervalMs: Number(process.env.AUTOMATIC_MESSAGE_QUEUE_POLL_MS || 500),
+  maxAttempts: Number(process.env.AUTOMATIC_MESSAGE_QUEUE_MAX_ATTEMPTS || 5),
+  baseDelayMs: Number(process.env.AUTOMATIC_MESSAGE_QUEUE_RETRY_BASE_MS || 30000),
+  maxDelayMs: Number(process.env.AUTOMATIC_MESSAGE_QUEUE_RETRY_MAX_MS || 600000),
+  readyTimeoutMs: Number(process.env.AUTOMATIC_MESSAGE_READY_TIMEOUT_MS || process.env.WA_READY_TIMEOUT_MS || 60000),
+});
 
 function readLeads(tenantId) {
   return databaseRuntime.isDatabasePrimary()
@@ -224,6 +239,7 @@ app.use("/webhooks/activecampaign", express.urlencoded({ extended: true, limit: 
 app.use("/webhooks/wa-cloud", express.raw({ type: "application/json", limit: META_WEBHOOK_BODY_LIMIT }));
 const generatedWebhookPath = /^\/webhooks\/(?!wa-cloud(?:\/|$)|activecampaign(?:\/|$))[^/]+$/;
 const captureRawBody = (req, _res, buffer) => { req.rawBody = Buffer.from(buffer); };
+app.use(generatedWebhookPath, webhookTransportDiagnosticsMiddleware());
 app.use(generatedWebhookPath, express.json({ limit: PUBLIC_WEBHOOK_BODY_LIMIT, strict: true, verify: captureRawBody }));
 app.use(generatedWebhookPath, express.urlencoded({ extended: true, limit: PUBLIC_WEBHOOK_BODY_LIMIT, parameterLimit: 500, verify: captureRawBody }));
 
@@ -361,6 +377,26 @@ function activeCampaignEventId(req) {
   const explicit = String(req.get("x-zape-event-id") || req.get("x-idempotency-key") || "").trim();
   if (explicit) return explicit.slice(0, 200);
   return `payload:${securitySha256(JSON.stringify(req.body || {}))}`;
+}
+
+function isActiveCampaignWebhookPayload(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) return false;
+  const contact = payload.contact;
+  if (!contact || typeof contact !== "object" || Array.isArray(contact)) return false;
+
+  const hasContactIdentity = Boolean(
+    String(contact.id || "").trim()
+    || String(contact.email || "").trim()
+    || String(contact.phone || "").trim()
+  );
+  const hasActiveCampaignShape = Boolean(
+    Object.prototype.hasOwnProperty.call(payload, "seriesid")
+    || Object.prototype.hasOwnProperty.call(contact, "fields")
+    || Object.prototype.hasOwnProperty.call(contact, "tags")
+    || Object.prototype.hasOwnProperty.call(contact, "first_name")
+  );
+
+  return hasContactIdentity && hasActiveCampaignShape;
 }
 
 function auditSecurityAction(req, action, resource, outcome = "success", details = undefined) {
@@ -509,6 +545,36 @@ async function processLead(tenantId, source, payload) {
   });
 
   return lead;
+}
+
+function findExistingLeadByWhatsapp(tenantId, whatsapp) {
+  const phoneDigits = normalizeBRPhoneToE164Digits(whatsapp || "");
+  if (!phoneDigits) return null;
+  return readLeads(tenantId).find((item) =>
+    normalizeBRPhoneToE164Digits(item?.whatsapp_digits || item?.whatsapp_raw || "") === phoneDigits
+  ) || null;
+}
+
+async function processWebhookLead(tenantId, source, payload, diagnostic) {
+  try {
+    const lead = await processLead(tenantId, source, payload);
+    return { lead, created: true, reused: false };
+  } catch (error) {
+    if (String(error?.code || "") !== "LEAD_PHONE_CONFLICT") throw error;
+
+    const existing = findExistingLeadByWhatsapp(tenantId, payload?.whatsapp);
+    if (!existing) throw error;
+
+    diagnostic?.warn("custom.existing_lead_reused", {
+      leadId: existing.id || "",
+      reason: "phone_already_registered",
+      conflictLeadId: error?.details?.conflictLeadId || existing.id || "",
+      source: existing.source || "",
+      createdAt: existing.createdAt || "",
+    });
+
+    return { lead: existing, created: false, reused: true };
+  }
 }
 
 function extractDDDFromDigits(digits) {
@@ -1523,38 +1589,57 @@ async function sendCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason
   const digits = normalizePhoneToE164Digits(lead.whatsapp_digits || lead.whatsapp_raw || "");
   if (!digits) return { ok: false, skipped: true, reason: "lead_without_whatsapp" };
 
-  let sentCount = 0;
-  for (const template of templates) {
-    const text = renderCrmStageAutoMessage(template, lead, pipeline, stage);
-    if (!text) continue;
+  const messages = templates
+    .map((template) => renderCrmStageAutoMessage(template, lead, pipeline, stage))
+    .filter(Boolean);
+  if (!messages.length) return { ok: false, skipped: true, reason: "empty_after_render" };
 
-    await sendCustomMessage(tenantId, {
-      toDigits: digits,
-      nome: lead.nome || "",
-      text,
-      waitReadyMs: 60000,
-    });
-    sentCount += 1;
-  }
+  const triggerId = genId();
+  const queued = automaticMessageQueue.enqueueBatch({
+    tenantId,
+    toDigits: digits,
+    nome: lead.nome || "",
+    messages,
+    idempotencyPrefix: `crm-stage:${leadId}:${pipeline && pipeline.id}:${stage && stage.id}:${triggerId}`,
+    source: {
+      type: "crm_stage",
+      reason: reason || "crm_stage_enter",
+      leadId,
+      pipelineId: pipeline && pipeline.id,
+      stageId: stage && stage.id,
+    },
+  });
 
-  if (!sentCount) return { ok: false, skipped: true, reason: "empty_after_render" };
-  return { ok: true, sent: true, sentCount, reason: reason || "crm_stage_enter", leadId, stageId: stage && stage.id, pipelineId: pipeline && pipeline.id };
+  return {
+    ok: true,
+    queued: true,
+    queuedCount: queued.queued,
+    existingCount: queued.existing,
+    reason: reason || "crm_stage_enter",
+    leadId,
+    stageId: stage && stage.id,
+    pipelineId: pipeline && pipeline.id,
+  };
 }
 
 function queueCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason) {
   const templates = getCrmStageAutoMessages(stage);
   if (!templates.length) return;
-  setTimeout(() => {
-    sendCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason)
-      .then((out) => {
-        if (out && out.sent) {
-          console.log(`✅ Mensagem automática do CRM enviada [${tenantId}]:`, { leadId, pipelineId: pipeline && pipeline.id, stageId: stage && stage.id, reason, sentCount: out.sentCount || 1 });
-        }
-      })
-      .catch((err) => {
-        console.error(`❌ Falha ao enviar mensagem automática do CRM [${tenantId}/${leadId}]:`, err?.message || err);
-      });
-  }, 250);
+  sendCrmStageAutoMessage(tenantId, leadId, pipeline, stage, reason)
+    .then((out) => {
+      if (out && out.queued) {
+        console.log(`📥 Mensagem automática do CRM enfileirada [${tenantId}]:`, {
+          leadId,
+          pipelineId: pipeline && pipeline.id,
+          stageId: stage && stage.id,
+          reason,
+          queuedCount: out.queuedCount || 0,
+        });
+      }
+    })
+    .catch((err) => {
+      console.error(`❌ Falha ao enfileirar mensagem automática do CRM [${tenantId}/${leadId}]:`, err?.message || err);
+    });
 }
 
 function crmStageLeadSet(state, pipelineId, stageId) {
@@ -2735,17 +2820,58 @@ app.post("/webhooks/activecampaign", async (req, res) => {
 /** Webhook gerado (multi-tenant): /webhooks/<token> */
 app.post("/webhooks/:token", async (req, res, next) => {
   if (String(req.params.token || "").trim() === "wa-cloud") return next();
+
+  req.webhookTransportDiagnostic?.stage("route_entered", {
+    parsedBodyType: Array.isArray(req.body) ? "array" : typeof req.body,
+    parsedBodyKeys: req.body && typeof req.body === "object" && !Array.isArray(req.body)
+      ? Object.keys(req.body).slice(0, 100)
+      : [],
+  });
+
+  const diagnostic = createWebhookRequestDiagnostics({
+    req,
+    res,
+    token: req.params.token,
+  });
+
   let claim = null;
   let eventId = "";
   let tenantId = "";
   let integrationId = "";
+
   try {
-    if (!requireSupportedBody(req, res, { allowForm: true })) return;
+    if (!requireSupportedBody(req, res, { allowForm: true })) {
+      diagnostic.stage("rejected_unsupported_body", {
+        contentType: req.get("content-type") || "",
+      }, "warn");
+      return;
+    }
+
     const token = String(req.params.token || "").trim();
     const row = resolveWebhookToken(token);
-    if (!row) return res.status(404).json({ ok: false, error: "Webhook não encontrado." });
+    if (!row) {
+      diagnostic.stage("webhook_not_found", {}, "warn");
+      const responseBody = { ok: false, error: "Webhook não encontrado." };
+      diagnostic.response(responseBody, 404);
+      return res.status(404).json(responseBody);
+    }
 
     tenantId = row.tenantId;
+    diagnostic.setContext({
+      tenantId,
+      webhookId: row.id,
+      webhookName: row.name || row.displayName || "",
+      stage: "webhook_resolved",
+    });
+    diagnostic.info("custom.webhook_resolved", {
+      enabled: row.enabled !== false,
+      configuredMessages: Array.isArray(row.messages)
+        ? row.messages.length
+        : (row.messageText ? 1 : 0),
+      crmTargetEnabled: Boolean(row.crmTarget && row.crmTarget.enabled !== false),
+      externalCrmTargetEnabled: Boolean(row.externalCrmTarget && row.externalCrmTarget.enabled !== false),
+    });
+
     if (!enforceRateLimit({
       req,
       res,
@@ -2754,11 +2880,41 @@ app.post("/webhooks/:token", async (req, res, next) => {
       identity: publicEndpointIdentity(req, `${tenantId}:${row.id}`),
       max: CUSTOM_WEBHOOK_RATE_MAX,
       windowMs: PUBLIC_RATE_WINDOW_MS,
-    })) return;
+    })) {
+      diagnostic.stage("rejected_rate_limit", {}, "warn");
+      return;
+    }
 
     const rawBody = getRawBody(req);
-    const requireSignature = customWebhookSignatureRequired();
-    if (requireSignature) {
+    const signatureRequiredByPolicy = customWebhookSignatureRequired();
+    const activeCampaignTokenOnly = isActiveCampaignWebhookPayload(req.body || {});
+    const requireSignature = signatureRequiredByPolicy && !activeCampaignTokenOnly;
+    const authenticationMode = activeCampaignTokenOnly
+      ? "activecampaign_url_token"
+      : (requireSignature ? "signed_webhook" : "url_token");
+
+    diagnostic.stage("security_validation_started", {
+      requireSignature,
+      signatureRequiredByPolicy,
+      activeCampaignTokenOnly,
+      authenticationMode,
+      rawBodyBytes: Buffer.isBuffer(rawBody) ? rawBody.length : Buffer.byteLength(String(rawBody || "")),
+      rawBodyHash: securitySha256(rawBody || Buffer.alloc(0)).slice(0, 16),
+    });
+
+    if (activeCampaignTokenOnly) {
+      // O token secreto presente na própria URL já identificou o webhook por resolveWebhookToken().
+      // A ActiveCampaign não envia os três headers do protocolo assinado do Zape, por isso
+      // geramos uma chave de idempotência estável a partir do payload recebido.
+      eventId = activeCampaignEventId(req);
+      diagnostic.info("custom.activecampaign_url_token_accepted", {
+        authenticationMode,
+        signaturePresent: Boolean(req.get("x-zape-signature")),
+        timestampPresent: Boolean(req.get("x-zape-timestamp")),
+        eventIdPresent: Boolean(req.get("x-zape-event-id") || req.get("x-idempotency-key")),
+        generatedEventId: !Boolean(req.get("x-zape-event-id") || req.get("x-idempotency-key")),
+      });
+    } else if (requireSignature) {
       const signatureResult = validateCustomWebhookSignature({
         rawBody,
         signatureHeader: req.get("x-zape-signature"),
@@ -2767,6 +2923,13 @@ app.post("/webhooks/:token", async (req, res, next) => {
         secret: row.token,
       });
       if (!signatureResult.ok) {
+        diagnostic.stage("rejected_invalid_signature", {
+          signatureCode: signatureResult.code,
+          signaturePresent: Boolean(req.get("x-zape-signature")),
+          timestampPresent: Boolean(req.get("x-zape-timestamp")),
+          eventIdPresent: Boolean(req.get("x-zape-event-id")),
+          authenticationMode,
+        }, "warn");
         return respondSecurityError(res, 401, signatureResult.code, "Assinatura do webhook inválida.");
       }
       eventId = signatureResult.eventId;
@@ -2774,19 +2937,80 @@ app.post("/webhooks/:token", async (req, res, next) => {
       eventId = String(req.get("x-zape-event-id") || `payload:${securitySha256(rawBody || Buffer.alloc(0))}`).trim().slice(0, 200);
     }
 
+    diagnostic.setContext({ eventId, stage: "security_validated" });
+    diagnostic.info("custom.security_validated", {
+      requireSignature,
+      signatureRequiredByPolicy,
+      activeCampaignTokenOnly,
+      authenticationMode,
+      eventIdHash: securitySha256(eventId).slice(0, 16),
+    });
+
     const body = validateCustomWebhookPayload(req.body || {});
+    const payloadType = body.contact || body.seriesid ? "activecampaign" : "json";
+    diagnostic.stage("payload_validated", {
+      payloadType,
+      validatedData: sanitizeForLog(body),
+      hasContact: Boolean(body.contact),
+      hasSeriesId: Boolean(body.seriesid),
+    });
+
     integrationId = `custom:${row.id}`;
-    claim = claimWebhookEvent({ integration: integrationId, tenantId, eventId, requestHash: securitySha256(rawBody) });
-    if (!claim.claimed) return duplicateWebhookResponse(res, claim);
+    claim = claimWebhookEvent({
+      integration: integrationId,
+      tenantId,
+      eventId,
+      requestHash: securitySha256(rawBody),
+    });
+    if (!claim.claimed && activeCampaignTokenOnly && !claim.conflict && !claim.pending && Number(claim.statusCode || 0) >= 400) {
+      const released = releaseWebhookEvent({ integration: integrationId, tenantId, eventId });
+      diagnostic.warn("custom.previous_failed_event_released", {
+        previousStatusCode: Number(claim.statusCode || 0),
+        released,
+      });
+      if (released) {
+        claim = claimWebhookEvent({
+          integration: integrationId,
+          tenantId,
+          eventId,
+          requestHash: securitySha256(rawBody),
+        });
+      }
+    }
+    if (!claim.claimed) {
+      diagnostic.stage("duplicate_event", {
+        claimState: claim?.state || claim?.status || "existing",
+        previousStatusCode: Number(claim?.statusCode || 0),
+      }, "warn");
+      return duplicateWebhookResponse(res, claim);
+    }
+
+    diagnostic.stage("event_claimed", {
+      integrationId,
+      claimCreated: true,
+    });
 
     const webhookUrl = `${getPublicBaseUrl(req)}/webhooks/[redacted]`;
     const webhookName = webhookEffectiveName(row, webhookUrl);
+    diagnostic.setContext({ webhookName });
     let lead = null;
+    let leadCreated = true;
+    let leadReused = false;
 
-    if (body.contact || body.seriesid) {
+    if (payloadType === "activecampaign") {
       const c = body.contact || {};
       const f = c?.fields || {};
-      lead = await processLead(tenantId, "generated_webhook_activecampaign", {
+      diagnostic.stage("lead_processing_started", {
+        payloadType,
+        mappedFields: {
+          nome: Boolean(c.first_name),
+          empresa: Boolean(f.empresa || c.orgname),
+          email: Boolean(c.email),
+          whatsapp: Boolean(c.phone),
+          tags: Boolean(c.tags),
+        },
+      });
+      const processedLead = await processWebhookLead(tenantId, "generated_webhook_activecampaign", {
         allowPhoneOnly: true,
         sourceDetail: `Webhook ${webhookName || row.id} recebido no formato ActiveCampaign`,
         sourceMeta: {
@@ -2806,10 +3030,29 @@ app.post("/webhooks/:token", async (req, res, next) => {
         website: "",
         email: c.email || "",
         whatsapp: c.phone || "",
+      }, diagnostic);
+      lead = processedLead.lead;
+      leadCreated = processedLead.created;
+      leadReused = processedLead.reused;
+      diagnostic.info(processedLead.created ? "custom.lead_created" : "custom.lead_reused", {
+        leadId: lead?.id || "",
+        created: processedLead.created,
+        reused: processedLead.reused,
       });
     } else {
       const p = body;
-      lead = await processLead(tenantId, "generated_webhook_generic", {
+      diagnostic.stage("lead_processing_started", {
+        payloadType,
+        mappedFields: {
+          nome: Boolean(p.nome || p.name || p.first_name),
+          empresa: Boolean(p.empresa || p.company || p.orgname),
+          website: Boolean(p.website || p.site),
+          email: Boolean(p.email),
+          whatsapp: Boolean(p.whatsapp || p.phone),
+          tags: Boolean(p.tags),
+        },
+      });
+      const processedLead = await processWebhookLead(tenantId, "generated_webhook_generic", {
         allowPhoneOnly: true,
         sourceDetail: `Webhook ${webhookName || row.id} recebido por POST JSON`,
         sourceMeta: {
@@ -2829,14 +3072,45 @@ app.post("/webhooks/:token", async (req, res, next) => {
         tags: p.tags || "",
         active_contact_id: p.active_contact_id || "",
         active_seriesid: p.active_seriesid || "",
+      }, diagnostic);
+      lead = processedLead.lead;
+      leadCreated = processedLead.created;
+      leadReused = processedLead.reused;
+      diagnostic.info(processedLead.created ? "custom.lead_created" : "custom.lead_reused", {
+        leadId: lead?.id || "",
+        created: processedLead.created,
+        reused: processedLead.reused,
       });
     }
+
+    diagnostic.stage("lead_saved", {
+      leadId: lead?.id || "",
+      leadData: {
+        nome: lead?.nome || "",
+        empresa: lead?.empresa || "",
+        email: lead?.email || "",
+        whatsapp: lead?.whatsapp_digits || lead?.whatsapp || "",
+        source: lead?.source || "",
+        createdAt: lead?.createdAt || "",
+      },
+    });
 
     const crmTargetResult = addLeadToCrmTargetFromWebhook(tenantId, row, lead);
     if (crmTargetResult && crmTargetResult.added) {
       console.log(`✅ Lead vinculado ao CRM pelo webhook [${tenantId}]:`, { leadId: lead.id, webhookId: row.id, pipelineId: crmTargetResult.pipelineId, stageId: crmTargetResult.stageId });
+      diagnostic.info("custom.crm_target_applied", {
+        leadId: lead.id,
+        pipelineId: crmTargetResult.pipelineId,
+        stageId: crmTargetResult.stageId,
+      });
     } else if (row.crmTarget && row.crmTarget.enabled !== false) {
       console.warn(`⚠️ Webhook com vínculo de CRM não aplicado [${tenantId}]:`, { webhookId: row.id, leadId: lead?.id, reason: crmTargetResult?.reason });
+      diagnostic.warn("custom.crm_target_not_applied", {
+        leadId: lead?.id || "",
+        reason: crmTargetResult?.reason || "unknown",
+      });
+    } else {
+      diagnostic.info("custom.crm_target_skipped", { reason: "not_configured" });
     }
 
     if (row.externalCrmTarget && row.externalCrmTarget.enabled !== false) {
@@ -2849,44 +3123,121 @@ app.post("/webhooks/:token", async (req, res, next) => {
           payloadType: lead?.sourceMeta?.payloadType || "json",
         });
         console.log(`📥 Lead registrado na fila do CRM Inteligente [${tenantId}]:`, sanitizeForLog(queued));
+        diagnostic.info("custom.external_crm_queued", {
+          leadId: lead.id,
+          queueResult: sanitizeForLog(queued),
+        });
       } catch (queueError) {
         console.error(`⚠️ Lead salvo, mas não foi possível gravar a fila do CRM Inteligente [${tenantId}]:`, safeError(queueError));
+        diagnostic.error("custom.external_crm_queue_failed", {
+          leadId: lead.id,
+          error: safeError(queueError),
+        });
       }
+    } else {
+      diagnostic.info("custom.external_crm_skipped", { reason: "not_configured" });
     }
 
-    if (row.messages && Array.isArray(row.messages) && row.messages.length > 0) {
-      for (const msg of row.messages) {
-        try {
-          const text = String(msg || "").replace(/\{\{\s*nome\s*\}\}/gi, lead.nome || "").trim();
-          if (!text) continue;
-          await sendCustomMessage(row.tenantId, { toDigits: lead.whatsapp_digits, text, waitReadyMs: 60000 });
-        } catch (error) {
-          console.error(`❌ Falha ao enviar mensagem em lote do webhook para ${maskIdentifier(lead.whatsapp_digits)}:`, safeError(error));
-        }
-      }
-    } else if (row.messageText) {
-      try {
-        const text = String(row.messageText || "").replace(/\{\{\s*nome\s*\}\}/gi, lead.nome || "").trim();
-        if (text) await sendCustomMessage(row.tenantId, { toDigits: lead.whatsapp_digits, text, waitReadyMs: 60000 });
-      } catch (error) {
-        console.error(`❌ Falha ao enviar mensagem do webhook para ${maskIdentifier(lead.whatsapp_digits)}:`, safeError(error));
-      }
+    const webhookMessageTemplates = Array.isArray(row.messages) && row.messages.length > 0
+      ? row.messages
+      : (row.messageText ? [row.messageText] : []);
+    const webhookMessages = webhookMessageTemplates
+      .map((msg) => String(msg || "").replace(/\{\{\s*nome\s*\}\}/gi, lead.nome || "").trim())
+      .filter(Boolean);
+
+    diagnostic.stage("automatic_messages_prepared", {
+      templateCount: webhookMessageTemplates.length,
+      validMessageCount: webhookMessages.length,
+      messageLengths: webhookMessages.map((message) => message.length),
+      messagePreviews: webhookMessages.map((message) => message.slice(0, 300)),
+      destination: lead.whatsapp_digits || "",
+    });
+
+    let automaticMessages = { configured: 0, queued: 0, existing: 0 };
+    if (webhookMessages.length) {
+      const queued = automaticMessageQueue.enqueueBatch({
+        tenantId: row.tenantId,
+        toDigits: lead.whatsapp_digits,
+        nome: lead.nome || "",
+        messages: webhookMessages,
+        idempotencyPrefix: `webhook:${row.id}:${eventId}:${lead.id}`,
+        source: {
+          type: "webhook",
+          webhookId: row.id,
+          webhookName,
+          webhookEventId: eventId,
+          leadId: lead.id,
+        },
+      });
+      automaticMessages = { configured: queued.configured, queued: queued.queued, existing: queued.existing };
+      console.log(`📥 Mensagem automática do webhook enfileirada [${tenantId}]:`, {
+        webhookId: row.id,
+        leadId: lead.id,
+        configured: queued.configured,
+        queued: queued.queued,
+        existing: queued.existing,
+      });
+      diagnostic.stage("automatic_messages_queued", {
+        leadId: lead.id,
+        automaticMessages,
+        jobs: Array.isArray(queued.jobs)
+          ? queued.jobs.map((job) => ({ id: job.id, state: job.state, created: job.created }))
+          : [],
+      });
+    } else {
+      diagnostic.stage("automatic_messages_skipped", {
+        leadId: lead.id,
+        reason: webhookMessageTemplates.length ? "templates_empty_after_processing" : "no_message_configured",
+      }, "warn");
     }
 
-    const responseBody = { ok: true, tenantId, leadId: lead.id };
-    completeWebhookEventRequired({ integration: integrationId, tenantId, eventId, statusCode: 200, responseBody });
+    const responseBody = { ok: true, tenantId, leadId: lead.id, leadCreated, leadReused, automaticMessages };
+    completeWebhookEventRequired({
+      integration: integrationId,
+      tenantId,
+      eventId,
+      statusCode: 200,
+      responseBody,
+    });
+    diagnostic.stage("event_completed", {
+      leadId: lead.id,
+      leadCreated,
+      leadReused,
+      automaticMessages,
+    });
+    diagnostic.response(responseBody, 200);
     return res.json(responseBody);
   } catch (error) {
     console.error("❌ Webhook token error:", safeError(error));
     const safeStatus = publicEndpointErrorStatus(error);
-    const responseBody = { ok: false, code: error?.code || "INVALID_PAYLOAD", error: safeStatus >= 500 ? "Endpoint temporariamente indisponível." : (error?.message || "Payload inválido.") };
+    const responseBody = {
+      ok: false,
+      code: error?.code || "INVALID_PAYLOAD",
+      error: safeStatus >= 500
+        ? "Endpoint temporariamente indisponível."
+        : (error?.message || "Payload inválido."),
+    };
+    diagnostic.failure(error, {
+      safeStatus,
+      tenantId,
+      integrationId,
+      eventIdHash: eventId ? securitySha256(eventId).slice(0, 16) : "",
+      claimCreated: Boolean(claim?.claimed),
+      responseData: responseBody,
+    });
     if (claim?.claimed && tenantId && eventId) {
-      completeWebhookEventBestEffort({ integration: integrationId, tenantId, eventId, statusCode: safeStatus, responseBody });
+      completeWebhookEventBestEffort({
+        integration: integrationId,
+        tenantId,
+        eventId,
+        statusCode: safeStatus,
+        responseBody,
+      });
     }
+    diagnostic.response(responseBody, safeStatus);
     return handlePublicEndpointError(res, error);
   }
 });
-
 
 function registerExternalCrmApi(apiPrefix, authMiddleware, tenantId) {
   app.get(`${apiPrefix}/external-crm/status`, authMiddleware, (req, res) => {
@@ -3781,6 +4132,7 @@ async function gracefulShutdown(signal) {
   console.log(`🛑 Recebido ${signal}. Interrompendo novas conexões e encerrando serviços com segurança...`);
   try {
     stopExternalCrmWorker();
+    automaticMessageQueue.stop();
     cloudCampaignQueue.stop();
     if (monitorTimer) clearInterval(monitorTimer);
     await Promise.allSettled([
@@ -3876,6 +4228,11 @@ registerAdminDeploymentRoutes(app, {
 // global error handler
 app.use((err, req, res, next) => {
   if (res.headersSent) return next(err);
+  req.webhookTransportDiagnostic?.fail(err, {
+    errorType: err?.type || "",
+    errorCode: err?.code || "",
+    errorStatus: err?.status || err?.statusCode || 0,
+  });
   if (err?.type === "entity.too.large" || err?.status === 413) {
     return respondSecurityError(res, 413, "PAYLOAD_TOO_LARGE", "Payload acima do limite permitido.");
   }
@@ -3926,6 +4283,7 @@ async function startApplication() {
     console.log(`➡️ Painéis ativos (${configuredPanels.length}):`, configuredPanels.map((cfg) => cfg.path).join(", "));
     if (typeof process.send === "function") process.send("ready");
     startExternalCrmWorker();
+    automaticMessageQueue.start();
     if (resolveFeature(FEATURES.CLOUD_QUEUE, TENANT_ADMIN).enabled) cloudCampaignQueue.start();
     else console.warn("[DEPLOY] Fila Cloud desativada por feature flag.");
     setTimeout(startWhatsAppClientsInBackground, 1500);

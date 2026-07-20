@@ -173,6 +173,7 @@ class PersistentJobQueue {
   }
 
   applyResult(jobId, tenantId, result) {
+    let exhaustedDeadLetter = null;
     const updated = this.mutate(jobId, tenantId, (job) => {
       const patch = result.patch && typeof result.patch === 'object' ? result.patch : {};
       patch.inFlight = null;
@@ -201,18 +202,50 @@ class PersistentJobQueue {
         if (result.onExhaustedPatch) Object.assign(next, result.onExhaustedPatch);
         next.progress = { ...next.progress, failed: Number(next.progress.failed||0)+1, processed: Number(next.progress.processed||0)+1 };
         next.progress.pending = Math.max(0, next.progress.total - next.progress.processed);
-        next.cursor = Number(next.cursor||0)+1; next.state = next.cursor >= next.progress.total ? 'completed_with_errors' : 'queued';
-        next.nextRunAt = next.state === 'queued' ? isoNow() : null; if (!next.nextRunAt) next.completedAt = isoNow();
-        next.errors = [...job.errors.slice(-49), { ...(result.error||{}), at: isoNow(), itemKey, attempt: count, exhausted: true }];
+        if (result.fatalOnExhausted) {
+          next.state = 'failed';
+          next.nextRunAt = null;
+          next.completedAt = isoNow();
+        } else {
+          next.cursor = Number(next.cursor||0)+1;
+          next.state = next.cursor >= next.progress.total ? 'completed_with_errors' : 'queued';
+          next.nextRunAt = next.state === 'queued' ? isoNow() : null;
+          if (!next.nextRunAt) next.completedAt = isoNow();
+        }
+        const exhaustedError = { ...(result.error||{}), at: isoNow(), itemKey, attempt: count, exhausted: true };
+        next.errors = [...job.errors.slice(-49), exhaustedError];
+        if (result.deadLetterOnExhausted) {
+          exhaustedDeadLetter = {
+            jobId: job.id,
+            tenantId: job.tenantId,
+            type: job.type,
+            itemKey,
+            failedAt: isoNow(),
+            exhausted: true,
+            errors: [exhaustedError],
+          };
+        }
         return next;
       }
       next.state = 'queued'; next.nextRunAt = result.delayMs ? new Date(Date.now()+Number(result.delayMs)).toISOString() : isoNow();
       return next;
     });
-    if (updated && updated.state === 'failed') {
+    if (updated && (updated.state === 'failed' || exhaustedDeadLetter)) {
       const store = this.read();
-      store.deadLetters.push({ jobId: updated.id, tenantId: updated.tenantId, type: updated.type, failedAt: isoNow(), errors: updated.errors.slice(-10) });
-      this.write(store);
+      const deadLetter = exhaustedDeadLetter || {
+        jobId: updated.id,
+        tenantId: updated.tenantId,
+        type: updated.type,
+        failedAt: isoNow(),
+        errors: updated.errors.slice(-10),
+      };
+      const duplicate = store.deadLetters.some((row) =>
+        row.jobId === deadLetter.jobId && String(row.itemKey || '') === String(deadLetter.itemKey || '')
+      );
+      if (!duplicate) {
+        store.deadLetters.push(deadLetter);
+        this.write(store);
+      }
     }
     return updated;
   }

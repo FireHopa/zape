@@ -1171,6 +1171,41 @@ class TenantWhatsApp {
     }
   }
 
+  _isRecoverableSendFailure(error) {
+    const message = String(error?.message || error || '');
+    return /wa_ready_timeout|READY timeout|disconnected|Target closed|Session closed|Protocol error|Execution context was destroyed|Navigation failed|Page crashed|ECONNRESET|ETIMEDOUT|EAI_AGAIN|socket hang up/i.test(message);
+  }
+
+  async recoverAfterSendFailure(error) {
+    if (!this._isRecoverableSendFailure(error)) return false;
+    if (!this.client && !this.initPromise && this.sessionStatus === 'idle') return false;
+
+    const previousClient = this.client;
+    const reason = String(error?.message || error || 'Falha temporária no WhatsApp').slice(0, 500);
+    if (this._authWatchdogTimer) {
+      clearInterval(this._authWatchdogTimer);
+      this._authWatchdogTimer = null;
+    }
+
+    this.client = null;
+    this.initPromise = null;
+    this.activationPromise = null;
+    this.readyPromise = null;
+    this.readyResolve = null;
+    this.readyReject = null;
+    this.sessionStatus = 'idle';
+    this.lastError = reason;
+
+    if (previousClient) {
+      try { await previousClient.destroy(); }
+      catch (destroyError) {
+        logErr(this.tenantId, 'destroy after recoverable send failure failed', destroyError?.message || String(destroyError));
+      }
+    }
+    logErr(this.tenantId, 'runtime client reset after recoverable send failure', reason);
+    return true;
+  }
+
   async initWhatsApp() {
     if (!isWhatsAppConfigured()) throw new Error("WEBJS_ENABLED!=1 (WhatsApp WebJS desativado).");
 
@@ -1404,6 +1439,9 @@ class TenantWhatsApp {
         lastMessageId: messageId,
         chatId,
         waId: chatId,
+        dispatchStatus: 'sent',
+        sentAt: new Date().toISOString(),
+        failedAt: null,
         sendError: null,
       });
 
@@ -1430,23 +1468,30 @@ class TenantWhatsApp {
     }
   }
 
-  async sendCustomMessageText({ toDigits, nome, text }) {
-    const c = await this.initWhatsApp();
-    await this._ensureReady();
-
-    this._upsertStatus(toDigits, {
-      lastSendAt: new Date().toISOString(),
-      ack: 0,
-      notOnWhatsapp: false,
-      sendError: null,
-    });
-
+  async sendCustomMessageText({ toDigits, nome, text, waitReadyMs } = {}) {
     const msg = String(text || "")
       .replace(/\{\{\s*nome\s*\}\}/gi, String(nome || "").trim());
     const msgTrim = String(msg || '').trim();
     if (!msgTrim) throw new Error('Texto da mensagem vazio após substituições.');
 
+    const attemptAt = new Date().toISOString();
+    this._upsertStatus(toDigits, {
+      lastAttemptAt: attemptAt,
+      dispatchStatus: 'initializing',
+      ack: 0,
+      notOnWhatsapp: false,
+      sendError: null,
+    });
+
     try {
+      const c = await this.initWhatsApp();
+      await this._ensureReady(waitReadyMs);
+      this._upsertStatus(toDigits, {
+        lastSendAt: new Date().toISOString(),
+        dispatchStatus: 'sending',
+        sendError: null,
+      });
+
       const chatId = await this._getValidChatId(toDigits);
       this._upsertStatus(toDigits, {
         chatId,
@@ -1466,6 +1511,9 @@ class TenantWhatsApp {
         lastMessageId: messageId,
         chatId,
         waId: chatId,
+        dispatchStatus: 'sent',
+        sentAt: new Date().toISOString(),
+        failedAt: null,
         sendError: null,
       });
 
@@ -1483,11 +1531,14 @@ class TenantWhatsApp {
       const notOn = /not on whatsapp|unregistered|does not exist/i.test(m);
       
       this._upsertStatus(toDigits, {
+        dispatchStatus: 'failed',
+        failedAt: new Date().toISOString(),
         sendError: m,
         notOnWhatsapp: notOn,
         notOnWhatsappAt: notOn ? new Date().toISOString() : null,
         isRegistered: notOn ? false : undefined,
       });
+      await this.recoverAfterSendFailure(err);
       throw err;
     }
   }
@@ -2112,11 +2163,11 @@ async function sendTemplateMessage(tenantId, { toDigits, nome } = {}) {
   return wa.sendTemplateMessage({ toDigits, nome });
 }
 
-async function sendCustomMessage(tenantId, { toDigits, nome, text } = {}) {
+async function sendCustomMessage(tenantId, { toDigits, nome, text, waitReadyMs } = {}) {
   const wa = getTenantWA(tenantId);
   const t = String(text || "").trim();
   if (!t) throw new Error("Texto da mensagem vazio (sendCustomMessage).");
-  return wa.sendCustomMessageText({ toDigits, nome, text: t });
+  return wa.sendCustomMessageText({ toDigits, nome, text: t, waitReadyMs });
 }
 
 async function sendCustomAttachmentMessage(tenantId, { toDigits, fileBase64, filePath, mimetype, filename, caption } = {}) {

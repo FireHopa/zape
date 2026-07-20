@@ -2753,23 +2753,23 @@
   },
   "351914217343": {
     "toDigits": "351914217343",
-    "lastIncomingAt": "2026-07-17T18:19:38.036Z",
+    "lastIncomingAt": "2026-07-20T17:36:04.112Z",
     "lastRemoteId": "92157499162814@lid",
     "chatId": "92157499162814@lid",
     "waId": "92157499162814@lid",
     "isRegistered": true,
-    "checkedAt": "2026-07-17T18:19:38.036Z",
-    "updatedAt": "2026-07-17T18:19:38.036Z",
-    "lastSendAt": "2026-07-17T18:10:52.900Z",
+    "checkedAt": "2026-07-20T17:41:05.562Z",
+    "updatedAt": "2026-07-20T17:51:33.856Z",
+    "lastSendAt": "2026-07-20T17:41:05.562Z",
     "ack": 3,
     "lastAck": 3,
-    "lastAckAt": "2026-07-17T18:12:09.533Z",
+    "lastAckAt": "2026-07-20T17:51:33.856Z",
     "sendError": null,
     "notOnWhatsapp": false,
-    "messageId": "true_92157499162814@lid_A50166341C6036914C94D3824F9C4FD2",
-    "lastMessageId": "true_92157499162814@lid_A50166341C6036914C94D3824F9C4FD2",
+    "messageId": "true_92157499162814@lid_A5B2824C68CFCEF998E3E3B1CF50B538",
+    "lastMessageId": "true_92157499162814@lid_A5B2824C68CFCEF998E3E3B1CF50B538",
     "deliveredAt": "2026-07-17T18:08:05.986Z",
     "readAt": "2026-07-17T18:08:17.597Z",
-    "repliedAt": "2026-07-17T18:19:38.036Z"
+    "repliedAt": "2026-07-20T17:36:04.112Z"
   }
 }

@@ -3541,6 +3541,26 @@
       "createdAt": "2026-07-17T20:03:45.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227753609683102@lid_A579ECC5AA9CA61D7C35BA48F6FA4C43",
+      "fromMe": false,
+      "body": "https://casadoads.com.br/imersao-alphaville/",
+      "type": "chat",
+      "timestamp": 1784561825,
+      "createdAt": "2026-07-20T15:37:05.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0B4F57FA6BB28B76F93",
+      "fromMe": true,
+      "body": "(11) 97199-0632",
+      "type": "chat",
+      "timestamp": 1784565767,
+      "createdAt": "2026-07-20T16:42:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511976472073": [
@@ -22893,6 +22913,26 @@
       "createdAt": "2026-07-14T19:35:35.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A58C51BFE48F32AF8E3F0FD6A03B5593",
+      "fromMe": false,
+      "body": "Olá, Camila!\n\nParabéns pela indicação nas Inteligências Artificiais e pelo destaque no mercado de Lisboa.\n\nO certificado é vosso. Podem imprimir, publicar, colocar no site ou partilhar nas redes sociais.\n\nÉ uma conquista importante e mostra que a vossa empresa já está a sair à frente nesta nova fase da IA.\n\nParabéns!",
+      "type": "chat",
+      "timestamp": 1784561390,
+      "createdAt": "2026-07-20T15:29:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_96349756383259@lid_A52F5F06C7181F7AF1A5DE657C0CFE2F",
+      "fromMe": false,
+      "body": "Olá Eduardo! Como está?\n\nConforme o Matheus Bottaro comentou durante a imersão, a sua empresa recebeu o certificado por já estar entre as empresas que vêm sendo recomendadas pela Inteligência Artificial.\n\nComo reconhecimento, você terá acesso às próximas 4 mentorias *exclusivas de Inteligência Artificial* da *Casa do Ads.*\n\n*Próximas  quartas-feiras*\n*Das 12h30 às 14h* (horário de Portugal)\n\nAmanhã será o nosso primeiro encontro!",
+      "type": "chat",
+      "timestamp": 1784561432,
+      "createdAt": "2026-07-20T15:30:32.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ],
   "351962451262": [
@@ -30986,6 +31026,46 @@
       "createdAt": "2026-07-16T18:24:00.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB06EC978AEF90696315E",
+      "fromMe": true,
+      "body": "Olá teste felps1! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição teste felps1?",
+      "type": "chat",
+      "timestamp": 1784557211,
+      "createdAt": "2026-07-20T14:20:11.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_231787204767760@lid_3EB007EEC8B7FB3CF024FA",
+      "fromMe": false,
+      "body": "automação caindo agora",
+      "type": "chat",
+      "timestamp": 1784557253,
+      "createdAt": "2026-07-20T14:20:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_231787204767760@lid_3EB068408B4F97BD10761F",
+      "fromMe": false,
+      "body": "🙏",
+      "type": "chat",
+      "timestamp": 1784557255,
+      "createdAt": "2026-07-20T14:20:55.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB0B12AA6E5FE6C32A64E",
+      "fromMe": true,
+      "body": "Beleza",
+      "type": "chat",
+      "timestamp": 1784557268,
+      "createdAt": "2026-07-20T14:21:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5519999006762": [
@@ -31459,6 +31539,26 @@
       "type": "chat",
       "timestamp": 1784137627,
       "createdAt": "2026-07-15T17:47:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_273606747635819@lid_3EB009B1FDC85E38179E35",
+      "fromMe": true,
+      "body": "Oi Edna, bom diaaa!!!",
+      "type": "chat",
+      "timestamp": 1784557028,
+      "createdAt": "2026-07-20T14:17:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_273606747635819@lid_3EB0CC9F2BD1D7162B6EAA",
+      "fromMe": true,
+      "body": "Localizei sua inscrição aqui direcionado para Guarulhos, porém vi que você ja foi na imersão de São Paulo, correto?",
+      "type": "chat",
+      "timestamp": 1784557368,
+      "createdAt": "2026-07-20T14:22:48.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -32224,6 +32324,54 @@
       "mediaKind": "audio",
       "mediaUnavailable": true,
       "mediaErrorCode": "MEDIA_DOWNLOAD_FAILED"
+    },
+    {
+      "id": "true_121393039573019@lid_3EB0ADBC269C9F127E80AB",
+      "fromMe": true,
+      "body": "Bom diaaa kelly, tudo bem?",
+      "type": "chat",
+      "timestamp": 1784557589,
+      "createdAt": "2026-07-20T14:26:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_121393039573019@lid_3EB0CB761F7507C68D9B6A",
+      "fromMe": true,
+      "body": "Conseguiu escutar meu audio acima? Onde informa que a imersão de hoje foi cancelada.",
+      "type": "chat",
+      "timestamp": 1784557626,
+      "createdAt": "2026-07-20T14:27:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_121393039573019@lid_3EB0EEFA31ADD97972C25E",
+      "fromMe": true,
+      "body": "Preciso saber se a próxima turma na Paulista dia 23/07 é viável para você, para que possamos fazer a tranferencia. Assim que possivel, me retorne por gentileza.",
+      "type": "chat",
+      "timestamp": 1784557672,
+      "createdAt": "2026-07-20T14:27:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_121393039573019@lid_ACE3FD5FEB048BA3E05F287BF39E225D",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784569857,
+      "createdAt": "2026-07-20T17:50:57.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_7372b0d82408282b71e8d653ccc3c3374329c3321c73aa34",
+      "mediaFile": "m_7372b0d82408282b71e8d653ccc3c3374329c3321c73aa34.ogg",
+      "mediaSize": 20848,
+      "filename": "false_121393039573019@lid_ACE3FD5FEB048BA3E05F287BF39E225D.ogg",
+      "originalName": "false_121393039573019@lid_ACE3FD5FEB048BA3E05F287BF39E225D.ogg"
     }
   ],
   "5511985979371": [
@@ -32582,6 +32730,36 @@
       "createdAt": "2026-07-17T12:54:30.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_90997556015130@lid_3EB0B3D658969E2E1B4A63",
+      "fromMe": true,
+      "body": "Boa tardeee Adailton!!!",
+      "type": "chat",
+      "timestamp": 1784569495,
+      "createdAt": "2026-07-20T17:44:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_90997556015130@lid_3EB0FB6422D14811FB6B93",
+      "fromMe": true,
+      "body": "Segue o acesso aos agentes.",
+      "type": "chat",
+      "timestamp": 1784569854,
+      "createdAt": "2026-07-20T17:50:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_90997556015130@lid_3EB0C4AED6CD186D402422",
+      "fromMe": true,
+      "body": "Para instalar os Agentes, basta clicar no link correspondente:\n\nBob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-6a3949138ddc81918b021695e2abde7d-pepe-especialista-em-portugal\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1784569887,
+      "createdAt": "2026-07-20T17:51:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5514991766923": [
@@ -33563,6 +33741,106 @@
       "type": "chat",
       "timestamp": 1784145414,
       "createdAt": "2026-07-15T19:56:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_232001315569741@lid_A50423C3D1CBBFF291CA5F972D70F437",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1784554526,
+      "createdAt": "2026-07-20T13:35:26.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_232001315569741@lid_A56EF468CEE52DECD104A7AE6786BDD3",
+      "fromMe": false,
+      "body": "Está tudo certo",
+      "type": "chat",
+      "timestamp": 1784554540,
+      "createdAt": "2026-07-20T13:35:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_232001315569741@lid_3EB03EF340DF15374DFA39",
+      "fromMe": true,
+      "body": "Bom diaa Dimas!!!!\n\nConforme avisei aqui, Guarulhos foi encerrado, estamos com a turma da Paulista em aberto para quinta agora.",
+      "type": "chat",
+      "timestamp": 1784554933,
+      "createdAt": "2026-07-20T13:42:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_232001315569741@lid_3EB0EA0F6D9DE147C74307",
+      "fromMe": true,
+      "body": "Você pagou para Paulista dia 23/07?",
+      "type": "chat",
+      "timestamp": 1784554994,
+      "createdAt": "2026-07-20T13:43:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_232001315569741@lid_3EB012E670B790DE6487EB",
+      "fromMe": false,
+      "body": "voce naõ me avisou, eu não,posso ir na paulista , se fosse assim nem teria feito",
+      "type": "chat",
+      "timestamp": 1784555058,
+      "createdAt": "2026-07-20T13:44:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_232001315569741@lid_3EB05A9350D5B3280B9CC6",
+      "fromMe": true,
+      "body": "Mandei essa mensagem e como você pediu o link logo em seguida, imaginei que a turma da Paulista seria viavel para você.",
+      "type": "chat",
+      "timestamp": 1784555151,
+      "createdAt": "2026-07-20T13:45:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_232001315569741@lid_3EB071B8B9EF14BEA6922F",
+      "fromMe": false,
+      "body": "eu não posso ir na paulista, tem que ser aqui em guarulhois , por favor",
+      "type": "chat",
+      "timestamp": 1784555181,
+      "createdAt": "2026-07-20T13:46:21.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_232001315569741@lid_3EB0345FC21B9B379C0755",
+      "fromMe": true,
+      "body": "Guarulhos não tem, nesse caso terei que reembolsar o valor para você.",
+      "type": "chat",
+      "timestamp": 1784555224,
+      "createdAt": "2026-07-20T13:47:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_232001315569741@lid_3EB0A1CA85D03FDDBE7878",
+      "fromMe": false,
+      "body": "então , me reembolsa...que eu tenho quase certeza que isso não vai acontecer...",
+      "type": "chat",
+      "timestamp": 1784555304,
+      "createdAt": "2026-07-20T13:48:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_232001315569741@lid_3EB0BF9DAC33D228635F3B",
+      "fromMe": true,
+      "body": "Solicitei o reembolso na plataforma da Eduzz, será encaminhado um email com as informações para você.",
+      "type": "chat",
+      "timestamp": 1784555594,
+      "createdAt": "2026-07-20T13:53:14.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -36587,6 +36865,202 @@
       "mediaSize": 105840,
       "filename": "true_158459228110996@lid_3EB040DE9B32EDCF1474FA.jpg",
       "originalName": "true_158459228110996@lid_3EB040DE9B32EDCF1474FA.jpg"
+    },
+    {
+      "id": "false_158459228110996@lid_A541B54383790F086F5F5D450D11800D",
+      "fromMe": false,
+      "body": "Fiz inscrição em nome da minha empresa, serve para as duas sócias?",
+      "type": "chat",
+      "timestamp": 1784552894,
+      "createdAt": "2026-07-20T13:08:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_158459228110996@lid_A55B20E67E8A1D9F92C183EB2DE89906",
+      "fromMe": false,
+      "body": "Mamar na vaca ou na cadeia não ne",
+      "type": "chat",
+      "timestamp": 1784552907,
+      "createdAt": "2026-07-20T13:08:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_158459228110996@lid_A54AB197361C62204A2D3AD94DD30973",
+      "fromMe": false,
+      "body": "Povo sem noção",
+      "type": "chat",
+      "timestamp": 1784552914,
+      "createdAt": "2026-07-20T13:08:34.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB056A763053A9A48EDEB",
+      "fromMe": true,
+      "body": "hahaha",
+      "type": "chat",
+      "timestamp": 1784552937,
+      "createdAt": "2026-07-20T13:08:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB0364929404A384DA5BE",
+      "fromMe": true,
+      "body": "meu amor",
+      "type": "chat",
+      "timestamp": 1784552944,
+      "createdAt": "2026-07-20T13:09:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB068FFB90C28B50ED61D",
+      "fromMe": true,
+      "body": "isso é Brasil",
+      "type": "chat",
+      "timestamp": 1784552948,
+      "createdAt": "2026-07-20T13:09:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB0D8A93C7DB91F7C54A4",
+      "fromMe": true,
+      "body": "socialismo",
+      "type": "chat",
+      "timestamp": 1784552957,
+      "createdAt": "2026-07-20T13:09:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_158459228110996@lid_A53C7E254A60148D20BAB8E11CC76AD5",
+      "fromMe": false,
+      "body": "Pois é",
+      "type": "chat",
+      "timestamp": 1784552959,
+      "createdAt": "2026-07-20T13:09:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB090B66D6C6F9F59B0C6",
+      "fromMe": true,
+      "body": "vamos dividir",
+      "type": "chat",
+      "timestamp": 1784552963,
+      "createdAt": "2026-07-20T13:09:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_158459228110996@lid_A5A3773CE10B5D1A3F31A7CF68BB483D",
+      "fromMe": false,
+      "body": "Um cu hahaha",
+      "type": "chat",
+      "timestamp": 1784552973,
+      "createdAt": "2026-07-20T13:09:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_158459228110996@lid_A51D40DF068B18FABA03BD76DE1D35A8",
+      "fromMe": false,
+      "body": "Kkkkk",
+      "type": "chat",
+      "timestamp": 1784552988,
+      "createdAt": "2026-07-20T13:09:48.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB023613D5C0068326C5E",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784553009,
+      "createdAt": "2026-07-20T13:10:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_e3bf6f4492d24e7128ea1ca5b94e6f3bdbcca52297a677a1",
+      "mediaFile": "m_e3bf6f4492d24e7128ea1ca5b94e6f3bdbcca52297a677a1.ogg",
+      "mediaSize": 45406,
+      "filename": "true_158459228110996@lid_3EB023613D5C0068326C5E.ogg",
+      "originalName": "true_158459228110996@lid_3EB023613D5C0068326C5E.ogg"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB0E45E50018CDDBCF36A",
+      "fromMe": true,
+      "body": "mentira",
+      "type": "chat",
+      "timestamp": 1784553025,
+      "createdAt": "2026-07-20T13:10:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB0CCCBF1D2B77F566392",
+      "fromMe": true,
+      "body": "achei as conversas recentes kkkk",
+      "type": "chat",
+      "timestamp": 1784553032,
+      "createdAt": "2026-07-20T13:10:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_158459228110996@lid_A5388D7330B513471723326D3257098D",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784553070,
+      "createdAt": "2026-07-20T13:11:10.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_4dd952bf8170f869c746d25f19aaffca35df11c2428f5894",
+      "mediaFile": "m_4dd952bf8170f869c746d25f19aaffca35df11c2428f5894.ogg",
+      "mediaSize": 61282,
+      "filename": "false_158459228110996@lid_A5388D7330B513471723326D3257098D.ogg",
+      "originalName": "false_158459228110996@lid_A5388D7330B513471723326D3257098D.ogg"
+    },
+    {
+      "id": "false_158459228110996@lid_3EB05BAD19391D35C9EE59",
+      "fromMe": false,
+      "body": "https://meet.google.com/dtb-wbjo-svj",
+      "type": "chat",
+      "timestamp": 1784553123,
+      "createdAt": "2026-07-20T13:12:03.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB0D4476BB07519550574",
+      "fromMe": true,
+      "body": "me aceita",
+      "type": "chat",
+      "timestamp": 1784553230,
+      "createdAt": "2026-07-20T13:13:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_158459228110996@lid_3EB0BF9DE7F08B9333CED9",
+      "fromMe": true,
+      "body": "*O Livro digital está disponível!*\nhttps://heyzine.com/flip-book/aefd30f8c7.html/\n\nPara instalar os Agentes, basta clicar no link correspondente:\n\nBob - O Executor\nhttps://chatgpt.com/g/g-69a4a7a33cf48191a458e45b52202f3e-bob-o-executor\n\nPépe → Ensina como aparecer no Google sem pagar por anúncios, otimizando o Perfil de Empresa no Google.\nhttps://chatgpt.com/g/g-6a3949138ddc81918b021695e2abde7d-pepe-especialista-em-portugal\n\nGeorge → Especialista em Instagram, ajuda a criar postagens, Stories e Reels que engajam mais.\nhttps://chatgpt.com/g/g-679926b2b5b88191803845ad4de414e9-george-bottaro\n\nRosa → Ajuda a criar textos persuasivos para blogs, e-mails e redes sociais para atrair e vender mais.\nhttps://chatgpt.com/g/g-67993a24e948819196edd406ff997be0-rosa-copywriter\n\nLiam → Ensina a criar vídeos para YouTube e redes sociais, desde a gravação até a edição e monetização.\nhttps://chatgpt.com/g/g-67a2608792788191aebd5ef5898d330d-liam-video-maker\n\nMIA → Especialista em TikTok e nas Gerações Z e Alpha, ensina como criar conteúdos virais.\nhttps://chatgpt.com/g/g-67bcc59dff988191bfe3d15319fcb56c-mia-geracao-z-e-alpha\n\nMônica → Especialista em Linkedin\nhttps://chatgpt.com/g/g-67a68f10957881919ee0e90172b9a89e-monica-linkedin",
+      "type": "chat",
+      "timestamp": 1784569932,
+      "createdAt": "2026-07-20T17:52:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511946560871": [
@@ -38829,6 +39303,26 @@
       "createdAt": "2026-07-20T11:31:53.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_178043976970335@lid_3EB00CE12FDF9244C0DCBD",
+      "fromMe": true,
+      "body": "Olá, Camila!\n\nParabéns pela indicação nas Inteligências Artificiais e pelo destaque no mercado de Lisboa.\n\nO certificado é vosso. Podem imprimir, publicar, colocar no site ou partilhar nas redes sociais.\n\nÉ uma conquista importante e mostra que a vossa empresa já está a sair à frente nesta nova fase da IA.\n\nParabéns!",
+      "type": "chat",
+      "timestamp": 1784561501,
+      "createdAt": "2026-07-20T15:31:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_178043976970335@lid_3EB0AA5CA29C8E96512E68",
+      "fromMe": true,
+      "body": "Olá Eduardo! Como está?\n\nConforme o Matheus Bottaro comentou durante a imersão, a sua empresa recebeu o certificado por já estar entre as empresas que vêm sendo recomendadas pela Inteligência Artificial.\n\nComo reconhecimento, você terá acesso às próximas 4 mentorias *exclusivas de Inteligência Artificial* da *Casa do Ads.*\n\n*Próximas  quartas-feiras*\n*Das 12h30 às 14h* (horário de Portugal)\n\nAmanhã será o nosso primeiro encontro!",
+      "type": "chat",
+      "timestamp": 1784561503,
+      "createdAt": "2026-07-20T15:31:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511919942261": [
@@ -39285,6 +39779,64 @@
       "createdAt": "2026-07-15T19:07:45.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_9083906220267@lid_3EB0CA9569C3FE03520BC6",
+      "fromMe": true,
+      "body": "Bom diaaa Andreia!!!!",
+      "type": "chat",
+      "timestamp": 1784555681,
+      "createdAt": "2026-07-20T13:54:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_9083906220267@lid_3EB0B459A42EBEC5B2317C",
+      "fromMe": true,
+      "body": "Fiz esse reembolso, pois o lead tinha comprado para hoje em Guarulhos e como avisei que foi cancelado e ele não pode na Paulista, fiz a solicitação ok.",
+      "type": "image",
+      "timestamp": 1784555781,
+      "createdAt": "2026-07-20T13:56:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaId": "m_dd913224d4cb2c59304189b42a7894a755e35da42a6a58ee",
+      "mediaFile": "m_dd913224d4cb2c59304189b42a7894a755e35da42a6a58ee.jpg",
+      "mediaSize": 40633,
+      "filename": "true_9083906220267@lid_3EB0B459A42EBEC5B2317C.jpg",
+      "originalName": "true_9083906220267@lid_3EB0B459A42EBEC5B2317C.jpg"
+    },
+    {
+      "id": "false_9083906220267@lid_A5596C5056E578B9D2DF796E4BD59E40",
+      "fromMe": false,
+      "body": "Bom dia ,tudo bem?",
+      "type": "chat",
+      "timestamp": 1784555876,
+      "createdAt": "2026-07-20T13:57:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_9083906220267@lid_A53A830F17F70E044505BFECAFBDC40F",
+      "fromMe": false,
+      "body": "Ok combinado 🥰",
+      "type": "chat",
+      "timestamp": 1784555898,
+      "createdAt": "2026-07-20T13:58:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_9083906220267@lid_3EB0F5EBC342D80DB3D1AD",
+      "fromMe": true,
+      "body": "Sim 🥰",
+      "type": "chat",
+      "timestamp": 1784555916,
+      "createdAt": "2026-07-20T13:58:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "553199757483": [
@@ -41851,6 +42403,34 @@
       "createdAt": "2026-07-16T19:02:53.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_255520590032971@lid_3EB0728213BA5EA027580F",
+      "fromMe": true,
+      "body": "Olá Kelly! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em Belo Horizonte!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1784552324,
+      "createdAt": "2026-07-20T12:58:44.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_255520590032971@lid_3EB06BCBC4A7498504A32A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784552337,
+      "createdAt": "2026-07-20T12:58:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_3cc045cd47f690843aa9dde3b58ee0e6501302719dd46fb1",
+      "mediaFile": "m_3cc045cd47f690843aa9dde3b58ee0e6501302719dd46fb1.ogg",
+      "mediaSize": 14189,
+      "filename": "true_255520590032971@lid_3EB06BCBC4A7498504A32A.ogg",
+      "originalName": "true_255520590032971@lid_3EB06BCBC4A7498504A32A.ogg"
     }
   ],
   "553192922007": [
@@ -42207,6 +42787,36 @@
       "createdAt": "2026-07-19T23:07:59.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_183846108713187@lid_3EB0C8AE6C26896E7403C0",
+      "fromMe": true,
+      "body": "Bom dia Dilma, como vai?",
+      "type": "chat",
+      "timestamp": 1784552254,
+      "createdAt": "2026-07-20T12:57:34.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183846108713187@lid_3EB009DBC170C4092CF324",
+      "fromMe": true,
+      "body": "Será da 18h30 ás 22h.",
+      "type": "chat",
+      "timestamp": 1784552268,
+      "createdAt": "2026-07-20T12:57:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_183846108713187@lid_3EB0F4BEA33DD50674C042",
+      "fromMe": true,
+      "body": "Hoje você já faz anuncios no Google Ads ou está planejando começar agora?",
+      "type": "chat",
+      "timestamp": 1784552272,
+      "createdAt": "2026-07-20T12:57:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511991579508": [
@@ -43581,6 +44191,44 @@
       "createdAt": "2026-07-17T20:32:03.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_95481703207087@lid_3EB0E139F55E48743E6CDD",
+      "fromMe": true,
+      "body": "Olá Luciana, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784551626,
+      "createdAt": "2026-07-20T12:47:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_95481703207087@lid_3EB0F7E132E13585722C07",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*23/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-sao-paulo-nova/",
+      "type": "chat",
+      "timestamp": 1784551632,
+      "createdAt": "2026-07-20T12:47:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_95481703207087@lid_3EB07849C03635E5258DF7",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784551642,
+      "createdAt": "2026-07-20T12:47:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_ee865038f4bacc398f38a2ec0f9d2f1be4b2a277d580a5f3",
+      "mediaFile": "m_ee865038f4bacc398f38a2ec0f9d2f1be4b2a277d580a5f3.ogg",
+      "mediaSize": 13357,
+      "filename": "true_95481703207087@lid_3EB07849C03635E5258DF7.ogg",
+      "originalName": "true_95481703207087@lid_3EB07849C03635E5258DF7.ogg"
     }
   ],
   "553183478002": [
@@ -43617,6 +44265,44 @@
       "createdAt": "2026-07-18T01:33:06.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_121590608044083@lid_3EB0504CA20D3C4D937A5C",
+      "fromMe": true,
+      "body": "Olá Angelica, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784552090,
+      "createdAt": "2026-07-20T12:54:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_121590608044083@lid_3EB0731FC80E41AFF267F7",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*23/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-sao-paulo-nova/",
+      "type": "chat",
+      "timestamp": 1784552094,
+      "createdAt": "2026-07-20T12:54:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_121590608044083@lid_3EB085FDBE3645E37C4D98",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784552104,
+      "createdAt": "2026-07-20T12:55:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_d88ce4e80a46b6fd9707f6ea3a683b24a8d530da7e0cb067",
+      "mediaFile": "m_d88ce4e80a46b6fd9707f6ea3a683b24a8d530da7e0cb067.ogg",
+      "mediaSize": 13422,
+      "filename": "true_121590608044083@lid_3EB085FDBE3645E37C4D98.ogg",
+      "originalName": "true_121590608044083@lid_3EB085FDBE3645E37C4D98.ogg"
     }
   ],
   "5511975140304": [
@@ -43629,6 +44315,44 @@
       "createdAt": "2026-07-18T02:15:20.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_226095819444476@lid_3EB09B6CD215910E658B30",
+      "fromMe": true,
+      "body": "Olá Rogerio, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784551940,
+      "createdAt": "2026-07-20T12:52:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_226095819444476@lid_3EB03A10788BA8C895B301",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*23/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-sao-paulo-nova/",
+      "type": "chat",
+      "timestamp": 1784551947,
+      "createdAt": "2026-07-20T12:52:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_226095819444476@lid_3EB01E2792C383F9C53EEF",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784552082,
+      "createdAt": "2026-07-20T12:54:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_68f7013f547213a85110c5531b5c38e531b1391cce375c6f",
+      "mediaFile": "m_68f7013f547213a85110c5531b5c38e531b1391cce375c6f.ogg",
+      "mediaSize": 13936,
+      "filename": "true_226095819444476@lid_3EB01E2792C383F9C53EEF.ogg",
+      "originalName": "true_226095819444476@lid_3EB01E2792C383F9C53EEF.ogg"
     }
   ],
   "553171302842": [
@@ -43641,6 +44365,44 @@
       "createdAt": "2026-07-18T03:02:04.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_49370682646587@lid_3EB0040BC753B769DD58E5",
+      "fromMe": true,
+      "body": "Olá Elias, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784553083,
+      "createdAt": "2026-07-20T13:11:23.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_49370682646587@lid_3EB00B92B834C57D3AF20A",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784553127,
+      "createdAt": "2026-07-20T13:12:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_49370682646587@lid_3EB02FEEF4FBF0F82E1B17",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784553141,
+      "createdAt": "2026-07-20T13:12:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_7b02cf0b83aaf9d967c37dc5f840a14c870d312af3fc3e2d",
+      "mediaFile": "m_7b02cf0b83aaf9d967c37dc5f840a14c870d312af3fc3e2d.ogg",
+      "mediaSize": 15955,
+      "filename": "true_49370682646587@lid_3EB02FEEF4FBF0F82E1B17.ogg",
+      "originalName": "true_49370682646587@lid_3EB02FEEF4FBF0F82E1B17.ogg"
     }
   ],
   "553173531311": [
@@ -43697,6 +44459,98 @@
       "createdAt": "2026-07-18T11:12:04.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_12498371661939@lid_3EB0CD4251AFBF6BE030D7",
+      "fromMe": true,
+      "body": "Olá Thaiara, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784551591,
+      "createdAt": "2026-07-20T12:46:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12498371661939@lid_3EB0688C002D38F7046E03",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*23/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-sao-paulo-nova/",
+      "type": "chat",
+      "timestamp": 1784551596,
+      "createdAt": "2026-07-20T12:46:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_12498371661939@lid_3EB04B7D5AA54C03E7B7FD",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784551608,
+      "createdAt": "2026-07-20T12:46:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_a9d5e112d990ae09363d60ebd35ebf29655ceb707f751e91",
+      "mediaFile": "m_a9d5e112d990ae09363d60ebd35ebf29655ceb707f751e91.ogg",
+      "mediaSize": 14335,
+      "filename": "true_12498371661939@lid_3EB04B7D5AA54C03E7B7FD.ogg",
+      "originalName": "true_12498371661939@lid_3EB04B7D5AA54C03E7B7FD.ogg"
+    },
+    {
+      "id": "false_12498371661939@lid_3A949B511C623B769241",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784559190,
+      "createdAt": "2026-07-20T14:53:10.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_15c9dd087a5f2dd9e69123b63c008bb8e1c726cba72ec458",
+      "mediaFile": "m_15c9dd087a5f2dd9e69123b63c008bb8e1c726cba72ec458.ogg",
+      "mediaSize": 24684,
+      "filename": "false_12498371661939@lid_3A949B511C623B769241.ogg",
+      "originalName": "false_12498371661939@lid_3A949B511C623B769241.ogg"
+    },
+    {
+      "id": "true_12498371661939@lid_3EB0FC9E5804B998411127",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784559834,
+      "createdAt": "2026-07-20T15:03:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_b748fcb09a80793a6d546e9dec9fc4379965fb8e2625848b",
+      "mediaFile": "m_b748fcb09a80793a6d546e9dec9fc4379965fb8e2625848b.ogg",
+      "mediaSize": 25583,
+      "filename": "true_12498371661939@lid_3EB0FC9E5804B998411127.ogg",
+      "originalName": "true_12498371661939@lid_3EB0FC9E5804B998411127.ogg"
+    },
+    {
+      "id": "false_12498371661939@lid_3AF4FB56C441447EFA0C",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784560359,
+      "createdAt": "2026-07-20T15:12:39.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_14ad0f863c8a2dee5921d527680e565dc41ba5f846547f55",
+      "mediaFile": "m_14ad0f863c8a2dee5921d527680e565dc41ba5f846547f55.ogg",
+      "mediaSize": 6884,
+      "filename": "false_12498371661939@lid_3AF4FB56C441447EFA0C.ogg",
+      "originalName": "false_12498371661939@lid_3AF4FB56C441447EFA0C.ogg"
     }
   ],
   "553173501518": [
@@ -43721,6 +44575,36 @@
       "createdAt": "2026-07-18T11:58:55.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_262066204078247@lid_3EB05E162807675E6AF425",
+      "fromMe": true,
+      "body": "Olá Adriano, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784551537,
+      "createdAt": "2026-07-20T12:45:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_262066204078247@lid_3EB09CDAE9E644AF35A9B2",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*23/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-sao-paulo-nova/",
+      "type": "chat",
+      "timestamp": 1784551542,
+      "createdAt": "2026-07-20T12:45:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_262066204078247@lid_3EB0A74B93B94EE38721EE",
+      "fromMe": true,
+      "body": "Hoje você já faz anuncios no Google Ads ou está planejando começar agora?",
+      "type": "chat",
+      "timestamp": 1784551546,
+      "createdAt": "2026-07-20T12:45:46.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511988348622": [
@@ -43733,6 +44617,36 @@
       "createdAt": "2026-07-18T12:45:16.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_15844302151862@lid_3EB04381D70171DF9DB4EE",
+      "fromMe": true,
+      "body": "Olá Edio, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784551568,
+      "createdAt": "2026-07-20T12:46:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_15844302151862@lid_3EB0E6532A2AB6809340B6",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*23/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-sao-paulo-nova/",
+      "type": "chat",
+      "timestamp": 1784551575,
+      "createdAt": "2026-07-20T12:46:15.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_15844302151862@lid_3EB0A1A93304C5D668E4F9",
+      "fromMe": true,
+      "body": "Hoje você já faz anuncios no Google Ads ou está planejando começar agora?",
+      "type": "chat",
+      "timestamp": 1784551579,
+      "createdAt": "2026-07-20T12:46:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "553188753814": [
@@ -43973,6 +44887,80 @@
       "createdAt": "2026-07-19T03:03:17.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_259420453912676@lid_3EB052548B16F7CE70C0DB",
+      "fromMe": true,
+      "body": "Olá Arnaldo, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784560337,
+      "createdAt": "2026-07-20T15:12:17.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_259420453912676@lid_3EB0895D57AEBC48B9A7A7",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784560351,
+      "createdAt": "2026-07-20T15:12:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_259420453912676@lid_3EB090A8D09B0C1507D22E",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784560361,
+      "createdAt": "2026-07-20T15:12:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_46244f9128019e5f16d18830b542fd76615a73dbc6a47f80",
+      "mediaFile": "m_46244f9128019e5f16d18830b542fd76615a73dbc6a47f80.ogg",
+      "mediaSize": 14272,
+      "filename": "true_259420453912676@lid_3EB090A8D09B0C1507D22E.ogg",
+      "originalName": "true_259420453912676@lid_3EB090A8D09B0C1507D22E.ogg"
+    },
+    {
+      "id": "false_259420453912676@lid_A58721D984E91DF060B462A32545E57A",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784564112,
+      "createdAt": "2026-07-20T16:15:12.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_327aeb713b43cbaeaea10cc33277ef3d4d5dfb2711d79fbc",
+      "mediaFile": "m_327aeb713b43cbaeaea10cc33277ef3d4d5dfb2711d79fbc.ogg",
+      "mediaSize": 46650,
+      "filename": "false_259420453912676@lid_A58721D984E91DF060B462A32545E57A.ogg",
+      "originalName": "false_259420453912676@lid_A58721D984E91DF060B462A32545E57A.ogg"
+    },
+    {
+      "id": "true_259420453912676@lid_3EB043F73428FE2BD3C796",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784566690,
+      "createdAt": "2026-07-20T16:58:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_0e6dab7ff4a2782a8cc4415f94a9388ecba202fcc8a4f441",
+      "mediaFile": "m_0e6dab7ff4a2782a8cc4415f94a9388ecba202fcc8a4f441.ogg",
+      "mediaSize": 137510,
+      "filename": "true_259420453912676@lid_3EB043F73428FE2BD3C796.ogg",
+      "originalName": "true_259420453912676@lid_3EB043F73428FE2BD3C796.ogg"
     }
   ],
   "553891302708": [
@@ -43985,6 +44973,102 @@
       "createdAt": "2026-07-19T09:48:26.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_46716426428580@lid_3EB0604F52DEBC37D73EF5",
+      "fromMe": true,
+      "body": "Olá Thiago, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784560310,
+      "createdAt": "2026-07-20T15:11:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_46716426428580@lid_3EB01A60B572B96F872E0C",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784560315,
+      "createdAt": "2026-07-20T15:11:55.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_46716426428580@lid_3EB084BCD3595B54157F7B",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784560331,
+      "createdAt": "2026-07-20T15:12:11.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_a8bc5997d954b039194902fac9e3f84c71ecee713c660db2",
+      "mediaFile": "m_a8bc5997d954b039194902fac9e3f84c71ecee713c660db2.ogg",
+      "mediaSize": 14549,
+      "filename": "true_46716426428580@lid_3EB084BCD3595B54157F7B.ogg",
+      "originalName": "true_46716426428580@lid_3EB084BCD3595B54157F7B.ogg"
+    },
+    {
+      "id": "false_46716426428580@lid_3A1667743F6B22DD8804",
+      "fromMe": false,
+      "body": "Oi, Fabiane! Pretendo começar agora…",
+      "type": "chat",
+      "timestamp": 1784561556,
+      "createdAt": "2026-07-20T15:32:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_46716426428580@lid_3EB01143BDFD0AD55DFCDD",
+      "fromMe": true,
+      "body": "Em que area trabalha?",
+      "type": "chat",
+      "timestamp": 1784561687,
+      "createdAt": "2026-07-20T15:34:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_46716426428580@lid_3A3F936FB962DE57B775",
+      "fromMe": false,
+      "body": "Tecnologia",
+      "type": "chat",
+      "timestamp": 1784561778,
+      "createdAt": "2026-07-20T15:36:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_46716426428580@lid_3AEFF99618418AF98B86",
+      "fromMe": false,
+      "body": "E Educação",
+      "type": "chat",
+      "timestamp": 1784561813,
+      "createdAt": "2026-07-20T15:36:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_46716426428580@lid_3EB0D3C323523B5E98EBE4",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784562087,
+      "createdAt": "2026-07-20T15:41:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_9cfddfabbc68d6bd7c09618c28156d9c34c9fe8d0273a8a3",
+      "mediaFile": "m_9cfddfabbc68d6bd7c09618c28156d9c34c9fe8d0273a8a3.ogg",
+      "mediaSize": 113391,
+      "filename": "true_46716426428580@lid_3EB0D3C323523B5E98EBE4.ogg",
+      "originalName": "true_46716426428580@lid_3EB0D3C323523B5E98EBE4.ogg"
     }
   ],
   "553182012478": [
@@ -43997,6 +45081,44 @@
       "createdAt": "2026-07-19T09:48:34.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_77267183136777@lid_3EB0B5BE9E1F6BFF59FCAE",
+      "fromMe": true,
+      "body": "Olá Eduardo, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784560287,
+      "createdAt": "2026-07-20T15:11:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_77267183136777@lid_3EB0E7C1FCE0FDE1A365FD",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784560292,
+      "createdAt": "2026-07-20T15:11:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_77267183136777@lid_3EB03C6933E58765281CDA",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784560307,
+      "createdAt": "2026-07-20T15:11:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_f70058f971931ff80d2fd3e63d62bf4179099ac8679a9774",
+      "mediaFile": "m_f70058f971931ff80d2fd3e63d62bf4179099ac8679a9774.ogg",
+      "mediaSize": 15533,
+      "filename": "true_77267183136777@lid_3EB03C6933E58765281CDA.ogg",
+      "originalName": "true_77267183136777@lid_3EB03C6933E58765281CDA.ogg"
     }
   ],
   "5511980784869": [
@@ -44009,6 +45131,102 @@
       "createdAt": "2026-07-19T10:39:54.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_193655914672151@lid_3EB0799DDFE1D710D6D1CE",
+      "fromMe": true,
+      "body": "Olá Charles! Tudo bem por ai? 😊\n\nAqui é a Fabiane, da equipe do *Matheus Bottaro* da Casa do Ads.",
+      "type": "chat",
+      "timestamp": 1784559085,
+      "createdAt": "2026-07-20T14:51:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_193655914672151@lid_3AF572DE63F0178B02BC",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784561123,
+      "createdAt": "2026-07-20T15:25:23.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_4655317e76c9c039e6c4b3a76d8789c7f0106cfad026bb3a",
+      "mediaFile": "m_4655317e76c9c039e6c4b3a76d8789c7f0106cfad026bb3a.ogg",
+      "mediaSize": 28381,
+      "filename": "false_193655914672151@lid_3AF572DE63F0178B02BC.ogg",
+      "originalName": "false_193655914672151@lid_3AF572DE63F0178B02BC.ogg"
+    },
+    {
+      "id": "true_193655914672151@lid_3EB0BEDB689DBFD0790A16",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784561997,
+      "createdAt": "2026-07-20T15:39:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_f5512e0727e6a190da74bad5ab8f88198ca678f7f2816c6d",
+      "mediaFile": "m_f5512e0727e6a190da74bad5ab8f88198ca678f7f2816c6d.ogg",
+      "mediaSize": 28826,
+      "filename": "true_193655914672151@lid_3EB0BEDB689DBFD0790A16.ogg",
+      "originalName": "true_193655914672151@lid_3EB0BEDB689DBFD0790A16.ogg"
+    },
+    {
+      "id": "true_193655914672151@lid_3EB0E8743C37D413F5B9A0",
+      "fromMe": true,
+      "body": "https://casadoads.com.br/imersao-alphaville/",
+      "type": "chat",
+      "timestamp": 1784562006,
+      "createdAt": "2026-07-20T15:40:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_193655914672151@lid_3AA8DDCD1BB71C50D2A9",
+      "fromMe": false,
+      "body": "Que horas vai ser no dia 10/08 em Alphaville?",
+      "type": "chat",
+      "timestamp": 1784565952,
+      "createdAt": "2026-07-20T16:45:52.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_193655914672151@lid_3A795CF484FBA8E5717C",
+      "fromMe": false,
+      "body": "Acabei de achar",
+      "type": "chat",
+      "timestamp": 1784565966,
+      "createdAt": "2026-07-20T16:46:06.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_193655914672151@lid_3A7163589D06CF2A85DA",
+      "fromMe": false,
+      "body": "18:30",
+      "type": "chat",
+      "timestamp": 1784565969,
+      "createdAt": "2026-07-20T16:46:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_193655914672151@lid_3EB09C5A99584313A28A98",
+      "fromMe": true,
+      "body": "Isso mesmo.",
+      "type": "chat",
+      "timestamp": 1784565992,
+      "createdAt": "2026-07-20T16:46:32.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "553195198824": [
@@ -44021,6 +45239,44 @@
       "createdAt": "2026-07-19T10:45:10.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_257887385440443@lid_3EB07F2BBFC2362B122AFC",
+      "fromMe": true,
+      "body": "Olá Gustavo, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784560248,
+      "createdAt": "2026-07-20T15:10:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_257887385440443@lid_3EB095BB1E372256D4D855",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784560272,
+      "createdAt": "2026-07-20T15:11:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_257887385440443@lid_3EB0F71B217109F20E70B0",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784560285,
+      "createdAt": "2026-07-20T15:11:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_032536e6fc412f37bbec6ee384224fa9be291aaf7bb55c52",
+      "mediaFile": "m_032536e6fc412f37bbec6ee384224fa9be291aaf7bb55c52.ogg",
+      "mediaSize": 15871,
+      "filename": "true_257887385440443@lid_3EB0F71B217109F20E70B0.ogg",
+      "originalName": "true_257887385440443@lid_3EB0F71B217109F20E70B0.ogg"
     }
   ],
   "553183341011": [
@@ -44045,6 +45301,26 @@
       "createdAt": "2026-07-19T12:01:17.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_107442935459915@lid_3EB07BC6F3E33DF407DE4D",
+      "fromMe": true,
+      "body": "Olá Juliana, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784554466,
+      "createdAt": "2026-07-20T13:34:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_107442935459915@lid_3EB03E74CAB98A6337312F",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784554497,
+      "createdAt": "2026-07-20T13:34:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "553193151274": [
@@ -44057,6 +45333,26 @@
       "createdAt": "2026-07-19T12:34:50.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_30473363415225@lid_3EB047504EBCA516264344",
+      "fromMe": true,
+      "body": "Olá, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784554225,
+      "createdAt": "2026-07-20T13:30:25.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_30473363415225@lid_3EB0E55B78BEA711D145ED",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784554237,
+      "createdAt": "2026-07-20T13:30:37.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511957021448": [
@@ -44111,6 +45407,26 @@
       "createdAt": "2026-07-19T16:24:36.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_155547022180495@lid_3EB0B6EF3850CD7B3BC8BE",
+      "fromMe": true,
+      "body": "Olá, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784554133,
+      "createdAt": "2026-07-20T13:28:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_155547022180495@lid_3EB0474A8C896168B92A93",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784554149,
+      "createdAt": "2026-07-20T13:29:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "553175810051": [
@@ -44123,6 +45439,26 @@
       "createdAt": "2026-07-19T16:38:24.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_179164611088389@lid_3EB0BEEDE79C67C6545600",
+      "fromMe": true,
+      "body": "Olá Jose, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784554100,
+      "createdAt": "2026-07-20T13:28:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_179164611088389@lid_3EB0F4D3C474FD08B45AFD",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784554106,
+      "createdAt": "2026-07-20T13:28:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5513991221992": [
@@ -44239,6 +45575,46 @@
       "createdAt": "2026-07-20T02:44:23.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_221147899642101@lid_3EB08BF7B0D2D30E817EF1",
+      "fromMe": true,
+      "body": "Olá Marcio! Tudo bem por ai? 😊\n\nAqui é a Fabiane, da equipe do *Matheus Bottaro* da Casa do Ads.",
+      "type": "chat",
+      "timestamp": 1784552130,
+      "createdAt": "2026-07-20T12:55:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221147899642101@lid_3EB06B57E98CF6CD11BCF5",
+      "fromMe": true,
+      "body": "A turma de Guarulhos encerrou, nossa próxima turma será dia 23/07 na Paulista, segue informações:",
+      "type": "chat",
+      "timestamp": 1784552210,
+      "createdAt": "2026-07-20T12:56:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221147899642101@lid_3EB0CFC77E46090ACD8622",
+      "fromMe": true,
+      "body": "A Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784552219,
+      "createdAt": "2026-07-20T12:56:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_221147899642101@lid_3EB0588BE4D8D757492E0F",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*23/07 - SPAX Paulista Eventos* - Av. Paulista, 967 – 1° Andar – Bela Vista - São Paulo/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-sao-paulo-nova/",
+      "type": "chat",
+      "timestamp": 1784552223,
+      "createdAt": "2026-07-20T12:57:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511910269322": [
@@ -44355,6 +45731,26 @@
       "createdAt": "2026-07-20T10:03:04.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_136240724721744@lid_3EB033D448143C3EE53507",
+      "fromMe": true,
+      "body": "Olá Adriana, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784554001,
+      "createdAt": "2026-07-20T13:26:41.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_136240724721744@lid_3EB0ED77A15F50BDA56E09",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784554029,
+      "createdAt": "2026-07-20T13:27:09.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "553191089848": [
@@ -44387,6 +45783,388 @@
       "createdAt": "2026-07-20T12:02:49.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    }
+  ],
+  "553175427017": [
+    {
+      "id": "false_9711474720788@lid_ACF263270C1F3A6CBB1A923DD1897DDD",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão em Belo Horizonte",
+      "type": "chat",
+      "timestamp": 1784553335,
+      "createdAt": "2026-07-20T13:15:35.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_9711474720788@lid_3EB0B58AB2785C95FC30C2",
+      "fromMe": true,
+      "body": "Olá Kelleanne, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1784554051,
+      "createdAt": "2026-07-20T13:27:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_9711474720788@lid_3EB0F42754CC8C48AA4310",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1784554059,
+      "createdAt": "2026-07-20T13:27:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5531996621658": [
+    {
+      "id": "true_231567624564942@lid_3EB0E3D5F8C1E91356D0A1",
+      "fromMe": true,
+      "body": "Olá Ana Clara Melo ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Belo Horizonte.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Ana Clara Melo ?",
+      "type": "chat",
+      "timestamp": 1784557137,
+      "createdAt": "2026-07-20T14:18:57.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231567624564942@lid_3EB0A2829FD2D53B691407",
+      "fromMe": true,
+      "body": "Olá Ana Clara Melo ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Belo Horizonte.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Ana Clara Melo ?",
+      "type": "chat",
+      "timestamp": 1784557252,
+      "createdAt": "2026-07-20T14:20:52.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231567624564942@lid_3EB02BEBADF84DAF0214AC",
+      "fromMe": true,
+      "body": "Olá Ana! Tudo bem?\n\nAqui é a Fabiane, do time do Matheus Bottaro, da Casa do Ads.\n\nVocê fez a pré-inscrição na Imersão Presencial Google Ads e Inteligência Artificial em Belo Horizonte!\n\nConseguiu olhar as informações acima?  Ficou alguma duvida?",
+      "type": "chat",
+      "timestamp": 1784558107,
+      "createdAt": "2026-07-20T14:35:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "551198175434": [
+    {
+      "id": "true_133247166087215@lid_3EB05B12F0F522136A55C0",
+      "fromMe": true,
+      "body": "Olá Eunice! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Eunice?",
+      "type": "chat",
+      "timestamp": 1784557327,
+      "createdAt": "2026-07-20T14:22:07.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "553191506800": [
+    {
+      "id": "false_181419552817165@lid_3A42E7F443D152F75B25",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784558208,
+      "createdAt": "2026-07-20T14:36:48.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_2ff28e89361eb150633eed43991035e59c7fe3af484389bb",
+      "mediaFile": "m_2ff28e89361eb150633eed43991035e59c7fe3af484389bb.ogg",
+      "mediaSize": 21242,
+      "filename": "false_181419552817165@lid_3A42E7F443D152F75B25.ogg",
+      "originalName": "false_181419552817165@lid_3A42E7F443D152F75B25.ogg"
+    },
+    {
+      "id": "true_181419552817165@lid_A5333D20639D181174EFB45DA931A6B3",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784559790,
+      "createdAt": "2026-07-20T15:03:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_be373e204a29b826e611573e5499b56b02b2adeac638fba9",
+      "mediaFile": "m_be373e204a29b826e611573e5499b56b02b2adeac638fba9.ogg",
+      "mediaSize": 111286,
+      "filename": "true_181419552817165@lid_A5333D20639D181174EFB45DA931A6B3.ogg",
+      "originalName": "true_181419552817165@lid_A5333D20639D181174EFB45DA931A6B3.ogg"
+    }
+  ],
+  "5531988993780": [
+    {
+      "id": "true_197216476074014@lid_3EB0232ECDE2887C90AA15",
+      "fromMe": true,
+      "body": "Olá Sheilla Maria Boson Santos ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Belo Horizonte.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Sheilla Maria Boson Santos ?",
+      "type": "chat",
+      "timestamp": 1784559293,
+      "createdAt": "2026-07-20T14:54:53.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511982040263": [
+    {
+      "id": "false_125065186295826@lid_A55A3AC8726823A2C66DD31F0A2F1DFF",
+      "fromMe": false,
+      "body": "Bom dia",
+      "type": "chat",
+      "timestamp": 1784559892,
+      "createdAt": "2026-07-20T15:04:52.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_125065186295826@lid_A5A108BCE98F97FFD1119FC240A9BE3E",
+      "fromMe": false,
+      "body": "Me chamo Emerson Alessandro \nGostaria de sabe se há vaga para o curso do Google ADS em Guarulhos hj ?",
+      "type": "chat",
+      "timestamp": 1784559936,
+      "createdAt": "2026-07-20T15:05:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511941339570": [
+    {
+      "id": "true_267877127086225@lid_3EB03A2E9D115FA7D7E3FA",
+      "fromMe": true,
+      "body": "Olá Caio! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Caio?",
+      "type": "chat",
+      "timestamp": 1784560546,
+      "createdAt": "2026-07-20T15:15:46.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5531991103031": [
+    {
+      "id": "true_106545471869093@lid_3EB09D254BFE0913F73EEA",
+      "fromMe": true,
+      "body": "Olá Lêda. ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Belo Horizonte.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Lêda. ?",
+      "type": "chat",
+      "timestamp": 1784561083,
+      "createdAt": "2026-07-20T15:24:43.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511911960462": [
+    {
+      "id": "true_223093553410072@lid_3EB0AADAADA58521027FB2",
+      "fromMe": true,
+      "body": "Olá Kauanny! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Kauanny?",
+      "type": "chat",
+      "timestamp": 1784561947,
+      "createdAt": "2026-07-20T15:39:07.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511915643298": [
+    {
+      "id": "false_48537710653572@lid_3EB081994A2EB73ADBF5CD",
+      "fromMe": false,
+      "body": "Bom dia Fabi!",
+      "type": "chat",
+      "timestamp": 1784565713,
+      "createdAt": "2026-07-20T16:41:53.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_48537710653572@lid_3EB0E7819E31DD25F48D12",
+      "fromMe": false,
+      "body": "Tudo bem?",
+      "type": "chat",
+      "timestamp": 1784565717,
+      "createdAt": "2026-07-20T16:41:57.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_48537710653572@lid_3EB0432807E4BC01D27E64",
+      "fromMe": false,
+      "body": "A Joice contratou vários projetos com a gente, tenho como ver quais planos e quando contratou, mas não consigo saber se é um contrato ativo.",
+      "type": "chat",
+      "timestamp": 1784565758,
+      "createdAt": "2026-07-20T16:42:38.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_48537710653572@lid_3EB06E0A70C5B524C7FB2B",
+      "fromMe": false,
+      "body": "O ideal seria perguntar à Jéssica",
+      "type": "chat",
+      "timestamp": 1784565769,
+      "createdAt": "2026-07-20T16:42:49.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_48537710653572@lid_3EB0B6F11C206ED0C76BF5",
+      "fromMe": false,
+      "body": "Joice Santos da Silva\tDemolidora Elite\t71 9245-2698\tjoicesantosdasilva140723@gmail.com\tCultura Digital\t30/07/2025",
+      "type": "chat",
+      "timestamp": 1784565840,
+      "createdAt": "2026-07-20T16:44:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_48537710653572@lid_3EB05588C58C493112F0F5",
+      "fromMe": false,
+      "body": "Joice\tDemolidora Elite\t71 9245-2698\tjoicesantosdasilva140723@gmail.com\tMentorias Exclusive ON Demand\t19/09/2025",
+      "type": "chat",
+      "timestamp": 1784565853,
+      "createdAt": "2026-07-20T16:44:13.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_48537710653572@lid_3EB0F058831ED8F5963665",
+      "fromMe": false,
+      "body": "Joice Santos da Silva \t\t71 9245-2698\tJoicesantosdasilva140723@gmail.com \tIntegração IA PRÓ - Mentorias para Criação dos Agentes Personalizados + Integração do Whatsapp \t17/09/2025",
+      "type": "chat",
+      "timestamp": 1784565869,
+      "createdAt": "2026-07-20T16:44:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_48537710653572@lid_3EB0283D4F8B4334A3E713",
+      "fromMe": true,
+      "body": "Gratidão",
+      "type": "chat",
+      "timestamp": 1784568962,
+      "createdAt": "2026-07-20T17:36:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "553192217478": [
+    {
+      "id": "false_37516572909661@lid_ACA693C41383619EE4E1A324CAFD7306",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão em Belo Horizonte",
+      "type": "chat",
+      "timestamp": 1784567739,
+      "createdAt": "2026-07-20T17:15:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "5511971990632": [
+    {
+      "id": "false_224210311983199@lid_ACD51473E4E555B55C01788CCB3DCFBF",
+      "fromMe": false,
+      "body": "Olá Fabiane, muito prazer!\nSe eu não me engano cheguei a fazer sim, vou verificar ok",
+      "type": "chat",
+      "timestamp": 1784568914,
+      "createdAt": "2026-07-20T17:35:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_224210311983199@lid_3EB089E4B922B21BBC19A5",
+      "fromMe": true,
+      "body": "A sua inscrição é para o dia 23/07, correto?",
+      "type": "chat",
+      "timestamp": 1784569205,
+      "createdAt": "2026-07-20T17:40:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_224210311983199@lid_ACB04A1FD5CD2517FC759501D1D2CD79",
+      "fromMe": false,
+      "body": "Não, seria para hj dia 20 em Guarulhos",
+      "type": "chat",
+      "timestamp": 1784569278,
+      "createdAt": "2026-07-20T17:41:18.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_224210311983199@lid_ACB7B43DAA7575421055E59B8FE84A36",
+      "fromMe": false,
+      "body": "Não me recordo",
+      "type": "chat",
+      "timestamp": 1784569320,
+      "createdAt": "2026-07-20T17:42:00.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_224210311983199@lid_AC8FD5437E241042D9B03C172B2E4010",
+      "fromMe": false,
+      "body": "Exatamente",
+      "type": "chat",
+      "timestamp": 1784569324,
+      "createdAt": "2026-07-20T17:42:04.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_224210311983199@lid_ACBD471D467C45696743DDCF5584F1C7",
+      "fromMe": false,
+      "body": "Me desculpe",
+      "type": "chat",
+      "timestamp": 1784569327,
+      "createdAt": "2026-07-20T17:42:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_224210311983199@lid_A5C417C0D5EFBB08FCE113551DE02749",
+      "fromMe": true,
+      "body": "🙏",
+      "type": "chat",
+      "timestamp": 1784569348,
+      "createdAt": "2026-07-20T17:42:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_224210311983199@lid_ACBC977276775F37E7C36036B06353DA",
+      "fromMe": false,
+      "body": "Seria hj msm",
+      "type": "chat",
+      "timestamp": 1784569387,
+      "createdAt": "2026-07-20T17:43:07.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_224210311983199@lid_ACCE3DBBA27114834967E6CAC937D857",
+      "fromMe": false,
+      "body": "Foi cancelado?",
+      "type": "chat",
+      "timestamp": 1784569392,
+      "createdAt": "2026-07-20T17:43:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    }
+  ],
+  "553198070579": [
+    {
+      "id": "false_265875772981500@lid_3A06DD0E0F3F1A46A6EB",
+      "fromMe": false,
+      "body": "Gostaria de saber mais sobre a Imersão em Belo Horizonte",
+      "type": "chat",
+      "timestamp": 1784569464,
+      "createdAt": "2026-07-20T17:44:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ]
 }

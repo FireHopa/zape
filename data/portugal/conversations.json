@@ -40089,6 +40089,106 @@
       "createdAt": "2026-07-17T18:19:37.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB04DEF72BED61206C0B5",
+      "fromMe": false,
+      "body": "Boa tarde!",
+      "type": "chat",
+      "timestamp": 1784567082,
+      "createdAt": "2026-07-20T17:04:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB0560994EA8B2B877737",
+      "fromMe": false,
+      "body": "Fabiane, aguardei um retorno na sexta e não tive sobre o que perguntei",
+      "type": "chat",
+      "timestamp": 1784567112,
+      "createdAt": "2026-07-20T17:05:12.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A5D996B3B1E98CA41C09AFCA81799D29",
+      "fromMe": true,
+      "body": "Olá Juliana, boa tarde!!",
+      "type": "chat",
+      "timestamp": 1784567247,
+      "createdAt": "2026-07-20T17:07:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_92157499162814@lid_A543415883B995905A27DDD4E45CFC34",
+      "fromMe": false,
+      "body": "Fabiane",
+      "type": "chat",
+      "timestamp": 1784568925,
+      "createdAt": "2026-07-20T17:35:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_A522DD170AD59C15F8F505AA663F7E8A",
+      "fromMe": false,
+      "body": "Sobre esse áudio",
+      "type": "chat",
+      "timestamp": 1784568943,
+      "createdAt": "2026-07-20T17:35:43.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_A547B5118AADE0C695326784569ACAA1",
+      "fromMe": false,
+      "body": "quer disser que teria que estar em uma mentoria",
+      "type": "chat",
+      "timestamp": 1784568961,
+      "createdAt": "2026-07-20T17:36:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_A56EC7E4557FD5918B34D0DA2B371E1F",
+      "fromMe": false,
+      "body": "ou a comunidade que assiste as aulas com ele 1 fez por semana",
+      "type": "chat",
+      "timestamp": 1784568961,
+      "createdAt": "2026-07-20T17:36:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_A5D996D38E68AB891BFE420510BBF503",
+      "fromMe": false,
+      "body": "é isso que ele valou",
+      "type": "chat",
+      "timestamp": 1784568961,
+      "createdAt": "2026-07-20T17:36:01.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A54E9CA8E7A1EC4EFBBEDC05D0DD7402",
+      "fromMe": true,
+      "body": "Sim, para cada cliente você vai precisar usar o agente de IA e a técnica perfeita, daí você abre um chat para cada cliente e treina com a técnica perfeita.",
+      "type": "chat",
+      "timestamp": 1784569083,
+      "createdAt": "2026-07-20T17:38:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A5B2824C68CFCEF998E3E3B1CF50B538",
+      "fromMe": true,
+      "body": "🙏😊",
+      "type": "chat",
+      "timestamp": 1784569265,
+      "createdAt": "2026-07-20T17:41:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ]
 }
