@@ -1,9 +1,17 @@
-const fs = require("fs");
-const path = require("path");
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+
+function dataRoot() {
+  const configured = String(process.env.ZAPE_DATA_DIR || '').trim();
+  return configured ? path.resolve(configured) : path.join(__dirname, '..', 'data');
+}
 
 function tenantDir(tenantId) {
-  const t = String(tenantId || "").trim() || "admin";
-  return path.join(__dirname, "..", "data", t);
+  const t = String(tenantId || '').trim() || 'admin';
+  if (!/^[a-z0-9_-]{1,64}$/i.test(t)) throw new Error('Tenant inválido.');
+  return path.join(dataRoot(), t);
 }
 
 function ensureTenantDir(tenantId) {
@@ -12,4 +20,4 @@ function ensureTenantDir(tenantId) {
   return dir;
 }
 
-module.exports = { tenantDir, ensureTenantDir };
+module.exports = { dataRoot, tenantDir, ensureTenantDir };

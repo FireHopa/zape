@@ -1,0 +1,156 @@
+{
+  "generatedAt": "2026-07-14T16:02:30.722Z",
+  "scannedFiles": 233,
+  "sections": {
+    "dependencies": {
+      "@phosphor-icons/web": {
+        "version": "^2.1.2",
+        "evidence": [
+          "docs/architecture-current.md",
+          "docs/phase-5-browser-hardening.md",
+          "public/app.html",
+          "scripts/smoke-phase5.js",
+          "server.js"
+        ]
+      },
+      "basic-auth": {
+        "version": "^2.0.1",
+        "evidence": [
+          "src/basicAuthFactory.js"
+        ]
+      },
+      "cors": {
+        "version": "^2.8.5",
+        "evidence": [
+          "src/httpSecurity.js"
+        ]
+      },
+      "dompurify": {
+        "version": "^3.4.12",
+        "evidence": [
+          "docs/architecture-current.md",
+          "docs/phase-5-browser-hardening.md",
+          "logs/application.jsonl",
+          "public/app.html",
+          "scripts/smoke-phase5.js",
+          "server.js"
+        ]
+      },
+      "dotenv": {
+        "version": "^16.4.5",
+        "evidence": [
+          "scripts/validate-config.js",
+          "server.js"
+        ]
+      },
+      "express": {
+        "version": "4.22.2",
+        "evidence": [
+          "server.js",
+          "tests/authentication.test.js",
+          "tests/authorization.test.js",
+          "tests/httpSecurity.test.js",
+          "tests/tenantRouteRegistry.test.js"
+        ]
+      },
+      "ffmpeg-static": {
+        "version": "^5.2.0",
+        "evidence": [
+          "scripts/smoke-phase14.js",
+          "src/whatsappManager.js"
+        ]
+      },
+      "helmet": {
+        "version": "^8.3.0",
+        "evidence": [
+          "src/httpSecurity.js"
+        ]
+      },
+      "pg": {
+        "version": "^8.22.0",
+        "evidence": [
+          "src/database/client.js"
+        ]
+      },
+      "qrcode": {
+        "version": "^1.5.4",
+        "evidence": [
+          "src/whatsappManager.js"
+        ]
+      },
+      "whatsapp-web.js": {
+        "version": "1.34.7",
+        "evidence": [
+          "scripts/smoke-phase14.js",
+          "src/whatsappManager.js"
+        ]
+      }
+    },
+    "devDependencies": {
+      "@types/express": {
+        "version": "4.17.25",
+        "evidence": [
+          "src/routes/adminMonitoringRoutes.js",
+          "src/routes/businessRoutes.js",
+          "src/routes/healthRoutes.js",
+          "src/routes/tenant/contentRoutes.js",
+          "src/routes/tenant/crmRoutes.js",
+          "src/routes/tenant/leadRoutes.js",
+          "src/routes/tenant/registerTenantPanelRoutes.js",
+          "src/routes/tenant/uiRoutes.js",
+          "src/routes/tenant/webhookManagementRoutes.js",
+          "src/routes/tenant/whatsappWebRoutes.js"
+        ]
+      },
+      "@types/node": {
+        "version": "22.20.1",
+        "evidence": [
+          "tsconfig.phase14.json"
+        ]
+      },
+      "eslint": {
+        "version": "9.39.2",
+        "evidence": [
+          "scripts/audit-direct-dependencies.js",
+          "eslint.config.cjs",
+          "package.json#scripts.lint"
+        ]
+      },
+      "nodemon": {
+        "version": "3.1.14",
+        "evidence": [
+          "package.json#scripts.dev"
+        ]
+      },
+      "prettier": {
+        "version": "3.9.5",
+        "evidence": [
+          "scripts/audit-direct-dependencies.js",
+          ".prettierrc.json",
+          "package.json#scripts.format:check"
+        ]
+      },
+      "typescript": {
+        "version": "5.8.3",
+        "evidence": [
+          "scripts/audit-direct-dependencies.js",
+          "tsconfig.phase14.json",
+          "package.json#scripts.typecheck"
+        ]
+      },
+      "vite": {
+        "version": "8.1.4",
+        "evidence": [
+          "docs/phase-0-baseline.md",
+          "docs/phase-14-legacy-evidence.json",
+          "scripts/audit-direct-dependencies.js",
+          "scripts/check-syntax.js",
+          "tests/legacyRemoval.test.js",
+          "vite.config.js"
+        ]
+      }
+    }
+  },
+  "unused": [],
+  "ok": true
+}

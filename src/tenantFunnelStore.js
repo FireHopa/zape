@@ -160,5 +160,6 @@ module.exports = {
   updateStage,
   deleteStage,
   getLeadStageMap,
+  setLeadStageMap,
   setLeadStage,
 };

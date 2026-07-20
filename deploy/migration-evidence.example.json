@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "mode": "none",
+  "rollbackPlanned": true,
+  "forwardFix": true,
+  "notes": "Nenhuma migration de dados nesta release."
+}

@@ -1,163 +1,305 @@
-// src/waCloudConfigStore.js
 /**
  * Configuração local da integração oficial WhatsApp Cloud API / Embedded Signup.
  *
- * Correção importante:
- * - App ID, App Secret, Configuration ID e Graph Version podem vir do .env ou do painel.
- * - Token, WABA ID e Phone Number ID são um conjunto único e NÃO devem ser misturados.
- * - Se existir qualquer rastro de conexão feita pelo painel, o runtime usa o painel.
- *   Isso evita o bug: display/número do painel + WABA antigo do .env.
- * - O .env só assume as credenciais da Cloud API quando não existe conexão do painel
- *   ou quando WA_CLOUD_FORCE_ENV=1 está definido explicitamente.
+ * Fase 1 de segurança:
+ * - segredos persistentes usam AES-256-GCM com CONFIG_ENCRYPTION_KEY;
+ * - App Secret e access token nunca são gravados em texto puro;
+ * - formatos legados em texto puro são detectados, mas não usados por padrão;
+ * - a migração é explícita, com dry-run e backup, por scripts/migrate-secrets.js.
  */
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
+const {
+  decryptSecret,
+  encryptSecret,
+  isEncryptedSecret,
+  encryptionKeyConfigured,
+} = require('./secretVault');
+const { redactText } = require('./safeLog');
 
-const DATA_DIR = path.join(__dirname, "..", "data");
-const CONFIG_FILE = path.join(DATA_DIR, "wa_cloud_config.json");
+const DATA_DIR = process.env.ZAPE_DATA_DIR
+  ? path.resolve(process.env.ZAPE_DATA_DIR)
+  : path.join(__dirname, '..', 'data');
+const CONFIG_FILE = path.join(DATA_DIR, 'wa_cloud_config.json');
+const SCHEMA_VERSION = 2;
+const LEGACY_SECRET_FIELDS = ['appSecret', 'accessToken', 'access_token', 'token'];
 
 function ensureDir() {
-  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+  if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true, mode: 0o700 });
 }
 
-function normalizeStoredConfig(raw = {}) {
-  if (!raw || typeof raw !== "object") return {};
-  const out = { ...raw };
+function envBool(value) {
+  const s = String(value || '').trim();
+  return s === '1' || /^(true|yes|on)$/i.test(s);
+}
 
-  // Compatibilidade com versões antigas ou payloads vindos direto da Meta.
-  if (!out.accessToken && raw.token) out.accessToken = raw.token;
-  if (!out.accessToken && raw.access_token) out.accessToken = raw.access_token;
-  if (!out.phoneNumberId && raw.phone_number_id) out.phoneNumberId = raw.phone_number_id;
-  if (!out.wabaId && raw.waba_id) out.wabaId = raw.waba_id;
-  if (!out.businessId && raw.business_id) out.businessId = raw.business_id;
-  if (!out.displayPhoneNumber && raw.display_phone_number) out.displayPhoneNumber = raw.display_phone_number;
-  if (!out.verifiedName && raw.verified_name) out.verifiedName = raw.verified_name;
-
-  // Se a sessão do Embedded Signup estiver salva, também usamos como fallback.
-  const sess = raw.lastEmbeddedSession && raw.lastEmbeddedSession.data ? raw.lastEmbeddedSession.data : null;
-  if (sess) {
-    if (!out.phoneNumberId && sess.phone_number_id) out.phoneNumberId = sess.phone_number_id;
-    if (!out.wabaId && sess.waba_id) out.wabaId = sess.waba_id;
-    if (!out.businessId && sess.business_id) out.businessId = sess.business_id;
+function envFirst(...keys) {
+  for (const key of keys) {
+    const value = process.env[key];
+    if (value !== undefined && String(value).trim() !== '') return String(value).trim();
   }
-
-  return out;
+  return '';
 }
 
-function readStoredConfig() {
+function readRawStoredConfig() {
   ensureDir();
   if (!fs.existsSync(CONFIG_FILE)) return {};
   try {
-    const raw = JSON.parse(fs.readFileSync(CONFIG_FILE, "utf-8")) || {};
-    return normalizeStoredConfig(raw && typeof raw === "object" ? raw : {});
+    const parsed = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
   } catch {
     return {};
   }
 }
 
-function writeStoredConfig(patch = {}) {
-  ensureDir();
-  const prev = readStoredConfig();
-  const next = {
-    ...prev,
-    ...sanitizeConfigPatch(patch),
-    updatedAt: new Date().toISOString(),
+function hasOwn(obj, key) {
+  return Object.prototype.hasOwnProperty.call(obj || {}, key);
+}
+
+function normalizeString(value) {
+  return String(value ?? '').trim();
+}
+
+function sanitizeEmbeddedSession(value) {
+  if (!value || typeof value !== 'object') return null;
+  const rawData = value.data && typeof value.data === 'object' ? value.data : {};
+  const data = {
+    waba_id: normalizeString(rawData.waba_id || rawData.wabaId),
+    phone_number_id: normalizeString(rawData.phone_number_id || rawData.phoneNumberId),
+    business_id: normalizeString(rawData.business_id || rawData.businessId),
   };
-  fs.writeFileSync(CONFIG_FILE, JSON.stringify(next, null, 2), "utf-8");
-  return next;
+  Object.keys(data).forEach((key) => { if (!data[key]) delete data[key]; });
+  return {
+    event: normalizeString(value.event || value.type).slice(0, 100),
+    data,
+  };
+}
+
+function sanitizeTokenDebug(value) {
+  const data = value && value.data && typeof value.data === 'object' ? value.data : null;
+  if (!data) return value && value.error ? { error: redactText(value.error) } : null;
+  const granularScopes = Array.isArray(data.granular_scopes)
+    ? data.granular_scopes.slice(0, 20).map((item) => ({
+      scope: normalizeString(item && item.scope).slice(0, 120),
+      target_ids: Array.isArray(item && item.target_ids)
+        ? item.target_ids.slice(0, 100).map(normalizeString).filter(Boolean)
+        : [],
+    }))
+    : [];
+  return {
+    data: {
+      app_id: normalizeString(data.app_id),
+      is_valid: data.is_valid !== false,
+      expires_at: Number(data.expires_at || 0) || 0,
+      data_access_expires_at: Number(data.data_access_expires_at || 0) || 0,
+      scopes: Array.isArray(data.scopes) ? data.scopes.slice(0, 100).map(normalizeString).filter(Boolean) : [],
+      granular_scopes: granularScopes,
+    },
+  };
+}
+
+function sanitizeSubscribeError(value) {
+  if (!value || typeof value !== 'object') return null;
+  const payloadError = value.payload && value.payload.error && typeof value.payload.error === 'object'
+    ? value.payload.error
+    : null;
+  return {
+    message: redactText(value.message || payloadError?.message || 'Falha ao assinar webhook.'),
+    status: Number(value.status || value.statusCode || 0) || null,
+    code: normalizeString(value.code || payloadError?.code).slice(0, 80) || null,
+    subcode: normalizeString(value.subcode || payloadError?.error_subcode).slice(0, 80) || null,
+  };
+}
+
+function normalizeStoredConfig(raw = {}) {
+  if (!raw || typeof raw !== 'object') return {};
+  const out = {};
+  const copyString = (from, to = from) => {
+    if (hasOwn(raw, from)) out[to] = normalizeString(raw[from]);
+  };
+
+  copyString('appId');
+  copyString('configurationId');
+  copyString('graphVersion');
+  copyString('redirectUri');
+  copyString('tokenType');
+  copyString('tokenExpiresIn');
+  copyString('phoneNumberId');
+  copyString('phone_number_id', 'phoneNumberId');
+  copyString('wabaId');
+  copyString('waba_id', 'wabaId');
+  copyString('businessId');
+  copyString('business_id', 'businessId');
+  copyString('displayPhoneNumber');
+  copyString('display_phone_number', 'displayPhoneNumber');
+  copyString('verifiedName');
+  copyString('verified_name', 'verifiedName');
+  copyString('linkedAt');
+  copyString('subscribedAt');
+  copyString('updatedAt');
+
+  if (hasOwn(raw, 'enabled')) out.enabled = Boolean(raw.enabled);
+  if (hasOwn(raw, 'preferPanelCredentials')) out.preferPanelCredentials = Boolean(raw.preferPanelCredentials);
+  out.lastEmbeddedSession = sanitizeEmbeddedSession(raw.lastEmbeddedSession);
+  out.lastSubscribeError = sanitizeSubscribeError(raw.lastSubscribeError);
+  out.lastTokenDebug = sanitizeTokenDebug(raw.lastTokenDebug);
+
+  const encrypted = raw.encryptedSecrets && typeof raw.encryptedSecrets === 'object'
+    ? raw.encryptedSecrets
+    : {};
+  const legacyPlaintextFields = LEGACY_SECRET_FIELDS.filter((field) => normalizeString(raw[field]));
+  const security = {
+    schemaVersion: Number(raw.schemaVersion || 1),
+    encryptedAppSecret: isEncryptedSecret(encrypted.appSecret),
+    encryptedAccessToken: isEncryptedSecret(encrypted.accessToken),
+    legacyPlaintextFields,
+    encryptionKeyConfigured: false,
+    decryptError: '',
+  };
+
+  try {
+    security.encryptionKeyConfigured = encryptionKeyConfigured();
+    if (security.encryptedAppSecret) out.appSecret = decryptSecret(encrypted.appSecret);
+    if (security.encryptedAccessToken) out.accessToken = decryptSecret(encrypted.accessToken);
+  } catch (error) {
+    security.decryptError = error.code || 'SECRET_DECRYPT_FAILED';
+    out.appSecret = '';
+    out.accessToken = '';
+  }
+
+  // Compatibilidade de emergência, desativada por padrão. O caminho normal é migrar.
+  if (envBool(process.env.ALLOW_LEGACY_PLAINTEXT_SECRETS)) {
+    if (!out.appSecret) out.appSecret = normalizeString(raw.appSecret);
+    if (!out.accessToken) out.accessToken = normalizeString(raw.accessToken || raw.access_token || raw.token);
+  }
+
+  const sessionData = out.lastEmbeddedSession && out.lastEmbeddedSession.data;
+  if (sessionData) {
+    if (!out.phoneNumberId) out.phoneNumberId = normalizeString(sessionData.phone_number_id);
+    if (!out.wabaId) out.wabaId = normalizeString(sessionData.waba_id);
+    if (!out.businessId) out.businessId = normalizeString(sessionData.business_id);
+  }
+
+  Object.defineProperty(out, '_security', {
+    value: security,
+    enumerable: false,
+    configurable: false,
+    writable: false,
+  });
+  return out;
+}
+
+function readStoredConfig() {
+  return normalizeStoredConfig(readRawStoredConfig());
 }
 
 function sanitizeConfigPatch(patch = {}) {
   const out = {};
   const copyString = (from, to = from) => {
-    if (Object.prototype.hasOwnProperty.call(patch, from)) {
-      out[to] = String(patch[from] ?? "").trim();
-    }
+    if (hasOwn(patch, from)) out[to] = normalizeString(patch[from]);
   };
 
-  copyString("appId");
-  copyString("appSecret");
-  copyString("configurationId");
-  copyString("graphVersion");
-  copyString("redirectUri");
-  copyString("accessToken");
-  copyString("access_token", "accessToken");
-  copyString("tokenType");
-  copyString("tokenExpiresIn");
-  copyString("phoneNumberId");
-  copyString("phone_number_id", "phoneNumberId");
-  copyString("wabaId");
-  copyString("waba_id", "wabaId");
-  copyString("businessId");
-  copyString("business_id", "businessId");
-  copyString("displayPhoneNumber");
-  copyString("display_phone_number", "displayPhoneNumber");
-  copyString("verifiedName");
-  copyString("verified_name", "verifiedName");
+  copyString('appId');
+  copyString('appSecret');
+  copyString('configurationId');
+  copyString('graphVersion');
+  copyString('redirectUri');
+  copyString('accessToken');
+  copyString('access_token', 'accessToken');
+  copyString('tokenType');
+  copyString('tokenExpiresIn');
+  copyString('phoneNumberId');
+  copyString('phone_number_id', 'phoneNumberId');
+  copyString('wabaId');
+  copyString('waba_id', 'wabaId');
+  copyString('businessId');
+  copyString('business_id', 'businessId');
+  copyString('displayPhoneNumber');
+  copyString('display_phone_number', 'displayPhoneNumber');
+  copyString('verifiedName');
+  copyString('verified_name', 'verifiedName');
+  copyString('linkedAt');
+  copyString('subscribedAt');
 
-  if (Object.prototype.hasOwnProperty.call(patch, "enabled")) {
-    out.enabled = Boolean(patch.enabled);
-  }
-  if (Object.prototype.hasOwnProperty.call(patch, "preferPanelCredentials")) {
-    out.preferPanelCredentials = Boolean(patch.preferPanelCredentials);
-  }
-  if (Object.prototype.hasOwnProperty.call(patch, "lastEmbeddedSession")) {
-    out.lastEmbeddedSession = patch.lastEmbeddedSession || null;
-  }
-  if (Object.prototype.hasOwnProperty.call(patch, "linkedAt")) {
-    out.linkedAt = String(patch.linkedAt || "");
-  }
-  if (Object.prototype.hasOwnProperty.call(patch, "subscribedAt")) {
-    out.subscribedAt = String(patch.subscribedAt || "");
-  }
-  if (Object.prototype.hasOwnProperty.call(patch, "lastSubscribeError")) {
-    out.lastSubscribeError = patch.lastSubscribeError || null;
-  }
-  if (Object.prototype.hasOwnProperty.call(patch, "lastTokenDebug")) {
-    out.lastTokenDebug = patch.lastTokenDebug || null;
-  }
-
+  if (hasOwn(patch, 'enabled')) out.enabled = Boolean(patch.enabled);
+  if (hasOwn(patch, 'preferPanelCredentials')) out.preferPanelCredentials = Boolean(patch.preferPanelCredentials);
+  if (hasOwn(patch, 'lastEmbeddedSession')) out.lastEmbeddedSession = sanitizeEmbeddedSession(patch.lastEmbeddedSession);
+  if (hasOwn(patch, 'lastSubscribeError')) out.lastSubscribeError = sanitizeSubscribeError(patch.lastSubscribeError);
+  if (hasOwn(patch, 'lastTokenDebug')) out.lastTokenDebug = sanitizeTokenDebug(patch.lastTokenDebug);
   return out;
 }
 
-function envFirst(...keys) {
-  for (const key of keys) {
-    const v = process.env[key];
-    if (v !== undefined && String(v).trim() !== "") return String(v).trim();
+function serializeStoredConfig(runtime = {}) {
+  const out = {
+    schemaVersion: SCHEMA_VERSION,
+    enabled: runtime.enabled !== false,
+    preferPanelCredentials: Boolean(runtime.preferPanelCredentials),
+    appId: normalizeString(runtime.appId),
+    configurationId: normalizeString(runtime.configurationId),
+    graphVersion: normalizeString(runtime.graphVersion) || 'v25.0',
+    redirectUri: normalizeString(runtime.redirectUri),
+    tokenType: normalizeString(runtime.tokenType),
+    tokenExpiresIn: normalizeString(runtime.tokenExpiresIn),
+    phoneNumberId: normalizeString(runtime.phoneNumberId),
+    wabaId: normalizeString(runtime.wabaId),
+    businessId: normalizeString(runtime.businessId),
+    displayPhoneNumber: normalizeString(runtime.displayPhoneNumber),
+    verifiedName: normalizeString(runtime.verifiedName),
+    linkedAt: normalizeString(runtime.linkedAt),
+    subscribedAt: normalizeString(runtime.subscribedAt),
+    lastSubscribeError: sanitizeSubscribeError(runtime.lastSubscribeError),
+    lastEmbeddedSession: sanitizeEmbeddedSession(runtime.lastEmbeddedSession),
+    lastTokenDebug: sanitizeTokenDebug(runtime.lastTokenDebug),
+    encryptedSecrets: {},
+    updatedAt: new Date().toISOString(),
+  };
+
+  if (normalizeString(runtime.appSecret)) {
+    out.encryptedSecrets.appSecret = encryptSecret(runtime.appSecret);
   }
-  return "";
+  if (normalizeString(runtime.accessToken)) {
+    out.encryptedSecrets.accessToken = encryptSecret(runtime.accessToken);
+  }
+  if (!Object.keys(out.encryptedSecrets).length) delete out.encryptedSecrets;
+  return out;
 }
 
-function envBool(value) {
-  const s = String(value || "").trim();
-  return s === "1" || /^(true|yes|on)$/i.test(s);
+function atomicWriteJson(filePath, value) {
+  ensureDir();
+  const tempFile = `${filePath}.${process.pid}.${Date.now()}.tmp`;
+  fs.writeFileSync(tempFile, `${JSON.stringify(value, null, 2)}\n`, { encoding: 'utf8', mode: 0o600 });
+  fs.renameSync(tempFile, filePath);
+  try { fs.chmodSync(filePath, 0o600); } catch { /* best effort */ }
+}
+
+function writeStoredConfig(patch = {}) {
+  const prev = readStoredConfig();
+  const cleaned = sanitizeConfigPatch(patch);
+  const next = { ...prev, ...cleaned };
+  const serialized = serializeStoredConfig(next);
+  atomicWriteJson(CONFIG_FILE, serialized);
+  return normalizeStoredConfig(serialized);
 }
 
 function hasPanelConnectionTrace(stored = {}) {
+  const security = stored._security || {};
   return Boolean(
-    stored.preferPanelCredentials ||
-    stored.appId ||
-    stored.configurationId ||
-    stored.accessToken ||
-    stored.phoneNumberId ||
-    stored.wabaId ||
-    stored.businessId ||
-    stored.displayPhoneNumber ||
-    stored.verifiedName ||
-    stored.linkedAt ||
-    stored.lastEmbeddedSession
+    stored.preferPanelCredentials || stored.appId || stored.configurationId ||
+    stored.accessToken || stored.phoneNumberId || stored.wabaId || stored.businessId ||
+    stored.displayPhoneNumber || stored.verifiedName || stored.linkedAt ||
+    stored.lastEmbeddedSession || security.encryptedAccessToken || security.legacyPlaintextFields?.length
   );
 }
 
 function getCloudCredentialSource(stored) {
-  const envToken = envFirst("WA_CLOUD_TOKEN", "META_WA_ACCESS_TOKEN");
-  const envPhoneNumberId = envFirst("WA_CLOUD_PHONE_NUMBER_ID", "META_WA_PHONE_NUMBER_ID");
-  const envWabaId = envFirst("WA_CLOUD_WABA_ID", "META_WA_WABA_ID");
-  const forceEnv = envBool(envFirst("WA_CLOUD_FORCE_ENV", "META_WA_FORCE_ENV"));
-
-  const storedToken = String(stored.accessToken || "").trim();
-  const storedPhoneNumberId = String(stored.phoneNumberId || "").trim();
-  const storedWabaId = String(stored.wabaId || "").trim();
+  const envToken = envFirst('WA_CLOUD_TOKEN', 'META_WA_ACCESS_TOKEN');
+  const envPhoneNumberId = envFirst('WA_CLOUD_PHONE_NUMBER_ID', 'META_WA_PHONE_NUMBER_ID');
+  const envWabaId = envFirst('WA_CLOUD_WABA_ID', 'META_WA_WABA_ID');
+  const forceEnv = envBool(envFirst('WA_CLOUD_FORCE_ENV', 'META_WA_FORCE_ENV'));
+  const storedToken = normalizeString(stored.accessToken);
+  const storedPhoneNumberId = normalizeString(stored.phoneNumberId);
+  const storedWabaId = normalizeString(stored.wabaId);
+  const security = stored._security || {};
   const panelTrace = hasPanelConnectionTrace(stored);
   const storedComplete = Boolean(storedToken && storedPhoneNumberId && storedWabaId);
   const envComplete = Boolean(envToken && envPhoneNumberId && envWabaId);
@@ -165,132 +307,124 @@ function getCloudCredentialSource(stored) {
 
   if (forceEnv) {
     return {
-      source: "env",
-      forceEnv: true,
-      token: envToken,
-      phoneNumberId: envPhoneNumberId,
-      wabaId: envWabaId,
-      complete: envComplete,
-      needsRelink: false,
-      mixedWarning: panelTrace ? "WA_CLOUD_FORCE_ENV=1 está ativo. As credenciais salvas pelo painel foram ignoradas." : "",
+      source: 'env', forceEnv: true, token: envToken, phoneNumberId: envPhoneNumberId, wabaId: envWabaId,
+      complete: envComplete, needsRelink: false,
+      mixedWarning: panelTrace ? 'WA_CLOUD_FORCE_ENV=1 está ativo. A conexão persistida foi ignorada.' : '',
       env: { hasToken: !!envToken, phoneNumberId: envPhoneNumberId, wabaId: envWabaId },
-      stored: { hasToken: !!storedToken, phoneNumberId: storedPhoneNumberId, wabaId: storedWabaId, hasPanelTrace: panelTrace },
+      stored: { hasToken: !!storedToken || !!security.encryptedAccessToken, phoneNumberId: storedPhoneNumberId, wabaId: storedWabaId, hasPanelTrace: panelTrace },
+      secretStorage: security,
     };
   }
 
-  // Regra principal da correção: se o painel já registrou qualquer conexão,
-  // não fazemos fallback silencioso para o .env. Fallback silencioso foi o que
-  // misturou token/número/WABA de origens diferentes.
   if (panelTrace) {
-    const envDifferent = Boolean(
-      envHasAny && (
-        (envToken && storedToken && envToken !== storedToken) ||
-        (envPhoneNumberId && storedPhoneNumberId && envPhoneNumberId !== storedPhoneNumberId) ||
-        (envWabaId && storedWabaId && envWabaId !== storedWabaId) ||
-        !storedComplete
-      )
-    );
+    const storageUnavailable = Boolean(security.decryptError || security.legacyPlaintextFields?.length);
+    const envDifferent = Boolean(envHasAny && (
+      (envToken && storedToken && envToken !== storedToken) ||
+      (envPhoneNumberId && storedPhoneNumberId && envPhoneNumberId !== storedPhoneNumberId) ||
+      (envWabaId && storedWabaId && envWabaId !== storedWabaId) || !storedComplete
+    ));
     return {
-      source: "stored",
-      forceEnv: false,
-      token: storedToken,
-      phoneNumberId: storedPhoneNumberId,
-      wabaId: storedWabaId,
-      complete: storedComplete,
-      needsRelink: !storedComplete,
-      mixedWarning: envDifferent
-        ? "Existem credenciais no .env, mas o painel está usando apenas a conexão salva pelo Embedded Signup. Isso evita misturar Token/WABA/Phone de origens diferentes. Para usar o .env de propósito, defina WA_CLOUD_FORCE_ENV=1."
-        : "",
+      source: 'stored', forceEnv: false, token: storedToken, phoneNumberId: storedPhoneNumberId, wabaId: storedWabaId,
+      complete: storedComplete, needsRelink: !storedComplete,
+      mixedWarning: storageUnavailable
+        ? 'A conexão persistida contém segredo legado ou não pôde ser descriptografada. Execute a migração segura e verifique CONFIG_ENCRYPTION_KEY.'
+        : envDifferent
+          ? 'Existem credenciais no ambiente, mas o painel está usando somente a conexão persistida para evitar mistura de contas.'
+          : '',
       env: { hasToken: !!envToken, phoneNumberId: envPhoneNumberId, wabaId: envWabaId },
-      stored: { hasToken: !!storedToken, phoneNumberId: storedPhoneNumberId, wabaId: storedWabaId, hasPanelTrace: true },
+      stored: { hasToken: !!storedToken || !!security.encryptedAccessToken, phoneNumberId: storedPhoneNumberId, wabaId: storedWabaId, hasPanelTrace: true },
+      secretStorage: security,
     };
   }
 
   return {
-    source: "env",
-    forceEnv: false,
-    token: envToken,
-    phoneNumberId: envPhoneNumberId,
-    wabaId: envWabaId,
-    complete: envComplete,
-    needsRelink: false,
-    mixedWarning: "",
+    source: 'env', forceEnv: false, token: envToken, phoneNumberId: envPhoneNumberId, wabaId: envWabaId,
+    complete: envComplete, needsRelink: false, mixedWarning: '',
     env: { hasToken: !!envToken, phoneNumberId: envPhoneNumberId, wabaId: envWabaId },
-    stored: { hasToken: false, phoneNumberId: "", wabaId: "", hasPanelTrace: false },
+    stored: { hasToken: false, phoneNumberId: '', wabaId: '', hasPanelTrace: false },
+    secretStorage: security,
   };
 }
 
 function getRuntimeConfig() {
   const stored = readStoredConfig();
-
-  const envEnabled = envFirst("WA_CLOUD_ENABLED");
-  const graphVersion = envFirst("WA_CLOUD_GRAPH_VERSION", "META_GRAPH_VERSION") || stored.graphVersion || "v25.0";
+  const envEnabled = envFirst('WA_CLOUD_ENABLED');
+  const graphVersion = envFirst('WA_CLOUD_GRAPH_VERSION', 'META_GRAPH_VERSION') || stored.graphVersion || 'v25.0';
   const credentialSource = getCloudCredentialSource(stored);
-  const usingStoredConnection = credentialSource.source === "stored";
+  const usingStoredConnection = credentialSource.source === 'stored';
 
   return {
     stored,
     enabled: envEnabled ? envBool(envEnabled) : stored.enabled !== false,
     graphVersion,
-
-    token: credentialSource.token || "",
-    phoneNumberId: credentialSource.phoneNumberId || "",
-    wabaId: credentialSource.wabaId || "",
+    token: credentialSource.token || '',
+    phoneNumberId: credentialSource.phoneNumberId || '',
+    wabaId: credentialSource.wabaId || '',
     credentialSource,
-
-    appId: envFirst("WA_EMBEDDED_APP_ID", "META_APP_ID", "FACEBOOK_APP_ID") || stored.appId || "",
-    appSecret: envFirst("WA_EMBEDDED_APP_SECRET", "META_APP_SECRET", "FACEBOOK_APP_SECRET") || stored.appSecret || "",
-    configurationId: envFirst("WA_EMBEDDED_CONFIG_ID", "META_LOGIN_CONFIG_ID", "FACEBOOK_LOGIN_CONFIG_ID") || stored.configurationId || "",
-    redirectUri: envFirst("WA_EMBEDDED_REDIRECT_URI", "META_REDIRECT_URI", "FACEBOOK_REDIRECT_URI") || stored.redirectUri || "",
-
-    // Só exibimos metadados do painel quando a origem efetiva é o painel.
-    // Isso impede mostrar número/nome antigo junto com WABA vindo do .env.
-    businessId: usingStoredConnection ? (stored.businessId || "") : "",
-    displayPhoneNumber: usingStoredConnection ? (stored.displayPhoneNumber || "") : "",
-    verifiedName: usingStoredConnection ? (stored.verifiedName || "") : "",
-    linkedAt: usingStoredConnection ? (stored.linkedAt || "") : "",
-    subscribedAt: usingStoredConnection ? (stored.subscribedAt || "") : "",
+    appId: envFirst('WA_EMBEDDED_APP_ID', 'META_APP_ID', 'FACEBOOK_APP_ID') || stored.appId || '',
+    appSecret: envFirst('WA_EMBEDDED_APP_SECRET', 'META_APP_SECRET', 'FACEBOOK_APP_SECRET') || stored.appSecret || '',
+    configurationId: envFirst('WA_EMBEDDED_CONFIG_ID', 'META_LOGIN_CONFIG_ID', 'FACEBOOK_LOGIN_CONFIG_ID') || stored.configurationId || '',
+    redirectUri: envFirst('WA_EMBEDDED_REDIRECT_URI', 'META_REDIRECT_URI', 'FACEBOOK_REDIRECT_URI') || stored.redirectUri || '',
+    businessId: usingStoredConnection ? (stored.businessId || '') : '',
+    displayPhoneNumber: usingStoredConnection ? (stored.displayPhoneNumber || '') : '',
+    verifiedName: usingStoredConnection ? (stored.verifiedName || '') : '',
+    linkedAt: usingStoredConnection ? (stored.linkedAt || '') : '',
+    subscribedAt: usingStoredConnection ? (stored.subscribedAt || '') : '',
     lastSubscribeError: usingStoredConnection ? (stored.lastSubscribeError || null) : null,
     lastTokenDebug: usingStoredConnection ? (stored.lastTokenDebug || null) : null,
   };
 }
 
-function maskValue(v, keep = 4) {
-  const s = String(v || "").trim();
-  if (!s) return "";
-  if (s.length <= keep * 2) return "•".repeat(Math.max(4, s.length));
-  return `${s.slice(0, keep)}…${s.slice(-keep)}`;
+function maskValue(value, keep = 4) {
+  const text = normalizeString(value);
+  if (!text) return '';
+  if (text.length <= keep * 2) return '•'.repeat(Math.max(4, text.length));
+  return `${text.slice(0, keep)}…${text.slice(-keep)}`;
 }
 
 function clearLinkedCloudConfig() {
-  const prev = readStoredConfig();
+  const raw = readRawStoredConfig();
+  const encryptedSecrets = raw.encryptedSecrets && typeof raw.encryptedSecrets === 'object'
+    ? { ...raw.encryptedSecrets }
+    : {};
+  delete encryptedSecrets.accessToken;
+
   const next = {
-    ...prev,
+    ...raw,
+    schemaVersion: SCHEMA_VERSION,
     enabled: false,
-    accessToken: "",
-    tokenType: "",
-    tokenExpiresIn: "",
-    phoneNumberId: "",
-    wabaId: "",
-    businessId: "",
-    displayPhoneNumber: "",
-    verifiedName: "",
-    linkedAt: "",
-    subscribedAt: "",
+    tokenType: '',
+    tokenExpiresIn: '',
+    phoneNumberId: '',
+    wabaId: '',
+    businessId: '',
+    displayPhoneNumber: '',
+    verifiedName: '',
+    linkedAt: '',
+    subscribedAt: '',
     lastSubscribeError: null,
     lastTokenDebug: null,
     lastEmbeddedSession: null,
+    encryptedSecrets,
     updatedAt: new Date().toISOString(),
   };
-  fs.writeFileSync(CONFIG_FILE, JSON.stringify(next, null, 2), "utf-8");
-  return next;
+  LEGACY_SECRET_FIELDS.forEach((field) => { delete next[field]; });
+  if (!Object.keys(encryptedSecrets).length) delete next.encryptedSecrets;
+  atomicWriteJson(CONFIG_FILE, next);
+  return normalizeStoredConfig(next);
 }
 
 module.exports = {
   CONFIG_FILE,
+  SCHEMA_VERSION,
+  LEGACY_SECRET_FIELDS,
+  readRawStoredConfig,
+  normalizeStoredConfig,
   readStoredConfig,
   writeStoredConfig,
   getRuntimeConfig,
   maskValue,
   clearLinkedCloudConfig,
+  sanitizeEmbeddedSession,
+  sanitizeTokenDebug,
 };

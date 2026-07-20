@@ -17,7 +17,9 @@
 const fs = require("fs");
 const path = require("path");
 
-const DATA_DIR = path.join(__dirname, "..", "data");
+const DATA_DIR = process.env.ZAPE_DATA_DIR
+  ? path.resolve(process.env.ZAPE_DATA_DIR)
+  : path.join(__dirname, "..", "data");
 const STATUS_FILE = path.join(DATA_DIR, "wa_cloud_message_status.json");
 
 const {
@@ -28,6 +30,7 @@ const {
   clearLinkedCloudConfig,
 } = require("./waCloudConfigStore");
 const { normalizeMetaError } = require("./metaErrorHelper");
+const { connectionFromRuntimeConfig } = require("./waCloudConnection");
 
 function ensureDir() {
   if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -76,6 +79,10 @@ function isCloudConfigured() {
 function graphBase() {
   const cfg = getRuntimeConfig();
   const v = cfg.graphVersion || "v25.0";
+  const customBase = String(process.env.WA_CLOUD_GRAPH_BASE_URL || "").trim().replace(/\/+$/, "");
+  if (customBase && String(process.env.NODE_ENV || "").toLowerCase() !== "production") {
+    return `${customBase}/${v}`;
+  }
   return `https://graph.facebook.com/${v}`;
 }
 
@@ -401,18 +408,9 @@ async function sendTemplate({ toE164Digits, templateName, languageCode, componen
   const url = `${graphBase()}/${encodeURIComponent(phoneId)}/messages`;
   const out = await graphFetch(url, { method: "POST", body: payload });
 
-  // registra status "sent" local (status final vem via webhook)
-  upsertStatus(String(toE164Digits), {
-    provider: "cloud",
-    lastSendAt: new Date().toISOString(),
-    templateName: String(templateName),
-    languageCode: String(languageCode || "pt_BR"),
-    messageId: out?.messages?.[0]?.id || null,
-    state: "sent",
-    meta: meta || null,
-  });
-
-  return out;
+  // O retorno HTTP da Meta confirma submissão, não entrega.
+  // O estado final é persistido no histórico tenant-aware por waCloudDispatchStore.
+  return { ...out, localMeta: meta || null };
 }
 
 /**
@@ -476,62 +474,147 @@ async function listTemplateLibrary({ language = "pt_BR", search = "", limit = 30
  * Observação: o formato do webhook pode variar por versão; aqui tratamos o essencial.
  */
 function handleWebhook(body) {
-  try {
-    const entry = Array.isArray(body?.entry) ? body.entry : [];
-    for (const e of entry) {
-      const changes = Array.isArray(e?.changes) ? e.changes : [];
-      for (const c of changes) {
-        const value = c?.value || {};
-        const statuses = Array.isArray(value?.statuses) ? value.statuses : [];
-        for (const st of statuses) {
-          const to = String(st?.recipient_id || "").trim(); // geralmente é o número em E.164 sem +
-          const state = String(st?.status || "").trim(); // sent|delivered|read|failed
-          const messageId = st?.id || null;
-
-          if (!to) continue;
-
-          upsertStatus(to, {
-            provider: "cloud",
-            messageId,
-            state: state || "unknown",
-            error: st?.errors?.[0] || null,
-            conversation: st?.conversation || null,
-            pricing: st?.pricing || null,
-            deliveredAt: state === "delivered" ? new Date().toISOString() : undefined,
-            readAt: state === "read" ? new Date().toISOString() : undefined,
-          });
-        }
-
-        const msgs = Array.isArray(value?.messages) ? value.messages : [];
-        for (const m of msgs) {
-          const from = String(m?.from || "").trim();
-          if (!from) continue;
-
-          // marca "replied"
-          upsertStatus(from, {
-            provider: "cloud",
-            repliedAt: new Date().toISOString(),
-            inbound: {
-              id: m?.id || null,
-              type: m?.type || null,
-              text: m?.text?.body || null,
-              timestamp: m?.timestamp || null,
-            },
-          });
-        }
+  const events = [];
+  const entry = Array.isArray(body?.entry) ? body.entry : [];
+  for (const e of entry) {
+    const changes = Array.isArray(e?.changes) ? e.changes : [];
+    for (const c of changes) {
+      const value = c?.value || {};
+      const metadata = value?.metadata || {};
+      for (const status of Array.isArray(value?.statuses) ? value.statuses : []) {
+        events.push({
+          kind: "status",
+          phoneNumberId: String(metadata.phone_number_id || "").trim(),
+          displayPhoneNumber: String(metadata.display_phone_number || "").trim(),
+          messageId: String(status?.id || "").trim(),
+          recipientId: String(status?.recipient_id || "").trim(),
+          state: String(status?.status || "").trim().toLowerCase(),
+          conversationId: String(status?.conversation?.id || "").trim(),
+          raw: status,
+        });
+      }
+      for (const message of Array.isArray(value?.messages) ? value.messages : []) {
+        events.push({
+          kind: "message",
+          phoneNumberId: String(metadata.phone_number_id || "").trim(),
+          displayPhoneNumber: String(metadata.display_phone_number || "").trim(),
+          messageId: String(message?.id || "").trim(),
+          recipientId: String(message?.from || "").trim(),
+          contextMessageId: String(message?.context?.id || "").trim(),
+          type: String(message?.type || "").trim(),
+          text: message?.text?.body || null,
+          timestamp: message?.timestamp || null,
+          raw: message,
+        });
       }
     }
-  } catch (err) {
-    console.error("⚠️ WA_CLOUD webhook parse error:", err?.message || err);
   }
+  return events;
+}
+
+async function runCloudHealthCheck() {
+  const cfg = getRuntimeConfig();
+  const connection = connectionFromRuntimeConfig(cfg);
+  const checks = [];
+  const add = (key, ok, details = {}) => checks.push({ key, ok: Boolean(ok), ...details });
+
+  add("enabled", cfg.enabled, { required: true });
+  add("access_token_present", !!cfg.token, { required: true });
+  add("phone_number_id_present", !!cfg.phoneNumberId, { required: true });
+  add("waba_id_present", !!cfg.wabaId, { required: true });
+  add("app_id_present", !!cfg.appId, { required: false });
+  add("graph_version", /^v\d+\.\d+$/.test(String(cfg.graphVersion || "")), { required: true, value: cfg.graphVersion || "" });
+  add("webhook_verify_token_present", !!String(process.env.WA_CLOUD_WEBHOOK_VERIFY_TOKEN || "").trim(), { required: true });
+
+  if (!cfg.enabled || !cfg.token || !cfg.phoneNumberId || !cfg.wabaId) {
+    return {
+      ok: false,
+      status: "unconfigured",
+      checkedAt: new Date().toISOString(),
+      connection,
+      checks,
+      error: { code: "META_CONNECTION_INCOMPLETE", message: "Token, Phone Number ID e WABA ID são obrigatórios." },
+    };
+  }
+
+  let phoneInfo = null;
+  try {
+    phoneInfo = await getPhoneNumberInfo(cfg.phoneNumberId, cfg.token);
+    add("phone_accessible", String(phoneInfo?.id || "") === String(cfg.phoneNumberId), { required: true });
+    const registrationVerified = /verified/i.test(String(phoneInfo?.code_verification_status || "")) || /cloud/i.test(String(phoneInfo?.platform_type || ""));
+    add("number_registration", registrationVerified, {
+      required: true,
+      status: registrationVerified ? "registered" : "unknown",
+      platformType: phoneInfo?.platform_type || "",
+      verificationStatus: phoneInfo?.code_verification_status || "",
+    });
+  } catch (error) {
+    const info = normalizeMetaError(error);
+    add("phone_accessible", false, { required: true, error: info });
+    add("number_registration", false, { required: true, status: info.code === 133010 ? "not_registered" : "unknown", error: info });
+  }
+
+  try {
+    const fields = "id,name,currency,timezone_id";
+    const waba = await graphFetch(`${graphBase()}/${encodeURIComponent(cfg.wabaId)}?fields=${encodeURIComponent(fields)}`);
+    add("waba_accessible", String(waba?.id || "") === String(cfg.wabaId), { required: true, name: waba?.name || "" });
+  } catch (error) {
+    add("waba_accessible", false, { required: true, error: normalizeMetaError(error) });
+  }
+
+  try {
+    const subscriptions = await graphFetch(`${graphBase()}/${encodeURIComponent(cfg.wabaId)}/subscribed_apps?fields=id`);
+    const apps = Array.isArray(subscriptions?.data) ? subscriptions.data : [];
+    const subscribed = cfg.appId ? apps.some((row) => String(row?.id || "") === String(cfg.appId)) : apps.length > 0;
+    add("webhook_subscribed", subscribed, { required: true, appCount: apps.length });
+  } catch (error) {
+    add("webhook_subscribed", false, { required: true, error: normalizeMetaError(error) });
+  }
+
+  try {
+    const templates = await graphFetch(`${graphBase()}/${encodeURIComponent(cfg.wabaId)}/message_templates?fields=id,name,status&limit=1`);
+    add("template_consultable", Array.isArray(templates?.data), { required: true, resultCount: Array.isArray(templates?.data) ? templates.data.length : 0 });
+  } catch (error) {
+    add("template_consultable", false, { required: true, error: normalizeMetaError(error) });
+  }
+
+  if (cfg.appId && cfg.appSecret) {
+    const tokenDebug = await debugMetaToken(cfg.token);
+    const tokenValid = Boolean(tokenDebug?.data && tokenDebug.data.is_valid !== false && !tokenDebug.error);
+    add("token_valid", tokenValid, { required: true, expiresAt: tokenDebug?.data?.expires_at || null });
+  } else {
+    add("token_valid", checks.some((row) => row.key === "phone_accessible" && row.ok), { required: true, method: "phone_access" });
+  }
+
+  const failedRequired = checks.filter((row) => row.required && !row.ok);
+  const registration = checks.find((row) => row.key === "number_registration");
+  const notRegistered = registration?.status === "not_registered" || failedRequired.some((row) => row?.error?.code === 133010);
+  return {
+    ok: failedRequired.length === 0,
+    status: failedRequired.length === 0 ? "healthy" : "degraded",
+    checkedAt: new Date().toISOString(),
+    connection,
+    phone: phoneInfo ? {
+      id: phoneInfo.id || "",
+      displayPhoneNumber: phoneInfo.display_phone_number || "",
+      verifiedName: phoneInfo.verified_name || "",
+      qualityRating: phoneInfo.quality_rating || "",
+      platformType: phoneInfo.platform_type || "",
+      verificationStatus: phoneInfo.code_verification_status || "",
+    } : null,
+    checks,
+    error: notRegistered ? normalizeMetaError({ error: { code: 133010, message: "Account not registered" } }) : null,
+  };
 }
 
 function getCloudStatus() {
   const cfg = getRuntimeConfig();
+  const connection = connectionFromRuntimeConfig(cfg);
   const embeddedConfigured = !!(cfg.appId && cfg.configurationId && cfg.appSecret);
   const configured = Boolean(cfg.enabled && cfg.token && cfg.phoneNumberId);
   const templatesReady = Boolean(configured && cfg.wabaId && !(cfg.credentialSource && cfg.credentialSource.needsRelink));
   return {
+    connection,
     enabled: Boolean(cfg.enabled),
     configured,
     templatesReady,
@@ -799,6 +882,7 @@ async function exchangeEmbeddedSignupCode(input = {}) {
   return {
     ok: true,
     linked: true,
+    connection: connectionFromRuntimeConfig({ ...getRuntimeConfig(), ...saved }),
     wabaId: saved.wabaId,
     phoneNumberId: saved.phoneNumberId,
     businessId: saved.businessId || "",
@@ -815,8 +899,9 @@ async function exchangeEmbeddedSignupCode(input = {}) {
 }
 
 function disconnectCloudApi() {
+  const previous = connectionFromRuntimeConfig(getRuntimeConfig());
   clearLinkedCloudConfig();
-  return { ok: true, disconnected: true };
+  return { ok: true, disconnected: true, connectionId: previous.connectionId || "" };
 }
 
 module.exports = {
@@ -830,6 +915,8 @@ module.exports = {
   listTemplateLibrary,
   handleWebhook,
   getCloudStatus,
+  runCloudHealthCheck,
+  getPhoneNumberInfo,
   upsertStatus,
   getStatus,
   listStatus,

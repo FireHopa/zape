@@ -1,0 +1,2 @@
+# Backup criptografado diário às 02:15. O destino remoto deve ser um volume externo.
+15 2 * * * cd /opt/zape/current && /usr/bin/node scripts/full-backup.js >> /var/log/zape/backup-cron.log 2>&1

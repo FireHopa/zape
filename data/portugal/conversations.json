@@ -2743,6 +2743,16 @@
       "createdAt": "2026-07-07T17:20:35.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_220749155537017@lid_A5A460B7CA6CF0AB98CCB0DC3D2E7899",
+      "fromMe": true,
+      "body": "Olá, Camila! Boa tarde! 😊\n\nO *Google* apresentou mudanças importantes no *YouTube* durante o Google I/O 2026 e mudou a forma como a *Inteligência Artificial* vai atuar na plataforma.\n\nE isso é uma ótima notícia. Surge uma grande oportunidade para *pequenas empresas* usarem essas mudanças para *atrair mais clientes e posicionar melhor seus negócios.*\n\nNa mentoria desta quarta-feira, vamos ver tudo isso em detalhes:\n\n✔️ O que mudou no YouTube com as novas atualizações do Google\n✔️ Como a IA passa a recomendar vídeos na plataforma\n✔️ Quais tipos de conteúdo produzir para aumentar seu alcance\n✔️ Como aproveitar essa oportunidade antes da maioria das empresas\n\n📅 *Amanhã* | Quarta-feira\n\n🕒*Horário*\n🇧🇷 Brasil: 8h30 às 10h00\n🇵🇹 Portugal: 12h30 às 14h00\n\nLink para participar: meet.google.com/oya-vzyp-jrd\n\nEsperamos vocês! 🚀",
+      "type": "chat",
+      "timestamp": 1784056852,
+      "createdAt": "2026-07-14T19:20:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351963520647": [
@@ -5048,6 +5058,16 @@
       "createdAt": "2026-07-07T17:20:21.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_112571780743401@lid_A5FBB4910A4ED544F0702EC26619B9F2",
+      "fromMe": true,
+      "body": "Olá, Ana! Boa tarde! 😊\n\nO *Google* apresentou mudanças importantes no *YouTube* durante o Google I/O 2026 e mudou a forma como a *Inteligência Artificial* vai atuar na plataforma.\n\nE isso é uma ótima notícia. Surge uma grande oportunidade para *pequenas empresas* usarem essas mudanças para *atrair mais clientes e posicionar melhor seus negócios.*\n\nNa mentoria desta quarta-feira, vamos ver tudo isso em detalhes:\n\n✔️ O que mudou no YouTube com as novas atualizações do Google\n✔️ Como a IA passa a recomendar vídeos na plataforma\n✔️ Quais tipos de conteúdo produzir para aumentar seu alcance\n✔️ Como aproveitar essa oportunidade antes da maioria das empresas\n\n📅 *Amanhã* | Quarta-feira\n\n🕒*Horário*\n🇧🇷 Brasil: 8h30 às 10h00\n🇵🇹 Portugal: 12h30 às 14h00\n\nLink para participar: meet.google.com/oya-vzyp-jrd\n\nEsperamos vocês! 🚀",
+      "type": "chat",
+      "timestamp": 1784056838,
+      "createdAt": "2026-07-14T19:20:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351937608844": [
@@ -7095,6 +7115,16 @@
       "createdAt": "2026-07-07T17:21:10.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_142627341086730@lid_A5CC23C34D7C9D4A4190986811CA9EB7",
+      "fromMe": true,
+      "body": "Olá, João! Boa tarde! 😊\n\nO *Google* apresentou mudanças importantes no *YouTube* durante o Google I/O 2026 e mudou a forma como a *Inteligência Artificial* vai atuar na plataforma.\n\nE isso é uma ótima notícia. Surge uma grande oportunidade para *pequenas empresas* usarem essas mudanças para *atrair mais clientes e posicionar melhor seus negócios.*\n\nNa mentoria desta quarta-feira, vamos ver tudo isso em detalhes:\n\n✔️ O que mudou no YouTube com as novas atualizações do Google\n✔️ Como a IA passa a recomendar vídeos na plataforma\n✔️ Quais tipos de conteúdo produzir para aumentar seu alcance\n✔️ Como aproveitar essa oportunidade antes da maioria das empresas\n\n📅 *Amanhã* | Quarta-feira\n\n🕒*Horário*\n🇧🇷 Brasil: 8h30 às 10h00\n🇵🇹 Portugal: 12h30 às 14h00\n\nLink para participar: meet.google.com/oya-vzyp-jrd\n\nEsperamos vocês! 🚀",
+      "type": "chat",
+      "timestamp": 1784056907,
+      "createdAt": "2026-07-14T19:21:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351964231689": [
@@ -8377,6 +8407,104 @@
       "type": "chat",
       "timestamp": 1782734955,
       "createdAt": "2026-06-29T12:09:15.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_184817190748287@lid_3AE8DD3D10B53550D81D",
+      "fromMe": false,
+      "body": "Boa noite Fabiana, tudo bem? O Thiago me disse que haveria um agendamento para trabalhar comigo no meu Google My Business. Não recebi contato, sabe me dizer sobre isto?  Com o Thiago e o Brendow já me reuni. Sobre o site, aguardando 0 resultado que será enviado pelo Brendow.",
+      "type": "chat",
+      "timestamp": 1783981427,
+      "createdAt": "2026-07-13T22:23:47.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_184817190748287@lid_A5E2B0A16F2BF5379B55929C5D10CF06",
+      "fromMe": true,
+      "body": "Boa noite Geni!!",
+      "type": "chat",
+      "timestamp": 1783983642,
+      "createdAt": "2026-07-13T23:00:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_184817190748287@lid_A5FF68162397574F96CFDB77C4757C10",
+      "fromMe": true,
+      "body": "Vou verificar amanhã com o Thiago e retorno 🙏🏻",
+      "type": "chat",
+      "timestamp": 1783983699,
+      "createdAt": "2026-07-13T23:01:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_184817190748287@lid_A56018529DA675932D4A0737AABB69B0",
+      "fromMe": true,
+      "body": "Boa tarde Geni, tudo bem?",
+      "type": "chat",
+      "timestamp": 1784049750,
+      "createdAt": "2026-07-14T17:22:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_184817190748287@lid_A5226E39FF326C79458D14614DC6537B",
+      "fromMe": true,
+      "body": "Entraram em contato com você hoje?",
+      "type": "chat",
+      "timestamp": 1784049762,
+      "createdAt": "2026-07-14T17:22:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_184817190748287@lid_3AA340457EB6DF05BDC6",
+      "fromMe": false,
+      "body": "Bom dia! Foi enviado o acesso ao grupo para a mentoria de quartas-feira. 🙌",
+      "type": "chat",
+      "timestamp": 1784113764,
+      "createdAt": "2026-07-15T11:09:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "3EB085292F4E817B16EEC6",
+      "fromMe": false,
+      "body": "Bom dia Fabiana, você verificou com  o Thiago, sobre quem ficou de me orientar sobre o perfil Google.",
+      "type": "chat",
+      "timestamp": 1784202525,
+      "createdAt": "2026-07-16T11:48:45.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_184817190748287@lid_A539357A866C0C3170BD61D79E7C8322",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784316836,
+      "createdAt": "2026-07-17T19:33:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_32e8f6654596b230f954c136c4c330e9df3d02c9159428f0",
+      "mediaFile": "m_32e8f6654596b230f954c136c4c330e9df3d02c9159428f0.ogg",
+      "mediaSize": 60468,
+      "filename": "true_184817190748287@lid_A539357A866C0C3170BD61D79E7C8322.ogg",
+      "originalName": "true_184817190748287@lid_A539357A866C0C3170BD61D79E7C8322.ogg"
+    },
+    {
+      "id": "false_184817190748287@lid_3AC670BA6CF7799347E2",
+      "fromMe": false,
+      "body": "🤩 obrigada",
+      "type": "chat",
+      "timestamp": 1784317402,
+      "createdAt": "2026-07-17T19:43:22.000Z",
       "ack": 1,
       "source": "incoming-event"
     }
@@ -13821,6 +13949,16 @@
       "createdAt": "2026-07-07T17:19:54.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_61495408898074@lid_A59A430BE0E61C5AA87EF3BE0A4824DB",
+      "fromMe": true,
+      "body": "Olá, Daniel! Boa tarde! 😊\n\nO *Google* apresentou mudanças importantes no *YouTube* durante o Google I/O 2026 e mudou a forma como a *Inteligência Artificial* vai atuar na plataforma.\n\nE isso é uma ótima notícia. Surge uma grande oportunidade para *pequenas empresas* usarem essas mudanças para *atrair mais clientes e posicionar melhor seus negócios.*\n\nNa mentoria desta quarta-feira, vamos ver tudo isso em detalhes:\n\n✔️ O que mudou no YouTube com as novas atualizações do Google\n✔️ Como a IA passa a recomendar vídeos na plataforma\n✔️ Quais tipos de conteúdo produzir para aumentar seu alcance\n✔️ Como aproveitar essa oportunidade antes da maioria das empresas\n\n📅 *Amanhã* | Quarta-feira\n\n🕒*Horário*\n🇧🇷 Brasil: 8h30 às 10h00\n🇵🇹 Portugal: 12h30 às 14h00\n\nLink para participar: meet.google.com/oya-vzyp-jrd\n\nEsperamos vocês! 🚀",
+      "type": "chat",
+      "timestamp": 1784056805,
+      "createdAt": "2026-07-14T19:20:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351960179819": [
@@ -14582,6 +14720,16 @@
       "type": "chat",
       "timestamp": 1783527245,
       "createdAt": "2026-07-08T16:14:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_20766368227358@lid_A5CD44F7E734F42ED46173622EFFF227",
+      "fromMe": true,
+      "body": "Olá, Patricia! Boa tarde! 😊\n\nO *Google* apresentou mudanças importantes no *YouTube* durante o Google I/O 2026 e mudou a forma como a *Inteligência Artificial* vai atuar na plataforma.\n\nE isso é uma ótima notícia. Surge uma grande oportunidade para *pequenas empresas* usarem essas mudanças para *atrair mais clientes e posicionar melhor seus negócios.*\n\nNa mentoria desta quarta-feira, vamos ver tudo isso em detalhes:\n\n✔️ O que mudou no YouTube com as novas atualizações do Google\n✔️ Como a IA passa a recomendar vídeos na plataforma\n✔️ Quais tipos de conteúdo produzir para aumentar seu alcance\n✔️ Como aproveitar essa oportunidade antes da maioria das empresas\n\n📅 *Amanhã* | Quarta-feira\n\n🕒*Horário*\n🇧🇷 Brasil: 8h30 às 10h00\n🇵🇹 Portugal: 12h30 às 14h00\n\nLink para participar: meet.google.com/oya-vzyp-jrd\n\nEsperamos vocês! 🚀",
+      "type": "chat",
+      "timestamp": 1784056930,
+      "createdAt": "2026-07-14T19:22:10.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -16024,6 +16172,16 @@
       "type": "chat",
       "timestamp": 1783444782,
       "createdAt": "2026-07-07T17:19:42.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_27376188661968@lid_A53162D2923A0D4723F73C575EA952B8",
+      "fromMe": true,
+      "body": "Olá, Angel! Boa tarde! 😊\n\nO *Google* apresentou mudanças importantes no *YouTube* durante o Google I/O 2026 e mudou a forma como a *Inteligência Artificial* vai atuar na plataforma.\n\nE isso é uma ótima notícia. Surge uma grande oportunidade para *pequenas empresas* usarem essas mudanças para *atrair mais clientes e posicionar melhor seus negócios.*\n\nNa mentoria desta quarta-feira, vamos ver tudo isso em detalhes:\n\n✔️ O que mudou no YouTube com as novas atualizações do Google\n✔️ Como a IA passa a recomendar vídeos na plataforma\n✔️ Quais tipos de conteúdo produzir para aumentar seu alcance\n✔️ Como aproveitar essa oportunidade antes da maioria das empresas\n\n📅 *Amanhã* | Quarta-feira\n\n🕒*Horário*\n🇧🇷 Brasil: 8h30 às 10h00\n🇵🇹 Portugal: 12h30 às 14h00\n\nLink para participar: meet.google.com/oya-vzyp-jrd\n\nEsperamos vocês! 🚀",
+      "type": "chat",
+      "timestamp": 1784056788,
+      "createdAt": "2026-07-14T19:19:48.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -17874,6 +18032,16 @@
       "type": "chat",
       "timestamp": 1783444738,
       "createdAt": "2026-07-07T17:18:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_269728895475887@lid_A5A53B530EE30140CD06F6690C69720E",
+      "fromMe": true,
+      "body": "Olá, Tiagol! Boa tarde! 😊\n\nO *Google* apresentou mudanças importantes no *YouTube* durante o Google I/O 2026 e mudou a forma como a *Inteligência Artificial* vai atuar na plataforma.\n\nE isso é uma ótima notícia. Surge uma grande oportunidade para *pequenas empresas* usarem essas mudanças para *atrair mais clientes e posicionar melhor seus negócios.*\n\nNa mentoria desta quarta-feira, vamos ver tudo isso em detalhes:\n\n✔️ O que mudou no YouTube com as novas atualizações do Google\n✔️ Como a IA passa a recomendar vídeos na plataforma\n✔️ Quais tipos de conteúdo produzir para aumentar seu alcance\n✔️ Como aproveitar essa oportunidade antes da maioria das empresas\n\n📅 *Amanhã* | Quarta-feira\n\n🕒*Horário*\n🇧🇷 Brasil: 8h30 às 10h00\n🇵🇹 Portugal: 12h30 às 14h00\n\nLink para participar: meet.google.com/oya-vzyp-jrd\n\nEsperamos vocês! 🚀",
+      "type": "chat",
+      "timestamp": 1784056773,
+      "createdAt": "2026-07-14T19:19:33.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -22980,6 +23148,262 @@
       "createdAt": "2026-07-13T13:22:33.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A36B74D16149BE96E16",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783972663,
+      "createdAt": "2026-07-13T19:57:43.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2A36B74D16149BE96E16_cb894680.ogg",
+      "mediaSize": 53386,
+      "filename": "false_194029543227477@lid_2A36B74D16149BE96E16",
+      "originalName": "false_194029543227477@lid_2A36B74D16149BE96E16"
+    },
+    {
+      "id": "true_194029543227477@lid_A5573543FA6104AC4B4C51FAFF5708D2",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783972963,
+      "createdAt": "2026-07-13T20:02:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_194029543227477_lid_A5573543FA6104AC4B4C51FAFF5708D2_7343e1a5.ogg",
+      "mediaSize": 89680,
+      "filename": "true_194029543227477@lid_A5573543FA6104AC4B4C51FAFF5708D2",
+      "originalName": "true_194029543227477@lid_A5573543FA6104AC4B4C51FAFF5708D2"
+    },
+    {
+      "id": "false_194029543227477@lid_2A8D57F1801D07F45181",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783973007,
+      "createdAt": "2026-07-13T20:03:27.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2A8D57F1801D07F45181_6aa7ad00.ogg",
+      "mediaSize": 15236,
+      "filename": "false_194029543227477@lid_2A8D57F1801D07F45181",
+      "originalName": "false_194029543227477@lid_2A8D57F1801D07F45181"
+    },
+    {
+      "id": "false_194029543227477@lid_2A17CC7D826E6438A43E",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784026771,
+      "createdAt": "2026-07-14T10:59:31.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2A17CC7D826E6438A43E_78addc95.ogg",
+      "mediaSize": 152524,
+      "filename": "false_194029543227477@lid_2A17CC7D826E6438A43E",
+      "originalName": "false_194029543227477@lid_2A17CC7D826E6438A43E"
+    },
+    {
+      "id": "false_194029543227477@lid_2A3844D6FAE05C65B07D",
+      "fromMe": false,
+      "body": "Bom diaaa",
+      "type": "chat",
+      "timestamp": 1784026776,
+      "createdAt": "2026-07-14T10:59:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5EEAF54B27821B6CE3ACB4CC7B305D0",
+      "fromMe": true,
+      "body": "Bom diaaa 🥰",
+      "type": "chat",
+      "timestamp": 1784026807,
+      "createdAt": "2026-07-14T11:00:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A4AB6BFB84E203E3E1D",
+      "fromMe": false,
+      "body": "Deu pra entender?",
+      "type": "chat",
+      "timestamp": 1784026836,
+      "createdAt": "2026-07-14T11:00:36.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5EAE0C3E3FEDC8FA51D1F0B4773910A",
+      "fromMe": true,
+      "body": "São 3 livros em Portugal tá bom",
+      "type": "chat",
+      "timestamp": 1784026874,
+      "createdAt": "2026-07-14T11:01:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A9691468FA07449B9AB",
+      "fromMe": false,
+      "body": "3 mulheres?",
+      "type": "chat",
+      "timestamp": 1784026883,
+      "createdAt": "2026-07-14T11:01:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5F226F017192A9EBA4145885EEDEF0A",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784026919,
+      "createdAt": "2026-07-14T11:01:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_194029543227477_lid_A5F226F017192A9EBA4145885EEDEF0A_7e0ddbf5.ogg",
+      "mediaSize": 66078,
+      "filename": "true_194029543227477@lid_A5F226F017192A9EBA4145885EEDEF0A",
+      "originalName": "true_194029543227477@lid_A5F226F017192A9EBA4145885EEDEF0A"
+    },
+    {
+      "id": "false_194029543227477@lid_2A2ACB5C1D96E7F09D4C",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784026973,
+      "createdAt": "2026-07-14T11:02:53.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2A2ACB5C1D96E7F09D4C_52b09bb9.ogg",
+      "mediaSize": 55208,
+      "filename": "false_194029543227477@lid_2A2ACB5C1D96E7F09D4C",
+      "originalName": "false_194029543227477@lid_2A2ACB5C1D96E7F09D4C"
+    },
+    {
+      "id": "true_194029543227477@lid_A5EB39E388199C5449BAA497FF6300EE",
+      "fromMe": true,
+      "body": "Tá bom",
+      "type": "chat",
+      "timestamp": 1784027410,
+      "createdAt": "2026-07-14T11:10:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_194029543227477@lid_A5BEE8AC4C3EF675999E9CE59158E29D",
+      "fromMe": true,
+      "body": "Matheus em relação ao envio dos livros, falei com os 3 e apenas o Alexandre me respondeu pedindo que enviasse o livro agora, pois ele gosta de estudar com o livro físico e como a Andreia me chamou pra tirar uma dúvida sobre endereço que ela estava indo pro correio e ninguém tinha respondido, ela ficou de enviar os livros pra eles ok",
+      "type": "chat",
+      "timestamp": 1784057154,
+      "createdAt": "2026-07-14T19:25:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A2BC1F5CF792672A99B",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784057199,
+      "createdAt": "2026-07-14T19:26:39.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2A2BC1F5CF792672A99B_f86bd06d.ogg",
+      "mediaSize": 22527,
+      "filename": "false_194029543227477@lid_2A2BC1F5CF792672A99B",
+      "originalName": "false_194029543227477@lid_2A2BC1F5CF792672A99B"
+    },
+    {
+      "id": "true_194029543227477@lid_A56654C87B483B30286695C86FD32F37",
+      "fromMe": true,
+      "body": "Os outros dois não me responderam ainda",
+      "type": "chat",
+      "timestamp": 1784057246,
+      "createdAt": "2026-07-14T19:27:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_2A8CE4B73DE6E22C7F2B",
+      "fromMe": false,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784057253,
+      "createdAt": "2026-07-14T19:27:33.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "false_194029543227477_lid_2A8CE4B73DE6E22C7F2B_063b338e.ogg",
+      "mediaSize": 4464,
+      "filename": "false_194029543227477@lid_2A8CE4B73DE6E22C7F2B",
+      "originalName": "false_194029543227477@lid_2A8CE4B73DE6E22C7F2B"
+    },
+    {
+      "id": "true_194029543227477@lid_A574F7C945AEF8C2F435D405BB0817C8",
+      "fromMe": true,
+      "body": "Ta",
+      "type": "chat",
+      "timestamp": 1784057590,
+      "createdAt": "2026-07-14T19:33:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_194029543227477@lid_3EB0BB35B3340A353CE521",
+      "fromMe": false,
+      "body": "testou url né",
+      "type": "chat",
+      "timestamp": 1784060474,
+      "createdAt": "2026-07-14T20:21:14.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "A5818B11911A8C29A852FF2F2FDAF37E",
+      "fromMe": true,
+      "body": "Matheus já passei para a Priscila, mas só pra alinhar aqui, será apenas um livro agora e os outros dois aceitaram receber em Outubro ok",
+      "type": "chat",
+      "timestamp": 1784128022,
+      "createdAt": "2026-07-15T15:07:02.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "2A2D58FF8A85F04C83F5",
+      "fromMe": false,
+      "body": "Vlz",
+      "type": "chat",
+      "timestamp": 1784133159,
+      "createdAt": "2026-07-15T16:32:39.000Z",
+      "ack": 3,
+      "source": "incoming-event"
     }
   ],
   "351967166641": [
@@ -24259,6 +24683,113 @@
       "createdAt": "2026-06-30T07:55:39.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_104552539938840@lid_A5B02848F5E3DCC2261AB2A805B6F5A0",
+      "fromMe": true,
+      "body": "Olá Mario, boa tarde!",
+      "type": "chat",
+      "timestamp": 1784051476,
+      "createdAt": "2026-07-14T17:51:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_104552539938840@lid_A5DEACC76B2079A2D77B00A9F30E86DA",
+      "fromMe": true,
+      "body": "Espero que esteja tudo bem consigo?",
+      "type": "chat",
+      "timestamp": 1784051476,
+      "createdAt": "2026-07-14T17:51:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_104552539938840@lid_A5FF07A82E38F8E418EE2FA67AD9EDE5",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784059130,
+      "createdAt": "2026-07-14T19:58:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_104552539938840_lid_A5FF07A82E38F8E418EE2FA67AD9EDE5_6400cd4c.ogg",
+      "mediaSize": 122112,
+      "filename": "true_104552539938840@lid_A5FF07A82E38F8E418EE2FA67AD9EDE5",
+      "originalName": "true_104552539938840@lid_A5FF07A82E38F8E418EE2FA67AD9EDE5"
+    },
+    {
+      "id": "true_104552539938840@lid_A528B729C670211D2BD3691F68EBEA4F",
+      "fromMe": true,
+      "body": "Bom diaaa Mario!!!",
+      "type": "chat",
+      "timestamp": 1784113671,
+      "createdAt": "2026-07-15T11:07:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_104552539938840@lid_A5C60B8CDAAED7365EA452AE87A61026",
+      "fromMe": true,
+      "body": "Conseguiu escutar meu áudio?",
+      "type": "chat",
+      "timestamp": 1784113679,
+      "createdAt": "2026-07-15T11:07:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "ACB2DEC9273948511B19C48FB561382F",
+      "fromMe": false,
+      "body": "Sim. Mas ainda estou analisar a disponibilidade do dia",
+      "type": "chat",
+      "timestamp": 1784127433,
+      "createdAt": "2026-07-15T14:57:13.000Z",
+      "ack": 3,
+      "source": "incoming-event"
+    },
+    {
+      "id": "AC578070CA8DAE0EB6C235705814197B",
+      "fromMe": false,
+      "body": "Não chegou a enviar o livro em pape",
+      "type": "chat",
+      "timestamp": 1784127472,
+      "createdAt": "2026-07-15T14:57:52.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "A5E117E73CE3457B1E655F279C3AB440",
+      "fromMe": true,
+      "body": "Combinado então, o Matheus levará a segunda versão do livro para você em Outubro.",
+      "type": "chat",
+      "timestamp": 1784127837,
+      "createdAt": "2026-07-15T15:03:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "A51649AD993C561B58C884B1F3A1F16B",
+      "fromMe": true,
+      "body": "Não, estávamos a liberar com a gráfica da região. Mas o Matheus achou melhor já dá a nova versão para vocês.",
+      "type": "chat",
+      "timestamp": 1784127890,
+      "createdAt": "2026-07-15T15:04:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "AC642BC1E093730FEC56BB5F7E3BE7C3",
+      "fromMe": false,
+      "body": "Ok obrigado",
+      "type": "chat",
+      "timestamp": 1784127951,
+      "createdAt": "2026-07-15T15:05:51.000Z",
+      "ack": 3,
+      "source": "incoming-event"
     }
   ],
   "351926823227": [
@@ -35872,6 +36403,66 @@
       "createdAt": "2026-06-30T10:03:43.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_212669650997491@lid_AC2D168AA2E5A6403B9E476B611F8235",
+      "fromMe": false,
+      "body": "Boa tarde epoca de festivais e complicado para mim tentei fazer o pagamento nao consegui consegue me reenviar como posso fazer pagamento quero tratar disso para começarmos  a trabalhar",
+      "type": "chat",
+      "timestamp": 1784218203,
+      "createdAt": "2026-07-16T16:10:03.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_212669650997491@lid_A514AEC8A8FD31E4FD4B096D2B97573B",
+      "fromMe": true,
+      "body": "Boa tarde André!!!",
+      "type": "chat",
+      "timestamp": 1784222173,
+      "createdAt": "2026-07-16T17:16:13.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_212669650997491@lid_A513F85165690BFC65A78028FFEF3D2C",
+      "fromMe": true,
+      "body": "Só um momento.",
+      "type": "chat",
+      "timestamp": 1784222179,
+      "createdAt": "2026-07-16T17:16:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_212669650997491@lid_A5A415860C21F0BAFE980519D1575EE1",
+      "fromMe": true,
+      "body": "Andre você já deu aceite no contrato né",
+      "type": "chat",
+      "timestamp": 1784222888,
+      "createdAt": "2026-07-16T17:28:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_212669650997491@lid_AC018B5237CBFA89273D973D5F5F36EF",
+      "fromMe": false,
+      "body": "Sim claro",
+      "type": "chat",
+      "timestamp": 1784224828,
+      "createdAt": "2026-07-16T18:00:28.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_212669650997491@lid_A54AF444200D01E2C15FEE506C26EE2E",
+      "fromMe": true,
+      "body": "A Adrielly vai entrar em contato para te passar novamente como fazer o pagamento tá bom",
+      "type": "chat",
+      "timestamp": 1784224878,
+      "createdAt": "2026-07-16T18:01:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351932082260": [
@@ -39249,6 +39840,253 @@
       "type": "chat",
       "timestamp": 1783505990,
       "createdAt": "2026-07-08T10:19:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_19894389223678@lid_A56D3AAB4659B74F74F193494280F345",
+      "fromMe": true,
+      "body": "Olá Helena, boa noite! Espero que esteja tudo bem consigo?",
+      "type": "chat",
+      "timestamp": 1783973367,
+      "createdAt": "2026-07-13T20:09:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_19894389223678@lid_A52B7F7A05517A1AF5519B63AD2688AD",
+      "fromMe": true,
+      "body": "Entro em contato porque a sessão para a qual se inscreveu teve a data alterada e já não irá se realizar nestes dias.",
+      "type": "chat",
+      "timestamp": 1783973449,
+      "createdAt": "2026-07-13T20:10:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_19894389223678@lid_A5D5F11D1322DDE0F77AC61918816C3D",
+      "fromMe": true,
+      "body": "No entanto, gostaríamos de lhe oferecer uma alternativa que acreditamos ser ainda mais útil: uma reunião online, individual, com um dos nossos consultores, através do Google Meet.\n\nSerá uma oportunidade para compreender melhor o seu negócio, esclarecer as suas dúvidas e partilhar estratégias práticas de Google Ads e Inteligência Artificial, adaptadas à sua realidade.",
+      "type": "chat",
+      "timestamp": 1783973496,
+      "createdAt": "2026-07-13T20:11:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_19894389223678@lid_A5679409B1EE2BCDA175042F8DA3F612",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1783973516,
+      "createdAt": "2026-07-13T20:11:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaFile": "true_19894389223678_lid_A5679409B1EE2BCDA175042F8DA3F612_6df79996.ogg",
+      "mediaSize": 17117,
+      "filename": "true_19894389223678@lid_A5679409B1EE2BCDA175042F8DA3F612",
+      "originalName": "true_19894389223678@lid_A5679409B1EE2BCDA175042F8DA3F612"
+    }
+  ],
+  "351914217343": [
+    {
+      "id": "false_92157499162814@lid_3EB04F9F5A9387DFA7AA63",
+      "fromMe": false,
+      "body": "Fabiane, boa tarde!",
+      "type": "chat",
+      "timestamp": 1784311059,
+      "createdAt": "2026-07-17T17:57:39.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB04C3415E275747274B8",
+      "fromMe": false,
+      "body": "os agentes como o Matheus disse",
+      "type": "chat",
+      "timestamp": 1784311070,
+      "createdAt": "2026-07-17T17:57:50.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB075031615502B3357C4",
+      "fromMe": false,
+      "body": "para cada clietne que eu gerir já tenho que cadastrar pelo chatgpt deles é isso",
+      "type": "chat",
+      "timestamp": 1784311089,
+      "createdAt": "2026-07-17T17:58:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB07E11A264DAF60DE243",
+      "fromMe": false,
+      "body": "com quem tenho um melhor suporte sobre isso",
+      "type": "chat",
+      "timestamp": 1784311097,
+      "createdAt": "2026-07-17T17:58:17.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A5B3848DCBF2E8D950FC212E567AC064",
+      "fromMe": true,
+      "body": "Boa tarde Juliana, tudo bem?",
+      "type": "chat",
+      "timestamp": 1784311685,
+      "createdAt": "2026-07-17T18:08:05.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A57761DD12CC7F385A6303CA38EBC00D",
+      "fromMe": true,
+      "body": "Você tem jornada ativa conosco?",
+      "type": "chat",
+      "timestamp": 1784311702,
+      "createdAt": "2026-07-17T18:08:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB0C25DA869B602D30E28",
+      "fromMe": false,
+      "body": "Sim",
+      "type": "chat",
+      "timestamp": 1784311703,
+      "createdAt": "2026-07-17T18:08:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A5195C3CB58B188A181ACC8CFDA0BA35",
+      "fromMe": true,
+      "body": "Tem o grupo de suporte do whatsapp?",
+      "type": "chat",
+      "timestamp": 1784311715,
+      "createdAt": "2026-07-17T18:08:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB08B725DC967497B7954",
+      "fromMe": false,
+      "body": "O que é isso",
+      "type": "chat",
+      "timestamp": 1784311717,
+      "createdAt": "2026-07-17T18:08:37.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB062F7C7C583AAE80856",
+      "fromMe": false,
+      "body": "Já tive cliente meus que atenderam em parceria",
+      "type": "chat",
+      "timestamp": 1784311732,
+      "createdAt": "2026-07-17T18:08:52.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB034CF07CD3F6AF0167C",
+      "fromMe": false,
+      "body": "comigo",
+      "type": "chat",
+      "timestamp": 1784311734,
+      "createdAt": "2026-07-17T18:08:54.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB044727E87559A0FD740",
+      "fromMe": false,
+      "body": "pq",
+      "type": "chat",
+      "timestamp": 1784311738,
+      "createdAt": "2026-07-17T18:08:58.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A5D1568684E609AB88A6BE9A814BE81F",
+      "fromMe": true,
+      "body": "Áudio",
+      "type": "ptt",
+      "timestamp": 1784311768,
+      "createdAt": "2026-07-17T18:09:28.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "audio",
+      "mediaMime": "audio/ogg; codecs=opus",
+      "mediaId": "m_f99f9b3332e7b2b62d789d004d2de69e9bf90ad26b0c8bdc",
+      "mediaFile": "m_f99f9b3332e7b2b62d789d004d2de69e9bf90ad26b0c8bdc.ogg",
+      "mediaSize": 34969,
+      "filename": "true_92157499162814@lid_A5D1568684E609AB88A6BE9A814BE81F.ogg",
+      "originalName": "true_92157499162814@lid_A5D1568684E609AB88A6BE9A814BE81F.ogg"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB09572FB43B74CA1147E",
+      "fromMe": false,
+      "body": "Entendi.",
+      "type": "chat",
+      "timestamp": 1784311799,
+      "createdAt": "2026-07-17T18:09:59.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB0D598E64D829ED9A12F",
+      "fromMe": false,
+      "body": "quer disser que teria que estar em uma mentoria",
+      "type": "chat",
+      "timestamp": 1784311819,
+      "createdAt": "2026-07-17T18:10:19.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB0951A154E3D05FE0101",
+      "fromMe": false,
+      "body": "é isso que ele valou",
+      "type": "chat",
+      "timestamp": 1784311823,
+      "createdAt": "2026-07-17T18:10:23.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB09432A444E41F9DE5A7",
+      "fromMe": false,
+      "body": "ou a comunidade que assiste as aulas com ele 1 fez por semana",
+      "type": "chat",
+      "timestamp": 1784311840,
+      "createdAt": "2026-07-17T18:10:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_92157499162814@lid_A50166341C6036914C94D3824F9C4FD2",
+      "fromMe": true,
+      "body": "Só um momento.",
+      "type": "chat",
+      "timestamp": 1784311852,
+      "createdAt": "2026-07-17T18:10:52.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_92157499162814@lid_3EB0B6955A13E2E496220F",
+      "fromMe": false,
+      "body": "ok",
+      "type": "chat",
+      "timestamp": 1784312377,
+      "createdAt": "2026-07-17T18:19:37.000Z",
       "ack": 1,
       "source": "incoming-event"
     }

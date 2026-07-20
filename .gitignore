@@ -99,3 +99,40 @@ chromium/
 ms-playwright/
 playwright-report/
 test-results/
+# Fase 0: exemplos e artefatos locais
+!.env.example
+reports/private/
+tmp/
+backups/
+exports/
+
+# Fase 1: segredos, dados pessoais e artefatos operacionais
+.env.local
+.env.production
+.env.development
+.env.test
+*.bak
+*.backup
+*.dump
+*.sql
+*.sqlite*
+*.jsonl
+*.har
+*.pcap
+*.session
+*.cookies
+**/wa_cloud_config.json
+**/webhooks.json
+**/conversation_media/
+**/media/
+**/sessions/
+**/.wwebjs_auth/
+**/.wwebjs_cache/
+reports/
+artifacts/private/
+secrets/
+credentials/
+
+# Sessões autenticadas persistentes
+**/auth_sessions.json
+**/auth_sessions.json.*.tmp

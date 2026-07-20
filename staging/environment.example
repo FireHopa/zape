@@ -1,0 +1,13 @@
+# Gere valores reais e aleatórios com:
+# npm run staging:create -- --output=tmp/staging-phase15 --force
+NODE_ENV=staging
+HOST=127.0.0.1
+PORT=3300
+PUBLIC_BASE_URL=http://127.0.0.1:3300
+PERSISTENCE_MODE=database
+DATABASE_URL=postgresql://zape_staging:zape_staging@127.0.0.1:55432/zape_staging
+REDIS_URL=redis://127.0.0.1:56379/15
+STAGING_SYNTHETIC_ONLY=1
+WEBJS_ENABLED=0
+WA_CLOUD_ENABLED=0
+CRM_INTEGRATION_ENABLED=0

@@ -67,7 +67,15 @@ function ffmpegProbe(ffmpeg, filePath) {
   }
 }
 const { normalizePhoneToE164Digits, phoneSearchVariants } = require("./phone");
+const { validateMediaBuffer, validateMediaFile, sanitizeFilename } = require("./mediaSecurity");
 const { ensureTenantDir, tenantDir } = require("./tenantPaths");
+const {
+  inspectTenantSession,
+  registerConnectedAccount,
+  markSessionError,
+  markSessionDisconnected,
+  removeTenantAuthenticationFiles,
+} = require("./whatsappSessionGuard");
 const { getTemplate } = require("./messageTemplateStore");
 const {
   appendConversationMessage,
@@ -461,6 +469,9 @@ class TenantWhatsApp {
 
     this.client = null;
     this.initPromise = null;
+    this.activationPromise = null;
+    this.authenticationCleanupPromise = null;
+    this.authExistedAtInit = false;
 
     this.lastQrDataUrl = null;
     this.sessionStatus = "idle"; // idle | starting | qr | connected | error
@@ -476,6 +487,17 @@ class TenantWhatsApp {
 
     this.statusMap = this._loadStatusMap();
     this.saveTimer = null;
+    this.lidPhoneCache = new Map();
+
+    // A lista de conversas do painel faz polling. Consultar client.getChats() em
+    // cada requisição força uma varredura completa dentro do WhatsApp Web e pode
+    // falhar quando a estrutura interna da página muda. Mantemos cache, uma única
+    // consulta em voo e cooldown após falha, preservando o fallback local.
+    this.remoteChatsSnapshot = {};
+    this.remoteChatsSnapshotAt = 0;
+    this.remoteChatsSnapshotFailureAt = 0;
+    this.remoteChatsSnapshotInFlight = null;
+    this.remoteChatsSnapshotLastErrorLogAt = 0;
   }
 
   _loadStatusMap() {
@@ -515,11 +537,66 @@ class TenantWhatsApp {
     return next;
   }
 
+  _repairMessageSerializedId(message) {
+    if (!message) return "";
+
+    const idObjects = [message?.id, message?.rawData?.id]
+      .filter((value) => value && typeof value === "object");
+
+    let serialized = "";
+    for (const idObject of idObjects) {
+      serialized = String(idObject?._serialized || idObject?.$1 || "").trim();
+      if (serialized) break;
+    }
+
+    if (!serialized) {
+      const primaryId = idObjects[0] || null;
+      const fromMeValue = primaryId?.fromMe ?? message?.fromMe ?? message?.rawData?.id?.fromMe;
+      const remoteValue =
+        primaryId?.remote?._serialized ||
+        primaryId?.remote?.$1 ||
+        primaryId?.remote ||
+        (Boolean(fromMeValue) ? message?.to : message?.from) ||
+        message?.rawData?.id?.remote?._serialized ||
+        message?.rawData?.id?.remote?.$1 ||
+        message?.rawData?.id?.remote ||
+        "";
+      const messageIdValue = primaryId?.id || message?.rawData?.id?.id || "";
+      const remote = String(remoteValue || "").trim();
+      const messageId = String(messageIdValue || "").trim();
+
+      if (remote && messageId && fromMeValue !== undefined && fromMeValue !== null) {
+        serialized = `${Boolean(fromMeValue)}_${remote}_${messageId}`;
+      }
+    }
+
+    if (!serialized) return "";
+
+    for (const idObject of idObjects) {
+      if (String(idObject?._serialized || "").trim()) continue;
+      try {
+        idObject._serialized = serialized;
+      } catch {}
+      if (!String(idObject?._serialized || "").trim()) {
+        try {
+          Object.defineProperty(idObject, "_serialized", {
+            value: serialized,
+            configurable: true,
+            enumerable: true,
+            writable: true,
+          });
+        } catch {}
+      }
+    }
+
+    return serialized;
+  }
+
   _getMessageId(message) {
     return String(
-      message?.id?._serialized ||
+      this._repairMessageSerializedId(message) ||
       message?.id?.id ||
-      message?.rawData?.id?._serialized ||
+      message?.rawData?.id?.id ||
       ""
     ).trim();
   }
@@ -576,6 +653,46 @@ class TenantWhatsApp {
     return this._digitsFromWaId(remoteId);
   }
 
+  async _resolveDigitsForRemoteId(remoteId) {
+    const id = String(remoteId || '').trim();
+    if (!id) return '';
+
+    const existing = this._findDigitsByChatId(id);
+    if (existing) return existing;
+
+    const direct = this._digitsFromWaId(id);
+    if (direct) return direct;
+
+    if (!/@lid$/i.test(id)) return '';
+
+    const cached = this.lidPhoneCache.get(id);
+    if (cached) return cached;
+
+    try {
+      if (this.client && typeof this.client.getContactLidAndPhone === 'function') {
+        const rows = await this.client.getContactLidAndPhone([id]);
+        const row = Array.isArray(rows) ? rows.find((item) => item && (item.lid === id || item.pn)) : null;
+        const digits = this._digitsFromWaId(row && row.pn);
+        if (digits) {
+          this.lidPhoneCache.set(id, digits);
+          return digits;
+        }
+      }
+    } catch (error) {
+      logErr(this.tenantId, 'LID to phone resolution failed', error?.message || String(error));
+    }
+
+    return '';
+  }
+
+  async _resolveDigitsForMessageAsync(message) {
+    const syncDigits = this._resolveDigitsForMessage(message);
+    if (syncDigits) return syncDigits;
+
+    const remoteId = this._getRemoteIdFromMessage(message);
+    return this._resolveDigitsForRemoteId(remoteId);
+  }
+
   _isAudioMessage(message, fallback = {}) {
     const type = String(message?.type || fallback.type || '').toLowerCase();
     const mime = String(message?.mimetype || message?.mediaMime || fallback.mimetype || fallback.mediaMime || '').toLowerCase();
@@ -606,7 +723,10 @@ class TenantWhatsApp {
       rec.hasMedia = true;
       rec.mediaKind = fallback.mediaKind || (audio ? 'audio' : mediaKindFromMime(fallback.mediaMime || message.mimetype || '', fallback.filename || ''));
       if (fallback.mediaMime || message.mimetype) rec.mediaMime = fallback.mediaMime || message.mimetype;
+      if (fallback.mediaId) rec.mediaId = fallback.mediaId;
       if (fallback.mediaFile) rec.mediaFile = fallback.mediaFile;
+      if (fallback.mediaUnavailable) rec.mediaUnavailable = true;
+      if (fallback.mediaErrorCode) rec.mediaErrorCode = fallback.mediaErrorCode;
       if (fallback.mediaSize) rec.mediaSize = fallback.mediaSize;
       if (fallback.duration) rec.duration = fallback.duration;
       if (fallback.filename) rec.filename = fallback.filename;
@@ -623,6 +743,11 @@ class TenantWhatsApp {
     if (rec.mediaFile) return rec;
 
     try {
+      // O WhatsApp Web 2.3000.1043159177+ passou a serializar o ID completo
+      // em message.id.$1 em alguns eventos. whatsapp-web.js 1.34.7 ainda lê
+      // message.id._serialized dentro de downloadMedia(). Repara o alias antes
+      // da chamada para evitar o erro minificado "r: r" / DataError do IndexedDB.
+      this._repairMessageSerializedId(message);
       const media = await message.downloadMedia();
       if (!media || !media.data) return rec;
       const mimetype = String(media.mimetype || rec.mediaMime || '').trim() || 'application/octet-stream';
@@ -641,6 +766,7 @@ class TenantWhatsApp {
         hasMedia: true,
         mediaKind: saved.mediaKind || kind,
         mediaMime: mimetype,
+        mediaId: saved.mediaId,
         mediaFile: saved.fileName,
         mediaSize: saved.size,
         filename: media.filename || rec.filename || saved.originalName || saved.fileName,
@@ -648,7 +774,33 @@ class TenantWhatsApp {
       };
     } catch (e) {
       logErr(this.tenantId, 'download conversation media failed', e?.message || String(e));
-      return rec;
+
+      // fetchMessages pode tentar baixar novamente uma mídia que já foi armazenada
+      // localmente. Se essa tentativa remota falhar, preserve a cópia válida em disco
+      // e não grave mediaUnavailable sobre o registro existente.
+      const existing = rec.id
+        ? listConversationMessages(this.tenantId, toDigits, 500)
+            .find((item) => String(item?.id || '') === String(rec.id) && item?.mediaFile)
+        : null;
+
+      if (existing?.mediaFile) {
+        const restored = {
+          ...rec,
+          hasMedia: true,
+          mediaKind: existing.mediaKind || rec.mediaKind,
+          mediaMime: existing.mediaMime || rec.mediaMime,
+          mediaId: existing.mediaId || rec.mediaId,
+          mediaFile: existing.mediaFile,
+          mediaSize: existing.mediaSize || rec.mediaSize,
+          filename: existing.filename || rec.filename,
+          originalName: existing.originalName || rec.originalName,
+        };
+        delete restored.mediaUnavailable;
+        delete restored.mediaErrorCode;
+        return restored;
+      }
+
+      return { ...rec, mediaUnavailable: true, mediaErrorCode: e?.code || 'MEDIA_DOWNLOAD_FAILED' };
     }
   }
 
@@ -662,7 +814,7 @@ class TenantWhatsApp {
     if (message && message.hasMedia) {
       this._messageToConversationRecordWithMedia(message, rec, digits)
         .then((enriched) => {
-          if (enriched && enriched.mediaFile) upsertConversationMessages(this.tenantId, digits, [enriched]);
+          if (enriched && (enriched.mediaFile || enriched.mediaUnavailable)) upsertConversationMessages(this.tenantId, digits, [enriched]);
         })
         .catch((e) => logErr(this.tenantId, 'async media cache failed', e?.message || String(e)));
     }
@@ -716,13 +868,16 @@ class TenantWhatsApp {
     return Boolean(String(message.body || '').trim()) || this._isAudioMessage(message, message) || Boolean(message.hasMedia);
   }
 
-  _markIncomingMessage(message) {
+  async _markIncomingMessage(message) {
     if (!message || message.fromMe) return;
     if (!this._isTrackableDirectMessage(message)) return;
 
     const remoteId = this._getRemoteIdFromMessage(message);
-    const digits = this._resolveDigitsForMessage(message);
-    if (!digits) return;
+    const digits = await this._resolveDigitsForMessageAsync(message);
+    if (!digits) {
+      logErr(this.tenantId, 'incoming message ignored: phone could not be resolved', { remoteId });
+      return;
+    }
 
     const prev = this.statusMap[digits] || { toDigits: digits };
     const now = new Date().toISOString();
@@ -783,12 +938,12 @@ class TenantWhatsApp {
     this._upsertStatus(digits, patch);
   }
 
-  _recordCreatedMessage(message) {
+  async _recordCreatedMessage(message) {
     if (!this._isTrackableDirectMessage(message)) return;
     if (message.fromMe) {
       this._markOutgoingCreatedMessage(message);
     } else {
-      this._markIncomingMessage(message);
+      await this._markIncomingMessage(message);
     }
   }
 
@@ -841,17 +996,150 @@ class TenantWhatsApp {
   }
 
   getWhatsAppStatus() {
+    const authentication = inspectTenantSession(this.tenantId);
+    const connected = ["connected", "authenticated", "ready"].includes(String(this.sessionStatus || "").toLowerCase());
+    const busy = ["starting", "qr", "initializing"].includes(String(this.sessionStatus || "").toLowerCase());
     return {
       enabled: isWhatsAppConfigured(),
       tenantId: this.tenantId,
       status: this.sessionStatus,
       lastError: this.lastError,
       hasQr: !!this.lastQrDataUrl,
+      authentication: {
+        exists: authentication.authenticationExists,
+        requiresCleanup: authentication.requiresCleanup,
+        accountMasked: authentication.accountMasked,
+        lastConnectedAt: authentication.lastConnectedAt,
+        lastDisconnectedAt: authentication.lastDisconnectedAt,
+        lastCleanupAt: authentication.lastCleanupAt,
+        canConnect: !connected && !busy && !authentication.authenticationExists,
+        canRemove: Boolean(authentication.authenticationExists || this.client),
+      },
     };
+  }
+
+  _connectionError(code, message, statusCode = 409, details = {}) {
+    const error = new Error(message);
+    error.code = code;
+    error.statusCode = statusCode;
+    error.details = details;
+    return error;
+  }
+
+  async beginManualConnection() {
+    if (!isWhatsAppConfigured()) throw this._connectionError("WEBJS_DISABLED", "WhatsApp WebJS está desativado.", 503);
+
+    const current = String(this.sessionStatus || "").toLowerCase();
+    if (["connected", "authenticated", "ready"].includes(current)) {
+      throw this._connectionError("WA_ALREADY_CONNECTED", "Este painel já possui uma sessão conectada. Desconecte e remova a autenticação antiga antes de trocar o número.", 409);
+    }
+    if (["starting", "qr", "initializing"].includes(current) && this.client) {
+      return this.client;
+    }
+
+    const authentication = inspectTenantSession(this.tenantId);
+    if (authentication.authenticationExists) {
+      this.sessionStatus = "error";
+      this.lastError = "Existe uma autenticação anterior salva neste painel. Remova a autenticação antiga antes de gerar outro QR Code.";
+      markSessionError(this.tenantId, this.lastError, { requiresCleanup: true });
+      throw this._connectionError("WA_AUTHENTICATION_EXISTS", this.lastError, 409, {
+        accountMasked: authentication.accountMasked,
+      });
+    }
+
+    return this.initWhatsApp();
+  }
+
+  async removeAuthentication({ confirmation } = {}) {
+    const expected = `REMOVER ${this.tenantId.toUpperCase()}`;
+    if (String(confirmation || "").trim().toUpperCase() !== expected) {
+      throw this._connectionError("WA_AUTH_REMOVAL_CONFIRMATION_REQUIRED", `Digite exatamente ${expected} para remover a autenticação.`, 400);
+    }
+    if (this.authenticationCleanupPromise) return this.authenticationCleanupPromise;
+
+    this.authenticationCleanupPromise = (async () => {
+      if (this._authWatchdogTimer) {
+        clearInterval(this._authWatchdogTimer);
+        this._authWatchdogTimer = null;
+      }
+      const client = this.client;
+      if (client) {
+        try { await client.logout(); } catch (error) { logErr(this.tenantId, "logout before authentication cleanup failed", error?.message || String(error)); }
+        try { await client.destroy(); } catch (error) { logErr(this.tenantId, "destroy before authentication cleanup failed", error?.message || String(error)); }
+      }
+      this.client = null;
+      this.initPromise = null;
+      this.activationPromise = null;
+      this.readyPromise = null;
+      this.readyResolve = null;
+      this.readyReject = null;
+      this.lastQrDataUrl = null;
+      this.lastError = null;
+      this.sessionStatus = "idle";
+      this.authExistedAtInit = false;
+      removeTenantAuthenticationFiles(this.tenantId);
+      return this.getWhatsAppStatus();
+    })().finally(() => {
+      this.authenticationCleanupPromise = null;
+    });
+
+    return this.authenticationCleanupPromise;
+  }
+
+  async _promoteConnected() {
+    if (this.activationPromise) return this.activationPromise;
+    this.activationPromise = (async () => {
+      const accountId = String(this.client?.info?.wid?._serialized || this.client?.info?.wid || "").trim();
+      const registration = registerConnectedAccount(this.tenantId, accountId);
+      if (!registration.ok) {
+        const message = `Esta conta já possui autenticação salva no painel ${registration.conflictTenantId}. Remova a autenticação antiga antes de conectar novamente.`;
+        this.sessionStatus = "error";
+        this.lastError = message;
+        this.lastQrDataUrl = null;
+        markSessionError(this.tenantId, message, { requiresCleanup: true });
+        if (this.readyReject) this.readyReject(this._connectionError("WA_ACCOUNT_ALREADY_REGISTERED", message, 409));
+        this.readyResolve = null;
+        this.readyReject = null;
+        try { await this.client?.logout(); } catch {}
+        try { await this.client?.destroy(); } catch {}
+        this.client = null;
+        this.initPromise = null;
+        throw this._connectionError("WA_ACCOUNT_ALREADY_REGISTERED", message, 409, { conflictTenantId: registration.conflictTenantId });
+      }
+
+      this.sessionStatus = "connected";
+      this.lastError = null;
+      this.lastQrDataUrl = null;
+      if (this.readyResolve) this.readyResolve(true);
+      this.readyResolve = null;
+      this.readyReject = null;
+      return true;
+    })().finally(() => {
+      this.activationPromise = null;
+    });
+    return this.activationPromise;
   }
 
   async _ensureReady(timeoutMs = Number(process.env.WA_READY_TIMEOUT_MS || 60000)) {
     if (this.sessionStatus === "connected") return true;
+
+    const waitMs = Number.isFinite(Number(timeoutMs))
+      ? Math.max(5_000, Number(timeoutMs))
+      : 60_000;
+
+    // Em algumas versões o evento ready atrasa, embora o cliente já esteja CONNECTED.
+    // Confirma o estado antes de iniciar a espera para evitar timeout falso.
+    if (this.client && ["authenticated", "ready"].includes(String(this.sessionStatus || "").toLowerCase())) {
+      try {
+        const state = await this.client.getState().catch(() => null);
+        if (String(state || "").toUpperCase() === "CONNECTED") {
+          await this._promoteConnected();
+          return true;
+        }
+      } catch (error) {
+        logErr(this.tenantId, "READY state verification failed", error?.message || String(error));
+      }
+    }
 
     if (!this.readyPromise) {
       this.readyPromise = new Promise((resolve, reject) => {
@@ -860,18 +1148,27 @@ class TenantWhatsApp {
       });
     }
 
-    // timeout to avoid infinite await
-    return Promise.race([
-      this.readyPromise,
-      new Promise((_, reject) =>
-        setTimeout(() => {
-          const err = new Error(`wa_ready_timeout (${timeoutMs}ms) status=${this.sessionStatus}`);
+    let timer = null;
+    try {
+      return await new Promise((resolve, reject) => {
+        timer = setTimeout(() => {
+          // A espera pode ter sido concluída por change_state/ready sem que o timer antigo
+          // tenha sido cancelado. Nunca registre erro quando a sessão já está conectada.
+          if (this.sessionStatus === "connected") {
+            resolve(true);
+            return;
+          }
+          const err = new Error(`wa_ready_timeout (${waitMs}ms) status=${this.sessionStatus}`);
           this.lastError = err.message;
-          logErr(this.tenantId, "READY timeout", { status: this.sessionStatus });
+          logErr(this.tenantId, "READY timeout", { status: this.sessionStatus, timeoutMs: waitMs });
           reject(err);
-        }, timeoutMs)
-      ),
-    ]);
+        }, waitMs);
+
+        Promise.resolve(this.readyPromise).then(resolve, reject);
+      });
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
   }
 
   async initWhatsApp() {
@@ -882,6 +1179,7 @@ class TenantWhatsApp {
 
     this.sessionStatus = "starting";
     this.lastError = null;
+    this.authExistedAtInit = inspectTenantSession(this.tenantId).authenticationExists;
 
     // auth isolada por tenant
     const authPath = path.join(this.DATA_DIR, "wwebjs_auth");
@@ -914,12 +1212,25 @@ class TenantWhatsApp {
 
     this.client.on("qr", async (qr) => {
       try {
+        if (this.authExistedAtInit) {
+          const message = "A autenticação anterior não é mais válida. O novo QR Code foi bloqueado para impedir a troca de número sobre uma sessão antiga. Remova a autenticação antiga no painel e tente novamente.";
+          this.lastQrDataUrl = null;
+          this.lastError = message;
+          this.sessionStatus = "error";
+          markSessionError(this.tenantId, message, { requiresCleanup: true });
+          logErr(this.tenantId, "qr blocked because previous authentication exists", message);
+          try { await this.client?.destroy(); } catch {}
+          this.client = null;
+          this.initPromise = null;
+          return;
+        }
         this.sessionStatus = "qr";
         logOk(this.tenantId, "qr generated");
         this.lastQrDataUrl = await QRCode.toDataURL(qr);
       } catch (e) {
         this.lastError = e?.message || String(e);
         this.sessionStatus = "error";
+        markSessionError(this.tenantId, this.lastError, { requiresCleanup: inspectTenantSession(this.tenantId).authenticationExists });
         logErr(this.tenantId, "qr handler error", this.lastError);
       }
     });
@@ -944,13 +1255,8 @@ class TenantWhatsApp {
           const stUp = String(st || "").toUpperCase();
 
           if (stUp === "CONNECTED") {
-            logOk(this.tenantId, "getState CONNECTED -> promoting to connected");
-            this.sessionStatus = "connected";
-            this.lastError = null;
-            this.lastQrDataUrl = null;
-            if (this.readyResolve) this.readyResolve(true);
-            this.readyResolve = null;
-            this.readyReject = null;
+            logOk(this.tenantId, "getState CONNECTED -> validating account identity");
+            await this._promoteConnected();
           }
 
           if (Date.now() - startedAt > Number(process.env.WA_AUTH_WATCHDOG_MS || 60000)) {
@@ -966,33 +1272,25 @@ class TenantWhatsApp {
 
     this.client.on("change_state", (state) => {
       logOk(this.tenantId, "change_state", state);
-      // Alguns ambientes reportam melhor via change_state
       if (String(state || "").toUpperCase() === "CONNECTED") {
         if (this._authWatchdogTimer) { clearInterval(this._authWatchdogTimer); this._authWatchdogTimer = null; }
-        this.sessionStatus = "connected";
-        this.lastError = null;
-        this.lastQrDataUrl = null;
-        if (this.readyResolve) this.readyResolve(true);
-        this.readyResolve = null;
-        this.readyReject = null;
+        Promise.resolve(this._promoteConnected())
+          .catch((error) => logErr(this.tenantId, "connected state validation failed", error?.message || String(error)));
       }
     });
 
     this.client.on("ready", () => {
       logOk(this.tenantId, "ready");
       if (this._authWatchdogTimer) { clearInterval(this._authWatchdogTimer); this._authWatchdogTimer = null; }
-      this.sessionStatus = "connected";
-      this.lastError = null;
-      this.lastQrDataUrl = null;
-      if (this.readyResolve) this.readyResolve(true);
-      this.readyResolve = null;
-      this.readyReject = null;
+      Promise.resolve(this._promoteConnected())
+        .catch((error) => logErr(this.tenantId, "ready account validation failed", error?.message || String(error)));
     });
 
     this.client.on("auth_failure", (msg) => {
       logErr(this.tenantId, "auth_failure", msg);
       this.sessionStatus = "error";
       this.lastError = `auth_failure: ${msg}`;
+      markSessionError(this.tenantId, this.lastError, { requiresCleanup: true });
       if (this.readyReject) this.readyReject(new Error(this.lastError));
     });
 
@@ -1001,6 +1299,7 @@ class TenantWhatsApp {
       if (this._authWatchdogTimer) { clearInterval(this._authWatchdogTimer); this._authWatchdogTimer = null; }
       this.sessionStatus = "error";
       this.lastError = `disconnected: ${reason}`;
+      markSessionDisconnected(this.tenantId, this.lastError);
       try {
         await this.client?.destroy();
       } catch (e) {
@@ -1027,21 +1326,15 @@ class TenantWhatsApp {
 
     // Captura mensagens recebidas nesta sessão do WhatsApp Web.
     this.client.on("message", (message) => {
-      try {
-        this._markIncomingMessage(message);
-      } catch (e) {
-        logErr(this.tenantId, "message handler failed", e?.message || String(e));
-      }
+      Promise.resolve(this._markIncomingMessage(message))
+        .catch((e) => logErr(this.tenantId, "message handler failed", e?.message || String(e)));
     });
 
     // Captura toda mensagem criada no WhatsApp Web, inclusive as enviadas fora do painel
     // pelo celular ou por outra aba do WhatsApp Web vinculada à mesma conta.
     this.client.on("message_create", (message) => {
-      try {
-        this._recordCreatedMessage(message);
-      } catch (e) {
-        logErr(this.tenantId, "message_create handler failed", e?.message || String(e));
-      }
+      Promise.resolve(this._recordCreatedMessage(message))
+        .catch((e) => logErr(this.tenantId, "message_create handler failed", e?.message || String(e)));
     });
 
     this.initPromise = this.client.initialize()
@@ -1050,6 +1343,7 @@ class TenantWhatsApp {
         this.sessionStatus = "error";
         logErr(this.tenantId, "initialize failed", e?.message || String(e));
         this.lastError = e?.message || String(e);
+        markSessionError(this.tenantId, this.lastError, { requiresCleanup: inspectTenantSession(this.tenantId).authenticationExists });
         this.client = null;
         this.initPromise = null;
         throw e;
@@ -1198,28 +1492,36 @@ class TenantWhatsApp {
     }
   }
 
-  async sendCustomAttachmentMessage({ toDigits, fileBase64, mimetype, filename = 'arquivo', caption = '' } = {}) {
+  async sendCustomAttachmentMessage({ toDigits, fileBase64, filePath, mimetype, filename = 'arquivo', caption = '' } = {}) {
     const c = await this.initWhatsApp();
     await this._ensureReady();
     if (!c || typeof c.sendMessage !== 'function') {
       throw new Error('Cliente do WhatsApp Web indisponível para enviar arquivo. Reconecte o WhatsApp e tente novamente.');
     }
-    const parsed = normalizeFileBase64Input(fileBase64, { minBytes: 1 });
-    const cleanFilename = path.basename(String(filename || 'arquivo').trim() || 'arquivo').replace(/[\r\n]+/g, ' ').slice(0, 180) || 'arquivo';
-    let finalMime = baseMime(mimetype || parsed.detectedMime || mimeFromFilename(cleanFilename));
-    if (!finalMime || finalMime === 'application/octet-stream') finalMime = mimeFromFilename(cleanFilename, 'application/octet-stream');
-    const buffer = parsed.buffer;
+    const cleanFilename = sanitizeFilename(filename || 'arquivo');
+    let buffer;
+    let detectedMime = '';
+    if (filePath) {
+      const validatedFile = validateMediaFile(filePath, { declaredMime: mimetype, filename: cleanFilename });
+      buffer = fs.readFileSync(filePath);
+      detectedMime = validatedFile.mimetype;
+    } else {
+      const parsed = normalizeFileBase64Input(fileBase64, { minBytes: 1 });
+      const validatedBuffer = validateMediaBuffer(parsed.buffer, { declaredMime: mimetype || parsed.detectedMime, filename: cleanFilename });
+      buffer = parsed.buffer;
+      detectedMime = validatedBuffer.mimetype;
+    }
+    const finalMime = baseMime(detectedMime || mimetype || mimeFromFilename(cleanFilename));
     attachmentDebug(this.tenantId, 'send.start', {
       toDigits: String(toDigits || '').replace(/\d(?=\d{4})/g, '*'),
       filename: cleanFilename,
       requestedMime: mimetype || null,
-      detectedMime: parsed.detectedMime || null,
+      detectedMime: detectedMime || null,
       finalMime,
       size: buffer.length,
       kind: mediaKindFromMime(finalMime, cleanFilename),
       asDocument: shouldSendAsDocument(finalMime, cleanFilename),
     });
-    if (buffer.length > 45 * 1024 * 1024) throw new Error('Arquivo muito grande. Envie arquivos de até 45 MB.');
 
     this._upsertStatus(toDigits, {
       lastSendAt: new Date().toISOString(),
@@ -1286,6 +1588,7 @@ class TenantWhatsApp {
       hasMedia: true,
       mediaKind: saved.mediaKind || kind,
       mediaMime: finalMime,
+      mediaId: saved.mediaId,
       mediaFile: saved.fileName,
       mediaSize: saved.size,
       filename: cleanFilename,
@@ -1308,14 +1611,15 @@ class TenantWhatsApp {
     return { sent, message: rec };
   }
 
-  async sendCustomAudioMessage({ toDigits, audioBase64, mimetype, filename = 'audio.webm', debugId } = {}) {
+  async sendCustomAudioMessage({ toDigits, audioBase64, audioFilePath, mimetype, filename = 'audio.webm', debugId } = {}) {
     const flowId = debugId || `aud_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
     audioDebug(this.tenantId, flowId, "send.start", {
       toDigits: String(toDigits || '').replace(/\d(?=\d{4})/g, '*'),
       receivedMime: mimetype || null,
       filename: filename || null,
-      payloadLength: String(audioBase64 || '').length,
-      payloadPrefix: String(audioBase64 || '').slice(0, 64),
+      payloadLength: audioFilePath ? null : String(audioBase64 || '').length,
+      payloadPrefix: audioFilePath ? null : String(audioBase64 || '').slice(0, 64),
+      streamedFile: Boolean(audioFilePath),
       node: process.version,
       platform: process.platform,
       arch: process.arch,
@@ -1323,12 +1627,23 @@ class TenantWhatsApp {
     const c = await this.initWhatsApp();
     await this._ensureReady();
 
-    const parsed = normalizeAudioBase64Input(audioBase64);
-    let inputMime = baseMime(mimetype || parsed.detectedMime || 'audio/webm') || 'audio/webm';
-    if (!/^audio\//i.test(inputMime)) inputMime = 'audio/webm';
-    const inputBuffer = parsed.buffer;
-    audioDebug(this.tenantId, flowId, "input.normalized", { detectedMime: parsed.detectedMime || null, inputMime, bufferSize: inputBuffer.length, sha256_16: shortHash(inputBuffer), headerHex: inputBuffer.slice(0, 16).toString('hex') });
-    if (inputBuffer.length > 16 * 1024 * 1024) throw new Error('Áudio muito grande. Grave um áudio menor.');
+    let inputBuffer;
+    let detectedMime = '';
+    const cleanFilename = sanitizeFilename(filename || 'audio.webm');
+    if (audioFilePath) {
+      const validatedFile = validateMediaFile(audioFilePath, { declaredMime: mimetype, filename: cleanFilename });
+      if (validatedFile.kind !== 'audio') throw new Error('O arquivo enviado não é um áudio válido.');
+      inputBuffer = fs.readFileSync(audioFilePath);
+      detectedMime = validatedFile.mimetype;
+    } else {
+      const parsed = normalizeAudioBase64Input(audioBase64);
+      const validatedBuffer = validateMediaBuffer(parsed.buffer, { declaredMime: mimetype || parsed.detectedMime, filename: cleanFilename });
+      if (validatedBuffer.kind !== 'audio') throw new Error('O arquivo enviado não é um áudio válido.');
+      inputBuffer = parsed.buffer;
+      detectedMime = validatedBuffer.mimetype;
+    }
+    let inputMime = baseMime(detectedMime || mimetype || 'audio/webm') || 'audio/webm';
+    audioDebug(this.tenantId, flowId, "input.normalized", { detectedMime: detectedMime || null, inputMime, bufferSize: inputBuffer.length, sha256_16: shortHash(inputBuffer), headerHex: inputBuffer.slice(0, 16).toString('hex') });
 
     this._upsertStatus(toDigits, {
       lastSendAt: new Date().toISOString(),
@@ -1479,7 +1794,7 @@ class TenantWhatsApp {
         messageId,
         mimetype: finalMime,
         data: finalData,
-        filename: messageId || used.filename || undefined,
+        filename: used.filename || `audio.${extensionFromAudioMime(finalMime)}`,
       });
 
       const rec = {
@@ -1494,6 +1809,7 @@ class TenantWhatsApp {
         hasMedia: true,
         mediaKind: 'audio',
         mediaMime: finalMime,
+        mediaId: saved.mediaId,
         mediaFile: saved.fileName,
         mediaSize: saved.size,
         sentAsDocument: Boolean(used.asDocument),
@@ -1532,10 +1848,11 @@ class TenantWhatsApp {
   }
 
   async getChatTextMessages({ toDigits, limit = 60 } = {}) {
+    const safeLimit = Math.max(1, Math.min(200, Number(limit || 60)));
+    if (!isWhatsAppConfigured()) return listConversationMessages(this.tenantId, toDigits, safeLimit);
     const c = await this.initWhatsApp();
     await this._ensureReady();
 
-    const safeLimit = Math.max(1, Math.min(200, Number(limit || 60)));
     const chatId = await this._getValidChatId(toDigits);
     let chat = null;
     let messages = [];
@@ -1586,61 +1903,128 @@ class TenantWhatsApp {
       .filter(Boolean));
 
     if (!includeAll && !digitsWanted.size) return out;
-    const canReadRemoteChats = this.client && this.sessionStatus === 'connected';
 
-    if (canReadRemoteChats) {
-      try {
-        const chats = await this.client.getChats();
-        for (const chat of Array.isArray(chats) ? chats : []) {
-          const chatId = String(chat?.id?._serialized || chat?.id || '').trim();
-          if (!chatId || /@g\.us/i.test(chatId) || /status@broadcast/i.test(chatId)) continue;
+    const now = Date.now();
+    const snapshotEnabled = String(process.env.WEBJS_REMOTE_CHAT_SNAPSHOT_ENABLED || '1') !== '0';
+    const cacheMs = Math.max(5000, Number(process.env.WEBJS_CHAT_SNAPSHOT_CACHE_MS || 30000));
+    const failureCooldownMs = Math.max(15000, Number(process.env.WEBJS_CHAT_SNAPSHOT_FAILURE_COOLDOWN_MS || 120000));
+    const timeoutMs = Math.max(5000, Number(process.env.WEBJS_CHAT_SNAPSHOT_TIMEOUT_MS || 20000));
+    const canReadRemoteChats = snapshotEnabled && this.client && this.sessionStatus === 'connected';
+    const cacheFresh = this.remoteChatsSnapshotAt > 0 && (now - this.remoteChatsSnapshotAt) < cacheMs;
+    const failureCoolingDown = this.remoteChatsSnapshotFailureAt > 0 && (now - this.remoteChatsSnapshotFailureAt) < failureCooldownMs;
 
-          const digits = this._digitsFromWaId(chatId);
-          if (!digits) continue;
-          if (!includeAll && digitsWanted.size && !digitsWanted.has(digits)) continue;
-
-          const last = chat?.lastMessage || null;
-          const ts = Number(last?.timestamp || 0);
-          const displayName = String(chat?.name || chat?.formattedTitle || '').trim();
-          const lastIsAudio = last ? this._isAudioMessage(last, last) : false;
-          const lastBody = String(last?.body || '').trim() || (lastIsAudio ? 'Áudio' : '');
-          const lastMessage = last && lastBody ? {
-            id: this._getMessageId(last) || '',
-            body: lastBody,
-            fromMe: Boolean(last.fromMe || last.id?.fromMe),
-            timestamp: ts,
-            createdAt: ts ? new Date(ts * 1000).toISOString() : null,
-            source: 'chat-snapshot',
-            hasMedia: Boolean(last.hasMedia || lastIsAudio),
-            mediaKind: lastIsAudio ? 'audio' : undefined,
-          } : null;
-
-          if (lastMessage) {
-            this._appendConversationFromMessage(digits, last, {
-              id: lastMessage.id,
-              fromMe: lastMessage.fromMe,
-              body: lastMessage.body,
-              timestamp: lastMessage.timestamp,
-              createdAt: lastMessage.createdAt,
-              source: 'chat-snapshot',
-            });
-          }
-
-          out[digits] = {
-            chatId,
-            displayName: displayName || null,
-            unreadCount: Number(chat?.unreadCount || 0),
-            archived: Boolean(chat?.archived),
-            pinned: Boolean(chat?.pinned),
-            lastMessage,
-          };
-        }
-      } catch (e) {
-        logErr(this.tenantId, 'getChatsSnapshotForDigits failed', e?.message || String(e));
+    const mergeRemoteSnapshot = (snapshot) => {
+      for (const [digits, chat] of Object.entries(snapshot || {})) {
+        if (!digits || !chat) continue;
+        if (!includeAll && digitsWanted.size && !digitsWanted.has(digits)) continue;
+        out[digits] = { ...chat };
       }
+    };
+
+    // Sempre disponibiliza o último snapshot válido enquanto uma atualização é
+    // executada ou está em cooldown. Assim a interface não perde conversas.
+    mergeRemoteSnapshot(this.remoteChatsSnapshot);
+
+    if (canReadRemoteChats && !cacheFresh && !failureCoolingDown) {
+      if (!this.remoteChatsSnapshotInFlight) {
+        this.remoteChatsSnapshotInFlight = (async () => {
+          const snapshot = {};
+          const timeoutError = new Error(`getChats timeout after ${timeoutMs}ms`);
+          timeoutError.code = 'WA_GET_CHATS_TIMEOUT';
+
+          try {
+            const chats = await Promise.race([
+              this.client.getChats(),
+              new Promise((_, reject) => setTimeout(() => reject(timeoutError), timeoutMs)),
+            ]);
+
+            for (const chat of Array.isArray(chats) ? chats : []) {
+              try {
+                const chatId = String(chat?.id?._serialized || chat?.id || '').trim();
+                if (!chatId || /@g\.us/i.test(chatId) || /status@broadcast/i.test(chatId)) continue;
+
+                const digits = await this._resolveDigitsForRemoteId(chatId);
+                if (!digits) continue;
+
+                const last = chat?.lastMessage || null;
+                const ts = Number(last?.timestamp || 0);
+                const displayName = String(chat?.name || chat?.formattedTitle || '').trim();
+                const lastIsAudio = last ? this._isAudioMessage(last, last) : false;
+                const lastBody = String(last?.body || '').trim() || (lastIsAudio ? 'Áudio' : '');
+                const lastMessage = last && lastBody ? {
+                  id: this._getMessageId(last) || '',
+                  body: lastBody,
+                  fromMe: Boolean(last.fromMe || last.id?.fromMe),
+                  timestamp: ts,
+                  createdAt: ts ? new Date(ts * 1000).toISOString() : null,
+                  source: 'chat-snapshot',
+                  hasMedia: Boolean(last.hasMedia || lastIsAudio),
+                  mediaKind: lastIsAudio ? 'audio' : undefined,
+                } : null;
+
+                if (lastMessage) {
+                  this._appendConversationFromMessage(digits, last, {
+                    id: lastMessage.id,
+                    fromMe: lastMessage.fromMe,
+                    body: lastMessage.body,
+                    timestamp: lastMessage.timestamp,
+                    createdAt: lastMessage.createdAt,
+                    source: 'chat-snapshot',
+                  });
+                }
+
+                snapshot[digits] = {
+                  chatId,
+                  displayName: displayName || null,
+                  unreadCount: Number(chat?.unreadCount || 0),
+                  archived: Boolean(chat?.archived),
+                  pinned: Boolean(chat?.pinned),
+                  lastMessage,
+                };
+              } catch (chatError) {
+                // Um chat inconsistente não deve cancelar a lista inteira.
+                if (DEBUG) {
+                  logErr(this.tenantId, 'chat snapshot item skipped', {
+                    name: chatError?.name || 'Error',
+                    message: chatError?.message || String(chatError),
+                  });
+                }
+              }
+            }
+
+            this.remoteChatsSnapshot = snapshot;
+            this.remoteChatsSnapshotAt = Date.now();
+            this.remoteChatsSnapshotFailureAt = 0;
+            return snapshot;
+          } catch (error) {
+            this.remoteChatsSnapshotFailureAt = Date.now();
+            const shouldLog = (Date.now() - this.remoteChatsSnapshotLastErrorLogAt) >= failureCooldownMs;
+            if (shouldLog) {
+              this.remoteChatsSnapshotLastErrorLogAt = Date.now();
+              logErr(this.tenantId, 'getChatsSnapshotForDigits failed; using local/cache fallback', {
+                name: error?.name || 'Error',
+                code: error?.code || null,
+                message: error?.message || String(error),
+                stack: String(error?.stack || '').split('\n').slice(0, 4).join(' | '),
+                cooldownMs: failureCooldownMs,
+              });
+            }
+            return this.remoteChatsSnapshot || {};
+          } finally {
+            this.remoteChatsSnapshotInFlight = null;
+          }
+        })();
+      }
+
+      // Não bloqueia a resposta HTTP aguardando a varredura remota. O resultado
+      // será aproveitado no próximo polling; enquanto isso, usa cache e histórico local.
+      this.remoteChatsSnapshotInFlight.catch(() => {});
     }
 
-    const digitsForLocalFallback = includeAll ? Array.from(new Set([...digitsWanted, ...Object.keys(out)])) : Array.from(digitsWanted);
+    const digitsForLocalFallback = includeAll
+      ? Array.from(new Set([...digitsWanted, ...Object.keys(out)]))
+      : Array.from(digitsWanted);
+
     for (const digits of digitsForLocalFallback) {
       const localLast = getLastConversationMessage(this.tenantId, digits);
       if (!localLast) continue;
@@ -1690,6 +2074,7 @@ class TenantWhatsApp {
 
     this.client = null;
     this.initPromise = null;
+    this.activationPromise = null;
     this.readyPromise = null;
     this.readyResolve = null;
     this.readyReject = null;
@@ -1734,14 +2119,14 @@ async function sendCustomMessage(tenantId, { toDigits, nome, text } = {}) {
   return wa.sendCustomMessageText({ toDigits, nome, text: t });
 }
 
-async function sendCustomAttachmentMessage(tenantId, { toDigits, fileBase64, mimetype, filename, caption } = {}) {
+async function sendCustomAttachmentMessage(tenantId, { toDigits, fileBase64, filePath, mimetype, filename, caption } = {}) {
   const wa = getTenantWA(tenantId);
-  return wa.sendCustomAttachmentMessage({ toDigits, fileBase64, mimetype, filename, caption });
+  return wa.sendCustomAttachmentMessage({ toDigits, fileBase64, filePath, mimetype, filename, caption });
 }
 
-async function sendCustomAudioMessage(tenantId, { toDigits, audioBase64, mimetype, filename } = {}) {
+async function sendCustomAudioMessage(tenantId, { toDigits, audioBase64, audioFilePath, mimetype, filename } = {}) {
   const wa = getTenantWA(tenantId);
-  return wa.sendCustomAudioMessage({ toDigits, audioBase64, mimetype, filename });
+  return wa.sendCustomAudioMessage({ toDigits, audioBase64, audioFilePath, mimetype, filename });
 }
 
 module.exports = {

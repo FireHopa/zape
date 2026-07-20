@@ -1,0 +1,2 @@
+# Retenção semanal, somente após homologar o dry-run.
+30 3 * * 0 cd /opt/zape/current && /usr/bin/node scripts/apply-retention.js --apply --confirm=APPLY_RETENTION_POLICY >> /var/log/zape/retention-cron.log 2>&1

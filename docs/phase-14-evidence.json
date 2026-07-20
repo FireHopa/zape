@@ -1,0 +1,115 @@
+{
+  "phase": 14,
+  "generatedAt": "2026-07-14T16:05:00.442Z",
+  "syntheticOnly": true,
+  "branch": "refactor/dependencies-zape-phase14",
+  "baseCommit": "8ea64ba",
+  "implementationCommit": "a887351",
+  "metrics": {
+    "tests": {
+      "passed": 137,
+      "failed": 0
+    },
+    "syntaxFiles": 162,
+    "tenantAwareRoutes": 210,
+    "routesWithoutPolicy": 0,
+    "serverLinesBefore": 4668,
+    "serverLinesAfter": 3756,
+    "serverLinesRemoved": 912,
+    "appJsLines": 8249,
+    "sanitizedSecurityScan": {
+      "scannedFiles": 235,
+      "findings": 0
+    },
+    "auditBefore": {
+      "info": 0,
+      "low": 0,
+      "moderate": 6,
+      "high": 3,
+      "critical": 1,
+      "total": 10
+    },
+    "auditProductionOffline": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    },
+    "auditFullOffline": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 0,
+      "critical": 0,
+      "total": 0
+    }
+  },
+  "dependencies": {
+    "express": "4.22.2",
+    "whatsappWebJs": "1.34.7",
+    "vite": "8.1.4",
+    "eslint": "9.39.2",
+    "prettier": "3.9.5",
+    "typescript": "5.8.3",
+    "overrides": {
+      "path-to-regexp": "0.1.13",
+      "minimatch@10.2.2": "10.2.5",
+      "brace-expansion@5.0.2": "5.0.7",
+      "picomatch@2.3.1": "2.3.2"
+    }
+  },
+  "removedLegacy": [
+    "src/leadsStore.js",
+    "src/tagsStore.js",
+    "src/leadTagsStore.js",
+    "src/messageStatusStore.js",
+    "src/whatsapp.js",
+    "public/admin.html",
+    "public/panel.html",
+    "public/regina.html",
+    "public/index.html"
+  ],
+  "smoke": {
+    "tenantRoutes": {
+      "admin": {
+        "endpoints": 6,
+        "ok": true
+      },
+      "panel": {
+        "endpoints": 6,
+        "ok": true
+      },
+      "regina": {
+        "endpoints": 6,
+        "ok": true
+      },
+      "portugal": {
+        "endpoints": 6,
+        "ok": true
+      },
+      "felipe": {
+        "endpoints": 6,
+        "ok": true
+      },
+      "ana": {
+        "endpoints": 6,
+        "ok": true
+      }
+    },
+    "legacyHtmlRedirect": true,
+    "expressVersion": "4.22.2",
+    "whatsappVersion": "1.34.7",
+    "whatsappExportsLoaded": true,
+    "packagedFfmpegAvailable": false,
+    "ffmpegBinaryResolved": true
+  },
+  "limitations": {
+    "onlineAudit": "O endpoint do registry retornou HTTP 502 na última repetição; audits offline e inspeção da árvore final retornaram zero.",
+    "whatsappRealSession": "Não executada; exige sessão e número exclusivos de staging.",
+    "packagedFfmpeg": false,
+    "ffmpegFallback": "/usr/bin/ffmpeg"
+  },
+  "originalZipSha256": "3db2c1512f3d556fc7b254e801b9dbf03d72551b3a521ce265c9e1f353d6ad17"
+}

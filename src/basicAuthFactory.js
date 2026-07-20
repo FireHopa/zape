@@ -1,45 +1,54 @@
-const auth = require("basic-auth");
-const crypto = require("crypto");
+'use strict';
 
-const TENANT_CONFIGS = {
-  admin: { userEnv: "ADMIN_USER", passEnv: "ADMIN_PASS", realm: "Admin", path: "/admin" },
-  panel: { userEnv: "PANEL_USER", passEnv: "PANEL_PASS", realm: "Panel", path: "/panel" },
-  regina: { userEnv: "REGINA_USER", passEnv: "REGINA_PASS", realm: "Painel da Regina", path: "/regina" },
-  portugal: { userEnv: "PORTUGAL_USER", passEnv: "PORTUGAL_PASS", realm: "Painel Portugal", path: "/portugal" },
-  felipe: { userEnv: "FELIPE_USER", passEnv: "FELIPE_PASS", realm: "Painel Felipe", path: "/felipe" },
-  ana: { userEnv: "ANA_USER", passEnv: "ANA_PASS", realm: "Painel Ana Salomão", path: "/ana" },
-};
+const auth = require('basic-auth');
+const crypto = require('crypto');
+const { maskIdentifier, safeError } = require('./safeLog');
+const {
+  clean,
+  getTenantConfig,
+  isTenantEnabled,
+  listTenantConfigs,
+  validateSessionSecret,
+} = require('./authConfig');
+const sessionStore = require('./sessionStore');
+const { LoginRateLimiter } = require('./loginRateLimiter');
+const { buildAuthContext, enforceTenantRequest } = require('./authorization');
+const { setCsrfCookie, clearCsrfCookie } = require('./csrfProtection');
+const { recordSecurityAudit } = require('./securityAuditStore');
+const {
+  getDynamicTenant,
+  verifyDynamicTenantCredentials,
+  isDynamicTenantSessionUserActive,
+} = require('./tenantRegistry');
 
-function tenantFromEnv(userEnv) {
-  return String(userEnv || "").replace(/_USER$/i, "").toLowerCase();
+const loginRateLimiter = new LoginRateLimiter();
+
+function auditAuth(req, action, tenantId, outcome, details = {}) {
+  try {
+    return recordSecurityAudit({ req, action, resource: 'authentication', targetTenantId: tenantId, outcome, details });
+  } catch { return null; }
 }
 
-function getTenantConfig(tenantId) {
-  return TENANT_CONFIGS[String(tenantId || "").toLowerCase()] || null;
+function tenantFromEnv(userEnv) {
+  return String(userEnv || '').replace(/_USER$/i, '').toLowerCase();
 }
 
 function getSecret() {
-  const raw = [
-    process.env.SESSION_SECRET,
-    process.env.AUTH_SECRET,
-    process.env.ADMIN_PASS,
-    process.env.PANEL_PASS,
-    process.env.REGINA_PASS,
-    process.env.PORTUGAL_PASS,
-    process.env.FELIPE_PASS,
-    process.env.ANA_PASS,
-    process.env.PUBLIC_BASE_URL,
-    process.env.APP_BASE_URL,
-  ].filter(Boolean).join("|");
-
-  return raw || "zape-local-dev-secret";
+  const configured = clean(process.env.SESSION_SECRET);
+  const validation = validateSessionSecret(configured, []);
+  if (validation.errors.length) {
+    const error = new Error('SESSION_SECRET ausente ou inseguro.');
+    error.code = 'SESSION_SECRET_INVALID';
+    throw error;
+  }
+  return configured;
 }
 
 function parseCookies(req) {
-  const header = String(req.headers.cookie || "");
+  const header = String(req.headers.cookie || '');
   const out = {};
-  header.split(";").forEach((part) => {
-    const i = part.indexOf("=");
+  header.split(';').forEach((part) => {
+    const i = part.indexOf('=');
     if (i < 0) return;
     const key = part.slice(0, i).trim();
     const val = part.slice(i + 1).trim();
@@ -51,121 +60,177 @@ function parseCookies(req) {
 }
 
 function cookieName(tenantId) {
-  return `zape_auth_${String(tenantId || "").toLowerCase()}`;
-}
-
-function base64url(input) {
-  return Buffer.from(input).toString("base64url");
+  return `zape_auth_${String(tenantId || '').toLowerCase()}`;
 }
 
 function sign(payload) {
-  return crypto.createHmac("sha256", getSecret()).update(payload).digest("base64url");
+  return crypto.createHmac('sha256', getSecret()).update(payload).digest('base64url');
 }
 
-function createToken({ tenantId, username, days = 30 }) {
-  const maxDays = Math.max(1, Math.min(Number(days || 30), 90));
-  const payload = JSON.stringify({
+function safeEqualText(left, right) {
+  const a = Buffer.from(String(left ?? ''), 'utf8');
+  const b = Buffer.from(String(right ?? ''), 'utf8');
+  const max = Math.max(a.length, b.length, 1);
+  const paddedA = Buffer.alloc(max);
+  const paddedB = Buffer.alloc(max);
+  a.copy(paddedA);
+  b.copy(paddedB);
+  return crypto.timingSafeEqual(paddedA, paddedB) && a.length === b.length;
+}
+
+function encodeTokenPayload(payload) {
+  return Buffer.from(JSON.stringify(payload), 'utf8').toString('base64url');
+}
+
+function createToken({ tenantId, username, remember = true, ttlMs, now = Date.now() }) {
+  const configuredTtl = Number(ttlMs);
+  const defaultTtl = remember ? 30 * 24 * 60 * 60 * 1000 : 12 * 60 * 60 * 1000;
+  const duration = Number.isFinite(configuredTtl)
+    ? Math.max(1000, Math.min(configuredTtl, 90 * 24 * 60 * 60 * 1000))
+    : defaultTtl;
+  const exp = now + duration;
+  const { sessionId } = sessionStore.createSession({ tenantId, username, expiresAt: exp, now });
+  const encoded = encodeTokenPayload({
+    v: 1,
     tenantId,
     username,
-    exp: Date.now() + maxDays * 24 * 60 * 60 * 1000,
+    sid: sessionId,
+    iat: now,
+    exp,
   });
-  const encoded = base64url(payload);
   return `${encoded}.${sign(encoded)}`;
 }
 
-function readToken(req, tenantId) {
-  const cookies = parseCookies(req);
-  const token = cookies[cookieName(tenantId)];
-  if (!token || !token.includes(".")) return null;
-
-  const [encoded, signature] = token.split(".");
+function verifySignedToken(token) {
+  if (!token || !String(token).includes('.')) return null;
+  const parts = String(token).split('.');
+  if (parts.length !== 2) return null;
+  const [encoded, signature] = parts;
   if (!encoded || !signature) return null;
 
-  const expected = sign(encoded);
+  let expected;
+  try { expected = sign(encoded); }
+  catch { return null; }
+
   try {
-    const a = Buffer.from(signature);
-    const b = Buffer.from(expected);
+    const a = Buffer.from(signature, 'utf8');
+    const b = Buffer.from(expected, 'utf8');
     if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) return null;
   } catch {
     return null;
   }
 
   try {
-    const payload = JSON.parse(Buffer.from(encoded, "base64url").toString("utf8"));
-    if (!payload || payload.tenantId !== tenantId) return null;
-    if (!payload.exp || Date.now() > Number(payload.exp)) return null;
+    const payload = JSON.parse(Buffer.from(encoded, 'base64url').toString('utf8'));
+    if (!payload || payload.v !== 1 || !payload.sid || !payload.tenantId || !payload.exp) return null;
     return payload;
   } catch {
     return null;
   }
 }
 
-function isSecureRequest(req) {
-  const xfProto = String(req.get("x-forwarded-proto") || "").split(",")[0].trim();
-  return req.secure || xfProto === "https";
+function readTokenValue(token, tenantId, now = Date.now()) {
+  const payload = verifySignedToken(token);
+  if (!payload || payload.tenantId !== tenantId || Number(payload.exp) <= now) return null;
+
+  let stored;
+  try { stored = sessionStore.getSession(payload.sid, now); }
+  catch (error) {
+    console.error('[SECURITY] Falha ao consultar sessão:', safeError(error));
+    return null;
+  }
+
+  if (!stored) return null;
+  if (stored.tenantId !== payload.tenantId || stored.username !== payload.username) return null;
+  if (Number(stored.expiresAt) !== Number(payload.exp)) return null;
+  return { ...payload, sessionHash: stored.idHash };
 }
 
-function setAuthCookie(res, req, tenantId, token, maxAgeDays = 30) {
+function readToken(req, tenantId, now = Date.now()) {
+  const token = parseCookies(req)[cookieName(tenantId)];
+  return readTokenValue(token, tenantId, now);
+}
+
+function isSecureRequest(req) {
+  if (clean(process.env.NODE_ENV).toLowerCase() === 'production') return true;
+  const xfProto = String(req.get('x-forwarded-proto') || '').split(',')[0].trim();
+  return Boolean(req.secure || xfProto === 'https');
+}
+
+function setAuthCookie(res, req, tenantId, token, { remember = true, ttlMs } = {}) {
   const attrs = [
     `${cookieName(tenantId)}=${encodeURIComponent(token)}`,
-    "Path=/",
-    "HttpOnly",
-    "SameSite=Lax",
-    `Max-Age=${Math.max(1, Number(maxAgeDays || 30)) * 24 * 60 * 60}`,
+    'Path=/',
+    'HttpOnly',
+    'SameSite=Lax',
+    'Priority=High',
   ];
-  if (isSecureRequest(req)) attrs.push("Secure");
-  res.setHeader("Set-Cookie", attrs.join("; "));
+  if (remember) {
+    const seconds = Math.max(1, Math.floor((Number(ttlMs) || 30 * 24 * 60 * 60 * 1000) / 1000));
+    attrs.push(`Max-Age=${seconds}`);
+  }
+  if (isSecureRequest(req)) attrs.push('Secure');
+  res.append('Set-Cookie', attrs.join('; '));
 }
 
 function clearAuthCookie(res, req, tenantId) {
   const attrs = [
     `${cookieName(tenantId)}=`,
-    "Path=/",
-    "HttpOnly",
-    "SameSite=Lax",
-    "Max-Age=0",
+    'Path=/',
+    'HttpOnly',
+    'SameSite=Lax',
+    'Priority=High',
+    'Max-Age=0',
+    'Expires=Thu, 01 Jan 1970 00:00:00 GMT',
   ];
-  if (isSecureRequest(req)) attrs.push("Secure");
-  res.append("Set-Cookie", attrs.join("; "));
+  if (isSecureRequest(req)) attrs.push('Secure');
+  res.append('Set-Cookie', attrs.join('; '));
+}
+
+function revokeTokenFromRequest(req, tenantId) {
+  const token = parseCookies(req)[cookieName(tenantId)];
+  const payload = verifySignedToken(token);
+  if (!payload || payload.tenantId !== tenantId || !payload.sid) return false;
+  try { return sessionStore.revokeSession(payload.sid); }
+  catch (error) {
+    console.error('[SECURITY] Falha ao revogar sessão:', safeError(error));
+    return false;
+  }
 }
 
 function wantsHtml(req) {
-  const accept = String(req.get("accept") || "");
-  return req.method === "GET" && accept.includes("text/html") && !req.originalUrl.startsWith("/api/");
+  const accept = String(req.get('accept') || '');
+  return req.method === 'GET' && accept.includes('text/html') && !req.originalUrl.startsWith('/api/');
 }
 
 function normalizeAuthValue(value) {
-  // Evita falha por espaço acidental no .env ou no preenchimento do campo.
-  // Ex.: PANEL_PASS=senha + espaço no final.
-  return String(value ?? "").trim();
+  return clean(value);
 }
 
 function checkCredentials(tenantId, username, password) {
   const cfg = getTenantConfig(tenantId);
-  if (!cfg) return { ok: false, reason: "invalid_tenant", configured: false };
+  if (!cfg) return { ok: false, reason: 'invalid_tenant', configured: false };
+  if (!isTenantEnabled(tenantId)) return { ok: false, reason: 'disabled', configured: false };
 
-  const expectedUserRaw = process.env[cfg.userEnv];
-  const expectedPassRaw = process.env[cfg.passEnv];
-  const expectedUser = normalizeAuthValue(expectedUserRaw);
-  const expectedPass = normalizeAuthValue(expectedPassRaw);
+  if (cfg.credentialSource === 'dynamic') {
+    return verifyDynamicTenantCredentials(tenantId, username, password);
+  }
 
-  // Mantém compatibilidade com o comportamento antigo em dev/local:
-  // sem usuário/senha no .env, o acesso fica liberado.
+  const expectedUser = normalizeAuthValue(process.env[cfg.userEnv]);
+  const expectedPass = normalizeAuthValue(process.env[cfg.passEnv]);
   if (!expectedUser || !expectedPass) {
-    return { ok: true, reason: "unconfigured", configured: false, userOk: true, passOk: true };
+    return { ok: false, reason: 'incomplete_configuration', configured: false };
   }
 
   const providedUser = normalizeAuthValue(username);
   const providedPass = normalizeAuthValue(password);
-  const userOk = providedUser === expectedUser;
-  const passOk = providedPass === expectedPass;
-
+  const userOk = safeEqualText(providedUser, expectedUser);
+  const passOk = safeEqualText(providedPass, expectedPass);
   return {
     ok: userOk && passOk,
-    reason: userOk && passOk ? "ok" : "mismatch",
+    reason: userOk && passOk ? 'ok' : 'mismatch',
     configured: true,
-    userOk,
-    passOk,
+    username: expectedUser,
   };
 }
 
@@ -173,241 +238,310 @@ function verifyCredentials(tenantId, username, password) {
   return checkCredentials(tenantId, username, password).ok;
 }
 
-function logAuthAttempt(req, tenantId, username, check) {
-  const enabled = String(process.env.DEBUG_AUTH || process.env.DEBUG || "").toLowerCase();
-  // Quando DEBUG_AUTH=0, não loga. Caso contrário, loga só o resumo seguro do login.
-  if (enabled === "0" || enabled === "false" || enabled === "off") return;
-
-  const ip = req.ip || req.get("x-forwarded-for") || "";
-  const safeUser = normalizeAuthValue(username);
+function logAuthAttempt(req, tenantId, username, check, rateLimited = false) {
+  const enabled = clean(process.env.DEBUG_AUTH || process.env.DEBUG).toLowerCase();
+  if (enabled === '0' || enabled === 'false' || enabled === 'off' || !enabled) return;
+  const ip = req.socket?.remoteAddress || req.ip || '';
   console.log(
-    `[AUTH] login tenant=${tenantId} user="${safeUser}" ok=${Boolean(check?.ok)} configured=${Boolean(check?.configured)} userOk=${Boolean(check?.userOk)} passOk=${Boolean(check?.passOk)} ip=${ip}`
+    `[AUTH] tenant=${tenantId} user=${maskIdentifier(username)} ok=${Boolean(check?.ok)} configured=${Boolean(check?.configured)} rateLimited=${Boolean(rateLimited)} ip=${maskIdentifier(ip)}`
   );
 }
 
-function unauthorized(req, res, realm, tenantId) {
+function unauthorized(req, res, tenantId) {
+  res.setHeader('Cache-Control', 'no-store');
   if (wantsHtml(req)) {
-    const next = encodeURIComponent(req.originalUrl || getTenantConfig(tenantId)?.path || "/");
+    const cfg = getTenantConfig(tenantId);
+    const next = encodeURIComponent(req.originalUrl || cfg?.path || '/');
     return res.redirect(`/login?tenant=${encodeURIComponent(tenantId)}&next=${next}`);
   }
-
-  // Para chamadas de API/JSON, não envie WWW-Authenticate.
-  // Esse header faz o Chrome/Edge abrir a caixa nativa de autorização mesmo quando o painel já usa login por cookie.
-  res.setHeader("Cache-Control", "no-store");
-  return res.status(401).json({ ok: false, error: "Unauthorized", login: `/login?tenant=${tenantId}` });
+  return res.status(401).json({ ok: false, error: 'Não foi possível autenticar.', login: `/login?tenant=${tenantId}` });
 }
 
-/**
- * Auth middleware com cookie persistente + compatibilidade com Basic Auth.
- * Se env vars estiverem ausentes, libera o acesso como antes (dev/local).
- */
+function forbiddenConfiguration(req, res) {
+  res.setHeader('Cache-Control', 'no-store');
+  return res.status(403).json({ ok: false, error: 'Acesso indisponível.' });
+}
+
+function tooManyAttempts(res, retryAfterMs) {
+  const retryAfter = Math.max(1, Math.ceil(Number(retryAfterMs || 1000) / 1000));
+  res.setHeader('Retry-After', String(retryAfter));
+  res.setHeader('Cache-Control', 'no-store');
+  return res.status(429).json({ ok: false, error: 'Não foi possível autenticar. Tente novamente mais tarde.' });
+}
+
+function currentRoleForUser(tenantId) {
+  const record = getDynamicTenant(tenantId);
+  return record && record.enabled ? record.role : null;
+}
+
+function isSessionUserActive(tenantId, username) {
+  const cfg = getTenantConfig(tenantId);
+  if (cfg?.credentialSource === 'dynamic') return isDynamicTenantSessionUserActive(tenantId, username);
+  return true;
+}
+
+function attachAuth(req, tenantId, session, method, roleOverride) {
+  const role = roleOverride || currentRoleForUser(tenantId);
+  const cfg = getTenantConfig(tenantId);
+  if (cfg?.credentialSource === 'dynamic' && !role) return false;
+  const context = buildAuthContext({
+    tenantId,
+    username: session.username,
+    sessionId: session.sessionHash,
+    method,
+    role,
+  });
+  if (!context) return false;
+  req.auth = context;
+  return true;
+}
+
 function makeBasicAuth({ userEnv, passEnv, realm }) {
   const tenantId = tenantFromEnv(userEnv);
 
   return function persistentAuthMiddleware(req, res, next) {
+    const cfg = getTenantConfig(tenantId);
+    if (!cfg || cfg.userEnv !== userEnv || cfg.passEnv !== passEnv || cfg.realm !== realm) {
+      return forbiddenConfiguration(req, res);
+    }
+    if (!isTenantEnabled(tenantId)) return forbiddenConfiguration(req, res);
+
     const expectedUser = normalizeAuthValue(process.env[userEnv]);
     const expectedPass = normalizeAuthValue(process.env[passEnv]);
-
-    if (!expectedUser || !expectedPass) return next();
+    if (!expectedUser || !expectedPass) return forbiddenConfiguration(req, res);
 
     const session = readToken(req, tenantId);
     if (session) {
-      req.auth = { tenantId, username: session.username, method: "cookie" };
-      return next();
+      if (!isSessionUserActive(tenantId, session.username)) {
+        revokeTokenFromRequest(req, tenantId);
+        clearAuthCookie(res, req, tenantId);
+        return unauthorized(req, res, tenantId);
+      }
+      if (!attachAuth(req, tenantId, session, 'cookie')) return forbiddenConfiguration(req, res);
+      return enforceTenantRequest(req, res, next, tenantId);
     }
 
     const creds = auth(req);
-    const basicUser = creds ? normalizeAuthValue(creds.name) : "";
-    const basicPass = creds ? normalizeAuthValue(creds.pass) : "";
-    if (creds && basicUser === expectedUser && basicPass === expectedPass) {
-      const token = createToken({ tenantId, username: basicUser, days: 30 });
-      setAuthCookie(res, req, tenantId, token, 30);
-      req.auth = { tenantId, username: basicUser, method: "basic" };
-      return next();
+    if (!creds) return unauthorized(req, res, tenantId);
+
+    const rate = loginRateLimiter.check(req, tenantId);
+    if (rate.blocked) {
+      logAuthAttempt(req, tenantId, creds.name, null, true);
+      return tooManyAttempts(res, rate.retryAfterMs);
     }
 
-    return unauthorized(req, res, realm, tenantId);
+    const check = checkCredentials(tenantId, creds.name, creds.pass);
+    logAuthAttempt(req, tenantId, creds.name, check, false);
+    if (!check.ok) {
+      const failed = loginRateLimiter.recordFailure(req, tenantId);
+      if (failed.blocked) return tooManyAttempts(res, failed.retryAfterMs);
+      return unauthorized(req, res, tenantId);
+    }
+
+    loginRateLimiter.recordSuccess(req, tenantId);
+    revokeTokenFromRequest(req, tenantId);
+    try {
+      const authenticatedUsername = normalizeAuthValue(check.username || creds.name);
+      const token = createToken({ tenantId, username: authenticatedUsername, remember: true });
+      setAuthCookie(res, req, tenantId, token, { remember: true });
+      const active = readTokenValue(token, tenantId);
+      if (!attachAuth(req, tenantId, active, 'basic', check.role)) return forbiddenConfiguration(req, res);
+      return enforceTenantRequest(req, res, next, tenantId);
+    } catch (error) {
+      console.error('[SECURITY] Falha ao criar sessão:', safeError(error));
+      return res.status(503).json({ ok: false, error: 'Autenticação temporariamente indisponível.' });
+    }
+  };
+}
+
+function makeTenantAuth(tenantIdInput) {
+  const tenantId = normalizeAuthValue(tenantIdInput).toLowerCase();
+  return function dynamicTenantAuthMiddleware(req, res, next) {
+    const cfg = getTenantConfig(tenantId);
+    if (!cfg || cfg.credentialSource !== 'dynamic' || !isTenantEnabled(tenantId)) {
+      return forbiddenConfiguration(req, res);
+    }
+
+    const session = readToken(req, tenantId);
+    if (session) {
+      if (!isSessionUserActive(tenantId, session.username)) {
+        revokeTokenFromRequest(req, tenantId);
+        clearAuthCookie(res, req, tenantId);
+        return unauthorized(req, res, tenantId);
+      }
+      if (!attachAuth(req, tenantId, session, 'cookie')) return forbiddenConfiguration(req, res);
+      return enforceTenantRequest(req, res, next, tenantId);
+    }
+
+    const creds = auth(req);
+    if (!creds) return unauthorized(req, res, tenantId);
+
+    const rate = loginRateLimiter.check(req, tenantId);
+    if (rate.blocked) {
+      logAuthAttempt(req, tenantId, creds.name, null, true);
+      return tooManyAttempts(res, rate.retryAfterMs);
+    }
+
+    const check = checkCredentials(tenantId, creds.name, creds.pass);
+    logAuthAttempt(req, tenantId, creds.name, check, false);
+    if (!check.ok) {
+      const failed = loginRateLimiter.recordFailure(req, tenantId);
+      if (failed.blocked) return tooManyAttempts(res, failed.retryAfterMs);
+      return unauthorized(req, res, tenantId);
+    }
+
+    loginRateLimiter.recordSuccess(req, tenantId);
+    revokeTokenFromRequest(req, tenantId);
+    try {
+      const authenticatedUsername = normalizeAuthValue(check.username || creds.name);
+      const token = createToken({ tenantId, username: authenticatedUsername, remember: true });
+      setAuthCookie(res, req, tenantId, token, { remember: true });
+      const active = readTokenValue(token, tenantId);
+      if (!attachAuth(req, tenantId, active, 'basic', check.role)) return forbiddenConfiguration(req, res);
+      return enforceTenantRequest(req, res, next, tenantId);
+    } catch (error) {
+      console.error('[SECURITY] Falha ao criar sessão:', safeError(error));
+      return res.status(503).json({ ok: false, error: 'Autenticação temporariamente indisponível.' });
+    }
   };
 }
 
 function anyTenantAuth(req, res, next) {
-  const tenantIds = Object.keys(TENANT_CONFIGS);
-  const configured = tenantIds.filter((tenantId) => {
-    const cfg = getTenantConfig(tenantId);
-    return process.env[cfg.userEnv] && process.env[cfg.passEnv];
-  });
+  const enabledTenants = listTenantConfigs({ includeDisabled: false }).map((cfg) => cfg.tenantId);
+  if (!enabledTenants.length) return forbiddenConfiguration(req, res);
 
-  if (!configured.length) return next();
-
-  for (const tenantId of tenantIds) {
+  for (const tenantId of enabledTenants) {
     const session = readToken(req, tenantId);
     if (session) {
-      req.auth = { tenantId, username: session.username, method: "cookie" };
-      return next();
+      if (!isSessionUserActive(tenantId, session.username)) {
+        revokeTokenFromRequest(req, tenantId);
+        clearAuthCookie(res, req, tenantId);
+        continue;
+      }
+      if (!attachAuth(req, tenantId, session, 'cookie')) return forbiddenConfiguration(req, res);
+      return enforceTenantRequest(req, res, next, tenantId);
     }
   }
+  return unauthorized(req, res, 'admin');
+}
 
-  return unauthorized(req, res, "Protected", "admin");
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
 }
 
 function renderLoginPage() {
+  const options = listTenantConfigs({ includeDisabled: false })
+    .map((cfg) => `<option value="${escapeHtml(cfg.tenantId)}">${escapeHtml(cfg.displayName || cfg.realm || cfg.tenantId)}</option>`)
+    .join('');
   return `<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Entrar • Zape</title>
-  <style>
-    :root{--bg:#f6f8fc;--card:#fff;--text:#111827;--muted:#64748b;--line:#e5e7eb;--blue:#2563eb;--blue2:#1d4ed8;--red:#dc2626;--shadow:0 24px 70px rgba(15,23,42,.12)}
-    *{box-sizing:border-box} body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 0%,#e8f0fe 0,#f6f8fc 32%,#f8fafc 100%);font-family:Inter,Arial,sans-serif;color:var(--text);padding:24px}
-    .card{width:min(420px,100%);background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:28px;padding:28px}
-    .logo{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#4285f4,#34a853,#fbbc05,#ea4335);margin-bottom:18px;color:#fff;font-weight:900;font-size:22px}
-    h1{font-size:24px;line-height:1.15;margin:0 0 8px}.sub{color:var(--muted);font-size:14px;line-height:1.45;margin-bottom:22px}
-    label{display:block;font-size:13px;font-weight:800;margin:14px 0 7px} input,select{width:100%;height:46px;border:1px solid var(--line);border-radius:14px;padding:0 13px;font-size:15px;background:#fff;color:var(--text);outline:none} input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.12)}
-    .row{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--muted);font-size:13px}.row input{width:auto;height:auto}
-    button{width:100%;height:48px;border:0;border-radius:15px;background:var(--blue);color:#fff;font-weight:900;font-size:15px;cursor:pointer;margin-top:18px}button:hover{background:var(--blue2)}button:disabled{opacity:.7;cursor:not-allowed}
-    .err{display:none;margin-top:14px;border:1px solid rgba(220,38,38,.22);background:rgba(220,38,38,.07);color:var(--red);padding:11px 12px;border-radius:14px;font-size:13px;line-height:1.35}.foot{margin-top:16px;color:var(--muted);font-size:12px;line-height:1.45}
-  </style>
+  <link rel="stylesheet" href="/login.css" />
 </head>
 <body>
   <form class="card" id="form">
-    <div class="logo">Z</div>
-    <h1>Entrar no painel</h1>
-    <div class="sub">Faça login uma vez e continue conectado neste navegador.</div>
-
-    <label for="tenant">Painel</label>
-    <select id="tenant" name="tenant">
-      <option value="admin">Admin</option>
-      <option value="panel">Painel</option>
-      <option value="regina">Regina</option>
-      <option value="portugal">Portugal</option>
-      <option value="felipe">Felipe</option>
-      <option value="ana">Ana Salomão</option>
-    </select>
-
-    <label for="username">Usuário</label>
-    <input id="username" name="username" autocomplete="username" required />
-
-    <label for="password">Senha</label>
-    <input id="password" name="password" type="password" autocomplete="current-password" required />
-
+    <div class="logo">Z</div><h1>Entrar no painel</h1><div class="sub">Use as credenciais do seu painel.</div>
+    <label for="tenant">Painel</label><select id="tenant" name="tenant">${options}</select>
+    <label for="username">Usuário</label><input id="username" name="username" autocomplete="username" required />
+    <label for="password">Senha</label><input id="password" name="password" type="password" autocomplete="current-password" required />
     <label class="row"><input id="remember" type="checkbox" checked /> Manter conectado por 30 dias</label>
-
-    <button id="btn" type="submit">Entrar</button>
-    <div id="err" class="err"></div>
-    <div class="foot">Por segurança, a senha não é salva no navegador. O acesso fica salvo por cookie seguro e pode ser encerrado no botão “Sair”.</div>
+    <button id="btn" type="submit">Entrar</button><div id="err" class="err"></div><div class="foot">A senha não é salva no navegador. Use “Sair” para revogar a sessão atual.</div>
   </form>
-  <script>
-    const qs = new URLSearchParams(location.search);
-    const tenant = qs.get('tenant') || 'admin';
-    const next = qs.get('next') || ('/' + tenant);
-    const tenantEl = document.getElementById('tenant');
-    const userEl = document.getElementById('username');
-    const errEl = document.getElementById('err');
-    tenantEl.value = ['admin','panel','regina','portugal','felipe','ana'].includes(tenant) ? tenant : 'admin';
-    userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || '';
-    tenantEl.addEventListener('change', () => { userEl.value = localStorage.getItem('zape_login_user_' + tenantEl.value) || ''; });
-    function showError(message){
-      errEl.textContent = message || 'Não foi possível fazer login.';
-      errEl.style.display = 'block';
-    }
-
-    document.getElementById('form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      errEl.style.display = 'none';
-      const btn = document.getElementById('btn');
-      btn.disabled = true; btn.textContent = 'Entrando...';
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 15000);
-      try{
-        const body = {
-          tenant: tenantEl.value,
-          username: userEl.value.trim(),
-          password: document.getElementById('password').value.trim(),
-          remember: document.getElementById('remember').checked
-        };
-        const r = await fetch('/auth/login', {
-          method:'POST',
-          credentials:'same-origin',
-          cache:'no-store',
-          headers:{'Content-Type':'application/json','Accept':'application/json'},
-          body: JSON.stringify(body),
-          signal: controller.signal
-        });
-
-        const text = await r.text();
-        let j = {};
-        try { j = text ? JSON.parse(text) : {}; }
-        catch(parseErr) {
-          console.error('[ZAPE LOGIN] resposta não JSON:', r.status, text.slice(0, 300));
-          throw new Error('O servidor respondeu de forma inesperada no login. Reinicie o PM2 e tente novamente.');
-        }
-
-        if(!r.ok || !j.ok) {
-          console.warn('[ZAPE LOGIN] falhou:', { status: r.status, tenant: body.tenant, user: body.username, error: j.error });
-          throw new Error(j.error || 'Usuário ou senha inválidos. Confira usuário e senha do .env para este painel.');
-        }
-
-        localStorage.setItem('zape_login_user_' + tenantEl.value, body.username);
-        const target = (j.next && j.next.startsWith('/')) ? j.next : (next && next.startsWith('/') ? next : ('/' + tenantEl.value));
-        location.assign(target);
-      }catch(err){
-        console.error('[ZAPE LOGIN] erro:', err);
-        if (err && err.name === 'AbortError') showError('O login demorou demais para responder. Verifique se o servidor Node/PM2 está rodando corretamente.');
-        else showError(err.message || String(err));
-      }finally{
-        clearTimeout(timer);
-        btn.disabled = false; btn.textContent = 'Entrar';
-      }
-    });
-  </script>
+  <script src="/login.js" defer></script>
 </body>
 </html>`;
 }
 
 function registerAuthRoutes(app) {
-  app.get("/login", (req, res) => {
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "no-store");
+  app.get('/login', (req, res) => {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('Cache-Control', 'no-store');
     res.send(renderLoginPage());
   });
 
-  app.post("/auth/login", (req, res) => {
-    res.setHeader("Cache-Control", "no-store");
-
-    const tenantId = normalizeAuthValue(req.body?.tenant || "admin").toLowerCase();
-    const username = normalizeAuthValue(req.body?.username || "");
-    const password = normalizeAuthValue(req.body?.password || "");
+  app.post('/auth/login', (req, res) => {
+    res.setHeader('Cache-Control', 'no-store');
+    const tenantId = normalizeAuthValue(req.body?.tenant || '').toLowerCase();
+    const username = normalizeAuthValue(req.body?.username || '');
+    const password = normalizeAuthValue(req.body?.password || '');
     const remember = req.body?.remember !== false;
-
     const cfg = getTenantConfig(tenantId);
-    if (!cfg) return res.status(400).json({ ok: false, error: "Painel inválido." });
 
-    const check = checkCredentials(tenantId, username, password);
-    logAuthAttempt(req, tenantId, username, check);
-
-    if (!check.ok) {
-      return res.status(401).json({
-        ok: false,
-        error: "Usuário ou senha inválidos. Confira se o usuário e a senha são exatamente os do .env para este painel.",
-      });
+    const rate = loginRateLimiter.check(req, tenantId || 'unknown');
+    if (rate.blocked) {
+      logAuthAttempt(req, tenantId || 'unknown', username, null, true);
+      auditAuth(req, 'login.rate_limited', tenantId || 'unknown', 'denied', { retryAfterMs: rate.retryAfterMs });
+      return tooManyAttempts(res, rate.retryAfterMs);
     }
 
-    const days = remember ? 30 : 1;
-    const token = createToken({ tenantId, username: username || tenantId, days });
-    setAuthCookie(res, req, tenantId, token, days);
-    res.json({ ok: true, tenantId, next: cfg.path });
+    const check = cfg ? checkCredentials(tenantId, username, password) : { ok: false, configured: false, reason: 'invalid_tenant' };
+    logAuthAttempt(req, tenantId || 'unknown', username, check, false);
+    if (!check.ok) {
+      const failed = loginRateLimiter.recordFailure(req, tenantId || 'unknown');
+      auditAuth(req, 'login.failed', tenantId || 'unknown', 'denied', { reason: check.reason || 'mismatch', rateLimited: failed.blocked });
+      if (failed.blocked) return tooManyAttempts(res, failed.retryAfterMs);
+      return res.status(401).json({ ok: false, error: 'Não foi possível autenticar.' });
+    }
+
+    loginRateLimiter.recordSuccess(req, tenantId);
+    revokeTokenFromRequest(req, tenantId);
+    try {
+      const authenticatedUsername = normalizeAuthValue(check.username || username);
+      const token = createToken({ tenantId, username: authenticatedUsername, remember });
+      setAuthCookie(res, req, tenantId, token, { remember });
+      setCsrfCookie(res, req);
+      const session = readTokenValue(token, tenantId);
+      req.auth = buildAuthContext({ tenantId, username: authenticatedUsername, sessionId: session?.sessionHash || '', method: 'login', role: check.role });
+      auditAuth(req, 'login.success', tenantId, 'success', { remember: Boolean(remember) });
+      return res.json({ ok: true, tenantId, next: cfg.path });
+    } catch (error) {
+      console.error('[SECURITY] Falha ao criar sessão:', safeError(error));
+      return res.status(503).json({ ok: false, error: 'Autenticação temporariamente indisponível.' });
+    }
   });
 
-  app.post("/auth/logout", (req, res) => {
-    const tenantId = String(req.body?.tenant || req.query?.tenant || "").toLowerCase();
-    if (tenantId && getTenantConfig(tenantId)) {
+  app.post('/auth/logout', (req, res) => {
+    res.setHeader('Cache-Control', 'no-store');
+    const requested = normalizeAuthValue(req.body?.tenant || req.query?.tenant || '').toLowerCase();
+    const tenants = requested && getTenantConfig(requested) ? [requested] : listTenantConfigs().map((cfg) => cfg.tenantId);
+    for (const tenantId of tenants) {
+      const active = readToken(req, tenantId);
+      if (active && !req.auth) req.auth = buildAuthContext({ tenantId, username: active.username, sessionId: active.sessionHash, method: 'logout' });
+      revokeTokenFromRequest(req, tenantId);
       clearAuthCookie(res, req, tenantId);
-    } else {
-      Object.keys(TENANT_CONFIGS).forEach((id) => clearAuthCookie(res, req, id));
+      if (active) auditAuth(req, 'logout', tenantId, 'success');
     }
-    res.json({ ok: true });
+    clearCsrfCookie(res, req);
+    return res.json({ ok: true });
   });
 }
 
-module.exports = { makeBasicAuth, anyTenantAuth, registerAuthRoutes };
+module.exports = {
+  makeBasicAuth,
+  makeTenantAuth,
+  anyTenantAuth,
+  registerAuthRoutes,
+  checkCredentials,
+  verifyCredentials,
+  __test: {
+    getSecret,
+    parseCookies,
+    cookieName,
+    createToken,
+    verifySignedToken,
+    readTokenValue,
+    setAuthCookie,
+    clearAuthCookie,
+    revokeTokenFromRequest,
+    loginRateLimiter,
+    safeEqualText,
+  },
+};

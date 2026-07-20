@@ -1,10 +1,33 @@
 require("dotenv").config();
 
 const express = require("express");
-const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+const { assertAuthConfiguration, listTenantConfigs, getTenantConfig, isTenantEnabled, refreshTenantConfigs } = require("./src/authConfig");
+const { assertRuntimeConfiguration, applyTrustProxy } = require("./src/runtimeConfig");
+const {
+  FEATURES,
+  assertDeploymentConfiguration,
+  requireFeature,
+  resolveFeature,
+  releaseMetadata,
+  featureSnapshot,
+} = require("./src/deploymentControl");
+
+let runtimeConfig;
+let deploymentConfig;
+try {
+  const authConfig = assertAuthConfiguration();
+  for (const warning of authConfig.warnings) console.warn(`[CONFIG] ${warning}`);
+  runtimeConfig = assertRuntimeConfiguration();
+  for (const warning of runtimeConfig.warnings) console.warn(`[CONFIG] ${warning}`);
+  deploymentConfig = assertDeploymentConfiguration();
+  for (const warning of deploymentConfig.warnings) console.warn(`[CONFIG] ${warning}`);
+} catch (error) {
+  console.error(`[SECURITY] ${error.code || "CONFIGURATION_INVALID"}: ${error.message}`);
+  process.exit(1);
+}
 
 const { adminAuth } = require("./src/adminAuth");
 const { panelAuth } = require("./src/panelAuth");
@@ -12,11 +35,28 @@ const { reginaAuth } = require("./src/reginaAuth"); // NOVO: Autenticação da R
 const { portugalAuth } = require("./src/portugalAuth"); // NOVO: Autenticação do painel Portugal
 const { felipeAuth } = require("./src/felipeAuth"); // NOVO: Autenticação do painel Felipe
 const { anaAuth } = require("./src/anaAuth"); // NOVO: Autenticação do painel Ana Salomão
-const { registerAuthRoutes, anyTenantAuth } = require("./src/basicAuthFactory");
+const { registerAuthRoutes, anyTenantAuth, makeTenantAuth } = require("./src/basicAuthFactory");
+const { ROLES, PERMISSIONS, requireRole, requirePermission } = require("./src/authorization");
+const { recordSecurityAudit } = require("./src/securityAuditStore");
+const { buildHelmetMiddleware, buildCorsMiddleware, securityResponseHeaders } = require("./src/httpSecurity");
+const { csrfProtection, loginOriginProtection } = require("./src/csrfProtection");
+const { registerTenantPanelRoutes } = require("./src/routes/tenant/registerTenantPanelRoutes");
+const { withTenantLeadWrite } = require("./src/leadWriteCoordinator");
+const { registerHealthRoutes } = require("./src/routes/healthRoutes");
+const { registerBusinessRoutes } = require("./src/routes/businessRoutes");
+const { registerAdminMonitoringRoutes } = require("./src/routes/adminMonitoringRoutes");
+const { registerAdminDeploymentRoutes } = require("./src/routes/adminDeploymentRoutes");
 
 const { normalizeBRPhoneToE164Digits, normalizePhoneToE164Digits, phoneSearchVariants, extractPhoneRegion } = require("./src/phone");
 
-const { readLeads, appendLead, deleteLeadById, toCSV } = require("./src/tenantLeadsStore");
+const { readLeads: readJsonLeads, appendLead, deleteLeadById, toCSV, leadVersion } = require("./src/tenantLeadsStore");
+const { RepositoryConflictError } = require("./src/repositories/leadRepository");
+const databaseRuntime = require("./src/database/runtime");
+const { parseLeadQuery, sortLeadItems, paginateLeadItems } = require("./src/leadQuery");
+const { LeadServiceError, updateLead, mergeLeads } = require("./src/leadService");
+const { validateDataIntegrityOnBoot } = require("./src/dataIntegrity");
+const { dataRoot, ensureTenantDir } = require("./src/tenantPaths");
+const { inspectTenantSession } = require("./src/whatsappSessionGuard");
 const { listTags, upsertTag, deleteTag } = require("./src/tenantTagsStore");
 const { getLeadTagsMap, setLeadTags, removeTagFromAllLeads, removeLeadTags } = require("./src/tenantLeadTagsStore");
 const { readCrmState, writeCrmState } = require("./src/tenantCrmStore");
@@ -29,8 +69,8 @@ function updateTemplateSafe(tenantId, text) {
   }
   return setTemplate(tenantId, String(text || "").trim());
 }
-const { isWhatsAppConfigured, computeLeadStatus, getTenantWA, sendCustomMessage, sendCustomAudioMessage, getChatTextMessages, getChatsSnapshotForDigits, destroyCachedWhatsAppClients } = require("./src/whatsappManager");
-const { listConversationDigits, listConversationMessages, listConversationSummaries, getConversationMediaPath } = require("./src/tenantConversationStore");
+const { isWhatsAppConfigured, computeLeadStatus, getTenantWA, sendCustomMessage, sendCustomAudioMessage, sendCustomAttachmentMessage, getChatTextMessages, getChatsSnapshotForDigits, destroyCachedWhatsAppClients } = require("./src/whatsappManager");
+const { listConversationDigits, listConversationMessages, listConversationSummaries, resolveConversationMedia } = require("./src/tenantConversationStore");
 
 // CORREÇÃO: importando updateWebhook
 const { listWebhooks, createWebhook, updateWebhook, deleteWebhook, resolveWebhookToken } = require("./src/webhooksStore");
@@ -57,28 +97,89 @@ const {
   listTemplateLibrary: listCloudTemplateLibrary,
   handleWebhook: handleCloudWebhook,
   getCloudStatus,
+  runCloudHealthCheck,
   listStatus: listCloudStatus,
 } = require("./src/waCloud");
 const {
   createCampaign: createCloudDispatchCampaign,
+  updateCampaign: updateCloudDispatchCampaign,
   recordEvent: recordCloudDispatchEvent,
   updateEvent: updateCloudDispatchEvent,
   updateByMessageId: updateCloudDispatchByMessageId,
-  markReply: markCloudDispatchReply,
+  correlateInbound: correlateCloudInbound,
+  recordProviderEvent: recordCloudProviderEvent,
   listCampaigns: listCloudDispatchCampaigns,
   listEvents: listCloudDispatchEvents,
 } = require("./src/waCloudDispatchStore");
-const { normalizeMetaError, groupMetaErrors } = require("./src/metaErrorHelper");
+const { normalizeMetaError } = require("./src/metaErrorHelper");
+const { PersistentJobQueue, QueueError } = require("./src/persistentJobQueue");
+const { maskIdentifier, safeError, sanitizeForLog } = require("./src/safeLog");
+const { StructuredLogger, correlationMiddleware, installConsoleBridge } = require("./src/structuredLogger");
+const { defaultMetrics } = require("./src/metricsRegistry");
+const { AlertManager } = require("./src/alertManager");
+const { collectSystemSnapshot, evaluateSystemAlerts } = require("./src/systemMonitor");
+const { exportJsonContact, deleteJsonContact, exportDatabaseContact, deleteDatabaseContact } = require("./src/lgpdService");
+const {
+  ABSOLUTE_MAX_BYTES: MEDIA_ABSOLUTE_MAX_BYTES,
+  baseMime: baseMediaMime,
+  sanitizeFilename: sanitizeMediaFilename,
+  validateMediaFile,
+  streamRequestToTempFile,
+  scanMediaFile,
+  shouldServeInline,
+  safeContentDisposition,
+} = require("./src/mediaSecurity");
+const { getRuntimeConfig: getWaCloudRuntimeConfig } = require("./src/waCloudConfigStore");
+const { connectionFromRuntimeConfig, assertWebhookMatchesConnection } = require("./src/waCloudConnection");
+const {
+  envBool: securityEnvBool,
+  customWebhookSignatureRequired,
+  positiveInt: securityPositiveInt,
+  sha256: securitySha256,
+  timingSafeEqualText,
+  getRawBody,
+  parseJsonBuffer,
+  isJsonContentType,
+  resolveClientIp,
+  validateMetaSignature,
+  validateCustomWebhookSignature,
+  validateFixedWebhookToken,
+  validatePublicLeadPayload,
+  validateActiveCampaignPayload,
+  validateCustomWebhookPayload,
+  validateMetaWebhookPayload,
+  extractMetaPhoneNumberId,
+  deriveMetaEventKey,
+  InMemoryRateLimiter,
+  respondSecurityError,
+  enforceRateLimit,
+} = require("./src/webhookSecurity");
+const {
+  claimWebhookEvent,
+  completeWebhookEvent,
+} = require("./src/webhookEventStore");
 
 const app = express();
+const structuredLogger = new StructuredLogger();
+const alertManager = new AlertManager({ logger: structuredLogger });
+installConsoleBridge({ logger: structuredLogger, passthrough: true });
 
-// Respeita HTTPS quando o app roda atrás de Nginx/Cloudflare/PM2.
-app.set("trust proxy", true);
+// Confia somente na quantidade explícita de proxies reversos definida no boot.
+// Nunca use `true`: isso permitiria que um cliente externo forjasse cabeçalhos encaminhados.
+applyTrustProxy(app, runtimeConfig.trustProxyHops);
+app.use(correlationMiddleware({ logger: structuredLogger, metrics: defaultMetrics }));
 
 const DEBUG = String(process.env.DEBUG || "").toLowerCase() === "true" || process.env.DEBUG === "1";
 const logOk = (...a) => console.log("[OK]", ...a);
 const logErr = (...a) => console.error("[ERROR]", ...a);
-const PORT = process.env.PORT || 3000;
+const PORT = runtimeConfig.port;
+const HOST = runtimeConfig.host;
+
+function readLeads(tenantId) {
+  return databaseRuntime.isDatabasePrimary()
+    ? databaseRuntime.readLeadsFromCache(tenantId)
+    : readJsonLeads(tenantId);
+}
 
 const TENANT_ADMIN = "admin";
 const TENANT_PANEL = "panel";
@@ -87,10 +188,48 @@ const TENANT_PORTUGAL = "portugal"; // NOVO: Inquilino do painel Portugal
 const TENANT_FELIPE = "felipe"; // NOVO: Inquilino do painel Felipe
 const TENANT_ANA = "ana"; // NOVO: Inquilino do painel Ana Salomão
 
+const STATIC_TENANT_AUTHS = Object.freeze({
+  [TENANT_ADMIN]: adminAuth,
+  [TENANT_PANEL]: panelAuth,
+  [TENANT_REGINA]: reginaAuth,
+  [TENANT_PORTUGAL]: portugalAuth,
+  [TENANT_FELIPE]: felipeAuth,
+  [TENANT_ANA]: anaAuth,
+});
+
+const publicEndpointRateLimiter = new InMemoryRateLimiter();
+const PUBLIC_RATE_WINDOW_MS = securityPositiveInt(process.env.PUBLIC_RATE_LIMIT_WINDOW_MS, 60_000, { min: 1_000, max: 3_600_000 });
+const PUBLIC_FORM_RATE_MAX = securityPositiveInt(process.env.PUBLIC_FORM_RATE_LIMIT_MAX, 20, { min: 1, max: 10_000 });
+const ACTIVECAMPAIGN_RATE_MAX = securityPositiveInt(process.env.ACTIVECAMPAIGN_RATE_LIMIT_MAX, 120, { min: 1, max: 100_000 });
+const CUSTOM_WEBHOOK_RATE_MAX = securityPositiveInt(process.env.CUSTOM_WEBHOOK_RATE_LIMIT_MAX, 120, { min: 1, max: 100_000 });
+const META_WEBHOOK_RATE_MAX = securityPositiveInt(process.env.META_WEBHOOK_RATE_LIMIT_MAX, 600, { min: 1, max: 100_000 });
+
 /* -------------------- middlewares -------------------- */
-app.use(cors());
-app.use(express.urlencoded({ extended: true, limit: "60mb" }));
-app.use(express.json({ limit: "60mb" }));
+app.use(buildHelmetMiddleware());
+app.use(securityResponseHeaders);
+app.use(buildCorsMiddleware());
+app.use(loginOriginProtection());
+app.use(csrfProtection());
+
+// Endpoints públicos recebem parsers e limites próprios antes do parser amplo das rotas autenticadas.
+// O raw body não é armazenado globalmente: ele existe apenas durante a validação HMAC dos webhooks.
+const PUBLIC_FORM_BODY_LIMIT = process.env.PUBLIC_FORM_BODY_LIMIT || "250kb";
+const PUBLIC_WEBHOOK_BODY_LIMIT = process.env.PUBLIC_WEBHOOK_BODY_LIMIT || "500kb";
+const META_WEBHOOK_BODY_LIMIT = process.env.META_WEBHOOK_BODY_LIMIT || "1mb";
+
+app.use("/api/leads", express.json({ limit: PUBLIC_FORM_BODY_LIMIT, strict: true }));
+app.use("/api/leads", express.urlencoded({ extended: true, limit: PUBLIC_FORM_BODY_LIMIT, parameterLimit: 50 }));
+app.use("/webhooks/activecampaign", express.json({ limit: PUBLIC_WEBHOOK_BODY_LIMIT, strict: true }));
+app.use("/webhooks/activecampaign", express.urlencoded({ extended: true, limit: PUBLIC_WEBHOOK_BODY_LIMIT, parameterLimit: 500 }));
+app.use("/webhooks/wa-cloud", express.raw({ type: "application/json", limit: META_WEBHOOK_BODY_LIMIT }));
+const generatedWebhookPath = /^\/webhooks\/(?!wa-cloud(?:\/|$)|activecampaign(?:\/|$))[^/]+$/;
+const captureRawBody = (req, _res, buffer) => { req.rawBody = Buffer.from(buffer); };
+app.use(generatedWebhookPath, express.json({ limit: PUBLIC_WEBHOOK_BODY_LIMIT, strict: true, verify: captureRawBody }));
+app.use(generatedWebhookPath, express.urlencoded({ extended: true, limit: PUBLIC_WEBHOOK_BODY_LIMIT, parameterLimit: 500, verify: captureRawBody }));
+
+const AUTHENTICATED_BODY_LIMIT = process.env.AUTHENTICATED_BODY_LIMIT || "16mb";
+app.use(express.urlencoded({ extended: true, limit: AUTHENTICATED_BODY_LIMIT }));
+app.use(express.json({ limit: AUTHENTICATED_BODY_LIMIT }));
 
 registerAuthRoutes(app);
 
@@ -101,7 +240,7 @@ app.use((req, res, next) => {
   res.on("finish", () => {
     const ms = Date.now() - t0;
     const ok = res.statusCode < 400;
-    (ok ? logOk : logErr)(`${req.method} ${req.originalUrl} -> ${res.statusCode} (${ms}ms)`);
+    (ok ? logOk : logErr)(`${req.method} ${safeRequestPath(req)} -> ${res.statusCode} (${ms}ms)`);
   });
   next();
 });
@@ -121,11 +260,134 @@ app.get(["/index.html", "/app.html", "/admin.html", "/panel.html", "/regina.html
 });
 
 // estático
+app.get("/vendor/dompurify.min.js", (req, res) => {
+  res.type("application/javascript");
+  res.sendFile(path.join(__dirname, "node_modules", "dompurify", "dist", "purify.min.js"));
+});
+app.use(
+  "/vendor/phosphor",
+  express.static(path.join(__dirname, "node_modules", "@phosphor-icons", "web", "src", "regular"), {
+    index: false,
+    immutable: process.env.NODE_ENV === "production",
+    maxAge: process.env.NODE_ENV === "production" ? "7d" : 0,
+  })
+);
 app.use(express.static(path.join(__dirname, "public"), { index: false }));
 
 /* -------------------- helpers -------------------- */
 function genId() {
   return crypto.randomBytes(12).toString("hex");
+}
+
+function isProduction() {
+  return String(process.env.NODE_ENV || "").trim().toLowerCase() === "production";
+}
+
+function safeRequestPath(req) {
+  const pathname = String(req?.path || "").split("?")[0];
+  if (/^\/webhooks\/[^/]+$/.test(pathname) && pathname !== "/webhooks/wa-cloud" && pathname !== "/webhooks/activecampaign") {
+    return "/webhooks/[redacted]";
+  }
+  return pathname || "/";
+}
+
+function publicEndpointIdentity(req, suffix = "") {
+  return `${resolveClientIp(req)}:${String(suffix || "").slice(0, 160)}`;
+}
+
+function requireSupportedBody(req, res, { allowForm = false } = {}) {
+  const contentType = String(req.get("content-type") || "").toLowerCase();
+  const supported = isJsonContentType(req) || (allowForm && /^application\/x-www-form-urlencoded(?:\s*;|$)/i.test(contentType));
+  if (!supported) {
+    respondSecurityError(res, 415, "UNSUPPORTED_CONTENT_TYPE", allowForm
+      ? "Use application/json ou application/x-www-form-urlencoded."
+      : "Use application/json.");
+    return false;
+  }
+  return true;
+}
+
+function publicEndpointErrorStatus(error) {
+  const explicit = Number(error?.statusCode || error?.status || 0);
+  if (explicit >= 400 && explicit < 600) return explicit;
+  const code = String(error?.code || "");
+  if (/^(INVALID_|PAYLOAD_|FIELD_|UNKNOWN_FIELDS|TOO_MANY_FIELDS|ARRAY_TOO_LARGE|WEBHOOK_(TIMESTAMP|EVENT_ID|SIGNATURE)_)/.test(code)) return 400;
+  if (/^Lead inválido/i.test(String(error?.message || ""))) return 400;
+  return 500;
+}
+
+function handlePublicEndpointError(res, error, fallbackCode = "INVALID_PAYLOAD") {
+  const safeStatus = publicEndpointErrorStatus(error);
+  const message = safeStatus >= 500 ? "Endpoint temporariamente indisponível." : (error?.message || "Payload inválido.");
+  return respondSecurityError(res, safeStatus, error?.code || fallbackCode, message);
+}
+
+function duplicateWebhookResponse(res, claim) {
+  if (claim.conflict) return respondSecurityError(res, 409, "IDEMPOTENCY_CONFLICT", "A chave de idempotência já foi usada com outro payload.");
+  if (claim.pending) return res.status(202).json({ ok: true, duplicate: true, pending: true });
+  const body = claim.responseBody && typeof claim.responseBody === "object"
+    ? { ...claim.responseBody, duplicate: true }
+    : { ok: true, duplicate: true };
+  return res.status(Number(claim.statusCode || 200)).json(body);
+}
+
+function idempotencyUnavailableError(cause) {
+  const error = new Error("Armazenamento de idempotência indisponível.");
+  error.code = "WEBHOOK_IDEMPOTENCY_UNAVAILABLE";
+  error.statusCode = 503;
+  error.cause = cause;
+  return error;
+}
+
+function completeWebhookEventRequired(args) {
+  try {
+    if (!completeWebhookEvent(args)) throw new Error("Evento de webhook não encontrado para conclusão.");
+    return true;
+  } catch (error) {
+    throw idempotencyUnavailableError(error);
+  }
+}
+
+function completeWebhookEventBestEffort(args) {
+  try {
+    return completeWebhookEvent(args);
+  } catch (error) {
+    logErr("Falha ao persistir resultado técnico do webhook:", safeError(error));
+    return false;
+  }
+}
+
+function activeCampaignEventId(req) {
+  const explicit = String(req.get("x-zape-event-id") || req.get("x-idempotency-key") || "").trim();
+  if (explicit) return explicit.slice(0, 200);
+  return `payload:${securitySha256(JSON.stringify(req.body || {}))}`;
+}
+
+function auditSecurityAction(req, action, resource, outcome = "success", details = undefined) {
+  try {
+    return recordSecurityAudit({
+      req,
+      action,
+      resource,
+      outcome,
+      targetTenantId: req?.auth?.tenantId || "",
+      details,
+    });
+  } catch (error) {
+    console.error("[SECURITY] Falha ao registrar auditoria:", safeError(error));
+    return null;
+  }
+}
+
+function auditDeniedAdministrativeRequest(action, resource) {
+  return function auditDeniedMiddleware(req, res, next) {
+    res.once("finish", () => {
+      if (res.statusCode === 401 || res.statusCode === 403) {
+        auditSecurityAction(req, action, resource, "denied", { statusCode: res.statusCode });
+      }
+    });
+    next();
+  };
 }
 
 function getPublicBaseUrl(req) {
@@ -175,7 +437,36 @@ function summarizeLeadWhatsappStats(tenantId, { notDeliveredAfterMin = 30 } = {}
 }
 
 async function saveLead(tenantId, lead) {
-  await appendLead(tenantId, lead);
+  return withTenantLeadWrite(tenantId, async () => {
+    if (databaseRuntime.isDatabasePrimary()) {
+      return databaseRuntime.createLead(tenantId, lead);
+    }
+
+    const phoneDigits = normalizeBRPhoneToE164Digits(lead?.whatsapp_digits || lead?.whatsapp_raw || '');
+    if (phoneDigits) {
+      const duplicate = readLeads(tenantId).find((item) =>
+        normalizeBRPhoneToE164Digits(item?.whatsapp_digits || item?.whatsapp_raw || '') === phoneDigits
+      );
+      if (duplicate) {
+        throw new LeadServiceError(
+          'LEAD_PHONE_CONFLICT',
+          'Já existe um lead com este WhatsApp. Nenhum registro foi duplicado.',
+          409,
+          { conflictLeadId: String(duplicate.id || '') }
+        );
+      }
+    }
+
+    await appendLead(tenantId, lead);
+    if (databaseRuntime.isShadow()) {
+      try { await databaseRuntime.createLead(tenantId, lead); }
+      catch (error) {
+        console.error(`[PERSISTENCE_SHADOW] Divergência ao gravar lead [${tenantId}]:`, safeError(error));
+        throw error;
+      }
+    }
+    return lead;
+  });
 }
 
 async function processLead(tenantId, source, payload) {
@@ -211,7 +502,11 @@ async function processLead(tenantId, source, payload) {
   }
 
   await saveLead(tenantId, lead);
-  console.log(`✅ Lead salvo [${tenantId}]:`, lead);
+  console.log(`✅ Lead salvo [${tenantId}]`, {
+    leadId: lead.id,
+    source: lead.source,
+    contact: maskIdentifier(lead.whatsapp_digits),
+  });
 
   return lead;
 }
@@ -418,15 +713,12 @@ function dedupeLeadItemsByWhatsapp(items) {
   return out;
 }
 
-function shouldDedupeLeads(req) {
-  const v = String(req.query.dedupe ?? "1").toLowerCase().trim();
-  return !(v === "0" || v === "false" || v === "no" || v === "nao" || v === "não");
-}
-
-function getLeadItemsForRequest(tenantId, req, { limit = 2000 } = {}) {
+function getLeadItemsForRequest(tenantId, req, { paginate = true } = {}) {
   const q = String(req.query.q || "").toLowerCase().trim();
   const from = String(req.query.from || "").trim();
   const to = String(req.query.to || "").trim();
+  const origin = String(req.query.origin || "").toLowerCase().trim();
+  const parsedQuery = parseLeadQuery(req.query || {});
 
   const ddd = String(req.query.ddd || "").trim().replace(/\D+/g, "");
   const statusFilter = String(req.query.status || "").trim();
@@ -452,7 +744,9 @@ function getLeadItemsForRequest(tenantId, req, { limit = 2000 } = {}) {
     leads = leads.filter((l) => String(l.createdAt) <= toISO);
   }
   if (q) {
-    const qDigits = String(req.query.q || "").replace(/\D+/g, "");
+    const rawQuery = String(req.query.q || "").trim();
+    const qDigits = rawQuery.replace(/\D+/g, "");
+    const phoneLikeQuery = qDigits.length >= 4 && /^[+\d\s().-]+$/.test(rawQuery);
     leads = leads.filter(
       (l) =>
         String(l.nome || "").toLowerCase().includes(q) ||
@@ -460,33 +754,32 @@ function getLeadItemsForRequest(tenantId, req, { limit = 2000 } = {}) {
         String(l.empresa || "").toLowerCase().includes(q) ||
         String(l.whatsapp_raw || "").toLowerCase().includes(q) ||
         String(l.whatsapp_digits || "").toLowerCase().includes(q) ||
-        phoneMatchesSearch(l, qDigits)
+        (phoneLikeQuery && phoneMatchesSearch(l, qDigits))
     );
   }
 
-  if (ddd) {
-    leads = leads.filter((l) => extractDDDFromDigits(l.whatsapp_digits) === ddd);
+  if (origin) {
+    leads = leads.filter((lead) => [lead.source, lead.sourceDetail, lead.originDetail, lead.webhookName]
+      .map((value) => String(value || "").toLowerCase())
+      .some((value) => value.includes(origin)));
   }
+
+  if (ddd) leads = leads.filter((l) => extractDDDFromDigits(l.whatsapp_digits) === ddd);
 
   const leadTags = getLeadTagsMap(tenantId);
   const tags = listTags(tenantId);
   const tagById = Object.fromEntries(tags.map((t) => [t.id, t]));
-
   const wa = getTenantWA(tenantId);
 
   let items = leads.map((l) => {
     const ids = Array.isArray(leadTags[l.id]) ? leadTags[l.id] : [];
     const full = ids.map((id) => tagById[id]).filter(Boolean);
-
     const ms = wa.getMessageStatusFor(l.whatsapp_digits || leadPhoneKey(l));
     const leadStatus = computeLeadStatus(ms, { notDeliveredAfterMs });
-
-    return { ...l, tagIds: ids, tagsFull: full, messageStatus: ms, leadStatus };
+    return { ...l, _version: leadVersion(l), tagIds: ids, tagsFull: full, messageStatus: ms, leadStatus };
   });
 
-  if (shouldDedupeLeads(req)) {
-    items = dedupeLeadItemsByWhatsapp(items);
-  }
+  if (parsedQuery.dedupe) items = dedupeLeadItemsByWhatsapp(items);
 
   if (filterTagIds.length) {
     items = items.filter((l) => {
@@ -495,11 +788,10 @@ function getLeadItemsForRequest(tenantId, req, { limit = 2000 } = {}) {
     });
   }
 
-  if (statusFilter) {
-    items = items.filter((l) => String(l.leadStatus || "") === statusFilter);
-  }
+  if (statusFilter) items = items.filter((l) => String(l.leadStatus || "") === statusFilter);
 
-  return { total: items.length, items: items.slice(0, limit), tags };
+  items = sortLeadItems(items, parsedQuery);
+  return { ...paginateLeadItems(items, req.query || {}, { paginate }), tags };
 }
 
 
@@ -676,14 +968,36 @@ function enrichConversationMessagesForClient(tenantId, prefix, digits, messages)
   const safeDigits = leadPhoneKey({ whatsapp_digits: digits });
   return (Array.isArray(messages) ? messages : []).map((msg) => {
     const out = { ...msg };
-    if (out.mediaFile && out.mediaKind === 'audio') {
-      out.mediaUrl = `${prefix}/conversations/${encodeURIComponent(safeDigits)}/media/${encodeURIComponent(out.mediaFile)}`;
+    const mediaRef = String(out.mediaId || out.mediaFile || '').trim();
+    if (mediaRef) {
+      const resolved = resolveConversationMedia(tenantId, safeDigits, mediaRef);
+      out.mediaId = mediaRef;
+      out.mediaName = sanitizeMediaFilename(out.originalName || out.filename || 'arquivo');
+      if (resolved && resolved.exists) {
+        const encodedRef = encodeURIComponent(mediaRef);
+        out.mediaUrl = `${prefix}/conversations/${encodeURIComponent(safeDigits)}/media/${encodedRef}`;
+        out.mediaDownloadUrl = `${out.mediaUrl}?download=1`;
+        // O arquivo no disco é a fonte de verdade. Uma falha transitória anterior no
+        // downloadMedia() não pode manter a mídia bloqueada para sempre na interface.
+        delete out.mediaUnavailable;
+        delete out.mediaErrorCode;
+      } else {
+        out.mediaUnavailable = true;
+      }
     }
+    delete out.mediaFile;
     return out;
   });
 }
 
-function buildConversationsRoutes({ tenantId, authMw, prefix }) {
+function decodeMediaHeader(value, fallback) {
+  const raw = String(value || '').trim();
+  if (!raw) return fallback;
+  try { return decodeURIComponent(raw); } catch { return raw; }
+}
+
+function buildConversationsRoutes({ tenantId, authMw, prefix, secureMediaFeatureGate }) {
+  const mediaMiddleware = secureMediaFeatureGate ? [authMw, secureMediaFeatureGate] : [authMw];
   app.get(`${prefix}/conversations`, authMw, async (req, res) => {
     try {
       const payload = await getConversationContacts(tenantId, req);
@@ -716,45 +1030,242 @@ function buildConversationsRoutes({ tenantId, authMw, prefix }) {
     }
   });
 
-  app.get(`${prefix}/conversations/:digits/media/:file`, authMw, (req, res) => {
+  app.post(`${prefix}/conversations/:digits/register`, authMw, async (req, res) => {
+    let lead = null;
+    let created = false;
+    let externalCrm = { requested: false, queued: false, configured: false };
+    try {
+      const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
+      if (!digits) return res.status(400).json({ ok: false, code: 'INVALID_PHONE', error: 'Número inválido.' });
+
+      const body = req.body && typeof req.body === 'object' ? req.body : {};
+      const syncExternalCrm = body.syncExternalCrm !== false;
+      const targetInput = body.externalCrmTarget && typeof body.externalCrmTarget === 'object'
+        ? body.externalCrmTarget
+        : {};
+
+      if (syncExternalCrm) {
+        const crmStatus = getExternalCrmQueueStatus(tenantId);
+        if (!crmStatus.configured) {
+          return res.status(503).json({
+            ok: false,
+            code: 'EXTERNAL_CRM_NOT_CONFIGURED',
+            error: 'O CRM Inteligente não está configurado. Desative o envio ao CRM ou revise a integração.',
+            localRegistered: false,
+            externalCrm: { requested: true, queued: false, configured: false },
+          });
+        }
+      }
+
+      lead = findLeadByDigits(tenantId, digits);
+      if (!lead) {
+        try {
+          lead = await createManualLead(tenantId, {
+            source: 'conversation_register',
+            sourceDetail: 'Contato cadastrado diretamente pela conversa do WhatsApp',
+            sourceMeta: {
+              type: 'conversation_register',
+              registeredFrom: 'chat',
+              registeredBy: String(req.auth?.userId || ''),
+            },
+            nome: String(body.nome || '').trim(),
+            empresa: String(body.empresa || '').trim(),
+            jaAnuncia: String(body.jaAnuncia || '').trim(),
+            website: String(body.website || '').trim(),
+            email: String(body.email || '').trim(),
+            whatsapp: digits,
+            tags: String(body.tags || '').trim(),
+          });
+          created = true;
+        } catch (error) {
+          if (error?.code === 'LEAD_PHONE_CONFLICT') {
+            lead = findLeadByDigits(tenantId, digits);
+          }
+          if (!lead) throw error;
+        }
+      }
+
+      if (syncExternalCrm) {
+        const queued = enqueueExternalCrmLead({
+          tenantId,
+          webhook: {
+            id: 'conversation-register',
+            name: 'Cadastro pela conversa',
+            displayName: 'Cadastro pela conversa do WhatsApp',
+          },
+          lead,
+          target: {
+            enabled: true,
+            pipelineId: String(targetInput.pipelineId || '').trim(),
+            stageId: String(targetInput.stageId || '').trim(),
+            source: String(targetInput.source || 'WhatsApp').trim() || 'WhatsApp',
+          },
+          payloadType: 'conversation',
+        });
+        externalCrm = {
+          requested: true,
+          configured: true,
+          queued: Boolean(queued?.queued),
+          duplicate: Boolean(queued?.duplicate),
+          status: String(queued?.status || ''),
+          eventKey: String(queued?.eventKey || ''),
+        };
+      }
+
+      auditSecurityAction(req, 'conversation.contact_register', `conversation:${digits}`, 'success', {
+        tenantId,
+        leadId: String(lead?.id || ''),
+        created,
+        externalCrmRequested: syncExternalCrm,
+        externalCrmQueued: Boolean(externalCrm.queued || externalCrm.duplicate),
+      });
+
+      return res.status(created ? 201 : 200).json({
+        ok: true,
+        created,
+        alreadyExisted: !created,
+        lead,
+        contact: {
+          id: lead.id,
+          nome: lead.nome || '',
+          empresa: lead.empresa || '',
+          email: lead.email || '',
+          whatsapp_digits: lead.whatsapp_digits || digits,
+          whatsapp_raw: lead.whatsapp_raw || digits,
+          isLead: true,
+          isNewConversationOnly: false,
+        },
+        externalCrm,
+      });
+    } catch (error) {
+      auditSecurityAction(req, 'conversation.contact_register', `conversation:${req.params.digits}`, 'failed', {
+        tenantId,
+        leadId: String(lead?.id || ''),
+        created,
+        code: error?.code || 'CONVERSATION_REGISTER_FAILED',
+      });
+      const status = Number(error?.statusCode || 400);
+      return res.status(status >= 400 && status <= 599 ? status : 400).json({
+        ok: false,
+        code: error?.code || 'CONVERSATION_REGISTER_FAILED',
+        error: error?.message || 'Não foi possível cadastrar este contato.',
+        localRegistered: Boolean(lead),
+        lead: lead || undefined,
+        externalCrm,
+      });
+    }
+  });
+
+  app.get(`${prefix}/conversations/:digits/media/:mediaId`, ...mediaMiddleware, (req, res) => {
     try {
       const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
       if (!digits) return res.status(400).send('Número inválido.');
-      const filePath = getConversationMediaPath(tenantId, req.params.file);
-      if (!filePath) return res.status(404).send('Áudio não encontrado.');
-      res.sendFile(filePath);
+      const resolved = resolveConversationMedia(tenantId, digits, req.params.mediaId);
+      if (!resolved) return res.status(404).send('Mídia não pertence a esta conversa.');
+      if (!resolved.exists || !resolved.filePath) return res.status(410).send('Mídia indisponível.');
+
+      const validated = validateMediaFile(resolved.filePath, {
+        declaredMime: resolved.mimetype,
+        filename: resolved.filename,
+      });
+      const inline = req.query.download !== '1' && shouldServeInline(validated.kind);
+      res.setHeader('Content-Type', validated.mimetype);
+      res.setHeader('Content-Disposition', safeContentDisposition(resolved.filename, inline));
+      res.setHeader('X-Content-Type-Options', 'nosniff');
+      res.setHeader('Cross-Origin-Resource-Policy', 'same-origin');
+      res.setHeader('Cache-Control', 'private, max-age=300, no-transform');
+      if (validated.kind === 'pdf') res.setHeader('Content-Security-Policy', "sandbox; default-src 'none'; style-src 'unsafe-inline'");
+      return res.sendFile(resolved.filePath);
     } catch (err) {
-      res.status(400).send(err?.message || String(err));
+      const status = Number(err?.statusCode || 400);
+      return res.status(status >= 400 && status <= 599 ? status : 400).send(err?.message || 'Mídia inválida.');
     }
   });
 
-  app.post(`${prefix}/conversations/:digits/audio`, authMw, async (req, res) => {
+
+  app.post(`${prefix}/conversations/:digits/audio`, ...mediaMiddleware, async (req, res) => {
+    let uploaded = null;
     try {
       const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
       if (!digits) return res.status(400).json({ ok: false, error: 'Número inválido.' });
+      const contentType = baseMediaMime(req.headers['content-type']);
+      let result;
 
-      // Aceita Base64 puro, DataURL completo ou o campo legado `audio`.
-      // Isso evita erro quando o navegador envia `data:audio/webm;base64,...`.
-      const audioBase64 = String(req.body?.audioBase64 || req.body?.audioDataUrl || req.body?.dataUrl || req.body?.audio || '').trim();
-      const mimetype = String(req.body?.mimetype || req.body?.mimeType || '').trim() || 'audio/webm';
-      const filename = String(req.body?.filename || 'audio.webm').trim();
-      if (!audioBase64) return res.status(400).json({ ok: false, error: 'Áudio vazio. Grave novamente e tente enviar.' });
-
-      const result = await sendCustomAudioMessage(tenantId, {
-        toDigits: digits,
-        audioBase64,
-        mimetype,
-        filename,
-      });
+      if (contentType.startsWith('audio/')) {
+        const filename = sanitizeMediaFilename(decodeMediaHeader(req.headers['x-zape-filename'], 'audio.webm'), 'audio.webm');
+        uploaded = await streamRequestToTempFile(req, { maxBytes: MEDIA_ABSOLUTE_MAX_BYTES, prefix: `zape-audio-${tenantId}-` });
+        const validated = validateMediaFile(uploaded.filePath, { declaredMime: contentType, filename });
+        if (validated.kind !== 'audio') return res.status(415).json({ ok: false, error: 'O conteúdo enviado não é um áudio válido.' });
+        scanMediaFile(uploaded.filePath);
+        result = await sendCustomAudioMessage(tenantId, {
+          toDigits: digits,
+          audioFilePath: uploaded.filePath,
+          mimetype: validated.mimetype,
+          filename: validated.filename,
+        });
+      } else {
+        // Compatibilidade temporária com clientes antigos. O frontend atual usa upload binário.
+        const audioBase64 = String(req.body?.audioBase64 || req.body?.audioDataUrl || req.body?.dataUrl || req.body?.audio || '').trim();
+        const mimetype = String(req.body?.mimetype || req.body?.mimeType || '').trim() || 'audio/webm';
+        const filename = sanitizeMediaFilename(String(req.body?.filename || 'audio.webm').trim(), 'audio.webm');
+        if (!audioBase64) return res.status(400).json({ ok: false, error: 'Áudio vazio. Grave novamente e tente enviar.' });
+        if (audioBase64.length > Math.ceil(MEDIA_ABSOLUTE_MAX_BYTES * 4 / 3) + 1024) {
+          return res.status(413).json({ ok: false, error: 'Áudio acima do limite permitido.' });
+        }
+        result = await sendCustomAudioMessage(tenantId, { toDigits: digits, audioBase64, mimetype, filename });
+      }
 
       const message = enrichConversationMessagesForClient(tenantId, prefix, digits, [result.message])[0];
-      res.json({ ok: true, message });
+      return res.json({ ok: true, message });
     } catch (err) {
       const raw = err?.message || String(err);
       const error = raw && raw.length <= 2 ? 'Não consegui enviar este áudio. Grave novamente e tente outra vez.' : raw;
-      res.status(400).json({ ok: false, error });
+      const status = Number(err?.statusCode || 400);
+      return res.status(status >= 400 && status <= 599 ? status : 400).json({ ok: false, error, code: err?.code || undefined });
+    } finally {
+      if (uploaded?.tempDir) {
+        try { fs.rmSync(uploaded.tempDir, { recursive: true, force: true }); } catch {}
+      }
     }
   });
+
+  app.post(`${prefix}/conversations/:digits/attachments`, ...mediaMiddleware, async (req, res) => {
+    let uploaded = null;
+    try {
+      const digits = leadPhoneKey({ whatsapp_digits: req.params.digits });
+      if (!digits) return res.status(400).json({ ok: false, error: 'Número inválido.' });
+      const declaredMime = baseMediaMime(req.headers['content-type']);
+      if (!declaredMime || declaredMime === 'application/octet-stream') {
+        return res.status(415).json({ ok: false, error: 'Informe o tipo real do arquivo no Content-Type.' });
+      }
+      const filename = sanitizeMediaFilename(decodeMediaHeader(req.headers['x-zape-filename'], 'arquivo'), 'arquivo');
+      const caption = decodeMediaHeader(req.headers['x-zape-caption'], '').slice(0, 1000);
+      uploaded = await streamRequestToTempFile(req, { maxBytes: MEDIA_ABSOLUTE_MAX_BYTES, prefix: `zape-attachment-${tenantId}-` });
+      const validated = validateMediaFile(uploaded.filePath, { declaredMime, filename });
+      scanMediaFile(uploaded.filePath);
+      const result = await sendCustomAttachmentMessage(tenantId, {
+        toDigits: digits,
+        filePath: uploaded.filePath,
+        mimetype: validated.mimetype,
+        filename: validated.filename,
+        caption,
+      });
+      const message = enrichConversationMessagesForClient(tenantId, prefix, digits, [result.message])[0];
+      return res.json({ ok: true, message });
+    } catch (err) {
+      const status = Number(err?.statusCode || 400);
+      return res.status(status >= 400 && status <= 599 ? status : 400).json({
+        ok: false,
+        code: err?.code || 'MEDIA_UPLOAD_FAILED',
+        error: err?.message || 'Não foi possível enviar o arquivo.',
+      });
+    } finally {
+      if (uploaded?.tempDir) {
+        try { fs.rmSync(uploaded.tempDir, { recursive: true, force: true }); } catch {}
+      }
+    }
+  });
+
 
   app.post(`${prefix}/conversations/:digits/messages`, authMw, async (req, res) => {
     try {
@@ -785,9 +1296,67 @@ function buildConversationsRoutes({ tenantId, authMw, prefix }) {
   });
 }
 
-function buildLeadsHandler({ tenantId, authMw }) {
+function buildLeadsHandler({ tenantId }) {
   return (req, res) => {
-    res.json(getLeadItemsForRequest(tenantId, req, { limit: 2000 }));
+    res.json(getLeadItemsForRequest(tenantId, req, { paginate: true }));
+  };
+}
+
+function respondLeadServiceError(res, error) {
+  if (error instanceof LeadServiceError || error instanceof RepositoryConflictError || (error && error.statusCode && error.code)) {
+    return res.status(error.statusCode || 400).json({
+      ok: false,
+      code: error.code,
+      error: error.message,
+      ...(error.details || {}),
+    });
+  }
+  console.error('[LEADS] Falha inesperada:', safeError(error));
+  return res.status(500).json({ ok: false, code: 'LEAD_OPERATION_FAILED', error: 'Não foi possível concluir a operação com o lead.' });
+}
+
+function buildUpdateLeadHandler(tenantId) {
+  return async (req, res) => {
+    try {
+      let result;
+      if (databaseRuntime.isDatabasePrimary()) {
+        const before = readLeads(tenantId).find((lead) => String(lead.id) === String(req.params.id));
+        const lead = await databaseRuntime.updateLead(tenantId, req.params.id, req.body?._version, req.body || {}, req.auth?.userId || null);
+        if (!lead) return res.status(404).json({ ok: false, error: 'Lead não encontrado.' });
+        const fields = ['nome','empresa','email','website','jaAnuncia','whatsapp_digits'];
+        const changes = fields.filter((field) => String(before?.[field] || '') !== String(lead?.[field] || '')).map((field) => ({ field, previous: before?.[field] || '', next: lead?.[field] || '' }));
+        result = { lead: { ...lead, _version: leadVersion(lead) }, changes };
+      } else {
+        result = updateLead(tenantId, req.params.id, req.body || {}, req);
+      }
+      auditSecurityAction(req, 'lead.update', `lead:${req.params.id}`, 'success', { changedFields: result.changes.map((item) => item.field) });
+      return res.json({ ok: true, ...result });
+    } catch (error) {
+      auditSecurityAction(req, 'lead.update', `lead:${req.params.id}`, 'failed', { code: error?.code || 'LEAD_OPERATION_FAILED' });
+      return respondLeadServiceError(res, error);
+    }
+  };
+}
+
+function buildMergeLeadHandler(tenantId) {
+  return async (req, res) => {
+    try {
+      let result;
+      if (databaseRuntime.isDatabasePrimary()) {
+        if (String(req.body?.confirm || '') !== 'MERGE_LEADS') throw new RepositoryConflictError('MERGE_CONFIRMATION_REQUIRED', 'Confirmação explícita MERGE_LEADS é obrigatória.');
+        const sourceId = String(req.body?.sourceLeadId || '');
+        const lead = await databaseRuntime.mergeLeads(tenantId, req.params.id, sourceId, req.body?.targetVersion, req.body?.sourceVersion, req.auth?.userId || null);
+        if (!lead) return res.status(404).json({ ok: false, error: 'Lead não encontrado.' });
+        result = { lead: { ...lead, _version: leadVersion(lead) }, mergedLeadId: sourceId };
+      } else {
+        result = mergeLeads(tenantId, req.params.id, req.body || {}, req);
+      }
+      auditSecurityAction(req, 'lead.merge', `lead:${req.params.id}`, 'success', { mergedLeadId: result.mergedLeadId });
+      return res.json({ ok: true, ...result });
+    } catch (error) {
+      auditSecurityAction(req, 'lead.merge', `lead:${req.params.id}`, 'failed', { code: error?.code || 'LEAD_OPERATION_FAILED' });
+      return respondLeadServiceError(res, error);
+    }
   };
 }
 
@@ -1024,13 +1593,17 @@ function shouldClearLeadWhatsappStatus(req) {
   return !(v === "0" || v === "false" || v === "no" || v === "nao" || v === "não");
 }
 
-function deleteLeadEverywhere(tenantId, leadId, req) {
-  const out = deleteLeadById(tenantId, leadId);
-  if (!out.ok || !out.deleted) {
+async function deleteLeadEverywhere(tenantId, leadId, req) {
+  const out = databaseRuntime.isDatabasePrimary() ? null : deleteLeadById(tenantId, leadId);
+  const databaseDeleted = databaseRuntime.isDatabasePrimary() ? await databaseRuntime.deleteLead(tenantId, leadId) : null;
+  const normalizedOut = databaseRuntime.isDatabasePrimary()
+    ? { ok: Boolean(databaseDeleted), deleted: databaseDeleted, removed: databaseDeleted ? 1 : 0 }
+    : out;
+  if (!normalizedOut.ok || !normalizedOut.deleted) {
     return { ok: false, error: "Lead não encontrado." };
   }
 
-  const deleted = out.deleted;
+  const deleted = normalizedOut.deleted;
   const digits = String(deleted.whatsapp_digits || deleted.whatsapp_raw || "").replace(/\D+/g, "");
 
   let tagsRemoved = false;
@@ -1065,14 +1638,16 @@ function deleteLeadEverywhere(tenantId, leadId, req) {
     }
   }
 
-  return {
+  const result = {
     ok: true,
     deletedLeadId: String(leadId),
-    removed: out.removed || 1,
+    removed: normalizedOut.removed || 1,
     tagsRemoved,
     crmRemoved,
     whatsappStatusCleared,
   };
+  auditSecurityAction(req, "lead.delete", `lead:${leadId}`, "success", { tenantId, tagsRemoved, crmRemoved, whatsappStatusCleared });
+  return result;
 }
 
 
@@ -1218,28 +1793,31 @@ function dispatchSourceInfo(contact) {
 
 function dispatchStatusLabel(status) {
   const s = String(status || "").toLowerCase();
-  const map = { pending: "Na fila", queued: "Na fila", sent: "Enviado", delivered: "Entregue", read: "Lido", responded: "Respondido", failed: "Falhou", canceled: "Cancelado" };
+  const map = { pending: "Na fila", queued: "Na fila", submitted: "Submetido", sent: "Enviado", delivered: "Entregue", read: "Lido", replied: "Respondido", responded: "Respondido", failed: "Falhou", expired: "Expirado", canceled: "Cancelado" };
   return map[s] || (s ? s.replace(/_/g, " ") : "Sem status");
 }
 
 function dispatchStatusClass(status) {
   const s = String(status || "").toLowerCase();
-  if (s === "responded") return "ok";
+  if (s === "replied" || s === "responded") return "ok";
   if (s === "read") return "read";
   if (s === "delivered") return "delivered";
   if (s === "failed") return "err";
-  if (s === "sent") return "sent";
+  if (s === "sent" || s === "submitted") return "sent";
   return "pending";
 }
 
 function normalizeDispatchFinalStatus(event) {
   const s = String((event && event.status) || "").toLowerCase();
-  if (s === "responded" || event?.respondedAt) return "responded";
+  if (s === "replied" || s === "responded" || event?.repliedAt || event?.respondedAt) return "replied";
   if (s === "read" || event?.readAt) return "read";
   if (s === "delivered" || event?.deliveredAt) return "delivered";
   if (s === "failed" || event?.failedAt || event?.error) return "failed";
-  if (s === "sent" || event?.sentAt || event?.messageId) return "sent";
-  return "pending";
+  if (s === "sent" || event?.sentAt) return "sent";
+  if (s === "submitted" || event?.submittedAt || event?.messageId) return "submitted";
+  if (s === "expired") return "expired";
+  if (s === "canceled") return "canceled";
+  return "queued";
 }
 
 function dispatchMetricBlank() {
@@ -1249,10 +1827,10 @@ function dispatchMetricBlank() {
 function addDispatchMetric(metrics, status) {
   metrics.total += 1;
   const s = normalizeDispatchFinalStatus({ status });
-  if (["sent", "delivered", "read", "responded"].includes(s)) metrics.sent += 1;
-  if (["delivered", "read", "responded"].includes(s)) metrics.delivered += 1;
-  if (["read", "responded"].includes(s)) metrics.read += 1;
-  if (s === "responded") metrics.responded += 1;
+  if (["submitted", "sent", "delivered", "read", "replied"].includes(s)) metrics.sent += 1;
+  if (["delivered", "read", "replied"].includes(s)) metrics.delivered += 1;
+  if (["read", "replied"].includes(s)) metrics.read += 1;
+  if (s === "replied") metrics.responded += 1;
   else if (s === "failed") metrics.failed += 1;
   else if (s === "pending" || s === "sent") metrics.pending += 1;
 }
@@ -1297,6 +1875,7 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
         campaignName: "Histórico antigo da API oficial",
         templateName: st.templateName || "Modelo antigo",
         languageCode: st.languageCode || "",
+        recipientId: to,
         toDigits: to,
         leadId: "",
         leadSnapshot: null,
@@ -1486,44 +2065,82 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
   };
 }
 
-function syncCloudDispatchFromWebhook(body) {
+function syncCloudDispatchFromWebhook(body, connection, metaEventId) {
   const nowIso = new Date().toISOString();
-  const entry = Array.isArray(body && body.entry) ? body.entry : [];
-  for (const e of entry) {
-    const changes = Array.isArray(e && e.changes) ? e.changes : [];
-    for (const c of changes) {
-      const value = c && c.value ? c.value : {};
-      const statuses = Array.isArray(value.statuses) ? value.statuses : [];
-      for (const st of statuses) {
-        const messageId = String(st && st.id || "").trim();
-        const state = String(st && st.status || "").trim().toLowerCase();
-        if (!messageId || !state) continue;
-        const patch = { deliveryState: state };
-        if (state === "sent") { patch.status = "sent"; patch.sentAckAt = nowIso; }
-        else if (state === "delivered") { patch.status = "delivered"; patch.deliveredAt = nowIso; }
-        else if (state === "read") { patch.status = "read"; patch.readAt = nowIso; }
-        else if (state === "failed") {
-          const webhookError = (Array.isArray(st.errors) && st.errors[0]) || null;
-          patch.status = "failed";
-          patch.failedAt = nowIso;
-          patch.error = webhookError;
-          patch.errorInfo = webhookError ? normalizeMetaError(webhookError) : null;
-        }
-        patch.conversation = st.conversation || null;
-        patch.pricing = st.pricing || null;
-        updateCloudDispatchByMessageId(messageId, patch);
+  const parsedEvents = handleCloudWebhook(body);
+  const summary = { statuses: 0, replies: 0, unmatchedStatuses: 0, unmatchedReplies: 0 };
+  for (const event of parsedEvents) {
+    if (event.kind === "status") {
+      const state = String(event.state || "").toLowerCase();
+      if (!event.messageId || !state) continue;
+      const patch = {
+        deliveryState: state,
+        conversationId: event.conversationId || null,
+        conversation: event.raw?.conversation || null,
+        pricing: event.raw?.pricing || null,
+      };
+      if (state === "sent") patch.status = "sent";
+      else if (state === "delivered") patch.status = "delivered";
+      else if (state === "read") patch.status = "read";
+      else if (state === "failed") {
+        const webhookError = (Array.isArray(event.raw?.errors) && event.raw.errors[0]) || null;
+        patch.status = "failed";
+        patch.error = webhookError;
+        patch.errorInfo = webhookError ? normalizeMetaError(webhookError) : null;
+      } else continue;
+      const updated = updateCloudDispatchByMessageId(event.messageId, patch, {
+        connectionId: connection.connectionId,
+        phoneNumberId: connection.phoneNumberId,
+        recipientId: event.recipientId,
+        source: "meta_webhook",
+        eventId: metaEventId,
+        providerStatus: state,
+        at: nowIso,
+      });
+      if (updated) summary.statuses += 1;
+      else {
+        summary.unmatchedStatuses += 1;
+        recordCloudProviderEvent({
+          kind: "status",
+          connectionId: connection.connectionId,
+          phoneNumberId: connection.phoneNumberId,
+          wabaId: connection.wabaId,
+          recipientId: event.recipientId,
+          messageId: event.messageId,
+          type: state,
+          timestamp: nowIso,
+          matchMethod: "unmatched_message_id",
+        });
       }
-      const msgs = Array.isArray(value.messages) ? value.messages : [];
-      for (const msg of msgs) {
-        const from = String(msg && msg.from || "").trim();
-        if (!from) continue;
-        markCloudDispatchReply(from, {
-          respondedAt: nowIso,
-          inbound: { id: msg.id || null, type: msg.type || null, text: msg.text && msg.text.body ? msg.text.body : null, timestamp: msg.timestamp || null },
-        }, { windowMs: 7 * 24 * 60 * 60 * 1000 });
-      }
+      continue;
+    }
+
+    if (event.kind === "message") {
+      const correlated = correlateCloudInbound({
+        kind: "message",
+        connectionId: connection.connectionId,
+        phoneNumberId: connection.phoneNumberId,
+        wabaId: connection.wabaId,
+        recipientId: event.recipientId,
+        messageId: event.messageId,
+        contextMessageId: event.contextMessageId,
+        type: event.type,
+        timestamp: event.timestamp,
+        at: nowIso,
+        eventId: metaEventId,
+        inbound: {
+          id: event.messageId || null,
+          type: event.type || null,
+          text: event.text || null,
+          timestamp: event.timestamp || null,
+          contextMessageId: event.contextMessageId || null,
+        },
+      });
+      if (correlated.matched) summary.replies += 1;
+      else summary.unmatchedReplies += 1;
     }
   }
+  return summary;
 }
 
 function incMap(map, key, amount = 1) {
@@ -1959,46 +2576,115 @@ function buildTenantInsights(tenantId, req) {
 }
 
 /* -------------------- routes -------------------- */
-app.get("/health", (_, res) => res.json({ ok: true }));
+registerHealthRoutes(app, { databaseRuntime, releaseMetadata });
 
-/** mantém comportamento antigo: formulário público cria lead no tenant ADMIN */
+/** Formulário público legado. Em produção permanece desabilitado até ativação explícita. */
 app.post("/api/leads", async (req, res) => {
+  const enabled = securityEnvBool(process.env.PUBLIC_LEAD_FORM_ENABLED, !isProduction());
+  if (!enabled) return res.status(404).json({ ok: false, error: "not_found" });
+  if (!requireSupportedBody(req, res, { allowForm: true })) return;
+
+  const expectedToken = String(process.env.PUBLIC_LEAD_FORM_TOKEN || "").trim();
+  if (isProduction() && expectedToken.length < 32) {
+    return respondSecurityError(res, 503, "PUBLIC_FORM_NOT_CONFIGURED", "Formulário público indisponível.");
+  }
+  if (expectedToken && !validateFixedWebhookToken(req, expectedToken)) {
+    return respondSecurityError(res, 401, "INVALID_PUBLIC_FORM_TOKEN", "Credencial inválida.");
+  }
+  if (!enforceRateLimit({
+    req,
+    res,
+    limiter: publicEndpointRateLimiter,
+    scope: "public-form",
+    identity: publicEndpointIdentity(req),
+    max: PUBLIC_FORM_RATE_MAX,
+    windowMs: PUBLIC_RATE_WINDOW_MS,
+  })) return;
+
+  let claim = null;
+  let eventId = "";
   try {
+    const payload = validatePublicLeadPayload(req.body || {});
+    eventId = String(req.get("idempotency-key") || req.get("x-idempotency-key") || "").trim().slice(0, 200);
+    if (eventId) {
+      claim = claimWebhookEvent({ integration: "public-form", tenantId: TENANT_ADMIN, eventId, requestHash: securitySha256(JSON.stringify(payload)) });
+      if (!claim.claimed) return duplicateWebhookResponse(res, claim);
+    }
+
     const lead = await processLead(TENANT_ADMIN, "local_form", {
       sourceDetail: "Formulário local antigo do site",
       sourceMeta: { type: "form", form: "local_form" },
-      nome: req.body.nome,
-      empresa: req.body.empresa,
-      jaAnuncia: req.body.jaAnuncia,
-      website: req.body.website,
-      email: req.body.email,
-      whatsapp: req.body.whatsapp,
+      ...payload,
     });
-
-    res.json({ ok: true, leadId: lead.id });
-  } catch (err) {
-    res.status(400).json({ ok: false, error: err.message });
+    const responseBody = { ok: true, leadId: lead.id };
+    if (claim?.claimed) completeWebhookEventRequired({ integration: "public-form", tenantId: TENANT_ADMIN, eventId, statusCode: 200, responseBody });
+    return res.json(responseBody);
+  } catch (error) {
+    if (claim?.claimed) {
+      const statusCode = publicEndpointErrorStatus(error);
+      completeWebhookEventBestEffort({
+        integration: "public-form",
+        tenantId: TENANT_ADMIN,
+        eventId,
+        statusCode,
+        responseBody: {
+          ok: false,
+          code: error?.code || "INVALID_PAYLOAD",
+          error: statusCode >= 500 ? "Endpoint temporariamente indisponível." : (error?.message || "Payload inválido."),
+        },
+      });
+    }
+    return handlePublicEndpointError(res, error);
   }
 });
 
-app.post("/debug/active", (req, res) => {
-  console.log("========== ACTIVE HEADERS ==========");
-  console.dir(req.headers, { depth: null });
-  console.log("========== ACTIVE BODY =============");
-  console.dir(req.body, { depth: null });
-  console.log("====================================");
-  res.json({ ok: true });
-});
+// Endpoint de diagnóstico disponível somente em desenvolvimento, com feature flag e super_admin.
+if (!isProduction() && DEBUG && securityEnvBool(process.env.ENABLE_DEBUG_ACTIVE, false)) {
+  app.post("/debug/active", adminAuth, requireRole(ROLES.SUPER_ADMIN), (req, res) => {
+    console.log("[DEBUG_ACTIVE] requisição autorizada", {
+      contentType: req.get("content-type") || "",
+      contentLength: req.get("content-length") || "",
+      bodyKeys: req.body && typeof req.body === "object" ? Object.keys(req.body).slice(0, 30) : [],
+    });
+    res.json({ ok: true });
+  });
+}
 
 /**
  * Entrada fixa da ActiveCampaign no tenant ADMIN.
- * Esta rota permanece sempre ativa: recebe dados da ActiveCampaign, cria o lead
- * e, quando o CRM estiver configurado, também registra o mesmo lead no CRM Inteligente.
- * Não existe envio de dados deste sistema para a ActiveCampaign.
+ * Requer ativação explícita e token forte. O evento é idempotente por x-zape-event-id,
+ * x-idempotency-key ou hash do payload quando o provedor não envia um identificador.
  */
 app.post("/webhooks/activecampaign", async (req, res) => {
+  const enabled = securityEnvBool(process.env.ACTIVECAMPAIGN_WEBHOOK_ENABLED, !isProduction());
+  if (!enabled) return res.status(404).json({ ok: false, error: "not_found" });
+  if (!requireSupportedBody(req, res, { allowForm: true })) return;
+
+  const expectedToken = String(process.env.ACTIVECAMPAIGN_WEBHOOK_TOKEN || "").trim();
+  if (expectedToken.length < 32) {
+    return respondSecurityError(res, 503, "ACTIVECAMPAIGN_NOT_CONFIGURED", "Webhook indisponível.");
+  }
+  if (!validateFixedWebhookToken(req, expectedToken)) {
+    return respondSecurityError(res, 401, "INVALID_WEBHOOK_TOKEN", "Credencial inválida.");
+  }
+  if (!enforceRateLimit({
+    req,
+    res,
+    limiter: publicEndpointRateLimiter,
+    scope: "activecampaign",
+    identity: publicEndpointIdentity(req, securitySha256(expectedToken)),
+    max: ACTIVECAMPAIGN_RATE_MAX,
+    windowMs: PUBLIC_RATE_WINDOW_MS,
+  })) return;
+
+  const eventId = activeCampaignEventId(req);
+  let claim = null;
   try {
-    const c = req.body?.contact || {};
+    claim = claimWebhookEvent({ integration: "activecampaign", tenantId: TENANT_ADMIN, eventId, requestHash: securitySha256(JSON.stringify(req.body || {})) });
+    if (!claim.claimed) return duplicateWebhookResponse(res, claim);
+
+    const body = validateActiveCampaignPayload(req.body || {});
+    const c = body.contact || {};
     const f = c?.fields || {};
 
     const lead = await processLead(TENANT_ADMIN, "activecampaign", {
@@ -2006,19 +2692,16 @@ app.post("/webhooks/activecampaign", async (req, res) => {
       sourceDetail: "Webhook fixo do ActiveCampaign",
       sourceMeta: { type: "activecampaign", payloadType: "activecampaign" },
       active_contact_id: c.id || "",
-      active_seriesid: req.body?.seriesid || "",
+      active_seriesid: body.seriesid || "",
       tags: c.tags || "",
-
       nome: c.first_name || "",
       empresa: f.empresa || c.orgname || "",
       jaAnuncia: f.j_anuncia_no_google_ads_2 || "",
-
       website: "",
       email: c.email || "",
       whatsapp: c.phone || "",
     });
 
-    // Fluxo unidirecional: ActiveCampaign -> WhatsApp -> CRM Inteligente.
     const legacyExternalTarget = getLegacyActiveCampaignTarget();
     if (legacyExternalTarget) {
       try {
@@ -2029,34 +2712,77 @@ app.post("/webhooks/activecampaign", async (req, res) => {
           target: legacyExternalTarget,
           payloadType: "activecampaign",
         });
-        console.log("📥 Sincronização com CRM Inteligente registrada:", queued);
+        console.log("📥 Sincronização com CRM Inteligente registrada:", sanitizeForLog(queued));
       } catch (queueError) {
-        console.error("⚠️ Lead salvo, mas não foi possível gravar a fila do CRM Inteligente:", queueError?.message || queueError);
+        console.error("⚠️ Lead salvo, mas não foi possível gravar a fila do CRM Inteligente:", safeError(queueError));
       }
     }
 
-    res.json({ ok: true, leadId: lead.id });
-  } catch (err) {
-    console.error("❌ Active webhook error:", err?.message || err);
-    res.status(400).json({ ok: false, error: err.message });
+    const responseBody = { ok: true, leadId: lead.id };
+    completeWebhookEventRequired({ integration: "activecampaign", tenantId: TENANT_ADMIN, eventId, statusCode: 200, responseBody });
+    return res.json(responseBody);
+  } catch (error) {
+    console.error("❌ Active webhook error:", safeError(error));
+    const safeStatus = publicEndpointErrorStatus(error);
+    const responseBody = { ok: false, code: error?.code || "INVALID_PAYLOAD", error: safeStatus >= 500 ? "Endpoint temporariamente indisponível." : (error?.message || "Payload inválido.") };
+    if (claim?.claimed && error?.code !== "WEBHOOK_IDEMPOTENCY_UNAVAILABLE") {
+      completeWebhookEventBestEffort({ integration: "activecampaign", tenantId: TENANT_ADMIN, eventId, statusCode: safeStatus, responseBody });
+    }
+    return handlePublicEndpointError(res, error);
   }
 });
 
 /** Webhook gerado (multi-tenant): /webhooks/<token> */
-app.post("/webhooks/:token", async (req, res) => {
+app.post("/webhooks/:token", async (req, res, next) => {
+  if (String(req.params.token || "").trim() === "wa-cloud") return next();
+  let claim = null;
+  let eventId = "";
+  let tenantId = "";
+  let integrationId = "";
   try {
+    if (!requireSupportedBody(req, res, { allowForm: true })) return;
     const token = String(req.params.token || "").trim();
     const row = resolveWebhookToken(token);
     if (!row) return res.status(404).json({ ok: false, error: "Webhook não encontrado." });
 
-    const tenantId = row.tenantId;
-    const body = req.body || {};
-    const webhookUrl = webhookFullUrl(req, row);
-    const webhookName = webhookEffectiveName(row, webhookUrl);
+    tenantId = row.tenantId;
+    if (!enforceRateLimit({
+      req,
+      res,
+      limiter: publicEndpointRateLimiter,
+      scope: "custom-webhook",
+      identity: publicEndpointIdentity(req, `${tenantId}:${row.id}`),
+      max: CUSTOM_WEBHOOK_RATE_MAX,
+      windowMs: PUBLIC_RATE_WINDOW_MS,
+    })) return;
 
+    const rawBody = getRawBody(req);
+    const requireSignature = customWebhookSignatureRequired();
+    if (requireSignature) {
+      const signatureResult = validateCustomWebhookSignature({
+        rawBody,
+        signatureHeader: req.get("x-zape-signature"),
+        timestampHeader: req.get("x-zape-timestamp"),
+        eventIdHeader: req.get("x-zape-event-id"),
+        secret: row.token,
+      });
+      if (!signatureResult.ok) {
+        return respondSecurityError(res, 401, signatureResult.code, "Assinatura do webhook inválida.");
+      }
+      eventId = signatureResult.eventId;
+    } else {
+      eventId = String(req.get("x-zape-event-id") || `payload:${securitySha256(rawBody || Buffer.alloc(0))}`).trim().slice(0, 200);
+    }
+
+    const body = validateCustomWebhookPayload(req.body || {});
+    integrationId = `custom:${row.id}`;
+    claim = claimWebhookEvent({ integration: integrationId, tenantId, eventId, requestHash: securitySha256(rawBody) });
+    if (!claim.claimed) return duplicateWebhookResponse(res, claim);
+
+    const webhookUrl = `${getPublicBaseUrl(req)}/webhooks/[redacted]`;
+    const webhookName = webhookEffectiveName(row, webhookUrl);
     let lead = null;
 
-    // Payload estilo ActiveCampaign
     if (body.contact || body.seriesid) {
       const c = body.contact || {};
       const f = c?.fields || {};
@@ -2067,13 +2793,12 @@ app.post("/webhooks/:token", async (req, res) => {
           type: "webhook",
           webhookId: row.id,
           webhookName,
-          webhookUrl,
-          webhookToken: row.token || "",
+          webhookReference: row.id,
           webhookMessages: Array.isArray(row.messages) ? row.messages : (row.messageText ? [row.messageText] : []),
-          payloadType: "activecampaign"
+          payloadType: "activecampaign",
         },
         active_contact_id: c.id || "",
-        active_seriesid: body?.seriesid || "",
+        active_seriesid: body.seriesid || "",
         tags: c.tags || "",
         nome: c.first_name || "",
         empresa: f.empresa || c.orgname || "",
@@ -2083,7 +2808,6 @@ app.post("/webhooks/:token", async (req, res) => {
         whatsapp: c.phone || "",
       });
     } else {
-      // Payload genérico
       const p = body;
       lead = await processLead(tenantId, "generated_webhook_generic", {
         allowPhoneOnly: true,
@@ -2092,10 +2816,9 @@ app.post("/webhooks/:token", async (req, res) => {
           type: "webhook",
           webhookId: row.id,
           webhookName,
-          webhookUrl,
-          webhookToken: row.token || "",
+          webhookReference: row.id,
           webhookMessages: Array.isArray(row.messages) ? row.messages : (row.messageText ? [row.messageText] : []),
-          payloadType: "json"
+          payloadType: "json",
         },
         nome: p.nome || p.name || p.first_name || "",
         empresa: p.empresa || p.company || p.orgname || "",
@@ -2112,64 +2835,55 @@ app.post("/webhooks/:token", async (req, res) => {
     const crmTargetResult = addLeadToCrmTargetFromWebhook(tenantId, row, lead);
     if (crmTargetResult && crmTargetResult.added) {
       console.log(`✅ Lead vinculado ao CRM pelo webhook [${tenantId}]:`, { leadId: lead.id, webhookId: row.id, pipelineId: crmTargetResult.pipelineId, stageId: crmTargetResult.stageId });
-    } else if (row && row.crmTarget && row.crmTarget.enabled !== false) {
-      console.warn(`⚠️ Webhook com vínculo de CRM não aplicado [${tenantId}]:`, { webhookId: row.id, leadId: lead && lead.id, reason: crmTargetResult && crmTargetResult.reason });
+    } else if (row.crmTarget && row.crmTarget.enabled !== false) {
+      console.warn(`⚠️ Webhook com vínculo de CRM não aplicado [${tenantId}]:`, { webhookId: row.id, leadId: lead?.id, reason: crmTargetResult?.reason });
     }
 
-    if (row && row.externalCrmTarget && row.externalCrmTarget.enabled !== false) {
+    if (row.externalCrmTarget && row.externalCrmTarget.enabled !== false) {
       try {
         const queued = enqueueExternalCrmLead({
           tenantId,
-          webhook: { ...row, displayName: webhookName },
+          webhook: { id: row.id, name: row.name, displayName: webhookName },
           lead,
           target: row.externalCrmTarget,
           payloadType: lead?.sourceMeta?.payloadType || "json",
         });
-        console.log(`📥 Lead registrado na fila do CRM Inteligente [${tenantId}]:`, queued);
+        console.log(`📥 Lead registrado na fila do CRM Inteligente [${tenantId}]:`, sanitizeForLog(queued));
       } catch (queueError) {
-        // A falha da integração nunca pode interromper o cadastro nem as mensagens do WhatsApp.
-        console.error(`⚠️ Lead salvo, mas não foi possível gravar a fila do CRM Inteligente [${tenantId}]:`, queueError?.message || queueError);
+        console.error(`⚠️ Lead salvo, mas não foi possível gravar a fila do CRM Inteligente [${tenantId}]:`, safeError(queueError));
       }
     }
 
-    // NOVO: dispara mensagens em lote salvas no webhook, se existirem
     if (row.messages && Array.isArray(row.messages) && row.messages.length > 0) {
       for (const msg of row.messages) {
         try {
           const text = String(msg || "").replace(/\{\{\s*nome\s*\}\}/gi, lead.nome || "").trim();
           if (!text) continue;
-
-          await sendCustomMessage(row.tenantId, {
-            toDigits: lead.whatsapp_digits,
-            text: text,
-            waitReadyMs: 60000
-          });
+          await sendCustomMessage(row.tenantId, { toDigits: lead.whatsapp_digits, text, waitReadyMs: 60000 });
         } catch (error) {
-          console.error(`❌ Falha ao enviar msg em lote do webhook para ${lead.whatsapp_digits}:`, error?.message || error);
+          console.error(`❌ Falha ao enviar mensagem em lote do webhook para ${maskIdentifier(lead.whatsapp_digits)}:`, safeError(error));
         }
       }
-    }
-
-    // Compatibilidade com messageText antigo
-    else if (row.messageText) {
+    } else if (row.messageText) {
       try {
         const text = String(row.messageText || "").replace(/\{\{\s*nome\s*\}\}/gi, lead.nome || "").trim();
-        if (text) {
-          await sendCustomMessage(row.tenantId, {
-            toDigits: lead.whatsapp_digits,
-            text: text,
-            waitReadyMs: 60000
-          });
-        }
+        if (text) await sendCustomMessage(row.tenantId, { toDigits: lead.whatsapp_digits, text, waitReadyMs: 60000 });
       } catch (error) {
-        console.error(`❌ Falha ao enviar msg do webhook para ${lead.whatsapp_digits}:`, error?.message || error);
+        console.error(`❌ Falha ao enviar mensagem do webhook para ${maskIdentifier(lead.whatsapp_digits)}:`, safeError(error));
       }
     }
 
-    return res.json({ ok: true, tenantId, leadId: lead.id });
-  } catch (err) {
-    console.error("❌ Webhook token error:", err?.message || err);
-    return res.status(400).json({ ok: false, error: err?.message || String(err) });
+    const responseBody = { ok: true, tenantId, leadId: lead.id };
+    completeWebhookEventRequired({ integration: integrationId, tenantId, eventId, statusCode: 200, responseBody });
+    return res.json(responseBody);
+  } catch (error) {
+    console.error("❌ Webhook token error:", safeError(error));
+    const safeStatus = publicEndpointErrorStatus(error);
+    const responseBody = { ok: false, code: error?.code || "INVALID_PAYLOAD", error: safeStatus >= 500 ? "Endpoint temporariamente indisponível." : (error?.message || "Payload inválido.") };
+    if (claim?.claimed && tenantId && eventId) {
+      completeWebhookEventBestEffort({ integration: integrationId, tenantId, eventId, statusCode: safeStatus, responseBody });
+    }
+    return handlePublicEndpointError(res, error);
   }
 });
 
@@ -2195,970 +2909,122 @@ function registerExternalCrmApi(apiPrefix, authMiddleware, tenantId) {
   });
 }
 
-registerExternalCrmApi("/api/admin", adminAuth, TENANT_ADMIN);
-registerExternalCrmApi("/api/panel", panelAuth, TENANT_PANEL);
-registerExternalCrmApi("/api/regina", reginaAuth, TENANT_REGINA);
-registerExternalCrmApi("/api/portugal", portugalAuth, TENANT_PORTUGAL);
-registerExternalCrmApi("/api/felipe", felipeAuth, TENANT_FELIPE);
-registerExternalCrmApi("/api/ana", anaAuth, TENANT_ANA);
 
 /* -------------------- Business Owner (Dono do Negócio) API -------------------- */
-// CORREÇÃO: Rotas para visualização/edição das informações do Dono (atrelado ao ADMIN)
-app.get("/api/business", anyTenantAuth, (req, res) => {
-  const owner = readBusinessOwner(TENANT_ADMIN);
-  res.json({ ok: true, owner });
-});
-
-app.put("/api/business", adminAuth, (req, res) => {
-  const data = req.body && req.body.owner ? req.body.owner : req.body;
-  const owner = writeBusinessOwner(TENANT_ADMIN, data);
-  res.json({ ok: true, owner });
-});
-
-
-/* -------------------- Admin UI + API -------------------- */
-app.get("/admin", adminAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "app.html"));
-});
-
-app.get("/api/admin/leads", adminAuth, buildLeadsHandler({ tenantId: TENANT_ADMIN }));
-
-app.delete("/api/admin/leads/:id", adminAuth, (req, res) => {
-  const out = deleteLeadEverywhere(TENANT_ADMIN, req.params.id, req);
-  if (!out.ok) return res.status(404).json(out);
-  res.json(out);
-});
-
-// CRM (Funil de Vendas) - admin
-app.get("/api/admin/crm", adminAuth, (req, res) => {
-  const state = readCrmState(TENANT_ADMIN);
-  res.json({ ok: true, state });
-});
-app.put("/api/admin/crm", adminAuth, (req, res) => {
-  const state = saveCrmStateAndQueueMessages(TENANT_ADMIN, req.body && (req.body.state || req.body));
-  res.json({ ok: true, state });
-});
-app.post("/api/admin/leads/manual", adminAuth, async (req, res) => {
-  try {
-    const lead = await createManualLead(TENANT_ADMIN, req.body || {});
-    res.json({ ok: true, lead });
-  } catch (err) {
-    res.status(400).json({ ok: false, error: err.message });
-  }
-});
-
-app.get("/admin/leads.csv", adminAuth, (req, res) => {
-  const payload = getLeadItemsForRequest(TENANT_ADMIN, req, { limit: 100000 });
-  const csv = toCSV(payload.items);
-  res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", `attachment; filename="leads_admin.csv"`);
-  res.send(csv);
-});
-
-app.get("/api/admin/whatsapp/status", adminAuth, (req, res) => {
-  res.json(getTenantWA(TENANT_ADMIN).getWhatsAppStatus());
-});
-
-app.post("/api/admin/whatsapp/init", adminAuth, async (req, res) => {
-  try {
-    await getTenantWA(TENANT_ADMIN).initWhatsApp();
-    res.json({ ok: true, ...getTenantWA(TENANT_ADMIN).getWhatsAppStatus() });
-  } catch (err) {
-    res.status(500).json({
-      ok: false,
-      error: err?.message || String(err),
-      ...getTenantWA(TENANT_ADMIN).getWhatsAppStatus(),
-    });
-  }
-});
-
-app.get("/api/admin/whatsapp/qr", adminAuth, (req, res) => {
-  res.json({ ok: true, qr: getTenantWA(TENANT_ADMIN).getLatestQr() });
-});
-
-app.get("/api/admin/whatsapp/stats", adminAuth, (req, res) => {
-  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_ADMIN, { notDeliveredAfterMin }) });
-});
-app.get("/api/admin/insights", adminAuth, (req, res) => {
-  try { res.json(buildTenantInsights(TENANT_ADMIN, req)); }
-  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
-});
-buildConversationsRoutes({ tenantId: TENANT_ADMIN, authMw: adminAuth, prefix: "/api/admin" });
-
-app.get("/api/admin/tags", adminAuth, (req, res) => {
-  res.json({ ok: true, items: listTags(TENANT_ADMIN) });
-});
-
-app.post("/api/admin/tags", adminAuth, (req, res) => {
-  try {
-    const tag = upsertTag(TENANT_ADMIN, {
-      id: req.body?.id || null,
-      name: req.body?.name,
-      color: req.body?.color,
-    });
-    res.json({ ok: true, item: tag });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.delete("/api/admin/tags/:id", adminAuth, (req, res) => {
-  try {
-    const id = req.params.id;
-    deleteTag(TENANT_ADMIN, id);
-    removeTagFromAllLeads(TENANT_ADMIN, id);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/admin/leads/:id/tags", adminAuth, (req, res) => {
-  try {
-    const leadId = req.params.id;
-    const tagIds = req.body?.tagIds;
-
-    const allTags = listTags(TENANT_ADMIN);
-    const allowed = new Set(allTags.map((t) => t.id));
-    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
-      .map((x) => String(x).trim())
-      .filter((x) => allowed.has(x));
-
-    const out = setLeadTags(TENANT_ADMIN, leadId, cleaned);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/admin/leads/bulk-tags", adminAuth, buildBulkLeadTagsHandler(TENANT_ADMIN));
-
-app.get("/api/admin/message-template", adminAuth, (req, res) => {
-  res.json({ ok: true, ...getTemplate(TENANT_ADMIN) });
-});
-
-app.post("/api/admin/message-template", adminAuth, (req, res) => {
-  try {
-    const out = updateTemplateSafe(TENANT_ADMIN, req.body?.text);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela
-app.get("/api/admin/webhooks", adminAuth, (req, res) => {
-  const items = listWebhooks(TENANT_ADMIN).map((w) => serializeWebhook(w, req));
-  res.json({ ok: true, webhooks: items });
-});
-
-app.post("/api/admin/webhooks", adminAuth, (req, res) => {
-  const w = createWebhook(TENANT_ADMIN, { name: req.body && req.body.name });
-  res.json({ ok: true, ...serializeWebhook(w, req) });
-});
-
-// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Admin)
-app.put("/api/admin/webhooks/:id", adminAuth, (req, res) => {
-  const out = updateWebhook(TENANT_ADMIN, req.params.id, req.body);
-  if (!out.ok) return res.status(400).json(out);
-  res.json(out);
-});
-
-app.delete("/api/admin/webhooks/:id", adminAuth, (req, res) => {
-  const out = deleteWebhook(TENANT_ADMIN, req.params.id);
-  if (!out.ok) return res.status(400).json(out);
-  res.json({ ok: true });
-});
-
-
-/* -------------------- Panel UI + API -------------------- */
-app.get("/panel", panelAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "app.html"));
-});
-
-app.get("/api/panel/leads", panelAuth, buildLeadsHandler({ tenantId: TENANT_PANEL }));
-
-app.delete("/api/panel/leads/:id", panelAuth, (req, res) => {
-  const out = deleteLeadEverywhere(TENANT_PANEL, req.params.id, req);
-  if (!out.ok) return res.status(404).json(out);
-  res.json(out);
-});
-
-app.get("/api/panel/crm", panelAuth, (req, res) => {
-  const state = readCrmState(TENANT_PANEL);
-  res.json({ ok: true, state });
-});
-app.put("/api/panel/crm", panelAuth, (req, res) => {
-  const state = saveCrmStateAndQueueMessages(TENANT_PANEL, req.body && (req.body.state || req.body));
-  res.json({ ok: true, state });
-});
-app.post("/api/panel/leads/manual", panelAuth, async (req, res) => {
-  try {
-    const lead = await createManualLead(TENANT_PANEL, req.body || {});
-    res.json({ ok: true, lead });
-  } catch (err) {
-    res.status(400).json({ ok: false, error: err.message });
-  }
-});
-
-app.get("/panel/leads.csv", panelAuth, (req, res) => {
-  const payload = getLeadItemsForRequest(TENANT_PANEL, req, { limit: 100000 });
-  const csv = toCSV(payload.items);
-  res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", `attachment; filename="leads_panel.csv"`);
-  res.send(csv);
-});
-
-app.get("/api/panel/whatsapp/status", panelAuth, (req, res) => {
-  res.json(getTenantWA(TENANT_PANEL).getWhatsAppStatus());
-});
-
-app.post("/api/panel/whatsapp/init", panelAuth, async (req, res) => {
-  try {
-    await getTenantWA(TENANT_PANEL).initWhatsApp();
-    res.json({ ok: true, ...getTenantWA(TENANT_PANEL).getWhatsAppStatus() });
-  } catch (err) {
-    res.status(500).json({
-      ok: false,
-      error: err?.message || String(err),
-      ...getTenantWA(TENANT_PANEL).getWhatsAppStatus(),
-    });
-  }
-});
-
-app.get("/api/panel/whatsapp/qr", panelAuth, (req, res) => {
-  res.json({ ok: true, qr: getTenantWA(TENANT_PANEL).getLatestQr() });
-});
-
-app.get("/api/panel/whatsapp/stats", panelAuth, (req, res) => {
-  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_PANEL, { notDeliveredAfterMin }) });
-});
-app.get("/api/panel/insights", panelAuth, (req, res) => {
-  try { res.json(buildTenantInsights(TENANT_PANEL, req)); }
-  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
-});
-buildConversationsRoutes({ tenantId: TENANT_PANEL, authMw: panelAuth, prefix: "/api/panel" });
-
-app.get("/api/panel/tags", panelAuth, (req, res) => {
-  res.json({ ok: true, items: listTags(TENANT_PANEL) });
-});
-
-app.post("/api/panel/tags", panelAuth, (req, res) => {
-  try {
-    const tag = upsertTag(TENANT_PANEL, {
-      id: req.body?.id || null,
-      name: req.body?.name,
-      color: req.body?.color,
-    });
-    res.json({ ok: true, item: tag });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.delete("/api/panel/tags/:id", panelAuth, (req, res) => {
-  try {
-    const id = req.params.id;
-    deleteTag(TENANT_PANEL, id);
-    removeTagFromAllLeads(TENANT_PANEL, id);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/panel/leads/:id/tags", panelAuth, (req, res) => {
-  try {
-    const leadId = req.params.id;
-    const tagIds = req.body?.tagIds;
-
-    const allTags = listTags(TENANT_PANEL);
-    const allowed = new Set(allTags.map((t) => t.id));
-    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
-      .map((x) => String(x).trim())
-      .filter((x) => allowed.has(x));
-
-    const out = setLeadTags(TENANT_PANEL, leadId, cleaned);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/panel/leads/bulk-tags", panelAuth, buildBulkLeadTagsHandler(TENANT_PANEL));
-
-app.get("/api/panel/message-template", panelAuth, (req, res) => {
-  res.json({ ok: true, ...getTemplate(TENANT_PANEL) });
-});
-
-app.post("/api/panel/message-template", panelAuth, (req, res) => {
-  try {
-    const out = updateTemplateSafe(TENANT_PANEL, req.body?.text);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Panel)
-app.get("/api/panel/webhooks", panelAuth, (req, res) => {
-  const items = listWebhooks(TENANT_PANEL).map((w) => serializeWebhook(w, req));
-  res.json({ ok: true, webhooks: items });
-});
-
-app.post("/api/panel/webhooks", panelAuth, (req, res) => {
-  const w = createWebhook(TENANT_PANEL, { name: req.body && req.body.name });
-  res.json({ ok: true, ...serializeWebhook(w, req) });
-});
-
-// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Panel)
-app.put("/api/panel/webhooks/:id", panelAuth, (req, res) => {
-  const out = updateWebhook(TENANT_PANEL, req.params.id, req.body);
-  if (!out.ok) return res.status(400).json(out);
-  res.json(out);
-});
-
-app.delete("/api/panel/webhooks/:id", panelAuth, (req, res) => {
-  const out = deleteWebhook(TENANT_PANEL, req.params.id);
-  if (!out.ok) return res.status(400).json(out);
-  res.json({ ok: true });
-});
-
-
-/* -------------------- Regina UI + API -------------------- */
-app.get("/regina", reginaAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "app.html"));
-});
-
-app.get("/api/regina/leads", reginaAuth, buildLeadsHandler({ tenantId: TENANT_REGINA }));
-
-app.delete("/api/regina/leads/:id", reginaAuth, (req, res) => {
-  const out = deleteLeadEverywhere(TENANT_REGINA, req.params.id, req);
-  if (!out.ok) return res.status(404).json(out);
-  res.json(out);
-});
-
-app.get("/api/regina/crm", reginaAuth, (req, res) => {
-  const state = readCrmState(TENANT_REGINA);
-  res.json({ ok: true, state });
-});
-app.put("/api/regina/crm", reginaAuth, (req, res) => {
-  const state = saveCrmStateAndQueueMessages(TENANT_REGINA, req.body && (req.body.state || req.body));
-  res.json({ ok: true, state });
-});
-app.post("/api/regina/leads/manual", reginaAuth, async (req, res) => {
-  try {
-    const lead = await createManualLead(TENANT_REGINA, req.body || {});
-    res.json({ ok: true, lead });
-  } catch (err) {
-    res.status(400).json({ ok: false, error: err.message });
-  }
-});
-
-app.get("/regina/leads.csv", reginaAuth, (req, res) => {
-  const payload = getLeadItemsForRequest(TENANT_REGINA, req, { limit: 100000 });
-  const csv = toCSV(payload.items);
-  res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", `attachment; filename="leads_regina.csv"`);
-  res.send(csv);
-});
-
-app.get("/api/regina/whatsapp/status", reginaAuth, (req, res) => {
-  res.json(getTenantWA(TENANT_REGINA).getWhatsAppStatus());
-});
-
-app.post("/api/regina/whatsapp/init", reginaAuth, async (req, res) => {
-  try {
-    await getTenantWA(TENANT_REGINA).initWhatsApp();
-    res.json({ ok: true, ...getTenantWA(TENANT_REGINA).getWhatsAppStatus() });
-  } catch (err) {
-    res.status(500).json({
-      ok: false,
-      error: err?.message || String(err),
-      ...getTenantWA(TENANT_REGINA).getWhatsAppStatus(),
-    });
-  }
-});
-
-app.get("/api/regina/whatsapp/qr", reginaAuth, (req, res) => {
-  res.json({ ok: true, qr: getTenantWA(TENANT_REGINA).getLatestQr() });
-});
-
-app.get("/api/regina/whatsapp/stats", reginaAuth, (req, res) => {
-  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_REGINA, { notDeliveredAfterMin }) });
-});
-app.get("/api/regina/insights", reginaAuth, (req, res) => {
-  try { res.json(buildTenantInsights(TENANT_REGINA, req)); }
-  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
-});
-buildConversationsRoutes({ tenantId: TENANT_REGINA, authMw: reginaAuth, prefix: "/api/regina" });
-
-app.get("/api/regina/tags", reginaAuth, (req, res) => {
-  res.json({ ok: true, items: listTags(TENANT_REGINA) });
-});
-
-app.post("/api/regina/tags", reginaAuth, (req, res) => {
-  try {
-    const tag = upsertTag(TENANT_REGINA, {
-      id: req.body?.id || null,
-      name: req.body?.name,
-      color: req.body?.color,
-    });
-    res.json({ ok: true, item: tag });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.delete("/api/regina/tags/:id", reginaAuth, (req, res) => {
-  try {
-    const id = req.params.id;
-    deleteTag(TENANT_REGINA, id);
-    removeTagFromAllLeads(TENANT_REGINA, id);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/regina/leads/:id/tags", reginaAuth, (req, res) => {
-  try {
-    const leadId = req.params.id;
-    const tagIds = req.body?.tagIds;
-
-    const allTags = listTags(TENANT_REGINA);
-    const allowed = new Set(allTags.map((t) => t.id));
-    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
-      .map((x) => String(x).trim())
-      .filter((x) => allowed.has(x));
-
-    const out = setLeadTags(TENANT_REGINA, leadId, cleaned);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/regina/leads/bulk-tags", reginaAuth, buildBulkLeadTagsHandler(TENANT_REGINA));
-
-app.get("/api/regina/message-template", reginaAuth, (req, res) => {
-  res.json({ ok: true, ...getTemplate(TENANT_REGINA) });
-});
-
-app.post("/api/regina/message-template", reginaAuth, (req, res) => {
-  try {
-    const out = updateTemplateSafe(TENANT_REGINA, req.body?.text);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Regina)
-app.get("/api/regina/webhooks", reginaAuth, (req, res) => {
-  const items = listWebhooks(TENANT_REGINA).map((w) => serializeWebhook(w, req));
-  res.json({ ok: true, webhooks: items });
-});
-
-app.post("/api/regina/webhooks", reginaAuth, (req, res) => {
-  const w = createWebhook(TENANT_REGINA, { name: req.body && req.body.name });
-  res.json({ ok: true, ...serializeWebhook(w, req) });
-});
-
-// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Regina)
-app.put("/api/regina/webhooks/:id", reginaAuth, (req, res) => {
-  const out = updateWebhook(TENANT_REGINA, req.params.id, req.body);
-  if (!out.ok) return res.status(400).json(out);
-  res.json(out);
-});
-
-app.delete("/api/regina/webhooks/:id", reginaAuth, (req, res) => {
-  const out = deleteWebhook(TENANT_REGINA, req.params.id);
-  if (!out.ok) return res.status(400).json(out);
-  res.json({ ok: true });
-});
-
-
-// Painel Portugal: tenant independente com as mesmas rotas do painel/regina.
-app.get("/portugal", portugalAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "app.html"));
-});
-
-app.get("/api/portugal/leads", portugalAuth, buildLeadsHandler({ tenantId: TENANT_PORTUGAL }));
-
-app.delete("/api/portugal/leads/:id", portugalAuth, (req, res) => {
-  const out = deleteLeadEverywhere(TENANT_PORTUGAL, req.params.id, req);
-  if (!out.ok) return res.status(404).json(out);
-  res.json(out);
-});
-
-app.get("/api/portugal/crm", portugalAuth, (req, res) => {
-  const state = readCrmState(TENANT_PORTUGAL);
-  res.json({ ok: true, state });
-});
-app.put("/api/portugal/crm", portugalAuth, (req, res) => {
-  const state = saveCrmStateAndQueueMessages(TENANT_PORTUGAL, req.body && (req.body.state || req.body));
-  res.json({ ok: true, state });
-});
-app.post("/api/portugal/leads/manual", portugalAuth, async (req, res) => {
-  try {
-    const lead = await createManualLead(TENANT_PORTUGAL, req.body || {});
-    res.json({ ok: true, lead });
-  } catch (err) {
-    res.status(400).json({ ok: false, error: err.message });
-  }
-});
-
-app.get("/portugal/leads.csv", portugalAuth, (req, res) => {
-  const payload = getLeadItemsForRequest(TENANT_PORTUGAL, req, { limit: 100000 });
-  const csv = toCSV(payload.items);
-  res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", `attachment; filename="leads_portugal.csv"`);
-  res.send(csv);
-});
-
-app.get("/api/portugal/whatsapp/status", portugalAuth, (req, res) => {
-  res.json(getTenantWA(TENANT_PORTUGAL).getWhatsAppStatus());
-});
-
-app.post("/api/portugal/whatsapp/init", portugalAuth, async (req, res) => {
-  try {
-    await getTenantWA(TENANT_PORTUGAL).initWhatsApp();
-    res.json({ ok: true, ...getTenantWA(TENANT_PORTUGAL).getWhatsAppStatus() });
-  } catch (err) {
-    res.status(500).json({
-      ok: false,
-      error: err?.message || String(err),
-      ...getTenantWA(TENANT_PORTUGAL).getWhatsAppStatus(),
-    });
-  }
-});
-
-app.get("/api/portugal/whatsapp/qr", portugalAuth, (req, res) => {
-  res.json({ ok: true, qr: getTenantWA(TENANT_PORTUGAL).getLatestQr() });
-});
-
-app.get("/api/portugal/whatsapp/stats", portugalAuth, (req, res) => {
-  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_PORTUGAL, { notDeliveredAfterMin }) });
-});
-app.get("/api/portugal/insights", portugalAuth, (req, res) => {
-  try { res.json(buildTenantInsights(TENANT_PORTUGAL, req)); }
-  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
-});
-buildConversationsRoutes({ tenantId: TENANT_PORTUGAL, authMw: portugalAuth, prefix: "/api/portugal" });
-
-app.get("/api/portugal/tags", portugalAuth, (req, res) => {
-  res.json({ ok: true, items: listTags(TENANT_PORTUGAL) });
-});
-
-app.post("/api/portugal/tags", portugalAuth, (req, res) => {
-  try {
-    const tag = upsertTag(TENANT_PORTUGAL, {
-      id: req.body?.id || null,
-      name: req.body?.name,
-      color: req.body?.color,
-    });
-    res.json({ ok: true, item: tag });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.delete("/api/portugal/tags/:id", portugalAuth, (req, res) => {
-  try {
-    const id = req.params.id;
-    deleteTag(TENANT_PORTUGAL, id);
-    removeTagFromAllLeads(TENANT_PORTUGAL, id);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/portugal/leads/:id/tags", portugalAuth, (req, res) => {
-  try {
-    const leadId = req.params.id;
-    const tagIds = req.body?.tagIds;
-
-    const allTags = listTags(TENANT_PORTUGAL);
-    const allowed = new Set(allTags.map((t) => t.id));
-    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
-      .map((x) => String(x).trim())
-      .filter((x) => allowed.has(x));
-
-    const out = setLeadTags(TENANT_PORTUGAL, leadId, cleaned);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/portugal/leads/bulk-tags", portugalAuth, buildBulkLeadTagsHandler(TENANT_PORTUGAL));
-
-app.get("/api/portugal/message-template", portugalAuth, (req, res) => {
-  res.json({ ok: true, ...getTemplate(TENANT_PORTUGAL) });
-});
-
-app.post("/api/portugal/message-template", portugalAuth, (req, res) => {
-  try {
-    const out = updateTemplateSafe(TENANT_PORTUGAL, req.body?.text);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Portugal)
-app.get("/api/portugal/webhooks", portugalAuth, (req, res) => {
-  const items = listWebhooks(TENANT_PORTUGAL).map((w) => serializeWebhook(w, req));
-  res.json({ ok: true, webhooks: items });
-});
-
-app.post("/api/portugal/webhooks", portugalAuth, (req, res) => {
-  const w = createWebhook(TENANT_PORTUGAL, { name: req.body && req.body.name });
-  res.json({ ok: true, ...serializeWebhook(w, req) });
-});
-
-// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Portugal)
-app.put("/api/portugal/webhooks/:id", portugalAuth, (req, res) => {
-  const out = updateWebhook(TENANT_PORTUGAL, req.params.id, req.body);
-  if (!out.ok) return res.status(400).json(out);
-  res.json(out);
-});
-
-app.delete("/api/portugal/webhooks/:id", portugalAuth, (req, res) => {
-  const out = deleteWebhook(TENANT_PORTUGAL, req.params.id);
-  if (!out.ok) return res.status(400).json(out);
-  res.json({ ok: true });
-});
-
-
-// Painel Felipe: tenant independente com as mesmas rotas do painel/regina.
-app.get("/felipe", felipeAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "app.html"));
-});
-
-app.get("/api/felipe/leads", felipeAuth, buildLeadsHandler({ tenantId: TENANT_FELIPE }));
-
-app.delete("/api/felipe/leads/:id", felipeAuth, (req, res) => {
-  const out = deleteLeadEverywhere(TENANT_FELIPE, req.params.id, req);
-  if (!out.ok) return res.status(404).json(out);
-  res.json(out);
-});
-
-app.get("/api/felipe/crm", felipeAuth, (req, res) => {
-  const state = readCrmState(TENANT_FELIPE);
-  res.json({ ok: true, state });
-});
-app.put("/api/felipe/crm", felipeAuth, (req, res) => {
-  const state = saveCrmStateAndQueueMessages(TENANT_FELIPE, req.body && (req.body.state || req.body));
-  res.json({ ok: true, state });
-});
-app.post("/api/felipe/leads/manual", felipeAuth, async (req, res) => {
-  try {
-    const lead = await createManualLead(TENANT_FELIPE, req.body || {});
-    res.json({ ok: true, lead });
-  } catch (err) {
-    res.status(400).json({ ok: false, error: err.message });
-  }
-});
-
-app.get("/felipe/leads.csv", felipeAuth, (req, res) => {
-  const payload = getLeadItemsForRequest(TENANT_FELIPE, req, { limit: 100000 });
-  const csv = toCSV(payload.items);
-  res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", `attachment; filename="leads_felipe.csv"`);
-  res.send(csv);
-});
-
-app.get("/api/felipe/whatsapp/status", felipeAuth, (req, res) => {
-  res.json(getTenantWA(TENANT_FELIPE).getWhatsAppStatus());
-});
-
-app.post("/api/felipe/whatsapp/init", felipeAuth, async (req, res) => {
-  try {
-    await getTenantWA(TENANT_FELIPE).initWhatsApp();
-    res.json({ ok: true, ...getTenantWA(TENANT_FELIPE).getWhatsAppStatus() });
-  } catch (err) {
-    res.status(500).json({
-      ok: false,
-      error: err?.message || String(err),
-      ...getTenantWA(TENANT_FELIPE).getWhatsAppStatus(),
-    });
-  }
-});
-
-app.get("/api/felipe/whatsapp/qr", felipeAuth, (req, res) => {
-  res.json({ ok: true, qr: getTenantWA(TENANT_FELIPE).getLatestQr() });
-});
-
-app.get("/api/felipe/whatsapp/stats", felipeAuth, (req, res) => {
-  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_FELIPE, { notDeliveredAfterMin }) });
-});
-app.get("/api/felipe/insights", felipeAuth, (req, res) => {
-  try { res.json(buildTenantInsights(TENANT_FELIPE, req)); }
-  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
-});
-buildConversationsRoutes({ tenantId: TENANT_FELIPE, authMw: felipeAuth, prefix: "/api/felipe" });
-
-app.get("/api/felipe/tags", felipeAuth, (req, res) => {
-  res.json({ ok: true, items: listTags(TENANT_FELIPE) });
-});
-
-app.post("/api/felipe/tags", felipeAuth, (req, res) => {
-  try {
-    const tag = upsertTag(TENANT_FELIPE, {
-      id: req.body?.id || null,
-      name: req.body?.name,
-      color: req.body?.color,
-    });
-    res.json({ ok: true, item: tag });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.delete("/api/felipe/tags/:id", felipeAuth, (req, res) => {
-  try {
-    const id = req.params.id;
-    deleteTag(TENANT_FELIPE, id);
-    removeTagFromAllLeads(TENANT_FELIPE, id);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/felipe/leads/:id/tags", felipeAuth, (req, res) => {
-  try {
-    const leadId = req.params.id;
-    const tagIds = req.body?.tagIds;
-
-    const allTags = listTags(TENANT_FELIPE);
-    const allowed = new Set(allTags.map((t) => t.id));
-    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
-      .map((x) => String(x).trim())
-      .filter((x) => allowed.has(x));
-
-    const out = setLeadTags(TENANT_FELIPE, leadId, cleaned);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/felipe/leads/bulk-tags", felipeAuth, buildBulkLeadTagsHandler(TENANT_FELIPE));
-
-app.get("/api/felipe/message-template", felipeAuth, (req, res) => {
-  res.json({ ok: true, ...getTemplate(TENANT_FELIPE) });
-});
-
-app.post("/api/felipe/message-template", felipeAuth, (req, res) => {
-  try {
-    const out = updateTemplateSafe(TENANT_FELIPE, req.body?.text);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Felipe)
-app.get("/api/felipe/webhooks", felipeAuth, (req, res) => {
-  const items = listWebhooks(TENANT_FELIPE).map((w) => serializeWebhook(w, req));
-  res.json({ ok: true, webhooks: items });
-});
-
-app.post("/api/felipe/webhooks", felipeAuth, (req, res) => {
-  const w = createWebhook(TENANT_FELIPE, { name: req.body && req.body.name });
-  res.json({ ok: true, ...serializeWebhook(w, req) });
-});
-
-// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Felipe)
-app.put("/api/felipe/webhooks/:id", felipeAuth, (req, res) => {
-  const out = updateWebhook(TENANT_FELIPE, req.params.id, req.body);
-  if (!out.ok) return res.status(400).json(out);
-  res.json(out);
-});
-
-app.delete("/api/felipe/webhooks/:id", felipeAuth, (req, res) => {
-  const out = deleteWebhook(TENANT_FELIPE, req.params.id);
-  if (!out.ok) return res.status(400).json(out);
-  res.json({ ok: true });
-});
-
-
-// Painel Ana Salomão: tenant independente com as mesmas rotas do painel/regina.
-app.get("/ana", anaAuth, (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "app.html"));
-});
-
-app.get("/api/ana/leads", anaAuth, buildLeadsHandler({ tenantId: TENANT_ANA }));
-
-app.delete("/api/ana/leads/:id", anaAuth, (req, res) => {
-  const out = deleteLeadEverywhere(TENANT_ANA, req.params.id, req);
-  if (!out.ok) return res.status(404).json(out);
-  res.json(out);
-});
-
-app.get("/api/ana/crm", anaAuth, (req, res) => {
-  const state = readCrmState(TENANT_ANA);
-  res.json({ ok: true, state });
-});
-app.put("/api/ana/crm", anaAuth, (req, res) => {
-  const state = saveCrmStateAndQueueMessages(TENANT_ANA, req.body && (req.body.state || req.body));
-  res.json({ ok: true, state });
-});
-app.post("/api/ana/leads/manual", anaAuth, async (req, res) => {
-  try {
-    const lead = await createManualLead(TENANT_ANA, req.body || {});
-    res.json({ ok: true, lead });
-  } catch (err) {
-    res.status(400).json({ ok: false, error: err.message });
-  }
-});
-
-app.get("/ana/leads.csv", anaAuth, (req, res) => {
-  const payload = getLeadItemsForRequest(TENANT_ANA, req, { limit: 100000 });
-  const csv = toCSV(payload.items);
-  res.setHeader("Content-Type", "text/csv; charset=utf-8");
-  res.setHeader("Content-Disposition", `attachment; filename="leads_ana.csv"`);
-  res.send(csv);
-});
-
-app.get("/api/ana/whatsapp/status", anaAuth, (req, res) => {
-  res.json(getTenantWA(TENANT_ANA).getWhatsAppStatus());
-});
-
-app.post("/api/ana/whatsapp/init", anaAuth, async (req, res) => {
-  try {
-    await getTenantWA(TENANT_ANA).initWhatsApp();
-    res.json({ ok: true, ...getTenantWA(TENANT_ANA).getWhatsAppStatus() });
-  } catch (err) {
-    res.status(500).json({
-      ok: false,
-      error: err?.message || String(err),
-      ...getTenantWA(TENANT_ANA).getWhatsAppStatus(),
-    });
-  }
-});
-
-app.get("/api/ana/whatsapp/qr", anaAuth, (req, res) => {
-  res.json({ ok: true, qr: getTenantWA(TENANT_ANA).getLatestQr() });
-});
-
-app.get("/api/ana/whatsapp/stats", anaAuth, (req, res) => {
-  const notDeliveredAfterMin = Number(req.query.notDeliveredAfterMin || 30);
-  res.json({ ok: true, ...summarizeLeadWhatsappStats(TENANT_ANA, { notDeliveredAfterMin }) });
-});
-app.get("/api/ana/insights", anaAuth, (req, res) => {
-  try { res.json(buildTenantInsights(TENANT_ANA, req)); }
-  catch (e) { res.status(500).json({ ok: false, error: e?.message || String(e) }); }
-});
-buildConversationsRoutes({ tenantId: TENANT_ANA, authMw: anaAuth, prefix: "/api/ana" });
-
-app.get("/api/ana/tags", anaAuth, (req, res) => {
-  res.json({ ok: true, items: listTags(TENANT_ANA) });
-});
-
-app.post("/api/ana/tags", anaAuth, (req, res) => {
-  try {
-    const tag = upsertTag(TENANT_ANA, {
-      id: req.body?.id || null,
-      name: req.body?.name,
-      color: req.body?.color,
-    });
-    res.json({ ok: true, item: tag });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.delete("/api/ana/tags/:id", anaAuth, (req, res) => {
-  try {
-    const id = req.params.id;
-    deleteTag(TENANT_ANA, id);
-    removeTagFromAllLeads(TENANT_ANA, id);
-    res.json({ ok: true });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/ana/leads/:id/tags", anaAuth, (req, res) => {
-  try {
-    const leadId = req.params.id;
-    const tagIds = req.body?.tagIds;
-
-    const allTags = listTags(TENANT_ANA);
-    const allowed = new Set(allTags.map((t) => t.id));
-    const cleaned = (Array.isArray(tagIds) ? tagIds : [])
-      .map((x) => String(x).trim())
-      .filter((x) => allowed.has(x));
-
-    const out = setLeadTags(TENANT_ANA, leadId, cleaned);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-app.post("/api/ana/leads/bulk-tags", anaAuth, buildBulkLeadTagsHandler(TENANT_ANA));
-
-app.get("/api/ana/message-template", anaAuth, (req, res) => {
-  res.json({ ok: true, ...getTemplate(TENANT_ANA) });
-});
-
-app.post("/api/ana/message-template", anaAuth, (req, res) => {
-  try {
-    const out = updateTemplateSafe(TENANT_ANA, req.body?.text);
-    res.json({ ok: true, ...out });
-  } catch (e) {
-    res.status(400).json({ ok: false, error: e.message });
-  }
-});
-
-// CORREÇÃO: O GET agora retorna messages e messageText pro frontend exibir na tela (Ana Salomão)
-app.get("/api/ana/webhooks", anaAuth, (req, res) => {
-  const items = listWebhooks(TENANT_ANA).map((w) => serializeWebhook(w, req));
-  res.json({ ok: true, webhooks: items });
-});
-
-app.post("/api/ana/webhooks", anaAuth, (req, res) => {
-  const w = createWebhook(TENANT_ANA, { name: req.body && req.body.name });
-  res.json({ ok: true, ...serializeWebhook(w, req) });
-});
-
-// CORREÇÃO: Rota PUT adicionada para permitir o salvamento de mensagens no webhook (Ana Salomão)
-app.put("/api/ana/webhooks/:id", anaAuth, (req, res) => {
-  const out = updateWebhook(TENANT_ANA, req.params.id, req.body);
-  if (!out.ok) return res.status(400).json(out);
-  res.json(out);
-});
-
-app.delete("/api/ana/webhooks/:id", anaAuth, (req, res) => {
-  const out = deleteWebhook(TENANT_ANA, req.params.id);
-  if (!out.ok) return res.status(400).json(out);
-  res.json({ ok: true });
-});
-
-
+registerBusinessRoutes(app, {
+  anyTenantAuth,
+  adminAuth,
+  requirePermission,
+  permissions: PERMISSIONS,
+  tenantAdmin: TENANT_ADMIN,
+  readBusinessOwner,
+  writeBusinessOwner,
+  auditSecurityAction,
+});
+
+/* -------------------- Tenant UI + shared APIs -------------------- */
+const frontendFeatureGate = requireFeature(FEATURES.FRONTEND_V2);
+const leadPaginationFeatureGate = requireFeature(FEATURES.LEAD_PAGINATION);
+const secureMediaFeatureGate = requireFeature(FEATURES.SECURE_MEDIA);
+const cloudApiFeatureGate = requireFeature(FEATURES.CLOUD_API_V2);
+const cloudQueueFeatureGate = requireFeature(FEATURES.CLOUD_QUEUE);
+
+const tenantRouteServices = {
+  projectRoot: __dirname,
+  frontendFeatureGate,
+  leadPaginationFeatureGate,
+  secureMediaFeatureGate,
+  buildLeadsHandler,
+  buildUpdateLeadHandler,
+  buildMergeLeadHandler,
+  deleteLeadEverywhere,
+  createManualLead,
+  respondLeadServiceError,
+  getLeadItemsForRequest,
+  auditSecurityAction,
+  toCSV,
+  readCrmState,
+  saveCrmStateAndQueueMessages,
+  getTenantWA,
+  summarizeLeadWhatsappStats,
+  buildTenantInsights,
+  buildConversationsRoutes,
+  listTags,
+  upsertTag,
+  deleteTag,
+  removeTagFromAllLeads,
+  setLeadTags,
+  buildBulkLeadTagsHandler,
+  getTemplate,
+  updateTemplateSafe,
+  listWebhooks,
+  serializeWebhook,
+  createWebhook,
+  updateWebhook,
+  deleteWebhook,
+};
+
+const registeredRuntimeTenants = new Set();
+const dynamicTenantAuthCache = new Map();
+
+function authMiddlewareForTenant(tenantId) {
+  const tid = String(tenantId || "").trim().toLowerCase();
+  if (STATIC_TENANT_AUTHS[tid]) return STATIC_TENANT_AUTHS[tid];
+  if (!dynamicTenantAuthCache.has(tid)) dynamicTenantAuthCache.set(tid, makeTenantAuth(tid));
+  return dynamicTenantAuthCache.get(tid);
+}
+
+function registerRuntimeTenant(tenantInput) {
+  const tenantId = String(tenantInput?.tenantId || tenantInput || "").trim().toLowerCase();
+  if (!tenantId) throw new Error("Tenant inválido para registro de rotas.");
+  refreshTenantConfigs();
+  const cfg = getTenantConfig(tenantId);
+  if (!cfg) throw new Error(`Tenant ${tenantId} não existe no registro.`);
+  if (registeredRuntimeTenants.has(tenantId)) return { tenantId, alreadyRegistered: true };
+
+  ensureTenantDir(tenantId);
+  const authMiddleware = authMiddlewareForTenant(tenantId);
+  registerTenantPanelRoutes(app, { ...tenantRouteServices, tenantId, authMiddleware });
+  registerExternalCrmApi(`/api/${tenantId}`, authMiddleware, tenantId);
+  registerPrivacyRoutes(`/api/${tenantId}`, authMiddleware, tenantId);
+  registeredRuntimeTenants.add(tenantId);
+  console.log(`➡️ Painel registrado: /${tenantId}`);
+  return { tenantId, alreadyRegistered: false };
+}
+
+tenantRouteServices.onDynamicTenantCreated = async (tenant) => registerRuntimeTenant(tenant);
+tenantRouteServices.onDynamicTenantUpdated = async (tenant) => registerRuntimeTenant(tenant);
+tenantRouteServices.onDynamicTenantDeleted = async (tenant) => {
+  const tenantId = String(tenant?.tenantId || tenant || "").trim().toLowerCase();
+  try { await getTenantWA(tenantId).destroy(); } catch {}
+  return { tenantId, routesRemainClosed: true };
+};
+
+for (const cfg of listTenantConfigs()) registerRuntimeTenant(cfg.tenantId);
 
 /* -------------------- WhatsApp Cloud API (oficial) -------------------- */
-// WhatsApp Oficial é compartilhado entre painéis autenticados.
-// Assim o painel Felipe não precisa pedir login admin separado para listar modelos/enviar campanhas.
+// A conexão oficial é global e compartilhada. Dados operacionais (planilhas, campanhas e status)
+// permanecem isolados pelo tenant autenticado. Somente super_admin pode alterar a conexão global.
 const waCloudAuth = anyTenantAuth;
+const waCloudSheetsReadAuth = [waCloudAuth, cloudApiFeatureGate, requirePermission(PERMISSIONS.CLOUD_SHEETS_READ)];
+const waCloudSheetsWriteAuth = [waCloudAuth, cloudApiFeatureGate, requirePermission(PERMISSIONS.CLOUD_SHEETS_WRITE)];
+const waCloudConnectionViewAuth = [waCloudAuth, cloudApiFeatureGate, auditDeniedAdministrativeRequest("cloud_connection.view", "wa_cloud_connection"), requireRole(ROLES.SUPER_ADMIN), requirePermission(PERMISSIONS.CLOUD_CONNECTION_VIEW)];
+const waCloudConnectionManageAuth = [waCloudAuth, cloudApiFeatureGate, auditDeniedAdministrativeRequest("cloud_connection.manage", "wa_cloud_connection"), requireRole(ROLES.SUPER_ADMIN), requirePermission(PERMISSIONS.CLOUD_CONNECTION_MANAGE)];
+const waCloudTemplatesReadAuth = [waCloudAuth, cloudApiFeatureGate, requirePermission(PERMISSIONS.CLOUD_TEMPLATES_READ)];
+const waCloudTemplatesWriteAuth = [waCloudAuth, cloudApiFeatureGate, auditDeniedAdministrativeRequest("cloud_template.create", "wa_cloud_template"), requireRole(ROLES.SUPER_ADMIN), requirePermission(PERMISSIONS.CLOUD_TEMPLATES_WRITE)];
+const waCloudCampaignAuth = [waCloudAuth, cloudApiFeatureGate, cloudQueueFeatureGate, requirePermission(PERMISSIONS.CLOUD_CAMPAIGNS_SEND)];
+const waCloudStatusesAuth = [waCloudAuth, cloudApiFeatureGate, requirePermission(PERMISSIONS.CLOUD_STATUSES_READ)];
 // A conexão da Cloud API continua compartilhada, mas os dados operacionais
 // do disparo precisam respeitar o painel autenticado.
 // Ex.: usuário Portugal usa os leads, planilhas salvas e histórico do tenant Portugal.
 function getWaCloudTenantId(req) {
-  const tenant = String(req?.auth?.tenantId || TENANT_ADMIN).toLowerCase();
-  const allowed = new Set([TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL, TENANT_FELIPE, TENANT_ANA]);
-  return allowed.has(tenant) ? tenant : TENANT_ADMIN;
+  const tenant = String(req?.auth?.tenantId || "").toLowerCase();
+  if (!getTenantConfig(tenant) || !isTenantEnabled(tenant)) {
+    const error = new Error("Contexto de tenant autenticado ausente ou inválido.");
+    error.code = "AUTH_TENANT_CONTEXT_INVALID";
+    throw error;
+  }
+  return tenant;
 }
 
 function getCloudSheetsFile(tenantId = TENANT_ADMIN) {
@@ -3173,7 +3039,7 @@ function readCloudSavedSheets(tenantId = TENANT_ADMIN) {
     const parsed = JSON.parse(fs.readFileSync(file, "utf8") || "[]");
     return Array.isArray(parsed) ? parsed : [];
   } catch (err) {
-    console.error("[wa-cloud:sheets] read error", err);
+    console.error("[wa-cloud:sheets] read error", safeError(err));
     return [];
   }
 }
@@ -3216,7 +3082,7 @@ function cloudSavedSheetListMeta(sheet) {
   };
 }
 
-app.get("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
+app.get("/api/wa-cloud/sheets", waCloudSheetsReadAuth, (req, res) => {
   const cloudTenantId = getWaCloudTenantId(req);
   const items = readCloudSavedSheets(cloudTenantId)
     .map(cloudSavedSheetListMeta)
@@ -3224,7 +3090,7 @@ app.get("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
   res.json({ ok: true, items });
 });
 
-app.get("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
+app.get("/api/wa-cloud/sheets/:id", waCloudSheetsReadAuth, (req, res) => {
   const cloudTenantId = getWaCloudTenantId(req);
   const id = String(req.params.id || "");
   const item = readCloudSavedSheets(cloudTenantId).find((sheet) => String(sheet.id) === id);
@@ -3232,7 +3098,7 @@ app.get("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
   res.json({ ok: true, item });
 });
 
-app.post("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
+app.post("/api/wa-cloud/sheets", waCloudSheetsWriteAuth, (req, res) => {
   try {
     const next = normalizeCloudSavedSheetPayload(req.body || {});
     if (!next.rows.length || !next.columns.length) {
@@ -3254,7 +3120,7 @@ app.post("/api/wa-cloud/sheets", waCloudAuth, (req, res) => {
   }
 });
 
-app.delete("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
+app.delete("/api/wa-cloud/sheets/:id", waCloudSheetsWriteAuth, (req, res) => {
   const cloudTenantId = getWaCloudTenantId(req);
   const id = String(req.params.id || "");
   const before = readCloudSavedSheets(cloudTenantId);
@@ -3263,8 +3129,21 @@ app.delete("/api/wa-cloud/sheets/:id", waCloudAuth, (req, res) => {
   res.json({ ok: true, removed: before.length - after.length });
 });
 
-app.get("/api/wa-cloud/status", waCloudAuth, (req, res) => {
+app.get("/api/wa-cloud/status", waCloudConnectionViewAuth, (req, res) => {
+  auditSecurityAction(req, "cloud_connection.view", "wa_cloud_connection", "success");
   res.json(getCloudStatus());
+});
+
+app.get("/api/wa-cloud/health", waCloudConnectionViewAuth, async (req, res) => {
+  try {
+    const health = await runCloudHealthCheck();
+    auditSecurityAction(req, "cloud_connection.health", "wa_cloud_connection", health.ok ? "success" : "degraded", { status: health.status });
+    res.status(health.ok ? 200 : 424).json(health);
+  } catch (err) {
+    const errorInfo = normalizeMetaError(err);
+    auditSecurityAction(req, "cloud_connection.health", "wa_cloud_connection", "failed", { code: errorInfo.code || err?.code || "HEALTH_CHECK_FAILED" });
+    res.status(424).json({ ok: false, status: "degraded", error: errorInfo });
+  }
 });
 
 function isMetaTokenInvalidError(err) {
@@ -3300,20 +3179,24 @@ function sendMetaTokenInvalid(res, err) {
   return res.status(424).json(metaTokenInvalidResponse(err));
 }
 
-app.put("/api/wa-cloud/embedded/settings", waCloudAuth, (req, res) => {
+app.put("/api/wa-cloud/embedded/settings", waCloudConnectionManageAuth, (req, res) => {
   try {
     const out = saveEmbeddedSignupSettings(req.body || {});
+    auditSecurityAction(req, "cloud_connection.settings_update", "wa_cloud_connection", "success", { hasAppId: Boolean(req.body?.appId), hasConfigurationId: Boolean(req.body?.configurationId) });
     res.json(out);
   } catch (err) {
+    auditSecurityAction(req, "cloud_connection.settings_update", "wa_cloud_connection", "failed", { code: err?.code || "VALIDATION_ERROR" });
     res.status(400).json({ ok: false, error: err?.message || String(err) });
   }
 });
 
-app.post("/api/wa-cloud/embedded/exchange", waCloudAuth, async (req, res) => {
+app.post("/api/wa-cloud/embedded/exchange", waCloudConnectionManageAuth, async (req, res) => {
   try {
     const out = await exchangeEmbeddedSignupCode(req.body || {});
+    auditSecurityAction(req, "cloud_connection.exchange", "wa_cloud_connection", "success", { replacedPreviousConnection: Boolean(out?.replacedPreviousConnection), connectionId: out?.connection?.connectionId || "" });
     res.json(out);
   } catch (err) {
+    auditSecurityAction(req, "cloud_connection.exchange", "wa_cloud_connection", "failed", { code: err?.code || "META_EXCHANGE_ERROR" });
     if (isMetaTokenInvalidError(err)) return sendMetaTokenInvalid(res, err);
     const status = Number(err?.status || 400);
     res.status(status >= 400 && status < 600 ? status : 400).json({
@@ -3325,15 +3208,18 @@ app.post("/api/wa-cloud/embedded/exchange", waCloudAuth, async (req, res) => {
   }
 });
 
-app.delete("/api/wa-cloud/embedded", waCloudAuth, (req, res) => {
+app.delete("/api/wa-cloud/embedded", waCloudConnectionManageAuth, (req, res) => {
   try {
-    res.json(disconnectCloudApi());
+    const out = disconnectCloudApi();
+    auditSecurityAction(req, "cloud_connection.disconnect", "wa_cloud_connection", "success", { connectionId: out?.connectionId || "" });
+    res.json(out);
   } catch (err) {
+    auditSecurityAction(req, "cloud_connection.disconnect", "wa_cloud_connection", "failed", { code: err?.code || "DISCONNECT_ERROR" });
     res.status(400).json({ ok: false, error: err?.message || String(err) });
   }
 });
 
-app.get("/api/wa-cloud/templates", waCloudAuth, async (req, res) => {
+app.get("/api/wa-cloud/templates", waCloudTemplatesReadAuth, async (req, res) => {
   try {
     const limit = Math.min(Math.max(Number(req.query?.limit || 1000), 25), 2000);
     const out = await listCloudTemplates({ limit });
@@ -3352,7 +3238,7 @@ app.get("/api/wa-cloud/templates", waCloudAuth, async (req, res) => {
   }
 });
 
-app.get("/api/wa-cloud/template-library", waCloudAuth, async (req, res) => {
+app.get("/api/wa-cloud/template-library", waCloudTemplatesReadAuth, async (req, res) => {
   try {
     const out = await listCloudTemplateLibrary({
       language: String(req.query?.language || "pt_BR"),
@@ -3377,12 +3263,14 @@ app.get("/api/wa-cloud/template-library", waCloudAuth, async (req, res) => {
   }
 });
 
-app.post("/api/wa-cloud/templates", waCloudAuth, async (req, res) => {
+app.post("/api/wa-cloud/templates", waCloudTemplatesWriteAuth, async (req, res) => {
   try {
     if (!isCloudApiConfigured()) throw new Error("WA_CLOUD não configurado.");
     const out = await createCloudTemplate(req.body || {});
+    auditSecurityAction(req, "cloud_template.create", "wa_cloud_template", "success", { templateName: String(req.body?.name || req.body?.templateName || "").slice(0, 80) });
     res.json({ ok: true, ...out });
   } catch (err) {
+    auditSecurityAction(req, "cloud_template.create", "wa_cloud_template", "failed", { code: err?.code || "TEMPLATE_CREATE_ERROR" });
     if (isMetaTokenInvalidError(err)) return sendMetaTokenInvalid(res, err);
     const status = Number(err?.status || 400);
     res.status(status >= 400 && status < 600 ? status : 400).json({
@@ -3424,142 +3312,320 @@ function nextWaCloudThrottleDelay(range) {
   return minMs + Math.floor(Math.random() * (maxMs - minMs + 1));
 }
 
-app.post("/api/wa-cloud/send-template-batch", waCloudAuth, async (req, res) => {
-  try {
-    if (!isCloudApiConfigured()) throw new Error("WA_CLOUD não configurado.");
+const cloudCampaignQueue = new PersistentJobQueue({
+  file: path.join(dataRoot(), 'wa_cloud_jobs.json'),
+  pollIntervalMs: Number(process.env.WA_CLOUD_QUEUE_POLL_MS || 250),
+  maxAttempts: Number(process.env.WA_CLOUD_QUEUE_MAX_ATTEMPTS || 5),
+  baseDelayMs: Number(process.env.WA_CLOUD_QUEUE_RETRY_BASE_MS || 1000),
+  maxDelayMs: Number(process.env.WA_CLOUD_QUEUE_RETRY_MAX_MS || 60000),
+  handler: async (job) => {
+    const payload = job.payload || {};
+    const items = Array.isArray(payload.items) ? payload.items : [];
+    if (!payload.campaignId || !items.length) {
+      return { retryable: true, itemKey: 'bootstrap', error: { code: 'JOB_NOT_READY', message: 'Campanha ainda está sendo preparada.' } };
+    }
+    if (job.cursor >= items.length) {
+      updateCloudDispatchCampaign(payload.campaignId, { state: job.progress.failed > 0 ? 'completed_with_errors' : 'completed', progress: job.progress, jobId: job.id });
+      return { done: true, patch: { progress: { ...job.progress, pending: 0 } } };
+    }
+    const item = items[job.cursor];
+    const components = item.vars.length
+      ? [{ type: 'body', parameters: item.vars.map((text) => ({ type: 'text', text })) }]
+      : [];
+    try {
+      updateCloudDispatchEvent(item.eventId, { status: 'submitted' }, { source: 'queue_worker', providerStatus: 'submitted' });
+      const out = await sendCloudTemplate({
+        toE164Digits: item.to,
+        templateName: payload.templateName,
+        languageCode: payload.languageCode,
+        components,
+        meta: { tenantId: job.tenantId, campaignId: payload.campaignId, dispatchEventId: item.eventId, jobId: job.id },
+      });
+      const messageId = out?.messages?.[0]?.id || null;
+      updateCloudDispatchEvent(item.eventId, { messageId }, { source: 'meta_api', providerStatus: 'accepted' });
+      const processed = Number(job.progress.processed || 0) + 1;
+      const progress = { ...job.progress, processed, sent: Number(job.progress.sent || 0) + 1, pending: Math.max(0, job.progress.total - processed) };
+      const nextCursor = job.cursor + 1;
+      const done = nextCursor >= items.length;
+      updateCloudDispatchCampaign(payload.campaignId, { state: done ? (progress.failed ? 'completed_with_errors' : 'completed') : 'running', progress, jobId: job.id });
+      return { done, delayMs: nextWaCloudThrottleDelay(payload.throttleRange), patch: { cursor: nextCursor, progress } };
+    } catch (err) {
+      const errorInfo = normalizeMetaError(err);
+      const retryable = Boolean(errorInfo.retryable);
+      const attemptsForItem = Number(job.itemAttempts[String(job.cursor)] || 0) + 1;
+      if (retryable && attemptsForItem < job.maxAttempts) {
+        updateCloudDispatchCampaign(payload.campaignId, { state: 'queued', progress: job.progress, jobId: job.id });
+        return { retryable: true, itemKey: String(job.cursor), error: { code: errorInfo.code || err.code || 'META_TRANSIENT_ERROR', message: errorInfo.display || err.message || 'Falha temporária' } };
+      }
+      updateCloudDispatchEvent(item.eventId, { status: 'failed', failedAt: new Date().toISOString(), error: err?.payload || err?.message || String(err), errorInfo });
+      const processed = Number(job.progress.processed || 0) + 1;
+      const progress = { ...job.progress, processed, failed: Number(job.progress.failed || 0) + 1, pending: Math.max(0, job.progress.total - processed) };
+      const nextCursor = job.cursor + 1;
+      const done = nextCursor >= items.length;
+      updateCloudDispatchCampaign(payload.campaignId, { state: done ? 'completed_with_errors' : 'running', progress, jobId: job.id });
+      return { done, delayMs: nextWaCloudThrottleDelay(payload.throttleRange), patch: { cursor: nextCursor, progress, errors: [...(job.errors || []).slice(-49), { code: errorInfo.code || err.code || 'META_SEND_FAILED', message: errorInfo.display || err.message || 'Falha permanente', at: new Date().toISOString(), itemKey: String(job.cursor) }] } };
+    }
+  },
+});
 
-    const templateName = String(req.body?.templateName || "").trim();
-    const languageCode = String(req.body?.languageCode || "pt_BR").trim();
+function publicCloudJob(job) {
+  if (!job) return null;
+  const payload = job.payload || {};
+  const campaignEvents = payload.campaignId
+    ? listCloudDispatchEvents(job.tenantId).filter((event) => event.campaignId === payload.campaignId)
+    : [];
+  const progress = { ...(job.progress || {}) };
+  if (campaignEvents.length) {
+    progress.sent = campaignEvents.filter((event) => ['submitted', 'sent', 'delivered', 'read', 'replied'].includes(event.status)).length;
+    progress.delivered = campaignEvents.filter((event) => ['delivered', 'read', 'replied'].includes(event.status)).length;
+    progress.read = campaignEvents.filter((event) => ['read', 'replied'].includes(event.status)).length;
+    progress.responded = campaignEvents.filter((event) => event.status === 'replied').length;
+    progress.failed = campaignEvents.filter((event) => event.status === 'failed').length;
+  }
+  return {
+    id: job.id, tenantId: job.tenantId, type: job.type, state: job.state,
+    campaignId: payload.campaignId || '', campaignName: payload.campaignName || '',
+    templateName: payload.templateName || '', progress,
+    attempts: job.attempts, maxAttempts: job.maxAttempts, cursor: job.cursor,
+    nextRunAt: job.nextRunAt, createdAt: job.createdAt, startedAt: job.startedAt,
+    updatedAt: job.updatedAt, completedAt: job.completedAt,
+    errors: Array.isArray(job.errors) ? job.errors.slice(-10) : [],
+  };
+}
+
+app.post('/api/wa-cloud/send-template-batch', waCloudCampaignAuth, async (req, res) => {
+  let reservedJob = null;
+  let reservedTenantId = '';
+  let reservedCampaignId = '';
+  try {
+    if (!isCloudApiConfigured()) throw new Error('WA_CLOUD não configurado.');
+    const templateName = String(req.body?.templateName || '').trim();
+    const languageCode = String(req.body?.languageCode || 'pt_BR').trim();
     const contacts = Array.isArray(req.body?.contacts) ? req.body.contacts : [];
     const throttleRange = normalizeWaCloudThrottle(req.body || {});
-    const campaignName = String(req.body?.campaignName || templateName || "Campanha oficial").trim();
+    const campaignName = String(req.body?.campaignName || templateName || 'Campanha oficial').trim();
     const cloudTenantId = getWaCloudTenantId(req);
+    const cloudConnection = connectionFromRuntimeConfig(getWaCloudRuntimeConfig());
+    if (!cloudConnection.connectionId || !cloudConnection.phoneNumberId || !cloudConnection.wabaId) throw Object.assign(new Error('A conexão da Cloud API está incompleta.'), { code: 'META_CONNECTION_INCOMPLETE' });
+    if (!templateName) throw new Error('templateName obrigatório.');
+    if (!contacts.length) throw new Error('contacts vazio.');
+    const maxCampaignContacts = Math.max(1, Math.min(Number(process.env.WA_CLOUD_CAMPAIGN_MAX_CONTACTS) || 10000, 100000));
+    if (contacts.length > maxCampaignContacts) return res.status(413).json({ ok: false, code: 'CAMPAIGN_TOO_LARGE', error: 'Campanha acima do limite permitido.' });
 
-    if (!templateName) throw new Error("templateName obrigatório.");
-    if (!contacts.length) throw new Error("contacts vazio.");
+    const preparedContacts = contacts.map((c) => ({
+      to: String(c?.to || '').replace(/\D+/g, ''),
+      vars: Array.isArray(c?.vars) ? c.vars.map((x) => String(x ?? '')) : [],
+      nome: String(c?.nome || ''), companyName: String(c?.companyName || ''), email: String(c?.email || ''),
+      source: String(c?.source || ''), spreadsheetName: String(c?.spreadsheetName || ''),
+    })).filter((c) => c.to);
+    if (!preparedContacts.length) throw new Error('Nenhum contato válido.');
+
+    const requestPayload = { templateName, languageCode, campaignName, throttleRange, contacts: preparedContacts };
+    const suppliedKey = String(req.get('Idempotency-Key') || req.body?.idempotencyKey || '').trim();
+    const idempotencyKey = suppliedKey || crypto.createHash('sha256').update(JSON.stringify(requestPayload)).digest('hex');
+    const enqueued = cloudCampaignQueue.enqueue({ tenantId: cloudTenantId, type: 'wa_cloud_campaign', payload: requestPayload, idempotencyKey, progress: { total: preparedContacts.length } });
+    reservedTenantId = cloudTenantId;
+    if (enqueued.created) reservedJob = enqueued.job;
+    if (!enqueued.created) return res.status(202).json({ ok: true, duplicate: true, job: publicCloudJob(enqueued.job) });
 
     const webhookLookup = buildWebhookLookup(listWebhooks(cloudTenantId), req);
     const sourceSummary = {};
-    for (const c of contacts) {
-      const src = dispatchSourceInfo(c).label || "Contato do disparo";
-      sourceSummary[src] = (sourceSummary[src] || 0) + 1;
-    }
-
+    for (const c of preparedContacts) { const src = dispatchSourceInfo(c).label || 'Contato do disparo'; sourceSummary[src] = (sourceSummary[src] || 0) + 1; }
     const campaign = createCloudDispatchCampaign({
-      tenantId: cloudTenantId,
-      name: campaignName,
-      templateName,
-      languageCode,
-      total: contacts.length,
-      sourceSummary,
+      tenantId: cloudTenantId, connectionId: cloudConnection.connectionId, phoneNumberId: cloudConnection.phoneNumberId,
+      wabaId: cloudConnection.wabaId, name: campaignName, templateName, languageCode,
+      total: preparedContacts.length, sourceSummary, jobId: enqueued.job.id, state: 'queued', progress: enqueued.job.progress,
     });
-
-    const results = [];
-    for (const c of contacts) {
-      const to = String(c?.to || "").replace(/\D+/g, "");
-      if (!to) continue;
-
-      const vars = Array.isArray(c?.vars) ? c.vars.map((x) => String(x ?? "")) : [];
-      const components = vars.length
-        ? [{ type: "body", parameters: vars.map((t) => ({ type: "text", text: t })) }]
-        : [];
-
-      const lead = findLeadByDigits(cloudTenantId, to);
+    reservedCampaignId = campaign.id;
+    const items = preparedContacts.map((c) => {
+      const lead = findLeadByDigits(cloudTenantId, c.to);
       const origin = lead ? leadOriginInfo(lead, webhookLookup) : dispatchSourceInfo(c);
-      const dispatchSource = dispatchSourceInfo(c);
       const event = recordCloudDispatchEvent({
-        tenantId: cloudTenantId,
-        campaignId: campaign.id,
-        campaignName: campaign.name,
-        templateName,
-        languageCode,
-        toDigits: to,
-        leadId: lead ? lead.id : "",
-        leadSnapshot: lead ? { id: lead.id, nome: lead.nome || "", empresa: lead.empresa || "", email: lead.email || "", source: lead.source || "" } : { nome: c?.nome || "", empresa: c?.companyName || "", email: c?.email || "" },
-        origin,
-        dispatchSource,
-        vars,
-        status: "pending",
+        tenantId: cloudTenantId, connectionId: cloudConnection.connectionId, phoneNumberId: cloudConnection.phoneNumberId,
+        wabaId: cloudConnection.wabaId, campaignId: campaign.id, campaignName: campaign.name, templateName, languageCode,
+        recipientId: c.to, toDigits: c.to, leadId: lead ? lead.id : '',
+        leadSnapshot: lead ? { id: lead.id, nome: lead.nome || '', empresa: lead.empresa || '', email: lead.email || '', source: lead.source || '' } : { nome: c.nome, empresa: c.companyName, email: c.email },
+        origin, dispatchSource: dispatchSourceInfo(c), vars: c.vars, status: 'queued',
       });
-
-      try {
-        const out = await sendCloudTemplate({
-          toE164Digits: to,
-          templateName,
-          languageCode,
-          components,
-          meta: { nome: c?.nome || null, source: `${cloudTenantId}-batch`, tenantId: cloudTenantId, campaignId: campaign.id, dispatchEventId: event.id },
-        });
-        const messageId = out?.messages?.[0]?.id || null;
-        updateCloudDispatchEvent(event.id, { status: "sent", sentAt: new Date().toISOString(), messageId });
-        results.push({ to, ok: true, messageId, campaignId: campaign.id, eventId: event.id });
-      } catch (err) {
-        const errorInfo = normalizeMetaError(err);
-        const rawError = err?.payload || err?.message || String(err);
-        updateCloudDispatchEvent(event.id, {
-          status: "failed",
-          failedAt: new Date().toISOString(),
-          error: rawError,
-          errorInfo,
-        });
-        if (isMetaTokenInvalidError(err)) throw err;
-        results.push({
-          to,
-          ok: false,
-          error: errorInfo.display || err?.message || String(err),
-          errorInfo,
-          campaignId: campaign.id,
-          eventId: event.id,
-        });
-      }
-
-      const waitMs = nextWaCloudThrottleDelay(throttleRange);
-      if (waitMs) await new Promise((r) => setTimeout(r, waitMs));
-    }
-
-    const sentCount = results.filter((x) => x && x.ok).length;
-    const failedCount = results.filter((x) => x && !x.ok).length;
-    res.json({
-      ok: true,
-      campaignId: campaign.id,
-      campaignName: campaign.name,
-      total: results.length,
-      summary: {
-        total: results.length,
-        sent: sentCount,
-        failed: failedCount,
-        errorGroups: groupMetaErrors(results),
-      },
-      throttle: throttleRange,
-      results,
+      return { to: c.to, vars: c.vars, eventId: event.id };
     });
+    const ready = cloudCampaignQueue.mutate(enqueued.job.id, cloudTenantId, (job) => ({ ...job, payload: { campaignId: campaign.id, campaignName, templateName, languageCode, throttleRange, items }, nextRunAt: new Date().toISOString() }));
+    auditSecurityAction(req, 'cloud_campaign.create', 'wa_cloud_campaign', 'success', { campaignId: campaign.id, jobId: ready.id, tenantId: cloudTenantId, total: items.length });
+    return res.status(202).json({ ok: true, duplicate: false, job: publicCloudJob(ready) });
   } catch (err) {
+    if (reservedJob && reservedTenantId) {
+      cloudCampaignQueue.fail(reservedJob.id, reservedTenantId, { code: err?.code || 'CAMPAIGN_PREPARATION_FAILED', message: err?.message || 'Falha ao preparar campanha.' });
+      if (reservedCampaignId) updateCloudDispatchCampaign(reservedCampaignId, { state: 'failed', jobId: reservedJob.id });
+    }
+    if (err instanceof QueueError) return res.status(err.status || 400).json({ ok: false, code: err.code, error: err.message });
     if (isMetaTokenInvalidError(err)) return sendMetaTokenInvalid(res, err);
-    res.status(400).json({ ok: false, error: err?.message || String(err), errorInfo: normalizeMetaError(err), details: err?.payload || null });
+    return res.status(Number(err?.status || 400)).json({ ok: false, code: err?.code, error: err?.message || String(err), errorInfo: normalizeMetaError(err) });
   }
 });
 
-app.get("/api/wa-cloud/statuses", waCloudAuth, (req, res) => {
-  res.json({ total: listCloudStatus().length, items: listCloudStatus() });
+app.get('/api/wa-cloud/jobs', waCloudCampaignAuth, (req, res) => {
+  const tenantId = getWaCloudTenantId(req);
+  res.json({ ok: true, jobs: cloudCampaignQueue.list(tenantId, req.query?.limit).map(publicCloudJob) });
+});
+app.get('/api/wa-cloud/jobs-health', waCloudCampaignAuth, (req, res) => {
+  const tenantId = getWaCloudTenantId(req);
+  res.json({ ok: true, queue: cloudCampaignQueue.stats(tenantId) });
+});
+app.get('/api/wa-cloud/jobs/:jobId', waCloudCampaignAuth, (req, res) => {
+  const job = cloudCampaignQueue.get(req.params.jobId, getWaCloudTenantId(req));
+  if (!job) return res.status(404).json({ ok: false, code: 'JOB_NOT_FOUND', error: 'Job não encontrado.' });
+  res.json({ ok: true, job: publicCloudJob(job) });
+});
+for (const [action, method] of [['pause','pause'], ['resume','resume'], ['cancel','cancel']]) {
+  app.post(`/api/wa-cloud/jobs/:jobId/${action}`, waCloudCampaignAuth, (req, res) => {
+    const tenantId = getWaCloudTenantId(req);
+    const job = cloudCampaignQueue[method](req.params.jobId, tenantId);
+    if (!job) return res.status(404).json({ ok: false, code: 'JOB_NOT_FOUND', error: 'Job não encontrado.' });
+    if (job.payload?.campaignId) updateCloudDispatchCampaign(job.payload.campaignId, { state: job.state, progress: job.progress, jobId: job.id });
+    if (action === 'cancel' && Array.isArray(job.payload?.items)) {
+      for (const item of job.payload.items.slice(Number(job.cancelAfterCursor ?? job.cursor ?? 0))) {
+        updateCloudDispatchEvent(item.eventId, { status: 'canceled' }, { source: 'queue_control', providerStatus: 'canceled' });
+      }
+    }
+    auditSecurityAction(req, `cloud_campaign.${action}`, 'wa_cloud_job', 'success', { jobId: job.id, campaignId: job.payload?.campaignId || '', tenantId });
+    res.json({ ok: true, job: publicCloudJob(job) });
+  });
+}
+
+
+function listCloudStatusesForTenant(tenantId, { includeLegacy = false } = {}) {
+  const tid = String(tenantId || "").toLowerCase();
+  const events = listCloudDispatchEvents(tid);
+  const items = events.map((event) => ({
+    id: event.id,
+    tenantId: tid,
+    campaignId: event.campaignId || "",
+    toDigits: event.toDigits || "",
+    connectionId: event.connectionId || "",
+    phoneNumberId: event.phoneNumberId || "",
+    wabaId: event.wabaId || "",
+    dispatchId: event.dispatchId || event.id,
+    recipientId: event.recipientId || event.toDigits || "",
+    messageId: event.messageId || null,
+    conversationId: event.conversationId || null,
+    state: normalizeDispatchFinalStatus(event),
+    status: normalizeDispatchFinalStatus(event),
+    sentAt: event.sentAt || null,
+    deliveredAt: event.deliveredAt || null,
+    readAt: event.readAt || null,
+    repliedAt: event.repliedAt || event.respondedAt || null,
+    failedAt: event.failedAt || null,
+    errorInfo: event.errorInfo || null,
+    statusHistory: Array.isArray(event.statusHistory) ? event.statusHistory : [],
+    updatedAt: event.updatedAt || event.createdAt || null,
+  }));
+
+  // Legado global só pode ser visto pelo super_admin e continua identificado como legado.
+  if (tid === TENANT_ADMIN && includeLegacy) {
+    const knownMessageIds = new Set(items.map((item) => String(item.messageId || "")).filter(Boolean));
+    for (const status of listCloudStatus()) {
+      const messageId = String(status?.messageId || "");
+      if (messageId && knownMessageIds.has(messageId)) continue;
+      items.push({ ...status, tenantId: TENANT_ADMIN, legacy: true });
+    }
+  }
+
+  return items.sort((a, b) => String(b.updatedAt || b.sentAt || "").localeCompare(String(a.updatedAt || a.sentAt || "")));
+}
+
+app.get("/api/wa-cloud/statuses", waCloudStatusesAuth, (req, res) => {
+  const tenantId = getWaCloudTenantId(req);
+  const items = listCloudStatusesForTenant(tenantId, { includeLegacy: false });
+  res.json({ total: items.length, tenantId, items });
 });
 
-app.get("/webhooks/wa-cloud", (req, res) => {
-  const mode = req.query["hub.mode"];
-  const token = req.query["hub.verify_token"];
-  const challenge = req.query["hub.challenge"];
-  const expected = process.env.WA_CLOUD_WEBHOOK_VERIFY_TOKEN;
+const cloudWebhookFeatureGate = requireFeature(FEATURES.CLOUD_API_V2, { tenantResolver: () => process.env.WA_CLOUD_CONNECTION_OWNER_TENANT || TENANT_ADMIN });
 
-  if (mode === "subscribe" && expected && token === expected) {
+app.get("/webhooks/wa-cloud", cloudWebhookFeatureGate, (req, res) => {
+  const mode = String(req.query["hub.mode"] || "");
+  const token = String(req.query["hub.verify_token"] || "");
+  const challenge = String(req.query["hub.challenge"] || "");
+  const expected = String(process.env.WA_CLOUD_WEBHOOK_VERIFY_TOKEN || "").trim();
+
+  if (mode === "subscribe" && expected && timingSafeEqualText(token, expected)) {
     return res.status(200).send(challenge);
   }
   return res.sendStatus(403);
 });
 
-app.post("/webhooks/wa-cloud", (req, res) => {
-  handleCloudWebhook(req.body);
-  try { syncCloudDispatchFromWebhook(req.body); }
-  catch (err) { console.error("⚠️ WA_CLOUD dispatch sync error:", err?.message || err); }
-  res.sendStatus(200);
+app.post("/webhooks/wa-cloud", cloudWebhookFeatureGate, (req, res) => {
+  if (!requireSupportedBody(req, res)) return;
+  if (!enforceRateLimit({
+    req,
+    res,
+    limiter: publicEndpointRateLimiter,
+    scope: "meta-webhook",
+    identity: publicEndpointIdentity(req),
+    max: META_WEBHOOK_RATE_MAX,
+    windowMs: PUBLIC_RATE_WINDOW_MS,
+  })) return;
+
+  const rawBody = getRawBody(req);
+  let runtimeConfig;
+  try {
+    runtimeConfig = getWaCloudRuntimeConfig();
+  } catch (error) {
+    logErr("Falha ao carregar configuração runtime da Meta:", safeError(error));
+    return respondSecurityError(res, 503, "META_CONFIGURATION_UNAVAILABLE", "Webhook da Meta indisponível.");
+  }
+  const appSecret = String(runtimeConfig.appSecret || "").trim();
+  if (!appSecret) {
+    return respondSecurityError(res, 503, "META_APP_SECRET_MISSING", "Webhook da Meta indisponível.");
+  }
+  if (!validateMetaSignature(rawBody, req.get("x-hub-signature-256"), appSecret)) {
+    return respondSecurityError(res, 401, "META_SIGNATURE_INVALID", "Assinatura da Meta inválida.");
+  }
+
+  let body;
+  try {
+    body = validateMetaWebhookPayload(parseJsonBuffer(rawBody));
+  } catch (error) {
+    return handlePublicEndpointError(res, error, "INVALID_META_PAYLOAD");
+  }
+
+  let cloudConnection;
+  try {
+    cloudConnection = assertWebhookMatchesConnection(body, runtimeConfig);
+  } catch (error) {
+    return respondSecurityError(res, Number(error?.status || 403), error?.code || "META_CONNECTION_MISMATCH", "Evento da Meta não pertence à conexão configurada.");
+  }
+
+  const phoneNumberId = cloudConnection.phoneNumberId;
+  const eventId = deriveMetaEventKey(body, rawBody);
+  let claim = null;
+  try {
+    claim = claimWebhookEvent({ integration: "meta", tenantId: cloudConnection.connectionId, eventId, requestHash: securitySha256(rawBody) });
+    if (!claim.claimed) return res.sendStatus(claim.pending ? 202 : 200);
+
+    const correlation = syncCloudDispatchFromWebhook(body, cloudConnection, eventId);
+    completeWebhookEventRequired({
+      integration: "meta",
+      tenantId: cloudConnection.connectionId,
+      eventId,
+      statusCode: 200,
+      responseBody: { ok: true, correlation },
+    });
+    return res.sendStatus(200);
+  } catch (error) {
+    console.error("⚠️ WA_CLOUD webhook processing error:", safeError(error));
+    const statusCode = Number(error?.statusCode || 500);
+    const safeStatus = statusCode >= 500 && statusCode < 600 ? statusCode : 500;
+    if (claim?.claimed && error?.code !== "WEBHOOK_IDEMPOTENCY_UNAVAILABLE") {
+      completeWebhookEventBestEffort({
+        integration: "meta",
+        tenantId: cloudConnection?.connectionId || phoneNumberId,
+        eventId,
+        statusCode: safeStatus,
+        responseBody: { ok: false, error: "processing_failed" },
+      });
+    }
+    return respondSecurityError(res, safeStatus, error?.code || "META_PROCESSING_FAILED", "Não foi possível processar o evento da Meta.");
+  }
 });
 
 /* -------------------- data migration (safe) -------------------- */
@@ -3603,42 +3669,20 @@ function falseyEnv(value) {
   return ["0", "false", "no", "off"].includes(String(value || "").trim().toLowerCase());
 }
 
-function dirHasAnyFile(dir) {
-  try {
-    if (!fs.existsSync(dir)) return false;
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    if (!entries.length) return false;
-    return entries.some((entry) => {
-      const full = path.join(dir, entry.name);
-      return entry.isFile() || (entry.isDirectory() && dirHasAnyFile(full));
-    });
-  } catch {
-    return false;
-  }
-}
-
 function hasExistingWhatsAppSession(tenantId) {
-  const authBase = path.join(__dirname, "data", tenantId, "wwebjs_auth");
-  const expectedLocalAuthSession = path.join(authBase, `session-tenant_${tenantId}`);
-  return dirHasAnyFile(expectedLocalAuthSession) || dirHasAnyFile(authBase);
+  return inspectTenantSession(tenantId).authenticationExists;
 }
 
 function tenantHasLoginConfigured(tenantId) {
   const t = String(tenantId || "").trim().toLowerCase();
-  const map = {
-    admin: ["ADMIN_USER", "ADMIN_PASS"],
-    panel: ["PANEL_USER", "PANEL_PASS"],
-    regina: ["REGINA_USER", "REGINA_PASS"],
-    portugal: ["PORTUGAL_USER", "PORTUGAL_PASS"],
-    felipe: ["FELIPE_USER", "FELIPE_PASS"],
-    ana: ["ANA_USER", "ANA_PASS"],
-  };
-  const keys = map[t];
-  return Boolean(keys && String(process.env[keys[0]] || "").trim() && String(process.env[keys[1]] || "").trim());
+  const cfg = getTenantConfig(t);
+  if (!cfg || !isTenantEnabled(t)) return false;
+  if (cfg.credentialSource === "dynamic") return true;
+  return Boolean(String(process.env[cfg.userEnv] || "").trim() && String(process.env[cfg.passEnv] || "").trim());
 }
 
 function getWhatsAppAutoStartTenants() {
-  const allowed = [TENANT_ADMIN, TENANT_PANEL, TENANT_REGINA, TENANT_PORTUGAL, TENANT_FELIPE, TENANT_ANA];
+  const allowed = listTenantConfigs({ includeDisabled: false }).map((cfg) => cfg.tenantId);
   const explicit = String(process.env.WEBJS_AUTO_START_TENANTS || "")
     .split(",")
     .map((v) => v.trim().toLowerCase())
@@ -3648,11 +3692,9 @@ function getWhatsAppAutoStartTenants() {
     return [...new Set(explicit.filter((tenant) => allowed.includes(tenant)))];
   }
 
-  // Comportamento seguro por padrão:
-  // tenants antigos só sobem automaticamente quando já têm sessão salva.
-  // O tenant Portugal também sobe quando o login dele está configurado no .env,
-  // para ficar visível no boot e disponível para gerar QR/conectar como os outros painéis.
-  return allowed.filter((tenantId) => hasExistingWhatsAppSession(tenantId) || ((tenantId === TENANT_PORTUGAL || tenantId === TENANT_FELIPE || tenantId === TENANT_ANA) && tenantHasLoginConfigured(tenantId)));
+  // Comportamento seguro por padrão: somente sessões já existentes sobem sozinhas.
+  // Painéis novos ficam desconectados até o usuário clicar em Conectar e gerar o primeiro QR.
+  return allowed.filter((tenantId) => hasExistingWhatsAppSession(tenantId));
 }
 
 function startWhatsAppClientsInBackground() {
@@ -3687,16 +3729,67 @@ function startWhatsAppClientsInBackground() {
 }
 
 let shutdownStarted = false;
+let httpServer = null;
+let monitorTimer = null;
+
+function operationalWhatsAppStatus() {
+  if (!isWhatsAppConfigured()) return { ok: null, disabled: true };
+  const tenants = listTenantConfigs({ includeDisabled: false }).map((cfg) => cfg.tenantId).filter(tenantHasLoginConfigured);
+  const statuses = tenants.map((tenantId) => getTenantWA(tenantId).getWhatsAppStatus());
+  return { ok: statuses.length ? statuses.every((row) => row.status === "connected") : null, tenants: statuses.map((row) => ({ tenantId: row.tenantId, status: row.status, hasError: Boolean(row.lastError) })) };
+}
+function operationalCloudStatus() {
+  if (!securityEnvBool(process.env.WA_CLOUD_ENABLED, false)) return { ok: null, disabled: true };
+  try { const status = getCloudStatus(); return { ok: Boolean(status?.configured || status?.connected || status?.enabled), state: status?.status || status?.state || "unknown" }; } catch { return { ok: false }; }
+}
+
+async function runOperationalMonitor() {
+  try {
+    const snapshot = await collectSystemSnapshot({ databaseHealth: () => databaseRuntime.health(), whatsappStatus: operationalWhatsAppStatus, cloudStatus: operationalCloudStatus, metrics: defaultMetrics });
+    defaultMetrics.set("zape_disk_used_percent", {}, snapshot.disk.usedPercent);
+    defaultMetrics.set("zape_queue_pending", {}, snapshot.queue.pending);
+    defaultMetrics.set("zape_queue_failed", {}, snapshot.queue.failed);
+    await evaluateSystemAlerts(snapshot, alertManager);
+  } catch (error) {
+    structuredLogger.error("Falha no monitor operacional.", { event: "monitor.failed", error });
+  }
+}
+
+function closeHttpServer(timeoutMs = 30000) {
+  if (!httpServer) return Promise.resolve();
+  return new Promise((resolve) => {
+    let finished = false;
+    const done = () => {
+      if (finished) return;
+      finished = true;
+      resolve();
+    };
+    const timer = setTimeout(done, timeoutMs);
+    timer.unref?.();
+    httpServer.close(() => {
+      clearTimeout(timer);
+      done();
+    });
+    httpServer.closeIdleConnections?.();
+  });
+}
+
 async function gracefulShutdown(signal) {
   if (shutdownStarted) return;
   shutdownStarted = true;
 
-  console.log(`🛑 Recebido ${signal}. Encerrando clientes do WhatsApp com segurança...`);
+  console.log(`🛑 Recebido ${signal}. Interrompendo novas conexões e encerrando serviços com segurança...`);
   try {
     stopExternalCrmWorker();
-    await destroyCachedWhatsAppClients();
+    cloudCampaignQueue.stop();
+    if (monitorTimer) clearInterval(monitorTimer);
+    await Promise.allSettled([
+      closeHttpServer(),
+      destroyCachedWhatsAppClients(),
+      databaseRuntime.close(),
+    ]);
   } catch (err) {
-    console.error("⚠️ Falha ao encerrar clientes WhatsApp:", err?.message || err);
+    console.error("⚠️ Falha no encerramento controlado:", err?.message || err);
   } finally {
     process.exit(0);
   }
@@ -3704,30 +3797,143 @@ async function gracefulShutdown(signal) {
 
 process.on("SIGINT", () => gracefulShutdown("SIGINT"));
 process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+process.on("message", (message) => {
+  if (message === "shutdown") gracefulShutdown("PM2_SHUTDOWN");
+});
+
+function privacySource() {
+  const state = databaseRuntime.getState();
+  return databaseRuntime.isDatabasePrimary() && state.db ? { type: "database", db: state.db } : { type: "json" };
+}
+
+function registerPrivacyRoutes(prefix, authMw, tenantId) {
+  app.get(`${prefix}/privacy/contact`, authMw, requirePermission(PERMISSIONS.PRIVACY_MANAGE), async (req, res) => {
+    const phone = String(req.query?.phone || "").trim();
+    if (!phone) return res.status(400).json({ ok: false, code: "PHONE_REQUIRED", error: "Telefone obrigatório." });
+    try {
+      const source = privacySource();
+      const data = source.type === "database"
+        ? await exportDatabaseContact({ db: source.db, tenantId, phone })
+        : exportJsonContact({ tenantId, phone });
+      auditSecurityAction(req, "privacy.export", "contact", "success", { contactRef: data.contactRef, leadCount: data.leads?.length || 0 });
+      structuredLogger.security("Exportação LGPD realizada.", { event: "privacy.export", correlationId: req.correlationId, operationId: req.operationId, tenantId, contactRef: data.contactRef });
+      res.setHeader("Cache-Control", "no-store");
+      return res.json({ ok: true, data });
+    } catch (error) {
+      auditSecurityAction(req, "privacy.export", "contact", "failed", { code: error.code || "PRIVACY_EXPORT_FAILED" });
+      return res.status(error.code === "INVALID_PHONE" ? 400 : 500).json({ ok: false, code: error.code || "PRIVACY_EXPORT_FAILED", error: "Não foi possível exportar os dados." });
+    }
+  });
+  app.post(`${prefix}/privacy/contact/delete`, authMw, requirePermission(PERMISSIONS.PRIVACY_MANAGE), async (req, res) => {
+    const phone = String(req.body?.phone || "").trim();
+    const confirmation = String(req.body?.confirmation || "").trim();
+    const apply = req.body?.apply === true;
+    if (!phone) return res.status(400).json({ ok: false, code: "PHONE_REQUIRED", error: "Telefone obrigatório." });
+    if (apply && confirmation !== "DELETE_CONTACT_DATA") return res.status(400).json({ ok: false, code: "CONFIRMATION_REQUIRED", error: "Confirmação inválida." });
+    try {
+      const source = privacySource();
+      const backupDir = path.join(dataRoot(), "quarantine", `lgpd-${Date.now()}-${crypto.randomBytes(4).toString("hex")}`);
+      const result = source.type === "database"
+        ? await deleteDatabaseContact({ db: source.db, tenantId, phone, apply })
+        : deleteJsonContact({ tenantId, phone, apply, backupDir });
+      auditSecurityAction(req, "privacy.delete", "contact", apply ? "success" : "dry_run", { contactRef: result.contactRef, counts: result.counts });
+      structuredLogger.security(apply ? "Exclusão LGPD aplicada." : "Exclusão LGPD simulada.", { event: apply ? "privacy.delete.applied" : "privacy.delete.dry_run", correlationId: req.correlationId, operationId: req.operationId, tenantId, contactRef: result.contactRef, counts: result.counts });
+      return res.json({ ok: true, mode: apply ? "apply" : "dry-run", result });
+    } catch (error) {
+      auditSecurityAction(req, "privacy.delete", "contact", "failed", { code: error.code || "PRIVACY_DELETE_FAILED" });
+      return res.status(error.code === "INVALID_PHONE" ? 400 : 500).json({ ok: false, code: error.code || "PRIVACY_DELETE_FAILED", error: "Não foi possível processar a exclusão." });
+    }
+  });
+}
+
+
+registerAdminMonitoringRoutes(app, {
+  adminAuth,
+  requireRole,
+  requirePermission,
+  roles: ROLES,
+  permissions: PERMISSIONS,
+  collectSystemSnapshot,
+  databaseRuntime,
+  operationalWhatsAppStatus,
+  operationalCloudStatus,
+  metrics: defaultMetrics,
+  alertManager,
+  auditSecurityAction,
+});
+
+registerAdminDeploymentRoutes(app, {
+  adminAuth,
+  requireRole,
+  requirePermission,
+  roles: ROLES,
+  permissions: PERMISSIONS,
+  releaseMetadata,
+  featureSnapshot,
+  auditSecurityAction,
+});
 
 // global error handler
 app.use((err, req, res, next) => {
-  logErr("Unhandled error:", err?.stack || err);
   if (res.headersSent) return next(err);
-  res.status(500).json({ ok: false, error: "internal_error" });
+  if (err?.type === "entity.too.large" || err?.status === 413) {
+    return respondSecurityError(res, 413, "PAYLOAD_TOO_LARGE", "Payload acima do limite permitido.");
+  }
+  if (err?.type === "entity.parse.failed" || (err instanceof SyntaxError && err?.status === 400)) {
+    return respondSecurityError(res, 400, "INVALID_BODY", "Payload malformado.");
+  }
+  if (err?.status === 415 || err?.type === "charset.unsupported") {
+    return respondSecurityError(res, 415, "UNSUPPORTED_CONTENT_TYPE", "Formato de conteúdo não suportado.");
+  }
+  if (err?.code === "WEBHOOK_IDEMPOTENCY_CORRUPT") {
+    return respondSecurityError(res, 503, "WEBHOOK_IDEMPOTENCY_UNAVAILABLE", "Endpoint temporariamente indisponível.");
+  }
+  logErr("Unhandled error:", safeError(err));
+  return res.status(500).json({ ok: false, error: "internal_error" });
 });
 
 /* -------------------- start -------------------- */
-migrateLegacyData().finally(() => {
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`🚀 Rodando em http://localhost:${PORT}`);
-    console.log("➡️ Admin:", "/admin");
-    console.log("➡️ Panel:", "/panel");
-    console.log("➡️ Regina:", "/regina");
-    console.log("➡️ Portugal:", "/portugal");
-    console.log("➡️ Felipe:", "/felipe");
-    console.log("➡️ Ana Salomão:", "/ana");
+async function startApplication() {
+  try {
+    await databaseRuntime.initializeDatabaseRuntime();
+    if (!databaseRuntime.isDatabasePrimary()) await migrateLegacyData();
+  } catch (error) {
+    console.error("❌ Inicialização da persistência bloqueou o boot:", error?.code || error?.message || "DATABASE_BOOT_FAILED");
+    process.exitCode = 1;
+    return;
+  }
 
-    // A fila é persistente: eventos pendentes voltam a ser processados após reinício do servidor.
+  const validateOnBoot = !["0", "false", "no", "off"].includes(String(process.env.DATA_INTEGRITY_VALIDATE_ON_BOOT || "1").trim().toLowerCase());
+  if (validateOnBoot && !databaseRuntime.isDatabasePrimary()) {
+    try {
+      const integrity = validateDataIntegrityOnBoot(dataRoot(), {
+        strict: ["1", "true", "yes", "on"].includes(String(process.env.DATA_INTEGRITY_STRICT_BOOT || "0").trim().toLowerCase()),
+      });
+      const issueCount = integrity.tenants.reduce((sum, tenant) => sum + tenant.issues.length, 0);
+      console.log(`🧭 Integridade dos dados validada: tenants=${integrity.tenants.length}, issues=${issueCount}`);
+    } catch (error) {
+      console.error("❌ Validação de integridade dos dados bloqueou o boot:", error?.code || "DATA_INTEGRITY_BOOT_FAILED");
+      process.exitCode = 1;
+      return;
+    }
+  }
+
+  httpServer = app.listen(PORT, HOST, () => {
+    console.log(`🚀 Rodando em http://${HOST}:${PORT}`);
+    console.log(`🗄️ Persistência: ${databaseRuntime.getState().config?.mode || "json"}`);
+    console.log(`📦 Release: ${releaseMetadata().releaseId}`);
+    const configuredPanels = listTenantConfigs({ includeDisabled: false });
+    console.log(`➡️ Painéis ativos (${configuredPanels.length}):`, configuredPanels.map((cfg) => cfg.path).join(", "));
+    if (typeof process.send === "function") process.send("ready");
     startExternalCrmWorker();
-
-    // Mantém a sessão do WhatsApp viva após pm2 restart.
-    // Se já existe sessão local salva, o painel volta conectado sem precisar clicar em Conectar.
+    if (resolveFeature(FEATURES.CLOUD_QUEUE, TENANT_ADMIN).enabled) cloudCampaignQueue.start();
+    else console.warn("[DEPLOY] Fila Cloud desativada por feature flag.");
     setTimeout(startWhatsAppClientsInBackground, 1500);
+    setTimeout(runOperationalMonitor, 2000);
+    const monitorIntervalMs = Math.max(60000, Number(process.env.MONITOR_INTERVAL_MS || 300000));
+    monitorTimer = setInterval(runOperationalMonitor, monitorIntervalMs);
+    monitorTimer.unref?.();
   });
-});
+}
+
+startApplication();

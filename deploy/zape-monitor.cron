@@ -1,0 +1,2 @@
+# Verificação operacional a cada 5 minutos. Instalar como usuário zape.
+*/5 * * * * cd /opt/zape/current && /usr/bin/node scripts/monitor-system.js >> /var/log/zape/monitor-cron.log 2>&1

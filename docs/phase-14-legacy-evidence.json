@@ -1,0 +1,127 @@
+{
+  "before": {
+    "generatedAt": "2026-07-14T15:35:30.776Z",
+    "scannedFiles": 166,
+    "candidates": [
+      {
+        "path": "src/leadsStore.js",
+        "exists": true,
+        "references": []
+      },
+      {
+        "path": "src/tagsStore.js",
+        "exists": true,
+        "references": []
+      },
+      {
+        "path": "src/leadTagsStore.js",
+        "exists": true,
+        "references": []
+      },
+      {
+        "path": "src/messageStatusStore.js",
+        "exists": true,
+        "references": []
+      },
+      {
+        "path": "src/whatsapp.js",
+        "exists": true,
+        "references": []
+      },
+      {
+        "path": "public/admin.html",
+        "exists": true,
+        "references": [
+          "scripts/audit-code-usage.js",
+          "server.js",
+          "vite.config.js"
+        ]
+      },
+      {
+        "path": "public/panel.html",
+        "exists": true,
+        "references": [
+          "scripts/audit-code-usage.js",
+          "server.js",
+          "vite.config.js"
+        ]
+      },
+      {
+        "path": "public/regina.html",
+        "exists": true,
+        "references": [
+          "scripts/audit-code-usage.js",
+          "server.js"
+        ]
+      },
+      {
+        "path": "public/index.html",
+        "exists": true,
+        "references": [
+          "scripts/audit-code-usage.js",
+          "server.js",
+          "vite.config.js"
+        ]
+      }
+    ],
+    "removable": [
+      "src/leadsStore.js",
+      "src/tagsStore.js",
+      "src/leadTagsStore.js",
+      "src/messageStatusStore.js",
+      "src/whatsapp.js"
+    ]
+  },
+  "after": {
+    "generatedAt": "2026-07-14T15:36:21.914Z",
+    "scannedFiles": 157,
+    "candidates": [
+      {
+        "path": "src/leadsStore.js",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "src/tagsStore.js",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "src/leadTagsStore.js",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "src/messageStatusStore.js",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "src/whatsapp.js",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "public/admin.html",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "public/panel.html",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "public/regina.html",
+        "exists": false,
+        "references": []
+      },
+      {
+        "path": "public/index.html",
+        "exists": false,
+        "references": []
+      }
+    ],
+    "removable": []
+  }
+}

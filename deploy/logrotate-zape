@@ -1,0 +1,14 @@
+/var/log/zape/*.log /var/log/nginx/casa-do-ads.access.log /var/log/nginx/casa-do-ads.error.log {
+  daily
+  rotate 14
+  compress
+  delaycompress
+  missingok
+  notifempty
+  create 0640 zape zape
+  sharedscripts
+  copytruncate
+  postrotate
+    if [ -s /run/nginx.pid ]; then kill -USR1 "$(cat /run/nginx.pid)" 2>/dev/null || true; fi
+  endscript
+}

@@ -4,6 +4,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { normalizePhoneToE164Digits } = require("./phone");
 const { ensureTenantDir } = require('./tenantPaths');
+const { validateMediaBuffer, sanitizeFilename, classifyMedia } = require('./mediaSecurity');
 
 const MAX_MESSAGES_PER_CHAT = 600;
 const SAVE_DEBOUNCE_MS = 250;
@@ -147,6 +148,7 @@ function cleanMessage(message, fallback = {}) {
   if (!body && audio) body = 'Áudio';
 
   const mediaFile = String(message?.mediaFile || fallback.mediaFile || '').trim();
+  const mediaId = String(message?.mediaId || fallback.mediaId || '').trim();
   const mediaMime = String(message?.mediaMime || message?.mimetype || fallback.mediaMime || fallback.mimetype || '').trim();
   const filename = String(message?.filename || fallback.filename || '').trim();
   const originalName = String(message?.originalName || fallback.originalName || '').trim();
@@ -155,7 +157,7 @@ function cleanMessage(message, fallback = {}) {
   // Versões anteriores salvavam mediaKind="file" mesmo quando não havia mídia real;
   // isso fazia mensagens simples aparecerem como card de "Anexo" na interface.
   const explicitHasMedia = Boolean(message?.hasMedia ?? fallback.hasMedia ?? false);
-  const hasMediaEvidence = Boolean(audio || mediaFile || mediaMime || filename || originalName);
+  const hasMediaEvidence = Boolean(audio || mediaId || mediaFile || mediaMime || filename || originalName);
   const hasMedia = Boolean(audio || mediaFile || (explicitHasMedia && hasMediaEvidence));
   const mediaKind = hasMedia
     ? String(message?.mediaKind || fallback.mediaKind || (audio ? 'audio' : mediaKindFromMime(mediaMime, filename || originalName || mediaFile))).trim()
@@ -188,7 +190,10 @@ function cleanMessage(message, fallback = {}) {
     out.hasMedia = true;
     out.mediaKind = mediaKind || (audio ? 'audio' : 'media');
     if (mediaMime) out.mediaMime = mediaMime;
+    if (mediaId) out.mediaId = mediaId;
     if (mediaFile) out.mediaFile = mediaFile;
+    if (message?.mediaUnavailable || fallback.mediaUnavailable) out.mediaUnavailable = true;
+    if (message?.mediaErrorCode || fallback.mediaErrorCode) out.mediaErrorCode = String(message?.mediaErrorCode || fallback.mediaErrorCode);
     if (message?.mediaSize || fallback.mediaSize) out.mediaSize = Number(message?.mediaSize || fallback.mediaSize) || undefined;
     if (message?.duration || fallback.duration) out.duration = Number(message?.duration || fallback.duration) || undefined;
     if (filename) out.filename = filename;
@@ -316,29 +321,62 @@ function listConversationSummaries(tenantId, limit = 500) {
 }
 
 function saveConversationMedia(tenantId, { messageId, toDigits, mimetype, data, buffer, filename } = {}) {
-  const mime = String(mimetype || '').trim() || 'application/octet-stream';
-  const digits = normalizeDigits(toDigits) || 'unknown';
-  const ext = extensionFromMime(mime);
-  const original = String(filename || '').trim();
-  const originalExt = path.extname(original).replace(/^\./, '').toLowerCase();
-  let baseName = original ? path.basename(original, path.extname(original)) : `${digits}_${messageId || Date.now()}`;
-  baseName = safeId(baseName);
-  const finalExt = originalExt || ext || 'bin';
-  const suffix = crypto.randomBytes(4).toString('hex');
-  const fileName = `${baseName}_${suffix}.${finalExt}`;
+  const content = buffer ? Buffer.from(buffer) : Buffer.from(String(data || ''), 'base64');
+  let safeOriginal = sanitizeFilename(filename || 'arquivo');
+  if (!path.extname(safeOriginal)) safeOriginal = `${safeOriginal}.${extensionFromMime(mimetype)}`;
+  const validated = validateMediaBuffer(content, { declaredMime: mimetype, filename: safeOriginal });
+  const extension = path.extname(safeOriginal).toLowerCase() || `.${extensionFromMime(validated.mimetype)}`;
+  const mediaId = `m_${crypto.randomBytes(24).toString('hex')}`;
+  const fileName = `${mediaId}${extension}`;
   const dir = mediaDirForTenant(tenantId);
   const filePath = path.join(dir, fileName);
-  const content = buffer ? Buffer.from(buffer) : Buffer.from(String(data || ''), 'base64');
-  fs.writeFileSync(filePath, content);
-  return { fileName, filePath, mimetype: mime, size: content.length, originalName: original || fileName, mediaKind: mediaKindFromMime(mime, original || fileName) };
+  fs.writeFileSync(filePath, content, { flag: 'wx', mode: 0o600 });
+  return {
+    mediaId,
+    fileName,
+    filePath,
+    mimetype: validated.mimetype,
+    size: content.length,
+    originalName: safeOriginal,
+    mediaKind: validated.kind || classifyMedia(validated.mimetype, safeOriginal),
+    sha256: crypto.createHash('sha256').update(content).digest('hex'),
+  };
 }
 
 function getConversationMediaPath(tenantId, fileName) {
   const safeName = path.basename(String(fileName || ''));
-  if (!safeName) return null;
+  if (!safeName || safeName !== String(fileName || '')) return null;
   const filePath = path.join(mediaDirForTenant(tenantId), safeName);
   if (!fs.existsSync(filePath)) return null;
+  const stat = fs.statSync(filePath);
+  if (!stat.isFile()) return null;
   return filePath;
+}
+
+function resolveConversationMedia(tenantId, toDigits, mediaRef) {
+  const digits = normalizeDigits(toDigits);
+  const ref = String(mediaRef || '').trim();
+  if (!digits || !ref) return null;
+  const store = loadStore(tenantId);
+  const messages = Array.isArray(store[digits]) ? store[digits] : [];
+  const message = messages.map((item) => cleanMessage(item, item)).filter(Boolean).find((item) => {
+    return item.mediaId === ref || item.mediaFile === ref;
+  });
+  if (!message || !message.mediaFile) return null;
+  const filePath = getConversationMediaPath(tenantId, message.mediaFile);
+  return {
+    message,
+    filePath,
+    exists: Boolean(filePath),
+    mediaId: message.mediaId || message.mediaFile,
+    mediaFile: message.mediaFile,
+    mimetype: String(message.mediaMime || '').trim() || 'application/octet-stream',
+    kind: String(message.mediaKind || '').trim() || mediaKindFromMime(message.mediaMime, message.originalName || message.filename || message.mediaFile),
+    filename: sanitizeFilename(
+      message.originalName || message.filename || `arquivo${path.extname(String(message.mediaFile || '')).toLowerCase()}`
+    ),
+    size: Number(message.mediaSize || 0) || (filePath ? fs.statSync(filePath).size : 0),
+  };
 }
 
 function flushAllConversationStores() {
@@ -359,6 +397,6 @@ module.exports = {
   listConversationDigits,
   listConversationSummaries,
   saveConversationMedia,
-  getConversationMediaPath,
+  resolveConversationMedia,
   flushAllConversationStores,
 };

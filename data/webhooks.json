@@ -1,8 +1,166 @@
 [
   {
+    "id": "94571469873bbc6ecf48600e",
+    "tenantId": "priscila",
+    "name": "IMERSÃO A NOVA ERA - 22/07/26",
+    "messageText": "Olá {{nome}} ! Tudo bem?\n\nMeu nome é Priscila do Time da Casa do Ads!\n\nEstou te enviando uma mensagem por aqui para *confirmar sua vaga* para o encontro exclusivo de clientes da Casa do Ads.\n\nNo próximo *22/07, às 19h30*, o Matheus Bottaro vai apresentar, com detalhes, todas as mudanças envolvendo Inteligência Artificial e a nova forma de adquirir clientes por IA\n\nO encontro será ao vivo, via Google Meet. \n\nNos próximos dias, vou enviar o link de acesso para você participar.\n\nAté mais!",
+    "messages": [
+      "Olá {{nome}} ! Tudo bem?\n\nMeu nome é Priscila do Time da Casa do Ads!\n\nEstou te enviando uma mensagem por aqui para *confirmar sua vaga* para o encontro exclusivo de clientes da Casa do Ads.\n\nNo próximo *22/07, às 19h30*, o Matheus Bottaro vai apresentar, com detalhes, todas as mudanças envolvendo Inteligência Artificial e a nova forma de adquirir clientes por IA\n\nO encontro será ao vivo, via Google Meet. \n\nNos próximos dias, vou enviar o link de acesso para você participar.\n\nAté mais!"
+    ],
+    "crmTarget": null,
+    "externalCrmTarget": null,
+    "createdAt": "2026-07-17T19:32:18.359Z",
+    "updatedAt": "2026-07-17T19:32:24.401Z",
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "LfQAcHffxVrVO3rk",
+      "tag": "ty9wiw5BZ2UFfwevjo/zng==",
+      "ciphertext": "1xSTFIDOI+hzoKn9ryKMSvBrIopbv1FcSqMs3QGcNpA5UKAaj1QxXY++vg=="
+    },
+    "tokenHash": "9234f2d59d2fff9f5f70feb1f58fc6c3cd77ae3dec28ee7b5acaa698f6b2ec08"
+  },
+  {
+    "id": "7b169132b11314c016e89d79",
+    "tenantId": "felipe",
+    "name": "aaaaaa",
+    "messageText": "",
+    "messages": [],
+    "crmTarget": null,
+    "externalCrmTarget": null,
+    "createdAt": "2026-07-16T14:30:01.833Z",
+    "updatedAt": "2026-07-16T14:30:01.833Z",
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "eh4GhjdNVVg0UwIR",
+      "tag": "YCwrHeJQqrI7up/UEBkg8A==",
+      "ciphertext": "8slr78dDPjEbc+mP2VLudLbJslMgFmLp5ENa7ifVsjxA/yYfj2XCISOnsw=="
+    },
+    "tokenHash": "681a1aa5ae9c735d4a80a7728ded9621f1a9109bcc91588583a26e8449665069"
+  },
+  {
+    "id": "49118243e2a5205ca306e948",
+    "tenantId": "ana",
+    "name": "IMERSÃO A NOVA ERA - 22/07/26",
+    "messageText": "Olá {{nome}} ! Tudo bem?\n\nMeu nome é Ana Salomão do Time da Casa do Ads!\n\nEstou te enviando uma mensagem por aqui para *confirmar sua vaga* para o encontro exclusivo de clientes da Casa do Ads.\n\nNo próximo *22/07, às 19h30*, o Matheus Bottaro vai apresentar, com detalhes, todas as mudanças envolvendo Inteligência Artificial e a nova forma de adquirir clientes por IA\n\nO encontro será ao vivo, via Google Meet. \n\nNos próximos dias, vou enviar o link de acesso para você participar.\n\nAté mais!",
+    "messages": [
+      "Olá {{nome}} ! Tudo bem?\n\nMeu nome é Ana Salomão do Time da Casa do Ads!\n\nEstou te enviando uma mensagem por aqui para *confirmar sua vaga* para o encontro exclusivo de clientes da Casa do Ads.\n\nNo próximo *22/07, às 19h30*, o Matheus Bottaro vai apresentar, com detalhes, todas as mudanças envolvendo Inteligência Artificial e a nova forma de adquirir clientes por IA\n\nO encontro será ao vivo, via Google Meet. \n\nNos próximos dias, vou enviar o link de acesso para você participar.\n\nAté mais!"
+    ],
+    "crmTarget": null,
+    "externalCrmTarget": null,
+    "createdAt": "2026-07-16T13:10:49.694Z",
+    "updatedAt": "2026-07-16T13:11:06.847Z",
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "kIyEVXFVNLdcxio9",
+      "tag": "fSa2sa8ZA59+0EFWGI1TAQ==",
+      "ciphertext": "dHIcsc6gQDXrDGylXp/vqH1ghB7GNmSD8sGwtz2aWox5JjTZeDDt7/1Dhg=="
+    },
+    "tokenHash": "ca1731fdea368caec55b5816ae66f9c93335e49e78a8551218e524c654e31637"
+  },
+  {
+    "id": "256ad33fe192b2084d39d93c",
+    "tenantId": "admin",
+    "name": "IMERSÃO A NOVA ERA - 22/07/26",
+    "messageText": "Olá {{nome}} ! Tudo bem?\n\nMeu nome é Cintia do Time da Casa do Ads!\n\nEstou te enviando uma mensagem por aqui para *confirmar sua vaga* para o encontro exclusivo de clientes da Casa do Ads.\n\nNo próximo *22/07, às 19h30*, o Matheus Bottaro vai apresentar, com detalhes, todas as mudanças envolvendo Inteligência Artificial e a nova forma de adquirir clientes por IA\n\nO encontro será ao vivo, via Google Meet. \n\nNos próximos dias, vou enviar o link de acesso para você participar.\n\nAté mais!",
+    "messages": [
+      "Olá {{nome}} ! Tudo bem?\n\nMeu nome é Cintia do Time da Casa do Ads!\n\nEstou te enviando uma mensagem por aqui para *confirmar sua vaga* para o encontro exclusivo de clientes da Casa do Ads.\n\nNo próximo *22/07, às 19h30*, o Matheus Bottaro vai apresentar, com detalhes, todas as mudanças envolvendo Inteligência Artificial e a nova forma de adquirir clientes por IA\n\nO encontro será ao vivo, via Google Meet. \n\nNos próximos dias, vou enviar o link de acesso para você participar.\n\nAté mais!"
+    ],
+    "crmTarget": null,
+    "externalCrmTarget": null,
+    "createdAt": "2026-07-16T12:51:49.311Z",
+    "updatedAt": "2026-07-16T12:53:02.726Z",
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "EgdUQY7M3tMxIxC5",
+      "tag": "m3k6IyYc1BwXJ23wR+Ltww==",
+      "ciphertext": "OeuQu4VyNM4sMXYa9362MSCoZPW6MSLXOFCFmHKUL6RvKiaXMe9PB9KK3Q=="
+    },
+    "tokenHash": "27e06fc2a561faa3481a9b23e171e6558ac5871485f11d1c8bb004ce9bb915f3"
+  },
+  {
+    "id": "3c7d3531b293f19f6212827c",
+    "tenantId": "panel",
+    "name": "IMERSÃO BH - 01/08/26",
+    "messageText": "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Belo Horizonte.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?",
+    "messages": [
+      "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Belo Horizonte.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?"
+    ],
+    "crmTarget": null,
+    "externalCrmTarget": null,
+    "createdAt": "2026-07-14T19:20:08.060Z",
+    "updatedAt": "2026-07-14T19:20:27.650Z",
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "LFGtCPG44LOYD2lM",
+      "tag": "CKipMjHwEwzUgCCjroH35Q==",
+      "ciphertext": "L1t/1NaEN2HyZZuxZ7o/ySBUgyQwfaOStQcZOPbBE08="
+    },
+    "tokenHash": "892a5aa4f39339ac53ee2f891575d1cbf8112256202bb2c0fd60d0f99f9136a6"
+  },
+  {
+    "id": "9d46c62f5f8c519f6205bf70",
+    "tenantId": "admin",
+    "name": "IMERSÃO ALPLHAVILLE - 10/08/26",
+    "messageText": "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Alphaville.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?",
+    "messages": [
+      "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Alphaville.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?"
+    ],
+    "crmTarget": null,
+    "externalCrmTarget": null,
+    "createdAt": "2026-07-14T19:06:11.696Z",
+    "updatedAt": "2026-07-14T19:06:22.737Z",
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "lfTSTotm7/NpLlL5",
+      "tag": "J/OfMEcanNs41vM1IKy7mA==",
+      "ciphertext": "5IY26cBRSzmmRNE/wYffK0eoV+3IxOrfFz5OEu0kd4Q="
+    },
+    "tokenHash": "55dfa4070924133453163e863e4dfdb34b5b27b433c10e77893265d224ebf4ce"
+  },
+  {
+    "id": "688c542876e8f19f614af003",
+    "tenantId": "panel",
+    "name": "IMERSÃO SP - 16 E 23/07/26",
+    "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
+    "messages": [
+      "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
+    ],
+    "crmTarget": null,
+    "externalCrmTarget": null,
+    "createdAt": "2026-07-14T15:42:08.899Z",
+    "updatedAt": "2026-07-14T15:42:20.763Z",
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "mTRRJA5tqgxJlz7o",
+      "tag": "rPCOxhi5BdxRrgvrrs8nVA==",
+      "ciphertext": "PwSUiNwfXVeaooKiY+oro1OHYhfy8NXd7fLoDSd89q8="
+    },
+    "tokenHash": "67316ac3b14ea6214020700e0cf3ca971170027f30944283e8daaa03956dd45e"
+  },
+  {
     "id": "9789ae0b02e2f19f29365ebe",
     "tenantId": "panel",
-    "token": "kVoishCj2EKsHc_L5Sr7mBXOMeIs7HxZ",
     "name": "IMERSÃO ALPHAVILLE",
     "messageText": "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Alphaville.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?",
     "messages": [
@@ -12,12 +170,20 @@
     "externalCrmTarget": null,
     "createdAt": "2026-07-03T18:20:56.894Z",
     "updatedAt": "2026-07-07T11:28:20.879Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "LdJYK5Ud1gdc5edN",
+      "tag": "1vZQe0aoc9JQUdzZsNRYWg==",
+      "ciphertext": "rIqes6mBlOGhtiwW3xB0IM7Hb+uqN47VfiWEN8aMI7E="
+    },
+    "tokenHash": "7b1ec4be00e99c0da3900c14a470df9971fb7c6f7ed805a0c58532ae52d7e2ab"
   },
   {
     "id": "0305603e779e819f2916be98",
     "tenantId": "panel",
-    "token": "nFiZQB6GaGj46nsr78AJLdPvhdZy-Owr",
     "name": "IMERSÃO GUARULHOS",
     "messageText": "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?",
     "messages": [
@@ -27,12 +193,20 @@
     "createdAt": "2026-07-03T17:46:24.280Z",
     "updatedAt": "2026-07-07T11:28:38.506Z",
     "deletedAt": null,
-    "externalCrmTarget": null
+    "externalCrmTarget": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "eWPlWTNO4KPI6wDM",
+      "tag": "qKV5LWlTQCGmOG9/SH1iOw==",
+      "ciphertext": "vg1V4Z04LfU6rr557kEKgoRepGh1Di1oMGCZ6o/dx38="
+    },
+    "tokenHash": "03206033cecf2b76b7d00250397c6d9c45d097d8fa3f4614d463009a22fc7894"
   },
   {
     "id": "41d96bc725fa19f053b590c",
     "tenantId": "admin",
-    "token": "mhhfC_kT7Xy9yZqHjhxhLBJe0CvG-vRd",
     "name": "IMERSÃO SP 09 E 16/07/26",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -42,12 +216,20 @@
     "createdAt": "2026-06-26T18:40:03.340Z",
     "updatedAt": "2026-07-07T11:29:41.778Z",
     "deletedAt": null,
-    "externalCrmTarget": null
+    "externalCrmTarget": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "z2zkDwHcHVmS3bUd",
+      "tag": "UlBQ5GnmF3OLUxzJPeYSbQ==",
+      "ciphertext": "VbyW5CD05DuSusLqLZ/214GsXzSxVEwIlMbWw2uTzPE="
+    },
+    "tokenHash": "d1041a4b4e35b733dd6edaa5e59b938184f7656393f1ae09c252eef61f26bbac"
   },
   {
     "id": "b19c8647b852d19ef063defe",
     "tenantId": "admin",
-    "token": "wILKeWZyqFJFESzyn8KRsh2vV_XWuVZx",
     "name": "IMERSÃO GUARULHOS",
     "messageText": "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Guarulhos.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?",
     "messages": [
@@ -57,12 +239,20 @@
     "createdAt": "2026-06-22T17:32:17.534Z",
     "updatedAt": "2026-07-07T11:29:56.591Z",
     "deletedAt": null,
-    "externalCrmTarget": null
+    "externalCrmTarget": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "mw5Zv7g3zc9BFSfQ",
+      "tag": "8xiCqQ3vEA75ZyOJmyInNg==",
+      "ciphertext": "E0S80ZWcLsJJJnXfFw3aatlHVVjS7H4UjNiF7kipxEw="
+    },
+    "tokenHash": "ac0eb46c05bad2ac3f79a3636cff5c21b67c8ad9fe2e7cfe80e0d826cbc58453"
   },
   {
     "id": "8a9c61d151c6d19ee13a94e8",
     "tenantId": "ana",
-    "token": "hMnNxbThU4SmOdacr4t8oD5a6NjlMExp",
     "name": "Google IO - 26/06/26",
     "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
     "messages": [
@@ -71,12 +261,20 @@
     "crmTarget": null,
     "createdAt": "2026-06-19T18:52:53.352Z",
     "updatedAt": "2026-06-19T18:52:57.621Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "8AILKPEQmF/2o+JW",
+      "tag": "eC4EyLx8YGVb5A9OAjTRdg==",
+      "ciphertext": "ck1quTVDPVTpmIrS+M2FcPUm0oVZXMKSFf6QMkqwlY4="
+    },
+    "tokenHash": "ef9b2dbdde63c3d1dd9e65d81949dca95edc3202971516488d8a3b811756d1ef"
   },
   {
     "id": "ca3a30ea1b22419ee0fb4083",
     "tenantId": "regina",
-    "token": "byGVSoY7TpZAtk-cO42jPFXmDvW3yx-q",
     "name": "GOOGLE IO - 23/06/26",
     "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
     "messages": [
@@ -85,12 +283,20 @@
     "crmTarget": null,
     "createdAt": "2026-06-19T17:43:42.979Z",
     "updatedAt": "2026-06-19T17:43:53.362Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "23+iD0cime5QF+Ti",
+      "tag": "gz6hD7HMGEpnWyluxwVkFw==",
+      "ciphertext": "fuchFvJzq5oP1H1loeL0oNO7V8ckH1hfbSH2VvRw7TI="
+    },
+    "tokenHash": "e339c52b71b593507197e0cd8d06589bd14f2280d3882b863413e4e68f3ae358"
   },
   {
     "id": "56e15406fa74d19ed1d68094",
     "tenantId": "portugal",
-    "token": "_noXxOqfZj1gwpldz9VriPqoTtoYGkNY",
     "name": "GOOGLE IO PORTUGAL",
     "messageText": "Olá {{nome}} tudo bem?\n\nAqui é a *Fabiane*, da equipa do *Matheus Bottaro*.\n\nA sua inscrição foi recebida com sucesso para o evento online:\n\nA *Nova Era da Aquisição de Clientes por IA*\n\n📅 *13 e 14 de Julho*\n🕖 *19h00*\n\nDurante o evento, vamos abordar como aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini e outras Inteligências Artificiais, além das mais recentes atualizações do Google Ads com IA para atrair leads mais qualificados.\n\nEm breve irá receber mais informações por aqui e também no seu e-mail.\n\nCriámos também grupos silenciosos para enviar os acessos, materiais complementares, gravações e conteúdos extras do evento.\n\nPosso enviar-lhe o link de acesso ao grupo?",
     "messages": [
@@ -99,12 +305,20 @@
     "crmTarget": null,
     "createdAt": "2026-06-16T19:09:16.308Z",
     "updatedAt": "2026-07-03T17:32:18.761Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "yG4oF8ci7rEVbrai",
+      "tag": "fxH+O0d++JEl9k435uqJvg==",
+      "ciphertext": "a4oE0Xy9O8rLny0fxg8H1U3KvkwvK+FXrUtKaqpvw6I="
+    },
+    "tokenHash": "abf9bb121f97d87b6a1fef85e4feeed6a16ac45e2551ae1e5e1c3474d9e2b81e"
   },
   {
     "id": "bddbaaf88e6b719ed1c6d4cb",
     "tenantId": "panel",
-    "token": "59EYZJfQg63ybOcUFNSkg52OnwWXOgQA",
     "name": "GOOGLE IO PORTUGAL",
     "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *22 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
     "messages": [
@@ -113,12 +327,20 @@
     "crmTarget": null,
     "createdAt": "2026-06-16T18:52:09.291Z",
     "updatedAt": "2026-06-16T18:52:25.290Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "o8MnrZucAtguu8q0",
+      "tag": "DRWEikbt49AaEAPtzc9sXQ==",
+      "ciphertext": "vF8jczn9IzVvXy8mWQu4c/Eqoo4yRmJkBy673fj5BFk="
+    },
+    "tokenHash": "39646be2e7bab5201bcff05d35d47658a2162c04491b62de7a176de3510e2e90"
   },
   {
     "id": "b86edaf2e6b4119ed020e221",
     "tenantId": "panel",
-    "token": "AYTM9rfok3Sp-zcFS8Wak61qj1jgOUsI",
     "name": "Imersão SP - 09/07/26",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -128,12 +350,20 @@
     "createdAt": "2026-06-16T11:11:16.513Z",
     "updatedAt": "2026-07-07T11:28:56.219Z",
     "deletedAt": null,
-    "externalCrmTarget": null
+    "externalCrmTarget": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "2kWSz5f2XOhRh0Vg",
+      "tag": "Lxymv8Axwopnsl+3AHqESw==",
+      "ciphertext": "sMipXAukOZyLaY4Te38KDJ0Ol/6W3zOFPVTIPshmgzk="
+    },
+    "tokenHash": "afdb24884f6b096bceab1d150dfd64a8a9f75e1050666317fe02e663c5a0d7e6"
   },
   {
     "id": "5898612589ed219ecb146cbb",
     "tenantId": "portugal",
-    "token": "72weM6hPbqtx4MMK_NHsvJcHcYS7uU1h",
     "name": "Lista VIP Portugal",
     "messageText": "Olá {{nome}}, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição - Lista VIP.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n\nA inscrição fica confirmada após o preenchimento do formulário.\n\nPosso confirmar a sua vaga {{nome}}?",
     "messages": [
@@ -142,12 +372,20 @@
     "crmTarget": null,
     "createdAt": "2026-06-15T11:39:33.947Z",
     "updatedAt": "2026-06-15T12:44:05.913Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "+3vT4cYVqcDfYumw",
+      "tag": "B8C9Bd85XTbjc94h78tMag==",
+      "ciphertext": "TW3OI84/0TSZxMiG+qxo7VxHykVpW5yegoURLDKpkTg="
+    },
+    "tokenHash": "9f4a1a338d5e9d0edc7491cb42c02ece663efd61bb84a4b2bb6eed3026b4c11a"
   },
   {
     "id": "a16710a8521e719ecb121086",
     "tenantId": "panel",
-    "token": "i5fdE2-KQRjJFjEdutMZPGOzIow3FGd_",
     "name": "Lista VIP Lisboa",
     "messageText": "Olá {{nome}}, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição - Lista VIP.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ + IVA\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -156,12 +394,20 @@
     "crmTarget": null,
     "createdAt": "2026-06-15T11:36:59.270Z",
     "updatedAt": "2026-06-15T11:37:16.689Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "fcaqeRdqAQFWnvpt",
+      "tag": "eET2FiYf26XEl1w5N7l1WQ==",
+      "ciphertext": "SO6oBWYGvIMPNBmhD/1qIAiMmOqLQk7uHnjmr0Po+pc="
+    },
+    "tokenHash": "7407a7463b813498c0930cfcdb922132081bc56565b9a73c8b1eff370ae8edd1"
   },
   {
     "id": "fd2f8701550c319ebd3b0aa9",
     "tenantId": "regina",
-    "token": "6Dd7Zsu4H8yQErz2PZ7_nPo-UVTc8lyh",
     "name": "Google IO - 15 e 16 de Junho",
     "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *15 e 16 de junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
     "messages": [
@@ -170,12 +416,20 @@
     "crmTarget": null,
     "createdAt": "2026-06-12T19:07:03.721Z",
     "updatedAt": "2026-06-12T19:07:15.267Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "qe5HudttPN7wrlCj",
+      "tag": "duXd3Zr6x2YxZMhh6qMNmw==",
+      "ciphertext": "VVEAblrPqjfzDJP+ey8kQjhrh8iQKouL9+yINaDK0TA="
+    },
+    "tokenHash": "7e4c0666e1cbeb3eb9d227fcc2af3721aa04a0001c552f05ebe593ce0944b832"
   },
   {
     "id": "13e6b0728c76a19e8d6e6561",
     "tenantId": "admin",
-    "token": "-d1jz1m6j0redF_TvK9u5iBmQFeKQ3QG",
     "name": "Webhook São Paulo",
     "messageText": "Olá {{nome}} ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}} ?",
     "messages": [
@@ -185,12 +439,20 @@
     "createdAt": "2026-06-03T12:21:22.912Z",
     "updatedAt": "2026-07-07T11:30:10.569Z",
     "deletedAt": null,
-    "externalCrmTarget": null
+    "externalCrmTarget": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "KoxdpEs/Q9US8s0c",
+      "tag": "QK1UFEyitoOcnDrnv8mAvA==",
+      "ciphertext": "sTCQWEXHCpkqKH3RCBcwLwqkK+WWgnCEE2pdRZRyEbs="
+    },
+    "tokenHash": "b57ad693ab0a53083022ddf9ac5acccda3daf6fab1f3469f207c66d686131561"
   },
   {
     "id": "742c7ad7b1ed919e835c1a3a",
     "tenantId": "portugal",
-    "token": "HtT3Bp5wSg6kRVANvUAlSn1ek-JMoPZ0",
     "name": "22 de junho portugal",
     "messageText": "Olá {{nome}}, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ + IVA\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -205,12 +467,20 @@
     },
     "createdAt": "2026-06-01T13:25:11.866Z",
     "updatedAt": "2026-06-10T17:25:30.573Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "sID3UnaR0YKVxl9k",
+      "tag": "gVkXE3lSTTkuJ5xvJiJEYQ==",
+      "ciphertext": "ny3kpAzh+whw+tbTRLuUBXqkSVAyrOPAh+IWFKKjptY="
+    },
+    "tokenHash": "2377807be73a877054b4b6ed2f4296f823ab5041b6c86ee4ac8814a7ba6a6a9b"
   },
   {
     "id": "4f3ed499fd70a19e6f344eab",
     "tenantId": "panel",
-    "token": "qqtCy0mMZLZKq6-uQ9KRRtNnUIKLjjhE",
     "name": "Webhook",
     "messageText": "Olá {{nome}}, tudo bem?\n\nAqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nRecebemos o seu pedido de inscrição para a Imersão Presencial Google Ads e Inteligência Artificial em Lisboa - 2ª Edição.\n\nDurante a imersão, vai aprender como utilizar Google Ads e Inteligência Artificial para atrair clientes mais qualificados, além de entender como aparecer nas respostas da IA do Google e acompanhar as novas mudanças na aquisição de clientes por IA.\n\n📍 Lisboa\n📅 22 de Junho\n🕒 Das 19h às 22h30\n🎟️ Lote 1: 25€ + IVA\n\nA inscrição fica confirmada após a conclusão do pagamento.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -218,12 +488,20 @@
     ],
     "createdAt": "2026-05-28T15:29:19.531Z",
     "updatedAt": "2026-06-09T11:18:37.784Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "f0JbwUBYIdk3RkxY",
+      "tag": "l4fx5wEuTeQ1u//irn4AnA==",
+      "ciphertext": "9nWLx89YYontojAo7O9opqFu9Ko6J7IqVngWu46VWno="
+    },
+    "tokenHash": "fcee3f5992d617f61b399eb65f882a70b557175d95b6e04354ba28044b48bdb4"
   },
   {
     "id": "dfc1047d0b42719e6f32770f",
     "tenantId": "panel",
-    "token": "dukWjJMbCPS8eTBkyFvNEqCewRWdeKh-",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em  Lisboa.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: € 25,00 - Com IVA incluso*\nPagamento via Hotmart.\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -231,23 +509,39 @@
     ],
     "createdAt": "2026-05-28T15:27:18.799Z",
     "updatedAt": "2026-05-28T15:29:15.497Z",
-    "deletedAt": "2026-05-28T15:29:15.497Z"
+    "deletedAt": "2026-05-28T15:29:15.497Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "iB7E0KgWByI5gLfT",
+      "tag": "4MURAFb8BXbwuQHKbt/HoQ==",
+      "ciphertext": "f1nJn87eUeSWfrWZwNRynpKjGNl456G0gKojaMfpcP4="
+    },
+    "tokenHash": "0459b3bb7fb01f6956592b476b46cd2a89b9fc1842b309b37e517dc99ccfe4bc"
   },
   {
     "id": "0b8224ce9278d19e6f2ee1ce",
     "tenantId": "panel",
-    "token": "X3ojcxvEQ-qy4vlY9nYbC-3obGzuRhU1",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-05-28T15:23:23.982Z",
     "updatedAt": "2026-05-28T15:23:47.750Z",
-    "deletedAt": "2026-05-28T15:23:47.750Z"
+    "deletedAt": "2026-05-28T15:23:47.750Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "L9sR0DRg0K/ZUM5P",
+      "tag": "nxf5vZpeglvcSaQ86cdMjg==",
+      "ciphertext": "AhyySvBXbCgoWRc50prPV0tKZk/h8/X+Q0hXFh9tCsU="
+    },
+    "tokenHash": "3616bb9a678594aa1887dc21bf4a6cebffd840634af7b952063e30237a47a60b"
   },
   {
     "id": "1b69ae28b01d119e6a0e433d",
     "tenantId": "admin",
-    "token": "Sp4b07BeptiE1KNYlyBKgdGc2-ysux21",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Santo André.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -255,23 +549,39 @@
     ],
     "createdAt": "2026-05-27T15:29:40.157Z",
     "updatedAt": "2026-06-03T12:10:42.235Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "QfxGNpiVSyjM+o8T",
+      "tag": "HOeKhOG8o94levMWLnfQMg==",
+      "ciphertext": "rfowB0BWvnxuxU1Aqa3xscfAX4nTJrYuJ8xyo/DF34w="
+    },
+    "tokenHash": "c05843fb553846fb0526615a8342a265e23963b0d66299610c06a9f47df0d175"
   },
   {
     "id": "6512123f9e4d319e6a0df8ad",
     "tenantId": "admin",
-    "token": "C43Q0Pu9hNMNdDIPAifPVa7FwGfd3mrp",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-05-27T15:29:21.069Z",
     "updatedAt": "2026-05-27T15:29:34.174Z",
-    "deletedAt": "2026-05-27T15:29:34.174Z"
+    "deletedAt": "2026-05-27T15:29:34.174Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "0TOiVS1Vs2h+y5rr",
+      "tag": "6ZA40PTBwOVg6jQ5XJvF3A==",
+      "ciphertext": "JgTNYcZ5lawzb0eSA2bxJE6hy2P0Dw+4J2LfZN8XfUo="
+    },
+    "tokenHash": "8a41425dcaa86cc4686bb67aff0d2ccb8acddea819a3fe5182b1973310295736"
   },
   {
     "id": "a0d398bb9480219e6a085150",
     "tenantId": "admin",
-    "token": "QJL3dTPQ35DUz9XwVfGyISdhwXPYuPTs",
     "name": "Webhook 08/06 09/06",
     "messageText": "Olá, {{nome}} tudo bem?\n\nSua inscrição no evento A *Nova Era da Aquisição de Clientes por IA* está confirmada.\n\nO evento será online, gratuito e apresentado por Matheus Bottaro, nos dias *23 de Junho*.\n\nO Google apresentou várias mudanças em seus eventos oficiais, e durante o evento vamos mostrar o que isso significa para empresas que querem aparecer nas respostas da IA, ser recomendadas pelo ChatGPT e Gemini e usar Google Ads com IA para atrair leads mais qualificados.\n\nCriamos também um grupo privado no WhatsApp, onde vamos enviar avisos importantes, o link de acesso e algumas atualizações para você já ir acompanhando antes do evento.\n\nPosso te enviar o link do grupo por aqui?",
     "messages": [
@@ -286,23 +596,39 @@
       "stageId": "stg_3a4fefd67085b19e942b2492",
       "linkedAt": "2026-06-05T18:08:04.774Z",
       "updatedAt": "2026-06-05T18:08:04.774Z"
-    }
+    },
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "/Xj94Zs0PumJ1YVU",
+      "tag": "rgDRn+zahRkwFp0tnCNpDQ==",
+      "ciphertext": "LQ3DKPkRalkUFSr+Y3qWfKs7q7dnFe5rlP5nYzEOGcw="
+    },
+    "tokenHash": "95f5d2997ca0b48f8dafe589bbb0cf3d9b1596e279167db21b38fb6b02ab6bf6"
   },
   {
     "id": "46550d91f7d5b19e6a08358e",
     "tenantId": "admin",
-    "token": "wDKx6TAzvcP9CBH4uRiYLejMCTz2YHu3",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-05-27T15:23:03.438Z",
     "updatedAt": "2026-05-27T15:23:07.063Z",
-    "deletedAt": "2026-05-27T15:23:07.063Z"
+    "deletedAt": "2026-05-27T15:23:07.063Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "Lw21DGt+/e9vZNoH",
+      "tag": "NMv6fD6Khuhnu7v9znP0/w==",
+      "ciphertext": "kFkY2KR8+YS6KKkTo8ToEYm0B7FGg3u+AssKktKbT4k="
+    },
+    "tokenHash": "528f2e1f1e40cc5d152db2328f59fcde18974990a90878e7adacb977152d2b25"
   },
   {
     "id": "1afb277c3ab6919e1c640d2a",
     "tenantId": "admin",
-    "token": "0ThpGgputzcohq9-NWAqUrnjRWmfAi5q",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Mogi das Cruzes.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -310,12 +636,20 @@
     ],
     "createdAt": "2026-05-12T13:32:59.562Z",
     "updatedAt": "2026-05-12T13:33:13.229Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "G3hhdiURkU7M500L",
+      "tag": "0pWfk8b9yIC84IDYHmITAw==",
+      "ciphertext": "vwVTdvNAF8dRLGjZLjynz2C4/9cWFAJo0Upzd6CHBZc="
+    },
+    "tokenHash": "d1c7b3b20987d1787eb1dd269606992f5e83994d69751c74219884a4bf19193d"
   },
   {
     "id": "2ad2b7e41272e19e1c525a2b",
     "tenantId": "panel",
-    "token": "RERM9FodY6AMPqALYZdjhTpOUXmF-DsK",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Santo André.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -323,12 +657,20 @@
     ],
     "createdAt": "2026-05-12T13:13:39.627Z",
     "updatedAt": "2026-05-12T13:13:58.406Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "GxD4fdfAHGiq9VXP",
+      "tag": "pNyZPCIwf9+VMbDrisLXug==",
+      "ciphertext": "PWPRDM1sDi0Lv4U93yCVqdUtibwT7iIPeg5iT5TlwdU="
+    },
+    "tokenHash": "e36b63e24487e705741112ca8667628403bdf1978a88aa8b2a89b006b6dff5eb"
   },
   {
     "id": "ebff3a272471919dfee1d579",
     "tenantId": "admin",
-    "token": "FjJ-dnyZgHIzk_bpAz3puv47csUde0IC",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Alphaville.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -336,12 +678,20 @@
     ],
     "createdAt": "2026-05-06T20:01:46.361Z",
     "updatedAt": "2026-05-11T16:36:07.767Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "ZXEzNxv/NneL1G1Q",
+      "tag": "Tqo7TrgJtW4RL82ZgyTKaQ==",
+      "ciphertext": "ncLu7qUptpD4FzO+/1buS66aAraA2+gLnllLey3cASQ="
+    },
+    "tokenHash": "fa7fea03f4cb985fca9d22c7dde68534f230bae2f21cf5add7deb366abd65b78"
   },
   {
     "id": "10869a42ccab319df91bf841",
     "tenantId": "admin",
-    "token": "Q1TvHULb6gRQqJI2oVzmPjvHM-wt_cuy",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Porto Alegre.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -349,12 +699,20 @@
     ],
     "createdAt": "2026-05-05T17:07:33.057Z",
     "updatedAt": "2026-05-06T20:05:14.866Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "5PTjakmOfzG8Ppcr",
+      "tag": "f1lhu3Y0Jy7YabWUdKOtYw==",
+      "ciphertext": "5C6/wpDYPoCC/vIbAP6jPQJFxxP2dQYhSuH4tk8LcoI="
+    },
+    "tokenHash": "5cda0332496acfa80da480f0818852c9ac692b2f7464fcf969982a2ab54fc17f"
   },
   {
     "id": "79ff9ba0b6ce219ddf6976c5",
     "tenantId": "panel",
-    "token": "Ug5ZTxFJ0SwGqh40DX4ztzEr7NAs4YyY",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -362,12 +720,20 @@
     ],
     "createdAt": "2026-04-30T17:22:04.101Z",
     "updatedAt": "2026-05-04T19:11:11.615Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "vELJWGta8evDQDYD",
+      "tag": "CPNsBqecbo/51X+4fSP98A==",
+      "ciphertext": "m8Ui3e15s/FyxgszoLRPZus29dnxi2c0yewR8WSiupg="
+    },
+    "tokenHash": "c26ff2018e7306b8a0c15db49d24ff98379a79e95f970ada4b423ee33a2ca85c"
   },
   {
     "id": "ff77ab3ad1ca319ddf15361e",
     "tenantId": "admin",
-    "token": "9d3qYS5mjHXgUV1BOAtbnqhBxlQyc27J",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -375,12 +741,20 @@
     ],
     "createdAt": "2026-04-30T15:50:02.526Z",
     "updatedAt": "2026-05-04T19:11:00.525Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "hEvyDE3rH897gkz0",
+      "tag": "3KAJtLIvwA/Nfn3exj9BtA==",
+      "ciphertext": "LCIEkaAiBmVYxU1pwOfKKngA81RNbCxy+3Ut/5zfLYU="
+    },
+    "tokenHash": "e56f87ef556d6dfa7fd0587335dcc0d91a493ff637dd0407adaa83a0bda738db"
   },
   {
     "id": "a4bdbb4403d8719dde8bc59f",
     "tenantId": "panel",
-    "token": "7PXK_WwvNH5WwY5XwGONmnuNDqkyhocd",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Porto Alegre.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -388,12 +762,20 @@
     ],
     "createdAt": "2026-04-30T13:19:55.295Z",
     "updatedAt": "2026-05-05T12:18:53.654Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "hMBG+MjiXSGv3EuB",
+      "tag": "z9lp2LURol8O7bkUzXbY/Q==",
+      "ciphertext": "R8qjtdAjYuPoaf2JYU8bNuKWgT81Pru3QN1/fX1GRK8="
+    },
+    "tokenHash": "9ad12f5e0e8629cdf0a5a867978a52f45fd8a12c72d0c9074da380fb779f609f"
   },
   {
     "id": "c632d8fdcacb119dde887d8f",
     "tenantId": "panel",
-    "token": "dSEzKaH6WshWWBkqtNHfRbNb4pAQy7s8",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial no Curitiba.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -401,12 +783,20 @@
     ],
     "createdAt": "2026-04-30T13:16:20.239Z",
     "updatedAt": "2026-05-05T12:19:10.060Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "bEoqmUmOpb+vZFJh",
+      "tag": "+e+Khvz46xQP1jIjcX7BrA==",
+      "ciphertext": "3MiasC0GpBU51HayWFcNiVJPO+Moec8Rn+gQ2+gA+ZY="
+    },
+    "tokenHash": "e51be70975a0b8b13201876dde46f702be3c0dc2d387258c751092d56cdb00eb"
   },
   {
     "id": "edea35b23eed419dd95a02d6",
     "tenantId": "panel",
-    "token": "_-QSiLAOViT4k-Zh8xIZ_3ZwU6XmB59W",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Curitiba.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -414,23 +804,39 @@
     ],
     "createdAt": "2026-04-29T13:07:28.086Z",
     "updatedAt": "2026-04-29T13:07:43.516Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "Yd5/s95EdT0BoESG",
+      "tag": "Z/DXRWu6Ur6OSqIgZrPo6g==",
+      "ciphertext": "OUNAO+l2OgdForVUekdbo7mopdfoYMJ3kzAuBF15GwE="
+    },
+    "tokenHash": "13be30428fea9833db64a9fa5aa7e6f1f2271df7c2be113c2e1aa4d038ebee6f"
   },
   {
     "id": "504c417d4792f19dd5879edf",
     "tenantId": "panel",
-    "token": "XmaNEZDwvu7gahq2vRevgo0lyoWEA8jY",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-04-28T19:18:48.287Z",
     "updatedAt": "2026-04-28T19:18:48.287Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "EIUYcv8G/+yGV6BA",
+      "tag": "gL9eE/cqzL68KXDJ6Y3/WA==",
+      "ciphertext": "sumd2eaxxcETyv6aB826Ed2Ma2CEP7vYiW6y9He+ovM="
+    },
+    "tokenHash": "daf00278af36c7523bcd114db1bda97a67e13b18f79eb83fc98c229c4cacf896"
   },
   {
     "id": "21985d16ca03719dd57a92ae",
     "tenantId": "panel",
-    "token": "JB7BztfZrsD64C7YQIJxfaEtuuW1cdv-",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Porto Alegre.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -438,12 +844,20 @@
     ],
     "createdAt": "2026-04-28T19:04:33.198Z",
     "updatedAt": "2026-04-28T19:18:40.574Z",
-    "deletedAt": "2026-04-28T19:18:40.574Z"
+    "deletedAt": "2026-04-28T19:18:40.574Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "0ms/dPXEi5F0Uo8g",
+      "tag": "xlaYv6JE5cZofAb/oHdTsA==",
+      "ciphertext": "AbN+kq8BcFAFXSVC2yLK2lo8YCdbSVgbnAQ7FpnMR5Q="
+    },
+    "tokenHash": "ec6b8da261982eb7ad50a80517384051ebdc4329f9c17a833c514039f889db72"
   },
   {
     "id": "f9136953530919dd3da7ebf",
     "tenantId": "admin",
-    "token": "rS_Ly0KUlH9m0jfh1CykEzqsd1HdU6iC",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial Online*.\n\nVoe vai aprender em 2 dias como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Online: R$97,00*\nPagamento via EDUZZ – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -451,12 +865,20 @@
     ],
     "createdAt": "2026-04-28T11:30:05.118Z",
     "updatedAt": "2026-05-07T14:27:23.002Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "H8Ms7WyhB/DEg5+t",
+      "tag": "SnhBvYykGxilRti3ZiS4Bg==",
+      "ciphertext": "tj7/ArY0pEQvf0Ryn19UNzShYk0eL8t+exvi2dapIT0="
+    },
+    "tokenHash": "d18ef2e74565f888b624dcb3f554019bfd289da5ea0372e31f5c097d254a43a2"
   },
   {
     "id": "eb81861f1aad219dcf6a105f",
     "tenantId": "panel",
-    "token": "Rbw5M80URtO3fKaY7NTEgFn0377VZ4FM",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Alphaville.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -464,12 +886,20 @@
     ],
     "createdAt": "2026-04-27T14:48:47.967Z",
     "updatedAt": "2026-04-27T14:49:00.970Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "pODbqVid5h3JqgSe",
+      "tag": "6VJRN83unSjOxZ8XnHGuNw==",
+      "ciphertext": "U1gD1K4JHwPKZL5A4DfM4WE81wCHDpaJZtoT4vYkQdo="
+    },
+    "tokenHash": "4cd97d36e1891020a896e27d39f5ef9b02a0b1d292de345709a6fe729bcb9921"
   },
   {
     "id": "1854671d6870419dbaec2f75",
     "tenantId": "admin",
-    "token": "g10kHCYQtYCnGbTplSlaEfHpnW3DCvYx",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Curitiba.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -477,12 +907,20 @@
     ],
     "createdAt": "2026-04-23T15:18:54.069Z",
     "updatedAt": "2026-05-05T12:18:14.838Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "63fmGXXjTPdxZdCm",
+      "tag": "d5z/IN+947LDm3/Rrpr4Hg==",
+      "ciphertext": "zpseKfM2Z9kr/RUk8F6mAtw16OI023XJK3KrOfgMrgo="
+    },
+    "tokenHash": "659930d19ee639489e3d6e62ec0e799eaf43d7c59e320ca51996e5862f677fd4"
   },
   {
     "id": "732a910f2f46119dbace8f6a",
     "tenantId": "regina",
-    "token": "8rfy0zG1ivtq97RgtexcQo3t52oO4li1",
     "name": "Webhook",
     "messageText": "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 13 de Maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!",
     "messages": [
@@ -490,12 +928,20 @@
     ],
     "createdAt": "2026-04-23T14:46:32.554Z",
     "updatedAt": "2026-05-05T12:51:40.298Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "gkTao/xwtVTihwbR",
+      "tag": "3FIjCCTVxkJU5bAhVUGggg==",
+      "ciphertext": "mAbEvwijtuKBcmvwAtiuYf183pPf5TF1JioUd8yOVbw="
+    },
+    "tokenHash": "f3dd514ff977e09df7cde7458baab7d1fa8e3697754052d8daf1d0e33e4219b7"
   },
   {
     "id": "e3d2ae974770d19dba1ee147",
     "tenantId": "panel",
-    "token": "tm7rdVw_TRUqlgu3Qs3EV-7GBMosbZWA",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Mogi das Cruzes.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -503,12 +949,20 @@
     ],
     "createdAt": "2026-04-23T11:34:39.174Z",
     "updatedAt": "2026-04-23T11:34:57.079Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "Ijv9PZb5IDRfrcY0",
+      "tag": "iueC0R+qpF9zA/zcQANH7g==",
+      "ciphertext": "rmYyEx/G90/+CrzM7Hnt7PBZgrMgWAzZeW2c7U98NLs="
+    },
+    "tokenHash": "14ec7ffdf638db39fa050496031c64556204633ab83672fc85ea2604d5efc33a"
   },
   {
     "id": "5a1b22e4df1e719d9c83ef4b",
     "tenantId": "admin",
-    "token": "fPCrnJrevofIS3l_JzuK1NulP8jPYmfp",
     "name": "Webhook",
     "messageText": "Olá {{nome}}, como vai?\n\nSua *inscrição está confirmada* para a apresentação da *nova era de aquisição de clientes por IA* com o Matheus Bottaro.\n\nVocê vai entender esse novo cenário que permite sua empresa *aparecer nas respostas da IA, no novo Google Modo AI*, e também como ser *indicada e recomendada no ChatGPT, Claude, Gemini* e outras ferramentas de inteligência artificial.\n\nAlém disso, você vai ficar por dentro de uma *grande novidade* que vem por aí: os *anúncios dentro do ChatGPT*.\n\n*Data:* 13 de Maio\n*Horário:* 19h30 às 21h\n\n{{nome}} em breve, vamos enviar mais informações por aqui!",
     "messages": [
@@ -516,12 +970,20 @@
     ],
     "createdAt": "2026-04-17T17:36:25.419Z",
     "updatedAt": "2026-05-05T12:45:52.339Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "DMHUC1mxGWDQjS7Z",
+      "tag": "2RgXqa21FvtIUx/sx9FgCA==",
+      "ciphertext": "MsMHBd4zeVlqpZVaJqdNgtI21BvYFKtyn/1tsJk0z2Q="
+    },
+    "tokenHash": "fcaffe3d2bb9215260967c1a22525ded1a5a410e57779ceb4dcec913710f2bdb"
   },
   {
     "id": "5574a0b44e63e19d6e3ac247",
     "tenantId": "admin",
-    "token": "VDVqXmpdiTDfYmCj3CcetILh8Zi98dML",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial no Rio de Janeiro.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -529,12 +991,20 @@
     ],
     "createdAt": "2026-04-08T17:53:57.831Z",
     "updatedAt": "2026-04-10T14:02:11.652Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "P9F2PNcbU+ESDT+r",
+      "tag": "aaACdfG0z9+NiEpk8NV/6w==",
+      "ciphertext": "1l0V/8fDFfPSEVx77N1sfhWyNa3N/SOwe7IM1SacURI="
+    },
+    "tokenHash": "fa5ea03a334cebd73166aaf5e43be4e03ef8dbd89d1ab269c72b3a3adaaae739"
   },
   {
     "id": "3ed3eaebbbed319d6d4a80b1",
     "tenantId": "panel",
-    "token": "bfs_GkphdbArq3D7JOrvBMJe52Orqf5R",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial no Rio de Janeiro.\n\nVoce vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "messages": [
@@ -542,23 +1012,39 @@
     ],
     "createdAt": "2026-04-08T13:31:32.401Z",
     "updatedAt": "2026-04-10T14:02:09.008Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "4QZeAVvM9/9yWvo9",
+      "tag": "daRx3ZOvmzMT9giBXDN22A==",
+      "ciphertext": "nmuEbLw/J4JwNIRLYZCsbNATp8HyWa9CW1cAfk0h4TQ="
+    },
+    "tokenHash": "0bb7e1b53579e0cae077fe2a7f6cdadc476cd93fbed3fce4302fae07a979e384"
   },
   {
     "id": "6ee737bba47ce19d63fa04f3",
     "tenantId": "panel",
-    "token": "_9AWm3mjAIlyqsNwqTr8WShTSu47A9_s",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-04-06T18:07:02.898Z",
     "updatedAt": "2026-04-06T18:07:02.898Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "wSfUJt64JMjvTAF8",
+      "tag": "VdKMOX+Ugzt42klDQTV+7w==",
+      "ciphertext": "HcNgQHOvH+tNqpNXm0UQCkgYT3yMpNbILTcr81ZdW0Q="
+    },
+    "tokenHash": "6ed1f37e1b856ca4293bc23f0c4265582f02eb93eff0139bbd23dabbad5ec18b"
   },
   {
     "id": "d364f11d5573719d63f5a637",
     "tenantId": "panel",
-    "token": "p-Uf1iIDDYp0cF1XKP2qQeNtBZnPSv3G",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial no Rio de Janeiro.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -566,23 +1052,39 @@
     ],
     "createdAt": "2026-04-06T18:02:16.503Z",
     "updatedAt": "2026-04-06T18:02:31.293Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "NUaE6FGbmxiAl6w0",
+      "tag": "uc5Xq3D5NLlVUq0BvxzHxA==",
+      "ciphertext": "gzgMt0qhpKnUEbXuMRR57X3pnLOy+w0keZ/mUBC87Ks="
+    },
+    "tokenHash": "bc9943e90f4636068e413ad00bff110ec994788a407ab33067d65f41b2dac343"
   },
   {
     "id": "843f03b95f80a19d3ebf2821",
     "tenantId": "panel",
-    "token": "sj9X1zk2Z6CTka01dxgFwsBa4v8LeoG2",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-03-30T12:36:48.289Z",
     "updatedAt": "2026-03-30T12:36:56.782Z",
-    "deletedAt": "2026-03-30T12:36:56.782Z"
+    "deletedAt": "2026-03-30T12:36:56.782Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "IE75RuE5Yw47jV9S",
+      "tag": "r/KbTWDmP+MNGw1hdI6Y0w==",
+      "ciphertext": "VlwGvhTdyKuE8maoJzTj5FNQeF82UfMrLPQC9feqbss="
+    },
+    "tokenHash": "5c4226527ac0f52f84a328510ff0ba7ccc24d074675b38b6d8356c69cdfebe12"
   },
   {
     "id": "5ab71d53952d119d3ebf005d",
     "tenantId": "panel",
-    "token": "746m2LM7tvaYnV1wuvX-2aUZv9tQIVxR",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Campinas.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -590,12 +1092,20 @@
     ],
     "createdAt": "2026-03-30T12:36:38.109Z",
     "updatedAt": "2026-04-07T13:27:11.526Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "1CeuvlmxjpJBtWl+",
+      "tag": "NsyokoSEKZ9iNhBXs3y7xA==",
+      "ciphertext": "fPznOdtuOiyh4oMSu9vRdBrVIqtVwWIiV4fyxvZKOuU="
+    },
+    "tokenHash": "e1b4d6365ca1094f6044990f2bb230b1556bbaec34028e34bc72656be891ff61"
   },
   {
     "id": "a9c6e78bfc54119d29f74f63",
     "tenantId": "admin",
-    "token": "aCVT7vsAOryikfZD-Z0K0TtvnjPLwB6H",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Campinas.\n\nVocê vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -603,12 +1113,20 @@
     ],
     "createdAt": "2026-03-26T11:46:06.819Z",
     "updatedAt": "2026-04-06T15:45:20.282Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "2233JAd56HxcpU3a",
+      "tag": "+NcBxCXrLg1CiJU+D7RAOQ==",
+      "ciphertext": "z4T/ykMKB5LA0Con7OLsD724vyG0GyOqCsDMm6bpboc="
+    },
+    "tokenHash": "05585a32dce1f01cdb255da01e79a7a640470d60dfdc525f4a9aa02dbbf07d84"
   },
   {
     "id": "a7b57d7b2961c19d0737a4eb",
     "tenantId": "panel",
-    "token": "iRnfxyhHk6YH6tr0boyQygCNGJCwSK86",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Brasília.\n\nVocê vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -616,12 +1134,20 @@
     ],
     "createdAt": "2026-03-19T17:49:40.459Z",
     "updatedAt": "2026-03-30T12:34:29.989Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "uhb3hihdqsoUWnmB",
+      "tag": "xMduIi5rBSM5RtdzQRn6Qw==",
+      "ciphertext": "5TK9dWGQnwlkkBq8UWTEubPY0eOcWMuSiPxhMC0zYLU="
+    },
+    "tokenHash": "3758fb1d3f59b3f9c073ad891122b7ed487684ead4a16055692caa5edf5e879a"
   },
   {
     "id": "a1bef5c3ae14b19cf6661d5c",
     "tenantId": "admin",
-    "token": "gRVetj50XxdEHqpysr3_aIX6Rgk3J2eu",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial no Rio de Janeiro.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -629,12 +1155,20 @@
     ],
     "createdAt": "2026-03-16T11:26:53.276Z",
     "updatedAt": "2026-03-16T11:27:12.501Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "wxx+84HYeqGIf97z",
+      "tag": "vpR87iIvC+ScPQp6mo5Syw==",
+      "ciphertext": "1adj+XAJ0AeczkqDQ7IvGENWxHcaMEZapsSxn9oEjZI="
+    },
+    "tokenHash": "730e2b195be804323f2bce8608d02fd5d7b6298fdd3e6cf4379783dbeded7b04"
   },
   {
     "id": "3aecde5e2dbad19cd2f0c9a1",
     "tenantId": "panel",
-    "token": "aT1iIgxUdqk8KUMUQIj2lU182hFfBbJM",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Brasília.\n\nVocê vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -642,12 +1176,20 @@
     ],
     "createdAt": "2026-03-09T14:12:01.569Z",
     "updatedAt": "2026-03-10T11:46:24.189Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "NTbt8D/m7WIyct4W",
+      "tag": "VUqazxbS+TLBjynqbxRbrw==",
+      "ciphertext": "aiVEjKy8Qn1PjBwhgS6hmdtbjcM9RMF+0NEBzIRjho0="
+    },
+    "tokenHash": "74bd774263d3d0b7d1acb173d5142eb8a4e20d017dbaa5af641fe10c540b5e00"
   },
   {
     "id": "638dd41d7393d19cd2ede295",
     "tenantId": "admin",
-    "token": "-Sg1-FR3Vg4baby7ZVtCYi3YeiQEUCyd",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Goiânia.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -655,12 +1197,20 @@
     ],
     "createdAt": "2026-03-09T14:08:51.349Z",
     "updatedAt": "2026-03-26T14:49:07.531Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "gB0y5l7gFNHpFAYb",
+      "tag": "RlZFoVrxpb/s+EyaA1tknw==",
+      "ciphertext": "j1qwmlBzrZGCImbIKWahN2046/jqkON90CgVK1wv6jY="
+    },
+    "tokenHash": "17993b60981bcd739337a54b05d2f1a58e6f687609692a7a33a0a1312b04a2d1"
   },
   {
     "id": "54298e0ca4cdb19cd2e81db5",
     "tenantId": "admin",
-    "token": "-6YzdIIO4GGHzO8yWkiT1bRqx_UGkXLX",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São José do Rio Preto.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "messages": [
@@ -668,12 +1218,20 @@
     ],
     "createdAt": "2026-03-09T14:02:33.269Z",
     "updatedAt": "2026-03-18T20:02:41.572Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "c5CBm0/YPmkPLVvH",
+      "tag": "+Bs09sUDgrKhZFMtKVs+Jw==",
+      "ciphertext": "JyUYXUWVUsDYfQdO6OXPWNpC5zF2HP03nDsTIkS/tkM="
+    },
+    "tokenHash": "507ea5a2185211e788f0b4718a6bc137c466be64cb2df343703addad8059ab3a"
   },
   {
     "id": "af61d78d7732a19cd2de26e2",
     "tenantId": "admin",
-    "token": "Oa8zVNKsNIuiUPvTNsKIPyQpJo4j9CM8",
     "name": "Webhook",
     "messageText": "teste 1",
     "messages": [
@@ -682,45 +1240,77 @@
     ],
     "createdAt": "2026-03-09T13:51:40.257Z",
     "updatedAt": "2026-03-09T14:02:01.078Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "VMneGl0tiA4l74d2",
+      "tag": "FerdW89JNeksyN8nNjLU+A==",
+      "ciphertext": "0O8AI9FQgx7WdtkyHN150Yod94wKr8rdM675CiDy8Os="
+    },
+    "tokenHash": "a40b385a45e7a52f231aee1deed8403e5437f1309e9e6b4b826403edf8708997"
   },
   {
     "id": "77e919f6ffb5a19cd2dc6e0c",
     "tenantId": "admin",
-    "token": "jm9LewPFX-KkLbZaqkWnT4AhuJ9Z9MXs",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-03-09T13:49:47.404Z",
     "updatedAt": "2026-03-09T13:49:47.404Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "w4MuUxYuzHtfaBxX",
+      "tag": "2GE/ntvC3z6WakLapjDMNw==",
+      "ciphertext": "Gi5AgE37SkudK79oJPHV18VpVotn3TNVwA2HQPBo1yw="
+    },
+    "tokenHash": "ddbad17086d99c6d5b9d797b87d36d3eca5bd3a98a996fc233093b220b5e2420"
   },
   {
     "id": "9dfb33b88e11e19cd2db1dcc",
     "tenantId": "admin",
-    "token": "oXdXB_NY90PHNO9YE7f03EiPLDyYcsM2",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-03-09T13:48:21.324Z",
     "updatedAt": "2026-03-09T13:48:21.324Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "DbX3xpP+HVibprZU",
+      "tag": "XxIA3JjSJ6486SKY7Qdkxw==",
+      "ciphertext": "2261zvpIHq56vYlf8/1GsC0YcGU66dLgGTj5mzLdL9Y="
+    },
+    "tokenHash": "38d9f230ca474a922b0c8d1ed2e2fdf208eb95a31a27090721960c1ed674a04c"
   },
   {
     "id": "b50ac6cb2592d19cd298cefe",
     "tenantId": "admin",
-    "token": "6Dy8DASvrHqv-8wmYcAzm-NsTgFZV5Kq",
     "name": "Webhook",
     "messageText": "",
     "messages": [],
     "createdAt": "2026-03-09T12:35:55.774Z",
     "updatedAt": "2026-03-09T13:48:11.751Z",
-    "deletedAt": "2026-03-09T13:48:11.750Z"
+    "deletedAt": "2026-03-09T13:48:11.750Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "nJ7B1NciCDhkx1BD",
+      "tag": "fo/ThfM2i7+Pez47s9YnTA==",
+      "ciphertext": "7WPfjcQgf3LA1bRiUJU5+/GbRSTnwBRN/daZRkOSEBQ="
+    },
+    "tokenHash": "5268183b54412498a7262aae991c5f21d214eca23c97902f279b3de77f29f6f6"
   },
   {
     "id": "fa1495dfbb16a19cb94994e1",
     "tenantId": "panel",
-    "token": "1zuphBH6Z9Bny3JcssdR3gwRSUIM0K7_",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial*, uma oportunidade única pra aprender o passo a passo de como *atrair novos clientes* todos os dias com o Google.\n\nDetalhes do Evento:\n\n📅 *Data:* 26/03/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Golden Park Uberlândia - Av. Rondon Pacheco, 5455 - Brasil - Uberlândia/MG\n\n🎟️ Lote 2 - Imersão Presencial: R$149,00\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ Sua vaga está quase garantida!\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?",
     "createdAt": "2026-03-04T14:38:53.153Z",
@@ -728,22 +1318,38 @@
     "deletedAt": null,
     "messages": [
       "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial*, uma oportunidade única pra aprender o passo a passo de como *atrair novos clientes* todos os dias com o Google.\n\nDetalhes do Evento:\n\n📅 *Data:* 26/03/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Golden Park Uberlândia - Av. Rondon Pacheco, 5455 - Brasil - Uberlândia/MG\n\n🎟️ Lote 2 - Imersão Presencial: R$149,00\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ Sua vaga está quase garantida!\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição?"
-    ]
+    ],
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "pcZZGexeduZ7dmTV",
+      "tag": "jeWv0Cn4AixYrhdxbCp3Iw==",
+      "ciphertext": "10vAoMfFrxAJ/Q5Wht1ZiyQ0k2SSeq4AnRviPiYgKFw="
+    },
+    "tokenHash": "6227f9d032dec9e2d979dd8ead513796fda9da4e2a2933ae021a7a4ab8b56fd6"
   },
   {
     "id": "21487f923cfbe19cb945f044",
     "tenantId": "admin",
-    "token": "jgc9QDFxc6SrBpr9JjEeVUYrl8iauwKE",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a Cíntia, do time do Matheus Bottaro, da Casa do Ads!\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial presencial em São José do Rio Preto.*\nVocê vai aprender em 4 horas como *atrair clientes* qualificados no *Google Ads com IA,* além de saber sobre a grande novidade:\n\nComo ser recomendado pelo *ChatGPT, Gemini e outras IAs* sem pagar por isso!\n\n*🎟️ Lote 1 - Imersão Presencial: R$129,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n*⚠️ Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}",
     "createdAt": "2026-03-04T14:34:54.404Z",
     "updatedAt": "2026-03-09T13:48:12.753Z",
-    "deletedAt": "2026-03-09T13:48:12.753Z"
+    "deletedAt": "2026-03-09T13:48:12.753Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "po/rtumUt0kAQFz3",
+      "tag": "SD8KWuvfadpgHO+rdHpI2Q==",
+      "ciphertext": "8s6BajLvjH9eBNk/xZqARWfCc1ZNDVNMkOv2Rpr2LEA="
+    },
+    "tokenHash": "4dc2c2b10bf1a2c661b05007c6417465bb9df1a8ed8786e22f653c4c8de57ea3"
   },
   {
     "id": "b74aaf461f4dd19ca078d239",
     "tenantId": "panel",
-    "token": "7hUtsQwmkOwDYihssHlg90qauUIV59mj",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "createdAt": "2026-02-27T18:59:58.649Z",
@@ -751,136 +1357,249 @@
     "deletedAt": null,
     "messages": [
       "Olá {{nome}}! Tudo bem?\n\nAqui é a *Fabiane*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVoe vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?"
-    ]
+    ],
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "pPhU1SmorNeV8wVo",
+      "tag": "SDJc15zcIHRhpJAC+3lqAQ==",
+      "ciphertext": "cirp8eNs8f4pDnnhaw1k4pwdfERVKkMeTO8A3mMnyUc="
+    },
+    "tokenHash": "2a72e7be5f30837654db08edc501f66f5b31b80dcf33d0813df8cf533c17e8a3"
   },
   {
     "id": "3905be3d1104c19ca06044aa",
     "tenantId": "admin",
-    "token": "vZCI3XUZC37OGWnV1GJxZ23ViAEFwDOH",
     "name": "Webhook",
     "messageText": "Olá {{nome}}! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Santo André.\n\nVocê vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\n*Como ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso*!\n\n🎟️ *Lote 2 - Imersão Presencial: R$149,00*\nPagamento via Hotmart – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida*!\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição {{nome}}?",
     "createdAt": "2026-02-27T18:33:09.546Z",
     "updatedAt": "2026-03-09T13:48:13.790Z",
-    "deletedAt": "2026-03-09T13:48:13.790Z"
+    "deletedAt": "2026-03-09T13:48:13.790Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "0PODjZ1GITlCLUhF",
+      "tag": "CATA5U3F71UZVhMMrSYjnw==",
+      "ciphertext": "9+3wuvlGmZOtOCuE1XvJGWTjP/K92y/DwAdaa5NydN4="
+    },
+    "tokenHash": "d84c3c6089ae43921622d395156ee07c338fdc16c4b391c563beec34a7f7f72d"
   },
   {
     "id": "afeb4138521e519c94fde883",
     "tenantId": "panel",
-    "token": "I8lxxE78xOpi2wX9dNtjW7Wem5ebxcGS",
     "name": "Webhook",
     "messageText": "Olá, {{nome}}! Tudo bem?\n\nA *Imersão Presencial Google e Inteligência Artificial* é um evento presencial, 100% prático, pensado para empresários que querem *tomar decisões melhores nos anúncios*, ganhar previsibilidade nas vendas e escalar com mais lucro em 2026.\n\n*Durante o evento, você vai ver na prática:*\n\n* Como usar *Google Ads* com *Inteligência Artificial*;\n* *Novas campanhas* e públicos inteligentes para atrair *clientes mais qualificados*;\n* Como usar *agentes de IA* como sócios inteligentes para tomar decisões melhores no negócio;\n* Como ser *indicado pelo ChatGPT, Gemini* e outras IAs sem pagar nada.\n\nVocê sairá com um plano de ação claro, pronto para aplicar no seu negócio e escalar em 2026!\n\n*Detalhes do evento:*\n\n📅 *Data:* 05/03/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Hotel Marua - Rua Holanda, 120 – Jd. Oswaldo Cruz – SJC\n\n🎟️ Ingresso: R$129,00\nPagamento via Hotmart – Pix ou cartão (até 3x).\n\nMe tira uma dúvida, você faz anúncios no Google Ads ou está começando agora?",
     "createdAt": "2026-02-25T13:29:54.051Z",
     "updatedAt": "2026-02-26T19:18:50.116Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "2mLBlSMdLAmwt9aN",
+      "tag": "ZsKR2078HrOiyLcFBj/KCw==",
+      "ciphertext": "8dr0Oa4SkPquMm3JrEDdAwFJ6l8z47z3+3u66WPLdpk="
+    },
+    "tokenHash": "078b186ec714d7b29d5979894a86904d6109f07a9ca7cdfbe0e6cde5b8d2890a"
   },
   {
     "id": "b04887fff181719c8b0498d6",
     "tenantId": "panel",
-    "token": "5WaefYEP8BQ4EywJ_QIu-oyMAATfLiJW",
     "name": "Webhook",
     "messageText": "Olá {{nome}} 👋\n\nAqui é a Cíntia da Casa do Ads.\n\nSua inscrição está confirmada.\n\n📅 02 e 03 de Março\n⏰ 19h30\n💻 Online\n\nVocê vai receber o link de acesso e as informações por aqui pelo WhatsApp.\n\nAté lá!",
     "createdAt": "2026-02-23T15:01:00.246Z",
     "updatedAt": "2026-02-23T15:09:35.396Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "+Gryh5gSBAvBsQaz",
+      "tag": "iwEMZBhcRVfmaKpQZkxOCw==",
+      "ciphertext": "rfRDFSPcqQD4C/Y3PqIhH2hfUW3HORDgfBtpGSQZMEA="
+    },
+    "tokenHash": "13c88dbb1306b1880d6c5b557b2d3401124f2cbcfc927d43a3fbb8c413351558"
   },
   {
     "id": "49434d1f8931c19c8b047ec2",
     "tenantId": "panel",
-    "token": "JDxAAjc6PWN8NV5O5H4Vg3M412XWqi2h",
     "name": "Webhook",
     "messageText": "",
     "createdAt": "2026-02-23T15:00:53.570Z",
     "updatedAt": "2026-02-23T15:00:53.570Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "IcBlzS4jWurpLFZf",
+      "tag": "okoKr9Ga+wHmW/KfMruERw==",
+      "ciphertext": "mVW1eDQat1HTcaM7f3CPz5ave1/p8ftij8DMYZ+SHrY="
+    },
+    "tokenHash": "52a635a1686eabf97ba9ce06ea31604957ae1e4e59b93234cc9e059df0279c7b"
   },
   {
     "id": "cf5043a25811119c7cb79a0c",
     "tenantId": "panel",
-    "token": "vSYEfKcLYaz-TkZrEHF-s95jZDq_ozkn",
     "name": "Webhook",
     "messageText": "Recebemos o seu formulario {{nome}}",
     "createdAt": "2026-02-20T20:22:13.260Z",
     "updatedAt": "2026-02-20T20:22:24.406Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "QXmHE1lR130oLxCO",
+      "tag": "l6PMgMpm4pXK4g9C3xWFUA==",
+      "ciphertext": "I7SFxge1oO5rt1N2N5CJKpPHBPlWxhrVIFDLG3OBqJk="
+    },
+    "tokenHash": "8accbf0347446f8c61a683bf6a6ba07de7f1b6fee32530cd50ee8b35e2c46eb2"
   },
   {
     "id": "803eed500b67319c7cad8c85",
     "tenantId": "panel",
-    "token": "DyN2CeJ3D5v-gU6_Pc_RLzYQ402y21JP",
     "name": "Webhook",
     "messageText": "Olá tudo bem com você {{nome}}?",
     "createdAt": "2026-02-20T20:11:14.437Z",
     "updatedAt": "2026-02-20T20:21:33.078Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "AA6FmvZnsU0/MvXr",
+      "tag": "OEw0XQCmuZDcqw2ERUg4Jg==",
+      "ciphertext": "xHrWFmuhyXfaAeW2hWJd/PSh64EPQFO0FaudBGwlH/c="
+    },
+    "tokenHash": "3188723faa7ba41f898efd3847f7db85ff317e9765db3ec618ad920baae05a82"
   },
   {
     "id": "9da228a836c4219c7cad8956",
     "tenantId": "panel",
-    "token": "2rXSNRLZMjPxOc7gIBHYxfIf-8Zon0Zb",
     "name": "Webhook",
     "messageText": "",
     "createdAt": "2026-02-20T20:11:13.622Z",
     "updatedAt": "2026-02-20T20:11:13.622Z",
-    "deletedAt": null
+    "deletedAt": null,
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "vzQa4tMGfExedbzq",
+      "tag": "SKrJZfqORLN7xqmXfQIkig==",
+      "ciphertext": "tRP2A9E2IIz7izuhyfZwCp5V3BuXtVUIZx6RgSRxV10="
+    },
+    "tokenHash": "c9a778395aa6a46e5a5d35c880e3b3aea04a26b7c9c954572dd05241948f449c"
   },
   {
     "id": "831cc6a633bb619c7cad5b3a",
     "tenantId": "admin",
-    "token": "zB6XkZmGCEg_DeYm4UnoloGNi5S9phCO",
     "name": "Webhook",
     "messageText": "Olá, {{nome}}, como vai? \nSua inscrição está confirmada para o evento:\n\n📅 02 e 03 de Março\n🕢 19h30\n💻 Ao vivo e online\n\nVamos apresentar de forma prática, as novas estratégias de aquisição de clientes com Inteligência Artificial.",
     "createdAt": "2026-02-20T20:11:01.818Z",
     "updatedAt": "2026-03-09T13:48:16.092Z",
-    "deletedAt": "2026-03-09T13:48:16.092Z"
+    "deletedAt": "2026-03-09T13:48:16.092Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "BwnX+OSdT/2NTJ2U",
+      "tag": "GSnOc3VT8G7iQw28TiLvfg==",
+      "ciphertext": "k381z1/+vnPtotvasioixThfFIsYzqsLl6PVqHnpIVo="
+    },
+    "tokenHash": "e33ed7c700745e588a0aa1d47deb67bf0b751f9cc3dd3d65b4b90278057cc522"
   },
   {
     "id": "730fb6e21cbde19c7cacf30c",
     "tenantId": "admin",
-    "token": "9VhfdnZiR8Abc2nb8ajQTMD11ugct233",
     "name": "Webhook",
     "messageText": "",
     "createdAt": "2026-02-20T20:10:35.148Z",
     "updatedAt": "2026-03-09T13:48:17.155Z",
-    "deletedAt": "2026-03-09T13:48:17.155Z"
+    "deletedAt": "2026-03-09T13:48:17.155Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "nTXUPHl6lfVkx5la",
+      "tag": "5uRgc3vCasn3ALDDOufM5w==",
+      "ciphertext": "Bo0OvHfsed+4X8lVhWODNiUj6kpdlsWazfadXR5PLRo="
+    },
+    "tokenHash": "dd0a184379b73b396d700c231d59e5b3a40e4380cb3f952489e27d976b9a680d"
   },
   {
     "id": "4ae607c71e43219c7ca69ffb",
     "tenantId": "admin",
-    "token": "GGzqukgbxoYnGmwy4sXjM8EcTDCh-UnN",
     "name": "Webhook",
     "messageText": "",
     "createdAt": "2026-02-20T20:03:40.667Z",
     "updatedAt": "2026-02-20T20:03:56.023Z",
-    "deletedAt": "2026-02-20T20:03:56.023Z"
+    "deletedAt": "2026-02-20T20:03:56.023Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "v1kgXYIetF8hVS+L",
+      "tag": "0rcq4IQR8rPyVcOQxGFNyw==",
+      "ciphertext": "Zfss+fCrpMBbg/AGzgcEEHbPEJBzXrE9RwkSs8dBCrg="
+    },
+    "tokenHash": "bc9203de147f4bc7d60b6eeba6377c260fafc4f445f073bfb16b3f3c0380f813"
   },
   {
     "id": "5ba809d275dcf19c7ca5b00c",
     "tenantId": "admin",
-    "token": "jbY3RR_QBBcSS9B2x_NV00lg31tis7Jp",
     "name": "Webhook",
     "messageText": "",
     "createdAt": "2026-02-20T20:02:39.244Z",
     "updatedAt": "2026-02-23T15:05:59.736Z",
-    "deletedAt": "2026-02-23T15:05:59.735Z"
+    "deletedAt": "2026-02-23T15:05:59.735Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "L1WIomnPZoZU5R69",
+      "tag": "89+XpYI18SuuC2JroT2hPw==",
+      "ciphertext": "7lwTFtKvr4va3Z+1AS7t0hINwVNga6lycNdf/g0/KYk="
+    },
+    "tokenHash": "326c25e2cdfaf837c32a0eec9992640cfa712d2aaa5df6cf5baf7fb2439d77df"
   },
   {
     "id": "2f7f4627f92de19c7ca55353",
     "tenantId": "admin",
-    "token": "VG5RUrDHGDKx87t-Q-omYZodMM8zO1Y9",
     "name": "Webhook",
     "messageText": "",
     "createdAt": "2026-02-20T20:02:15.507Z",
     "updatedAt": "2026-02-20T20:03:59.182Z",
-    "deletedAt": "2026-02-20T20:03:59.182Z"
+    "deletedAt": "2026-02-20T20:03:59.182Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "hnZJscCCl6ptcgQS",
+      "tag": "QuJFNvFe0yhEiVphGzYF2g==",
+      "ciphertext": "ZPJJ8nl0jIYfG2kCs8Z3SIBOr07iLL4KbEnM+s9xS4o="
+    },
+    "tokenHash": "dcc902adeb987a24ee6379a9f00cee67594580c9739d429aa468da28b19fd3bf"
   },
   {
     "id": "c1d82c8d6268919c7ca4edcc",
     "tenantId": "admin",
-    "token": "jZimI3t58BvwAnN3cOlV-F19pC7h0w4z",
     "name": "Webhook",
     "messageText": "",
     "createdAt": "2026-02-20T20:01:49.516Z",
     "updatedAt": "2026-03-09T13:48:18.881Z",
-    "deletedAt": "2026-03-09T13:48:18.881Z"
+    "deletedAt": "2026-03-09T13:48:18.881Z",
+    "schemaVersion": 2,
+    "tokenEncrypted": {
+      "v": 1,
+      "alg": "aes-256-gcm",
+      "iv": "7GKgV9R3nV+drfx1",
+      "tag": "HhBq/vNdbKnLUCtCr2NoQg==",
+      "ciphertext": "NdFduIaPiqrf5QT/P9Sx+Suo4lQ3nsbYV54ebIwNOuY="
+    },
+    "tokenHash": "cc73c41d5d21c0a6da5d20dbf326c5d3f213d6da7e7ae879c5e6ccba31ecf871"
   }
 ]
