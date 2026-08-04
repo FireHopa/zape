@@ -1100,6 +1100,126 @@
       "createdAt": "2026-07-02T17:02:36.000Z",
       "ack": 1,
       "source": "incoming-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB04DFF27C77A475A3FC5",
+      "fromMe": true,
+      "body": "oieee",
+      "type": "chat",
+      "timestamp": 1785498806,
+      "createdAt": "2026-07-31T11:53:26.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB0EEF660F884C94BC253",
+      "fromMe": true,
+      "body": "Bom diaaa Felipe",
+      "type": "chat",
+      "timestamp": 1785498809,
+      "createdAt": "2026-07-31T11:53:29.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB0E08B4BFAE14CD1FE27",
+      "fromMe": true,
+      "body": "Tem algum email novo que encaminha solicitando o desbloqueio do banimento",
+      "type": "chat",
+      "timestamp": 1785498833,
+      "createdAt": "2026-07-31T11:53:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB0DF3E00994DBBBCEA0E",
+      "fromMe": true,
+      "body": "pq mandei email ontem e até agora nada",
+      "type": "chat",
+      "timestamp": 1785498848,
+      "createdAt": "2026-07-31T11:54:08.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB0AB1E9157E3A43815BD",
+      "fromMe": true,
+      "body": "support@support.whatsapp.com",
+      "type": "chat",
+      "timestamp": 1785498875,
+      "createdAt": "2026-07-31T11:54:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB01435CB01BB085CB5C4",
+      "fromMe": true,
+      "body": "Gostaria da liberação do meu whatsapp do número  11 97506-5443  visto que utilizamos ele seguindo todas as normas do whatsapp!  Somos da Casa do Ads e TODOS os contatos se cadastram no site www.casadoads.com.br e solicitam as nossas informações! Peço urgentemente que façam a liberação do mesmo GRATA!",
+      "type": "chat",
+      "timestamp": 1785498887,
+      "createdAt": "2026-07-31T11:54:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB0487EEECC30CFBD1D5F",
+      "fromMe": true,
+      "body": "manei pra este email, com essa mensagem",
+      "type": "chat",
+      "timestamp": 1785498900,
+      "createdAt": "2026-07-31T11:55:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_231787204767760@lid_AC9E43CEA223DBD3D98B4DDDD4245B46",
+      "fromMe": false,
+      "body": "oi bom dia",
+      "type": "chat",
+      "timestamp": 1785503069,
+      "createdAt": "2026-07-31T13:04:29.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_231787204767760@lid_A5553CA54C6707DC4D452F4674322306",
+      "fromMe": true,
+      "body": "Mudou alguma coisa na mensagem?",
+      "type": "chat",
+      "timestamp": 1785503675,
+      "createdAt": "2026-07-31T13:14:35.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_231787204767760@lid_AC4F3C76DD7D1BB69EC200CCE5584455",
+      "fromMe": false,
+      "body": "esqueci de enviar",
+      "type": "chat",
+      "timestamp": 1785505540,
+      "createdAt": "2026-07-31T13:45:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_231787204767760@lid_AC437A996C0A87236FC8977C38B97A52",
+      "fromMe": false,
+      "body": "basicamente ta tudo certo ai, eles só não responderam ainda msm",
+      "type": "chat",
+      "timestamp": 1785505556,
+      "createdAt": "2026-07-31T13:45:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_231787204767760@lid_3EB07B4A07AE00F4E66F73",
+      "fromMe": true,
+      "body": "ok",
+      "type": "chat",
+      "timestamp": 1785507244,
+      "createdAt": "2026-07-31T14:14:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351920818033": [
@@ -4418,6 +4538,210 @@
       "type": "chat",
       "timestamp": 1783690497,
       "createdAt": "2026-07-10T13:34:57.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3EB0E332642A9C49994440",
+      "fromMe": false,
+      "body": "Olá Fabiane, já tens fatura? necessito de a enviar para a contabilidade",
+      "type": "chat",
+      "timestamp": 1784722149,
+      "createdAt": "2026-07-22T12:09:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A5C9AF6C15176E2BF062899EE346392C",
+      "fromMe": true,
+      "body": "Bom dia Filomena!!!!",
+      "type": "chat",
+      "timestamp": 1784722272,
+      "createdAt": "2026-07-22T12:11:12.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A5E96A46C7FE7A4F5D72D6B9C180DA31",
+      "fromMe": true,
+      "body": "Eu passo para o setor do financeiro e eles que fazem o envio",
+      "type": "chat",
+      "timestamp": 1784722291,
+      "createdAt": "2026-07-22T12:11:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A527548BA45E03CD705B3A2F4EF6D538",
+      "fromMe": true,
+      "body": "Vou verificar o que houve, falta apenas a fatura do plano Elite que você comprou, correto?",
+      "type": "chat",
+      "timestamp": 1784722323,
+      "createdAt": "2026-07-22T12:12:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3EB0ECCB3CCA22159CCF35",
+      "fromMe": false,
+      "body": "correto, os 377€",
+      "type": "chat",
+      "timestamp": 1784722710,
+      "createdAt": "2026-07-22T12:18:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3AF88E6F7451AD301D94",
+      "fromMe": false,
+      "body": "Olá Fabiana ainda não recebi a fatura",
+      "type": "chat",
+      "timestamp": 1785178600,
+      "createdAt": "2026-07-27T18:56:40.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A5D2CED46517EA140D54069D615C847D",
+      "fromMe": true,
+      "body": "Olá Filomena, bom dia!!!!",
+      "type": "chat",
+      "timestamp": 1785242720,
+      "createdAt": "2026-07-28T12:45:20.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A58D7D65C6565D8CCE303CEF24E002C0",
+      "fromMe": true,
+      "body": "Confirma por gentileza se chegou no seu email, o financeiro informou ontem que enviou.",
+      "type": "chat",
+      "timestamp": 1785242753,
+      "createdAt": "2026-07-28T12:45:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3EB0BE70DDC89CEB0725D1",
+      "fromMe": false,
+      "body": "Olá Fabiane estou a enviar mensagem para o augusto a dizer q estou disponivel mas ele nao esta a receber as minhas mensagens podes ver com ele?",
+      "type": "chat",
+      "timestamp": 1785265379,
+      "createdAt": "2026-07-28T19:02:59.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3EB0826B4934D99EC6DC31",
+      "fromMe": false,
+      "body": "nao recebi, podes enviar por aqui?",
+      "type": "chat",
+      "timestamp": 1785265542,
+      "createdAt": "2026-07-28T19:05:42.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A5F153019E906D7157228F92F3A39B92",
+      "fromMe": true,
+      "body": "Vou solicitar para eles me passarem, e retorno.",
+      "type": "chat",
+      "timestamp": 1785266187,
+      "createdAt": "2026-07-28T19:16:27.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A5FAD90F4B34DC908B9C17F0058AA3DF",
+      "fromMe": true,
+      "body": "Bom dia Filomena, segue a fatura.",
+      "type": "chat",
+      "timestamp": 1785324501,
+      "createdAt": "2026-07-29T11:28:21.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A56D254901C191F502DF190CB218119A",
+      "fromMe": true,
+      "body": "NFSe 307 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "type": "document",
+      "timestamp": 1785324585,
+      "createdAt": "2026-07-29T11:29:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "pdf",
+      "mediaMime": "application/pdf",
+      "mediaId": "m_8af18600986273b672537acd5659ba8ae5e223c7500dde2c",
+      "mediaFile": "m_8af18600986273b672537acd5659ba8ae5e223c7500dde2c.pdf",
+      "mediaSize": 72050,
+      "filename": "NFSe 307 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "originalName": "NFSe 307 - BE.OK, UNIPESSOAL, LDA.pdf"
+    },
+    {
+      "id": "false_261035277717588@lid_3EB03B41ACC2E21DAE7600",
+      "fromMe": false,
+      "body": "o nr de NIF esta errado é o 516967037 - como solicitei pode coocar na descrição o valor pago em euros?",
+      "type": "image",
+      "timestamp": 1785324913,
+      "createdAt": "2026-07-29T11:35:13.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaId": "m_bdfeb5dd6b6c3b2b59760e65782e9f065fb6943738a8616b",
+      "mediaFile": "m_bdfeb5dd6b6c3b2b59760e65782e9f065fb6943738a8616b.jpg",
+      "mediaSize": 123140,
+      "filename": "false_261035277717588@lid_3EB03B41ACC2E21DAE7600.jpg",
+      "originalName": "false_261035277717588@lid_3EB03B41ACC2E21DAE7600.jpg"
+    },
+    {
+      "id": "true_261035277717588@lid_A554CB7172A182C9E29C8F03E8AC4315",
+      "fromMe": true,
+      "body": "O financeiro informou que não conseguem emitir uma fatura por aqui com o valor em euro, em relação ao NIF já será corrigido.",
+      "type": "chat",
+      "timestamp": 1785326356,
+      "createdAt": "2026-07-29T11:59:16.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_261035277717588@lid_3EB04E3D97A0DDB999EE55",
+      "fromMe": false,
+      "body": "ok, fico a aguardar a fatura c o nr de contribuinte corrigido, dps envie por aqui. obrigada",
+      "type": "chat",
+      "timestamp": 1785329185,
+      "createdAt": "2026-07-29T12:46:25.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_261035277717588@lid_A522131BE91AE0B59373F6B24CA54656",
+      "fromMe": true,
+      "body": "NFSe 308 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "type": "document",
+      "timestamp": 1785339599,
+      "createdAt": "2026-07-29T15:39:59.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "pdf",
+      "mediaMime": "application/pdf",
+      "mediaId": "m_a005e184dc5eb11d51a44e59902e491e5c9de48d18b10046",
+      "mediaFile": "m_a005e184dc5eb11d51a44e59902e491e5c9de48d18b10046.pdf",
+      "mediaSize": 72439,
+      "filename": "NFSe 308 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "originalName": "NFSe 308 - BE.OK, UNIPESSOAL, LDA.pdf"
+    },
+    {
+      "id": "true_261035277717588@lid_A54EB26270EEA1FDFBE9EFFC03926513",
+      "fromMe": true,
+      "body": "Fatura corrigida, confere por gentileza.",
+      "type": "chat",
+      "timestamp": 1785339616,
+      "createdAt": "2026-07-29T15:40:16.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
     }
@@ -14744,6 +15068,156 @@
       "createdAt": "2026-06-09T13:16:38.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB02CCB9F186A359A3AB8",
+      "fromMe": true,
+      "body": "Lucas\tSantana Negócios imobiliários\t31981088657\nCida\tDecidir Imóveis\t31993573124\nJean Adner Derilus\tDistribuidora de gás e água sonar Ltda\t31992624010\nClaudian natanael\tSoquerovender\t5531985694551\nJosisne\tLepoeh\t5531992393171\nEva\tOtica Unidas\t5531975930059\nRafael\tReal energy\t61982268208\nThiago Cruz\tPortal Tudo Pra Festas\t31 989562222\nMariana\tMultClinica\t31993167096\nFelipe\tAg3\t5531999173992\nJoão Paulo Pereira das neves Rocha\tGestar\t5531997579494\nJuliana Ribeiro\tOh, Sugar!\t31987866207\nFilipe Bahia\tCONECTESEG\t31983027703\nAristóteles\tItdes\t31992056537\nSilvana de Jesus Silva\tgaveaprint\t3198253 6861\nJORGE ENRIQUE MALDONADO RIQUELME\tAEPROTEC\t11972511032\nJulio Cesar Lobão\tJulberterza mix\t31991246641",
+      "type": "chat",
+      "timestamp": 1785422031,
+      "createdAt": "2026-07-30T14:33:51.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227753609683102@lid_A501F72C2129C345FF7BDD2C1DCE2F0B",
+      "fromMe": false,
+      "body": "Bom dia Fulano! Preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Belo Horizonte.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *aparecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini e outras inteligências artificiais.*\n\nVeja como foi as nossas últimas Imersões no Instagram do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/\n\nVamos Finalizar sua inscrição?",
+      "type": "chat",
+      "timestamp": 1785422904,
+      "createdAt": "2026-07-30T14:48:24.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0C6EC8B8ECF78D733DA",
+      "fromMe": true,
+      "body": "Bom dia Fulano! Aqui é a Fabiane, da equipe do *Matheus Bottaro* da Casa do Ads.\n\nPreciso falar com você, você fez sua pré-inscrição para a imersão e não finalizou.Estamos com as últimas vagas disponíveis para a Imersão em Belo Horizonte.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *aparecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini e outras inteligências artificiais.*\n\nVamos Finalizar sua inscrição?",
+      "type": "chat",
+      "timestamp": 1785423696,
+      "createdAt": "2026-07-30T15:01:36.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227753609683102@lid_A57CB4C2AA5296B3257EDA3D2B0034C4",
+      "fromMe": false,
+      "body": "https://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1785437590,
+      "createdAt": "2026-07-30T18:53:10.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0BDFD1D0FEC6084528A",
+      "fromMe": true,
+      "body": "Bruno Moreira\t31933008381\nLuiz\t31994322965\nPedro\t31998538226\nAndréa\t31988976570\nJoselito Barbosa\t31990711822\nDilermando Paulino\t31996689904\nDaniela Alkimim\t31 98894-2508\nFernando de Padua\t(31) 99111-7086",
+      "type": "chat",
+      "timestamp": 1785439248,
+      "createdAt": "2026-07-30T19:20:48.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB06B9D3338E982B85719",
+      "fromMe": true,
+      "body": "Klau\tInternational film 7\t447520650831\nDaniela\tAliança Odontologia\t5531994979430\nJuliano\tClínica Juliano Figueiredo\t31997151818\nAlex Taveira\tAJA Desenvolvimento Humano\t31995541046\nÍcaro\tAppetito Gourmet\t31995872970\nAdriano Felipe\tUai auto peças\t5531998667594\nAdriana Guimarães de Castilho\tAnalista de Sistemas\t31989918662\nMarcelo Devanir de Abreu\tGrupo Devanir\t31997484048\nLêda\tGastrô da Serra\t31991103031\nVanessa\tVanessa Tamietti\t31997374111\nAlexandre Leal\tBoom Sistemas\t5531998873445\nAndré\tMetta Hair\t31988788743\nRenato Carlos Alves\tChurrasquinho do Renato\t31999181367\nWagner\tTio Waguinho Transporte Escolar\t3198404-3359\nTancredo\tComercial Bowtie\t31985678580\nreinaldo silva\tPrime locadora de veículos\t5531988306178\nMarcus\tMarketing\t31991506800\nLeonardo\tCOMETAL SUCATAS\t31997827843\nRafael\tConstrumello material construção\t31987756465\nLucas\tSantana Negócios imobiliários\t31981088657",
+      "type": "chat",
+      "timestamp": 1785439687,
+      "createdAt": "2026-07-30T19:28:07.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB06B2FF951E0CBF9849F",
+      "fromMe": true,
+      "body": "Daniela\tAliança Odontologia\t5531994979430\nJuliano\tClínica Juliano Figueiredo\t31997151818\nAlex Taveira\tAJA Desenvolvimento Humano\t31995541046\nÍcaro\tAppetito Gourmet\t31995872970\nAdriano Felipe\tUai auto peças\t5531998667594\nAdriana Guimarães de Castilho\tAnalista de Sistemas\t31989918662\nMarcelo Devanir de Abreu\tGrupo Devanir\t31997484048\nAlexandre Leal\tBoom Sistemas\t5531998873445\nAndré\tMetta Hair\t31988788743\nRenato Carlos Alves\tChurrasquinho do Renato\t31999181367\nWagner\tTio Waguinho Transporte Escolar\t3198404-3359\nreinaldo silva\tPrime locadora de veículos\t5531988306178\nMarcus\tMarketing\t31991506800\nLeonardo\tCOMETAL SUCATAS\t31997827843\nRafael\tConstrumello material construção\t31987756465\nLucas\tSantana Negócios imobiliários\t31981088657\nJean Adner Derilus\tDistribuidora de gás e água sonar Ltda\t31992624010\nJosé Ciro de souza\tBhcartuchos\t31975810051\nChristiano\tInvest\t31988655052\nVinicios Rodrigues Tsatsoulis Silva\tPerito Vinicios\t31 98970-1909\nMarcelo Souza de Jesus\tEuriston\t43984866150\nJeniffer\tJeniffer Diniz mkt\t31992748123",
+      "type": "chat",
+      "timestamp": 1785441290,
+      "createdAt": "2026-07-30T19:54:50.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB08990BACA5CE66A13F8",
+      "fromMe": true,
+      "body": "#(Faby - Evento online 22/06)Aline\tLivesti\t11980366486\tlivesti.contato@gmail.com",
+      "type": "chat",
+      "timestamp": 1785496605,
+      "createdAt": "2026-07-31T11:16:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB00AEE7EEA6B18F47472",
+      "fromMe": true,
+      "body": "Reunião Consultoria e IA e AEO Casa do Ads\nSexta-feira, 31 de julho · 10:30 – 11:30am\nFuso horário: America/Sao_Paulo\nComo participar do Google Meet\nLink da videochamada: https://meet.google.com/wsa-iehc-hbx\nOu disque: ‪(BR) +55 11 3957-8610‬ PIN: ‪784 225 401‬#\nOutros números de telefone: https://tel.meet/wsa-iehc-hbx?pin=1007125989137",
+      "type": "chat",
+      "timestamp": 1785497398,
+      "createdAt": "2026-07-31T11:29:58.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0F69E558D21AA1F0732",
+      "fromMe": true,
+      "body": "#(Faby - evento online 22/07)Paula Maria Natali\tDoce Pecado\t11 98954-3172\tdocepecado@docepecado.com.br",
+      "type": "chat",
+      "timestamp": 1785498776,
+      "createdAt": "2026-07-31T11:52:56.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_227753609683102@lid_A544578F0861E269B4703E36DA94430A",
+      "fromMe": false,
+      "body": "Olá, tudo bem? Aqui é a Fabiane, da equipa do Matheus Bottaro e da Casa do Ads.\n\nA Imersão presencial será um encontro presencial e 100% prático para você aprender  como usar *Google Ads e Inteligência Artificial na nova era da aquisição de clientes por IA.*\n\nVamos abordar:\n*✅ Google Ads com IA*\nCriar campanhas atualizadas usando Inteligência Artificial.\n\n✅ *Checklist de melhorias nos anúncios do Google*\nOtimizações para atrair mais leads qualificados.\n\n✅ *Apareça nas respostas da IA Google*\nComo ser recomendado gratuitamente na pesquisa do Google e no Gemini.\n\n✅*Seja recomendado pelo ChatGPT e outras IAs*\nA sua empresa já está preparada para ser recomendada pelas inteligências artificiais?\n\n✅ *Agentes de IA*\nApoio para tomar melhores decisões no Google Ads.\n\n✅ *Perfil de Empresa no Google*\nComo melhorar a presença e aparecer gratuitamente na pesquisa com o Perfil de Empresa Google.",
+      "type": "chat",
+      "timestamp": 1785499347,
+      "createdAt": "2026-07-31T12:02:27.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_227753609683102@lid_A570080446AFF746C5B110C7A4022BBE",
+      "fromMe": false,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*09/07 (Feriado) - Espaço Paulista Eventos* - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP\n\n*16/07 - Espaço Paulista Eventos* - Av. Paulista, 807 – 17° Andar – Bela Vista – São Paulo/SP\n\n*20/07 - Summit Hotel Monaco* - Rua Diogo Farias, 137 – Centro – Guarulhos/SP\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-guarulhos/",
+      "type": "chat",
+      "timestamp": 1785499402,
+      "createdAt": "2026-07-31T12:03:22.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0A3C83DD1A1F68064E6",
+      "fromMe": true,
+      "body": "*E a grande novidade:*\nAgora você pode aparecer nas respostas da IA do Google, ser recomendado pelo Chatgpt, Gemini e outras IAs e usar a IA para atrair mais clientes qualificados no Google Ads.\n\n*Não é teoria.*\n Você sai com um *plano claro e materiais complementares* para aplicar na sua *empresa.*\n\n*01/08 (Sábado) - Hotel Max Savassi* - Rua Antônio de Albuquerque, 335 – Savassi – Belo Horizonte/MG\n\n*🎟️ Investimento: R$149*\nPagamento via Pix ou cartão\nhttps://casadoads.com.br/imersao-belo-horizonte/",
+      "type": "chat",
+      "timestamp": 1785499539,
+      "createdAt": "2026-07-31T12:05:39.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB02FC6A6DD32DABDE5D4",
+      "fromMe": true,
+      "body": "Diogo Fernando de Oliveira\tGrupo edy\t31999275514\nJessica lara Santos de Oliveira\tEms representante farmacêutica\t31991246885\nAdriana Almada\tAgência ponto Digit\t37999980511\nRogerio Zanardo\tSabo Corretora de Seguros\t31991371371",
+      "type": "chat",
+      "timestamp": 1785503902,
+      "createdAt": "2026-07-31T13:18:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_227753609683102@lid_3EB0FC347CEE49FE073304",
+      "fromMe": true,
+      "body": "*(Faby - evento online 22/07)Paula Maria Natali\tDoce Pecado\t11 98954-3172\tdocepecado@docepecado.com.br",
+      "type": "chat",
+      "timestamp": 1785507163,
+      "createdAt": "2026-07-31T14:12:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511964178795": [
@@ -14896,6 +15370,16 @@
       "createdAt": "2026-06-29T13:40:11.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_188630819725402@lid_3EB0FBEAE3A4335B700A43",
+      "fromMe": true,
+      "body": "Olá Alex tudo bem?\n\nAqui é a *Fabiane*, da equipa do *Matheus Bottaro*.\n\nA sua inscrição foi recebida com sucesso para o evento online:\n\nA *Nova Era da Aquisição de Clientes por IA*\n\n📅 *04 e 05 de Agosto*\n🕖 *19h00*\n\nDurante o evento, vamos abordar como aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini e outras Inteligências Artificiais, além das mais recentes atualizações do Google Ads com IA para atrair leads mais qualificados.\n\nEm breve irá receber mais informações por aqui e também no seu e-mail.\n\nCriámos também grupos silenciosos para enviar os acessos, materiais complementares, gravações e conteúdos extras do evento.\n\nPosso enviar-lhe o link de acesso ao grupo?",
+      "type": "chat",
+      "timestamp": 1784635473,
+      "createdAt": "2026-07-21T12:04:33.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
     }
   ],
   "351911949880": [
@@ -28010,6 +28494,26 @@
       "createdAt": "2026-06-26T15:44:26.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_195644400660548@lid_3EB06F13ACEC8FD9A320B8",
+      "fromMe": true,
+      "body": "Olá, Claudia! Como está? 😊\n\nEntramos em contacto para informar que, na próxima *quinta-feira, dia 06/08*, terá lugar o primeiro encontro em direto com o *Matheus Bottaro*, exclusivo para quem adquiriu o livro *A Nova Era da Aquisição de Clientes através da Inteligência Artificial.*\n\nA sessão será realizada online, através do Google Meet.\n\nEsperamos contar com a sua presença! 🚀",
+      "type": "chat",
+      "timestamp": 1785787785,
+      "createdAt": "2026-08-03T20:09:45.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_195644400660548@lid_3EB04448271EA3621EE57B",
+      "fromMe": true,
+      "body": "Nos últimos meses, o Matheus Bottaro desenvolveu um estudo com empresas do Brasil e de vários países da Europa para compreender por que motivo algumas *já são recomendadas pelo ChatGPT, pelo Gemini e pelas Respostas com IA do Google*, enquanto outras ainda não surgem nesses resultados.\n\nDurante este encontro, irá apresentar as principais conclusões desse estudo, os fatores que mais influenciam essas recomendações e o que a sua empresa poderá implementar para *começar a ganhar visibilidade nas respostas geradas pelas Inteligências Artificiais.*\n\nAlém disso, o Matheus irá mostrar como tirar o máximo partido dos *Agentes de IA* disponibilizados com o livro, para criar um *plano de ação* adaptado à realidade da sua empresa.\n\nReserve já na sua agenda:\n\n📅 *Quinta-feira, 06/08*\n⏰ Das 12h30 às 14h00 (hora de Portugal)\n💻 Online, através do Google Meet\n\nO link de acesso será enviado por aqui muito em breve.\n\nPosso confirmar a sua presença? 😊",
+      "type": "chat",
+      "timestamp": 1785787854,
+      "createdAt": "2026-08-03T20:10:54.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "351962407845": [
@@ -29007,6 +29511,16 @@
       "createdAt": "2026-06-17T11:20:46.000Z",
       "ack": 0,
       "source": "send-custom"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0A4373DDE20C49B32EB",
+      "fromMe": true,
+      "body": "Olá Cíntia teste tudo bem?\n\nAqui é a *Fabiane*, da equipa do *Matheus Bottaro*.\n\nA sua inscrição foi recebida com sucesso para o evento online:\n\nA *Nova Era da Aquisição de Clientes por IA*\n\n📅 *13 e 14 de Agosto*\n🕖 *19h00*\n\nDurante o evento, vamos abordar como aparecer nas respostas da IA do Google, ser recomendado pelo ChatGPT, Gemini e outras Inteligências Artificiais, além das mais recentes atualizações do Google Ads com IA para atrair leads mais qualificados.\n\nEm breve irá receber mais informações por aqui e também no seu e-mail.\n\nCriámos também grupos silenciosos para enviar os acessos, materiais complementares, gravações e conteúdos extras do evento.\n\nPosso enviar-lhe o link de acesso ao grupo?",
+      "type": "chat",
+      "timestamp": 1785786855,
+      "createdAt": "2026-08-03T19:54:15.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
     }
   ],
   "351933137204": [
@@ -40189,6 +40703,236 @@
       "createdAt": "2026-07-20T17:41:05.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    }
+  ],
+  "5511975065443": [
+    {
+      "id": "false_24413231698082@lid_3EB0359BE46EAFD8B5B9C5",
+      "fromMe": false,
+      "body": "Se o número é de Portugal e você está no Brasil, existem algumas possibilidades. A sua operadora (Vivo) não consegue, em regra, colocar saldo diretamente num número português.\n\nAs opções mais comuns são:\n\nPedir à pessoa que utilize um método de carregamento em Portugal.\nÉ a forma mais simples, caso tenha acesso a um cartão bancário português.\nUtilizar um serviço internacional de recargas.\nExistem plataformas que permitem carregar telemóveis portugueses com cartão de crédito internacional. Basta informar o número e efetuar o pagamento.\nUtilizar o site ou a app da operadora portuguesa.\nSe souber qual é a operadora do número (MEO, NOS, Vodafone Portugal, DIGI, etc.), muitas delas permitem carregamentos online com cartão internacional.\n\nPara o ajudar da forma mais precisa, diga-me:\n\nQual é a operadora do número em Portugal? (MEO, NOS, Vodafone, DIGI, etc.)\nO número é pré-pago ou pós-pago?",
+      "type": "chat",
+      "timestamp": 1784817836,
+      "createdAt": "2026-07-23T14:43:56.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_24413231698082@lid_A5AEB937D5D5DAD2E52FDBBA7616B057",
+      "fromMe": false,
+      "body": "NFSe 307 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "type": "document",
+      "timestamp": 1785324414,
+      "createdAt": "2026-07-29T11:26:54.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "pdf",
+      "mediaMime": "application/pdf",
+      "mediaId": "m_6f171b99007372001a1679483cb720d882a97d58c2cbe3bf",
+      "mediaFile": "m_6f171b99007372001a1679483cb720d882a97d58c2cbe3bf.pdf",
+      "mediaSize": 72050,
+      "filename": "NFSe 307 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "originalName": "NFSe 307 - BE.OK, UNIPESSOAL, LDA.pdf"
+    },
+    {
+      "id": "false_24413231698082@lid_A58CE4A582C8E9916005412130CC9336",
+      "fromMe": false,
+      "body": "NFSe 308 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "type": "document",
+      "timestamp": 1785339400,
+      "createdAt": "2026-07-29T15:36:40.000Z",
+      "ack": 1,
+      "source": "incoming-event",
+      "hasMedia": true,
+      "mediaKind": "pdf",
+      "mediaMime": "application/pdf",
+      "mediaId": "m_37fd1de1e9ffb2445bfcdc2350f0e4483d0bd849eb621a7d",
+      "mediaFile": "m_37fd1de1e9ffb2445bfcdc2350f0e4483d0bd849eb621a7d.pdf",
+      "mediaSize": 72439,
+      "filename": "NFSe 308 - BE.OK, UNIPESSOAL, LDA.pdf",
+      "originalName": "NFSe 308 - BE.OK, UNIPESSOAL, LDA.pdf"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB0EA0059B946B39F33EC",
+      "fromMe": true,
+      "body": "Lucas\tSantana Negócios imobiliários\t31981088657\nCida\tDecidir Imóveis\t31993573124\nJean Adner Derilus\tDistribuidora de gás e água sonar Ltda\t31992624010\nClaudian natanael\tSoquerovender\t5531985694551\nJosisne\tLepoeh\t5531992393171\nEva\tOtica Unidas\t5531975930059\nRafael\tReal energy\t61982268208\nThiago Cruz\tPortal Tudo Pra Festas\t31 989562222\nMariana\tMultClinica\t31993167096\nFelipe\tAg3\t5531999173992\nJoão Paulo Pereira das neves Rocha\tGestar\t5531997579494\nJuliana Ribeiro\tOh, Sugar!\t31987866207\nFilipe Bahia\tCONECTESEG\t31983027703\nAristóteles\tItdes\t31992056537\nSilvana de Jesus Silva\tgaveaprint\t3198253 6861\nJORGE ENRIQUE MALDONADO RIQUELME\tAEPROTEC\t11972511032\nJulio Cesar Lobão\tJulberterza mix\t31991246641",
+      "type": "chat",
+      "timestamp": 1785421986,
+      "createdAt": "2026-07-30T14:33:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB066B3F28278879507A5",
+      "fromMe": true,
+      "body": "11 917523313",
+      "type": "chat",
+      "timestamp": 1785422658,
+      "createdAt": "2026-07-30T14:44:18.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_24413231698082@lid_A520C6E2E9E156F7B8F35119A1128E36",
+      "fromMe": true,
+      "body": "11917523313",
+      "type": "chat",
+      "timestamp": 1785422706,
+      "createdAt": "2026-07-30T14:45:06.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB017E6A1ADB7C4C95AFD",
+      "fromMe": true,
+      "body": "=5511917523313",
+      "type": "chat",
+      "timestamp": 1785422743,
+      "createdAt": "2026-07-30T14:45:43.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB0C88EDB481A1AC92263",
+      "fromMe": true,
+      "body": "true_24413231698082@lid_3EB0C88EDB481A1AC92263",
+      "type": "image",
+      "timestamp": 1785423707,
+      "createdAt": "2026-07-30T15:01:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event",
+      "hasMedia": true,
+      "mediaKind": "image",
+      "mediaMime": "image/jpeg",
+      "mediaId": "m_12e60e8c1cc363ef080835ab35f11d2642513185e0f1d0eb",
+      "mediaFile": "m_12e60e8c1cc363ef080835ab35f11d2642513185e0f1d0eb.jpg",
+      "mediaSize": 24210,
+      "filename": "true_24413231698082@lid_3EB0C88EDB481A1AC92263.jpg",
+      "originalName": "true_24413231698082@lid_3EB0C88EDB481A1AC92263.jpg"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB058C31A4CBCCA82FC67",
+      "fromMe": true,
+      "body": "Bom dia Fulano! Aqui é a Fabiane, da equipe do *Matheus Bottaro* da Casa do Ads.\n\nPreciso falar com você, você fez sua pré-inscrição para a imersão e não finalizou.Estamos com as últimas vagas disponíveis para a Imersão em Belo Horizonte.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *aparecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini e outras inteligências artificiais.*\n\nVamos Finalizar sua inscrição?",
+      "type": "chat",
+      "timestamp": 1785423919,
+      "createdAt": "2026-07-30T15:05:19.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB08ECDD5ACD75CEE4C87",
+      "fromMe": true,
+      "body": "31996622499",
+      "type": "chat",
+      "timestamp": 1785429604,
+      "createdAt": "2026-07-30T16:40:04.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB02D1C2D726F631C9BFA",
+      "fromMe": true,
+      "body": "+5531991038456",
+      "type": "chat",
+      "timestamp": 1785431318,
+      "createdAt": "2026-07-30T17:08:38.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511917523313": [
+    {
+      "id": "false_182501951696967@lid_A5CCB354B1BD80624E434860926B83A1",
+      "fromMe": false,
+      "body": "Boa tardeee Roger! Aqui é a Fabiane, da equipe do * Matheus Bottaro *\n\nEstávamos conversando pelo outro número e\nPreciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Belo Horizonte.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *aparecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini e outras inteligências artificiais.*\n\nVeja como foi as nossas últimas Imersões no Instagram do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/\n\nVamos Finalizar sua inscrição?",
+      "type": "chat",
+      "timestamp": 1785436410,
+      "createdAt": "2026-07-30T18:33:30.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_182501951696967@lid_3EB0A7B2AC4AE4AC1FB99E",
+      "fromMe": true,
+      "body": "Boa tardeee Roger! Aqui é a Fabiane, da equipe do * Matheus Bottaro *\n\nEstávamos conversando pelo outro número e preciso falar com você.\n\nEstamos com as últimas vagas disponíveis para a Imersão em Belo Horizonte.\n\nAs inscrições vão esgotar a qualquer momento...\n\nEssa é a *última oportunidade* de aprender as novidades do *Google Ads com IA* e saber como *aparecer nas respostas da IA do Google* e entender como ser *recomendado no ChatGPT, Gemini e outras inteligências artificiais.*\n\nVeja como foi as nossas últimas Imersões no Instagram do Matheus Bottaro:\nhttps://www.instagram.com/matheusbottarooficial/\n\nVamos Finalizar sua inscrição?",
+      "type": "chat",
+      "timestamp": 1785436489,
+      "createdAt": "2026-07-30T18:34:49.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_182501951696967@lid_A578B04934E835838D627C99788E689C",
+      "fromMe": false,
+      "body": "Meninas, a planilha do livro já foi compartilhada no e-mail de vocês, mas vou enviar o link aqui também👇\n\n\nhttps://docs.google.com/spreadsheets/d/1IXBWq5kSrB4tvPLMdDr7g5coAHYx7wYjeVIwq8hsUe0/edit?usp=sharing\n\nImportante: INCLUIR NA PRIMEIRA ABA - PAGANTES",
+      "type": "chat",
+      "timestamp": 1785437116,
+      "createdAt": "2026-07-30T18:45:16.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_182501951696967@lid_3EB01C5CE92657FA17AE8B",
+      "fromMe": true,
+      "body": "Mariana\tMultClinica\t31993167096\nCilmara\tGoldmed Import\t31983333864\nNelly\tNão\t31981085650\nJuan\tAura Verta\t21982364329\nAdmar Guedes\tAffinity Confeccoes\t31984061311\nJoão Paulo Pereira das neves Rocha\tGestar\t5531997579494\nSoraia Duthra\tLado C Comunicação e Marketing\t31 99984-1696\nJuliana Ribeiro\tOh, Sugar!\t31987866207\nWerley inacio Firmino\tOriginal insul film\t31991734883\nRicardo\tDelta veículos\t31999039020\nDaniela Bussolotti\tSavassi Broker\t31995200055\nFilipe Bahia\tCONECTESEG\t31983027703\nÉrika Brandão\tÉrika Brandão\t31 991349686\nPedro\tÁsia peças e máquinas\t95981044423\nWalquiria Santos\tWalquiria Santod\t31 997531847\nFernanda\tDcasa cortinas\t31986291580\nLeonardo Bruno Rossi\tASSOEMG\t31987577878",
+      "type": "chat",
+      "timestamp": 1785440114,
+      "createdAt": "2026-07-30T19:35:14.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951696967@lid_3EB071DB6015D7F69EBEF1",
+      "fromMe": true,
+      "body": "Daniela\tAliança Odontologia\t5531994979430\nJuliano\tClínica Juliano Figueiredo\t31997151818\nAlex Taveira\tAJA Desenvolvimento Humano\t31995541046\nÍcaro\tAppetito Gourmet\t31995872970\nAdriano Felipe\tUai auto peças\t5531998667594\nAdriana Guimarães de Castilho\tAnalista de Sistemas\t31989918662\nMarcelo Devanir de Abreu\tGrupo Devanir\t31997484048\nAlexandre Leal\tBoom Sistemas\t5531998873445\nAndré\tMetta Hair\t31988788743\nRenato Carlos Alves\tChurrasquinho do Renato\t31999181367\nWagner\tTio Waguinho Transporte Escolar\t3198404-3359\nreinaldo silva\tPrime locadora de veículos\t5531988306178\nMarcus\tMarketing\t31991506800\nLeonardo\tCOMETAL SUCATAS\t31997827843\nRafael\tConstrumello material construção\t31987756465\nLucas\tSantana Negócios imobiliários\t31981088657\nJean Adner Derilus\tDistribuidora de gás e água sonar Ltda\t31992624010\nJosé Ciro de souza\tBhcartuchos\t31975810051\nChristiano\tInvest\t31988655052\nVinicios Rodrigues Tsatsoulis Silva\tPerito Vinicios\t31 98970-1909\nMarcelo Souza de Jesus\tEuriston\t43984866150\nJeniffer\tJeniffer Diniz mkt\t31992748123",
+      "type": "chat",
+      "timestamp": 1785441300,
+      "createdAt": "2026-07-30T19:55:00.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951696967@lid_3EB0E33127D5CE22861CB4",
+      "fromMe": true,
+      "body": "#(Faby - Evento online 22/06)Aline\tLivesti\t11980366486\tlivesti.contato@gmail.com",
+      "type": "chat",
+      "timestamp": 1785496501,
+      "createdAt": "2026-07-31T11:15:01.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951696967@lid_3EB0252163D6B1C9AC0706",
+      "fromMe": true,
+      "body": "Graziela Dias Fajoli Gonçalves\t\t31 993705011\nGiovanna Rodrigues Fajoli\t\t31 992367004\nFilipe Pereira Vidotti\t3m consultoria\t31985163688\nMarcus Pequeno\tTattoo.com.br\t31999922735\nNélio Gonçalves\tGarra Pneus\t(31) 98658-8413\nKarine Ferreira de Sousa\tDuarte Enxovais\t31992616569\nRicardo Angelo da Silva\t\t11 940828662\nLuís Fernando Chaves da Silva\tIconne\t61981226236\nCiro Pinto\tDynamus\t31984777898\nMarcelo Gomes de Vasconcelos\tMarcelo Vasconcelos Sociedade Individual de Advocacia\t31 985036496\nPAULO WLADMIR SILVESTRE FERREIRA\tPWF ADVOGADOS\t31991363739\nMaria Silvia Costa Garavini\tConsultório odontológico\t31988074746\nThiago Anselmo\tData Analytics\t31 98383-4197\nDouglas Moraes Bragança\tCMYK25 Sacolas e Embalagens Ltda\t--------\nIguatimozy Geraldo Dias junior\tCMYK25 - gráfica off-set digital\t3125551937\nLeandro de Oliveira Magalhães\tCasarão José Morada\t31999946371\nJORGE ENRIQUE MALDONADO RIQUELME\tAEPROTEC\t11972511032\nDEISE BARBOSA\tConsultório\t31 999824648\nPoliana Silva Alvim\tOnly lab marketing digital\t31991038456\nRuan lucas Costa de carvalho\tGrupo Studio\t31 99851-6507\nEvelyn Paola Jara Ibarrola\tStudio Evelyn Paola\t31992706513\nLuiz Guelman\tACMinas\t31991414769\nBenigna Fernandes\tMizarte\t31997742506\nNEURY MARTINS CASTANHEIRA\tGESSO BANDEIRANTES DRYWALL\t31991062379\nFernanda Moreira\tStv fibra óptica ltda\t31983693272\nStéfany Rafaely Moreira Santos\tStv fibra óptica ltda\t-------\nAngela Melo Oliveira\tMania de Enxoval\t37999341569\nIasmim Carvalho Porto Costa\t\t(11) 4445-6665\nMatheus Marinho Gonçalves Vieira\t\t(31) 8223-1000\nMARIA CAROLINA GOMES PEREIRA\t\t(37) 99102-8270\nMonique Benício Martins\tSMVeiculos\t(31)992116965\nSandro Ricardo Borges\tOMNIA GROUP\t31982656502\nArnaldo Pedrosa\tARNALDO Pedrosa resumos ilustrados\t31 99701-6002\nTHIAGO MAGNO LEMOS\tThiago Magno Lemos\t31995095063\nMarcelo Rodarte Silva Araujo\tRodarte Imóveis\t31 98490 4664\nClaucimara de Paula Lima\tAdvogada\t31996622499\nSUELI TEIXEIRA BRAGA FRANCO\tSB DIGITAL\t31996599659\nJessica lara Santos de Oliveira\tEms representante farmacêutica\t31991246885\nRogerio Zanardo\tSabo Corretora de Seguros\t31991371371",
+      "type": "chat",
+      "timestamp": 1785513090,
+      "createdAt": "2026-07-31T15:51:30.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_182501951696967@lid_3EB0D1608902471F17F9C2",
+      "fromMe": true,
+      "body": "Graziela Dias Fajoli Gonçalves\t\t31 993705011\nGiovanna Rodrigues Fajoli\t\t31 992367004\nFilipe Pereira Vidotti\t3m consultoria\t31985163688\nMarcus Pequeno\tTattoo.com.br\t31999922735\nNélio Gonçalves\tGarra Pneus\t(31) 98658-8413\nKarine Ferreira de Sousa\tDuarte Enxovais\t31992616569\nRicardo Angelo da Silva\t\t11 940828662\nLuís Fernando Chaves da Silva\tIconne\t61981226236\nCiro Pinto\tDynamus\t31984777898\nMarcelo Gomes de Vasconcelos\tMarcelo Vasconcelos Sociedade Individual de Advocacia\t31 985036496\nPAULO WLADMIR SILVESTRE FERREIRA\tPWF ADVOGADOS\t31991363739\nMaria Silvia Costa Garavini\tConsultório odontológico\t31988074746\nThiago Anselmo\tData Analytics\t31 98383-4197\nDouglas Moraes Bragança\tCMYK25 Sacolas e Embalagens Ltda\t--------\nIguatimozy Geraldo Dias junior\tCMYK25 - gráfica off-set digital\t3125551937\nLeandro de Oliveira Magalhães\tCasarão José Morada\t31999946371\nJORGE ENRIQUE MALDONADO RIQUELME\tAEPROTEC\t11972511032\nDEISE BARBOSA\tConsultório\t31 999824648\nPoliana Silva Alvim\tOnly lab marketing digital\t31991038456\nRuan lucas Costa de carvalho\tGrupo Studio\t31 99851-6507\nEvelyn Paola Jara Ibarrola\tStudio Evelyn Paola\t31992706513\nLuiz Guelman\tACMinas\t31991414769\nBenigna Fernandes\tMizarte\t31997742506\nNEURY MARTINS CASTANHEIRA\tGESSO BANDEIRANTES DRYWALL\t31991062379\nFernanda Moreira\tStv fibra óptica ltda\t31983693272\nStéfany Rafaely Moreira Santos\tStv fibra óptica ltda\t-------\nAngela Melo Oliveira\tMania de Enxoval\t37999341569\nIasmim Carvalho Porto Costa\t\t(11) 4445-6665\nMatheus Marinho Gonçalves Vieira\t\t(31) 8223-1000\nMARIA CAROLINA GOMES PEREIRA\t\t(37) 99102-8270\nMonique Benício Martins\tSMVeiculos\t(31)992116965\nSandro Ricardo Borges\tOMNIA GROUP\t31982656502\nArnaldo Pedrosa\tARNALDO Pedrosa resumos ilustrados\t31 99701-6002\nTHIAGO MAGNO LEMOS\tThiago Magno Lemos\t31995095063\nMarcelo Rodarte Silva Araujo\tRodarte Imóveis\t31 98490 4664\nClaucimara de Paula Lima\tAdvogada\t31996622499\nSUELI TEIXEIRA BRAGA FRANCO\tSB DIGITAL\t31996599659\nJessica lara Santos de Oliveira\tEms representante farmacêutica\t31991246885\nRogerio Zanardo\tSabo Corretora de Seguros\t31991371371",
+      "type": "chat",
+      "timestamp": 1785513130,
+      "createdAt": "2026-07-31T15:52:10.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351931842990": [
+    {
+      "id": "false_32964612223014@lid_A5781EBD0F5F55CFFA2E3F1C1AC186D0",
+      "fromMe": false,
+      "body": "Infelizmente paguei o curso e não consegui comparecer estava em França",
+      "type": "chat",
+      "timestamp": 1785843069,
+      "createdAt": "2026-08-04T11:31:09.000Z",
+      "ack": 1,
+      "source": "incoming-event"
     }
   ]
 }
