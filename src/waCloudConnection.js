@@ -55,20 +55,55 @@ function extractWebhookConnectionIds(body = {}) {
   };
 }
 
+
+function configuredAllowedPhoneNumberIds(config = {}) {
+  const allowed = new Set();
+  const runtimePhone = cleanId(config.phoneNumberId);
+  if (runtimePhone) allowed.add(runtimePhone);
+  for (const item of cleanId(process.env.WA_CLOUD_ALLOWED_PHONE_NUMBER_IDS).split(',')) {
+    const id = cleanId(item);
+    if (id) allowed.add(id);
+  }
+  const rawMap = cleanId(process.env.WA_CLOUD_PHONE_TENANT_MAP);
+  if (rawMap) {
+    try {
+      if (rawMap.startsWith('{')) {
+        for (const id of Object.keys(JSON.parse(rawMap) || {})) {
+          const cleanPhone = cleanId(id);
+          if (cleanPhone) allowed.add(cleanPhone);
+        }
+      } else {
+        for (const item of rawMap.split(',')) {
+          const separator = item.includes('=') ? '=' : ':';
+          const id = cleanId(item.split(separator, 1)[0]);
+          if (id) allowed.add(id);
+        }
+      }
+    } catch (error) {
+      const wrapped = new Error('WA_CLOUD_PHONE_TENANT_MAP contém JSON inválido.');
+      wrapped.code = 'WA_CLOUD_PHONE_TENANT_MAP_INVALID';
+      wrapped.cause = error;
+      throw wrapped;
+    }
+  }
+  return allowed;
+}
+
 function assertWebhookMatchesConnection(body, config = {}) {
   const expected = connectionFromRuntimeConfig(config);
-  if (!expected.phoneNumberId || !expected.wabaId || !expected.connectionId) {
+  if (!expected.wabaId) {
     const error = new Error('A conexão da Cloud API está incompleta.');
     error.code = 'META_CONNECTION_INCOMPLETE';
     error.status = 503;
     throw error;
   }
   const incoming = extractWebhookConnectionIds(body);
-  if (incoming.phoneNumberIds.length !== 1 || incoming.phoneNumberIds[0] !== expected.phoneNumberId) {
-    const error = new Error('O webhook recebido não pertence ao Phone Number ID configurado.');
+  const allowedPhoneNumberIds = configuredAllowedPhoneNumberIds(config);
+  if (incoming.phoneNumberIds.length !== 1 || !allowedPhoneNumberIds.has(incoming.phoneNumberIds[0])) {
+    const error = new Error('O webhook recebido não pertence a um Phone Number ID autorizado.');
     error.code = 'META_PHONE_NUMBER_MISMATCH';
     error.status = 403;
-    error.details = { expectedPhoneNumberId: expected.phoneNumberId, receivedCount: incoming.phoneNumberIds.length };
+    error.details = { receivedCount: incoming.phoneNumberIds.length, allowedCount: allowedPhoneNumberIds.size };
     throw error;
   }
   if (incoming.wabaIds.length && (incoming.wabaIds.length !== 1 || incoming.wabaIds[0] !== expected.wabaId)) {
@@ -78,12 +113,20 @@ function assertWebhookMatchesConnection(body, config = {}) {
     error.details = { expectedWabaId: expected.wabaId, receivedCount: incoming.wabaIds.length };
     throw error;
   }
-  return expected;
+  const phoneNumberId = incoming.phoneNumberIds[0];
+  const wabaId = incoming.wabaIds[0] || expected.wabaId;
+  return {
+    ...expected,
+    phoneNumberId,
+    wabaId,
+    connectionId: buildConnectionId({ phoneNumberId, wabaId }),
+  };
 }
 
 module.exports = {
   buildConnectionId,
   getConnectionOwnerTenant,
+  configuredAllowedPhoneNumberIds,
   connectionFromRuntimeConfig,
   extractWebhookConnectionIds,
   assertWebhookMatchesConnection,

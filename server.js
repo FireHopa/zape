@@ -41,7 +41,9 @@ const { recordSecurityAudit } = require("./src/securityAuditStore");
 const { buildHelmetMiddleware, buildCorsMiddleware, securityResponseHeaders } = require("./src/httpSecurity");
 const { csrfProtection, loginOriginProtection } = require("./src/csrfProtection");
 const { registerTenantPanelRoutes } = require("./src/routes/tenant/registerTenantPanelRoutes");
-const { withTenantLeadWrite } = require("./src/leadWriteCoordinator");
+const { createLeadFromPayload, findLeadByWhatsapp: findLeadByWhatsappIntake, saveLeadRecord } = require("./src/leadIntakeService");
+const { handleInboundCloudLead } = require("./src/inboundLeadAutomation");
+const { resolveCloudInboundTenant } = require("./src/waCloudTenantRouting");
 const { registerHealthRoutes } = require("./src/routes/healthRoutes");
 const { registerBusinessRoutes } = require("./src/routes/businessRoutes");
 const { registerAdminMonitoringRoutes } = require("./src/routes/adminMonitoringRoutes");
@@ -49,7 +51,7 @@ const { registerAdminDeploymentRoutes } = require("./src/routes/adminDeploymentR
 
 const { normalizeBRPhoneToE164Digits, normalizePhoneToE164Digits, phoneSearchVariants, extractPhoneRegion } = require("./src/phone");
 
-const { readLeads: readJsonLeads, appendLead, deleteLeadById, toCSV, leadVersion } = require("./src/tenantLeadsStore");
+const { readLeads: readJsonLeads, deleteLeadById, toCSV, leadVersion } = require("./src/tenantLeadsStore");
 const { RepositoryConflictError } = require("./src/repositories/leadRepository");
 const databaseRuntime = require("./src/database/runtime");
 const { parseLeadQuery, sortLeadItems, paginateLeadItems } = require("./src/leadQuery");
@@ -76,12 +78,17 @@ const { listConversationDigits, listConversationMessages, listConversationSummar
 const { listWebhooks, createWebhook, updateWebhook, deleteWebhook, resolveWebhookToken } = require("./src/webhooksStore");
 const {
   enqueueExternalCrmLead,
+  enqueueExternalCrmConversationEvent,
   fetchExternalCrmCatalog,
   getExternalCrmQueueStatus,
+  getExternalCrmMonitorOverview,
+  getExternalCrmEventDetail,
   getLegacyActiveCampaignTarget,
+  retryExternalCrmQueue,
   startExternalCrmWorker,
   stopExternalCrmWorker,
 } = require("./src/externalCrmIntegration");
+const { authorizeBobCrmReverseSync, applyBobCrmEvent, initializeBobCrmReverseSync, getBobCrmReverseSyncStatus } = require("./src/bobCrmReverseSync");
 
 // CORREÇÃO: importando as funções do Dono do Negócio
 const { readBusinessOwner, writeBusinessOwner } = require("./src/businessStore");
@@ -473,71 +480,14 @@ function summarizeLeadWhatsappStats(tenantId, { notDeliveredAfterMin = 30 } = {}
 }
 
 async function saveLead(tenantId, lead) {
-  return withTenantLeadWrite(tenantId, async () => {
-    if (databaseRuntime.isDatabasePrimary()) {
-      return databaseRuntime.createLead(tenantId, lead);
-    }
-
-    const phoneDigits = normalizeBRPhoneToE164Digits(lead?.whatsapp_digits || lead?.whatsapp_raw || '');
-    if (phoneDigits) {
-      const duplicate = readLeads(tenantId).find((item) =>
-        normalizeBRPhoneToE164Digits(item?.whatsapp_digits || item?.whatsapp_raw || '') === phoneDigits
-      );
-      if (duplicate) {
-        throw new LeadServiceError(
-          'LEAD_PHONE_CONFLICT',
-          'Já existe um lead com este WhatsApp. Nenhum registro foi duplicado.',
-          409,
-          { conflictLeadId: String(duplicate.id || '') }
-        );
-      }
-    }
-
-    await appendLead(tenantId, lead);
-    if (databaseRuntime.isShadow()) {
-      try { await databaseRuntime.createLead(tenantId, lead); }
-      catch (error) {
-        console.error(`[PERSISTENCE_SHADOW] Divergência ao gravar lead [${tenantId}]:`, safeError(error));
-        throw error;
-      }
-    }
-    return lead;
-  });
+  return saveLeadRecord(tenantId, lead);
 }
 
 async function processLead(tenantId, source, payload) {
-  const whatsappDigits = normalizeBRPhoneToE164Digits(payload.whatsapp);
+  const lead = await createLeadFromPayload(tenantId, source, payload, {
+    allowPhoneOnly: payload?.allowPhoneOnly === true,
+  });
 
-  const lead = {
-    id: genId(),
-    source,
-    sourceDetail: payload.sourceDetail || payload.originDetail || "",
-    sourceMeta: payload.sourceMeta && typeof payload.sourceMeta === "object" ? payload.sourceMeta : null,
-    createdAt: new Date().toISOString(),
-
-    nome: (payload.nome || "").trim(),
-    empresa: (payload.empresa || "").trim(),
-    jaAnuncia: (payload.jaAnuncia || "").trim(),
-    website: (payload.website || "").trim(),
-    email: (payload.email || "").trim(),
-
-    whatsapp_raw: (payload.whatsapp || "").trim(),
-    whatsapp_digits: whatsappDigits,
-
-    tags: payload.tags || "",
-    active_contact_id: payload.active_contact_id || "",
-    active_seriesid: payload.active_seriesid || "",
-  };
-
-  const allowPhoneOnly = payload.allowPhoneOnly === true;
-  if (!lead.whatsapp_digits) {
-    throw new Error("Lead inválido (WhatsApp obrigatório e válido).");
-  }
-  if (!allowPhoneOnly && (!lead.nome || !lead.email)) {
-    throw new Error("Lead inválido (nome/email/whatsapp válido).");
-  }
-
-  await saveLead(tenantId, lead);
   console.log(`✅ Lead salvo [${tenantId}]`, {
     leadId: lead.id,
     source: lead.source,
@@ -548,11 +498,7 @@ async function processLead(tenantId, source, payload) {
 }
 
 function findExistingLeadByWhatsapp(tenantId, whatsapp) {
-  const phoneDigits = normalizeBRPhoneToE164Digits(whatsapp || "");
-  if (!phoneDigits) return null;
-  return readLeads(tenantId).find((item) =>
-    normalizeBRPhoneToE164Digits(item?.whatsapp_digits || item?.whatsapp_raw || "") === phoneDigits
-  ) || null;
+  return findLeadByWhatsappIntake(tenantId, whatsapp);
 }
 
 async function processWebhookLead(tenantId, source, payload, diagnostic) {
@@ -1111,7 +1057,7 @@ function buildConversationsRoutes({ tenantId, authMw, prefix, secureMediaFeature
         : {};
 
       if (syncExternalCrm) {
-        const crmStatus = getExternalCrmQueueStatus(tenantId);
+        const crmStatus = await getExternalCrmQueueStatus(tenantId);
         if (!crmStatus.configured) {
           return res.status(503).json({
             ok: false,
@@ -1152,7 +1098,7 @@ function buildConversationsRoutes({ tenantId, authMw, prefix, secureMediaFeature
       }
 
       if (syncExternalCrm) {
-        const queued = enqueueExternalCrmLead({
+        const queued = await enqueueExternalCrmLead({
           tenantId,
           webhook: {
             id: 'conversation-register',
@@ -1427,33 +1373,21 @@ function buildMergeLeadHandler(tenantId) {
 }
 
 async function createManualLead(tenantId, payload) {
-  const whatsappDigits = payload.whatsapp ? normalizeBRPhoneToE164Digits(payload.whatsapp) : "";
-  const lead = {
-    id: genId(),
-    source: payload.source || "manual",
-    sourceDetail: payload.sourceDetail || payload.originDetail || (payload.source === "conversation_register" ? "Registrado pela aba Conversas" : "Criado manualmente no painel"),
-    sourceMeta: payload.sourceMeta && typeof payload.sourceMeta === "object" ? payload.sourceMeta : null,
-    createdAt: new Date().toISOString(),
+  const nome = String(payload?.nome || '').trim();
+  if (!nome) throw new Error("Nome é obrigatório.");
 
-    nome: (payload.nome || "").trim(),
-    empresa: (payload.empresa || "").trim(),
-    jaAnuncia: (payload.jaAnuncia || "").trim(),
-    website: (payload.website || "").trim(),
-    email: (payload.email || "").trim(),
-
-    whatsapp_raw: (payload.whatsapp || "").trim(),
-    whatsapp_digits: whatsappDigits,
-
-    tags: payload.tags || "",
-    active_contact_id: payload.active_contact_id || "",
-    active_seriesid: payload.active_seriesid || "",
-  };
-
-  if (!lead.nome) throw new Error("Nome é obrigatório.");
-  if (!lead.email && !lead.whatsapp_digits) throw new Error("Informe e-mail ou WhatsApp.");
-
-  await saveLead(tenantId, lead);
-  return lead;
+  return createLeadFromPayload(
+    tenantId,
+    payload?.source || "manual",
+    {
+      ...payload,
+      nome,
+      sourceDetail: payload?.sourceDetail
+        || payload?.originDetail
+        || (payload?.source === "conversation_register" ? "Registrado pela aba Conversas" : "Criado manualmente no painel"),
+    },
+    { allowEmailOnly: true }
+  );
 }
 
 function removeLeadFromCrmState(tenantId, leadId) {
@@ -2150,10 +2084,10 @@ function buildDispatchInsightsForTenant(tenantId, { byPhone, webhookLookup } = {
   };
 }
 
-function syncCloudDispatchFromWebhook(body, connection, metaEventId) {
+async function syncCloudDispatchFromWebhook(body, connection, metaEventId) {
   const nowIso = new Date().toISOString();
   const parsedEvents = handleCloudWebhook(body);
-  const summary = { statuses: 0, replies: 0, unmatchedStatuses: 0, unmatchedReplies: 0 };
+  const summary = { statuses: 0, replies: 0, unmatchedStatuses: 0, unmatchedReplies: 0, leadsCreated: 0, leadsQueued: 0, leadsReactivated: 0, leadAutomationSkipped: 0 };
   for (const event of parsedEvents) {
     if (event.kind === "status") {
       const state = String(event.state || "").toLowerCase();
@@ -2223,6 +2157,32 @@ function syncCloudDispatchFromWebhook(body, connection, metaEventId) {
       });
       if (correlated.matched) summary.replies += 1;
       else summary.unmatchedReplies += 1;
+
+      const routing = resolveCloudInboundTenant({
+        phoneNumberId: event.phoneNumberId || connection.phoneNumberId,
+        matchedTenantId: correlated.event?.tenantId || '',
+        ownerTenantId: connection.ownerTenantId,
+        isTenantAllowed: (tenantId) => Boolean(getTenantConfig(tenantId) && isTenantEnabled(tenantId)),
+      });
+      const rawTimestamp = Number(event.timestamp || 0);
+      const receivedAt = Number.isFinite(rawTimestamp) && rawTimestamp > 0
+        ? new Date(rawTimestamp * 1000).toISOString()
+        : nowIso;
+      const automation = await handleInboundCloudLead({
+        tenantId: routing.tenantId,
+        digits: event.recipientId,
+        contactName: event.contactName || '',
+        messageId: event.messageId,
+        phoneNumberId: event.phoneNumberId || connection.phoneNumberId,
+        receivedAt,
+        routingMethod: routing.method,
+        messageType: event.type,
+        messageText: event.text || '',
+      });
+      if (automation?.created) summary.leadsCreated += 1;
+      if (automation?.reactivated) summary.leadsReactivated += 1;
+      if (automation?.externalCrm?.queued || automation?.externalCrm?.duplicate) summary.leadsQueued += 1;
+      if (automation?.skipped) summary.leadAutomationSkipped += 1;
     }
   }
   return summary;
@@ -2790,7 +2750,7 @@ app.post("/webhooks/activecampaign", async (req, res) => {
     const legacyExternalTarget = getLegacyActiveCampaignTarget();
     if (legacyExternalTarget) {
       try {
-        const queued = enqueueExternalCrmLead({
+        const queued = await enqueueExternalCrmLead({
           tenantId: TENANT_ADMIN,
           webhook: { id: "activecampaign-legacy", name: "ActiveCampaign legado" },
           lead,
@@ -3115,7 +3075,7 @@ app.post("/webhooks/:token", async (req, res, next) => {
 
     if (row.externalCrmTarget && row.externalCrmTarget.enabled !== false) {
       try {
-        const queued = enqueueExternalCrmLead({
+        const queued = await enqueueExternalCrmLead({
           tenantId,
           webhook: { id: row.id, name: row.name, displayName: webhookName },
           lead,
@@ -3239,23 +3199,131 @@ app.post("/webhooks/:token", async (req, res, next) => {
   }
 });
 
+
+app.post('/api/integrations/bobcrm/events', async (req, res) => {
+  if (!authorizeBobCrmReverseSync(req)) {
+    recordSecurityAudit({ req, action: 'bobcrm_reverse_sync_denied', resource: 'bobcrm_reverse_sync', outcome: 'denied', details: { ip: resolveClientIp(req, true) } });
+    return res.status(401).json({ ok: false, error: 'Chave da sincronização BobCRM inválida.' });
+  }
+  try {
+    const result = await applyBobCrmEvent(req.body || {});
+    recordSecurityAudit({ req, action: 'bobcrm_reverse_sync_applied', resource: 'lead', targetTenantId: result.tenantId || req.body?.tenantId, outcome: result.ignored ? 'ignored' : 'success', details: { eventKey: req.body?.eventKey, leadId: result.leadId, zapeLeadId: result.zapeLeadId } });
+    return res.status(result.idempotentReplay ? 200 : 201).json(result);
+  } catch (error) {
+    return res.status(Number(error?.statusCode || 500)).json({ ok: false, error: error?.message || 'Não foi possível aplicar o evento do BobCRM.', code: error?.code || 'BOBCRM_REVERSE_SYNC_ERROR' });
+  }
+});
+
+app.get('/api/integrations/bobcrm/status', integrationMonitorAuth, async (req, res) => {
+  return res.json({ ok: true, ...(await getBobCrmReverseSyncStatus()) });
+});
+
+function integrationMonitorAuth(req, res, next) {
+  const expected = String(process.env.INTEGRATION_MONITOR_KEY || "").trim();
+  const authorization = String(req.headers.authorization || "");
+  const match = authorization.match(/^Bearer\s+(.+)$/i);
+  const presented = String(match?.[1] || "").trim();
+  if (!expected) {
+    return res.status(503).json({ ok: false, error: "INTEGRATION_MONITOR_KEY não configurada." });
+  }
+  if (!presented || !timingSafeEqualText(presented, expected)) {
+    recordSecurityAudit({
+      req,
+      action: "integration_monitor_access_denied",
+      resource: "integration_monitor",
+      outcome: "denied",
+      details: { ip: resolveClientIp(req, true) },
+    });
+    return res.status(401).json({ ok: false, error: "Chave de monitoramento inválida." });
+  }
+  return next();
+}
+
+app.get("/api/integration-monitor/overview", integrationMonitorAuth, async (req, res) => {
+  try {
+    const overview = await getExternalCrmMonitorOverview({
+      from: req.query.from,
+      to: req.query.to,
+      status: req.query.status,
+      tenantId: req.query.tenantId,
+      eventType: req.query.eventType,
+      search: req.query.search,
+      limit: req.query.limit,
+      offset: req.query.offset,
+    });
+    return res.json({ ok: true, ...overview });
+  } catch (error) {
+    const unavailable = ["EXTERNAL_CRM_QUEUE_CORRUPTED", "EXTERNAL_CRM_MYSQL_QUEUE_UNAVAILABLE"].includes(error?.code);
+    return res.status(unavailable ? 503 : 500).json({
+      ok: false,
+      health: { status: "critical", reasons: [error?.message || "Não foi possível ler a fila de integração."] },
+      error: error?.message || "Não foi possível carregar o monitoramento.",
+      code: error?.code || "INTEGRATION_MONITOR_ERROR",
+    });
+  }
+});
+
+app.get("/api/integration-monitor/events/:eventKey", integrationMonitorAuth, async (req, res) => {
+  try {
+    const event = await getExternalCrmEventDetail(decodeURIComponent(String(req.params.eventKey || "")));
+    if (!event) return res.status(404).json({ ok: false, error: "Evento não encontrado." });
+    return res.json({ ok: true, event });
+  } catch (error) {
+    const unavailable = ["EXTERNAL_CRM_QUEUE_CORRUPTED", "EXTERNAL_CRM_MYSQL_QUEUE_UNAVAILABLE"].includes(error?.code);
+    return res.status(unavailable ? 503 : 500).json({ ok: false, error: error?.message || "Não foi possível carregar o evento.", code: error?.code || "INTEGRATION_EVENT_DETAIL_ERROR" });
+  }
+});
+
+app.post("/api/integration-monitor/retry", integrationMonitorAuth, async (req, res) => {
+  try {
+    const eventKey = String(req.body?.eventKey || "").trim();
+    const tenantId = String(req.body?.tenantId || "").trim();
+    if (!eventKey && !tenantId) {
+      return res.status(422).json({ ok: false, error: "Informe eventKey ou tenantId para reprocessar com segurança." });
+    }
+    const result = await retryExternalCrmQueue({ tenantId, eventKey });
+    recordSecurityAudit({
+      req,
+      action: "integration_monitor_retry",
+      resource: "integration_queue",
+      targetTenantId: tenantId,
+      outcome: result.retried ? "success" : "no_change",
+      details: { tenantId, eventKey, retried: result.retried },
+    });
+    return res.json({ ...result, overview: await getExternalCrmMonitorOverview({ tenantId, limit: 20, offset: 0 }) });
+  } catch (error) {
+    const unavailable = ["EXTERNAL_CRM_QUEUE_CORRUPTED", "EXTERNAL_CRM_MYSQL_QUEUE_UNAVAILABLE"].includes(error?.code);
+    return res.status(unavailable ? 503 : 500).json({ ok: false, error: error?.message || "Não foi possível reenfileirar os eventos.", code: error?.code || "INTEGRATION_RETRY_ERROR" });
+  }
+});
+
 function registerExternalCrmApi(apiPrefix, authMiddleware, tenantId) {
-  app.get(`${apiPrefix}/external-crm/status`, authMiddleware, (req, res) => {
-    res.json({ ok: true, ...getExternalCrmQueueStatus(tenantId) });
+  app.get(`${apiPrefix}/external-crm/status`, authMiddleware, async (req, res) => {
+    res.json({ ok: true, ...(await getExternalCrmQueueStatus(tenantId)) });
   });
 
   app.get(`${apiPrefix}/external-crm/catalog`, authMiddleware, async (req, res) => {
     try {
       const catalog = await fetchExternalCrmCatalog();
-      res.json({ ok: true, ...catalog, queue: getExternalCrmQueueStatus(tenantId).counts });
+      res.json({ ok: true, ...catalog, queue: (await getExternalCrmQueueStatus(tenantId)).counts });
     } catch (error) {
       res.status(error?.statusCode && error.statusCode < 500 ? error.statusCode : 502).json({
         ok: false,
-        configured: getExternalCrmQueueStatus(tenantId).configured,
+        configured: (await getExternalCrmQueueStatus(tenantId)).configured,
         pipelines: [],
         error: error?.message || "Não foi possível consultar o CRM Inteligente.",
-        queue: getExternalCrmQueueStatus(tenantId).counts,
+        queue: (await getExternalCrmQueueStatus(tenantId)).counts,
       });
+    }
+  });
+
+  app.post(`${apiPrefix}/external-crm/retry`, authMiddleware, async (req, res) => {
+    try {
+      const eventKey = String(req.body?.eventKey || "").trim();
+      const result = await retryExternalCrmQueue({ tenantId, eventKey });
+      res.json({ ...result, queue: await getExternalCrmQueueStatus(tenantId) });
+    } catch (error) {
+      res.status(500).json({ ok: false, error: error?.message || "Não foi possível reenfileirar os eventos." });
     }
   });
 }
@@ -3694,6 +3762,12 @@ const cloudCampaignQueue = new PersistentJobQueue({
       });
       const messageId = out?.messages?.[0]?.id || null;
       updateCloudDispatchEvent(item.eventId, { messageId }, { source: 'meta_api', providerStatus: 'accepted' });
+      try {
+        const lead = findLeadByWhatsappIntake(job.tenantId, item.to);
+        if (lead) await enqueueExternalCrmConversationEvent({ tenantId: job.tenantId, lead, direction: 'outbound', messageId, conversationId: item.to, occurredAt: new Date().toISOString(), channel: 'whatsapp_cloud', preview: `[Template] ${payload.templateName}`, metadata: { campaignId: payload.campaignId, templateName: payload.templateName } });
+      } catch (syncError) {
+        console.error('[CLOUD][CRM_SYNC] Falha ao registrar mensagem enviada:', syncError?.message || String(syncError));
+      }
       const processed = Number(job.progress.processed || 0) + 1;
       const progress = { ...job.progress, processed, sent: Number(job.progress.sent || 0) + 1, pending: Math.max(0, job.progress.total - processed) };
       const nextCursor = job.cursor + 1;
@@ -3904,7 +3978,7 @@ app.get("/webhooks/wa-cloud", cloudWebhookFeatureGate, (req, res) => {
   return res.sendStatus(403);
 });
 
-app.post("/webhooks/wa-cloud", cloudWebhookFeatureGate, (req, res) => {
+app.post("/webhooks/wa-cloud", cloudWebhookFeatureGate, async (req, res) => {
   if (!requireSupportedBody(req, res)) return;
   if (!enforceRateLimit({
     req,
@@ -3953,7 +4027,7 @@ app.post("/webhooks/wa-cloud", cloudWebhookFeatureGate, (req, res) => {
     claim = claimWebhookEvent({ integration: "meta", tenantId: cloudConnection.connectionId, eventId, requestHash: securitySha256(rawBody) });
     if (!claim.claimed) return res.sendStatus(claim.pending ? 202 : 200);
 
-    const correlation = syncCloudDispatchFromWebhook(body, cloudConnection, eventId);
+    const correlation = await syncCloudDispatchFromWebhook(body, cloudConnection, eventId);
     completeWebhookEventRequired({
       integration: "meta",
       tenantId: cloudConnection.connectionId,
@@ -4272,6 +4346,22 @@ async function startApplication() {
       console.error("❌ Validação de integridade dos dados bloqueou o boot:", error?.code || "DATA_INTEGRITY_BOOT_FAILED");
       process.exitCode = 1;
       return;
+    }
+  }
+
+  if (String(process.env.BOBCRM_REVERSE_INTEGRATION_KEY || '').trim()) {
+    try {
+      await initializeBobCrmReverseSync();
+      console.log('🔄 Sincronização BobCRM → Zape pronta.');
+    } catch (error) {
+      const requireReverseSyncMysql = !['0','false','no','off'].includes(String(process.env.BOBCRM_REVERSE_SYNC_REQUIRE_MYSQL || '1').trim().toLowerCase());
+      if (!requireReverseSyncMysql) {
+        console.warn('⚠️ Sincronização reversa sem persistência MySQL:', error?.message || String(error));
+      } else {
+        console.error('❌ Banco da sincronização reversa indisponível:', error?.message || String(error));
+        process.exitCode = 1;
+        return;
+      }
     }
   }
 

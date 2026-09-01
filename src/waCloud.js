@@ -493,13 +493,18 @@ function handleWebhook(body) {
           raw: status,
         });
       }
+      const contactsByWaId = new Map((Array.isArray(value?.contacts) ? value.contacts : [])
+        .map((contact) => [String(contact?.wa_id || "").trim(), String(contact?.profile?.name || "").trim()])
+        .filter(([waId]) => waId));
       for (const message of Array.isArray(value?.messages) ? value.messages : []) {
+        const recipientId = String(message?.from || "").trim();
         events.push({
           kind: "message",
           phoneNumberId: String(metadata.phone_number_id || "").trim(),
           displayPhoneNumber: String(metadata.display_phone_number || "").trim(),
           messageId: String(message?.id || "").trim(),
-          recipientId: String(message?.from || "").trim(),
+          recipientId,
+          contactName: contactsByWaId.get(recipientId) || "",
           contextMessageId: String(message?.context?.id || "").trim(),
           type: String(message?.type || "").trim(),
           text: message?.text?.body || null,

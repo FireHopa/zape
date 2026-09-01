@@ -42,7 +42,6 @@
           "id": "stg_3a4fefd67085b19e942b2492",
           "name": "Inscrito",
           "leadIds": [
-            "5f368b2e1261139422a2cd42",
             "d0d9e187637fc9cdf7bcf2a0",
             "f10f8df11c014f7d03a8d22b",
             "de53ceb5b7e8f510dc6567b2",
@@ -645,7 +644,8 @@
             "ffb222796bed3e6132737554",
             "e170d129ec524bcc9a9fcf9c",
             "b6e98fe3350dfbd02451c0e0",
-            "9a6d17eace6660428e47ae9e"
+            "9a6d17eace6660428e47ae9e",
+            "5f368b2e1261139422a2cd42"
           ]
         }
       }
@@ -666,5 +666,5 @@
       }
     }
   ],
-  "updatedAt": "2026-06-22T11:20:23.540Z"
+  "updatedAt": "2026-08-14T18:30:15.014Z"
 }

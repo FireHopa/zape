@@ -77,6 +77,9 @@ const {
   removeTenantAuthenticationFiles,
 } = require("./whatsappSessionGuard");
 const { getTemplate } = require("./messageTemplateStore");
+const { handleInboundWhatsappLead } = require("./inboundLeadAutomation");
+const { findLeadByWhatsapp } = require("./leadIntakeService");
+const { enqueueExternalCrmConversationEvent } = require("./externalCrmIntegration");
 const {
   appendConversationMessage,
   upsertConversationMessages,
@@ -897,9 +900,28 @@ class TenantWhatsApp {
 
     this._appendConversationFromMessage(digits, message, { fromMe: false, source: 'incoming-event' });
     this._upsertStatus(digits, patch);
+
+    try {
+      const automation = await handleInboundWhatsappLead({
+        tenantId: this.tenantId,
+        digits,
+        message,
+        remoteId,
+        receivedAt: now,
+      });
+      if (automation?.created) {
+        logOk(this.tenantId, 'lead created automatically from inbound WhatsApp', {
+          leadId: automation.lead?.id || '',
+          externalCrmQueued: Boolean(automation.externalCrm?.queued),
+        });
+      }
+    } catch (error) {
+      // A conversa nunca deve deixar de ser registrada porque o CRM ou a automação falhou.
+      logErr(this.tenantId, 'automatic inbound lead failed', error?.message || String(error));
+    }
   }
 
-  _markOutgoingCreatedMessage(message) {
+  async _markOutgoingCreatedMessage(message) {
     if (!message || !message.fromMe) return;
     if (!this._isTrackableDirectMessage(message)) return;
 
@@ -936,12 +958,24 @@ class TenantWhatsApp {
       patch.waId = remoteId;
     }
     this._upsertStatus(digits, patch);
+    try {
+      const lead = findLeadByWhatsapp(this.tenantId, digits);
+      if (lead) {
+        await enqueueExternalCrmConversationEvent({
+          tenantId: this.tenantId, lead, direction: 'outbound', messageId,
+          conversationId: remoteId || digits, occurredAt: now, channel: 'whatsapp_web',
+          preview: String(message.body || '').slice(0, 500), metadata: { remoteId: remoteId || '' },
+        });
+      }
+    } catch (error) {
+      logErr(this.tenantId, 'outgoing CRM conversation sync failed', error?.message || String(error));
+    }
   }
 
   async _recordCreatedMessage(message) {
     if (!this._isTrackableDirectMessage(message)) return;
     if (message.fromMe) {
-      this._markOutgoingCreatedMessage(message);
+      await this._markOutgoingCreatedMessage(message);
     } else {
       await this._markIncomingMessage(message);
     }

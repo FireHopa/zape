@@ -838,7 +838,11 @@ var APP_RUNTIME = window.zapeAppConfig;
       setLeadEditValue('leadEditJaAnuncia', lead.jaAnuncia || '');
       setLeadEditValue('leadEditWebsite', lead.website || '');
       var meta = document.getElementById('leadEditMeta');
-      if (meta) meta.textContent = 'Criado em ' + formatDate(lead.createdAt) + (lead.updatedAt ? (' • Atualizado em ' + formatDate(lead.updatedAt)) : '');
+      if (meta) {
+        var crm = lead.crmContext || {};
+        var crmText = crm.leadId ? (' • BobCRM: ' + (crm.responsible || 'sem responsável') + ' • ' + (crm.stageName || crm.status || 'sem etapa')) : '';
+        meta.textContent = 'Criado em ' + formatDate(lead.createdAt) + (lead.updatedAt ? (' • Atualizado em ' + formatDate(lead.updatedAt)) : '') + crmText;
+      }
       openOverlay("ovLead");
     }
 
@@ -7922,6 +7926,27 @@ function crmExtractLeads(payload){
       add("Empresa", lead && lead.empresa);
       add("Website", lead && lead.website);
       add("Já anuncia", lead && lead.jaAnuncia);
+      var crmContext = lead && lead.crmContext || null;
+      if (crmContext) {
+        add("Responsável no BobCRM", crmContext.responsible || "Sem responsável");
+        add("Funil no BobCRM", crmContext.pipelineName || crmContext.pipelineId);
+        add("Etapa no BobCRM", crmContext.stageName || crmContext.status);
+        add("Temperatura", crmContext.temperature);
+        add("Situação comercial", crmContext.semanticStage === 'won' ? 'Ganho' : crmContext.semanticStage === 'lost' ? 'Perdido' : (crmContext.status || 'Em andamento'));
+        add("Sincronizado", crmContext.syncedAt ? crmFormatDate(crmContext.syncedAt) : '');
+        if (crmContext.bobcrmUrl) {
+          var openRow = document.createElement('div');
+          openRow.className = 'crmListItem';
+          var openLink = document.createElement('a');
+          openLink.className = 'btn btnPrimary';
+          openLink.target = '_blank';
+          openLink.rel = 'noopener noreferrer';
+          openLink.href = crmContext.bobcrmUrl;
+          openLink.textContent = 'Abrir lead no BobCRM';
+          openRow.appendChild(openLink);
+          box.appendChild(openRow);
+        }
+      }
 
       crmOpenModal("Detalhes do lead", "Lead ID: " + leadId, box);
     }
