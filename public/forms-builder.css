@@ -1,0 +1,88 @@
+.formBuilderPage{min-width:0}
+.fbToolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.fbCmsGrid{display:grid;grid-template-columns:280px minmax(520px,1fr) minmax(360px,420px);gap:14px;align-items:start}
+.fbList,.fbEditor,.fbPreview,.fbCodeCard{min-width:0}
+.fbCanvasCard{grid-column:2;grid-row:1}
+.fbInspector{grid-column:3;grid-row:1}
+.fbCodeCard{grid-column:2 / span 2;grid-row:2}
+
+.fbFormList{display:flex;flex-direction:column;gap:8px}
+.fbFormItem{border:1px solid var(--line,#e5e7eb);border-radius:12px;padding:12px;cursor:pointer;background:#fff;transition:.16s ease}
+.fbFormItem:hover{box-shadow:0 8px 18px rgba(15,23,42,.06)}
+.fbFormItem.active{outline:2px solid #4f7fc4}
+.fbFormItemTop{display:flex;justify-content:space-between;gap:8px}
+.fbSmall{font-size:12px;color:#64748b;line-height:1.4}
+.fbBadge{font-size:11px;background:#eef2ff;color:#334155;padding:4px 7px;border-radius:999px}
+
+.fbPreviewCanvas{background:#eef2f7;border-radius:16px;padding:24px;overflow:auto;min-height:780px;max-height:calc(100vh - 260px)}
+.fbCanvasWrap{min-width:720px;display:flex;justify-content:center}
+.fbCanvasShell{width:100%;display:flex;justify-content:center}
+.fbPreviewNote{margin-top:10px;font-size:12px;color:#64748b}
+.fbPreviewField{cursor:pointer;transition:.15s ease;position:relative}
+.fbPreviewField.active{outline:2px solid #4f7fc4;outline-offset:6px;border-radius:8px}
+.fbPreviewField:hover{opacity:.97}
+
+.fbInspectorScroll{max-height:calc(100vh - 260px);overflow:auto;padding-right:2px}
+.fbSection{border:1px solid #e5e7eb;border-radius:16px;padding:14px;background:#fff;margin-bottom:12px}
+.fbSectionTitle{font-weight:800;margin-bottom:10px;font-size:14px;color:#0f172a}
+.fbSectionTop{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+
+.fbRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fbInput,.fbSelect,.fbTextarea{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px 12px;background:#fff;transition:border-color .12s ease, box-shadow .12s ease}
+.fbInput:focus,.fbSelect:focus,.fbTextarea:focus{border-color:#4f7fc4;box-shadow:0 0 0 3px rgba(79,127,196,.12);outline:none}
+.fbTextarea{min-height:92px;resize:vertical}
+.fbLabel{font-size:12px;font-weight:700;margin:0 0 6px;display:block;color:#334155}
+.fbCheck{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px}
+.fbHelp{font-size:12px;color:#64748b;line-height:1.45}
+.fbCode{width:100%;min-height:150px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;margin:10px 0}
+
+.fbFieldMiniList{display:flex;flex-direction:column;gap:8px}
+.fbFieldMini{border:1px solid #dbe1e8;border-radius:12px;padding:10px 12px;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.fbFieldMini.active{border-color:#4f7fc4;box-shadow:0 0 0 2px rgba(79,127,196,.15)}
+.fbFieldMiniMeta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.fbFieldMiniMeta b{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fbFieldMiniMeta span{font-size:11px;color:#64748b}
+.fbFieldMiniActions{display:flex;gap:4px;flex-shrink:0}
+.fbFieldMiniActions .btn{padding:5px 7px}
+
+.fbVisualSection{background:linear-gradient(180deg,#ffffff 0%,#fbfcff 100%)}
+.fbPresetRow{display:flex;gap:8px;flex-wrap:wrap}
+.fbVisualGroup{padding-top:8px}
+.fbVisualGroup + .fbVisualGroup{margin-top:8px;border-top:1px dashed #e2e8f0;padding-top:14px}
+.fbVisualGroupTitle{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#64748b;margin-bottom:10px}
+.fbVisualGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fbVisualCard{border:1px solid #e2e8f0;border-radius:14px;padding:12px;background:#fff;box-shadow:0 2px 8px rgba(15,23,42,.03)}
+.fbVisualHead{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
+.fbVisualHead b{display:block;font-size:13px;color:#0f172a}
+.fbVisualHead span{display:block;font-size:11px;line-height:1.35;color:#64748b;margin-top:2px}
+.fbVisualHead code{font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#334155;background:#f8fafc;border:1px solid #e2e8f0;padding:3px 6px;border-radius:999px;white-space:nowrap}
+.fbColorInputWrap{display:grid;grid-template-columns:48px 1fr;align-items:center;gap:10px}
+.fbColorInput{width:48px;height:48px;border:0;padding:0;background:transparent;cursor:pointer}
+.fbColorInput::-webkit-color-swatch-wrapper{padding:0}
+.fbColorInput::-webkit-color-swatch{border:none;border-radius:12px}
+.fbColorPreview{height:48px;border-radius:12px;border:1px solid #dbe1e8}
+.fbRangeWrap{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center}
+.fbRange{width:100%;accent-color:#4f7fc4}
+.fbStyleNumber{text-align:center}
+
+.fbEmpty{padding:24px;text-align:center;color:#64748b}
+
+@media (max-width:1450px){
+  .fbCmsGrid{grid-template-columns:260px 1fr 340px}
+  .fbPreviewCanvas{min-height:700px}
+}
+@media (max-width:1220px){
+  .fbCmsGrid{grid-template-columns:300px 1fr}
+  .fbCanvasCard{grid-column:2;grid-row:1}
+  .fbInspector{grid-column:1 / span 2;grid-row:2}
+  .fbCodeCard{grid-column:1 / span 2;grid-row:3}
+  .fbInspectorScroll,.fbPreviewCanvas{max-height:none}
+  .fbCanvasWrap{min-width:560px}
+}
+@media (max-width:860px){
+  .fbCmsGrid,.fbRow,.fbVisualGrid{grid-template-columns:1fr}
+  .fbCanvasCard,.fbInspector,.fbCodeCard{grid-column:1;grid-row:auto}
+  .fbCanvasWrap{min-width:0}
+  .fbPreviewCanvas{padding:14px;min-height:560px}
+  .fbRangeWrap{grid-template-columns:1fr}
+}

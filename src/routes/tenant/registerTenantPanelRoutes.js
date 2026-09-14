@@ -7,6 +7,7 @@ const { registerWhatsappWebRoutes } = require('./whatsappWebRoutes');
 const { registerContentRoutes } = require('./contentRoutes');
 const { registerWebhookManagementRoutes } = require('./webhookManagementRoutes');
 const { registerFelipeTenantRoutes } = require('./felipeTenantRoutes');
+const { registerFormRoutes } = require('./formRoutes');
 
 /**
  * Registers the common tenant UI and API surface once, using the authenticated
@@ -24,6 +25,7 @@ function registerTenantPanelRoutes(app, options) {
   registerContentRoutes(app, options);
   registerWebhookManagementRoutes(app, options);
   registerFelipeTenantRoutes(app, options);
+  registerFormRoutes(app, options);
 }
 
 module.exports = { registerTenantPanelRoutes };

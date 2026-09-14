@@ -90,6 +90,7 @@
 
   <link rel="stylesheet" href="/vendor/phosphor/style.css">
   <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="/forms-builder.css">
 </head>
 
 <body>
@@ -146,6 +147,10 @@
             <button id="navLeads" class="menuBtn active" type="button">
               <span class="menuLabel"><i class="ph ph-users-three"></i><span>Leads</span></span>
               <span class="menuPill" id="navLeadsCount">—</span>
+            </button>
+            <button id="navForms" class="menuBtn" type="button">
+              <span class="menuLabel"><i class="ph ph-note-pencil"></i><span>Formulários</span></span>
+              <span class="menuPill">FORM</span>
             </button>
             <button id="navChats" class="menuBtn" type="button">
               <span class="menuLabel"><i class="ph ph-chat-circle-text"></i><span>Conversas</span></span>
@@ -239,6 +244,16 @@
             <div class="hint" id="lastSync" style="margin-top:10px;"></div>
           </div>
         </section>
+      </main>
+
+      <main id="panelForms" class="formBuilderPage" style="display:none; flex-direction:column; gap:14px;">
+        <section class="card"><div class="cardHeader"><div><div class="heroEyebrow">Captação própria</div><div class="heroTitle">Formulários</div><div class="heroSubtitle">Crie formulários, personalize o visual e gere o código para instalar no seu site sem depender da ActiveCampaign.</div></div><div class="fbToolbar"><button id="fbNew" class="btn btnSoft" type="button"><i class="ph ph-plus"></i> Novo</button><button id="fbSave" class="btn btnPrimary" type="button"><i class="ph ph-floppy-disk"></i> Salvar</button><button id="fbGenerate" class="btn btnSoft" type="button"><i class="ph ph-code"></i> Gerar código</button><button id="fbDelete" class="btn btnDanger" type="button"><i class="ph ph-trash"></i> Excluir</button></div></div></section>
+        <div class="fbCmsGrid">
+          <section class="card fbList"><div class="cardHeader"><b>Meus formulários</b></div><div class="cardBody"><div id="fbFormList" class="fbFormList"></div></div></section>
+          <section class="card fbPreview fbCanvasCard"><div class="cardHeader"><div><b>Canvas</b><div class="fbSmall">Prévia ampliada. Clique em um campo para editar.</div></div></div><div class="cardBody"><div id="fbPreviewCanvas" class="fbPreviewCanvas"></div></div></section>
+          <section class="card fbEditor fbInspector"><div class="cardHeader"><div><b>Inspector</b><div class="fbSmall">Estrutura, campo selecionado e estilo.</div></div></div><div class="cardBody" id="fbEditorBody"></div></section>
+          <section class="card fbCodeCard" id="fbCodeWrap" style="display:none"><div class="cardHeader"><b>Código para instalar no site</b></div><div class="cardBody"><div class="fbHelp">Cole exatamente este código no ponto em que o formulário deve aparecer.</div><textarea id="fbCode" class="fbTextarea fbCode" readonly></textarea><button id="fbCopy" class="btn btnSoft" type="button">Copiar código</button></div></section>
+        </div>
       </main>
 
       <main id="panelChats" style="display:none; flex-direction:column; gap:14px;">
@@ -1457,5 +1472,6 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
   <script src="/modules/app-config.js" defer></script>
   <script src="/modules/api-client.js" defer></script>
   <script src="/app.js" defer></script>
+  <script src="/modules/form-builder.js" defer></script>
 </body>
 </html>

@@ -1466,6 +1466,7 @@ var APP_RUNTIME = window.zapeAppConfig;
     var navLeads = document.getElementById("navLeads");
     var navTags = document.getElementById("navTags");
     var navChats = document.getElementById("navChats");
+    var navForms = document.getElementById("navForms");
     var navInsights = document.getElementById("navInsights");
     var navCloud = document.getElementById("navCloud");
     var navCrm = document.getElementById("navCrm");
@@ -1473,6 +1474,7 @@ var APP_RUNTIME = window.zapeAppConfig;
     var panelTags = document.getElementById("panelTags");
     var panelLeads = document.getElementById("panelLeads");
     var panelChats = document.getElementById("panelChats");
+    var panelForms = document.getElementById("panelForms");
     var panelInsights = document.getElementById("panelInsights");
     var panelCloudMain = document.getElementById("panelCloudMain");
     var panelCrm = document.getElementById("panelCrm");
@@ -1513,6 +1515,15 @@ var APP_RUNTIME = window.zapeAppConfig;
     }
 
     function setActiveNav(which){
+      if (navForms) navForms.classList.toggle("active", which === "forms");
+      if (panelForms) panelForms.style.display = which === "forms" ? "flex" : "none";
+      if (which === "forms"){
+        [navLeads,navChats,navInsights,navTags,navCloud,navCrm,navOwner].forEach(function(n){ if(n)n.classList.remove("active"); });
+        [panelLeads,panelChats,panelInsights,panelCloudMain,panelCrm,panelOwner].forEach(function(p){ if(p)p.style.display="none"; });
+        togglePagerForLeads(false); closeTagDrawer(); setMainPanelScrollTop(panelForms);
+        try{ if(typeof window.loadFormBuilder === "function") window.loadFormBuilder(); }catch(e){}
+        return;
+      }
       if (which === "tags"){
         // Tags agora abre como sobreposição e mantém a tela atual exatamente como está.
         // Não troca o painel principal, não volta para Leads e não altera o scroll.
@@ -1669,6 +1680,7 @@ var APP_RUNTIME = window.zapeAppConfig;
 
     navLeads.addEventListener("click", function(){ setActiveNav("leads"); });
     if (navChats) navChats.addEventListener("click", function(){ setActiveNav("chats"); });
+    if (navForms) navForms.addEventListener("click", function(){ setActiveNav("forms"); });
     if (navInsights) navInsights.addEventListener("click", function(){ setActiveNav("insights"); });
     navTags.addEventListener("click", function(){ setActiveNav("tags"); });
     navCloud.addEventListener("click", function(){ setActiveNav("cloud"); });

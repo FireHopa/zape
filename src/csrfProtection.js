@@ -113,7 +113,8 @@ function isOriginAllowed(req, { extraAllowedOrigins = parseAllowedOrigins() } = 
 
 function isPublicUnsafePath(pathname) {
   const path = String(pathname || '').split('?')[0];
-  return path === '/api/leads'
+  return /^\/forms\/[^/]+\/[^/]+\/submit$/.test(path)
+    || path === '/api/leads'
     || path === '/webhooks/activecampaign'
     || path === '/webhooks/wa-cloud'
     || /^\/webhooks\/[^/]+$/.test(path);

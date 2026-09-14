@@ -27,6 +27,8 @@ const PERMISSIONS = Object.freeze({
   MESSAGE_TEMPLATE_WRITE: 'message_template:write',
   WEBHOOKS_READ: 'webhooks:read',
   WEBHOOKS_WRITE: 'webhooks:write',
+  FORMS_READ: 'forms:read',
+  FORMS_WRITE: 'forms:write',
   EXTERNAL_CRM_READ: 'external_crm:read',
   BUSINESS_READ: 'business:read',
   BUSINESS_WRITE: 'business:write',
@@ -65,6 +67,8 @@ const ROLE_PERMISSIONS = Object.freeze({
     PERMISSIONS.MESSAGE_TEMPLATE_WRITE,
     PERMISSIONS.WEBHOOKS_READ,
     PERMISSIONS.WEBHOOKS_WRITE,
+    PERMISSIONS.FORMS_READ,
+    PERMISSIONS.FORMS_WRITE,
     PERMISSIONS.EXTERNAL_CRM_READ,
     PERMISSIONS.BUSINESS_READ,
     PERMISSIONS.CLOUD_TEMPLATES_READ,
@@ -89,6 +93,8 @@ const ROLE_PERMISSIONS = Object.freeze({
     PERMISSIONS.TAGS_READ,
     PERMISSIONS.MESSAGE_TEMPLATE_READ,
     PERMISSIONS.WEBHOOKS_READ,
+    PERMISSIONS.FORMS_READ,
+    PERMISSIONS.FORMS_WRITE,
     PERMISSIONS.EXTERNAL_CRM_READ,
     PERMISSIONS.BUSINESS_READ,
     PERMISSIONS.CLOUD_TEMPLATES_READ,
@@ -106,6 +112,7 @@ const ROLE_PERMISSIONS = Object.freeze({
     PERMISSIONS.TAGS_READ,
     PERMISSIONS.MESSAGE_TEMPLATE_READ,
     PERMISSIONS.WEBHOOKS_READ,
+    PERMISSIONS.FORMS_READ,
     PERMISSIONS.EXTERNAL_CRM_READ,
     PERMISSIONS.BUSINESS_READ,
     PERMISSIONS.CLOUD_TEMPLATES_READ,
@@ -284,6 +291,11 @@ function permissionForTenantRequest(req, tenantId) {
   if (relative === '/webhooks' && method === 'POST') return PERMISSIONS.WEBHOOKS_WRITE;
   if (/^\/webhooks\/[^/]+$/.test(relative) && ['PUT', 'DELETE'].includes(method))
     return PERMISSIONS.WEBHOOKS_WRITE;
+
+  if (relative === '/forms' && method === 'GET') return PERMISSIONS.FORMS_READ;
+  if (relative === '/forms' && method === 'POST') return PERMISSIONS.FORMS_WRITE;
+  if (/^\/forms\/[^/]+$/.test(relative) && ['PUT', 'DELETE'].includes(method)) return PERMISSIONS.FORMS_WRITE;
+  if (/^\/forms\/[^/]+\/embed$/.test(relative) && method === 'GET') return PERMISSIONS.FORMS_READ;
 
   if (relative.startsWith('/external-crm/') && method === 'GET') return PERMISSIONS.EXTERNAL_CRM_READ;
 
