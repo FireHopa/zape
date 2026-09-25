@@ -8,15 +8,29 @@ const { ensureTenantDir } = require('./tenantPaths');
 const FILE_NAME = 'forms.json';
 const MAX_FORMS = 100;
 const MAX_FIELDS = 40;
+const MAX_BUTTON_OPTIONS = 20;
 
 function fileFor(tenantId) { return path.join(ensureTenantDir(tenantId), FILE_NAME); }
 function clean(v, max = 500) { return String(v == null ? '' : v).trim().slice(0, max); }
 function bool(v, fallback = false) { return v == null ? fallback : Boolean(v); }
 function safeColor(v, fallback) { const s = clean(v, 32); return /^#[0-9a-f]{3,8}$/i.test(s) ? s : fallback; }
-function safeFieldType(v) { return ['text','email','tel','url','number','select','textarea','checkbox','hidden'].includes(v) ? v : 'text'; }
+function safeFieldType(v) { return ['text','email','tel','url','number','select','textarea','checkbox','hidden','buttons'].includes(v) ? v : 'text'; }
 function safeMapping(v) {
   const s = clean(v, 80);
   return ['nome','empresa','jaAnuncia','website','email','whatsapp','tags'].includes(s) || /^custom\.[a-z0-9_-]{1,50}$/i.test(s) ? s : 'custom.campo';
+}
+function safeRedirectUrl(v) {
+  const s = clean(v, 1200);
+  if (!s) return '';
+  if (/^https?:\/\//i.test(s) || /^\/(?!\/)/.test(s)) return s;
+  return '';
+}
+function normalizeButtonOption(option, index) {
+  return {
+    id: clean(option?.id, 80) || `option_${index + 1}_${crypto.randomBytes(3).toString('hex')}`,
+    label: clean(option?.label, 120) || `Opção ${index + 1}`,
+    url: safeRedirectUrl(option?.url),
+  };
 }
 function normalizeField(field, index) {
   const type = safeFieldType(field?.type);
@@ -28,6 +42,9 @@ function normalizeField(field, index) {
     mapping: safeMapping(field?.mapping),
     required: type === 'hidden' ? false : bool(field?.required, false),
     options: Array.isArray(field?.options) ? field.options.map((x) => clean(x, 120)).filter(Boolean).slice(0, 30) : [],
+    buttonOptions: type === 'buttons' && Array.isArray(field?.buttonOptions)
+      ? field.buttonOptions.slice(0, MAX_BUTTON_OPTIONS).map(normalizeButtonOption)
+      : [],
     hiddenValue: type === 'hidden' ? clean(field?.hiddenValue, 500) : '',
   };
 }

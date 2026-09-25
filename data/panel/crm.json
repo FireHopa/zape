@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "activePipelineId": "pipe_ca4b6c5d1f0d8819e83317c3c",
+  "activePipelineId": "pipe_071898d760bf31a0c4e1bfce",
   "pipelines": [
     {
       "id": "pipe_ca4b6c5d1f0d8819e83317c3c",
@@ -41,7 +41,14 @@
           ]
         }
       }
+    },
+    {
+      "id": "pipe_071898d760bf31a0c4e1bfce",
+      "name": "Eventos",
+      "createdAt": "2026-09-21T16:52:04.174Z",
+      "stageOrder": [],
+      "stages": {}
     }
   ],
-  "updatedAt": "2026-06-01T13:01:49.315Z"
+  "updatedAt": "2026-09-21T16:52:34.829Z"
 }

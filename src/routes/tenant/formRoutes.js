@@ -44,6 +44,7 @@ form.noValidate=false;
 setStyles(form,{boxSizing:'border-box',display:'block',maxWidth:'100%',width:style.width+'px',background:style.background,color:style.text,padding:style.padding+'px',borderRadius:style.blockRadius+'px',fontFamily:'Arial, Helvetica, sans-serif',fontSize:style.fontSize+'px',lineHeight:'1.4'});
 
 var formId=make('input');formId.type='hidden';formId.name='_zape_form_id';formId.value=String(cfg.id||'');append(form,formId);
+var buttonGroups=[];
 
 (cfg.fields||[]).forEach(function(field){
   var name='f_'+String(field.id||'');
@@ -56,6 +57,26 @@ var formId=make('input');formId.type='hidden';formId.name='_zape_form_id';formId
     setStyles(checkLabel,{display:'flex',alignItems:'center',gap:'8px',margin:'0 0 '+style.spacing+'px',fontSize:style.fontSize+'px',color:style.text,cursor:'pointer'});
     var checkbox=make('input');checkbox.type='checkbox';checkbox.name=name;checkbox.value='Sim';checkbox.required=!!field.required;setStyles(checkbox,{width:'16px',height:'16px'});
     append(checkLabel,checkbox);append(checkLabel,setText(make('span'),field.label||''));append(form,checkLabel);return;
+  }
+
+  if(field.type==='buttons'){
+    var buttonWrapper=make('div');setStyles(buttonWrapper,{display:'block',margin:'0 0 '+style.spacing+'px'});
+    var buttonLabel=make('span');setStyles(buttonLabel,{display:'block',fontSize:style.labelSize+'px',fontWeight:'700',margin:'0 0 8px',color:style.text,lineHeight:'1.25'});setText(buttonLabel,field.label||'');
+    if(field.required){var buttonStar=make('b');setText(buttonStar,'*');setStyles(buttonStar,{color:'#dc2626'});append(buttonLabel,buttonStar);}append(buttonWrapper,buttonLabel);
+    var buttonValue=make('input');buttonValue.type='hidden';buttonValue.name=name;buttonValue.value='';append(buttonWrapper,buttonValue);
+    var choiceWrap=make('div');setStyles(choiceWrap,{display:'flex',flexWrap:'wrap',gap:'8px'});append(buttonWrapper,choiceWrap);
+    var group={field:field,input:buttonValue,buttons:[]};
+    (field.buttonOptions||[]).forEach(function(option){
+      var choice=make('button');choice.type='button';setText(choice,option.label||'Opção');
+      setStyles(choice,{display:'inline-flex',alignItems:'center',justifyContent:'center',minHeight:'42px',padding:'9px 16px',border:'1px solid '+style.inputBorder,background:style.inputBackground,color:style.text,borderRadius:style.buttonRadius+'px',font:'inherit',fontWeight:'700',cursor:'pointer',transition:'filter .12s ease, transform .12s ease'});
+      choice.addEventListener('click',function(){
+        buttonValue.value=String(option.id||'');
+        group.buttons.forEach(function(entry){var active=entry.option===option;entry.el.setAttribute('aria-pressed',active?'true':'false');setStyles(entry.el,{background:active?style.buttonBackground:style.inputBackground,color:active?style.buttonText:style.text,borderColor:active?style.buttonBackground:style.inputBorder});});
+      });
+      choice.setAttribute('aria-pressed','false');
+      group.buttons.push({el:choice,option:option});append(choiceWrap,choice);
+    });
+    buttonGroups.push(group);append(form,buttonWrapper);return;
   }
 
   var wrapper=make('label');setStyles(wrapper,{display:'block',margin:'0 0 '+style.spacing+'px'});
@@ -93,12 +114,22 @@ root.setAttribute('data-zape-ready','1');
 
 form.addEventListener('submit',function(event){
   event.preventDefault();
-  button.disabled=true;errorBox.hidden=true;message.hidden=true;
+  errorBox.hidden=true;message.hidden=true;
+  var missingGroup=buttonGroups.find(function(group){return !!group.field.required&&!group.input.value;});
+  if(missingGroup){errorBox.hidden=false;setText(errorBox,'Selecione uma opção em "'+String(missingGroup.field.label||'Opções')+'".');return;}
+  button.disabled=true;
+  var redirectUrl=String(cfg.redirectUrl||'');
+  buttonGroups.some(function(group){
+    if(!group.input.value)return false;
+    var selected=group.buttons.find(function(entry){return String(entry.option.id||'')===String(group.input.value);});
+    if(selected&&selected.option.url){redirectUrl=String(selected.option.url);return true;}
+    return false;
+  });
   var body=new URLSearchParams();
   new FormData(form).forEach(function(value,key){body.append(key,String(value));});
   fetch(form.action,{method:'POST',body:body,headers:{'Accept':'application/json'},credentials:'omit',mode:'cors'})
     .then(function(response){if(!response.ok)throw new Error('HTTP '+response.status);return response.text();})
-    .then(function(){message.hidden=false;if(cfg.redirectUrl)window.location.assign(String(cfg.redirectUrl));})
+    .then(function(){message.hidden=false;if(redirectUrl)window.location.assign(redirectUrl);})
     .catch(function(){
       errorBox.hidden=false;setText(errorBox,'Não foi possível enviar agora. Tente novamente.');
     })
@@ -122,7 +153,17 @@ function registerFormRoutes(app, options) {
     const form=getForm(tenantId,req.params.id); if(!form||!form.active)return res.status(404).send('Formulário indisponível.');
     try {
       const payload={ sourceDetail: form.sourceDetail, sourceMeta:{type:'zape_form',formId:form.id,formName:form.name,utm:{},formData:{}}, allowPhoneOnly:true };
-      for(const f of form.fields||[]){ const value=String(req.body?.[`f_${f.id}`] ?? (f.type==='hidden'?f.hiddenValue:'')).trim().slice(0,2000); if(f.required&&!value) return res.status(400).send('Campo obrigatório não preenchido.'); if(f.mapping.startsWith('custom.')) payload.sourceMeta.formData[f.mapping.slice(7)]=value; else payload[f.mapping]=value; }
+      for(const f of form.fields||[]){
+        const raw=String(req.body?.[`f_${f.id}`] ?? (f.type==='hidden'?f.hiddenValue:'')).trim().slice(0,2000);
+        let value=raw;
+        if(f.type==='buttons'){
+          const option=(f.buttonOptions||[]).find((item)=>String(item.id||'')===raw);
+          if(raw&&!option)return res.status(400).send('Opção de botão inválida.');
+          value=option?String(option.label||'').trim().slice(0,120):'';
+        }
+        if(f.required&&!value)return res.status(400).send('Campo obrigatório não preenchido.');
+        if(f.mapping.startsWith('custom.'))payload.sourceMeta.formData[f.mapping.slice(7)]=value;else payload[f.mapping]=value;
+      }
       ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'].forEach((k)=>{ if(req.body?.[k]) payload.sourceMeta.utm[k]=String(req.body[k]).slice(0,500); });
       await createLeadFromPayload(tenantId,'zape_form',payload,{allowPhoneOnly:true,allowEmailOnly:true}); incrementSubmission(tenantId,form.id);
       res.setHeader('Content-Type','text/html; charset=utf-8'); res.send(`<!doctype html><meta charset="utf-8"><title>Enviado</title><p>${escapeHtml(form.successMessage)}</p>`);

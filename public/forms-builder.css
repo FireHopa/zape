@@ -86,3 +86,13 @@
   .fbPreviewCanvas{padding:14px;min-height:560px}
   .fbRangeWrap{grid-template-columns:1fr}
 }
+
+.fbButtonOptionsEditor{margin-top:14px;padding-top:14px;border-top:1px dashed #e2e8f0}
+.fbButtonOptionsHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.fbButtonOptionsHead>div{min-width:0}
+.fbButtonOptionsList{display:flex;flex-direction:column;gap:8px}
+.fbButtonOptionRow{display:grid;grid-template-columns:34px minmax(130px,.9fr) minmax(180px,1.4fr) auto;gap:8px;align-items:end;padding:10px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc}
+.fbButtonOptionNumber{width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center;align-self:center;background:#e2e8f0;color:#334155;font-size:12px;font-weight:800}
+.fbButtonOptionRow .btn{margin-bottom:1px}
+.fbButtonOptionsEmpty{padding:14px}
+@media (max-width:860px){.fbButtonOptionsHead{flex-direction:column}.fbButtonOptionRow{grid-template-columns:34px 1fr}.fbButtonOptionRow label{grid-column:2}.fbButtonOptionRow .btn{grid-column:2;justify-self:start}}

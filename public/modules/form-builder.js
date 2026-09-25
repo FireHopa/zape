@@ -19,7 +19,8 @@
     ['email','E-mail'], ['whatsapp','WhatsApp'], ['tags','Tags'], ['custom.campo','Campo personalizado']
   ];
 
-  var types = ['text','email','tel','url','number','select','textarea','checkbox','hidden'];
+  var types = ['text','email','tel','url','number','select','textarea','checkbox','buttons','hidden'];
+  var typeLabels = { text:'Texto', email:'E-mail', tel:'Telefone', url:'URL', number:'Número', select:'Seleção', textarea:'Texto longo', checkbox:'Checkbox', buttons:'Botões com redirecionamento', hidden:'Oculto' };
 
   var defaultStyle = {
     background:'#e9e9ea',
@@ -53,6 +54,7 @@
 
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
   function uid(){ return 'f_' + Math.random().toString(36).slice(2, 9); }
+  function optionUid(){ return 'opt_' + Math.random().toString(36).slice(2, 10); }
   function clone(v){ return JSON.parse(JSON.stringify(v)); }
   function $(id){ return document.getElementById(id); }
   function req(url, opt){ return window.zapeApi.json(url, Object.assign({ headers:{ 'Content-Type':'application/json' } }, opt || {})); }
@@ -71,8 +73,15 @@
     return s;
   }
 
+  function normalizeButtonOption(option, index){
+    return Object.assign({ id:optionUid(), label:'Opção '+(index + 1), url:'' }, option || {});
+  }
+
   function normalizeField(field){
-    return Object.assign({ id:uid(), type:'text', label:'Campo', placeholder:'', mapping:'custom.campo', required:false, options:[], hiddenValue:'' }, field || {});
+    var normalized = Object.assign({ id:uid(), type:'text', label:'Campo', placeholder:'', mapping:'custom.campo', required:false, options:[], buttonOptions:[], hiddenValue:'' }, field || {});
+    normalized.options = Array.isArray(normalized.options) ? normalized.options : [];
+    normalized.buttonOptions = Array.isArray(normalized.buttonOptions) ? normalized.buttonOptions.map(normalizeButtonOption) : [];
+    return normalized;
   }
 
   function normalizeForm(form){
@@ -203,7 +212,7 @@
 
   function renderFieldMini(field, index){
     return '<div class="fbFieldMini '+(selectedFieldId === field.id ? 'active' : '')+'" data-fid="'+esc(field.id)+'">'
-      + '<div class="fbFieldMiniMeta"><b>'+esc(field.label || ('Campo '+(index+1)))+'</b><span>'+esc(field.type)+' • '+esc(field.mapping || 'sem mapeamento')+'</span></div>'
+      + '<div class="fbFieldMiniMeta"><b>'+esc(field.label || ('Campo '+(index+1)))+'</b><span>'+esc(typeLabels[field.type] || field.type)+' • '+esc(field.mapping || 'sem mapeamento')+'</span></div>'
       + '<div class="fbFieldMiniActions">'
       +   '<button class="btn btnGhost fbUp" type="button">↑</button>'
       +   '<button class="btn btnGhost fbDown" type="button">↓</button>'
@@ -212,18 +221,36 @@
       + '</div>';
   }
 
+  function renderButtonOptionsEditor(field){
+    var options = field.buttonOptions || [];
+    return '<div class="fbButtonOptionsEditor">'
+      + '<div class="fbButtonOptionsHead"><div><span class="fbLabel">Botões e destinos</span><div class="fbHelp">Cada botão representa uma escolha. Depois do envio, a URL da opção selecionada substitui o redirecionamento padrão do formulário.</div></div><button id="fAddButtonOption" class="btn btnSoft" type="button"><i class="ph ph-plus"></i> Adicionar botão</button></div>'
+      + '<div class="fbButtonOptionsList">'
+      + (options.length ? options.map(function(option, index){
+          return '<div class="fbButtonOptionRow" data-option-id="'+esc(option.id)+'">'
+            + '<div class="fbButtonOptionNumber">'+(index + 1)+'</div>'
+            + '<label><span class="fbLabel">Texto do botão</span><input class="fbInput fButtonOptionLabel" value="'+esc(option.label || '')+'" placeholder="Ex.: Quero participar"></label>'
+            + '<label><span class="fbLabel">URL após envio</span><input class="fbInput fButtonOptionUrl" value="'+esc(option.url || '')+'" placeholder="https://..."></label>'
+            + '<button class="btn btnDanger fDeleteButtonOption" type="button" title="Excluir botão">Excluir</button>'
+            + '</div>';
+        }).join('') : '<div class="fbEmpty fbButtonOptionsEmpty">Nenhum botão configurado. Adicione pelo menos uma opção.</div>')
+      + '</div></div>';
+  }
+
   function renderFieldEditor(field){
     if(!field) return '<div class="fbSection"><div class="fbHelp">Adicione um campo para editar.</div></div>';
+    var baseFields = '<div class="fbRow">'
+      + labelInput('Rótulo','fLabel',field.label)
+      + '<label><span class="fbLabel">Tipo</span><select id="fType" class="fbSelect">'+types.map(function(t){ return '<option value="'+t+'" '+(t === field.type ? 'selected' : '')+'>'+esc(typeLabels[t] || t)+'</option>'; }).join('')+'</select></label>'
+      + (field.type === 'hidden' || field.type === 'buttons' ? '' : labelInput('Placeholder','fPlaceholder',field.placeholder || ''))
+      + '<label><span class="fbLabel">Salvar como</span><select id="fMapping" class="fbSelect">'+mappings.map(function(m){ return '<option value="'+m[0]+'" '+(m[0] === field.mapping ? 'selected' : '')+'>'+m[1]+'</option>'; }).join('')+'</select></label>'
+      + '</div>';
     return '<div class="fbSection">'
       + '<div class="fbSectionTitle">Campo selecionado</div>'
-      + '<div class="fbRow">'
-      +   labelInput('Rótulo','fLabel',field.label)
-      +   '<label><span class="fbLabel">Tipo</span><select id="fType" class="fbSelect">'+types.map(function(t){ return '<option value="'+t+'" '+(t === field.type ? 'selected' : '')+'>'+t+'</option>'; }).join('')+'</select></label>'
-      +   labelInput('Placeholder','fPlaceholder',field.placeholder || '')
-      +   '<label><span class="fbLabel">Salvar como</span><select id="fMapping" class="fbSelect">'+mappings.map(function(m){ return '<option value="'+m[0]+'" '+(m[0] === field.mapping ? 'selected' : '')+'>'+m[1]+'</option>'; }).join('')+'</select></label>'
-      + '</div>'
-      + '<label class="fbCheck"><input id="fRequired" type="checkbox" '+(field.required ? 'checked' : '')+'> Obrigatório</label>'
+      + baseFields
+      + (field.type === 'hidden' ? '' : '<label class="fbCheck"><input id="fRequired" type="checkbox" '+(field.required ? 'checked' : '')+'> Obrigatório</label>')
       + (field.type === 'select' ? '<label style="display:block;margin-top:10px"><span class="fbLabel">Opções, uma por linha</span><textarea id="fOptionsText" class="fbTextarea">'+esc((field.options || []).join('\n'))+'</textarea></label>' : '')
+      + (field.type === 'buttons' ? renderButtonOptionsEditor(field) : '')
       + (field.type === 'hidden' ? '<label style="display:block;margin-top:10px"><span class="fbLabel">Valor oculto</span><input id="fHiddenValue" class="fbInput" value="'+esc(field.hiddenValue || '')+'"></label>' : '')
       + '</div>';
   }
@@ -300,8 +327,15 @@
     field.type = $('fType') ? $('fType').value : field.type;
     field.placeholder = $('fPlaceholder') ? $('fPlaceholder').value : field.placeholder;
     field.mapping = $('fMapping') ? $('fMapping').value : field.mapping;
-    field.required = !!($('fRequired') && $('fRequired').checked);
+    field.required = field.type === 'hidden' ? false : !!($('fRequired') && $('fRequired').checked);
     if($('fOptionsText')) field.options = $('fOptionsText').value.split(/\n+/).map(function(x){ return x.trim(); }).filter(Boolean);
+    if(field.type === 'buttons'){
+      field.buttonOptions = Array.prototype.slice.call(document.querySelectorAll('.fbButtonOptionRow')).map(function(row, index){
+        var label = row.querySelector('.fButtonOptionLabel');
+        var url = row.querySelector('.fButtonOptionUrl');
+        return normalizeButtonOption({ id:row.dataset.optionId || optionUid(), label:label ? label.value : ('Opção '+(index + 1)), url:url ? url.value : '' }, index);
+      });
+    }
     if($('fHiddenValue')) field.hiddenValue = $('fHiddenValue').value;
   }
 
@@ -324,7 +358,7 @@
     var title = mini.querySelector('.fbFieldMiniMeta b');
     var meta = mini.querySelector('.fbFieldMiniMeta span');
     if(title) title.textContent = field.label || 'Campo';
-    if(meta) meta.textContent = (field.type || 'text') + ' • ' + (field.mapping || 'sem mapeamento');
+    if(meta) meta.textContent = (typeLabels[field.type] || field.type || 'Texto') + ' • ' + (field.mapping || 'sem mapeamento');
   }
 
   function updateVisualValueLabel(key, value){
@@ -426,10 +460,48 @@
       }
     });
 
+    var addButtonOption = $('fAddButtonOption');
+    if(addButtonOption){
+      addButtonOption.onclick = function(){
+        syncField();
+        var field = getCurrentField();
+        if(!field) return;
+        field.buttonOptions = field.buttonOptions || [];
+        field.buttonOptions.push(normalizeButtonOption({ id:optionUid(), label:'Opção '+(field.buttonOptions.length + 1), url:'' }, field.buttonOptions.length));
+        preserveViewportRenderEditor();
+        renderPreview();
+      };
+    }
+
+    document.querySelectorAll('.fbButtonOptionRow').forEach(function(row){
+      row.querySelectorAll('.fButtonOptionLabel,.fButtonOptionUrl').forEach(function(input){
+        input.oninput = function(){ syncField(); renderPreview(); };
+        input.onchange = input.oninput;
+      });
+      var del = row.querySelector('.fDeleteButtonOption');
+      if(del){
+        del.onclick = function(){
+          syncField();
+          var field = getCurrentField();
+          if(!field) return;
+          field.buttonOptions = (field.buttonOptions || []).filter(function(option){ return option.id !== row.dataset.optionId; });
+          preserveViewportRenderEditor();
+          renderPreview();
+        };
+      }
+    });
+
     var typeSelect = $('fType');
     if(typeSelect){
       typeSelect.onchange = function(){
         syncField();
+        var field = getCurrentField();
+        if(field && field.type === 'buttons' && !(field.buttonOptions || []).length){
+          field.buttonOptions = [
+            normalizeButtonOption({ id:optionUid(), label:'Opção 1', url:'' }, 0),
+            normalizeButtonOption({ id:optionUid(), label:'Opção 2', url:'' }, 1)
+          ];
+        }
         updateSelectedFieldMini();
         preserveViewportRenderEditor();
         renderPreview();
@@ -483,6 +555,9 @@
     var body = '';
 
     if(field.type === 'select') body = '<select style="'+common+'"><option value=""></option>'+(field.options || []).map(function(o){ return '<option>'+esc(o)+'</option>'; }).join('')+'</select>';
+    else if(field.type === 'buttons') {
+      body = '<div style="display:flex;flex-wrap:wrap;gap:8px">'+(field.buttonOptions || []).map(function(option){ return '<button type="button" style="display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 16px;border:1px solid '+esc(style.inputBorder)+';background:'+esc(style.inputBackground)+';color:'+esc(style.text)+';border-radius:'+Number(style.buttonRadius)+'px;font-size:'+Number(style.fontSize)+'px;font-weight:700;cursor:pointer">'+esc(option.label || 'Opção')+'</button>'; }).join('')+'</div>';
+    }
     else if(field.type === 'textarea') body = '<textarea placeholder="'+esc(field.placeholder || '')+'" style="'+common+'min-height:96px;resize:vertical"></textarea>';
     else if(field.type === 'checkbox') {
       return '<div class="fbPreviewField'+activeClass+'" data-fid="'+esc(field.id)+'" style="margin:0 0 '+Number(style.spacing)+'px"><label style="display:flex;align-items:center;gap:8px;font-size:'+Number(style.fontSize)+'px;color:'+esc(style.text)+'"><input type="checkbox" style="width:16px;height:16px"> '+esc(field.label)+'</label></div>';
