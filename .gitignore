@@ -136,3 +136,6 @@ credentials/
 # Sessões autenticadas persistentes
 **/auth_sessions.json
 **/auth_sessions.json.*.tmp
+
+# Credenciais locais do Google Sheets
+/sheets-planilha-*.json

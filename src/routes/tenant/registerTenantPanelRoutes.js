@@ -2,6 +2,7 @@
 
 const { registerTenantUiRoutes } = require('./uiRoutes');
 const { registerLeadRoutes } = require('./leadRoutes');
+const { registerContactSpreadsheetRoutes } = require('./contactSpreadsheetRoutes');
 const { registerCrmRoutes } = require('./crmRoutes');
 const { registerWhatsappWebRoutes } = require('./whatsappWebRoutes');
 const { registerContentRoutes } = require('./contentRoutes');
@@ -20,6 +21,7 @@ const { registerFormRoutes } = require('./formRoutes');
 function registerTenantPanelRoutes(app, options) {
   registerTenantUiRoutes(app, options);
   registerLeadRoutes(app, options);
+  registerContactSpreadsheetRoutes(app, options);
   registerCrmRoutes(app, options);
   registerWhatsappWebRoutes(app, options);
   registerContentRoutes(app, options);

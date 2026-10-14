@@ -5,6 +5,7 @@ const { normalizePhoneToE164Digits } = require('./phone');
 const { readLeads: readJsonLeads, appendLead } = require('./tenantLeadsStore');
 const { withTenantLeadWrite } = require('./leadWriteCoordinator');
 const databaseRuntime = require('./database/runtime');
+const { contactSpreadsheet } = require('./contactSpreadsheet');
 const { LeadServiceError } = require('./leadService');
 
 function nowIso() {
@@ -50,7 +51,7 @@ function buildLeadRecord(source, payload = {}) {
 }
 
 async function saveLeadRecord(tenantId, lead) {
-  return withTenantLeadWrite(tenantId, async () => {
+  const saved = await withTenantLeadWrite(tenantId, async () => {
     const phoneDigits = normalizePhoneToE164Digits(lead?.whatsapp_digits || lead?.whatsapp_raw || '');
     if (phoneDigits) {
       const duplicate = findLeadByWhatsapp(tenantId, phoneDigits);
@@ -92,6 +93,9 @@ async function saveLeadRecord(tenantId, lead) {
     }
     return lead;
   });
+  // Only signal after the authoritative write succeeds. Network I/O never blocks intake.
+  contactSpreadsheet.schedule(tenantId);
+  return saved;
 }
 
 async function createLeadFromPayload(tenantId, source, payload = {}, validation = {}) {

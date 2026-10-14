@@ -249,6 +249,9 @@ function permissionForTenantRequest(req, tenantId) {
   const relative = pathname.slice(prefix.length) || '/';
 
   if (relative === '/leads' && method === 'GET') return PERMISSIONS.LEADS_READ;
+  if (relative === '/contact-spreadsheet' && method === 'GET') return PERMISSIONS.LEADS_EXPORT;
+  if (relative === '/contact-spreadsheet/download' && method === 'GET') return PERMISSIONS.LEADS_EXPORT;
+  if (relative === '/contact-spreadsheet/sync' && method === 'POST') return PERMISSIONS.LEADS_EXPORT;
   if (relative === '/monitoring' && method === 'GET' && tid === 'admin') return PERMISSIONS.MONITORING_READ;
   if (relative === '/metrics' && method === 'GET' && tid === 'admin') return PERMISSIONS.MONITORING_READ;
   if (relative === '/deployment' && method === 'GET' && tid === 'admin') return PERMISSIONS.MONITORING_READ;

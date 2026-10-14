@@ -171,7 +171,7 @@
     "ack": 0,
     "notOnWhatsapp": false,
     "sendError": "The browser is already running for /home/deploy/lead-form/data/panel/wwebjs_auth/session-tenant_panel. Use a different `userDataDir` or stop the running browser first.",
-    "updatedAt": "2026-10-13T11:18:21.101Z",
+    "updatedAt": "2026-10-14T14:34:39.469Z",
     "messageId": "true_189000069451782@lid_3EB07C20FA4A9F16C108EC",
     "repliedAt": "2026-10-08T19:37:50.658Z",
     "chatId": "189000069451782@lid",
@@ -184,9 +184,9 @@
     "deliveredAt": "2026-05-27T17:24:40.938Z",
     "readAt": "2026-05-27T17:30:21.174Z",
     "lastIncomingAt": "2026-10-08T19:37:50.658Z",
-    "lastAttemptAt": "2026-10-13T11:18:20.893Z",
+    "lastAttemptAt": "2026-10-14T14:34:39.258Z",
     "dispatchStatus": "failed",
-    "failedAt": "2026-10-13T11:18:21.101Z",
+    "failedAt": "2026-10-14T14:34:39.469Z",
     "notOnWhatsappAt": null,
     "sentAt": "2026-10-12T14:28:01.710Z"
   },
@@ -42025,6 +42025,17 @@
     "sendError": "The browser is already running for /home/deploy/lead-form/data/panel/wwebjs_auth/session-tenant_panel. Use a different `userDataDir` or stop the running browser first.",
     "updatedAt": "2026-10-14T13:38:59.594Z",
     "failedAt": "2026-10-14T13:38:59.594Z",
+    "notOnWhatsappAt": null
+  },
+  "5571987982428": {
+    "toDigits": "5571987982428",
+    "lastAttemptAt": "2026-10-14T17:24:57.482Z",
+    "dispatchStatus": "failed",
+    "ack": 0,
+    "notOnWhatsapp": false,
+    "sendError": "Protocol error (Runtime.callFunctionOn): Target closed",
+    "updatedAt": "2026-10-14T17:25:14.049Z",
+    "failedAt": "2026-10-14T17:25:14.049Z",
     "notOnWhatsappAt": null
   }
 }

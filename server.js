@@ -42,6 +42,7 @@ const { buildHelmetMiddleware, buildCorsMiddleware, securityResponseHeaders } = 
 const { csrfProtection, loginOriginProtection } = require("./src/csrfProtection");
 const { registerTenantPanelRoutes } = require("./src/routes/tenant/registerTenantPanelRoutes");
 const { createLeadFromPayload, findLeadByWhatsapp: findLeadByWhatsappIntake, saveLeadRecord } = require("./src/leadIntakeService");
+const { contactSpreadsheet } = require("./src/contactSpreadsheet");
 const { handleInboundCloudLead } = require("./src/inboundLeadAutomation");
 const { resolveCloudInboundTenant } = require("./src/waCloudTenantRouting");
 const { registerHealthRoutes } = require("./src/routes/healthRoutes");
@@ -4207,6 +4208,7 @@ async function gracefulShutdown(signal) {
   try {
     stopExternalCrmWorker();
     automaticMessageQueue.stop();
+    await contactSpreadsheet.stop();
     cloudCampaignQueue.stop();
     if (monitorTimer) clearInterval(monitorTimer);
     await Promise.allSettled([
@@ -4262,6 +4264,7 @@ function registerPrivacyRoutes(prefix, authMw, tenantId) {
       const result = source.type === "database"
         ? await deleteDatabaseContact({ db: source.db, tenantId, phone, apply })
         : deleteJsonContact({ tenantId, phone, apply, backupDir });
+      if (apply) contactSpreadsheet.schedule(tenantId, 0);
       auditSecurityAction(req, "privacy.delete", "contact", apply ? "success" : "dry_run", { contactRef: result.contactRef, counts: result.counts });
       structuredLogger.security(apply ? "Exclusão LGPD aplicada." : "Exclusão LGPD simulada.", { event: apply ? "privacy.delete.applied" : "privacy.delete.dry_run", correlationId: req.correlationId, operationId: req.operationId, tenantId, contactRef: result.contactRef, counts: result.counts });
       return res.json({ ok: true, mode: apply ? "apply" : "dry-run", result });
@@ -4372,6 +4375,7 @@ async function startApplication() {
     const configuredPanels = listTenantConfigs({ includeDisabled: false });
     console.log(`➡️ Painéis ativos (${configuredPanels.length}):`, configuredPanels.map((cfg) => cfg.path).join(", "));
     if (typeof process.send === "function") process.send("ready");
+    contactSpreadsheet.start();
     startExternalCrmWorker();
     automaticMessageQueue.start();
     if (resolveFeature(FEATURES.CLOUD_QUEUE, TENANT_ADMIN).enabled) cloudCampaignQueue.start();

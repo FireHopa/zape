@@ -5230,6 +5230,16 @@
       "createdAt": "2026-10-14T12:30:48.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_277261748011176@lid_3EB0DABC95399A9B325261",
+      "fromMe": true,
+      "body": "11970212551",
+      "type": "chat",
+      "timestamp": 1791990593,
+      "createdAt": "2026-10-14T15:09:53.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511976971746": [
@@ -301390,6 +301400,16 @@
       "createdAt": "2026-10-08T18:52:52.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_7941612687613@lid_3EB00ADEE284E9637D2EEF",
+      "fromMe": true,
+      "body": "Olá Helaine ponciano! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Campinas/SP.\n\nVocê vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n*Hotel Golden Park*\n26/10 • Segunda-feira • 18h30 às 22h\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Helaine ponciano?",
+      "type": "chat",
+      "timestamp": 1791993555,
+      "createdAt": "2026-10-14T15:59:15.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
     }
   ],
   "5514996096494": [
@@ -313174,6 +313194,36 @@
       "createdAt": "2026-10-14T10:23:47.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_189142357028952@lid_3EB02394FD79190C28ADCD",
+      "fromMe": true,
+      "body": "Olá Angelica, bom dia, tudo bem?\n\nAqui é a Cintia da equipe do Matheus Bottaro, da Casa do ADS!",
+      "type": "chat",
+      "timestamp": 1791990622,
+      "createdAt": "2026-10-14T15:10:22.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_189142357028952@lid_3EB0C77E652EC6D54B07FD",
+      "fromMe": true,
+      "body": "Recebemos seu pagamento no sistema, segue a confirmação.",
+      "type": "chat",
+      "timestamp": 1791990647,
+      "createdAt": "2026-10-14T15:10:47.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_189142357028952@lid_3EB0313756869E98D9F1E2",
+      "fromMe": true,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 02/11/2026\n🕘 *Horário:* Das 9h as 13h30\n📍 *Local:*  Hotel Radisson RED Ibirapuera - Alameda Iraé, 663 - Indianópolis, São Paulo\n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1791990693,
+      "createdAt": "2026-10-14T15:11:33.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511939289641": [
@@ -313196,6 +313246,30 @@
       "type": "chat",
       "timestamp": 1791973910,
       "createdAt": "2026-10-14T10:31:50.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5511947510113": [
+    {
+      "id": "true_156921092931584@lid_3EB064394216D214524588",
+      "fromMe": true,
+      "body": "Olá Marcelo De Jesus Fernandes ! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em São Paulo.\n\nVocê vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n*02/11 - Hotel Radisson Ibirapuera*\n*04/11 - Hotel Meliá Tatuapé*\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Marcelo De Jesus Fernandes?",
+      "type": "chat",
+      "timestamp": 1791995773,
+      "createdAt": "2026-10-14T16:36:13.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "5519974135978": [
+    {
+      "id": "true_194136967749742@lid_3EB03FEEFDD4F7F6E8C899",
+      "fromMe": true,
+      "body": "Olá Jéssica Ortiz! Tudo bem?\n\nAqui é a *Cintia*, do time do *Matheus Bottaro, da Casa do Ads*!\n\nRecebemos sua pré-inscrição com sucesso!\n\nVocê está a um passo de garantir sua vaga na *Imersão Google Ads com Inteligência Artificial* presencial em Campinas/SP.\n\nVocê vai aprender em 4 horas como atrair clientes qualificados no Google Ads com IA, além de saber sobre a grande novidade:\n\nComo ser recomendado pelo ChatGPT, Gemini e outras IAs sem pagar por isso!\n\n*Hotel Golden Park*\n26/10 • Segunda-feira • 18h30 às 22h\n\n🎟️ *Lote 1 - Imersão Presencial: R$149,00*\nPagamento via Eduzz – aceitamos Pix ou Cartão (até 3x).\n\n⚠️ *Sua vaga está quase garantida!*\nPara confirmá-la, é só finalizar o pagamento nas próximas 24 horas.\n\nPosso te mandar o link para finalizar sua inscrição Jéssica Ortiz?",
+      "type": "chat",
+      "timestamp": 1791998757,
+      "createdAt": "2026-10-14T17:25:57.000Z",
       "ack": 0,
       "source": "outgoing-external-event"
     }

@@ -182,6 +182,28 @@
 
       <!-- Main -->
       <main id="panelLeads" style="display:flex; flex-direction:column; gap:14px;">
+        <section class="card" id="contactSpreadsheetCard" aria-label="Planilha autom&aacute;tica de contatos">
+          <div class="cardHeader" style="gap:12px; flex-wrap:wrap;">
+            <div>
+              <h2 class="cardTitle"><i class="ph ph-table"></i> Planilha autom&aacute;tica de contatos</h2>
+              <div class="hint" id="contactSpreadsheetSummary">Carregando status...</div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button id="contactSpreadsheetDownload" class="btn btnSoft" type="button"><i class="ph ph-download-simple"></i> Baixar planilha completa</button>
+              <button id="contactSpreadsheetSync" class="btn btnGhost" type="button"><i class="ph ph-arrows-clockwise"></i> Atualizar planilha</button>
+              <a id="contactSpreadsheetOpenGoogle" class="btn btnSoft" style="display:none" target="_blank" rel="noopener noreferrer" hidden>Abrir Google Sheets</a>
+            </div>
+          </div>
+          <div class="cardBody" style="display:grid; gap:8px;">
+            <div class="hint">ActiveCampaign, formul&aacute;rios, cadastros manuais e demais contatos salvos entram automaticamente. A c&oacute;pia reflete tamb&eacute;m edi&ccedil;&otilde;es e exclus&otilde;es; n&atilde;o &eacute; um backup hist&oacute;rico.</div>
+            <div class="hint" id="contactSpreadsheetLocal"></div>
+            <details><summary style="cursor:pointer;">Google Sheets e funcionamento</summary>
+              <p class="hint" id="contactSpreadsheetGoogle"></p>
+              <p class="hint">O arquivo baixado &eacute; uma c&oacute;pia daquele momento. O CSV no servidor e a aba Google configurada recebem as pr&oacute;ximas atualiza&ccedil;&otilde;es. Use outra aba para anota&ccedil;&otilde;es manuais.</p>
+            </details>
+            <div class="hint" id="contactSpreadsheetFeedback" role="status" aria-live="polite"></div>
+          </div>
+        </section>
         <section class="card dashboardHero">
           <div class="cardHeader heroHeader">
             <div class="heroTitleWrap">
@@ -1473,5 +1495,6 @@ Clique no botão abaixo para falar com a equipe."></textarea><div class="hint">U
   <script src="/modules/api-client.js" defer></script>
   <script src="/app.js" defer></script>
   <script src="/modules/form-builder.js" defer></script>
+  <script src="/modules/contact-spreadsheet.js" defer></script>
 </body>
 </html>
