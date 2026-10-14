@@ -386,6 +386,46 @@
       "createdAt": "2026-08-18T17:56:10.000Z",
       "ack": 0,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_189000069451782@lid_3EB026C0B4D06B85B763FC",
+      "fromMe": true,
+      "body": "Olá, Fabi! Aqui é da equipe do Matheus Bottaro.\n\nSua inscrição para o encontro online do dia 13 de outubro, às 19h, está confirmada.\n\nRecebemos também os dados da [Empresa] e vamos iniciar o mapeamento da sua empresa nas Inteligências Artificiais.\n\nVamos analisar como ela aparece em pesquisas relacionadas ao seu mercado e quais empresas estão sendo encontradas quando potenciais clientes procuram pelo seu produto ou serviço.\n\nNo dia do encontro, vamos liberar o resultado do seu diagnóstico para você.\n\nPor isso, é importante participar ao vivo.\n\nSalve nosso contato. O link do encontro e os próximos avisos serão enviados por aqui.",
+      "type": "chat",
+      "timestamp": 1791487878,
+      "createdAt": "2026-10-08T19:31:18.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_189000069451782@lid_3EB0AA02128353AEE657A3",
+      "fromMe": true,
+      "body": "Essa mensagem é importante porque melhora o diagnóstico e gera microcompromisso.\n\nFabi, só preciso de mais uma informação para deixar a análise da {{empresa}} mais próxima da realidade:\n\nQual é o principal produto ou serviço que você gostaria que novos clientes encontrassem sua empresa através do ChatGPT, Gemini ou Google?\n\nPode me responder por aqui mesmo por favor?",
+      "type": "chat",
+      "timestamp": 1791487879,
+      "createdAt": "2026-10-08T19:31:19.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_189000069451782@lid_3EB0E8945C13F0F37E3595",
+      "fromMe": true,
+      "body": "Olá, Fabi! Aqui é da equipe do Matheus Bottaro.\n\nSua inscrição para o encontro online do dia 15 de outubro, às 19h, está confirmada.\n\nRecebemos também os dados da [Empresa] e vamos iniciar o mapeamento da sua empresa nas Inteligências Artificiais.\n\nVamos analisar como ela aparece em pesquisas relacionadas ao seu mercado e quais empresas estão sendo encontradas quando potenciais clientes procuram pelo seu produto ou serviço.\n\nNo dia do encontro, vamos liberar o resultado do seu diagnóstico para você.\n\nPor isso, é importante participar ao vivo.\n\nSalve nosso contato. O link do encontro e os próximos avisos serão enviados por aqui.",
+      "type": "chat",
+      "timestamp": 1791488211,
+      "createdAt": "2026-10-08T19:36:51.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_189000069451782@lid_3EB0528C4BF33435DBA9CA",
+      "fromMe": true,
+      "body": "Essa mensagem é importante porque melhora o diagnóstico e gera microcompromisso.\n\nFabi, só preciso de mais uma informação para deixar a análise da {{empresa}} mais próxima da realidade:\n\nQual é o principal produto ou serviço que você gostaria que novos clientes encontrassem sua empresa através do ChatGPT, Gemini ou Google?\n\nPode me responder por aqui mesmo por favor?",
+      "type": "chat",
+      "timestamp": 1791488212,
+      "createdAt": "2026-10-08T19:36:52.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
     }
   ],
   "5513997201891": [
@@ -43605,6 +43645,56 @@
       "createdAt": "2026-08-18T19:07:40.000Z",
       "ack": 1,
       "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_24413231698082@lid_3EB0EB48849F5BCD322267",
+      "fromMe": false,
+      "body": "sara Martins\tLash Art\t961968749\tsimartins@gmail.com\tnão tenho\t\nAlexandro Liberatori\tLiberatori Digital\t351910111408\talexandroliberatori@gmail.com\tLiberatori.digital\t\nCarla Monteiro\tCarla Monteiro\t351938377282\tmonteiro_carla@hotmail.com\tAinda nso tenho\t\nDaniel Carvalheiro\tBeandani\t968126450\tdhocmktdigital@gmail.com\tBeandani.pt\t\nElton\tAuto Comercial Favoes\t936810488\tEltonteixeira427@gmail.com\twww.autocomercialfavoes.com\t\nMaria\tRollercoaster Group\t913557560\tmariajoaomaia09@gmail.com\twww.rollercoaster.pt\t\nTeresa Schiappa\tTop Food Concept Lda\t938890978\tgeral@dimsum.pt\tNao tenho\t\nManuela\tManuela\t939083630\tmanuelanunes.arq@gmail.com\tWww.inordem\t\nMichele Rocha\tTurma Resolvente\t351928115743\tmichelerocha127@gmail.com\twww.turmaresolvente.com\t\nLuiz Valentino Correa\tReforgeops\t926996762\tluiz@reforgeops.com\tWww.reforgeops.com",
+      "type": "chat",
+      "timestamp": 1791545373,
+      "createdAt": "2026-10-09T11:29:33.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_24413231698082@lid_A5565A64C79BA95862C57601FA6A611E",
+      "fromMe": true,
+      "body": "Olá, Luiz Valentino Correa! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791554251,
+      "createdAt": "2026-10-09T13:57:31.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "false_24413231698082@lid_A590267D5CBECADE3941B92F352373D3",
+      "fromMe": false,
+      "body": "Olá, bom diaa!!\t\t\t\t\t\nChegou o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* \t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google Matheus Bottaro!\t\n\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n🗓️ *Data: 01 de Setembro de 2026*\t\t\t\t\t\n🚪 *Abertura/recepção:  18h*\t\t\t\t\t\n🕒 *Início da Imersão: 18h30*\t\t\t\t\t\n📍 *Local: Novotel Florianópolis - Av. Jorn. Rubéns de Arruda Ramos, Number 2034 - Centro, Florianópolis - SC*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento.\n\n*Atenção*\nDevido a novas atualizações que vamos apresentar, a Imersão terá seu término no às 22:20!\n\nPrograme-se para chegar cedo, pois começaremos às 18h30 em ponto com conteúdo importante desde o início 🙏",
+      "type": "chat",
+      "timestamp": 1791892121,
+      "createdAt": "2026-10-13T11:48:41.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "false_24413231698082@lid_A54D5EF981C0D698239E5AB31EEBA990",
+      "fromMe": false,
+      "body": "🌟 Sua inscrição está CONFIRMADA para o  *IMERSÃO PRESENCIAL GOOGLE ADS & INTELIGÊNCIA ARTIFICIAL*!\t\t\t\t\t\t\n\t\t\t\t\t\t\nEstamos ansiosos para te receber e compartilhar conhecimentos que podem transformar o seu negócio.\t\n\t\t\t\t\t\n📅 *Data:* 14/10/2026\n🕘 *Horário:* Das 18h30 às 22h\n📍 *Local:* Hotel Comfort Franca - Av. Miguel Sábio de Mello, 1505 – Pq. do Castelo – Franca/SP \n\nAgradecemos pela confiança e estamos comprometidos em fazer deste curso uma experiência incrível para você.\t\t\t\t\t\t\nAté lá, fique à vontade para entrar em contato se tiver qualquer dúvida ou precisar de mais informações.\t\n\t\t\t\t\t\nNos vemos em breve! 😃",
+      "type": "chat",
+      "timestamp": 1791893744,
+      "createdAt": "2026-10-13T12:15:44.000Z",
+      "ack": 1,
+      "source": "incoming-event"
+    },
+    {
+      "id": "true_24413231698082@lid_3EB07B996D38DF96F718BD",
+      "fromMe": true,
+      "body": "Olá, bom diaa!!\t\t\t\t\t\nPassando pra avisar que amanhã é o grande dia da *Imersão Presencial em Google Ads e Inteligência Artificial* \t\t\t\t\nPrepare-se para uma experiência intensa de treinamento com o especialista em Google Matheus Bottaro!\t\n\t\t\t\t\nAlgumas informações importantes:\n\t\t\t\t\n🗓️ *Data: 14 de Outubro de 2026*\t\t\t\t\t\n🚪 *Abertura/recepção:  18h*\t\t\t\t\t\n🕒 *Início da Imersão: 18h30*\t\t\t\t\t\n📍 *Local:  Hotel Comfort Franca - Av. Miguel Sábio de Mello, 1505 – Pq. do Castelo – Franca/SP*\n\nQuando chegar, Basta informar seu nome completo na recepção do evento.\n\nPrograme-se para chegar cedo, pois começaremos às 18h30 em ponto com conteúdo importante desde o início 🙏",
+      "type": "chat",
+      "timestamp": 1791893763,
+      "createdAt": "2026-10-13T12:16:03.000Z",
+      "ack": 1,
+      "source": "outgoing-external-event"
     }
   ],
   "5511917523313": [
@@ -44196,6 +44286,26 @@
       "timestamp": 1786992460,
       "createdAt": "2026-08-17T18:47:40.000Z",
       "ack": 1,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_266833701671072@lid_3EB0131716A0EFC2424491",
+      "fromMe": true,
+      "body": "Olá, Carla Monteiro! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791497565,
+      "createdAt": "2026-10-08T22:12:45.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_266833701671072@lid_3EB04FBCCACD94ADA8DE0F",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791497566,
+      "createdAt": "2026-10-08T22:12:46.000Z",
+      "ack": 0,
       "source": "outgoing-external-event"
     }
   ],
@@ -52529,6 +52639,204 @@
       "type": "chat",
       "timestamp": 1787121923,
       "createdAt": "2026-08-19T06:45:23.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351961968749": [
+    {
+      "id": "true_228389315158070@lid_3EB07ED66A92093E3FBCEE",
+      "fromMe": true,
+      "body": "Olá, sara Martins! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791493010,
+      "createdAt": "2026-10-08T20:56:50.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_228389315158070@lid_3EB0AEC1CB9B4BB5EB2C14",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791493015,
+      "createdAt": "2026-10-08T20:56:55.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351910111408": [
+    {
+      "id": "true_172615104741439@lid_3EB0CB8875CCB57AACB6E8",
+      "fromMe": true,
+      "body": "Olá, Alexandro Liberatori! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791497420,
+      "createdAt": "2026-10-08T22:10:20.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_172615104741439@lid_3EB0E91B640F7559792EDE",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791497422,
+      "createdAt": "2026-10-08T22:10:22.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351968126450": [
+    {
+      "id": "true_268199333462232@lid_3EB058B4AB26A9F758D2C1",
+      "fromMe": true,
+      "body": "Olá, Daniel Carvalheiro! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791499131,
+      "createdAt": "2026-10-08T22:38:51.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_268199333462232@lid_3EB0590C9686328BA0D1C6",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791499132,
+      "createdAt": "2026-10-08T22:38:52.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351936810488": [
+    {
+      "id": "true_1683644010650@lid_3EB078901DDC87CBDF8C71",
+      "fromMe": true,
+      "body": "Olá, Elton! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791500870,
+      "createdAt": "2026-10-08T23:07:50.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_1683644010650@lid_3EB0CC4E4D7CE6A001BDFA",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791500871,
+      "createdAt": "2026-10-08T23:07:51.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351913557560": [
+    {
+      "id": "true_214688352759915@lid_3EB0353C4E5BE5E6391302",
+      "fromMe": true,
+      "body": "Olá, Maria! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791516424,
+      "createdAt": "2026-10-09T03:27:04.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_214688352759915@lid_3EB0DD1037468B4A291A10",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791516425,
+      "createdAt": "2026-10-09T03:27:05.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351938890978": [
+    {
+      "id": "true_118859075948705@lid_3EB07FB3AAB3335E87D373",
+      "fromMe": true,
+      "body": "Olá, Teresa Schiappa! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791518713,
+      "createdAt": "2026-10-09T04:05:13.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_118859075948705@lid_3EB04BCA09398DE1924075",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791518715,
+      "createdAt": "2026-10-09T04:05:15.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351939083630": [
+    {
+      "id": "true_262221342974132@lid_3EB03B2FB7CF8F73519666",
+      "fromMe": true,
+      "body": "Olá, Manuela! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791522212,
+      "createdAt": "2026-10-09T05:03:32.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_262221342974132@lid_3EB0DCCD373518716DFF30",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791522213,
+      "createdAt": "2026-10-09T05:03:33.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351928115743": [
+    {
+      "id": "true_193578588463115@lid_3EB0321B0D8ED1FCBFE40E",
+      "fromMe": true,
+      "body": "Olá, Michele Rocha! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791536610,
+      "createdAt": "2026-10-09T09:03:30.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_193578588463115@lid_3EB06C730A7E6B2BCCB1D0",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791536611,
+      "createdAt": "2026-10-09T09:03:31.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    }
+  ],
+  "351926996762": [
+    {
+      "id": "true_207009521660127@lid_3EB05567D490CC9B621F3F",
+      "fromMe": true,
+      "body": "Olá, Luiz Valentino Correa! Aqui é da equipa do Matheus Bottaro.\n\nA sua inscrição para o encontro online do dia *15 de Outubro, às 19h*, está confirmada.\n\nNeste encontro, vai descobrir como a sua empresa pode aparecer nas respostas da IA do Google e ser recomendada pelo ChatGPT, Gemini e outras Inteligências Artificiais quando os clientes procuram produtos e serviços.\n\n*Vamos também analisar a sua empresa* para identificar se está a ser recomendada pelas principais IAs e quais empresas do seu setor aparecem nessas respostas.\n\nPor isso, é importante participar em direto!",
+      "type": "chat",
+      "timestamp": 1791543162,
+      "createdAt": "2026-10-09T10:52:42.000Z",
+      "ack": 0,
+      "source": "outgoing-external-event"
+    },
+    {
+      "id": "true_207009521660127@lid_3EB0270C121917B6AC48DF",
+      "fromMe": true,
+      "body": "Quero também convidá-la a entrar no nosso grupo oficial de WhatsApp.\n\nEstamos a mapear *1.000 empresas em Portugal* para identificar quais estão a ser recomendadas pelo ChatGPT, Gemini e pela IA do Google e quais não aparecem nas respostas.\n\n*Entre no grupo para ter a sua empresa analisada* e receber todas as informações sobre como vai funcionar o mapeamento.\n\nÉ também neste grupo que vamos enviar o link de acesso ao evento e os avisos importantes.\n\n*O grupo é silencioso.* Apenas a nossa equipa poderá enviar mensagens pontuais, sem conversas entre participantes.\n\n*Entre no grupo através deste link:*\nhttps://chat.whatsapp.com/LRqQuDFoRDaKpGd7wZZspX\n\nGostaria de ter a sua empresa analisada para descobrir se está a ser recomendada pelo ChatGPT, Gemini e pela IA do Google, e quais os seus concorrentes que estão a aparecer nessas respostas?",
+      "type": "chat",
+      "timestamp": 1791543163,
+      "createdAt": "2026-10-09T10:52:43.000Z",
       "ack": 0,
       "source": "outgoing-external-event"
     }
